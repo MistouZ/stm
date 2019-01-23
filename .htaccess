@@ -1,4 +1,4 @@
 AuthName "Reserve aux utilisateurs de StM-Compta"
 AuthType Basic
-AuthUserFile "/home/ftpusers/stm-compta.nc/Compta/.htpasswd"
+AuthUserFile "/var/www/vhosts/concept.nc/dev.concept.nc/.htpasswd"
 Require valid-user
