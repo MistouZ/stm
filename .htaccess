@@ -1,0 +1,4 @@
+AuthName "Reserve aux utilisateurs de StM-Compta"
+AuthType Basic
+AuthUserFile "/home/ftpusers/stm-compta.nc/Compta/.htpasswd"
+Require valid-user
