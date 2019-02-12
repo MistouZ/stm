@@ -2,3 +2,10 @@ AuthName "Reserve aux utilisateurs de StM-Compta"
 AuthType Basic
 AuthUserFile "/home/ftpusers/stm-compta.nc/Compta/.htpasswd"
 Require valid-user
+Options +FollowSymlinks
+RewriteEngine on
+RewriteRule ^([a-zA-Z0-9\-]+)$ index.php?section=$1 [L,QSA]
+
+RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2 [L,QSA]
+
+RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3 [L,QSA]
