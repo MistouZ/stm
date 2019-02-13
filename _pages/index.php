@@ -24,7 +24,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta content="" name="description" />
         <meta content="" name="author" />
-        <?php include '_ressources/css.php'; ?>
+        <?php include '../_ressources/css.php'; ?>
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
@@ -3692,7 +3692,7 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- END FOOTER -->
 
-        <?php include "_ressources/js.bottom.php"; ?>
+        <?php include "../_ressources/js.bottom.php"; ?>
     </body>
 
 </html>
