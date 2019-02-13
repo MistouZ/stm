@@ -1,0 +1,119 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * company: adewynter
+ * Date: 27/11/2018
+ * Time: 10:42
+ */
+
+class CompaniesManager extends Features
+{
+    /**
+     * PDO Database instance PDO
+     * @var
+     */
+    private $_db;
+
+    /**
+     * companiesManager constructor.
+     * @param $_db
+     */
+    public function __construct($_db)
+    {
+        $this->_db = $_db;
+    }
+
+    /**
+     * @param mixed $db
+     */
+    public function setDb(PDO $db)
+    {
+        $this->_db = $db;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function count()
+    {
+        return $this->_db->query('SELECT COUNT(*) FROM company')->fetchColumn();
+    }
+
+    /**
+     * @param companies $company
+     * Insertion company in the DB
+     */
+    public function add(Company $company)
+    {
+        $q = $this->_db->prepare('INSERT INTO company (name, address,isActive) VALUES (:name, :address, :isActive)');
+        $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
+        $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
+        $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
+
+        $q->execute();
+    }
+
+    /**
+     * @param companies $company
+     * Disable company instead of delete it
+     */
+    public function delete(Company $company)
+    {
+        $q = $this->_db->prepare('UPDATE company SET isActive = \'0\' WHERE idcompany = :idcompany');
+        $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
+
+        $q->execute();
+    }
+
+    /**
+     * Find a company by his name
+     * @param $idcompany
+     * @return company
+     */
+    public function get($idcompany)
+    {
+        $idcompany = (integer) $idcompany;
+        $q = $this->_db->query('SELECT * FROM company WHERE idcompany ='.$idcompany);
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+        return new Company($donnees);
+    }
+
+
+    /**
+     * Get all the companies in the BDD
+     * @return array
+     */
+    public function getList()
+    {
+        $companies = [];
+        $q=$this->_db->query('SELECT * FROM company WHERE isActive = \'1\' ORDER BY name');
+        //$q=$this->_db->query($this->getListIsActive($company));
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $companies[] = new Company($donnees);
+        }
+
+        return $companies;
+    }
+
+    /**
+     * Update companies information
+     * @param company $company
+     */
+
+    public function update(Company $company)
+    {
+        $q = $this->_db->prepare('UPDATE company SET name = :name, address = :address, isActive = :isActive  WHERE idcompany = :idcompany');
+        $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
+        $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
+        $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
+        $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
+
+        $q->execute();
+    }
+
+
+
+
+}
