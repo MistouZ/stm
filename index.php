@@ -8,6 +8,6 @@
         <label for="passwd">Mot de passe : </label><input type="password" name="password" id="passwd" required/><br/>
         <input type="submit" name="valider" value="Send"/>
     </form>
-    <a href="dev.bitwin.nc/index.php?section=devis&cat=detail">Lien</a>
+    <a href="index.php?section=devis&cat=detail">Lien</a>
     </body>
 </html>
