@@ -1,4 +1,4 @@
 AuthName "Reserve aux utilisateurs de StM-Compta"
 AuthType Basic
-AuthUserFile "/var/www/vhosts/concept.nc/dev.concept.nc/.htpasswd"
+AuthUserFile "/var/www/vhosts/bitwin.nc/dev.bitwin.nc/.htpasswd"
 Require valid-user
