@@ -8,3 +8,6 @@
 
 
 ?>
+<html>
+Ceci est la page détail devis
+</html>
