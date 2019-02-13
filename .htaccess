@@ -1,3 +1,4 @@
+Header set Access-Control-Allow-Origin "*"
 AuthName "Reserve aux utilisateurs de StM-Compta"
 AuthType Basic
 AuthUserFile "/home/ftpusers/stm-compta.nc/Compta/.htpasswd"
