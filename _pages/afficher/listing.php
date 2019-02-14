@@ -9,17 +9,13 @@
 
 ?>
 <html>
-
-Vue listing<br />
-<?php print $_GET['section']; ?>
-
- <div class="row">
+<div class="row">
     <div class="col-md-6">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Row & Column Reordering </div>
+                    <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['section']); ?>  </div>
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
