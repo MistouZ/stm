@@ -62,7 +62,7 @@
         <a href="javascript:;" class="nav-link nav-toggle">
             <i class="fas fa-file-invoice"></i>
             <span class="title">Devis</span>
-            <span><i class="fas fa-arrow-circle-down"></i></span>
+            <span class="arrow"><i class="fas fa-arrow-circle-down"></i></span>
         </a>
         <ul class="sub-menu">
             <li class="nav-item  ">
