@@ -72,9 +72,10 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- END DASHBOARD STATS 1-->
                     <div class="row">
                         <?php 
-                            if(empty($_GET['section'])) {
-                                include '_pages/accueil.php';
-                            } elseif (isset($_GET['section']) AND (isset($_GET['cat']))) { 
+                            if(file_exists(__DIR__.'/_pages/'.$_GET['section'].'.php') AND (empty($_GET['cat']))) {               
+                                include (__DIR__.'/_pages/'.$_GET['section'].'.php');   
+                            }
+                            elseif (isset($_GET['section']) AND (isset($_GET['cat']))) { 
                                 
                                 include __DIR__.'_pages/'.$_GET['section'].'/'.$_GET['cat'].'.php';
                                 
