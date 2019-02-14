@@ -11,5 +11,5 @@
         include __DIR__.'/'.$_GET['cat'].'/vuedet.php'; 
 
     } */
-    echo $_GET['cat'].' / '.$_GET['sscat'];
+    echo $_GET['cat'].' / '.$_GET['section'];
 ?>
