@@ -3,7 +3,7 @@
         if(file_exists(__DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php')) {               
             include (__DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php');   
         }else{
-            include __DIR__.'/'.$_GET['cat'].'/listing.php';
+            include __DIR__.'/'.$_GET['cat'].'/listing-dossier.php';
         }
         
     } elseif (isset($_GET['cat']) AND (isset($_GET['souscat']))) { 
