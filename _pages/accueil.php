@@ -3,7 +3,7 @@
 ?>
 <html>Accueil<br />
 <div class="row">
-    <?php include URLHOST.'_ressources/favoris.php'; ?>
+    <?php echo 'include '.URLHOST.'_ressources/favoris.php'; ?>
 </div>
 <div class="clearfix"></div>
 <!-- END DASHBOARD STATS 1-->
