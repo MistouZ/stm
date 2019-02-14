@@ -64,19 +64,11 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN PAGE HEAD-->
                     <?php include '_ressources/breadcrump.php'; ?>
                     <!-- BEGIN PAGE BASE CONTENT -->
-                    <!-- BEGIN DASHBOARD STATS 1-->
-                    <div class="row">
-                        <?php include '_ressources/favoris.php'; ?>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- END DASHBOARD STATS 1-->
-                    <div class="row">
                         <?php 
                             if(file_exists(__DIR__.'/_pages/'.$_GET['section'].'.php')) {               
                                 include (__DIR__.'/_pages/'.$_GET['section'].'.php');   
                             }
                         ?>
-                    </div>
                     <!-- END PAGE BASE CONTENT -->
                 </div>
                 <!-- END CONTENT BODY -->
