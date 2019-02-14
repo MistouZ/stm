@@ -2,10 +2,10 @@
  
 ?>
 <html>Accueil<br />
-<a href="<?php echo URLHOST;?>creer/devis">Créer Devis</a><br />
-<a href="<?php echo URLHOST;?>creer/dossier">Créer Dossier</a><br />
-<a href="<?php echo URLHOST;?>afficher/devis">Afficher Devis Liste</a><br />
-<a href="<?php echo URLHOST;?>afficher/devis/201902">Afficher Devis Détail</a><br />
-<a href="<?php echo URLHOST;?>afficher/dossier">Afficher Dossier Liste</a><br />
-<a href="<?php echo URLHOST;?>afficher/dossier/111">Afficher Dossier Détail</a><br />
+<a href="<?php echo URLHOST;?>devis/creer">Créer Devis</a><br />
+<a href="<?php echo URLHOST;?>dossier/creer">Créer Dossier</a><br />
+<a href="<?php echo URLHOST;?>devis/afficher">Afficher Devis Liste</a><br />
+<a href="<?php echo URLHOST;?>devis/afficher/201902">Afficher Devis Détail</a><br />
+<a href="<?php echo URLHOST;?>dossier/afficher">Afficher Dossier Liste</a><br />
+<a href="<?php echo URLHOST;?>dossier/afficher/111">Afficher Dossier Détail</a><br />
 </html>
