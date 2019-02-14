@@ -77,7 +77,7 @@ License: You must have a valid license purchased only from themeforest(the above
                             }
                             elseif (isset($_GET['section']) AND (isset($_GET['cat']))) { 
                                 
-                                include __DIR__.'_pages/'.$_GET['section'].'/'.$_GET['cat'].'.php';
+                                include '_pages/'.$_GET['section'].'/'.$_GET['cat'].'.php';
                                 
                             } 
                         ?>
