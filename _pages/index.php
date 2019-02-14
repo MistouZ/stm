@@ -71,7 +71,15 @@ License: You must have a valid license purchased only from themeforest(the above
                     <div class="clearfix"></div>
                     <!-- END DASHBOARD STATS 1-->
                     <div class="row">
-                        <?php include '../_ressources/accueil.php'; ?>
+                        <?php 
+                            if(empty($_GET['section'])) {
+                                include 'accueil.php';
+                            } elseif (isset($_GET['section']) AND (isset($_GET['cat']))) { 
+                                
+                                include __DIR__.'/'.$_GET['section'].'/'.$_GET['cat'].'.php';
+                                
+                            } 
+                        ?>
                     </div>
                     <!-- END PAGE BASE CONTENT -->
                 </div>
