@@ -8,7 +8,9 @@
 
 
 ?>
-<html>Vue listing<br />
+<html>
+
+Vue listing<br />
 <?php print $_GET['section']; ?>
 
  <div class="row">
