@@ -1,5 +1,5 @@
 <?php 
-    if (isset($_GET['cat']) AND (empty($_GET['souscat']))) { 
+    /*if (isset($_GET['cat']) AND (empty($_GET['souscat']))) { 
         if(file_exists(__DIR__.'_pages/'.$_GET['cat'].'/'.$_GET['section'].'.php')) {               
             include (__DIR__.'_pages/'.$_GET['cat'].'/'.$_GET['section'].'.php');   
         }else{
@@ -10,5 +10,6 @@
         
         include __DIR__.'/'.$_GET['cat'].'/vuedet.php'; 
 
-    } 
+    } */
+    echo "dossier";
 ?>
