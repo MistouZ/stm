@@ -1,7 +1,4 @@
 <html>Accueil<br />
-<div class="row">
-    <?php include 'dev.bitwin.nc/_ressources/favoris.php'; ?>
-</div>
 <div class="clearfix"></div>
 <!-- END DASHBOARD STATS 1-->
 <div class="row">
