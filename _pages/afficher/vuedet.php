@@ -8,7 +8,7 @@
 
 
 ?>
-<html>Vue détaillé<br />
+<html>Vue détaillée<br />
 <?php  print $_GET['section'].' : '.$_GET['souscat']; ?>
 
 </html>
