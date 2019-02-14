@@ -17,8 +17,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^([a-zA-Z0-9\-]+)$ _pages/index.php?section=$1 [L,QSA]
+RewriteRule ^([a-zA-Z0-9\-]+)$ index.php?section=$1 [L,QSA]
 
-RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ _pages/index.php?section=$1&cat=$2 [L,QSA]
+RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2 [L,QSA]
 
-RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ _pages/index.php?section=$1&cat=$2&souscat=$3 [L,QSA]
+RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3 [L,QSA]
