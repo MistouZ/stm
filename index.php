@@ -75,16 +75,6 @@ License: You must have a valid license purchased only from themeforest(the above
                             if(file_exists(__DIR__.'/_pages/'.$_GET['section'].'.php') AND (empty($_GET['cat']))) {               
                                 include (__DIR__.'/_pages/'.$_GET['section'].'.php');   
                             }
-                            elseif (isset($_GET['section']) AND (isset($_GET['cat']))) { 
-                                
-                                include '_pages/'.$_GET['section'].'/'.$_GET['cat'].'.php';
-                                
-                            } 
-                            elseif (isset($_GET['cat']) AND (isset($_GET['souscat']))) { 
-        
-                                include '_pages/'.$_GET['section'].'/vuedet.php'; 
-                        
-                            }
                         ?>
                     </div>
                     <!-- END PAGE BASE CONTENT -->
