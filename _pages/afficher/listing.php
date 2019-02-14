@@ -8,4 +8,6 @@
 
 
 ?>
-<html>Vue listing</html>
+<html>Vue listing<br />
+<?php print $_GET['cat']; ?>
+</html>
