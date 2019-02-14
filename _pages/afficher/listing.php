@@ -9,5 +9,5 @@
 
 ?>
 <html>Vue listing<br />
-<?php print $_GET['cat']; ?>
+<?php print $_GET['section']; ?>
 </html>

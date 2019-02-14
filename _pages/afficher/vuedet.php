@@ -9,6 +9,6 @@
 
 ?>
 <html>Vue détaillé<br />
-<?php  print $_GET['cat'].' : '.$_GET['sscat']; ?>
+<?php  print $_GET['section'].' : '.$_GET['sscat']; ?>
 
 </html>
