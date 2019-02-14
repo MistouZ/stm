@@ -659,7 +659,7 @@ License: You must have a valid license purchased only from themeforest(the above
         </div>
         <!-- END FOOTER -->
 
-        <?php include "../_ressources/_inc/js.bottom.php"; ?>
+        <?php include "_ressources/_inc/js.bottom.php"; ?>
     </body>
 
 </html>
