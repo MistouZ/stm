@@ -72,7 +72,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- END DASHBOARD STATS 1-->
                     <div class="row">
                         <?php 
-                            if(file_exists(__DIR__.'/_pages/'.$_GET['section'].'.php') AND (empty($_GET['cat']))) {               
+                            if(file_exists(__DIR__.'/_pages/'.$_GET['section'].'.php')) {               
                                 include (__DIR__.'/_pages/'.$_GET['section'].'.php');   
                             }
                         ?>
