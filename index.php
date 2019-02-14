@@ -80,6 +80,11 @@ License: You must have a valid license purchased only from themeforest(the above
                                 include '_pages/'.$_GET['section'].'/'.$_GET['cat'].'.php';
                                 
                             } 
+                            elseif (isset($_GET['cat']) AND (isset($_GET['souscat']))) { 
+        
+                                include '_pages/'.$_GET['section'].'/vuedet.php'; 
+                        
+                            }
                         ?>
                     </div>
                     <!-- END PAGE BASE CONTENT -->
