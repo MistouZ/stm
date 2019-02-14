@@ -1,6 +1,6 @@
 <html>Accueil<br />
 <div class="row">
-    <?php include '../_ressources/favoris.php'; ?>
+    <?php include __DIR__.'../_ressources/favoris.php'; ?>
 </div>
 <div class="clearfix"></div>
 <!-- END DASHBOARD STATS 1-->
