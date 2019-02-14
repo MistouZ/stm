@@ -14,7 +14,7 @@ var TableDatatablesManaged = function () {
                     "sortDescending": ": descendant"
                 },
                 "emptyTable": "Aucune données disponibles",
-                "info": "Afficher les éléments _START_ à _END_ sur un total de _TOTAL_",
+                "info": "Affichage éléments _START_ à _END_ sur un total de _TOTAL_",
                 "infoEmpty": "Aucune données trouvées",
                 "infoFiltered": "(filtrées sur un total de _MAX_ données)",
                 "lengthMenu": "Affichage _MENU_",
@@ -96,21 +96,21 @@ var TableDatatablesManaged = function () {
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
                 "aria": {
-                    "sortAscending": ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
+                    "sortAscending": ": ascendant",
+                    "sortDescending": ": descendant"
                 },
-                "emptyTable": "No data available in table",
-                "info": "Showing _START_ to _END_ of _TOTAL_ records",
-                "infoEmpty": "No records found",
-                "infoFiltered": "(filtered1 from _MAX_ total records)",
-                "lengthMenu": "Show _MENU_",
-                "search": "Search:",
-                "zeroRecords": "No matching records found",
+                "emptyTable": "Aucune données à afficher",
+                "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
+                "infoEmpty": "Aucune données trouveés",
+                "infoFiltered": "(filtrées sur un total de _MAX_)",
+                "lengthMenu": "Affichage _MENU_",
+                "search": "Recherche:",
+                "zeroRecords": "Aucune données trouveés",
                 "paginate": {
-                    "previous":"Prev",
-                    "next": "Next",
-                    "last": "Last",
-                    "first": "First"
+                    "previous":"Préc",
+                    "next": "Suiv",
+                    "last": "Dern",
+                    "first": "Prem"
                 }
             },
 
@@ -166,21 +166,21 @@ var TableDatatablesManaged = function () {
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
                 "aria": {
-                    "sortAscending": ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
+                    "sortAscending": ": ascendant",
+                    "sortDescending": ": descendant"
                 },
                 "emptyTable": "No data available in table",
-                "info": "Showing _START_ to _END_ of _TOTAL_ records",
-                "infoEmpty": "No records found",
-                "infoFiltered": "(filtered1 from _MAX_ total records)",
-                "lengthMenu": "Show _MENU_",
-                "search": "Search:",
-                "zeroRecords": "No matching records found",
+                "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
+                "infoEmpty": "Aucune données trouveés",
+                "infoFiltered": "(filtrées sur un total de _MAX_)",
+                "lengthMenu": "Affichage _MENU_",
+                "search": "Recherche:",
+                "zeroRecords": "Aucune données trouveés",
                 "paginate": {
-                    "previous":"Prev",
-                    "next": "Next",
-                    "last": "Last",
-                    "first": "First"
+                    "previous":"Préc",
+                    "next": "Suiv",
+                    "last": "Dern",
+                    "first": "Prem"
                 }
             },
             
