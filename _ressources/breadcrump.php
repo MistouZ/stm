@@ -10,7 +10,7 @@
 <!-- BEGIN PAGE BREADCRUMB -->
 <ul class="page-breadcrumb breadcrumb">
     <li>
-        <a href="<?php echo URLHOST.'/accueil/'; ?>">Accueil</a>
+        <a href="<?php echo URLHOST.'accueil/'; ?>">Accueil</a>
         <i class="fa fa-circle"></i>
     </li>
     <li>
