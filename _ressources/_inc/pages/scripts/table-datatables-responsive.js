@@ -129,16 +129,16 @@ var TableDatatablesResponsive = function () {
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
                 "aria": {
-                    "sortAscending": ": activate to sort column ascending",
-                    "sortDescending": ": activate to sort column descending"
+                    "sortAscending": ": ascendant",
+                    "sortDescending": ": descendant"
                 },
-                "emptyTable": "No data available in table",
-                "info": "Showing _START_ to _END_ of _TOTAL_ entries",
-                "infoEmpty": "No entries found",
-                "infoFiltered": "(filtered1 from _MAX_ total entries)",
-                "lengthMenu": "_MENU_ entries",
-                "search": "Search:",
-                "zeroRecords": "No matching records found"
+                "emptyTable": "Aucune données disponible",
+                "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
+                "infoEmpty": "Aucune données trouveés",
+                "infoFiltered": "(filtrées sur un total de _MAX_)",
+                "lengthMenu": "_MENU_ entrées",
+                "search": "Recherche:",
+                "zeroRecords": "Aucune données trouveés"
             },
 
             // Or you can use remote translation file
@@ -148,8 +148,8 @@ var TableDatatablesResponsive = function () {
 
             // setup buttons extentension: http://datatables.net/extensions/buttons/
             buttons: [
-                { extend: 'print', className: 'btn default' },
-                { extend: 'pdf', className: 'btn default' },
+                { extend: 'Imprimer', className: 'btn default' },
+                { extend: 'PDF', className: 'btn default' },
                 { extend: 'csv', className: 'btn default' }
             ],
 
