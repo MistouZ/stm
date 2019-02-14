@@ -64,7 +64,7 @@ License: You must have a valid license purchased only from themeforest(the above
                     <!-- BEGIN PAGE HEAD-->
                     <?php include '_ressources/breadcrump.php'; ?>
                     <!-- BEGIN PAGE BASE CONTENT -->
-                    <?php if($_GET['section']=='accueil'){ ?>}
+                    <?php if($_GET['section']=='accueil'){ ?>
                     <div class="row">
                         <?php include '_ressources/favoris.php'; ?>
                     </div>
