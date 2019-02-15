@@ -104,7 +104,6 @@ License: You must have a valid license purchased only from themeforest(the above
             $('.page-content').html(data); 
           } 
         }); 
-        return false;
     } 
 </script>
         <?php include "_ressources/_inc/js.bottom.php"; ?>
