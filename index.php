@@ -1,4 +1,7 @@
-<?php include '_cfg/cfg.php'; ?>
+<?php 
+include "_ressources/object/rb.php";
+include '_cfg/cfg.php'; 
+?>
 <!DOCTYPE html>
 <!-- 
 Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.5
