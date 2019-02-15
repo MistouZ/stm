@@ -11,7 +11,11 @@
 <ul class="page-breadcrumb breadcrumb">
     <li>
         <a href="<?php echo URLHOST.'accueil'; ?>">Accueil</a>
+        <?php
+            if(isset($_GET['cat'])){ 
+        ?>
         <i class="fa fa-circle"></i>
+        <?php } ?>
     </li>
     <li>
         <span class="active"><?php print ucwords($_GET['cat']); ?></span>
