@@ -23,11 +23,12 @@ License: You must have a valid license purchased only from themeforest(the above
         <title>StM-Compta</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta content="width=device-width, initial-scale=1" name="viewport" />
-        <meta content="" name="description" />
-        <meta content="" name="author" />
+        <meta content="" name="StM-Compta" />
+        <meta content="" name="CMG" />
         <?php include '_ressources/_inc/css.php'; ?>
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <!-- END HEAD -->
 
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo page-sidebar-fixed">
