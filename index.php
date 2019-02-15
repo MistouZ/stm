@@ -91,21 +91,7 @@ License: You must have a valid license purchased only from themeforest(the above
             </div>
         </div>
         <!-- END FOOTER -->
-<script> 
-    $('a').click(function() { 
-      loadContent( $(this).attr('href') ); 
-      return false; 
-    }); 
-     
-    function loadContent(page){ 
-        $.ajax({ 
-          url: page, 
-          success: function(data) { 
-            $('.page-content').html(data); 
-          } 
-        }); 
-    } 
-</script>
+
         <?php include "_ressources/_inc/js.bottom.php"; ?>
     </body>
 
