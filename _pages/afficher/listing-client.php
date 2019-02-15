@@ -34,8 +34,8 @@
                     ?>
                         <tr>
                             <td><?php echo $client['name']; ?></td>
-                            <td><a href="<?php echo URLHOST.'client/afficher'.$client['idcustomer']; ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
-                            <td><a href="<?php echo URLHOST.'client/modifier'.$client['idcustomer']; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a href="<?php echo URLHOST.'client/afficher/'.$client['idcustomer']; ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
+                            <td><a href="<?php echo URLHOST.'client/modifier/'.$client['idcustomer']; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                     <?php 
                         endforeach;
