@@ -26,7 +26,7 @@
         <ul class="sub-menu">
             <li class="nav-item  ">
                 <a href="ui_colors.html" class="nav-link ">
-                    <span class="title">Créer</span>
+                    <span class="title">CrÃ©er</span>
                 </a>
             </li>
             <li class="nav-item  ">
@@ -45,7 +45,7 @@
         <ul class="sub-menu">
             <li class="nav-item  ">
                 <a href="components_date_time_pickers.html" class="nav-link ">
-                    <span class="title">Créer</span>
+                    <span class="title">CrÃ©er</span>
                 </a>
             </li>
             <li class="nav-item  ">
@@ -67,7 +67,7 @@
         <ul class="sub-menu">
             <li class="nav-item  ">
                 <a href="layout_footer_fixed.html" class="nav-link ">
-                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                    <span class="title"><i class="far fa-plus-square"></i> CrÃ©er</span>
                 </a>
             </li>
             <li class="nav-item  ">
@@ -77,7 +77,7 @@
             </li>
             <li class="nav-item  ">
                 <a href="layout_footer_fixed.html" class="nav-link ">
-                    <span class="title">Eclatés</span>
+                    <span class="title">EclatÃ©s</span>
                 </a>
             </li>
             <li class="nav-item  ">
@@ -87,12 +87,12 @@
             </li>
             <li class="nav-item  ">
                 <a href="layout_blank_page.html" class="nav-link ">
-                    <span class="title">Validés</span>
+                    <span class="title">ValidÃ©s</span>
                 </a>
             </li>
             <li class="nav-item  ">
                 <a href="layout_blank_page.html" class="nav-link ">
-                    <span class="title">Archivés</span>
+                    <span class="title">ArchivÃ©s</span>
                 </a>
             </li>
         </ul>
