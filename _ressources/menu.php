@@ -197,6 +197,7 @@
         <a href="javascript:;" class="nav-link nav-toggle">
             <i class="fas fa-user-shield"></i>
             <span class="title">Sécurité</span>
+            <span class="arrow"></span>
         </a>
         <ul class="sub-menu">
             <li class="nav-item  ">
