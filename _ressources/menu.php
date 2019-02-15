@@ -141,7 +141,7 @@
                 </a>
             </li>
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.'factures/afficher/valides'; ?>" class="nav-link ">
+                <a href="<?php echo URLHOST.'facture/afficher/valides'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Validés</span>
                 </a>
             </li>
