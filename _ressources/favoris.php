@@ -48,7 +48,7 @@
 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
     <div class="dashboard-stat purple">
         <div class="visual">
-            <i class="fas fa-folder-plus"></i>
+            <i class="fas fa-folder-open"></i>
         </div>
         <div class="details">
             <div class="number">
