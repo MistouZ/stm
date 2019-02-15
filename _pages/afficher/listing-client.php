@@ -1,7 +1,4 @@
 <?php
-mysql_connect("localhost", "stm-adm", "gx@M5v59");
-
-mysql_select_db("stm_compta_dev");
 
 ?>
 <html>
@@ -25,10 +22,8 @@ mysql_select_db("stm_compta_dev");
                     </thead>
                     <tbody>
                     <?php
-                        $verif = mysql_query("SELECT * FROM client");
-                        while($donnees = mysql_fetch_array($verif)){
-                        /*$donnees_client = R::findAll("client","ORDER BY name DESC");
-                        foreach($donnees_client as $client) :*/
+                        $donnees_client = R::findAll("client","ORDER BY name DESC");
+                        foreach($donnees_client as $client) :
                     ?>
                         <tr>
                             <td><?php echo $donnees['name']; ?></td>
@@ -36,8 +31,7 @@ mysql_select_db("stm_compta_dev");
                             <td><a href="<?php echo URLHOST.'client/modifier/'.$donnees['idcustomer']; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                     <?php
-                    }
-                        //endforeach;
+                        endforeach;
                     ?>
                     </tbody>
                 </table>
