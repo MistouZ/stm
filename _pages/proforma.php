@@ -1,6 +1,5 @@
 <?php 
-echo "Proforma OK";
-    /*if (isset($_GET['cat']) AND (empty($_GET['souscat']))) { 
+    if (isset($_GET['cat']) AND (empty($_GET['souscat']))) { 
         if(file_exists(__DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php')) {               
             include (__DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php');   
         }else{
@@ -11,5 +10,5 @@ echo "Proforma OK";
         
         include __DIR__.'/'.$_GET['cat'].'/vuedet.php'; 
 
-    } */
+    } 
 ?>
