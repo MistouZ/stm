@@ -22,8 +22,8 @@
                     </thead>
                     <tbody>
                     <?php
-                        $donnees_client = R::findAll("client");
-                        foreach($donnees_client as $client) :
+                        $donnees_client = R::findAll("client"," ORDER BY name DESC");
+                        foreach($donnees_client as $client) {
                     ?>
                         <tr>
                             <td><?php echo $client['name']; ?></td>
@@ -31,7 +31,7 @@
                             <td><a href="<?php echo URLHOST.'client/modifier/'.$client['idcustomer']; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                     <?php
-                        endforeach;
+                        }
                     ?>
                     </tbody>
                 </table>
