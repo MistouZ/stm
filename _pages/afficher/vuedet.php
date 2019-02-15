@@ -9,6 +9,6 @@
 
 ?>
 <html>Vue détaillée<br />
-<?php  print $_GET['section'].' : '.$_GET['souscat']; ?>
+<?php echo "Section : ".$_GET['section'].' / Cat : '.$_GET['cat'].' / SsCat : '.$_GET['souscat'].' / SsSsCat'.$_GET['soussouscat']; ?>
 
 </html>
