@@ -30,7 +30,7 @@
                 </a>
             </li>
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.'client'; ?>" class="nav-link ">
+                <a href="<?php echo URLHOST.'client/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
                 </a>
             </li>
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.'fournisseur'; ?>" class="nav-link ">
+                <a href="<?php echo URLHOST.'fournisseur/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
                 </a>
             </li>
@@ -71,7 +71,7 @@
                 </a>
             </li>
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.'dossier'; ?>" class="nav-link ">
+                <a href="<?php echo URLHOST.'dossier/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
                 </a>
             </li>
