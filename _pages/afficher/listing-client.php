@@ -1,11 +1,7 @@
 <?php
+mysql_connect("localhost", "stm-adm", "gx@M5v59");
 
-/**
- * @author Nicolas
- * @copyright 2019
- */
-
-
+mysql_select_db("stm_compta_dev");
 
 ?>
 <html>
