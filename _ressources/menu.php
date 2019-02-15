@@ -155,7 +155,7 @@
         </a>
     </li>
     <li class="heading">
-        <h3 class="uppercase">Analyses</h3>
+        <h3 class="uppercase"><i class="fas fa-calculator"></i> Analyses</h3>
     </li>
     <li class="nav-item  ">
         <a href="javascript:;" class="nav-link nav-toggle">
@@ -192,6 +192,9 @@
             <span class="title">Analyse des coûts</span>
             <span class="arrow"></span>
         </a>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase"><i class="fas fa-toolbox"></i> Administration</h3>
     </li>
     <li class="nav-item  ">
         <a href="javascript:;" class="nav-link nav-toggle">
