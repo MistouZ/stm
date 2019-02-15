@@ -198,6 +198,18 @@
             <i class="fas fa-user-shield"></i>
             <span class="title">Sécurité</span>
         </a>
+        <ul class="sub-menu">
+            <li class="nav-item  ">
+                <a href="<?php echo URLHOST.'user/creer'; ?>" class="nav-link ">
+                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="<?php echo URLHOST.'user/afficher'; ?>" class="nav-link ">
+                    <span class="title"><i class="far fa-list-alt"></i> Listing</span>
+                </a>
+            </li>
+        </ul>
     </li>
     <li class="nav-item  ">
         <a href="javascript:;" class="nav-link nav-toggle">
