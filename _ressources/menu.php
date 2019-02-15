@@ -120,7 +120,6 @@
         <a href="<?php echo URLHOST.'proforma/afficher'; ?>" class="nav-link nav-toggle">
             <i class="fas fa-file-alt"></i>
             <span class="title">Proformas</span>
-            <span class="arrow"></span>
         </a>
     </li>
     <li class="nav-item  ">
@@ -151,7 +150,6 @@
         <a href="<?php echo URLHOST.'avoir/afficher'; ?>" class="nav-link nav-toggle">
             <i class="fas fa-file-prescription"></i>
             <span class="title">Avoirs</span>
-            <span class="arrow"></span>
         </a>
     </li>
     <li class="heading">
@@ -190,7 +188,6 @@
         <a href="javascript:;" class="nav-link nav-toggle">
             <i class="fas fa-chart-bar"></i>
             <span class="title">Analyse des coûts</span>
-            <span class="arrow"></span>
         </a>
     </li>
     <li class="heading">
@@ -200,21 +197,18 @@
         <a href="javascript:;" class="nav-link nav-toggle">
             <i class="fas fa-user-shield"></i>
             <span class="title">Sécurité</span>
-            <span class="arrow"></span>
         </a>
     </li>
     <li class="nav-item  ">
         <a href="javascript:;" class="nav-link nav-toggle">
             <i class="fas fa-exclamation-triangle"></i>
             <span class="title">Erreurs</span>
-            <span class="arrow"></span>
         </a>
     </li>
     <li class="nav-item  ">
         <a href="javascript:;" class="nav-link nav-toggle">
             <i class="far fa-question-circle"></i>
             <span class="title">FAQ</span>
-            <span class="arrow"></span>
         </a>
     </li>
 </ul>
