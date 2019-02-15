@@ -25,7 +25,7 @@
         </a>
         <ul class="sub-menu">
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.'client/creer'; ?>" onclick="return false;" class="nav-link ">
+                <a href="<?php echo URLHOST.'client/creer'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-plus-square"></i> Créer</span>
                 </a>
             </li>
