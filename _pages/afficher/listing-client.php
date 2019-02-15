@@ -29,7 +29,7 @@
                     </thead>
                     <tbody>
                     <?php
-                        $verif = mysql_query("SELECT * FROM client WHERE id='".$id."';");
+                        $verif = mysql_query("SELECT * FROM client");
                         while($donnees = mysql_fetch_array($verif)){
                         /*$donnees_client = R::findAll("client","ORDER BY name DESC");
                         foreach($donnees_client as $client) :*/
