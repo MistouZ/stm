@@ -22,7 +22,7 @@
                     </thead>
                     <tbody>
                     <?php
-                        $donnees_client = R::findAll("client"," ORDER BY name DESC");
+                        $donnees_client = R::getAll("SELECT * from client"," ORDER BY name DESC");
                         foreach($donnees_client as $client) {
                     ?>
                         <tr>
