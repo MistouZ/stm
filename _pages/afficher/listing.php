@@ -10,6 +10,7 @@
 ?>
 <html>
 <div class="row">
+<?php echo "Section : ".$_GET['section'].' / Cat : '.$_GET['cat'].' / SsCat : '.$_GET['souscat'].' / SsSsCat'.$_GET['soussouscat']; ?>
     <div class="col-md-12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet box green">
