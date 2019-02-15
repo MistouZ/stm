@@ -29,7 +29,7 @@
                     </thead>
                     <tbody>
                     <?php
-                        $donnees_client = R::findAll("client"," isActive = ? ORDER BY name DESC",array(1));
+                        $donnees_client = R::findAll("client","ORDER BY name DESC");
                         foreach($donnees_client as $client) :
                     ?>
                         <tr>
