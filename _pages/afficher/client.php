@@ -1,5 +1,5 @@
 <?php
-    $client = R::findOne('client','idcustomer = ?',array($_GET['souscat']));
+    $client = R::find('client','idcustomer = ?',array($_GET['souscat']));
 ?>
 <html>
 Affichage du client : <?php echo $client['name']; ?><br />
