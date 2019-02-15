@@ -1,5 +1,5 @@
 <?php
-    $client = R::getAll('SELECT * FROM client WHERE idcustomer = $_GET[\'souscat\']'));
+    $client = R::findAll('client','idcustomer = ?',array($_GET['souscat']));
 ?>
 <html>
 Affichage du client : <?php echo $client['name']; ?><br />
