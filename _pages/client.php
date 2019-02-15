@@ -8,7 +8,7 @@
         
     } elseif (isset($_GET['cat']) AND (isset($_GET['souscat']))) { 
         
-        include __DIR__.'/'.$_GET['cat'].'/vuedet.php'; 
+        include __DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php'; 
 
     } 
 ?>
