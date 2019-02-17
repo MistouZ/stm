@@ -73,10 +73,24 @@ class CustomersManager
      * @param $customername
      * @return customers
      */
-    public function get($customername)
+    public function getByName($customername)
     {
         $customername = (string) $customername;
         $q = $this->_db->query('SELECT * FROM customers WHERE name ='.$customername);
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+        return new Customers($donnees);
+    }
+
+    /**
+     * Find a customer by his customername
+     * @param $customername
+     * @return customers
+     */
+    public function getByID($idcustomer)
+    {
+        $idcustomer = (int) $idcustomer;
+        $q = $this->_db->query('SELECT * FROM customers WHERE idcustomer ='.$idcustomer);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Customers($donnees);
