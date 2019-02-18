@@ -20,7 +20,7 @@ $customer = $customermanager->getByID($_GET['souscat']);
 Affichage du client : <?php echo $customer->getName(); ?><br />
 Adresse physique : <?php echo $customer->getPhysicalAddress(); ?><br />
 Adresse de facturation : <?php echo $customer->getInvoiceAddress(); ?><br />
-<?php //print_r( R::dump( $client ) ); ?>
+<?php print_r( R::dump( $customer ) ); ?>
 
 </html>
 
