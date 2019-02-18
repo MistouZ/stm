@@ -4,7 +4,6 @@ session_start();
 
 $bdd = new DB();
 $bdd->connexion();
-echo $bdd->connexion();
 $array = array();
 $customer = new Customers($array);
 echo $customer;
