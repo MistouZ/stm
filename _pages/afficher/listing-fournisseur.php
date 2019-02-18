@@ -27,8 +27,6 @@ $suppliermanager = $suppliermanager->getList();
                     </thead>
                     <tbody>
                     <?php
-                    //$donnees_client = R::getAll("SELECT * from customers"," ORDER BY name DESC");
-
                     foreach($suppliermanager as $supplier) {
                         ?>
                         <tr>
