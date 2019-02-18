@@ -17,8 +17,8 @@ $bdd = new DB();
 $bdd->connexion();
 $array = array();
 $supplier = new Suppliers($array);
-/*$suppliermanager = new SuppliersManager($bdd);
-$supplier = $suppliermanager->getByID($supplierId);*/
+$suppliermanager = new SuppliersManager($bdd);
+$supplier = $suppliermanager->getById($supplierId);
 ?>
     <html lang="fr">
     Affichage du fournisseur : <?php echo $supplier->getName(); ?><br />
