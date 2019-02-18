@@ -31,8 +31,8 @@ $suppliermanager = $suppliermanager->getList();
                         ?>
                         <tr>
                             <td><?php echo $supplier->getName(); ?></td>
-                            <td><a href="<?php echo URLHOST.'client/afficher/'.$supplier->getIdCustomer(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
-                            <td><a href="<?php echo URLHOST.'client/modifier/'.$supplier->getIdCustomer(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a href="<?php echo URLHOST.'client/afficher/'.$supplier->getIdSupplier(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
+                            <td><a href="<?php echo URLHOST.'client/modifier/'.$supplier->getIdSupplier(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
                     }
