@@ -82,10 +82,10 @@ class CustomersManager
         return new Customers($donnees);
     }
 
+
     /**
-     * Find a customer by his customername
-     * @param $customername
-     * @return customers
+     * @param $idcustomer
+     * @return Customers
      */
     public function getByID($idcustomer)
     {
