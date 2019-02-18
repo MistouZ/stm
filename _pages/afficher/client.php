@@ -14,14 +14,13 @@ $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $customer = $customermanager->getByID($_GET['souscat']);
-
 ?>
+
 <html lang="fr">
 Affichage du client : <?php echo $customer->getName(); ?><br />
 Adresse physique : <?php echo $customer->getPhysicalAddress(); ?><br />
 Adresse de facturation : <?php echo $customer->getInvoiceAddress(); ?><br />
 </html>
-
 
 <?php //print_r( R::dump( $customer ) ); ?>
 
