@@ -2,14 +2,14 @@
 session_start();
 //$path = "../../";
 
-$customerId = $_GET['souscat'];
+$suppplierId = $_GET['souscat'];
 
 $bdd = new DB();
 $bdd->connexion();
 $array = array();
 $supplier = new Suppliers($array);
 $suppliermanager = new SuppliersManager($bdd);
-$suppliermanager = $suppliermanager->getList();
+$supplier = $suppliermanager->getByID($suppplierId);
 ?>
 
 <html lang="fr">
