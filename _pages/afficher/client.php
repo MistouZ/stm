@@ -2,13 +2,15 @@
 session_start();
 //$path = "../../";
 
+$customerId = $_GET['souscat'];
+
 $bdd = new DB();
 $bdd->connexion();
 $array = array();
 $customer = new Customers($array);
 echo $customer;
 $customermanager = new CustomersManager($bdd);
-$customer = $customermanager->getByID(7);
+$customer = $customermanager->getByID($customerId);
 ?>
 
 <html lang="fr">
