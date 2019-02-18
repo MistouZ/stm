@@ -1,6 +1,6 @@
 <?php
 session_start();
-$path = "../../";
+$path = "../../../";
 
 
 include_once($path.'_cfg/classes/class_db.php');
