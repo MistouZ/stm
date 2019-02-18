@@ -3,7 +3,7 @@ session_start();
 $path = "../../";
 
 
-
+include_once($path.'_cfg/classes/class_db.php');
 include_once($path.'_cfg/classes/class_features.php');
 include_once($path.'_cfg/classes/class_customers.php');
 include_once($path.'_cfg/classes/class_customersmanager.php');
