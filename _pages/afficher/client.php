@@ -104,11 +104,11 @@ $contacts = $contactmanager->getList();*/
                                     <div class="form-body">
                                         <div class="col-md-12">
                                             <div class="form-group  margin-top-20">
-                                                <label class="control-label col-md-3">Nom
+                                                <label class="control-label col-md-4">Nom
                                                     <span class="required"> * </span>
                                                 </label>
-                                                <div class="col-md-4">
-                                                    <div class="input-icon input-group right">
+                                                <div class="col-md-8">
+                                                    <div class="input-icon right input-group">
                                                         <i class="fa"></i>
                                                         <span class="input-group-addon">
                                                             <i class="far fa-address-card"></i>
@@ -120,25 +120,25 @@ $contacts = $contactmanager->getList();*/
                                         <!--/span-->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="control-label col-md-3">Email
+                                                <label class="control-label col-md-4">Email
                                                 </label>
-                                                <div class="col-md-4">
-                                                    <div class="input-icon input-group right">
+                                                <div class="col-md-8">
+                                                    <div class="input-icon right input-group">
                                                         <i class="fa"></i>
                                                         <span class="input-group-addon">
                                                             <i class="fa fa-envelope"></i>
                                                         </span>
-                                                        <input type="text" class="form-control" name="email" /> </div>
+                                                        <input type="email" class="form-control" name="email" /> </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <!--/span-->
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="control-label col-md-3">Téléphone
+                                                <label class="control-label col-md-4">Téléphone
                                                 </label>
-                                                <div class="col-md-4">
-                                                    <div class="input-icon input-group right">
+                                                <div class="col-md-8">
+                                                    <div class="input-icon right input-group">
                                                         <i class="fa"></i>
                                                         <span class="input-group-addon">
                                                             <i class="fas fa-phone"></i>
