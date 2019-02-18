@@ -54,18 +54,6 @@ class ContactManager
         }
     }
 
-
-    /*
-        for ($i=0;$i<count($companies);$i++)
-        {
-            $q2 = $this->_db->prepare('INSERT INTO link_company_contact (contact_idContact, company_idcompany) VALUES (:idContact, :id_company)');
-            $q2->bindValue(':idContact', $contact->getUsername(), PDO::PARAM_STR);
-            $q2->bindValue(':id_company', $companies[$i], PDO::PARAM_INT);
-            $q2->execute();
-        }
-    */
-    }
-
     /**
      * @param Contact $contact
      * Disable contact instead of delete it
