@@ -27,11 +27,11 @@
       /**
        * @param mixed $idCustomer
        */
-    /*  public function setIdCustomer($idCustomer): void
+      public function setIdCustomer($idCustomer): void
       {
           $idCustomer = (int) $idCustomer;
           $this->idCustomer = $idCustomer;
-      }*/
+      }
 
       /**
        * @return mixed
@@ -44,13 +44,13 @@
       /**
        * @param mixed $name
        */
-    /*  public function setName($name): void
+      public function setName($name): void
       {
           if(is_string($name))
           {
               $this->name = $name;
           }
-      }*/
+      }
 
       /**
        * @return mixed
@@ -63,13 +63,13 @@
       /**
        * @param mixed $physicalAddress
        */
-    /*  public function setPhysicalAddress($physicalAddress): void
+      public function setPhysicalAddress($physicalAddress): void
       {
           if(is_string($physicalAddress))
           {
               $this->physicalAddress = $physicalAddress;
           }
-      }*/
+      }
 
       /**
        * @return mixed
@@ -82,13 +82,13 @@
       /**
        * @param mixed $invoiceAddress
        */
-     /* public function setInvoiceAddress($invoiceAddress): void
+      public function setInvoiceAddress($invoiceAddress): void
       {
           if(is_string($invoiceAddress))
           {
               $this->invoiceAddress = $invoiceAddress;
           }
-      }*/
+      }
 
       /**
        * @return mixed
