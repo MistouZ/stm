@@ -2,10 +2,10 @@
 $path = "./";
 
 	session_start();
-	include_once($path.'classes/class_db.php');
-	include_once($path.'classes/class_features.php');
-	include_once($path.'classes/class_users.php');
-	include_once($path.'classes/class_usersmanager.php');
+	include_once($path.'_cfg/classes/class_db.php');
+	include_once($path.'_cfg/classes/class_features.php');
+	include_once($path.'_cfg/classes/class_users.php');
+	include_once($path.'_cfg/classes/class_usersmanager.php');
 
 	$bdd = new DB();
     $bdd->connexion();
