@@ -13,9 +13,8 @@ $bdd->connexion();
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$customermanager = $customermanager->getByID($_GET['souscat'];);
-foreach ($customermanager as $customer)
-{
+$customer = $customermanager->getByID($_GET['souscat'];);
+
 ?>
 <html>
 Affichage du client : <?php echo $customer->getName(); ?><br />
@@ -26,5 +25,5 @@ Adresse de facturation : <?php echo $customer->getInvoiceAddress(); ?><br />
 </html>
 
 <?php
-}//$client = R::findAll('client','idcustomer = ?',array($_GET['souscat']));
+//$client = R::findAll('client','idcustomer = ?',array($_GET['souscat']));
 ?>
