@@ -13,7 +13,7 @@ $bdd->connexion();
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$customer = $customermanager->getByID($_GET['souscat']);
+$customer = $customermanager->getByID(7);
 ?>
 
 <html lang="fr">
