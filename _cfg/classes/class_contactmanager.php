@@ -35,16 +35,24 @@ class ContactManager
      * @param Contact $contact
      * Insertion contact in the DB
      */
-    public function add(Contact $contact)
+    public function add(Contact $contact, Customers $customers)
     {
         $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :first_name, :email_address, :password, :phone_number, :isActive)');
         $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
         $q->bindValue(':first_name', $contact->getFirstName(), PDO::PARAM_STR);
         $q->bindValue(':email_address', $contact->getEmailAddress(), PDO::PARAM_STR);
-        $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR );
+        $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
 
         $q->execute();
+
+        for ($i = 0; $i < count($customers); $i++) {
+            $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomer, contact_idcontact) VALUES (:idcustomer, :idcontact)');
+            $q2->bindValue(':idcustomer', $contact->getIdContact(), PDO::PARAM_STR);
+            $q2->bindValue(':idcontact', $customers[$i], PDO::PARAM_INT);
+            $q2->execute();
+        }
+    }
 
 
     /*

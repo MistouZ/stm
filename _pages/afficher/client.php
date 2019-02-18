@@ -73,7 +73,7 @@ $contacts = $contactmanager->getList();*/
                             <td><?php echo $contact->getName(); ?></td>
                             <td><?php echo $contact->getEmailAddress(); ?></td>
                             <td><?php echo $contact->getPhoneNumber(); ?></td>
-                            <td><a href="<?php echo URLHOST.'contact/afficher/'.$contact->getIdContact(); ?>"><i class="fas fa-eye" alt="D�tail"></i></a></td>
+                            <td><a href="<?php echo URLHOST.'contact/afficher/'.$contact->getIdContact(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
                             <td><a href="<?php echo URLHOST.'contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                     <?php
