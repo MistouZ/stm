@@ -1,5 +1,10 @@
 <?php
-
+$bdd = new DB();
+$bdd->connexion();
+$array = array();
+$customer = new Customers($array);
+$customermanager = new CustomersManager($bdd);
+$customermanager = $customermanager->getList();
 ?>
 <html>
 <div class="row">
@@ -22,13 +27,14 @@
                     </thead>
                     <tbody>
                     <?php
-                        $donnees_client = R::getAll("SELECT * from customers"," ORDER BY name DESC");
-                        foreach($donnees_client as $client) {
+                        //$donnees_client = R::getAll("SELECT * from customers"," ORDER BY name DESC");
+
+                        foreach($customermanager as $customer) {
                     ?>
                         <tr>
                             <td><?php echo $client['name']; ?></td>
-                            <td><a href="<?php echo URLHOST.'client/afficher/'.$client['idcustomer']; ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
-                            <td><a href="<?php echo URLHOST.'client/modifier/'.$client['idcustomer']; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a href="<?php echo URLHOST.'client/afficher/'.$customer->getIdCustomer(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
+                            <td><a href="<?php echo URLHOST.'client/modifier/'.$customer->getIdCustomer(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                     <?php
                         }
