@@ -11,10 +11,10 @@ $customermanager = new CustomersManager($bdd);
 $customer = $customermanager->getByID($customerId);
 
 //récupération des contacts du client
-$arrayContact = array();
+/*$arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
-$contacts = $contactmanager->getList();
+$contacts = $contactmanager->getList();*/
 ?>
 <div class="portlet box grey-cascade">
     <div class="portlet-title">
