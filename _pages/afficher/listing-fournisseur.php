@@ -27,7 +27,7 @@ $suppliermanager = $suppliermanager->getList();
                     </thead>
                     <tbody>
                     <?php
-                    foreach($suppliermanager as $supplier) {
+                    foreach ($suppliermanager as $supplier) {
                         ?>
                         <tr>
                             <td><?php echo $supplier->getName(); ?></td>
