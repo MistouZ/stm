@@ -1,7 +1,7 @@
 <?php 
 include "_ressources/object/rb.php";
 include '_cfg/cfg.php';
-include_once('_cfg/classes/class_db.php');
+//include_once('_cfg/classes/class_db.php');
 //include_once('_cfg/classes/class_features.php');
 //include_once('_cfg/classes/class_customers.php');
 //include_once('_cfg/classes/class_customersmanager.php');
