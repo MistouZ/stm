@@ -2,12 +2,12 @@
 session_start();
 //$path = "../../";
 
-/*$bdd = new DB();
+$bdd = new DB();
 $bdd->connexion();
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$customer = $customermanager->getByID(7);*/
+$customer = $customermanager->getByID(7);
 ?>
 
 <html lang="fr">

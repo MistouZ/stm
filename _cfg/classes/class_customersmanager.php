@@ -103,7 +103,7 @@ class CustomersManager
      */
     public function getList()
     {
-        $customers = [];
+        $customers = array();
 
         $q=$this->_db->query("SELECT * FROM customers WHERE isActive = '1'");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
