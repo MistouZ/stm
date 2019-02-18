@@ -2,8 +2,8 @@
 session_start();
 //$path = "../../";
 
-//$bdd = new DB();
-//$bdd->connexion();
+$bdd = new DB();
+$bdd->connexion();
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
