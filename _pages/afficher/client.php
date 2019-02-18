@@ -108,11 +108,8 @@ $contacts = $contactmanager->getList();*/
                                                     <span class="required"> * </span>
                                                 </label>
                                                 <div class="col-md-8">
-                                                    <div class="input-icon right input-group">
+                                                    <div class="input-icon right">
                                                         <i class="fa"></i>
-                                                        <span class="input-group-addon">
-                                                            <i class="far fa-address-card"></i>
-                                                        </span>
                                                         <input type="text" class="form-control" name="nom" /> </div>
                                                 </div>
                                             </div>
@@ -123,11 +120,8 @@ $contacts = $contactmanager->getList();*/
                                                 <label class="control-label col-md-4">Email
                                                 </label>
                                                 <div class="col-md-8">
-                                                    <div class="input-icon right input-group">
+                                                    <div class="input-icon right">
                                                         <i class="fa"></i>
-                                                        <span class="input-group-addon">
-                                                            <i class="fa fa-envelope"></i>
-                                                        </span>
                                                         <input type="email" class="form-control" name="email" /> </div>
                                                 </div>
                                             </div>
@@ -140,10 +134,7 @@ $contacts = $contactmanager->getList();*/
                                                 <div class="col-md-8">
                                                     <div class="input-icon right input-group">
                                                         <i class="fa"></i>
-                                                        <span class="input-group-addon">
-                                                            <i class="fas fa-phone"></i>
-                                                        </span>
-                                                        <input type="text" class="form-control" name="telephone" /> </div>
+                                                        <input type="text" class="form-control" name="number" /> </div>
                                                 </div>
                                             </div>
                                         </div>
