@@ -8,9 +8,8 @@ $bdd = new DB();
 $bdd->connexion();
 $array = array();
 $customer = new Customers($array);
-/*echo $customer;
 $customermanager = new CustomersManager($bdd);
-$customer = $customermanager->getByID($customerId);*/
+$customer = $customermanager->getByID($customerId);
 ?>
 
 <html lang="fr">
