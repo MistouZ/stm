@@ -1,6 +1,6 @@
 <?php
 session_start();
-$path = "../../../";
+$path = "../../";
 
 
 include_once($path.'_cfg/classes/class_db.php');
@@ -20,9 +20,10 @@ $customer = $customermanager->getByID($_GET['souscat']);
 Affichage du client : <?php echo $customer->getName(); ?><br />
 Adresse physique : <?php echo $customer->getPhysicalAddress(); ?><br />
 Adresse de facturation : <?php echo $customer->getInvoiceAddress(); ?><br />
-<?php print_r( R::dump( $customer ) ); ?>
-
 </html>
+
+
+<?php //print_r( R::dump( $customer ) ); ?>
 
 <?php
 //$client = R::findAll('client','idcustomer = ?',array($_GET['souscat']));
