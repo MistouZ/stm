@@ -4,13 +4,13 @@ session_start();
 
 $customerId = $_GET['souscat'];
 
-//Récupération des données client
+//RÃ©cupÃ©ration des donnÃ©es client
 $arrayClient = array();
 $customer = new Customers($arrayClient);
 $customermanager = new CustomersManager($bdd);
 $customer = $customermanager->getByID($customerId);
 
-//récupération des contacts du client
+//rÃ©cupÃ©ration des contacts du client
 /*$arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
@@ -62,7 +62,7 @@ $contacts = $contactmanager->getList();*/
                         <tr>
                             <th class="all">Nom</th>
                             <th class="none">Mail</th>
-                            <th class="none">Téléphone</th>
+                            <th class="none">TÃ©lÃ©phone</th>
                             <th class="min-phone-l">Afficher</th>
                             <th class="min-tablet">Modifier</th>
                         </tr>
@@ -75,7 +75,7 @@ $contacts = $contactmanager->getList();*/
                             <td><?php echo $contact->getName(); ?></td>
                             <td><?php echo $contact->getEmailAddress(); ?></td>
                             <td><?php echo $contact->getPhoneNumber(); ?></td>
-                            <td><a href="<?php echo URLHOST.'contact/afficher/'.$contact->getIdContact(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
+                            <td><a href="<?php echo URLHOST.'contact/afficher/'.$contact->getIdContact(); ?>"><i class="fas fa-eye" alt="Dï¿½tail"></i></a></td>
                             <td><a href="<?php echo URLHOST.'contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                     <?php
