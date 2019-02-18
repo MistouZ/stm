@@ -3,10 +3,10 @@ session_start();
 $path = "../../";
 
 
-include_once($path.'_cfg/classes/class_db.php');
-include_once($path.'_cfg/classes/class_features.php');
-include_once($path.'_cfg/classes/class_customers.php');
-include_once($path.'_cfg/classes/class_customersmanager.php');
+include_once(URLHOST.'_cfg/classes/class_db.php');
+include_once(URLHOST.'_cfg/classes/class_features.php');
+include_once(URLHOST.'_cfg/classes/class_customers.php');
+include_once(URLHOST.'_cfg/classes/class_customersmanager.php');
 
 $bdd = new DB();
 $bdd->connexion();
