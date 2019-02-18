@@ -11,8 +11,6 @@ session_start();
 
 $supplierId = $_GET['souscat'];
 
-echo $supplierId;
-
 $bdd = new DB();
 $bdd->connexion();
 $array = array();
