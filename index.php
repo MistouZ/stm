@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include_once('_cfg/classes/class_db.php');
 include_once('_cfg/classes/class_features.php');
 include_once('_cfg/classes/class_customers.php');
