@@ -2,7 +2,7 @@
 session_start();
 $path = "../../";
 
-echo $_GET['souscat'];
+
 
 include_once($path.'_cfg/classes/class_features.php');
 include_once($path.'_cfg/classes/class_customers.php');
@@ -13,7 +13,7 @@ $bdd->connexion();
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$customermanager = $customermanager->getByID();
+$customermanager = $customermanager->getByID($_GET['souscat'];);
 foreach ($customermanager as $customer)
 {
 ?>
