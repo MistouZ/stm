@@ -16,7 +16,7 @@ $customermanager = new CustomersManager($bdd);
 $customer = $customermanager->getByID($_GET['souscat']);
 
 ?>
-<html>
+<html lang="fr">
 Affichage du client : <?php echo $customer->getName(); ?><br />
 Adresse physique : <?php echo $customer->getPhysicalAddress(); ?><br />
 Adresse de facturation : <?php echo $customer->getInvoiceAddress(); ?><br />
