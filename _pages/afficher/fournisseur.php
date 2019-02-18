@@ -11,14 +11,15 @@ session_start();
 
 $supplierId = $_GET['souscat'];
 
+echo $supplierId;
+
 $bdd = new DB();
 $bdd->connexion();
 $array = array();
 $supplier = new Suppliers($array);
-$suppliermanager = new SuppliersManager($bdd);
-$supplier = $suppliermanager->getByID($supplierId);
+/*$suppliermanager = new SuppliersManager($bdd);
+$supplier = $suppliermanager->getByID($supplierId);*/
 ?>
-
     <html lang="fr">
     Affichage du fournisseur : <?php echo $supplier->getName(); ?><br />
     Adresse physique : <?php echo $supplier->getPhysicalAddress(); ?><br />
