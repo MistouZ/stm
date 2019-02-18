@@ -89,9 +89,8 @@ class CustomersManager
      */
     public function getByID($idcustomer)
     {
-        $query = 'SELECT * FROM `customers` WHERE `idcustomer` ='.$idcustomer;
-        echo $query;
-        $q = $this->_db->query($query);
+        $idcustomer = (integer) $idcustomer;
+        $q = $this->_db->query('SELECT * FROM `customers` WHERE `idcustomer` ='.$idcustomer);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Customers($donnees);
