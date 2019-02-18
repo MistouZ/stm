@@ -69,11 +69,24 @@ class SuppliersManager
     }
 
     /**
+     * @param $idsupplier
+     * @return Suppliers
+     */
+    public function getById($idsupplier)
+    {
+        $idsupplier = (int) $idsupplier;
+        $q = $this->_db->query('SELECT * FROM suppliers WHERE id ='.$idsupplier);
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+        return new Suppliers($donnees);
+    }
+
+    /**
      * Find a supplier by his suppliername
      * @param $suppliername
      * @return suppliers
      */
-    public function get($suppliername)
+    public function getByName($suppliername)
     {
         $suppliername = (string) $suppliername;
         $q = $this->_db->query('SELECT * FROM suppliers WHERE name ='.$suppliername);
@@ -81,6 +94,7 @@ class SuppliersManager
 
         return new Suppliers($donnees);
     }
+
 
 
     /**
@@ -91,7 +105,7 @@ class SuppliersManager
     {
         $suppliers = [];
 
-        $q=$this->_db->query("SELECT * FROM suppliers WHERE isActive = '1'");
+        $q=$this->_db->query("SELECT * FROM suppliers WHERE isActive = '1' ORDER BY NAME ASC ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $suppliers[] = new Suppliers($donnees);
