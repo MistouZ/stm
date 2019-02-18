@@ -1,6 +1,5 @@
 <?php
 session_start();
-//$path = "../../";
 
 $suppplierId = $_GET['souscat'];
 
