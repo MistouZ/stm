@@ -13,7 +13,7 @@ $supplier = $suppliermanager->getByID($suppplierId);
 ?>
 
 <html lang="fr">
-Affichage du client : <?php echo $supplier->getName(); ?><br />
+Affichage du fournisseur : <?php echo $supplier->getName(); ?><br />
 Adresse physique : <?php echo $supplier->getPhysicalAddress(); ?><br />
 Adresse de facturation : <?php echo $supplier->getInvoiceAddress(); ?><br />
 </html>
