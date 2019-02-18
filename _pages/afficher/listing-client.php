@@ -1,6 +1,4 @@
 <?php
-$bdd = new DB();
-$bdd->connexion();
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);

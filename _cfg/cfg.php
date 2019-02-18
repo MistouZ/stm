@@ -9,6 +9,9 @@ R::setup('mysql:host=localhost;dbname=stm_compta_dev','stm-adm','gx@M5v59'); //m
 
 R::freeze( true );*/
 
+$bdd = new DB();
+$bdd->connexion();
+
 define('URLHOST','http://dev.bitwin.nc/');
 
 date_default_timezone_set('Pacific/Noumea');

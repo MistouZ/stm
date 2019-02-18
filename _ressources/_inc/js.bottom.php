@@ -45,6 +45,8 @@
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/scripts/datatable.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+        <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-samples.min.js" type="text/javascript"></script>
+        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js" type="text/javascript"></script>
 <?php } ?>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
