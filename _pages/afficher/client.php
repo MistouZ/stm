@@ -1,6 +1,4 @@
 <?php
-session_start();
-//$path = "../../";
 
 $customerId = $_GET['souscat'];
 
