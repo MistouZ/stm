@@ -2,7 +2,7 @@
 session_start();
 //$path = "../../";
 
-$bdd = new DB();
+//$bdd = new DB();
 //$bdd->connexion();
 $array = array();
 $customer = new Customers($array);
