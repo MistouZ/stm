@@ -75,10 +75,12 @@ class SuppliersManager
     public function getById($idsupplier)
     {
         $idsupplier = (int) $idsupplier;
-        $q = $this->_db->query('SELECT * FROM suppliers WHERE id ='.$idsupplier);
+        $query = 'SELECT * FROM suppliers WHERE id ='.$idsupplier;
+        echo $query;
+        /*$q = $this->_db->query('SELECT * FROM suppliers WHERE id ='.$idsupplier);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Suppliers($donnees);
+        return new Suppliers($donnees);*/
     }
 
     /**
