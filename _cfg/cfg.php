@@ -1,5 +1,5 @@
 <?php
-$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
+/*$pdo_options[PDO::ATTR_ERRMODE] = PDO::ERRMODE_EXCEPTION;
 
 global $bdd;
 
@@ -7,7 +7,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=stm_compta_dev', 'stm-adm', 'gx@M5v5
 
 R::setup('mysql:host=localhost;dbname=stm_compta_dev','stm-adm','gx@M5v59'); //mysql
 
-R::freeze( true );
+R::freeze( true );*/
 
 define('URLHOST','http://dev.bitwin.nc/');
 
