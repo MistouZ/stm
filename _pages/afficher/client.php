@@ -1,19 +1,15 @@
 <?php
 session_start();
 //$path = "../../";
-echo "test 1";
+
 $bdd = new DB();
-echo "test 1-1";
 $bdd->connexion();
-echo $bdd;
+echo $bdd->connexion();
 $array = array();
-echo "test 1-3";
 $customer = new Customers($array);
 echo $customer;
 $customermanager = new CustomersManager($bdd);
-echo "test 1-5";
 $customer = $customermanager->getByID(7);
-echo "test2";
 ?>
 
 <html lang="fr">
