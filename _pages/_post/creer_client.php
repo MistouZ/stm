@@ -9,7 +9,13 @@ include 'dev.bitwin.nc/_cfg/classes/class_suppliers.php';
 include 'dev.bitwin.nc/_cfg/classes/class_suppliersmanager.php';
 include "http://dev.bitwin.nc/_cfg/cfg.php";
 
-if(isset($_POST['valider'])){
+echo "include OK";
+echo URLHOST;
+}else{
+    echo "pas include";
+}
+
+/*if(isset($_POST['valider'])){
 		$name=$_POST['name'];
 		$physical_address=$_POST['physical_address'];
     if($_POST["invoice_address"] == NULL)
@@ -36,18 +42,18 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
 
-    /*$customer = new Customers($array);
+    $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
     $customermanager->add($customer, $_POST["case"]);
-    echo "New customer created successfully </br/>";*/
+    echo "New customer created successfully </br/>";
 
-    /*if($provider == 1)
+    if($provider == 1)
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
       $suppliermanager->add($supplier,$_POST["case"]);
       echo "New provider created successfully <br />";
-    }*/
+    }
 }
 
 ?>
@@ -57,4 +63,4 @@ if(isset($_POST['valider'])){
 }else{
     echo "non";
 }
-?>
+?>*/

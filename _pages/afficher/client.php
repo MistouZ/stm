@@ -67,6 +67,7 @@ $contacts = $contactmanager->getList();*/
                                     <th class="none">Téléphone</th>
                                     <th class="min-phone-l">Afficher</th>
                                     <th class="min-tablet">Modifier</th>
+                                    <th class="min-tablet">Suprimer</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -79,6 +80,7 @@ $contacts = $contactmanager->getList();*/
                                     <td><?php echo $contact->getPhoneNumber(); ?></td>
                                     <td><a href="<?php echo URLHOST.'contact/afficher/'.$contact->getIdContact(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
                                     <td><a href="<?php echo URLHOST.'contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                                    <td><a href="<?php echo URLHOST.'contact/supprimer/'.$contact->getIdContact(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
                                 </tr>
                             <?php
                                 }
