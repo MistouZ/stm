@@ -4,9 +4,6 @@
  * @author Amaury
  * @copyright 2019
  */
-include "../../_cfg/cfg.php";
-include_once('../../_cfg/classes/class_company.php');
-include_once('../../_cfg/classes/class_companiesmanager.php');
 
 $array = array();
 $company = new Company($array);
