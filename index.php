@@ -1,6 +1,16 @@
 <?php 
 session_start();
 
+include '_cfg/classes/class_db.php';
+include '_cfg/classes/class_features.php';
+include '_cfg/classes/class_company.php';
+include '_cfg/classes/class_companiesmanager.php';
+include '_cfg/classes/class_customers.php';
+include '_cfg/classes/class_customersmanager.php';
+include '_cfg/classes/class_contact.php';
+include '_cfg/classes/class_contactmanager.php';
+include '_cfg/classes/class_suppliers.php';
+include '_cfg/classes/class_suppliersmanager.php';
 include '_cfg/cfg.php';
 ?>
 <!DOCTYPE html>
