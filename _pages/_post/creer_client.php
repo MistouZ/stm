@@ -1,9 +1,5 @@
 <?php
 include "../../_cfg/cfg.php";
-include '../../_cfg/classes/class_customers.php';
-include '../../_cfg/classes/class_customersmanager.php';
-include '../../_cfg/classes/class_suppliers.php';
-include '../../_cfg/classes/class_suppliersmanager.php';
 
 if(isset($_POST['valider'])){
 		$name=$_POST['name'];
@@ -50,4 +46,4 @@ if(isset($_POST['valider'])){
 
 ?>
 
-<a href="http://dev.bitwin.nc/client/afficher.php">Revenir à la liste des clients</a>
+<a href="<?php echo URLHOST."client/afficher" ?>">Revenir à la liste des clients</a>
