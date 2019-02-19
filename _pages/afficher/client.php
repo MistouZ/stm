@@ -155,24 +155,7 @@ $contacts = $contactmanager->getList();*/
                                         <input type="text" class="form-control" name="nom" value="<?php echo $contact->getName(); ?>" /> </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Adresse physique
-                                </label>
-                                <div class="col-md-8">
-                                    <textarea name="adressePhysique" class="form-control" rows="4">
-                                    <?php echo $contact->getPhysicalAddress(); ?>
-                                    </textarea>
-                                </div>
-                            </div>
-                            <div class="form-group last">
-                                <label class="control-label col-md-4">Adresse de facturation
-                                </label>
-                                <div class="col-md-8">
-                                    <textarea name="adresseFacturation" class="form-control" rows="4">
-                                    <?php echo $contact->getInvoiceAddress(); ?>
-                                    </textarea>
-                                </div>
-                            </div>
+                            
                         </form>
                     </div>
                     <div class="modal-footer">
