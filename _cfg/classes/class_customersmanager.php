@@ -45,7 +45,6 @@ class CustomersManager
 
         $q->execute();
 
-        print_r($companies);
 
         for ($i=0;$i<count($companies);$i++)
         {
