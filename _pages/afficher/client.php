@@ -89,7 +89,7 @@ $contacts = $contactmanager->getList();*/
                 </div>
             </div>
         </div>
-        <div id="creer_contact" class="modal fade" tabindex="-1" aria-hidden="true" style="display: none;">
+        <div id="creer_contact" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -97,6 +97,54 @@ $contacts = $contactmanager->getList();*/
                         <h4 class="modal-title">Création d'un contact</h4>
                     </div>
                     <div class="modal-body form">
+                        <form action="#" class="form-horizontal form-row-seperated">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Nom
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" name="nom" /> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Email
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="email" class="form-control" name="email" /> </div>
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-4">Téléphone
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-icon right">
+                                        <i class="fa"></i>
+                                        <input type="text" class="form-control" name="number" /> </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn green">
+                            <i class="fa fa-check"></i> Valider</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="creer_contact2" class="modal fade" tabindex="-1" aria-hidden="true" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Création d'un contact</h4>
+                    </div>
+                    <div class="modal-body form">
+                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 300px;"><div class="scroller" style="height: 300px; overflow: hidden; width: auto;" data-always-visible="1" data-rail-visible1="1" data-initialized="1">
                             <!-- BEGIN FORM-->
                             <form action="#" class="horizontal-form">
                                 <div class="form-body">
