@@ -89,7 +89,7 @@ $contacts = $contactmanager->getList();*/
                 </div>
             </div>
         </div>
-        <div id="creer_contact" class="modal fade" role="dialog" aria-hidden="true">
+        <div id="creer_contact" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
