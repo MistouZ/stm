@@ -102,7 +102,7 @@ $contacts = $contactmanager->getList();*/
                                 <!-- BEGIN FORM-->
                                 <form action="#" class="horizontal-form">
                                     <div class="form-body">
-                                        <div class="col-md-12">
+                                        
                                             <div class="form-group">
                                                 <label class="control-label col-md-4">Nom
                                                     <span class="required"> * </span>
@@ -113,9 +113,9 @@ $contacts = $contactmanager->getList();*/
                                                         <input type="text" class="form-control" name="nom" /> </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        
                                         <!--/span-->
-                                        <div class="col-md-12">
+                                        
                                             <div class="form-group">
                                                 <label class="control-label col-md-4">Email
                                                 </label>
@@ -125,9 +125,9 @@ $contacts = $contactmanager->getList();*/
                                                         <input type="email" class="form-control" name="email" /> </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        
                                         <!--/span-->
-                                        <div class="col-md-12">
+                                       
                                             <div class="form-group">
                                                 <label class="control-label col-md-4">Téléphone
                                                 </label>
@@ -137,8 +137,8 @@ $contacts = $contactmanager->getList();*/
                                                         <input type="text" class="form-control" name="number" /> </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    <div class="form-actions right">
+                                        
+                                    <div class="form-actions right modal-footer">
                                         <button type="button" data-dismiss="modal" class="btn dark btn-outline">Fermer</button>
                                         <button type="submit" class="btn blue">
                                             <i class="fa fa-check"></i> Valider</button>
