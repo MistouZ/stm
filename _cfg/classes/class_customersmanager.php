@@ -47,13 +47,13 @@ class CustomersManager
 
 
 
-        /*for ($i=0;$i<count($companies);$i++)
+        for ($i=0;$i<count($companies);$i++)
         {
             $q2 = $this->_db->prepare('INSERT INTO link_company_customers (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
             $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
             $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
             $q2->execute();
-        }*/
+        }
     }
 
     /**

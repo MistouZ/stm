@@ -1,6 +1,6 @@
 <?php
   class Customers extends Features{
-    private $idCustomer;
+    private $idcustomer;
     private $name;
     private $physicalAddress;
     private $invoiceAddress;
@@ -21,16 +21,16 @@
        */
       public function getIdCustomer()
       {
-          return $this->idCustomer;
+          return $this->idcustomer;
       }
 
       /**
        * @param mixed $idCustomer
        */
-      public function setIdCustomer($idCustomer): void
+      public function setIdCustomer($idcustomer): void
       {
-          $idCustomer = (int) $idCustomer;
-          $this->idCustomer = $idCustomer;
+          $idcustomer = (int) $idcustomer;
+          $this->idcustomer = $idcustomer;
       }
 
       /**
