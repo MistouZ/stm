@@ -1,5 +1,5 @@
 <?php
-if(!@include_once(include "classes/class_db.php")) {
+if(!@include_once("classes/class_db.php")) {
 include 'classes/class_db.php';
 include 'classes/class_features.php';
 include 'classes/class_company.php';
