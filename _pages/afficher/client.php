@@ -136,59 +136,5 @@ $contacts = $contactmanager->getList();*/
                 </div>
             </div>
         </div>
-        <div id="creer_contact2" class="modal fade" tabindex="-1" aria-hidden="true" style="display: none;">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Création d'un contact</h4>
-                    </div>
-                    <div class="modal-body form">
-                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 300px;"><div class="scroller" style="height: 300px; overflow: hidden; width: auto;" data-always-visible="1" data-rail-visible1="1" data-initialized="1">
-                            <!-- BEGIN FORM-->
-                            <form action="#" class="horizontal-form">
-                                <div class="form-body">
-                                    <div class="form-group margin-top-20">
-                                        <label class="control-label col-md-4">Nom
-                                            <span class="required"> * </span>
-                                        </label>
-                                        <div class="col-md-8">
-                                            <div class="input-icon right">
-                                                <i class="fa"></i>
-                                                <input type="text" class="form-control" name="nom" /> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="control-label col-md-4">Email
-                                        </label>
-                                        <div class="col-md-8">
-                                            <div class="input-icon right">
-                                                <i class="fa"></i>
-                                                <input type="email" class="form-control" name="email" /> </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group last">
-                                        <label class="control-label col-md-4">Téléphone
-                                        </label>
-                                        <div class="col-md-8">
-                                            <div class="input-icon right">
-                                                <i class="fa"></i>
-                                                <input type="text" class="form-control" name="number" /> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <!-- END FORM-->
-                        </div>
-                        <div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 300px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
-                    </div>
-                    <div class="modal-footer">
-                            <button type="button" data-dismiss="modal" class="btn dark btn-outline">Fermer</button>
-                            <button type="submit" class="btn blue">
-                                <i class="fa fa-check"></i> Valider</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
