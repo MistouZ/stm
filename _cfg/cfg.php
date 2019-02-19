@@ -1,5 +1,5 @@
 <?php
-//echo "CFG INCLUDE";
+if(!@include_once(include "classes/class_db.php")) {
 include 'classes/class_db.php';
 include 'classes/class_features.php';
 include 'classes/class_company.php';
@@ -13,6 +13,9 @@ include 'classes/class_suppliersmanager.php';
 
 $bdd = new DB();
 $bdd->connexion();
+}else{
+    echo "non";
+}
 
 define('URLHOST','http://dev.bitwin.nc/');
 
