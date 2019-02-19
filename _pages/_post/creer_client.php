@@ -2,6 +2,7 @@
 if(!@include_once("dev.bitwin.nc/_cfg/cfg.php")) {
     
 include 'dev.bitwin.nc/_cfg/classes/class_db.php';
+include 'dev.bitwin.nc/_cfg/classes/class_features.php';
 include 'dev.bitwin.nc/_cfg/classes/class_customers.php';
 include 'dev.bitwin.nc/_cfg/classes/class_customersmanager.php';
 include 'dev.bitwin.nc/_cfg/classes/class_suppliers.php';
