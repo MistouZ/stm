@@ -38,7 +38,7 @@ if(isset($_POST['valider'])){
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
-      $suppliermanager->add($supplier,$_POST["case"]);
+      //$suppliermanager->add($supplier,$_POST["case"]);
       echo "New provider created successfully <br />";
     }
 }
