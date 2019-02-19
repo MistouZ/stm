@@ -49,6 +49,8 @@
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-validation.min.js" type="text/javascript"></script>
+        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
+        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
 <?php } ?>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->

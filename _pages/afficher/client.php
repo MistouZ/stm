@@ -103,7 +103,7 @@ $contacts = $contactmanager->getList();*/
                                 <form action="#" class="horizontal-form">
                                     <div class="form-body">
                                         <div class="col-md-12">
-                                            <div class="form-group  margin-top-20">
+                                            <div class="form-group">
                                                 <label class="control-label col-md-4">Nom
                                                     <span class="required"> * </span>
                                                 </label>
