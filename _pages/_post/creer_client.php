@@ -1,5 +1,5 @@
 <?php
-if(!@include_once("http://dev.bitwin.nc/_cfg/cfg.php")) {
+if(!@include_once("http://de.bitwin.nc/_cfg/cfg.php")) {
     
 include 'dev.bitwin.nc/_cfg/classes/class_db.php';
 include 'dev.bitwin.nc/_cfg/classes/class_features.php';
