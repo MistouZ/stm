@@ -98,7 +98,7 @@ $contacts = $contactmanager->getList();*/
                     </div>
                     <div class="modal-body form">
                         <form action="#" class="form-horizontal form-row-seperated">
-                            <div class="form-group has-error">
+                            <div class="form-group">
                                 <label class="control-label col-md-4">Nom
                                     <span class="required"> * </span>
                                 </label>
@@ -108,7 +108,7 @@ $contacts = $contactmanager->getList();*/
                                         <input type="text" class="form-control" name="nom" /> </div>
                                 </div>
                             </div>
-                            <div class="form-group has-error">
+                            <div class="form-group">
                                 <label class="control-label col-md-4">Email
                                 </label>
                                 <div class="col-md-8">
@@ -117,7 +117,7 @@ $contacts = $contactmanager->getList();*/
                                         <input type="email" class="form-control" name="email" /> </div>
                                 </div>
                             </div>
-                            <div class="form-group has-error last">
+                            <div class="form-group last">
                                 <label class="control-label col-md-4">Téléphone
                                 </label>
                                 <div class="col-md-8">
