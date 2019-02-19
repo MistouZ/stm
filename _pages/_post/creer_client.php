@@ -1,14 +1,6 @@
 <?php
 if(!@include_once("../../_cfg/cfg.php")) {
     
-/*include 'dev.bitwin.nc/_cfg/classes/class_db.php';
-include 'dev.bitwin.nc/_cfg/classes/class_features.php';
-include 'dev.bitwin.nc/_cfg/classes/class_customers.php';
-include 'dev.bitwin.nc/_cfg/classes/class_customersmanager.php';
-include 'dev.bitwin.nc/_cfg/classes/class_suppliers.php';
-include 'dev.bitwin.nc/_cfg/classes/class_suppliersmanager.php';
-include "http://dev.bitwin.nc/_cfg/cfg.php";*/
-
 echo "pas d'include";
 
 }else{

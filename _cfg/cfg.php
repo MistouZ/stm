@@ -1,6 +1,15 @@
 <?php
 define('URLHOST','http://dev.bitwin.nc/');
 include 'classes/class_db.php';
+include 'classes/class_features.php';
+include 'classes/class_company.php';
+include 'classes/class_companiesmanager.php';
+include 'classes/class_customers.php';
+include 'classes/class_customersmanager.php';
+include 'classes/class_contact.php';
+include 'classes/class_contactmanager.php';
+include 'classes/class_suppliers.php';
+include 'classes/class_suppliersmanager.php';
 global $bdd;
 $bdd = new DB();
 $bdd->connexion();
