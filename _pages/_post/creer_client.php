@@ -1,5 +1,7 @@
 <?php
-include "_cfg/cfg.php";
+
+if(!@include_once(include "_cfg/cfg.php")) {
+//include "_cfg/cfg.php";
 
 if(isset($_POST['valider'])){
 		$name=$_POST['name'];
@@ -42,7 +44,9 @@ if(isset($_POST['valider'])){
     }
 }
 
-
+}else{
+    echo "non";
+}
 
 ?>
 
