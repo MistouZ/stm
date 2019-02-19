@@ -31,15 +31,14 @@ if(isset($_POST['valider'])){
 
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-    print_r($_POST["case"]);
-    //$customermanager->add($customer, $_POST["case"]);
+    $customermanager->add($customer, $_POST["case"]);
     echo "New customer created successfully </br/>";
 
     if($provider == 1)
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
-      //$suppliermanager->add($supplier,$_POST["case"]);
+      $suppliermanager->add($supplier,$_POST["case"]);
       echo "New provider created successfully <br />";
     }
 }
