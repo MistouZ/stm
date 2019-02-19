@@ -46,12 +46,11 @@ class ContactManager
 
         $q->execute();
 
-        for ($i = 0; $i < count($customers); $i++) {
-            $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomer, contact_idcontact) VALUES (:idcustomer, :idcontact)');
-            $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_STR);
-            $q2->bindValue(':idcustomer', $customers[$i], PDO::PARAM_INT);
-            $q2->execute();
-        }
+        $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomer, contact_idcontact) VALUES (:idcustomer, :idcontact)');
+        $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
+        $q2->bindValue(':idcustomer', $customers->getIdCustomer(), PDO::PARAM_INT);
+        $q2->execute();
+
     }
 
 
@@ -70,12 +69,11 @@ class ContactManager
 
         $q->execute();
 
-        for ($i = 0; $i < count($suppliers); $i++) {
-            $q2 = $this->_db->prepare('INSERT INTO link_suppliers_contact (suppliers_idsupplier, contact_idcontact) VALUES (:idsupplier, :idcontact)');
-            $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_STR);
-            $q2->bindValue(':idcustomer', $suppliers[$i], PDO::PARAM_INT);
-            $q2->execute();
-        }
+        $q2 = $this->_db->prepare('INSERT INTO link_suppliers_contact (suppliers_idsupplier, contact_idcontact) VALUES (:idsupplier, :idcontact)');
+        $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
+        $q2->bindValue(':idcustomer', $suppliers->getIdSupplier(), PDO::PARAM_INT);
+        $q2->execute();
+
     }
 
     /**
