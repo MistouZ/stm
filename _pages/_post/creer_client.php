@@ -1,5 +1,5 @@
 <?php
-include "../../_cfg/cfg.php";
+include "_cfg/cfg.php";
 
 if(isset($_POST['valider'])){
 		$name=$_POST['name'];
