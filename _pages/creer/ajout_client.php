@@ -1,17 +1,6 @@
 <?php
     session_start();
-    $path = "../";
-
-    include_once($path.'classes/class_db.php');
-    include_once($path.'classes/class_features.php');
-    include_once($path . 'classes/class_customers.php');
-    include_once($path.'classes/class_customersmanager.php');
-    include_once($path . 'classes/class_suppliers.php');
-    include_once($path.'classes/class_suppliersmanager.php');
-
-
-
-$bdd = new DB();
+    $bdd = new DB();
     $bdd->connexion();
 
 if(isset($_POST['valider'])){
@@ -59,4 +48,4 @@ if(isset($_POST['valider'])){
 
 ?>
 
-<a href="saisie_customers.php"> revenir à la création de clients / fournisseur </a>
+<a href="http://dev.bitwin.nc/client/afficher.php">Revenir à la liste des clients</a>
