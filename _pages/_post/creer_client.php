@@ -1,8 +1,6 @@
 <?php
 if(!@include_once("dev.bitwin.nc/_cfg/cfg.php")) {
 include "dev.bitwin.nc/_cfg/cfg.php";
-$bdd = new DB();
-$bdd->connexion();
 
 if(isset($_POST['valider'])){
 		$name=$_POST['name'];

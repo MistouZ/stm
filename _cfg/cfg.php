@@ -12,9 +12,9 @@ include URLHOST.'_cfg/classes/class_contactmanager.php';
 include URLHOST.'_cfg/classes/class_suppliers.php';
 include URLHOST.'_cfg/classes/class_suppliersmanager.php';
 
-echo "ok";
-/*$bdd = new DB();
-$bdd->connexion();*/
+global $bdd;
+$bdd = new DB();
+$bdd->connexion();
 
 date_default_timezone_set('Pacific/Noumea');
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
