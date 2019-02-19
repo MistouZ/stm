@@ -2,6 +2,7 @@
 if(!@include_once("dev.bitwin.nc/_cfg/cfg.php")) {
 include "dev.bitwin.nc/_cfg/cfg.php";
 
+echo "ok";
 if(isset($_POST['valider'])){
 		$name=$_POST['name'];
 		$physical_address=$_POST['physical_address'];
