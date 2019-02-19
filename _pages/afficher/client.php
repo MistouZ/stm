@@ -132,7 +132,7 @@ $contacts = $contactmanager->getList();*/
                                                 <label class="control-label col-md-4">Téléphone
                                                 </label>
                                                 <div class="col-md-8">
-                                                    <div class="input-icon right input-group">
+                                                    <div class="input-icon right">
                                                         <i class="fa"></i>
                                                         <input type="text" class="form-control" name="number" /> </div>
                                                 </div>
