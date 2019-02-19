@@ -159,7 +159,7 @@ $contacts = $contactmanager->getList();*/
                                 <label class="control-label col-md-4">Adresse physique
                                 </label>
                                 <div class="col-md-8">
-                                    <textarea name="adressePhysique" class="form-control autosizeme" rows="4" placeholder="Autosizeme...">
+                                    <textarea name="adressePhysique" class="form-control" rows="4">
                                     <?php echo $contact->getPhysicalAddress(); ?>
                                     </textarea>
                                 </div>
@@ -168,7 +168,7 @@ $contacts = $contactmanager->getList();*/
                                 <label class="control-label col-md-4">Adresse de facturation
                                 </label>
                                 <div class="col-md-8">
-                                    <textarea name="adresseFacturation" class="form-control autosizeme" rows="4" placeholder="Autosizeme...">
+                                    <textarea name="adresseFacturation" class="form-control" rows="4">
                                     <?php echo $contact->getInvoiceAddress(); ?>
                                     </textarea>
                                 </div>
