@@ -31,7 +31,7 @@ if(isset($_POST['valider'])){
 
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-    echo $_POST["case"];
+    print_r($_POST["case"]);
     //$customermanager->add($customer, $_POST["case"]);
     echo "New customer created successfully </br/>";
 
