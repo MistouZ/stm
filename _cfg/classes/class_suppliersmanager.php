@@ -51,7 +51,7 @@ class SuppliersManager
         {
             $q2 = $this->_db->prepare('INSERT INTO link_company_suppliers (company_idcompany, suppliers_idsupplier) VALUES (:id_company, :idsupplier)');
             $q2->bindValue(':id_company', $companies[$i], PDO::PARAM_INT);
-            $q2->bindValue(':idsupplier', $supplier->getIdSupplier(), PDO::PARAM_STR);
+            $q2->bindValue(':idsupplier', $supplier->getIdSupplier(), PDO::PARAM_INT);
             $q2->execute();
         }
     }
