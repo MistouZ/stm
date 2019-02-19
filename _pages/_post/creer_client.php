@@ -1,9 +1,9 @@
 <?php
 include "../../_cfg/cfg.php";
-include_once('../../_cfg/classes/class_customers.php');
-include_once('../../_cfg/classes/class_customersmanager.php');
-include_once('../../_cfg/classes/class_suppliers.php');
-include_once('../../_cfg/classes/class_suppliersmanager.php');
+include '../../_cfg/classes/class_customers.php';
+include_once '../../_cfg/classes/class_customersmanager.php';
+include_once '../../_cfg/classes/class_suppliers.php';
+include_once '../../_cfg/classes/class_suppliersmanager.php';
 
 if(isset($_POST['valider'])){
 		$name=$_POST['name'];
