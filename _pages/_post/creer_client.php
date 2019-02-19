@@ -14,10 +14,10 @@ if(isset($_POST['valider'])){
     }
     if(isset($_POST["is_supplier"]))
     {
-      $provider = 1;
+      $supplier = 1;
     }
     else{
-      $provider = 0;
+      $supplier = 0;
     }
 
     $is_active =1;
@@ -29,22 +29,19 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
 
-    /*$customer = new Customers($array);
+    $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
     $customermanager->add($customer, $_POST["case"]);
     echo "New customer created successfully </br/>";
 
-    if($provider == 1)
+    if($supplier == 1)
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
       $suppliermanager->add($supplier,$_POST["case"]);
       echo "New provider created successfully <br />";
-    }*/
+    }
 
-    print_r($_POST["case"]);
-    echo" tableau customer <br />";
-    print_r($array);
 }
 
 ?>
