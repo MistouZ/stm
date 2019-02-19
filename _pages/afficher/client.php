@@ -104,7 +104,7 @@ $contacts = $contactmanager->getList();*/
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
-                                        <i class="fa"></i>
+                                        <i class="fas"></i>
                                         <input type="text" class="form-control" name="nom" /> </div>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@ $contacts = $contactmanager->getList();*/
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
-                                        <i class="fa"></i>
+                                        <i class="fas"></i>
                                         <input type="email" class="form-control" name="email" /> </div>
                                 </div>
                             </div>
@@ -122,7 +122,7 @@ $contacts = $contactmanager->getList();*/
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
-                                        <i class="fa"></i>
+                                        <i class="fas"></i>
                                         <input type="text" class="form-control" name="number" /> </div>
                                 </div>
                             </div>
