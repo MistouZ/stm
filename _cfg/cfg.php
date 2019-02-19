@@ -12,8 +12,8 @@ include URLHOST.'_cfg/classes/class_contactmanager.php';
 include URLHOST.'_cfg/classes/class_suppliers.php';
 include URLHOST.'_cfg/classes/class_suppliersmanager.php';
 
-$bdd = new DB();
-$bdd->connexion();
+/*$bdd = new DB();
+$bdd->connexion();*/
 
 date_default_timezone_set('Pacific/Noumea');
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
