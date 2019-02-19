@@ -120,7 +120,7 @@ $contacts = $contactmanager->getList();*/
                                                 <input type="email" class="form-control" name="email" /> </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    <div class="form-group last">
                                         <label class="control-label col-md-4">Téléphone
                                         </label>
                                         <div class="col-md-8">
@@ -129,23 +129,17 @@ $contacts = $contactmanager->getList();*/
                                                 <input type="text" class="form-control" name="number" /> </div>
                                         </div>
                                     </div>
-                                    <div class="form-actions right">
-                                        <div class="row">
-                                            <button type="button" data-dismiss="modal" class="btn dark btn-outline">Fermer</button>
-                                            <button type="submit" class="btn blue">
-                                                <i class="fa fa-check"></i> Valider</button>
-                                        </div>
-                                    </div>
                                 </div>
                             </form>
                             <!-- END FORM-->
                         </div>
                         <div class="slimScrollBar" style="background: rgb(187, 187, 187); width: 7px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 300px;"></div><div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(234, 234, 234); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
                     </div>
-                    <!--<div class="modal-footer">
-                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Close</button>
-                        <button type="button" class="btn green">Save changes</button>
-                    </div>-->
+                    <div class="modal-footer">
+                            <button type="button" data-dismiss="modal" class="btn dark btn-outline">Fermer</button>
+                            <button type="submit" class="btn blue">
+                                <i class="fa fa-check"></i> Valider</button>
+                    </div>
                 </div>
             </div>
         </div>
