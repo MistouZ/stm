@@ -1,15 +1,15 @@
 <?php 
 session_start();
-include_once('_cfg/classes/class_db.php');
-include_once('_cfg/classes/class_features.php');
-include_once('_cfg/classes/class_company.php');
-include_once('_cfg/classes/class_companiesmanager.php');
-include_once('_cfg/classes/class_customers.php');
-include_once('_cfg/classes/class_customersmanager.php');
-include_once('_cfg/classes/class_contact.php');
-include_once('_cfg/classes/class_contactsmanager.php');
-include_once('_cfg/classes/class_suppliers.php');
-include_once('_cfg/classes/class_suppliersmanager.php');
+include '_cfg/classes/class_db.php';
+include '_cfg/classes/class_features.php';
+include '_cfg/classes/class_company.php';
+include '_cfg/classes/class_companiesmanager.php';
+include '_cfg/classes/class_customers.php';
+include '_cfg/classes/class_customersmanager.php';
+include '_cfg/classes/class_contact.php';
+include '_cfg/classes/class_contactsmanager.php';
+include '_cfg/classes/class_suppliers.php';
+include '_cfg/classes/class_suppliersmanager.php';
 include '_cfg/cfg.php';
 ?>
 <!DOCTYPE html>
