@@ -1,6 +1,6 @@
 <?php
-if(!@include_once("../../_cfg/cfg.php")) {
-include "../../_cfg/cfg.php";
+if(!@include_once("dev.bitwin.nc/_cfg/cfg.php")) {
+include "dev.biwin.nc/_cfg/cfg.php";
 
 if(isset($_POST['valider'])){
 		$name=$_POST['name'];
