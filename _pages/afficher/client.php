@@ -156,19 +156,19 @@ $contacts = $contactmanager->getList();*/
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-4">Email
+                                <label class="control-label col-md-4">Adresse physique
                                 </label>
                                 <div class="col-md-8">
-                                    <textarea class="form-control autosizeme" rows="4" placeholder="Autosizeme..." data-autosize-on="true" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 90px;">
+                                    <textarea name="adressePhysique" class="form-control autosizeme" rows="4" placeholder="Autosizeme...">
                                     <?php echo $contact->getPhysicalAddress(); ?>
                                     </textarea>
                                 </div>
                             </div>
                             <div class="form-group last">
-                                <label class="control-label col-md-4">Téléphone
+                                <label class="control-label col-md-4">Adresse de facturation
                                 </label>
                                 <div class="col-md-8">
-                                    <textarea class="form-control autosizeme" rows="4" placeholder="Autosizeme..." data-autosize-on="true" style="overflow: hidden; overflow-wrap: break-word; resize: horizontal; height: 90px;">
+                                    <textarea name="adresseFacturation" class="form-control autosizeme" rows="4" placeholder="Autosizeme...">
                                     <?php echo $contact->getInvoiceAddress(); ?>
                                     </textarea>
                                 </div>
