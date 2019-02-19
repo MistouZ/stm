@@ -6,10 +6,6 @@
  */
 
 
-session_start();
-
-$bdd = new DB();
-$bdd->connexion();
 $array = array();
 $company = new Company($array);
 $companies = new CompaniesManager($bdd);
