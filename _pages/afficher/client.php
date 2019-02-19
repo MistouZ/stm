@@ -97,7 +97,6 @@ $contacts = $contactmanager->getList();*/
                         <h4 class="modal-title">Création d'un contact</h4>
                     </div>
                     <div class="modal-body form">
-                        <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 300px;"><div class="scroller" style="height: 300px; overflow: hidden; width: auto;" data-always-visible="1" data-rail-visible1="1" data-initialized="1">
                             <!-- BEGIN FORM-->
                             <form action="#" class="horizontal-form">
                                 <div class="form-body">
