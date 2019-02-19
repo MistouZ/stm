@@ -2,8 +2,8 @@
 session_start();
 include_once('_cfg/classes/class_db.php');
 include_once('_cfg/classes/class_features.php');
-include_once ('_cfg/classes/class_company.php');
-include_once ('_cfg/classes/class_companiesmanager.php');
+include_once('_cfg/classes/class_company.php');
+include_once('_cfg/classes/class_companiesmanager.php');
 include_once('_cfg/classes/class_customers.php');
 include_once('_cfg/classes/class_customersmanager.php');
 include_once('_cfg/classes/class_contact.php');
