@@ -2,6 +2,10 @@
 session_start();
 
 include '_cfg/cfg.php';
+
+if($_GET['section']=="connexion"){
+    header('Location: '.URLHOST.'connexion');
+}
 ?>
 <!DOCTYPE html>
 <!-- 
