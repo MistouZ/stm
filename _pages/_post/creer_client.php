@@ -36,10 +36,10 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
 
-    $customer = new Customers($array);
+    /*$customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
     $customermanager->add($customer, $_POST["case"]);
-    echo "New customer created successfully </br/>";
+    echo "New customer created successfully </br/>";*/
 
     /*if($provider == 1)
     {
