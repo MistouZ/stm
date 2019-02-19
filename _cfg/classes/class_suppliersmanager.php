@@ -37,7 +37,7 @@ class SuppliersManager
      */
     public function add(Suppliers $supplier, array $companies)
     {
-        $q = $this->_db->prepare('INSERT INTO suppliers (name, pysicalAddress,invoiceAddress,isActive) VALUES (:name, :physicalAddress, :invoiceAddress,:isActive)');
+        $q = $this->_db->prepare('INSERT INTO suppliers (name, physicalAddress,invoiceAddress,isActive) VALUES (:name, :physicalAddress, :invoiceAddress,:isActive)');
         $q->bindValue(':name', $supplier->getName(), PDO::PARAM_STR);
         $q->bindValue(':physicalAddress', $supplier->getPhysicalAddress(), PDO::PARAM_STR);
         $q->bindValue(':invoiceAddress', $supplier->getInvoiceAddress(), PDO::PARAM_STR );
