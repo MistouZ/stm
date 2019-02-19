@@ -1,13 +1,8 @@
 <?php
-if(!@include_once("../../_cfg/cfg.php")) {
+include("../../_cfg/cfg.php");
     
-echo "pas d'include";
 
-}else{
-    echo "OK include";
-}
-
-/*if(isset($_POST['valider'])){
+if(isset($_POST['valider'])){
 		$name=$_POST['name'];
 		$physical_address=$_POST['physical_address'];
     if($_POST["invoice_address"] == NULL)
@@ -51,8 +46,3 @@ echo "pas d'include";
 ?>
 
 <a href="<?php echo URLHOST."client/afficher" ?>">Revenir à la liste des clients</a>
-<?php
-}else{
-    echo "non";
-}
-?>*/
