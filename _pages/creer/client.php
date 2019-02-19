@@ -19,7 +19,7 @@ $companies = $companies->getList();
 <html>
     <head><title>/title></head>
     <body>
-        <h1>Création d'un nouveau Client / Fournisseur<</h1>
+        <h1>Création d'un nouveau Client / Fournisseur</h1>
         <form name="inscription" method="post" action="insert_customers.php">
             <label for="name">Nom de la société : </label><input type="text" name="name" id="name"/> <br/>
             <label for="physical_address">Adresse phyisque du client : </label><input type="text" name="physical_address" id="physical_address"/><br/>
