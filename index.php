@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-include '_cfg/classes/class_db.php';
+
 include '_cfg/classes/class_features.php';
 include '_cfg/classes/class_company.php';
 include '_cfg/classes/class_companiesmanager.php';

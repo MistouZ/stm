@@ -9,10 +9,10 @@ include 'dev.bitwin.nc/_cfg/classes/class_suppliers.php';
 include 'dev.bitwin.nc/_cfg/classes/class_suppliersmanager.php';
 include "http://dev.bitwin.nc/_cfg/cfg.php";*/
 
-echo "include OK";
-echo URLHOST;
+echo "pas d'include";
+
 }else{
-    echo "pas include";
+    echo "OK include";
 }
 
 /*if(isset($_POST['valider'])){

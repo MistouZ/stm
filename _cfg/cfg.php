@@ -1,6 +1,6 @@
 <?php
 define('URLHOST','http://dev.bitwin.nc/');
-
+include 'classes/class_db.php';
 global $bdd;
 $bdd = new DB();
 $bdd->connexion();
