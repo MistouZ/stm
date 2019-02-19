@@ -1,4 +1,5 @@
 <?php
+if(!@include_once("_cfg/cfg.php")) {
 include "_cfg/cfg.php";
 
 if(isset($_POST['valider'])){
@@ -42,8 +43,11 @@ if(isset($_POST['valider'])){
     }
 }
 
-
-
 ?>
 
 <a href="<?php echo URLHOST."client/afficher" ?>">Revenir à la liste des clients</a>
+<?php
+}else{
+    echo "non";
+}
+?>
