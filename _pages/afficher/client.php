@@ -103,7 +103,7 @@ $contacts = $contactmanager->getList();*/
                                 <form action="#" class="horizontal-form">
                                     <div class="form-body">
                                         
-                                            <div class="form-group">
+                                            <div class="form-group margin-top-20">
                                                 <label class="control-label col-md-4">Nom
                                                     <span class="required"> * </span>
                                                 </label>
@@ -137,11 +137,13 @@ $contacts = $contactmanager->getList();*/
                                                         <input type="text" class="form-control" name="number" /> </div>
                                                 </div>
                                             </div>
-                                        
-                                    <div class="form-actions right modal-footer">
-                                        <button type="button" data-dismiss="modal" class="btn dark btn-outline">Fermer</button>
-                                        <button type="submit" class="btn blue">
-                                            <i class="fa fa-check"></i> Valider</button>
+                                       
+                                    <div class="form-actions right">
+                                        <div class="row">
+                                            <button type="button" data-dismiss="modal" class="btn dark btn-outline">Fermer</button>
+                                            <button type="submit" class="btn blue">
+                                                <i class="fa fa-check"></i> Valider</button>
+                                        </div>
                                     </div>
                                 </form>
                                 <!-- END FORM-->
