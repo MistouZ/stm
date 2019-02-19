@@ -1,8 +1,9 @@
 <?php
 if(!@include_once("dev.bitwin.nc/_cfg/cfg.php")) {
 include "dev.bitwin.nc/_cfg/cfg.php";
+$bdd = new DB();
+$bdd->connexion();
 
-echo "ok";
 if(isset($_POST['valider'])){
 		$name=$_POST['name'];
 		$physical_address=$_POST['physical_address'];
@@ -30,7 +31,7 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
 
-    /*$customer = new Customers($array);
+    $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
     $customermanager->add($customer, $_POST["case"]);
     echo "New customer created successfully </br/>";
@@ -41,7 +42,7 @@ if(isset($_POST['valider'])){
       $suppliermanager = new SuppliersManager($bdd);
       $suppliermanager->add($supplier,$_POST["case"]);
       echo "New provider created successfully <br />";
-    }*/
+    }
 }
 
 ?>
