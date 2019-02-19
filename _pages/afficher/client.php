@@ -97,7 +97,7 @@ $contacts = $contactmanager->getList();*/
                         <h4 class="modal-title">Création d'un contact</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="#" class="form-horizontal form-row-seperated">
+                        <form action="#" id="form_sample_2" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Nom
                                     <span class="required"> * </span>
