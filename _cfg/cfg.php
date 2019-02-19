@@ -12,6 +12,7 @@ include URLHOST.'_cfg/classes/class_contactmanager.php';
 include URLHOST.'_cfg/classes/class_suppliers.php';
 include URLHOST.'_cfg/classes/class_suppliersmanager.php';
 
+echo "ok";
 /*$bdd = new DB();
 $bdd->connexion();*/
 
