@@ -46,7 +46,6 @@
         color:black;
         position: fixed;
        height: 100%; width: 100%;
-       background: url('dev.bitwin.nc/images/fond.jpg') !important;
        background-size: cover;
        background-repeat:no-repeat;
        z-index: -1; /* Keep the background behind the content */     

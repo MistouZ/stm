@@ -1,6 +1,6 @@
 <?php session_start(); ?>
 <body class=" login">
-        <div class="loginfond"></div>
+        <div class="loginfond" style="background: url('<?php echo URLHOST; ?>images/fond.jpg') !important;"></div>
         <!-- BEGIN LOGO -->
         <div class="logo">
             <img style="max-width: 350px;" src="../images/logo.png" alt="" />
