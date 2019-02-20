@@ -12,6 +12,6 @@
 <?php 
 $str = "I'Tech";
 
-echo "test : ".$str." => ".enleverCaracteresSpeciaux($str);
+echo "test : ".$str." => ".strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $str));
 ?>
 </html>
