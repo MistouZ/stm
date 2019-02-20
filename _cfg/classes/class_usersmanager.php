@@ -104,6 +104,8 @@ class UsersManager
 
         if (!$data)
         {
+            $data = array();
+            $user = new Users($data);
             echo 'Mauvais identifiant ou mot de passe !';
         }
         else
