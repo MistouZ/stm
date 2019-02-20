@@ -46,7 +46,7 @@ class ContactManager
 
         $q->execute();
 
-        print_r($this->db->last_query());
+        $this->db->last_query();
 
         /*$contact = $this->getByName($contact->getName(), $contact->getFirstName());
 
