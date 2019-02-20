@@ -46,9 +46,9 @@ class ContactManager
 
         $q->execute();
 
-        $this->getByName($contact->getName(), $contact->getFirstname());
+        $contact = $this->getByName($contact->getName(), $contact->getFirstname());
 
-        //echo $contact->getIdContact();
+        echo $contact->getIdContact();
 
         /*$q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
         $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
@@ -116,12 +116,12 @@ class ContactManager
         $contactName = (string) $contactName;
         $contactFirstName = (string) $contactFirstName;
         $query = 'SELECT * FROM contact WHERE name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
-        echo $query;
-        /*$q = $this->_db->query($query);
+        $q = $this->_db->query($query);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Contact($donnees);*/
+        return new Contact($donnees);
     }
+
     /**
      * Get all the contact in the BDD
      * @return array
