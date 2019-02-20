@@ -35,6 +35,17 @@
 <link href="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
 <style type="text/css">
+    body {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        height: 100%;
+        margin:0;
+        padding:0;
+        background-size: 100% ;
+        width:100%;  
+        color:black;
+    }
+    
     body.login :before{ 
        position: fixed;
        height: 100%; width: 100%;
