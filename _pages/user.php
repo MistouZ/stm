@@ -1,14 +1,14 @@
 <?php 
-    if (isset($_GET['cat']) AND (empty($_GET['souscat']))) { 
-        if(file_exists(__DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php')) {               
-            include (__DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php');   
+    if (isset($_GET['souscat']) AND (empty($_GET['soussouscat']))) { 
+        if(file_exists(__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php')) {               
+            include (__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php');   
         }else{
-            include __DIR__.'/'.$_GET['cat'].'/listing-user.php';
+            include __DIR__.'/'.$_GET['souscat'].'/listing-user.php';
         }
         
-    } elseif (isset($_GET['cat']) AND (isset($_GET['souscat']))) { 
+    } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat']))) { 
         
-        include __DIR__.'/'.$_GET['cat'].'/vuedet-user.php'; 
+        include __DIR__.'/'.$_GET['souscat'].'/vuedet-user.php'; 
 
     } 
 ?>

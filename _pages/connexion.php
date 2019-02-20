@@ -15,7 +15,7 @@
                     <button class="close" data-close="alert"></button>
                     <span> Entrez vos logins et mot de passe </span>
                 </div>
-                <?php if($_GET['cat']=="false"){ ?>
+                <?php if($_GET['souscat']=="false"){ ?>
                 <div class="alert alert-danger">
                     <button class="close" data-close="alert"></button>
                     <span> Login ou mot de passe incorrectes </span>

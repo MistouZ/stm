@@ -1,16 +1,16 @@
 <?php
-if (isset($_GET['cat']) AND (empty($_GET['souscat']))) {
-    if($_GET['cat']!="afficher"){
-        if(file_exists(__DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php')) {
-            include (__DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php');
+if (isset($_GET['souscat']) AND (empty($_GET['soussouscat']))) {
+    if($_GET['souscat']!="afficher"){
+        if(file_exists(__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php')) {
+            include (__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php');
         }
     }else{
-        include __DIR__.'/'.$_GET['cat'].'/listing-fournisseur.php';
+        include __DIR__.'/'.$_GET['souscat'].'/listing-fournisseur.php';
     }
 
-} elseif (isset($_GET['cat']) AND (isset($_GET['souscat']))) {
+} elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat']))) {
 
-    include __DIR__.'/'.$_GET['cat'].'/'.$_GET['section'].'.php';
+    include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php';
 
 }
 ?>

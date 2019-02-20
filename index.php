@@ -43,7 +43,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </head>
     <!-- END HEAD -->
 <?php 
-if($_GET['section']=="connexion"){ 
+if($_GET['cat']=="connexion"){ 
     include (__DIR__.'/_pages/connexion.php');
     include "_ressources/_inc/js.bottom.php";
 ?>
@@ -84,14 +84,14 @@ if($_GET['section']=="connexion"){
                     <!-- BEGIN PAGE HEAD-->
                     <?php include '_ressources/breadcrump.php'; ?>
                     <!-- BEGIN PAGE BASE CONTENT -->
-                    <?php if($_GET['section']=='accueil'){ ?>
+                    <?php if($_GET['cat']=='accueil'){ ?>
                     <div class="row">
                         <?php include '_ressources/favoris.php'; ?>
                     </div>
                     <?php } ?>
                         <?php 
-                            if(file_exists(__DIR__.'/_pages/'.$_GET['section'].'.php')) {               
-                                include (__DIR__.'/_pages/'.$_GET['section'].'.php');   
+                            if(file_exists(__DIR__.'/_pages/'.$_GET['cat'].'.php')) {               
+                                include (__DIR__.'/_pages/'.$_GET['cat'].'.php');   
                             }
                         ?>
                     <!-- END PAGE BASE CONTENT -->

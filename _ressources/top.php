@@ -22,7 +22,7 @@ $prenom = $_COOKIE['prenom'];
             <span class="hidden-sm hidden-xs">Société&nbsp;</span>
             <i class="fa fa-angle-down"></i>
         </button>
-        <ul class="dropdown-menu" role="menu">
+        <ul class="dropdown-menu" role="menu" style="min-width: 120px !important;">
         <?php
             $company = array();
             $company = new Company ($company);
@@ -30,9 +30,9 @@ $prenom = $_COOKIE['prenom'];
             $companymanager = $companymanager->getCompanies($_COOKIE['username']);
             foreach($companymanager as $company){
         ?>
-            <li>
-                <a href="javascript:;">
-                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 35px;" />
+            <li style="text-align: center;">
+                <a href="<?php echo URLHOST.$company->getNameData(); ?>">
+                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 40px;" /></a>
             </li>
         <?php 
             } 
