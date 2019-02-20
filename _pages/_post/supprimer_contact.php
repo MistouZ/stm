@@ -7,10 +7,12 @@
  */
 
 include("../../_cfg/cfg.php");
-$_GET[""];
+$contactId = $_GET[""];
 
 $array = array();
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
-$contactmanager->addToCustomers($contact, $customerId);
-echo "New contact added successfully </br/>";
+$contactmanager->delete($contactId);
+echo "Contact removed successfully </br/>";
+
+?>
