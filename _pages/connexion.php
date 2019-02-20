@@ -14,6 +14,12 @@
                     <button class="close" data-close="alert"></button>
                     <span> Entrez vos logins et mot de passe </span>
                 </div>
+                <?php if($_GET['cat']=="false"){ ?>
+                <div class="alert alert-danger">
+                    <button class="close" data-close="alert"></button>
+                    <span> Login ou mot de passe incorrectes </span>
+                </div>
+                <?php } ?>
                 <div class="form-group">
                     <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
                     <label class="control-label visible-ie8 visible-ie9">Login</label>
