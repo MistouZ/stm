@@ -1,7 +1,7 @@
 <!-- BEGIN LOGO -->
 <div class="page-logo">
     <a href="index.html">
-        <img src="../images/logo.png" alt="logo" class="logo-default" style="height: 17px;" /> </a>
+        <img src="../images/logo.png" alt="logo" class="logo-default" style="width: 120px; margin: 13px 25px 0; " /> </a>
     <div class="menu-toggler sidebar-toggler">
         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
     </div>
