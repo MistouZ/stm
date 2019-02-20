@@ -10,6 +10,9 @@ include 'classes/class_contact.php';
 include 'classes/class_contactmanager.php';
 include 'classes/class_suppliers.php';
 include 'classes/class_suppliersmanager.php';
+include 'classes/class_users.php';
+include 'classes/class_usersmanager.php';
+
 global $bdd;
 $bdd = new DB();
 $bdd->connexion();
