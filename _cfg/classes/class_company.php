@@ -62,6 +62,17 @@
       {
           return $this->nameData;
       }
+      
+      /**
+       * @param mixed $name
+       */
+      public function setNameData($nameData): void
+      {
+          if(is_string($nameData))
+          {
+              $this->nameData = $nameData;
+          }
+      }
 
       /**
        * @return mixed
