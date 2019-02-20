@@ -1,4 +1,5 @@
-<body class=" login">
+<body class=" login" style="background-image: url(../images/login.jpg) !important;background-repeat:no-repeat; background-size: cover;" >
+<div style="width: 400px; height:300px; margin: auto; background: rgba(241, 241, 241, 0.5); top: 30%; position: relative;">
         <!-- BEGIN LOGO -->
         <div class="logo">
             <img style="max-width: 380px;" src="../images/logo.png" alt="" />
@@ -54,7 +55,7 @@
             </form>
             <!-- END FORGOT PASSWORD FORM -->
         </div>
-
+    </div>
 
 <!--<html>
     <head><title>Ma page d'accueil</title></head>
