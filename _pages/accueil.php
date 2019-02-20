@@ -12,6 +12,6 @@
 <?php 
 $str = "I'Tech";
 
-echo transformerEnURL($str);
+echo "test : ".transformerEnURL($str);
 ?>
 </html>
