@@ -107,7 +107,17 @@ $contacts = $contactmanager->getList();*/
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="nom" /> </div>
+                                        <input type="text" class="form-control" name="name" /> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Prénom
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-icon right">
+                                        <i class="fas"></i>
+                                        <input type="text" class="form-control" name="firstname" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -116,7 +126,7 @@ $contacts = $contactmanager->getList();*/
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="email" class="form-control" name="email" /> </div>
+                                        <input type="email" class="form-control" name="emailAddress" /> </div>
                                 </div>
                             </div>
                             <div class="form-group last">
@@ -125,7 +135,7 @@ $contacts = $contactmanager->getList();*/
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="number" /> </div>
+                                        <input type="text" class="form-control" name="phoneNumber" /> </div>
                                 </div>
                             </div>
                         </form>
