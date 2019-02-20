@@ -49,7 +49,7 @@ class CustomersManager
 
         echo "Customer Name : ".$customer->getName();
 
-        echo "Customer id : ".$customer->getIdcustomer();
+        //echo "Customer id : ".$customer->getIdcustomer();
 
         /*for ($i=0;$i<count($companies);$i++)
         {
