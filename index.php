@@ -32,11 +32,11 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta content="" name="CMG" />
         <?php include '_ressources/_inc/css.php'; ?>
         <!-- END THEME LAYOUT STYLES -->
-        <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-        <link rel="manifest" href="images/favicon/site.webmanifest">
-        <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#523a5f">
+        <link rel="apple-touch-icon" sizes="180x180" href="<?php echo URLHOST;?>images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URLHOST;?>images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URLHOST;?>images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="<?php echo URLHOST;?>images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="<?php echo URLHOST;?>images/safari-pinned-tab.svg" color="#523a5f">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
     </head>
