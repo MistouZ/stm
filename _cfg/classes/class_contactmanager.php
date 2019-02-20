@@ -124,17 +124,20 @@ class ContactManager
      * Get all the contact in the BDD
      * @return array
      */
-    public function getList()
+    public function getList($customerId)
     {
         $contact = [];
 
-        $q=$this->_db->query("SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM contact u INNER JOIN  link_contact_company lk ON u.idContact =  lk.contact_idContact INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE u.isActive='1' AND c.isActive='1' GROUP BY u.idContact");
+        $query = "SELECT cont.* FROM contact cont INNER JOIN  link_customers_contact lk ON cont.idContact =  lk.contact_idContact INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE cont.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId;
+
+        echo $query;
+        /*$q=$this->_db->query($query);
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $contact[] = new Contact($donnees);
         }
 
-        return $contact;
+        return $contact;*/
     }
 
     /**
