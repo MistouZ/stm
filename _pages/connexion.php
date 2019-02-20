@@ -2,13 +2,13 @@
         <div class="loginfond"></div>
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <img style="max-width: 380px;" src="../images/logo.png" alt="" />
+            <img style="max-width: 350px;" src="../images/logo.png" alt="" />
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="_pages/_post/post_connexion.php" method="post">
+            <form class="login-form" action="<?php echo URLHOST."_pages/_post/post_connexion.php"; ?> method="post">
                 <h3 class="form-title">Connectez vous</h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
