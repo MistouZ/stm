@@ -32,7 +32,7 @@ $prenom = $_COOKIE['prenom'];
         ?>
             <li>
                 <a href="javascript:;">
-                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" />
+                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 35px;" />
             </li>
         <?php 
             } 
