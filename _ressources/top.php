@@ -24,7 +24,7 @@ $prenom = $_COOKIE['prenom'];
         </button>
         <ul class="dropdown-menu" role="menu">
         <?php
-            /*$company = array();
+            $company = array();
             $company = new Company ($company);
             $companymanager = new CompaniesManager($bdd);
             $companymanager = $companymanager->getCompanies($_COOKIE['username']);
@@ -35,7 +35,7 @@ $prenom = $_COOKIE['prenom'];
                     <img src="<?php echo URLHOST; ?>/images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" />
             </li>
         <?php 
-            } */
+            } 
         ?>
         </ul>
     </div>
