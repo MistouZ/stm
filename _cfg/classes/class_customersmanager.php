@@ -45,7 +45,9 @@ class CustomersManager
 
         $q->execute();
 
-        $customer = $this->getByName($customer->getName());
+        //$customer = $this->getByName($customer->getName());
+
+        echo "Customer Name : ".$customer->getName();
 
         echo "Customer id : ".$customer->getIdcustomer();
 
