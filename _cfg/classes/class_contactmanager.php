@@ -35,7 +35,7 @@ class ContactManager
      * @param Contact $contact
      * Insertion contact in the DB
      */
-    public function addToCustomers(Contact $contact, Customers $customers)
+    public function addToCustomers(Contact $contact, $customers)
     {
         $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :first_name, :email_address, :password, :phone_number, :isActive)');
         $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
@@ -46,9 +46,11 @@ class ContactManager
 
         $q->execute();
 
+        $contact = $this->getByName($contact->getName(), $contact->getFirstName());
+
         $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomer, contact_idcontact) VALUES (:idcustomer, :idcontact)');
         $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
-        $q2->bindValue(':idcustomer', $customers->getIdCustomer(), PDO::PARAM_INT);
+        $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
         $q2->execute();
 
     }
@@ -93,7 +95,7 @@ class ContactManager
      * @param $idContact
      * @return Contact
      */
-    public function get($idContact)
+    public function getById($idContact)
     {
         $idContact = (integer) $idContact;
         $q = $this->_db->query('SELECT * FROM contact WHERE idContact ='.$idContact);
@@ -101,7 +103,20 @@ class ContactManager
 
         return new Contact($donnees);
     }
+    /**
+     * Find a contact by his idContact
+     * @param $idContact
+     * @return Contact
+     */
+    public function getByName($contactName, $contactFirstName)
+    {
+        $contactName = (string) $contactName;
+        $contactFirstName = (string) $contactFirstName;
+        $q = $this->_db->query('SELECT * FROM contact WHERE name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"');
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
+        return new Contact($donnees);
+    }
     /**
      * Get all the contact in the BDD
      * @return array

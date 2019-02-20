@@ -14,6 +14,7 @@ if(isset($_POST['valider'])){
     $firstname=$_POST['firstname'];
     $emailAddress = $_POST['emailAddress'];
     $phoneNumber = $_POST['phoneNumber'];
+    $customerId = $_POST["customerId"];
 
     $is_active =1;
 
@@ -27,15 +28,7 @@ if(isset($_POST['valider'])){
 
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
-    $contactmanager->add($contact, $_POST["case"]);
+    $contactmanager->add($contact, $customerId);
     echo "New customer created successfully </br/>";
-
-    if($supplier == 1)
-    {
-        $supplier = new Suppliers($array);
-        $suppliermanager = new SuppliersManager($bdd);
-        $suppliermanager->add($supplier,$_POST["case"]);
-        echo "New provider created successfully <br />";
-    }
 
 }
