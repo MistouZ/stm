@@ -88,6 +88,7 @@ class folderManager
         return new Folder($donnees);
     }
 
+
     /**
      * Get all the suppliers in the BDD
      * @return array
@@ -108,7 +109,7 @@ class folderManager
     /**
      * Update folders information
      * @param folder $folder
-     */40284577+BITWINNC@users.noreply.github.com
+     */
     public function update(Folder $folder)
     {
         $q = $this->_db->prepare('UPDATE folder SET folderNumber = :folderNumber, label = :label, year = :year,month = :month,day = :day,status = :status,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE folderId= :folderId');
