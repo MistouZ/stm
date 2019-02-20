@@ -106,12 +106,12 @@ class UsersManager
         {
             $data = array();
             $user = new Users($data);
-            setcookie('nom', false, time() - 365*24*3600, null, null, false, true);
+            setcookie('nom', false, time() - 365*24*3600, '/');
             unset($_COOKIE['nom']);
-            setcookie('prenom', false, time() - 365*24*3600, null, null, false, true);
+            setcookie('prenom', false, time() - 365*24*3600, '/');
             unset($_COOKIE['prenom']);
             unset($_COOKIE['connected']);
-            setcookie('connected', false, time() + 365*24*3600, null, null, false, true);
+            setcookie('connected', false, time() + 365*24*3600, '/');
         }
         else
         {
@@ -119,21 +119,21 @@ class UsersManager
             {
                 $user = new Users($data);
                 unset($_COOKIE['nom']);
-                setcookie('nom', $user->getName(), time() + 365*24*3600, null, null, false, true);
+                setcookie('nom', $user->getName(), time() + 365*24*3600, '/');
                 unset($_COOKIE['prenom']);
-                setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, null, null, false, true);
-                setcookie('connected', true, time() + 365*24*3600, null, null, false, true);
+                setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, '/');
+                setcookie('connected', true, time() + 365*24*3600, '/');
             }
             else
             {
                 $data = array();
                 $user = new Users($data);
-                setcookie('nom', false, time() - 365*24*3600, null, null, false, true);
+                setcookie('nom', false, time() - 365*24*3600, '/');
                 unset($_COOKIE['nom']);
-                setcookie('prenom', false, time() - 365*24*3600, null, null, false, true);
+                setcookie('prenom', false, time() - 365*24*3600, '/');
                 unset($_COOKIE['prenom']);
                 unset($_COOKIE['connected']);
-                setcookie('connected', false, time() + 365*24*3600, null, null, false, true);
+                setcookie('connected', false, time() + 365*24*3600, '/');
             }
         }
 
