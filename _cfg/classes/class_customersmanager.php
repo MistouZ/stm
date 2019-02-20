@@ -45,7 +45,7 @@ class CustomersManager
 
         $q->execute();
 
-        $customer = $this->getLastId($customer->getName());
+        $this->getLastId($customer->getName());
 
 
         //echo "Customer id : ".$customer->getIdcustomer();
