@@ -122,7 +122,6 @@ class UsersManager
                 setcookie('nom', $user->getName(), time() + 365*24*3600, null, null, false, true);
                 unset($_COOKIE['prenom']);
                 setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, null, null, false, true);
-                unset($_COOKIE['connected']);
                 setcookie('connected', true, time() + 365*24*3600, null, null, false, true);
             }
             else
