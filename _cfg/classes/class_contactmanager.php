@@ -119,6 +119,8 @@ class ContactManager
         $q = $this->_db->query($query);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
+        print_r($donnees);
+
         return new Contact($donnees);
     }
 
