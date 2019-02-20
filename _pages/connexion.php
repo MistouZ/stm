@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <body class=" login">
         <div class="loginfond"></div>
         <!-- BEGIN LOGO -->
