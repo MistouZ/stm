@@ -119,7 +119,7 @@ class CompaniesManager extends Features
 
     public function getCompanies($username)
     {
-        $q = $this->_db->prepare('SELECT company_idcompany FROM link_company_users WHERE users_username ='.$username);
+        /*$q = $this->_db->prepare('SELECT company_idcompany FROM link_company_users WHERE users_username ='.$username);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         $q->execute();
@@ -133,7 +133,15 @@ class CompaniesManager extends Features
         while($donnees2 = $q2->fetch(PDO::FETCH_ASSOC))
         {
             $companies[] = new Company($donnees2);
+        }*/
+
+        $companies = [];
+        $q=$this->_db->query('SELECT c.* FROM company c INNER JOIN  link_company_users lk ON c.idcompany =  lk.company_idcompany INNER JOIN users u ON lk.users_username = u.username WHERE u.username ="'.$username.'" AND u.isActive=\'1\' AND c.isActive=\'1\' ORDER BY c.name ');
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $companies[] = new Company($donnees);
         }
+
         return $companies;
     }
 
