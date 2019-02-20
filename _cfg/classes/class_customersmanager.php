@@ -45,10 +45,10 @@ class CustomersManager
 
         $q->execute();
 
-        $this->getLastId($customer->getName());
+        $customer = $this->getLastId($customer->getName());
 
 
-        //echo "Customer id : ".$customer->getIdcustomer();
+        echo "Customer id : ".$customer->getIdcustomer();
 
         /*for ($i=0;$i<count($companies);$i++)
         {
@@ -102,11 +102,9 @@ class CustomersManager
     public function getLastId($customername)
     {
         $customername = (string) $customername;
-        $query = 'SELECT * FROM customers WHERE name ="'.$customername.'"';
-        echo $query;
-       /* $q = $this->_db->query($query);
+        $q = $this->_db->query('SELECT * FROM customers WHERE name ="'.$customername.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
-        return new Customers($donnees);*/
+        return new Customers($donnees);
     }
 
     /**
