@@ -68,7 +68,7 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-validation.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-blockui.min.js" type="text/javascript"></script>
 <?php }elseif($_GET['section']=="connexion"){ ?>
-<script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/login.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/login.min.js" type="text/javascript"></script>
 <?php } ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/dashboard.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
