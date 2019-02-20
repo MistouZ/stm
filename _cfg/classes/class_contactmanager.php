@@ -143,12 +143,12 @@ class ContactManager
      */
     public function update(Contact $contact)
     {
-        $q = $this->_db->prepare('UPDATE contact SET name = :name, firstname = :first_name, emailAddress = :email_address, phoneNumber = :phone_number, isActive = :isActive  WHERE idContact = :idContact');
+        $q = $this->_db->prepare('UPDATE contact SET name = :name, firstname = :firstname, emailAddress = :emailAddress, phoneNumber = :phoneNumber, isActive = :isActive  WHERE idContact = :idContact');
         $q->bindValue(':idContact', $contact->getUsername(), PDO::PARAM_STR);
         $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
-        $q->bindValue(':first_name', $contact->getFirstName(), PDO::PARAM_STR);
-        $q->bindValue(':email_address', $contact->getEmailAddress(), PDO::PARAM_STR);
-        $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR );
+        $q->bindValue(':firstname', $contact->getFirstName(), PDO::PARAM_STR);
+        $q->bindValue(':emailAddress', $contact->getEmailAddress(), PDO::PARAM_STR);
+        $q->bindValue(':phoneNumber', $contact->getPhoneNumber(), PDO::PARAM_STR );
         $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
 
         $q->execute();
