@@ -25,7 +25,7 @@ return preg_replace(array_keys($utf8), array_values($utf8), $text);
 }
 
 function transformerEnURL($string) {
-return strtolower(preg_replace(array( '#[s-]+#', '#[^A-Za-z0-9. -]+#' ), array( '-', '' ), enleverCaracteresSpeciaux(str_replace(array_keys($dict), array_values($dict), urldecode($string)))));
+return strtolower(preg_replace(array( '#[s-]+#', '#[^A-Za-z0-9. -]+#' ), array( '-', '' ), enleverCaracteresSpeciaux(str_replace(array_keys($string), array_values($string), urldecode($string)))));
 }
 
 
