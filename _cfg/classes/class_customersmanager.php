@@ -45,18 +45,15 @@ class CustomersManager
 
         $q->execute();
 
-        $this->getLastId($customer->getName());
+        $customer = $this->getLastId($customer->getName());
 
-
-        //echo "Customer id : ".$customer->getIdcustomer();
-
-        /*for ($i=0;$i<count($companies);$i++)
+        for ($i=0;$i<count($companies);$i++)
         {
             $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
             $q2->bindValue(':idcustomer', $customer->getIdcustomer(), PDO::PARAM_INT);
             $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
             $q2->execute();
-        }*/
+        }
     }
 
     /**
@@ -102,11 +99,9 @@ class CustomersManager
     public function getLastId($customername)
     {
         $customername = (string) $customername;
-        $query = 'SELECT * FROM customers WHERE name ="'.$customername.'"';
-        echo $query;
-       /* $q = $this->_db->query($query);
+        $q = $this->_db->query('SELECT * FROM customers WHERE name ="'.$customername.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
-        return new Customers($donnees);*/
+        return new Customers($donnees);
     }
 
     /**
