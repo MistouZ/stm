@@ -1,5 +1,6 @@
 <?php
 include("../../_cfg/cfg.php");
+session_start();
 
     $array = array();
 	$user = new Users($array);
