@@ -48,10 +48,13 @@ class ContactManager
 
         $contact = $this->getByName($contact->getName(), $contact->getFirstname());
 
-        $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomer, contact_idcontact) VALUES (:idcustomer, :idcontact)');
-        $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
+        echo $contact->getIdContact();
+
+        /*$q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
         $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
-        $q2->execute();
+        $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
+
+        $q2->execute();*/
 
     }
 
