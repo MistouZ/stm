@@ -2,6 +2,7 @@
 session_start();
 
 include '_cfg/cfg.php';
+
 ?>
 <!DOCTYPE html>
 <!-- 
