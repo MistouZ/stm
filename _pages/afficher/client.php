@@ -136,6 +136,7 @@ $contacts = $contactmanager->getList();*/
                                     <div class="input-icon right">
                                         <i class="fas"></i>
                                         <input type="text" class="form-control" name="phoneNumber" /> </div>
+                                        <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
                                 </div>
                             </div>
                         </form>
