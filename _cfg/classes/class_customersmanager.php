@@ -87,7 +87,7 @@ class CustomersManager
      * @param $idcustomer
      * @return Customers
      */
-    public function getByID(getByID)
+    public function getByID($idcustomer)
     {
         $idcustomer = (integer) $idcustomer;
         $q = $this->_db->query('SELECT * FROM `customers` WHERE `idcustomer` ='.$idcustomer);
