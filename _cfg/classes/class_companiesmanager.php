@@ -45,8 +45,10 @@ class CompaniesManager extends Features
      */
     public function add(Company $company)
     {
-        $q = $this->_db->prepare('INSERT INTO company (name, address,isActive) VALUES (:name, :address, :isActive)');
+        $q = $this->_db->prepare('INSERT INTO company (name, nameData, address,isActive) VALUES (:name, :nameData, :address, :isActive)');
         $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
+        $companyName = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $company->getName()));
+        $q->bindValue(':nameData', $companyName, PDO::PARAM_STR);
         $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
 
@@ -104,16 +106,36 @@ class CompaniesManager extends Features
 
     public function update(Company $company)
     {
-        $q = $this->_db->prepare('UPDATE company SET name = :name, address = :address, isActive = :isActive  WHERE idcompany = :idcompany');
+        $q = $this->_db->prepare('UPDATE company SET name = :name, nameData = :nameData address = :address, isActive = :isActive  WHERE idcompany = :idcompany');
         $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
         $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
+        $companyName = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $company->getName()));
+        $q->bindValue(':nameData', $companyName, PDO::PARAM_STR);
         $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
     }
 
+    public function getCompanies($username)
+    {
+        $q = $this->_db->prepare('SELECT company_idcompany FROM link_company_users WHERE users_username ='.$username);
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
+        $q->execute();
+        
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $q2 = $this->_db->prepare('SELECT * FROM company WHERE idcompany ='.$donnees->getIdcompany());
+            $donnees2 = $q2->fetch(PDO::FETCH_ASSOC);
+            $q2->execute();
+        }
+        while($donnees2 = $q2->fetch(PDO::FETCH_ASSOC))
+        {
+            $companies[] = new Company($donnees2);
+        }
+        return $companies;
+    }
 
 
 }

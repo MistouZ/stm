@@ -53,6 +53,14 @@
               $this->name = $name;
           }
       }
+      
+      /**
+       * @return mixed
+       */
+      public function getNameData()
+      {
+          return $this->nameData;
+      }
 
       /**
        * @return mixed

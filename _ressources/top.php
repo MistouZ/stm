@@ -19,35 +19,24 @@ $prenom = $_COOKIE['prenom'];
 <div class="page-actions">
     <div class="btn-group">
         <button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-            <span class="hidden-sm hidden-xs">Actions&nbsp;</span>
+            <span class="hidden-sm hidden-xs">Société&nbsp;</span>
             <i class="fa fa-angle-down"></i>
         </button>
         <ul class="dropdown-menu" role="menu">
+        <?php
+            $company = array();
+            $company = new Company ($company);
+            $companymanager = new CompaniesManager($bdd);
+            $companymanager = $companymanager->getCompanies($_COOKIE['username']);
+            foreach($companymanager as $company){
+        ?>
             <li>
                 <a href="javascript:;">
-                    <i class="icon-docs"></i> New Post </a>
+                    <img src="<?php echo URLHOST; ?>/images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" />
             </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="icon-tag"></i> New Comment </a>
-            </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="icon-share"></i> Share </a>
-            </li>
-            <li class="divider"> </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="icon-flag"></i> Comments
-                    <span class="badge badge-success">4</span>
-                </a>
-            </li>
-            <li>
-                <a href="javascript:;">
-                    <i class="icon-users"></i> Feedbacks
-                    <span class="badge badge-danger">2</span>
-                </a>
-            </li>
+        <?php 
+            } 
+        ?>
         </ul>
     </div>
 </div>

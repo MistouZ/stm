@@ -182,13 +182,5 @@ class UsersManager
 
         $q->execute();
     }
-    
-    public function getCompany($username)
-    {
-        $q = $this->_db->prepare('SELECT * FROM link_company_users WHERE users_username ='.$username);
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
-        $q->execute();
-    }
 
 }
