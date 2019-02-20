@@ -1,6 +1,6 @@
 <?php
 define('URLHOST','http://dev.bitwin.nc/');
-include 'fonctions.php';
+
 include 'classes/class_db.php';
 include 'classes/class_features.php';
 include 'classes/class_company.php';
