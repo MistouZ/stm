@@ -35,7 +35,7 @@
 <link href="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
 <style type="text/css">
-    body.loginfond {
+    .loginfond {
         position: absolute;
         top: 0; bottom: 0; left: 0; right: 0;
         height: 100%;
