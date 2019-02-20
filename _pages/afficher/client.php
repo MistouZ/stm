@@ -75,7 +75,7 @@ $contacts = $contactmanager->getList();*/
                                 foreach($contactmanager as $contact) {
                             ?>
                                 <tr>
-                                    <td><?php echo $contact->getName(); ?></td>
+                                    <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                                     <td><?php echo $contact->getEmailAddress(); ?></td>
                                     <td><?php echo $contact->getPhoneNumber(); ?></td>
                                     <td><a href="<?php echo URLHOST.'contact/afficher/'.$contact->getIdContact(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
