@@ -12,6 +12,6 @@
 <?php 
 $str = "I'Tech";
 
-echo "test : "$str.' => '.enleverCaracteresSpeciaux($str);
+echo "test : ".$str." => ".enleverCaracteresSpeciaux($str);
 ?>
 </html>
