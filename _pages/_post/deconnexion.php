@@ -9,7 +9,7 @@ unset($_COOKIE['prenom']);
 unset($_COOKIE['connected']);
 setcookie('connected', false, time() + 365*24*3600, '/');
 
-header('Location: '.URLHOST.'connexion/false'); 
+header('Location: '.URLHOST.'connexion');
 
 
 ?>
