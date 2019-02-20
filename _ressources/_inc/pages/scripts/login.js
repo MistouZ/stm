@@ -20,10 +20,10 @@ var Login = function() {
 
             messages: {
                 username: {
-                    required: "Username is required."
+                    required: "Login requis."
                 },
                 password: {
-                    required: "Password is required."
+                    required: "Mot de passe requis."
                 }
             },
 
@@ -50,14 +50,14 @@ var Login = function() {
             }
         });
 
-        $('.login-form input').keypress(function(e) {
+        /*$('.login-form input').keypress(function(e) {
             if (e.which == 13) {
                 if ($('.login-form').validate().form()) {
                     $('.login-form').submit(); //form validation success, call ajax form submit
                 }
                 return false;
             }
-        });
+        }*/);
     }
 
     var handleForgetPassword = function() {
