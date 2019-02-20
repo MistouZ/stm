@@ -45,7 +45,7 @@ class CustomersManager
 
         $q->execute();
 
-        $customer = $this->getLastId($customer->getName());
+        $customer = $this->getByName($customer->getName());
 
         for ($i=0;$i<count($companies);$i++)
         {
@@ -96,13 +96,6 @@ class CustomersManager
         return new Customers($donnees);
     }
 
-    public function getLastId($customername)
-    {
-        $customername = (string) $customername;
-        $q = $this->_db->query('SELECT * FROM customers WHERE name ="'.$customername.'"');
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
-        return new Customers($donnees);
-    }
 
     /**
      * Get all the customers in the BDD
