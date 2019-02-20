@@ -11,34 +11,23 @@ include("../../_cfg/cfg.php");
 
 if(isset($_POST['valider'])){
     $name=$_POST['name'];
-    $physical_address=$_POST['physical_address'];
-    if($_POST["invoice_address"] == NULL)
-    {
-        $invoice_address=$_POST['physical_address'];
-    }
-    else{
-        $invoice_address=$_POST['invoice_address'];
-    }
-    if(isset($_POST["is_supplier"]))
-    {
-        $supplier = 1;
-    }
-    else{
-        $supplier = 0;
-    }
+    $firstname=$_POST['firstname'];
+    $emailAddress = $_POST['emailAddress'];
+    $phoneNumber = $_POST['phoneNumber'];
 
     $is_active =1;
 
     $array = array(
         'name' => $name,
-        'physicalAddress' => $physical_address,
-        'invoiceAddress' => $invoice_address,
+        'firstname' => $firstname,
+        'emailAddress' => $emailAddress,
+        'phoneNumber' => $phoneNumber,
         'isActive' => $is_active
     );
 
-    $customer = new Customers($array);
-    $customermanager = new CustomersManager($bdd);
-    $customermanager->add($customer, $_POST["case"]);
+    $contact = new Contact($array);
+    $contactmanager = new ContactManager($bdd);
+    $contactmanager->add($contact, $_POST["case"]);
     echo "New customer created successfully </br/>";
 
     if($supplier == 1)
