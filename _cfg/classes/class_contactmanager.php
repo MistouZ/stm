@@ -41,7 +41,7 @@ class ContactManager
         $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
         $q->bindValue(':first_name', $contact->getFirstname(), PDO::PARAM_STR);
         $q->bindValue(':email_address', $contact->getEmailAddress(), PDO::PARAM_STR);
-        $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR);
+        $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_INT);
         $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
 
         $q->execute();
