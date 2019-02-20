@@ -4,8 +4,8 @@
     private $idContact;
     private $name;
     private $firstname;
-    private $email_address;
-    private $phone_number;
+    private $emailAddress;
+    private $phoneNumber;
     private $isActive;
     private $companyName;
 
@@ -73,15 +73,15 @@
        */
       public function getEmailAddress()
       {
-          return $this->email_address;
+        return $this->emailAddress;
       }
 
       /**
-       * @param mixed $email_address
+       * @param mixed $emailAddress
        */
-      public function setEmailAddress($email_address)
+      public function setEmailAddress($emailAddress): void
       {
-          $this->email_address = $email_address;
+        $this->emailAddress = $emailAddress;
       }
 
       /**
@@ -89,15 +89,15 @@
        */
       public function getPhoneNumber()
       {
-          return $this->phone_number;
+        return $this->phoneNumber;
       }
 
       /**
-       * @param mixed $phone_number
+       * @param mixed $phoneNumber
        */
-      public function setPhoneNumber($phone_number)
+      public function setPhoneNumber($phoneNumber): void
       {
-          $this->phone_number = $phone_number;
+        $this->phoneNumber = $phoneNumber;
       }
 
       /**
