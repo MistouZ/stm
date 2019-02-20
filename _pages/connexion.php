@@ -8,7 +8,7 @@
         <!-- BEGIN LOGIN -->
         <div class="content">
             <!-- BEGIN LOGIN FORM -->
-            <form class="login-form" action="_post/post_connexion.php" method="post">
+            <form class="login-form" action="_pages/_post/post_connexion.php" method="post">
                 <h3 class="form-title">Connectez vous</h3>
                 <div class="alert alert-danger display-hide">
                     <button class="close" data-close="alert"></button>
@@ -25,12 +25,12 @@
                     <label class="control-label visible-ie8 visible-ie9">Mot de passe</label>
                     <div class="input-icon">
                         <i class="fa fa-lock"></i>
-                        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" id="passwd" /> </div>
+                        <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Mot de passe" name="password" id="passwd" /> </div>
                 </div>
                 <div class="form-actions">
                     <label class="checkbox">
                         <input type="checkbox" name="remember" value="1" /> Rester connecté </label>
-                    <button type="submit" class="btn green pull-right" name="valider" value="Send"> Connexion </button>
+                    <button type="submit" class="btn green pull-right" name="valider" value="valider"> Connexion </button>
                 </div>
                 <div class="forget-password">
                     <h4>Mot de passe oublié ?</h4>
