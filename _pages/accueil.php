@@ -9,4 +9,9 @@
 <a href="<?php echo URLHOST;?>dossier/afficher">Afficher Dossier Liste</a><br />
 <a href="<?php echo URLHOST;?>dossier/afficher/111">Afficher Dossier Détail</a><br />
 </div>
+<?php 
+$str = "I'Tech";
+
+echo transformerEnURL($str);
+?>
 </html>
