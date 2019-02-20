@@ -39,7 +39,7 @@ class ContactManager
     {
         $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :first_name, :email_address, :password, :phone_number, :isActive)');
         $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
-        $q->bindValue(':first_name', $contact->getFirstName(), PDO::PARAM_STR);
+        $q->bindValue(':first_name', $contact->getFirstname(), PDO::PARAM_STR);
         $q->bindValue(':email_address', $contact->getEmailAddress(), PDO::PARAM_STR);
         $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
