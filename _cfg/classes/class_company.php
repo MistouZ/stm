@@ -3,6 +3,7 @@
   class Company extends Features{
     private $idcompany;
     private $name;
+    private $nameData;
     private $address;
     private $isActive;
 
