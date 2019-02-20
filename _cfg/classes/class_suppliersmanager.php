@@ -45,13 +45,13 @@ class SuppliersManager
 
         $q->execute();
 
-
+        $supplier = $this->getLastId($supplier->getName());
 
         for ($i=0;$i<count($companies);$i++)
         {
-            $q2 = $this->_db->prepare('INSERT INTO link_company_suppliers (suppliers_idsupplier, company_idcompany) VALUES (:idsupplier, :id_company)');
+            $q2 = $this->_db->prepare('INSERT INTO link_company_suppliers (company_idcompany, suppliers_idsupplier) VALUES (:idcompany,:idsupplier)');
+            $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
             $q2->bindValue(':idsupplier', $supplier->getIdSupplier(), PDO::PARAM_INT);
-            $q2->bindValue(':id_company', $companies[$i], PDO::PARAM_INT);
             $q2->execute();
         }
     }
@@ -89,13 +89,19 @@ class SuppliersManager
     public function getByName($suppliername)
     {
         $suppliername = (string) $suppliername;
-        $q = $this->_db->query('SELECT * FROM suppliers WHERE name ='.$suppliername);
+        $q = $this->_db->query('SELECT * FROM suppliers WHERE name ="'.$suppliername.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Suppliers($donnees);
     }
 
-
+    public function getLastId($suppliername)
+    {
+        $suppliername = (string) $suppliername;
+        $q = $this->_db->query('SELECT * FROM suppliers WHERE name ="'.$suppliername.'"');
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+        return new Suppliers($donnees);
+    }
 
     /**
      * Get all the suppliers in the BDD
