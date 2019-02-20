@@ -1,4 +1,5 @@
 <body class=" login">
+        <div class="loginfond"></div>
         <!-- BEGIN LOGO -->
         <div class="logo">
             <img style="max-width: 380px;" src="../images/logo.png" alt="" />
