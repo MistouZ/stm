@@ -1,7 +1,7 @@
 <!-- BEGIN LOGO -->
 <div class="page-logo">
     <a href="<?php echo URLHOST; ?>">
-        <img src="../images/logo.png" alt="logo" class="logo-default" style="width: 120px; margin: 13px 25px 0; " /> </a>
+        <img src="<?php echo URLHOST; ?>/images/logo.png" alt="logo" class="logo-default" style="width: 120px; margin: 13px 25px 0; " /> </a>
     <div class="menu-toggler sidebar-toggler">
         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
     </div>
@@ -360,7 +360,7 @@
             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
             <li class="dropdown dropdown-user dropdown-dark">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                    <span class="username username-hide-on-mobile"> <?php echo $_COOKIE['nom'].' '.$_COOKIE['prenom']; ?> </span>
+                    <span class="username username-hide-on-mobile"> <?php echo $_COOKIE['nom']; ?> </span>
                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                     <img alt="" class="img-circle" src="../assets/layouts/layout4/img/avatar9.jpg" /> </a>
                 <ul class="dropdown-menu dropdown-menu-default">
