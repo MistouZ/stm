@@ -110,6 +110,8 @@ class UsersManager
             unset($_COOKIE['nom']);
             setcookie('prenom', false, time() - 365*24*3600, '/');
             unset($_COOKIE['prenom']);
+            setcookie('username', $user->getUsername(), time() - 365*24*3600, '/');
+                unset($_COOKIE['username']);
             unset($_COOKIE['connected']);
             setcookie('connected', false, time() + 365*24*3600, '/');
         }
@@ -122,6 +124,8 @@ class UsersManager
                 setcookie('nom', $user->getName(), time() + 365*24*3600, '/');
                 unset($_COOKIE['prenom']);
                 setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, '/');
+                unset($_COOKIE['nom']);
+                setcookie('username', $user->getUsername(), time() + 365*24*3600, '/');
                 setcookie('connected', true, time() + 365*24*3600, '/');
             }
             else
@@ -132,6 +136,8 @@ class UsersManager
                 unset($_COOKIE['nom']);
                 setcookie('prenom', false, time() - 365*24*3600, '/');
                 unset($_COOKIE['prenom']);
+                setcookie('username', $user->getUsername(), time() - 365*24*3600, '/');
+                unset($_COOKIE['username']);
                 unset($_COOKIE['connected']);
                 setcookie('connected', false, time() + 365*24*3600, '/');
             }
@@ -173,6 +179,14 @@ class UsersManager
         $q->bindValue(':credential', $user->getCredential(), PDO::PARAM_STR );
         $q->bindValue(':isSeller', $user->getisSeller(), PDO::PARAM_INT);
         $q->bindValue(':isActive', $user->getisActive(), PDO::PARAM_INT);
+
+        $q->execute();
+    }
+    
+    public function getCompany($username)
+    {
+        $q = $this->_db->prepare('SELECT * FROM link_company_users WHERE users_username ='.$username);
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         $q->execute();
     }
