@@ -16,34 +16,10 @@ if(isset($_POST['valider'])){
         $_SESSION["connected"] = true;
 	}
 
-	//$link->close();
+if(empty($user)){
+        header('Location: '.URLHOST.'connexion/false');
+}else{
+        header('Location: '.URLHOST);
+}
 
 ?>
-
-<html>
-    <head>
-
-    </head>
-    <body>
-        <?php
-            echo "Bienvenue ".$user->getUsername()." ".$user->getFirstName()." ".$user->getName()." ".$user->getEmailAddress()." ".$user->getPhoneNumber()."<br>";
-            if($user->getCredential() == "A")
-            {
-         ?>
-                <a href="<?php echo $path."users/saisie_users.php" ?>">Ajouter un utilisateur</a> <br>
-                <a href="<?php echo $path."company/saisie_company.php" ?>">Ajouter une société</a>
-        <?php
-            }
-            else
-            {
-                ?>
-                <a href="<?php echo $path . "users/show_users.php" ?>">Voir les utilisateur</a> <br>
-                <a href="<?php echo $path . "company/show_company.php" ?>">Voir les sociétés</a> <br>
-                <a href="<?php echo $path . "customers/show_customers.php" ?>">Voir les clients</a> <br>
-                <a href="<?php echo $path . "suppliers/show_suppliers.php" ?>">Voir les fournisseurs</a> <br>
-       <?php
-            }
-        ?>
-
-    </body>
-</html>
