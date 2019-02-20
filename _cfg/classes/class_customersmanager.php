@@ -57,13 +57,13 @@ class CustomersManager
     }
 
     /**
-     * @param customers $customer
+     * @param integer $contactid
      * Disable customer instead of delete it
      */
-    public function delete(Customers $customer)
+    public function delete($contactid)
     {
-        $q = $this->_db->prepare('UPDATE customers SET isActive = 0 WHERE idcustomers = :idcustomers');
-        $q->bindValue(':idcustomers', $customer->getIdCustomer(), PDO::PARAM_INT);
+        $q = $this->_db->prepare('UPDATE customers SET isActive = \'0\' WHERE idcustomers = :idcustomers');
+        $q->bindValue(':idcustomers', $contactid, PDO::PARAM_INT);
 
         $q->execute();
     }
@@ -87,7 +87,7 @@ class CustomersManager
      * @param $idcustomer
      * @return Customers
      */
-    public function getByID($idcustomer)
+    public function getByID(getByID)
     {
         $idcustomer = (integer) $idcustomer;
         $q = $this->_db->query('SELECT * FROM `customers` WHERE `idcustomer` ='.$idcustomer);

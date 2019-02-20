@@ -116,22 +116,5 @@
           $this->isActive = $isActive;
       }
 
-      /**
-       * @return mixed
-       */
-      public function getCompanyName()
-      {
-          return $this->companyName;
-      }
-
-      /**
-       * @param mixed $companyName
-       */
-      public function setCompanyName($companyName)
-      {
-          $this->companyName = $companyName;
-      }
-
-
   }
 ?>
