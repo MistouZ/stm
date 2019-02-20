@@ -10,8 +10,7 @@ session_start();
 if(isset($_POST['valider'])){
 
 		$user = $userManager->connectUser($_POST['username'],$_POST['password']);
-        setcookie('nom', $user->getName(), time() + 365*24*3600, null, null, false, true);
-        setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, null, null, false, true);
+        
         
 		/*$_SESSION["username"] = $user->getUsername();
 		$_SESSION["name"] = $user->getName();
@@ -20,11 +19,11 @@ if(isset($_POST['valider'])){
         $_SESSION["connected"] = true;*/
 	}
 
-if(empty($_COOKIE['nom'])){
+if($_COOKIE['connected']==false){
         header('Location: '.URLHOST.'connexion/false');    
 }else{
-        header('Location: '.URLHOST);
-        setcookie('connected', $donnees['login'], time() + 365*24*3600, null, null, false, true);
+        
+        header('Location: '.URLHOST);  
 }
 
 ?>

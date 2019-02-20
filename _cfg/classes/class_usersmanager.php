@@ -106,19 +106,26 @@ class UsersManager
         {
             $data = array();
             $user = new Users($data);
-            echo 'Mauvais identifiant ou mot de passe !';
+            setcookie('nom', '', time() + 365*24*3600, null, null, false, true);
+            setcookie('prenom', '', time() + 365*24*3600, null, null, false, true);
+            setcookie('connected', false, time() + 365*24*3600, null, null, false, true);
         }
         else
         {
             if ($isPasswordCorrect)
             {
                 $user = new Users($data);
+                setcookie('nom', $user->getName(), time() + 365*24*3600, null, null, false, true);
+                setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, null, null, false, true);
+                setcookie('connected', true, time() + 365*24*3600, null, null, false, true);
             }
             else
             {
                 $data = array();
                 $user = new Users($data);
-                echo 'Mauvais identifiant ou mot de passe !';
+                setcookie('nom', '', time() + 365*24*3600, null, null, false, true);
+                setcookie('prenom', '', time() + 365*24*3600, null, null, false, true);
+                setcookie('connected', false, time() + 365*24*3600, null, null, false, true);
             }
         }
 
