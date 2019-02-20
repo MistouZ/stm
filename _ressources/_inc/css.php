@@ -34,3 +34,27 @@
 <link href="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/css/themes/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME LAYOUT STYLES -->
+<style type="text/css">
+    .loginfond {
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+        height: 100%;
+        margin:0;
+        padding:0;
+        background-size: 100% ;
+        width:100%;  
+        color:black;
+        position: fixed;
+       height: 100%; width: 100%;
+       background: url('images/fond.jpg') !important;
+       background-size: cover;
+       background-repeat:no-repeat;
+       z-index: -1; /* Keep the background behind the content */     
+       -webkit-filter: blur(8px);
+       -webkit-background-size: cover; /* pour Chrome et Safari */
+       -moz-background-size: cover; /* pour Firefox */
+       -o-background-size: cover; /* pour Opera */
+       background-size: cover; /* version standardisée */
+    }
+    
+</style>

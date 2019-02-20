@@ -1,14 +1,6 @@
 <?php
-$path = "./";
+include("../../_cfg/cfg.php");
 
-	session_start();
-	include_once($path.'_cfg/classes/class_db.php');
-	include_once($path.'_cfg/classes/class_features.php');
-	include_once($path.'_cfg/classes/class_users.php');
-	include_once($path.'_cfg/classes/class_usersmanager.php');
-
-	$bdd = new DB();
-    $bdd->connexion();
     $array = array();
 	$user = new Users($array);
 	$userManager = new UsersManager($bdd);
