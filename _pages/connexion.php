@@ -1,4 +1,4 @@
-<body class=" login" style="background-image: url(../images/fond.jpg) !important;background-repeat:no-repeat; background-size: cover; -webkit-filter: blur(8px); !important;" >
+<body class=" login">
         <!-- BEGIN LOGO -->
         <div class="logo">
             <img style="max-width: 380px;" src="../images/logo.png" alt="" />
