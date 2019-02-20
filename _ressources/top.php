@@ -86,7 +86,7 @@ $prenom = $_COOKIE['prenom'];
                     <li class="divider"> </li>
                     <li>
                         <a href="<?php echo URLHOST; ?>_pages/_post/deconnexion.php">
-                            <i class="icon-logout"></i> Déconnexion </a>
+                            <i class="icon-logout"></i> DÃ©connexion </a>
                     </li>
                 </ul>
             </li>
