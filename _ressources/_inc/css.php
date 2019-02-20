@@ -44,10 +44,7 @@
         background-size: 100% ;
         width:100%;  
         color:black;
-    }
-    
-    body.login:before{ 
-       position: fixed;
+        position: fixed;
        height: 100%; width: 100%;
        background: url('images/fond.jpg') !important;
        background-size: cover;
