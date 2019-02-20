@@ -49,7 +49,7 @@
        background-size: cover;
        background-repeat:no-repeat;
        z-index: -1; /* Keep the background behind the content */     
-       -webkit-filter: blur(15px);
+       -webkit-filter: blur(8px);
        -webkit-background-size: cover; /* pour Chrome et Safari */
        -moz-background-size: cover; /* pour Firefox */
        -o-background-size: cover; /* pour Opera */

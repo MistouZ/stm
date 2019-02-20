@@ -3,7 +3,7 @@
         <div class="loginfond" style="background: url('<?php echo URLHOST; ?>images/fond.jpg') !important;"></div>
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <img style="max-width: 350px;" src="../images/logo.png" alt="" />
+            <img style="max-width: 200px;" src="../images/logo.png" alt="" />
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
