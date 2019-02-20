@@ -30,7 +30,7 @@
                 <div class="form-actions">
                     <label class="checkbox">
                         <input type="checkbox" name="remember" value="1" /> Rester connecté </label>
-                    <button type="submit" class="btn green pull-right" name="valider" value="valider"> Connexion </button>
+                    <button type="submit" class="btn green pull-right" id="valider" name="valider" value="valider"> Connexion </button>
                 </div>
                 <div class="forget-password">
                     <h4>Mot de passe oublié ?</h4>
