@@ -45,10 +45,10 @@ class CustomersManager
 
         $q->execute();
 
-        $customer = $this->getByName($customer->getName());
+        $customeradded = $this->getByName($customer->getName());
 
 
-        echo "Customer id : ".$customer->getIdcustomer();
+        echo "Customer id : ".$customeradded->getIdcustomer();
 
         /*for ($i=0;$i<count($companies);$i++)
         {
