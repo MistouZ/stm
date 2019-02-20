@@ -1,8 +1,7 @@
 <body class=" login">
         <!-- BEGIN LOGO -->
         <div class="logo">
-            <a href="index.html">
-                <img src="../images/logo.png" alt="" /> </a>
+            <img style="max-width: 380px;" src="../images/logo.png" alt="" />
         </div>
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
