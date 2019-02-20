@@ -45,11 +45,10 @@ class CustomersManager
 
         $q->execute();
 
-        //$customer = $this->getByName($customer->getName());
+        $customer = $this->getByName($customer->getName());
 
-        echo "Customer Name : ".$customer->getName();
 
-        //echo "Customer id : ".$customer->getIdcustomer();
+        echo "Customer id : ".$customer->getIdcustomer();
 
         /*for ($i=0;$i<count($companies);$i++)
         {
@@ -80,10 +79,14 @@ class CustomersManager
     public function getByName($customername)
     {
         $customername = (string) $customername;
-        $q = $this->_db->query('SELECT * FROM customers WHERE name ='.$customername);
+        $query = 'SELECT * FROM customers WHERE name ='.$customername;
+        $q = $this->_db->query($query);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Customers($donnees);
+        echo $query;
+        print_r($donnees);
+
+        //return new Customers($donnees);
     }
 
 
