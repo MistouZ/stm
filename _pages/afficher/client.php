@@ -12,7 +12,7 @@ $customer = $customermanager->getByID($customerId);
 $arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
-$contacts = $contactmanager->getList($customerId);
+$contactmanager = $contactmanager->getList($customerId);
 ?>
 <div class="portlet box grey-cascade">
     <div class="portlet-title">
