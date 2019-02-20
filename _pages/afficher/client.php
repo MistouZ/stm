@@ -141,7 +141,7 @@ $contacts = $contactmanager->getList();*/
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="Valider">
+                                <button type="submit" class="btn green" name="valider">
                                     <i class="fa fa-check"></i> Valider</button>
                             </div>
                         </form>
