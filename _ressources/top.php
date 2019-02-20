@@ -1,3 +1,7 @@
+<?php
+$nom = $_COOKIE['nom'];
+$prenom = $_COOKIE['prenom'];
+?>
 <!-- BEGIN LOGO -->
 <div class="page-logo">
     <a href="<?php echo URLHOST; ?>">
@@ -360,7 +364,7 @@
             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
             <li class="dropdown dropdown-user dropdown-dark">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                    <span class="username username-hide-on-mobile"> <?php echo "test"; ?> </span>
+                    <span class="username username-hide-on-mobile"> <?php echo $nom.' '.$prenom; ?> </span>
                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                     <img alt="" class="img-circle" src="../assets/layouts/layout4/img/avatar9.jpg" /> </a>
                 <ul class="dropdown-menu dropdown-menu-default">
