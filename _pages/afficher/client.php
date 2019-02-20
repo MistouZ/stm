@@ -99,7 +99,7 @@ $contacts = $contactmanager->getList();*/
                         <h4 class="modal-title">Création d'un contact</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="#" id="form_sample_2" class="form-horizontal form-row-seperated">
+                        <form action="<?php echo URLHOST."_pages/_post/creer_contact.php"; ?>" id="form_sample_2" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Nom
                                     <span class="required"> * </span>
@@ -142,7 +142,7 @@ $contacts = $contactmanager->getList();*/
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="button" class="btn green">
+                        <button type="button" class="btn green" name="Valider">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </div>
