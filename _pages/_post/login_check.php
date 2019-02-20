@@ -16,10 +16,11 @@ if(isset($_POST['valider'])){
         $_SESSION["connected"] = true;
 	}
 
-if(empty($user)){
+print_r($user);
+/*if(empty($user)){
         header('Location: '.URLHOST.'connexion/false');
 }else{
         header('Location: '.URLHOST);
-}
+}*/
 
 ?>
