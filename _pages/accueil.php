@@ -12,6 +12,6 @@
 <?php 
 $str = "I'Tech";
 
-echo "test : ".transformerEnURL($str);
+echo "test : ".enleverCaracteresSpeciaux($str);
 ?>
 </html>

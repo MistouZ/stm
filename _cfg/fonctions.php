@@ -21,7 +21,7 @@ $utf8 = array(
 '/[«»]/u' => ' ', // guillemet double
 '/ /' => ' ', // espace insécable (équiv. à 0x160)
 );
-return preg_replace(array_keys($utf8), array_values($utf8), $text);
+return strtolower(preg_replace(array_keys($utf8), array_values($utf8), $text));
 }
 
 function transformerEnURL($string) {
