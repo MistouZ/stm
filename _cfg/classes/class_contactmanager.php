@@ -128,16 +128,13 @@ class ContactManager
     {
         $contact = [];
 
-        $query = "SELECT cont.* FROM contact cont INNER JOIN  link_customers_contact lk ON cont.idContact =  lk.contact_idContact INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE cont.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId;
-
-        echo $query;
-        /*$q=$this->_db->query($query);
+        $q=$this->_db->query("SELECT cont.* FROM contact cont INNER JOIN  link_customers_contact lk ON cont.idContact =  lk.contact_idContact INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE cont.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId);
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $contact[] = new Contact($donnees);
         }
 
-        return $contact;*/
+        return $contact;
     }
 
     /**
