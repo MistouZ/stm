@@ -34,7 +34,14 @@ License: You must have a valid license purchased only from themeforest(the above
         <!-- END THEME LAYOUT STYLES -->
         <link rel="shortcut icon" href="favicon.ico" /> </head>
     <!-- END HEAD -->
-
+<?php 
+if($_GET['section']=="connexion"){ 
+    include (__DIR__.'/_pages/connexion.php');
+    include "_ressources/_inc/js.bottom.php";
+?>
+    </body>
+</html>
+<?php }else{ ?>
     <body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo page-sidebar-fixed">
         <!-- BEGIN HEADER -->
         <div class="page-header navbar navbar-fixed-top">
@@ -99,3 +106,4 @@ License: You must have a valid license purchased only from themeforest(the above
     </body>
 
 </html>
+<?php } //FIN du test de connexion ?>

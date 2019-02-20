@@ -15,13 +15,22 @@
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
+<?php }elseif($_GET['section']=="connexion"){ ?>
+<link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
 <?php } ?>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
+<!-- BEGIN PAGE LEVEL STYLES -->
+<?php if($_GET['section']=="connexion"){ ?>
+<link href="<?php echo URLHOST;?>_ressources/_inc/pages/css/login-3.min.css" rel="stylesheet" type="text/css" />
+<?php } ?>
+<!-- END PAGE LEVEL STYLES -->
 <!-- BEGIN THEME LAYOUT STYLES -->
 <link href="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/css/layout.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/css/themes/light.min.css" rel="stylesheet" type="text/css" id="style_color" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/css/custom.min.css" rel="stylesheet" type="text/css" />
+<!-- END THEME LAYOUT STYLES -->
