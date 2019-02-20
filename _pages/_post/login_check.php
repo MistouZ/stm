@@ -13,6 +13,7 @@ if(isset($_POST['valider'])){
 		$_SESSION["name"] = $user->getName();
 		$_SESSION["firstname"] = $user->getFirstName();
 		$_SESSION["credentials"] = $user->getCredential();
+        $_SESSION["connected"] = true;
 	}
 
 	//$link->close();
