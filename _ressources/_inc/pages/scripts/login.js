@@ -20,10 +20,10 @@ var Login = function() {
 
             messages: {
                 username: {
-                    required: "Username is required."
+                    required: "Login requis."
                 },
                 password: {
-                    required: "Password is required."
+                    required: "Mot de passe requis."
                 }
             },
 
