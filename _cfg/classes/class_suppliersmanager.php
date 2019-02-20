@@ -45,7 +45,7 @@ class SuppliersManager
 
         $q->execute();
 
-        $supplier = $this->getLastId($supplier->getName());
+        $supplier = $this->getByName($supplier->getName());
 
         for ($i=0;$i<count($companies);$i++)
         {
@@ -95,13 +95,6 @@ class SuppliersManager
         return new Suppliers($donnees);
     }
 
-    public function getLastId($suppliername)
-    {
-        $suppliername = (string) $suppliername;
-        $q = $this->_db->query('SELECT * FROM suppliers WHERE name ="'.$suppliername.'"');
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
-        return new Suppliers($donnees);
-    }
 
     /**
      * Get all the suppliers in the BDD
