@@ -46,6 +46,8 @@ class ContactManager
 
         $q->execute();
 
+        print_r($this->db->last_query());
+
         /*$contact = $this->getByName($contact->getName(), $contact->getFirstName());
 
         $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomer, contact_idcontact) VALUES (:idcustomer, :idcontact)');
