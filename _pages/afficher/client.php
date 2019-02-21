@@ -164,7 +164,7 @@ $contactmanager = $contactmanager->getList($customerId);
                         <h4 class="modal-title">Modification du client</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/creer_contact.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
+                        <form action="<?php echo URLHOST."_pages/_post/modif_client.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Nom du client
                                     <span class="required"> * </span>
@@ -220,7 +220,10 @@ $contactmanager = $contactmanager->getList($customerId);
                                             <label class="checkbox-inline">
                                     <?php
                                             echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
-                                            echo $company->getName().'</label>';
+                                    ?>
+                                                <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;" /></a>
+                                            </label>
+                                    <?php
                                         }
                                     ?>
                                     </div>
