@@ -217,9 +217,9 @@ $contactmanager = $contactmanager->getList($customerId);
                                         foreach ($companies as $company)
                                         {
                                     ?>
-                                            <label class="checkbox-inline">
+                                            <label class="icheck-inline">
                                     <?php
-                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
+                                            echo'<input type="checkbox" data-checkbox="icheckbox_line-purple" class="icheck" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
                                             echo $company->getName().'</label>';
                                         }
                                     ?>
