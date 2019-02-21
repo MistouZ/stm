@@ -212,12 +212,12 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-9">
-                                    <div class="checkbox-list" data-error-container="#form_2_services_error">
+                                    <div class="icheck-inline" data-error-container="#form_2_services_error">
                                     <?php
                                         foreach ($companies as $company)
                                         {
                                     ?>
-                                            <label class="icheck-inline">
+                                            <label>
                                     <?php
                                             echo'<input type="checkbox" data-checkbox="icheckbox_line-purple" class="icheck" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
                                             echo $company->getName().'</label>';
