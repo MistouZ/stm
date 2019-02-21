@@ -20,20 +20,21 @@ if(isset($_POST['valider'])) {
         $uploadedFile = $uploadDir . basename($_FILES['nameData']["name"]).".".$extension;
         if (move_uploaded_file($_FILES['nameData']['tmp_name'], $uploadedFile)) {
             echo 'File was uploaded successfully.';
+            $array = array(
+                'name' => $name,
+                'address' => $address,
+                'isActive' => $isActive
+            );
+
+            $company = new Company($array);
+            $companiesmanager = new CompaniesManager($bdd);
+            $companiesmanager->add($company);
         } else {
             echo 'There was a problem saving the uploaded file';
         }
     }
 
-    $array = array(
-        'name' => $name,
-        'address' => $address,
-        'isActive' => $isActive
-    );
 
-    $company = new Company($array);
-    $companiesmanager = new CompaniesManager($bdd);
-    $companiesmanager->add($company);
 }
 
 ?>
