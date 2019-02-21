@@ -14,8 +14,8 @@ if(isset($_POST['valider'])) {
 
     if (isset($_FILES['nameData'])) {
         $uploadDir = URLHOST.'images/societe/'; //path you wish to store you uploaded files
-        $uploadedFile = $uploadDir . basename($_FILES['nameData']);
-        if (move_uploaded_file($_FILES['upload']['tmp_name'], $uploadedFile)) {
+        $uploadedFile = $uploadDir . basename($_FILES['nameData']["name"]);
+        if (move_uploaded_file($_FILES['nameData']['tmp_name'], $uploadedFile)) {
             echo 'File was uploaded successfully.';
         } else {
             echo 'There was a problem saving the uploaded file';
