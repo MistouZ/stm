@@ -22,14 +22,16 @@
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th class="all">First name</th>
-                            <th class="min-phone-l">Last name</th>
-                            <th class="min-tablet">Position</th>
-                            <th class="none">Office</th>
-                            <th class="none">Age</th>
-                            <th class="none">Start date</th>
-                            <th class="desktop">Salary</th>
-                            <th class="none">Extn.</th>
+                            <th class="all">Prénom</th>
+                            <th class="min-phone-l">Nom</th>
+                            <th class="min-tablet">Login</th>
+                            <th class="none">Adresse email</th>
+                            <th class="none">Numéro de téléphone</th>
+                            <th class="none">Accréditation</th>
+                            <th class="desktop">Société par défaut</th>
+                            <th class="none">Sociétés affiliées</th>
+                            <th class="none">Commercial</th>
+                            <th class="none">Actif</th>
                         </tr>
                     </thead>
                     <tbody>
