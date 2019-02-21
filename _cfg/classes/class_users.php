@@ -184,18 +184,20 @@
       /**
        * @return mixed
        */
-      public function getCompanyName()
+      public function getDefaultCompany()
       {
           return $this->defaultCompany;
       }
 
       /**
-       * @param mixed $companyName
+       * @param mixed $defaultCompany
        */
-      public function setCompanyName($defaultCompany)
+      public function setDefaultCompany($defaultCompany): void
       {
           $this->defaultCompany = $defaultCompany;
       }
+
+
 
   }
 ?>
