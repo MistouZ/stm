@@ -15,7 +15,7 @@ if(isset($_POST['valider'])) {
     $extension=end(explode(".", $_FILES['nameData']["name"]));
     $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
 
-    if (isset($_FILES['nameData'])) {
+    if (is_uploaded_file($_FILES['nameData'])) {
         $uploadDir = 'images/societe/'; //path you wish to store you uploaded files
         $uploadedFile = $uploadDir . basename($_FILES['nameData']["name"]).".".$extension;
         if (move_uploaded_file($_FILES['nameData']['tmp_name'], $uploadedFile)) {
@@ -34,6 +34,9 @@ if(isset($_POST['valider'])) {
             echo $_FILES['nameData']['tmp_name'];
             echo 'There was a problem saving the uploaded file';
         }
+    }
+    else{
+        echo "fichier non uploadé";
     }
 
 
