@@ -23,7 +23,7 @@ $contactmanager = $contactmanager->getList($customerId);
 <div class="portlet box grey-cascade">
     <div class="portlet-title">
         <div class="caption">
-            <i class="fas fa-user-tie"></i>Informations client</div>
+            <i class="fas fa-user-tie"></i>Informations du client <span style="font-style: italic; font-weight: 800;"><?php echo $customer->getName(); ?></span></div>
         <div class="tools">
             <a href="javascript:;" class="collapse"> </a>
             <a href="javascript:;" class="reload"> </a>
@@ -71,8 +71,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <th class="all">Nom</th>
                                     <th class="none">Mail</th>
                                     <th class="none">Téléphone</th>
-                                    <th class="min-phone-l">Afficher</th>
-                                    <th class="min-tablet">Modifier</th>
+                                    <th class="min-phone-l">Modifier</th>
                                     <th class="min-tablet">Suprimer</th>
                                 </tr>
                             </thead>
@@ -84,7 +83,6 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                                     <td><?php echo $contact->getEmailAddress(); ?></td>
                                     <td><?php echo $contact->getPhoneNumber(); ?></td>
-                                    <td><a href="<?php echo URLHOST.'contact/afficher/'.$contact->getIdContact(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
                                     <td><a href="<?php echo URLHOST.'contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                                     <td><a href="<?php echo URLHOST.'contact/supprimer/'.$contact->getIdContact(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
                                 </tr>
@@ -172,7 +170,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="name" /> </div>
+                                        <input type="text" class="form-control" name="name" value="<?php echo $customer->getName(); ?>" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -182,7 +180,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="physical_address" id="physical_address" /> </div>
+                                        <input type="text" class="form-control" name="physical_address" id="physical_address" value="<?php echo $customer->getPhysicalAddress(); ?>" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -192,7 +190,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="invoice_address" id="invoice_address" /> </div>
+                                        <input type="text" class="form-control" name="invoice_address" id="invoice_address" value="<?php echo $customer->getInvoiceAddress(); ?>" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
