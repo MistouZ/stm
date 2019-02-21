@@ -3,7 +3,7 @@
   class Company extends Features{
     private $idcompany;
     private $name;
-    private $nameData;
+    //private $nameData;
     private $address;
     private $isActive;
 
@@ -58,21 +58,21 @@
       /**
        * @return mixed
        */
-      public function getNameData()
+      /*public function getNameData()
       {
           return $this->nameData;
-      }
+      }*/
       
       /**
        * @param mixed $name
        */
-      public function setNameData($nameData): void
+      /*public function setNameData($nameData): void
       {
           if(is_string($nameData))
           {
               $this->nameData = $nameData;
           }
-      }
+      }*/
 
       /**
        * @return mixed
