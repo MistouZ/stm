@@ -31,7 +31,8 @@ if(isset($_POST['valider'])) {
             $companiesmanager->add($company);
         } else {
             echo $uploadedFile.'<br />';
-            echo $_FILES['nameData']['tmp_name'];
+            echo $_FILES['nameData']['tmp_name'].'<br />';
+            echo sys_get_temp_dir();
             echo 'There was a problem saving the uploaded file';
         }
     }
