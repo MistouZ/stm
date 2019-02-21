@@ -37,13 +37,13 @@ $companymanager = $companymanager->getList();
                     <?php
                     foreach($companymanager as $company) {
 
-                        if($company->getIsActive() == 1)
+                        /*if($company->getIsActive() == 1)
                         {
                             $company->setIsActive("Oui");
                         }
                         else {
                             $company->setIsActive("Non");
-                        }
+                        }*/
                         ?>
                         <tr>
                             <td><?php echo $company->getName(); ?></td>
