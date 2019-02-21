@@ -31,14 +31,13 @@ $companymanager = new CompaniesManager($bdd);
                             <th class="all">Prénom</th>
                             <th class="min-phone-l">Nom</th>
                             <th class="min-tablet">Login</th>
-                            <th class="none">Adresse email</th>
+                            <th class="min-phone-l">Adresse email</th>
                             <th class="none">Numéro de téléphone</th>
                             <th class="none">Accréditation</th>
                             <th class="desktop">Société par défaut</th>
                             <th class="none">Sociétés affiliées</th>
                             <th class="none">Commercial</th>
                             <th class="none">Actif</th>
-                            <th class="min-phone-l">Afficher</th>
                             <th class="min-tablet">Modifier</th>
                         </tr>
                     </thead>
@@ -72,7 +71,6 @@ $companymanager = new CompaniesManager($bdd);
                             <td><?php echo $user->getCompanyName() ?></td>
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><?php echo $user->getIsActive();?></td>
-                            <td><a href="<?php echo URLHOST.'user/afficher/'.$user->getUsername(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
                             <td><a href="<?php echo URLHOST.'user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
@@ -84,6 +82,9 @@ $companymanager = new CompaniesManager($bdd);
                     </tbody>
                 </table>
             </div>
+        </div>
+        <div>
+            Note pour les accréditations : U : Utilisateur, F : U + Possibilité de Facturation, C : F + Création de Client, A : Administrateur
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
