@@ -8,6 +8,7 @@
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
+$companymanager = $companymanager->getList();
 
 
 ?>
