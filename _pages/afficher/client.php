@@ -2,6 +2,12 @@
 
 $customerId = $_GET['soussouscat'];
 
+//récupération de la liste des sociétés
+$arrayCompanies = array();
+$company = new Company($arrayCompanies);
+$companies = new CompaniesManager($bdd);
+$companies = $companies->getList();
+
 //Récupération des données client
 $arrayClient = array();
 $customer = new Customers($arrayClient);
@@ -23,8 +29,8 @@ $contactmanager = $contactmanager->getList($customerId);
             <a href="javascript:;" class="reload"> </a>
         </div>
         <div class="actions">
-            <a data-toggle="modal" href="#modifier" class="btn btn-default btn-sm">
-                <i class="fa fa-pencil"></i> Modifier </a>
+            <a data-toggle="modal" href="#modifier_client" class="btn btn-default btn-sm">
+                <i class="fa fa-pencil"></i> Modifier le client </a>
         </div>
     </div>
     <div class="portlet-body">
@@ -150,7 +156,7 @@ $contactmanager = $contactmanager->getList($customerId);
                 </div>
             </div>
         </div>
-        <div id="modifier" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+        <div id="modifier_client" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -160,7 +166,7 @@ $contactmanager = $contactmanager->getList($customerId);
                     <div class="modal-body form">
                         <form action="<?php echo URLHOST."_pages/_post/creer_contact.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
                             <div class="form-group">
-                                <label class="control-label col-md-4">Nom
+                                <label class="control-label col-md-4">Nom du client
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-8">
@@ -170,32 +176,56 @@ $contactmanager = $contactmanager->getList($customerId);
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-4">Prénom
+                                <label class="control-label col-md-4">Adresse physique
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="firstname" /> </div>
+                                        <input type="text" class="form-control" name="physical_address" id="physical_address" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-4">Email
+                                <label class="control-label col-md-4">Adresse de facturation
+                                    <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="email" class="form-control" name="emailAddress" /> </div>
+                                        <input type="text" class="form-control" name="invoice_address" id="invoice_address" /> </div>
                                 </div>
                             </div>
-                            <div class="form-group last">
-                                <label class="control-label col-md-4">Téléphone
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Fournisseur
                                 </label>
                                 <div class="col-md-8">
-                                    <div class="input-icon right">
-                                        <i class="fas"></i>
-                                        <input type="text" class="form-control" name="phoneNumber" /> </div>
-                                        <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
+                                    <div class="checkbox-list" data-error-container="#form_2_services_error">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="is_supplier" name="is_supplier" id="is_supplier" /></label>
+                                    </div>
+                                    <span class="help-block"> Cocher si ce client est aussi un fournisseur </span>
+                                    <div id="form_2_services_error"> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Société
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="checkbox-list" data-error-container="#form_2_services_error">
+                                    <?php
+                                        foreach ($companies as $company)
+                                        {
+                                    ?>
+                                            <label class="checkbox-inline">
+                                    <?php
+                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
+                                            echo $company->getName();
+                                        }
+                                    ?>
+                                    </div>
+                                    <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
+                                    <div id="form_2_services_error"> </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
