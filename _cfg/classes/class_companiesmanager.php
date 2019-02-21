@@ -78,7 +78,7 @@ class CompaniesManager extends Features
         $q = $this->_db->query('SELECT * FROM `company` WHERE `idcompany` ='.$idcompany);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Customers($donnees);
+        return new Company($donnees);
     }
 
 
