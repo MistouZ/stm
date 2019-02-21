@@ -56,7 +56,7 @@ $companymanager = new CompaniesManager($bdd);
                             <td><?php echo $user->getPhoneNumber();?></td>
                             <td><?php echo $user->getCredential();?></td>
                             <td><?php echo $company->getName();?></td>
-                            <td></td>
+                            <td><?php echo $user->getCompanyName() ?></td>
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><?php echo $user->getIsActive();?></td>
                             <td><a href="<?php echo URLHOST.'user/afficher/'.$user->getUsername(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
