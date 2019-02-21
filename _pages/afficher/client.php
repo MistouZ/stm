@@ -199,7 +199,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <label class="control-label col-md-4">Fournisseur
                                 </label>
                                 <div class="col-md-8">
-                                    <div class="checkbox-list" data-error-container="#form_2_services_error">
+                                    <div class="checkbox-list">
                                         <label class="checkbox-inline">
                                             <input type="checkbox" value="is_supplier" name="is_supplier" id="is_supplier" /></label>
                                     </div>
@@ -208,10 +208,10 @@ $contactmanager = $contactmanager->getList($customerId);
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-4">Société
+                                <label class="control-label col-md-3">Société
                                     <span class="required"> * </span>
                                 </label>
-                                <div class="col-md-8">
+                                <div class="col-md-9">
                                     <div class="checkbox-list" data-error-container="#form_2_services_error">
                                     <?php
                                         foreach ($companies as $company)
@@ -219,7 +219,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                     ?>
                                             <label class="checkbox-inline">
                                     <?php
-                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
+                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" /></label>';
                                             echo $company->getName();
                                         }
                                     ?>
