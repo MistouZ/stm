@@ -16,7 +16,6 @@ if(isset($_POST['valider'])){
         $companymanager = new CompaniesManager($bdd);
         $company = $companymanager->getById($user->getDefaultCompany());
         
-        unset($_COOKIE['company']);
         setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
 }
 

@@ -59,10 +59,6 @@ $prenom = $_COOKIE['prenom'];
     <!-- BEGIN TOP NAVIGATION MENU -->
     <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
-            <li class="dropdown dropdown-extended dropdown-dark">
-                <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                <img alt="" src="<?php echo URLHOST; ?>images/societe/<?php echo $_COOKIE['company']; ?>.jpg" style="max-height: 40px;" />
-            </li>
             <li class="separator hide"> </li>
             <!-- BEGIN USER LOGIN DROPDOWN -->
             <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->

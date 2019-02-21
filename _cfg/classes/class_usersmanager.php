@@ -108,14 +108,9 @@ class UsersManager
             $data = array();
             $user = new Users($data);
             setcookie('nom', false, time() - 365*24*3600, '/');
-            unset($_COOKIE['nom']);
             setcookie('prenom', false, time() - 365*24*3600, '/');
-            unset($_COOKIE['prenom']);
             setcookie('username', false, time() - 365*24*3600, '/');
-            unset($_COOKIE['username']);
             setcookie('company', false, time() - 365*24*3600, '/');
-            unset($_COOKIE['company']);
-            unset($_COOKIE['connected']);
             setcookie('connected', false, time() + 365*24*3600, '/');
         }
         else
@@ -123,11 +118,8 @@ class UsersManager
             if ($isPasswordCorrect)
             {
                 $user = new Users($data);
-                unset($_COOKIE['nom']);
                 setcookie('nom', $user->getName(), time() + 365*24*3600, '/');
-                unset($_COOKIE['prenom']);
                 setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, '/');
-                unset($_COOKIE['username']);
                 setcookie('username', $user->getUsername(), time() + 365*24*3600, '/');
                 setcookie('connected', true, time() + 365*24*3600, '/');
             }
@@ -136,14 +128,9 @@ class UsersManager
                 $data = array();
                 $user = new Users($data);
                 setcookie('nom', false, time() - 365*24*3600, '/');
-                unset($_COOKIE['nom']);
                 setcookie('prenom', false, time() - 365*24*3600, '/');
-                unset($_COOKIE['prenom']);
                 setcookie('username', false, time() - 365*24*3600, '/');
-                unset($_COOKIE['username']);
                 setcookie('company', false, time() - 365*24*3600, '/');
-                unset($_COOKIE['company']);
-                unset($_COOKIE['connected']);
                 setcookie('connected', false, time() + 365*24*3600, '/');
             }
         }
