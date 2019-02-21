@@ -18,7 +18,7 @@
         
     </li>
     <li>
-        <span class="active" style="color: #523a5f;"><?php print ucwords($_GET['souscat']); ?></span>
+        <span class="active" style="color: #523a5f; font-weight: 800;"><?php print ucwords($_GET['souscat']); ?></span>
     </li>
     <?php 
             }else{
@@ -27,7 +27,7 @@
         
     </li>
     <li>
-        <span class="active" style="color: #523a5f; font-weight: 800;"><?php print ucwords($_GET['souscat']); ?></span>
+        <span class="active" style="color: #523a5f;"><?php print ucwords($_GET['souscat']); ?></span>
     </li>
         
     <?php 
