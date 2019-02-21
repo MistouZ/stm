@@ -12,7 +12,7 @@ if(isset($_POST['valider'])) {
     $name=$_POST['name'];
     $address=$_POST['address'];
     $isActive = 1;
-    $_FILES['nameData'] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
+    $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
 
     if (isset($_FILES['nameData'])) {
         $uploadDir = URLHOST.'images/societe/'; //path you wish to store you uploaded files
