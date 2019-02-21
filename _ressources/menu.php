@@ -214,7 +214,7 @@
     </li>
     <li class="nav-item  ">
         <a href="javascript:;" class="nav-link nav-toggle">
-            <i class="fas fa-user-shield"></i>
+            <i class="fas fa-building"></i>
             <span class="title">Société</span>
             <span class="arrow"></span>
         </a>
