@@ -64,17 +64,6 @@ $prenom = $_COOKIE['prenom'];
                     <span class="username username-hide-on-mobile"> <?php echo $nom.' '.$prenom; ?> </span>
                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                     <i style="font-size: 35px;" class="fas fa-user-circle img-circle"></i> </a>
-                <ul class="dropdown-menu dropdown-menu-default">
-                    <li>
-                        <a href="page_user_profile_1.html">
-                            <i class="icon-user"></i> Profil </a>
-                    </li>
-                    <li class="divider"> </li>
-                    <li>
-                        <a href="<?php echo URLHOST; ?>_pages/_post/deconnexion.php">
-                            <i class="icon-logout"></i> Déconnexion </a>
-                    </li>
-                </ul>
             </li>
             <li class="separator hide"> </li>
             <!-- BEGIN USER LOGIN DROPDOWN -->
