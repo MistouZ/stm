@@ -18,6 +18,7 @@ if(isset($_POST['valider'])){
         
         unset($_COOKIE['company']);
         setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
+        setcookie('company', $company->getNameData() , time() + 365*24*3600, '/_pages/_post');
 }
 $url = $_COOKIE['company'];
 
