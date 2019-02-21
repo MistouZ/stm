@@ -23,7 +23,7 @@ $contactmanager = $contactmanager->getList($customerId);
             <a href="javascript:;" class="reload"> </a>
         </div>
         <div class="actions">
-            <a data-toggle="modal" data-target="modifier" href="" class="btn btn-default btn-sm">
+            <a data-toggle="modal" href="#modifier" class="btn btn-default btn-sm">
                 <i class="fa fa-pencil"></i> Modifier </a>
         </div>
     </div>
@@ -56,7 +56,7 @@ $contactmanager = $contactmanager->getList($customerId);
                     </div>
                     <div class="tab-pane fade" id="tab_6_2">
                         <div class="actions">
-                            <a data-toggle="modal" data-target="creer_contact" href="" class="btn btn-default btn-sm grey-mint">
+                            <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
                                 <i class="fas fa-plus"></i> Nouv. Contact </a>
                         </div>
                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
