@@ -12,7 +12,7 @@
     <li>
         <a href="<?php echo URLHOST.$_COOKIE['company'].'/accueil'; ?>" style="font-weight: 800;">Accueil</a>
         <?php
-            if(isset($_GET['souscat'])){ 
+            if(isset($_GET['souscat']) && empty($_GET['soussouscat'])){ 
         ?>
         <i class="fa fa-circle" style="color: #aa134f;"></i>
         
@@ -20,8 +20,20 @@
     <li>
         <span class="active" style="color: #523a5f;"><?php print ucwords($_GET['souscat']); ?></span>
     </li>
-    <?php } 
-        if(isset($_GET['soussouscat'])){ 
+    <?php 
+            }else{
+    ?>
+    <i class="fa fa-circle" style="color: #aa134f;"></i>
+        
+    </li>
+    <li>
+        <span class="active" style="color: #523a5f; font-weight: 800;"><?php print ucwords($_GET['souscat']); ?></span>
+    </li>
+        
+    <?php 
+            } 
+            
+            if(isset($_GET['soussouscat'])){ 
         ?>
         <i class="fa fa-circle" style="color: #aa134f;"></i>
         
