@@ -16,7 +16,7 @@ if(isset($_POST['valider'])) {
     $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
 
     if (isset($_FILES['nameData'])) {
-        $uploadDir = '/images/societe/'; //path you wish to store you uploaded files
+        $uploadDir = 'images/societe/'; //path you wish to store you uploaded files
         $uploadedFile = $uploadDir . basename($_FILES['nameData']["name"]).".".$extension;
         if (move_uploaded_file($_FILES['nameData']['tmp_name'], $uploadedFile)) {
             echo 'File was uploaded successfully.';
