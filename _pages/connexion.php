@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php session_start(); 
+$company = array();
+$company = new Company($company);
+$companymanager = new CompaniesManager($bdd);
+$idCompany = $user->getDefaultCompany();
+echo $companymanager->getById(3);
+
+?>
 <body class=" login">
         <div class="loginfond" style="background: url('<?php echo URLHOST; ?>images/fond.jpg') !important;"></div>
         <!-- BEGIN LOGO -->
