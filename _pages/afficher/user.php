@@ -17,7 +17,7 @@ $contactmanager = $contactmanager->getList($customerId);
 <div class="portlet box grey-cascade">
     <div class="portlet-title">
         <div class="caption">
-            <i class="fas fa-user-tie"></i>Informations Utilisateurs</div>
+            <i class="fas fa-user-tie"></i>Informations client</div>
         <div class="tools">
             <a href="javascript:;" class="collapse"> </a>
             <a href="javascript:;" class="reload"> </a>
