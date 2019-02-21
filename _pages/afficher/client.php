@@ -111,7 +111,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="name" /> </div>
+                                        <input type="text" data-required="1" class="form-control" name="name" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -121,7 +121,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="firstname" /> </div>
+                                        <input type="text" data-required="1" class="form-control" name="firstname" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -163,6 +163,10 @@ $contactmanager = $contactmanager->getList($customerId);
                     </div>
                     <div class="modal-body form">
                         <form action="<?php echo URLHOST."_pages/_post/modifier_client.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
+                            <div class="alert alert-danger display-hide">
+                                <button class="close" data-close="alert"></button> Vous devez remplir les champs requis (<span class="required"> * </span>) </div>
+                            <div class="alert alert-success display-hide">
+                                <button class="close" data-close="alert"></button> Les modifications ont bien été prises en compte </div>
                             <div class="form-group">
                                 <label class="control-label col-md-4">Nom du client
                                     <span class="required"> * </span>
@@ -170,7 +174,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="name" value="<?php echo $customer->getName(); ?>" /> </div>
+                                        <input type="text" data-required="1" class="form-control" name="name" value="<?php echo $customer->getName(); ?>" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -180,7 +184,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="physical_address" id="physical_address" value="<?php echo $customer->getPhysicalAddress(); ?>" /> </div>
+                                        <input type="text" data-required="1" class="form-control" name="physical_address" id="physical_address" value="<?php echo $customer->getPhysicalAddress(); ?>" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -190,7 +194,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" class="form-control" name="invoice_address" id="invoice_address" value="<?php echo $customer->getInvoiceAddress(); ?>" /> </div>
+                                        <input type="text" data-required="1" class="form-control" name="invoice_address" id="invoice_address" value="<?php echo $customer->getInvoiceAddress(); ?>" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -210,7 +214,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-9">
-                                    <div class="checkbox-list" data-error-container="#form_2_services_error">
+                                    <div class="checkbox-list" data-error-container="#company_error">
                                     <?php
                                         foreach ($companies as $company)
                                         {
@@ -226,7 +230,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                     ?>
                                     </div>
                                     <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
-                                    <div id="form_2_services_error"> </div>
+                                    <div id="company_error"> </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
