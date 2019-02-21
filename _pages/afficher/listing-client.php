@@ -9,6 +9,7 @@ $companymanager = new CompaniesManager($bdd);
 $company = $companymanager->getById(3);
 
 echo $company->getName();
+echo $company->getNameData();
 ?>
 <html>
 <div class="row">
