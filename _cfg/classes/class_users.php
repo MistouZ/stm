@@ -10,7 +10,7 @@
     private $credential;
     private $isSeller;
     private $isActive;
-    private $companyName;
+    private $defaultCompany;
 
 
       /**
@@ -192,9 +192,9 @@
       /**
        * @param mixed $companyName
        */
-      public function setCompanyName($companyName)
+      public function setCompanyName($defaultCompany)
       {
-          $this->defaultCompany = $companyName;
+          $this->defaultCompany = $defaultCompany;
       }
 
   }
