@@ -197,7 +197,5 @@
           $this->defaultCompany = $defaultCompany;
       }
 
-
-
   }
 ?>

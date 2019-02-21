@@ -72,7 +72,7 @@ class CompaniesManager extends Features
      * @param $idcompany
      * @return company
      */
-    public function get($idcompany)
+    public function getById($idcompany)
     {
         $idcompany = (integer) $idcompany;
         $q = $this->_db->query('SELECT * FROM company WHERE idcompany ='.$idcompany);
