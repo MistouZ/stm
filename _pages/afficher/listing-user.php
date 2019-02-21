@@ -43,8 +43,6 @@ $usermanager = $usermanager->getList();
                     </thead>
                     <tbody>
                     <?php
-                    //$donnees_client = R::getAll("SELECT * from customers"," ORDER BY name DESC");
-
                     foreach($usermanager as $user) {
                         ?>
                         <tr>
