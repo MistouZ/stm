@@ -33,7 +33,7 @@
     <?php 
             } 
             
-            if(isset($_GET['soussouscat'])){ 
+           /* if(isset($_GET['soussouscat'])){ 
         ?>
         <i class="fa fa-circle" style="color: #aa134f;"></i>
         
@@ -41,6 +41,6 @@
     <li>
         <span class="active" style="color: #523a5f; font-weight: 800;"><?php print ucwords($_GET['soussouscat']); ?></span>
     </li>
-    <?php } ?>
+    <?php } */?>
 </ul>
 <!-- END PAGE BREADCRUMB -->
