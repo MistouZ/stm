@@ -6,7 +6,9 @@ $customermanager = $customermanager->getList();
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
+$company = $companymanager->getById(3);
 
+echo $company->getName();
 ?>
 <html>
 <div class="row">
