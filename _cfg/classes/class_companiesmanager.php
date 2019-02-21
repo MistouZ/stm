@@ -75,7 +75,7 @@ class CompaniesManager extends Features
     public function getById($idcompany)
     {
         $idcompany = (integer) $idcompany;
-        $q = $this->_db->query('SELECT * FROM `compnay` WHERE `idcompany` ='.$idcompany);
+        $q = $this->_db->query('SELECT * FROM `company` WHERE `idcompany` ='.$idcompany);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Customers($donnees);
