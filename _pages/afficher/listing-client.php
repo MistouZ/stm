@@ -3,6 +3,10 @@ $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $customermanager = $customermanager->getList();
+
+$company = new Company($array);
+$companymanager = new CompaniesManager($bdd);
+
 ?>
 <html>
 <div class="row">
