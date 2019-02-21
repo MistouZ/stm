@@ -19,12 +19,15 @@ if(isset($_POST['valider'])){
         unset($_COOKIE['company']);
         setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
 }
+$url = URLHOST.$_COOKIE['company']);
 
-if($_COOKIE['connected']==false){
+echo $url;
+
+/*if($_COOKIE['connected']==false){
         header('Location: '.URLHOST.'connexion/false');    
 }else{
         
         header('Location: '.URLHOST.$_COOKIE['company']);  
-}
+}*/
 
 ?>
