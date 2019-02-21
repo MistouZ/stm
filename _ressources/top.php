@@ -59,8 +59,7 @@ $prenom = $_COOKIE['prenom'];
     <!-- BEGIN TOP NAVIGATION MENU -->
     <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
-            <li class="dropdown dropdown-user dropdown-dark">
-                <span class="username username-hide-on-mobile"> <?php echo $nom.' '.$prenom; ?> </span>
+            <li class="dropdown dropdown-extended dropdown-dark">
                 <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                 <img alt="" src="<?php echo URLHOST; ?>images/societe/<?php echo $_COOKIE['company']; ?>.jpg" style="max-height: 40px;" />
             </li>
