@@ -46,7 +46,20 @@ $companymanager = new CompaniesManager($bdd);
                     <?php
                     foreach($usermanager as $user) {
                         $company = $companymanager->getById($user->getDefaultCompany());
-
+                        if($user->getIsSeller() == 1)
+                        {
+                            $user->setIsSeller("Oui");
+                        }
+                        else {
+                            $user->setIsSeller("Non");
+                        }
+                        if($user->getIsActive() == 1)
+                        {
+                            $user->setIsActive("Oui");
+                        }
+                        else {
+                            $user->setIsActive("Non");
+                        }
                         ?>
                         <tr>
                             <td><?php echo $user->getFirstName(); ?></td>
