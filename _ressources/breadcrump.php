@@ -15,10 +15,20 @@
             if(isset($_GET['souscat'])){ 
         ?>
         <i class="fa fa-circle"></i>
-        <?php } ?>
+        
     </li>
     <li>
         <span class="active"><?php print ucwords($_GET['souscat']); ?></span>
     </li>
+    <?php } 
+        if(isset($_GET['soussouscat'])){ 
+        ?>
+        <i class="fa fa-circle"></i>
+        
+    </li>
+    <li>
+        <span class="active"><?php print ucwords($_GET['soussouscat']); ?></span>
+    </li>
+    <?php } ?>
 </ul>
 <!-- END PAGE BREADCRUMB -->

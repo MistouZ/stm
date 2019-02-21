@@ -1,6 +1,6 @@
 <?php
 
-$customerId = $_GET['souscat'];
+$customerId = $_GET['soussouscat'];
 
 //Récupération des données client
 $arrayClient = array();
