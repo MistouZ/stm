@@ -74,11 +74,13 @@ class CompaniesManager extends Features
      */
     public function getById($idcompany)
     {
-        $idcompany = (integer) $idcompany;
+        $query = 'SELECT * FROM company WHERE idcompany ='.$idcompany;
+        echo $query;
+        /*$idcompany = (integer) $idcompany;
         $q = $this->_db->query('SELECT * FROM company WHERE idcompany ='.$idcompany);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Company($donnees);
+        return new Company($donnees);*/
     }
 
 
