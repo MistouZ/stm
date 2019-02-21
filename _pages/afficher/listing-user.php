@@ -47,7 +47,7 @@ $usermanager = $usermanager->getList();
                         ?>
                         <tr>
                             <td><?php echo $user->getFirstName(); ?></td>
-                            <td><?php echo $user->getName()(); ?></td>
+                            <td><?php echo $user->getName(); ?></td>
                             <td><?php echo $user->getUsername();?></td>
                             <td><?php echo $user->getEmailAddress();?></td>
                             <td><?php echo $user->getPhoneNumber();?></td>
