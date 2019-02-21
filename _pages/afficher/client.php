@@ -23,7 +23,7 @@ $contactmanager = $contactmanager->getList($customerId);
             <a href="javascript:;" class="reload"> </a>
         </div>
         <div class="actions">
-            <a data-toggle="modal" href="#modifier" class="btn btn-default btn-sm">
+            <a data-toggle="modal" data-target="modifier" href="" class="btn btn-default btn-sm">
                 <i class="fa fa-pencil"></i> Modifier </a>
         </div>
     </div>
@@ -56,7 +56,7 @@ $contactmanager = $contactmanager->getList($customerId);
                     </div>
                     <div class="tab-pane fade" id="tab_6_2">
                         <div class="actions">
-                            <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
+                            <a data-toggle="modal" data-target="creer_contact" href="" class="btn btn-default btn-sm grey-mint">
                                 <i class="fas fa-plus"></i> Nouv. Contact </a>
                         </div>
                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
@@ -150,6 +150,64 @@ $contactmanager = $contactmanager->getList($customerId);
                 </div>
             </div>
         </div>
-        
+        <div id="modifier" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Modification du client</h4>
+                    </div>
+                    <div class="modal-body form">
+                        <form action="<?php echo URLHOST."_pages/_post/creer_contact.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Nom
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-icon right">
+                                        <i class="fas"></i>
+                                        <input type="text" class="form-control" name="name" /> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Prénom
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-icon right">
+                                        <i class="fas"></i>
+                                        <input type="text" class="form-control" name="firstname" /> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Email
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-icon right">
+                                        <i class="fas"></i>
+                                        <input type="email" class="form-control" name="emailAddress" /> </div>
+                                </div>
+                            </div>
+                            <div class="form-group last">
+                                <label class="control-label col-md-4">Téléphone
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-icon right">
+                                        <i class="fas"></i>
+                                        <input type="text" class="form-control" name="phoneNumber" /> </div>
+                                        <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                                <button type="submit" class="btn green" name="valider">
+                                    <i class="fa fa-check"></i> Valider</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
