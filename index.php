@@ -42,10 +42,13 @@ License: You must have a valid license purchased only from themeforest(the above
         <link rel="apple-touch-icon" sizes="144x144" href="<?php echo URLHOST;?>images/favicon/apple-touch-icon-144x144.png">
         <link rel="apple-touch-icon" sizes="152x152" href="<?php echo URLHOST;?>images/favicon/apple-touch-icon-152x152.png">
         <link rel="apple-touch-icon" sizes="180x180" href="<?php echo URLHOST;?>images/favicon/apple-touch-icon-180x180.png">
+        <link rel="apple-touch-icon" href="<?php echo URLHOST;?>images/favicon/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="<?php echo URLHOST;?>images/favicon/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="<?php echo URLHOST;?>images/favicon/favicon-16x16.png">
         <link rel="manifest" href="<?php echo URLHOST;?>images/favicon/site.webmanifest">
         <link rel="mask-icon" href="<?php echo URLHOST;?>images/safari-pinned-tab.svg" color="#523a5f">
+        <meta name="apple-mobile-web-app-title" content="StM-Compta">
+        <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="theme-color" content="#ffffff">
     </head>
