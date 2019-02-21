@@ -137,7 +137,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <label class="control-label col-md-4">Téléphone
                                 </label>
                                 <div class="col-md-8">
-                                    <input type="digit" class="form-control" name="phoneNumber" />
+                                    <input type="number" class="form-control" name="phoneNumber" />
                                 </div>
                             </div>
                             <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
