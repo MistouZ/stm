@@ -3,7 +3,7 @@ $company = array();
 $company = new Company($company);
 $companymanager = new CompaniesManager($bdd);
 $idCompany = $user->getDefaultCompany();
-echo $companymanager->getById(3);
+
 
 ?>
 <body class=" login">
@@ -15,6 +15,7 @@ echo $companymanager->getById(3);
         <!-- END LOGO -->
         <!-- BEGIN LOGIN -->
         <div class="content">
+            <?php echo $companymanager->getById(3); ?>
             <!-- BEGIN LOGIN FORM -->
             <form class="login-form" action="<?php echo URLHOST."_pages/_post/login_check.php"; ?>" method="post" >
                 <h3 class="form-title">Connectez vous</h3>
