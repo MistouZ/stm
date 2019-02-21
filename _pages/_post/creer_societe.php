@@ -30,7 +30,7 @@ if(isset($_POST['valider'])) {
             $companiesmanager = new CompaniesManager($bdd);
             $companiesmanager->add($company);
         } else {
-            echo $uploadedFile;
+            echo $uploadedFile.'<br />';
             echo $_FILES['nameData']['tmp_name'];
             echo 'There was a problem saving the uploaded file';
         }
