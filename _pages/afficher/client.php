@@ -139,7 +139,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="number" class="form-control" name="phoneNumber" /> </div>
+                                        <input type="digit" class="form-control" name="phoneNumber" /> </div>
                                 </div>
                             </div>
                             <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
