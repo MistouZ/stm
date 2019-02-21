@@ -1,7 +1,7 @@
 <div class="page-head" style="background-color: white; padding-left: 10px;">
     <!-- BEGIN PAGE TITLE -->
     <div class="page-title">
-        <h1 style="color: #color: #173752; font-weight: 900;"><?php print strtoupper($_GET['cat']); ?>
+        <h1 style="color: #color: #173752 !important; font-weight: 900;"><?php print strtoupper($_GET['cat']); ?>
         </h1>
     </div>
     <!-- END PAGE TITLE -->
