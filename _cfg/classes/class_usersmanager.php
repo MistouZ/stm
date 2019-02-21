@@ -135,7 +135,7 @@ class UsersManager
                 $company = array();
                 $company = new Company($company);
                 $companymanager = new CompaniesManager($bdd);
-                $companymanager = $companymanager->getById($user->getDefaultCompany());
+                //$companymanager = $companymanager->getById($user->getDefaultCompany());
                 /*foreach($companymanager as $company){
                     unset($_COOKIE['company']);
                     setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
