@@ -5,7 +5,7 @@
  * @copyright 2019
  */
 
-
+$array = $array();
 $company = new Company($array);
 $companies = new CompaniesManager($bdd);
 $companies = $companies->getList();
