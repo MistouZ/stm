@@ -186,7 +186,7 @@
        */
       public function getCompanyName()
       {
-          return $this->companyName;
+          return $this->defaultCompany;
       }
 
       /**
@@ -194,7 +194,7 @@
        */
       public function setCompanyName($companyName)
       {
-          $this->companyName = $companyName;
+          $this->defaultCompany = $companyName;
       }
 
   }

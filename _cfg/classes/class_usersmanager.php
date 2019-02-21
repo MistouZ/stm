@@ -111,7 +111,9 @@ class UsersManager
             setcookie('prenom', false, time() - 365*24*3600, '/');
             unset($_COOKIE['prenom']);
             setcookie('username', $user->getUsername(), time() - 365*24*3600, '/');
-                unset($_COOKIE['username']);
+            unset($_COOKIE['username']);
+            setcookie('company', $user->getUsername(), time() - 365*24*3600, '/');
+            unset($_COOKIE['company']);
             unset($_COOKIE['connected']);
             setcookie('connected', false, time() + 365*24*3600, '/');
         }
@@ -124,8 +126,10 @@ class UsersManager
                 setcookie('nom', $user->getName(), time() + 365*24*3600, '/');
                 unset($_COOKIE['prenom']);
                 setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, '/');
-                unset($_COOKIE['nom']);
+                unset($_COOKIE['username']);
                 setcookie('username', $user->getUsername(), time() + 365*24*3600, '/');
+                unset($_COOKIE['company']);
+                setcookie('company', $user->getCompanyName(), time() + 365*24*3600, '/');
                 setcookie('connected', true, time() + 365*24*3600, '/');
             }
             else
@@ -138,6 +142,8 @@ class UsersManager
                 unset($_COOKIE['prenom']);
                 setcookie('username', $user->getUsername(), time() - 365*24*3600, '/');
                 unset($_COOKIE['username']);
+                setcookie('company', $user->getUsername(), time() - 365*24*3600, '/');
+                unset($_COOKIE['company']);
                 unset($_COOKIE['connected']);
                 setcookie('connected', false, time() + 365*24*3600, '/');
             }
