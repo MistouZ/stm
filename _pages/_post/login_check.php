@@ -12,11 +12,6 @@ if(isset($_POST['valider'])){
 		$user = $userManager->connectUser($_POST['username'],$_POST['password']);
         
         
-		/*$_SESSION["username"] = $user->getUsername();
-		$_SESSION["name"] = $user->getName();
-		$_SESSION["firstname"] = $user->getFirstName();
-		$_SESSION["credentials"] = $user->getCredential();
-        $_SESSION["connected"] = true;*/
 	}
 
 if($_COOKIE['connected']==false){

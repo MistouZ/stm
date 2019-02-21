@@ -129,14 +129,6 @@ class UsersManager
                 setcookie('prenom', $user->getFirstName(), time() + 365*24*3600, '/');
                 unset($_COOKIE['username']);
                 setcookie('username', $user->getUsername(), time() + 365*24*3600, '/');
-                
-                $array = array();
-                $company = new Company($array);
-                $companymanager = new CompaniesManager($bdd);
-                $company = $companymanager->getById($user->getDefaultCompany());
-                
-                unset($_COOKIE['company']);
-                setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
                 setcookie('connected', true, time() + 365*24*3600, '/');
             }
             else
