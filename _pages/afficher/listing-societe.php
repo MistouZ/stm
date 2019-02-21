@@ -49,7 +49,7 @@ $companymanager = new CompaniesManager($bdd);
                             <td><?php echo $company->getAddress(); ?></td>
                             <td><?php echo $company->getIsActive();?></td>
                             <td><img src="images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getNameData();?> "/></td>
-                            <td><a href="<?php echo URLHOST.'societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <!--<td><a href="<?php echo URLHOST.'societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>-->
                         </tr>
                         <?php
                     }
