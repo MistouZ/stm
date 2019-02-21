@@ -84,7 +84,7 @@ $companymanager = new CompaniesManager($bdd);
             </div>
         </div>
         <div>
-            Note pour les accréditations : A = Administrateur, C : Compta, F :
+            Note pour les accréditations : U : Utilisateur, F : U + Possibilité de Facturation, C : F + Création de Client, A : Administrateur
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
