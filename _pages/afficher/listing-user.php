@@ -9,7 +9,8 @@ $array = array();
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $usermanager = $usermanager->getList();
-
+$company = new Company($array);
+$companymanager = new CompaniesManager($bdd);
 
 
 ?>
@@ -44,6 +45,8 @@ $usermanager = $usermanager->getList();
                     <tbody>
                     <?php
                     foreach($usermanager as $user) {
+                        $company = $companymanager->getById($user->getDefaultCompany());
+
                         ?>
                         <tr>
                             <td><?php echo $user->getFirstName(); ?></td>
@@ -52,7 +55,8 @@ $usermanager = $usermanager->getList();
                             <td><?php echo $user->getEmailAddress();?></td>
                             <td><?php echo $user->getPhoneNumber();?></td>
                             <td><?php echo $user->getCredential();?></td>
-                            <td><?php echo $user->getDefaultCompany();?></td>
+                            <td><?php echo $company->getName();?></td>
+                            <td></td>
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><?php echo $user->getIsActive();?></td>
                             <td><a href="<?php echo URLHOST.'user/afficher/'.$user->getUsername(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
