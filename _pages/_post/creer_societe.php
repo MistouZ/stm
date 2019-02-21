@@ -12,11 +12,12 @@ if(isset($_POST['valider'])) {
     $name=$_POST['name'];
     $address=$_POST['address'];
     $isActive = 1;
+    $extension=end(explode(".", $_FILES['nameData']["name"]));
     $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
 
     if (isset($_FILES['nameData'])) {
         $uploadDir = URLHOST.'images/societe/'; //path you wish to store you uploaded files
-        $uploadedFile = $uploadDir . basename($_FILES['nameData']["name"]);
+        $uploadedFile = $uploadDir . basename($_FILES['nameData']["name"]).".".$extension;
         echo $uploadDir."<br/>";
         echo $uploadedFile;
         /*if (move_uploaded_file($_FILES['nameData']['tmp_name'], $uploadedFile)) {
