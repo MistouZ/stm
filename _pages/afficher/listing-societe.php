@@ -55,9 +55,6 @@ $companymanager = $companymanager->getList();
                         <?php
                     }
                     ?>
-                    <tr>
-
-                    </tr>
                     </tbody>
                 </table>
             </div>
