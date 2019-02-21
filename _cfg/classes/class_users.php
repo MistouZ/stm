@@ -11,6 +11,7 @@
     private $isSeller;
     private $isActive;
     private $defaultCompany;
+    private $companyName;
 
 
       /**
@@ -196,6 +197,24 @@
       {
           $this->defaultCompany = $defaultCompany;
       }
+
+      /**
+       * @return mixed
+       */
+      public function getCompanyName()
+      {
+          return $this->companyName;
+      }
+
+      /**
+       * @param mixed $companyName
+       */
+      public function setCompanyName($companyName): void
+      {
+          $this->companyName = $companyName;
+      }
+
+
 
   }
 ?>
