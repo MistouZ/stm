@@ -11,8 +11,8 @@ if(isset($_POST['valider'])){
 
 		$user = $userManager->connectUser($_POST['username'],$_POST['password']);
 }
-
-if($_COOKIE['connected']=="false"){
+echo $_COOKIE['connected'];
+/*if($_COOKIE['connected']=="false"){
         header('Location: '.URLHOST.'connexion/false');    
 }else{
         $array = array();
@@ -23,6 +23,6 @@ if($_COOKIE['connected']=="false"){
         setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
         
         header('Location: '.URLHOST.$company->getNameData()."/accueil");  
-}
+}*/
 
 ?>
