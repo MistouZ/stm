@@ -33,8 +33,8 @@ $customermanager = $customermanager->getList();
                     ?>
                         <tr>
                             <td><?php echo $customer->getName(); ?></td>
-                            <td><a href="<?php echo URLHOST.'client/afficher/'.$customer->getIdCustomer(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
-                            <td><a href="<?php echo URLHOST.'client/modifier/'.$customer->getIdCustomer(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/client/afficher/'.$customer->getIdCustomer(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
+                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/client/modifier/'.$customer->getIdCustomer(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                     <?php
                         }
