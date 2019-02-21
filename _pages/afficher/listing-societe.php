@@ -48,7 +48,7 @@ $companymanager = $companymanager->getList();
                         <tr>
                             <td><?php echo $company->getName(); ?></td>
                             <td><?php echo $company->getAddress(); ?></td>
-                            <td><img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getNameData();?>" style="max-height: 40px;"/></td>
+                            <td><img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getNameData();?>" style="max-height: 30px;"/></td>
                             <td><?php echo $company->getIsActive();?></td>
                             <td><a href="<?php echo URLHOST.'societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
