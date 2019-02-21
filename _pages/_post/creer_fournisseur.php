@@ -33,4 +33,4 @@ if(isset($_POST['valider'])) {
 
 ?>
 
-<a href="<?php echo URLHOST."fournisseur/afficher" ?>">Revenir à la liste des fournisseurs</a>
+<a href="<?php echo URLHOST.$_COOKIE['company']."/fournisseur/afficher" ?>">Revenir à la liste des fournisseurs</a>

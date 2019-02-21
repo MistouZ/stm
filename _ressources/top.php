@@ -4,7 +4,7 @@ $prenom = $_COOKIE['prenom'];
 ?>
 <!-- BEGIN LOGO -->
 <div class="page-logo">
-    <a href="<?php echo URLHOST; ?>">
+    <a href="<?php echo URLHOST.$_COOKIE['company'].'/accueil'; ?>">
         <img src="<?php echo URLHOST; ?>/images/logo.png" alt="logo" class="logo-default" style="width: 50px; margin: 13px 75px 0; " /> </a>
     <div class="menu-toggler sidebar-toggler">
         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->

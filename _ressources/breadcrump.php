@@ -10,7 +10,7 @@
 <!-- BEGIN PAGE BREADCRUMB -->
 <ul class="page-breadcrumb breadcrumb">
     <li>
-        <a href="<?php echo URLHOST.'accueil'; ?>">Accueil</a>
+        <a href="<?php echo URLHOST.$_COOKIE['company'].'/accueil'; ?>">Accueil</a>
         <?php
             if(isset($_GET['souscat'])){ 
         ?>
