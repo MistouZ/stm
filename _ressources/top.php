@@ -61,9 +61,9 @@ $prenom = $_COOKIE['prenom'];
         <ul class="nav navbar-nav pull-right">
             <li class="dropdown dropdown-user dropdown-dark">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                    <span class="username username-hide-on-mobile"> <?php echo $nom.' '.$prenom; ?> </span>
+                    <span class="username"> <img src="<?php echo URLHOST; ?>images/societe/<?php echo $_COOKIE['company']; ?>.jpg" alt="<?php echo $_COOKIE['company']; ?>" class="logo-default" style="max-height: 40px;" /> </span>
                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
-                    <i style="font-size: 35px;" class="fas fa-user-circle img-circle"></i> </a>
+                    </a>
             </li>
             <li class="separator hide"> </li>
             <!-- BEGIN USER LOGIN DROPDOWN -->
