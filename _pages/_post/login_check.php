@@ -19,11 +19,11 @@ if(isset($_POST['valider'])){
         $_SESSION["connected"] = true;*/
 	}
 
-/*if($_COOKIE['connected']==false){
+if($_COOKIE['connected']==false){
         header('Location: '.URLHOST.'connexion/false');    
 }else{
         
         header('Location: '.URLHOST);  
-}*/
+}
 
 ?>
