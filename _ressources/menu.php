@@ -220,12 +220,12 @@
         </a>
         <ul class="sub-menu">
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/company/creer'; ?>" class="nav-link ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/creer'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-plus-square"></i> Créer</span>
                 </a>
             </li>
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/company/afficher'; ?>" class="nav-link ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
                 </a>
             </li>
