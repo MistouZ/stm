@@ -11,19 +11,20 @@ if(isset($_POST['valider'])){
 
 		$user = $userManager->connectUser($_POST['username'],$_POST['password']);
         
+        $array = array();
+        $company = new Company($array);
+        $companymanager = new CompaniesManager($bdd);
+        $company = $companymanager->getById($user->getDefaultCompany());
         
-		/*$_SESSION["username"] = $user->getUsername();
-		$_SESSION["name"] = $user->getName();
-		$_SESSION["firstname"] = $user->getFirstName();
-		$_SESSION["credentials"] = $user->getCredential();
-        $_SESSION["connected"] = true;*/
-	}
+        unset($_COOKIE['company']);
+        setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
+}
 
 if($_COOKIE['connected']==false){
         header('Location: '.URLHOST.'connexion/false');    
 }else{
         
-        header('Location: '.URLHOST);  
+        header('Location: '.URLHOST.$company->getNameData());  
 }
 
 ?>
