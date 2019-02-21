@@ -130,16 +130,14 @@ class UsersManager
                 unset($_COOKIE['username']);
                 setcookie('username', $user->getUsername(), time() + 365*24*3600, '/');
                 
-                setcookie('test', $user->getDefaultCompany(), time() + 365*24*3600, '/');
-                
                 $company = array();
                 $company = new Company($company);
                 $companymanager = new CompaniesManager($bdd);
-                //$companymanager = $companymanager->getById($user->getDefaultCompany());
-                /*foreach($companymanager as $company){
-                    unset($_COOKIE['company']);
-                    setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
-                }*/
+                $idCompany = $user->getDefaultCompany();
+                $company = $companymanager->getById($idCompany);
+                
+                unset($_COOKIE['company']);
+                setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
                 setcookie('connected', true, time() + 365*24*3600, '/');
             }
             else
