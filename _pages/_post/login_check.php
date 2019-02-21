@@ -24,7 +24,7 @@ if($_COOKIE['connected']==false){
         header('Location: '.URLHOST.'connexion/false');    
 }else{
         
-        header('Location: '.URLHOST);  
+        header('Location: '.URLHOST.$_COOKIE['company']);  
 }
 
 ?>
