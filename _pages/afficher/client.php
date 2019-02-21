@@ -121,7 +121,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" data-required="1" class="form-control" name="firstname" /> </div>
+                                        <input type="text" data-required="2" class="form-control" name="firstname" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -137,9 +137,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <label class="control-label col-md-4">Téléphone
                                 </label>
                                 <div class="col-md-8">
-                                    <div class="input-icon right">
-                                        <i class="fas"></i>
-                                        <input type="digit" class="form-control" name="phoneNumber" /> </div>
+                                    <input type="digit" class="form-control" name="phoneNumber" />
                                 </div>
                             </div>
                             <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
