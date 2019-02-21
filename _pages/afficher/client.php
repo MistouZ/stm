@@ -140,9 +140,9 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <div class="input-icon right">
                                         <i class="fas"></i>
                                         <input type="text" class="form-control" name="phoneNumber" /> </div>
-                                        <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
                                 </div>
                             </div>
+                            <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
@@ -162,7 +162,7 @@ $contactmanager = $contactmanager->getList($customerId);
                         <h4 class="modal-title">Modification du client</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/modif_client.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
+                        <form action="<?php echo URLHOST."_pages/_post/modifier_client.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Nom du client
                                     <span class="required"> * </span>
