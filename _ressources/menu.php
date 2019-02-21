@@ -5,7 +5,7 @@
 <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
 <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
 <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
-<ul class="page-sidebar-menu   " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+<ul class="page-sidebar-menu   " data-keep-expanded="true" data-auto-scroll="true" data-slide-speed="200">
     <li class="nav-item start">
         <a href="<?php echo URLHOST.$_COOKIE['company'].'/accueil'; ?>" class="nav-link nav-toggle">
             <i class="icon-home"></i>
@@ -207,6 +207,25 @@
             </li>
             <li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/user/afficher'; ?>" class="nav-link ">
+                    <span class="title"><i class="far fa-list-alt"></i> Listing</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fas fa-user-shield"></i>
+            <span class="title">Société</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item  ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/company/creer'; ?>" class="nav-link ">
+                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/company/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
                 </a>
             </li>
