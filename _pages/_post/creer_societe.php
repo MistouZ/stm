@@ -15,11 +15,13 @@ if(isset($_POST['valider'])) {
     if (isset($_FILES['nameData'])) {
         $uploadDir = URLHOST.'images/societe/'; //path you wish to store you uploaded files
         $uploadedFile = $uploadDir . basename($_FILES['nameData']["name"]);
-        if (move_uploaded_file($_FILES['nameData']['tmp_name'], $uploadedFile)) {
+        echo $uploadDir "<br/>";
+        echo $uploadedFile;
+        /*if (move_uploaded_file($_FILES['nameData']['tmp_name'], $uploadedFile)) {
             echo 'File was uploaded successfully.';
         } else {
             echo 'There was a problem saving the uploaded file';
-        }
+        }*/
     }
 
     $array = array(
@@ -28,9 +30,9 @@ if(isset($_POST['valider'])) {
         'isActive' => $isActive
     );
 
-    $company = new Company($array);
+    /*$company = new Company($array);
     $companiesmanager = new CompaniesManager($bdd);
-    $companiesmanager->add($company);
+    $companiesmanager->add($company);*/
 
 }
 
