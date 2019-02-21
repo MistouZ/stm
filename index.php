@@ -43,7 +43,7 @@ License: You must have a valid license purchased only from themeforest(the above
     </head>
     <!-- END HEAD -->
 <?php 
-if($_GET['section']=="connexion"){ 
+if($_GET['section']=="connexion" || $_GET['cat']=="connexion"){ 
     include (__DIR__.'/_pages/connexion.php');
     include "_ressources/_inc/js.bottom.php";
 ?>
