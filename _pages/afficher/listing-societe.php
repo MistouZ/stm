@@ -27,7 +27,7 @@ $companymanager = $companymanager->getList();
                     <thead>
                     <tr>
                         <th class="all">Nom de société</th>
-                        <th class="min-phone-l">Adresse</th>
+                        <th class="none">Adresse</th>
                         <th class="min-phone-1">Logo</th>
                         <th class="none">Actif</th>
                         <th class="min-tablet">Modifier</th>
