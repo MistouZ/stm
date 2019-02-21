@@ -5,15 +5,15 @@
  * @copyright 2019
  */
 
-$array = $array();
+/*$array = $array();
 $company = new Company($array);
 $companies = new CompaniesManager($bdd);
-$companies = $companies->getList();
+$companies = $companies->getList();*/
 
 ?>
 
 <html>
-<head><title>Ma page d'accueil</title></head>
+
 <body>
 <h1>Création d'un utilisateur </h1>
 <form name="inscription" method="post" action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>">
@@ -24,11 +24,11 @@ $companies = $companies->getList();
     <label for="ad_mail">Adresse mail : </label><input type="email" name="email_address"id="ad_mail" required/><br/>
     <label for="phone_number">Téléphone : </label><input type="tel" name="phone_number" id="phone_number" required/><br/>
     <label for="company">Société :</label> <?php
-    foreach ($companies as $company)
+    /*foreach ($companies as $company)
     {
         echo'<input type="checkbox" name="case[]" value="'.$company->getIdCompany().'" />';
         echo $company->getName();
-    }
+    }*/
     ?> <br/>
     <label for="credential">Droits d'accès : </label>
     <select name="credential" id="credential" required>
