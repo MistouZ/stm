@@ -4,9 +4,8 @@ $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $customermanager = $customermanager->getList();
 
-$company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-$company = $companymanager->getById(3);
+$company = new Company($companymanager->getById(3));
 
 echo $company->getName();
 echo $company->getNameData();
