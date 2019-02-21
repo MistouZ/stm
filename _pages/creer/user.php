@@ -17,7 +17,7 @@ $companies = $companies->getList();
 <body>
 <h1>Bienvenue sur le site de création de société STM-Compta pour Moy par Moy </h1>
 <h2>Commencez-donc par vous inscrire :</h2>
-<form name="inscription" method="post" action="insert_users.php">
+<form name="inscription" method="post" action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>">
     <label for="login">Login :</label><input type="text" name="username" id="login" autofocus required/> <br/>
     <label for="passwd">Mot de passe : </label><input type="password" name="password" id="passwd" required/><br/>
     <label for="name">Nom : </label><input type="text" name="name" id="name" required/><br/>
