@@ -136,8 +136,8 @@ class UsersManager
                 $idCompany = $user->getDefaultCompany();
                 $company = $companymanager->getById(3);
                 
-                unset($_COOKIE['company']);
-                setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
+                //unset($_COOKIE['company']);
+                //setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
                 setcookie('connected', true, time() + 365*24*3600, '/');
             }
             else
