@@ -19,7 +19,7 @@
       /**
        * @return mixed
        */
-      public function getIdcustomer()
+      public function getIdCustomer()
       {
           return $this->idcustomer;
       }
@@ -93,7 +93,7 @@
       /**
        * @return mixed
        */
-      public function getisActive()
+      public function getIsActive()
       {
           return $this->isActive;
       }
