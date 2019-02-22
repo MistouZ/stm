@@ -86,12 +86,12 @@ $customermanger = $customermanger->getListByCompany($company->getIdcompany());
                             <div class="col-md-4">
                                 <select id="customer-select" name="customer-select" class="form-control">
                                     <option value="">--Choississez le client--</option>
-                                    <?php/*
+                                    <?php
                                     foreach ($customermanger as $customer)
                                     {
                                         echo "<option value=".$customer->getIdCustomer().">".$customer->getName()."</option>";
 
-                                    }*/
+                                    }
                                     ?>
                                 </select>
                             </div>
