@@ -129,8 +129,8 @@ class CustomersManager
 
         $q->execute();
         
-        $delete=$this->_db->query('DELETE FROM `link_company_customers` WHERE customers_idcustomer ='.$customer->getIdCustomer());
-        $delete->execute();
+        /*$delete=$this->_db->query('DELETE FROM `link_company_customers` WHERE customers_idcustomer ='.$customer->getIdCustomer());
+        $delete->execute();*/
         
         for ($i=0;$i<count($companies);$i++)
         {
