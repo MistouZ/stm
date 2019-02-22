@@ -144,7 +144,6 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <input type="number" class="form-control" name="phoneNumber" />
                                 </div>
                             </div>
-                            <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
@@ -239,6 +238,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <div id="company_error"> </div>
                                 </div>
                             </div>
+                            <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
