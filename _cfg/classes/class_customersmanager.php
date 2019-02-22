@@ -128,6 +128,8 @@ class CustomersManager
         $q->bindValue(':isActive', $customer->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
+
+        echo $q->fullQuery;
         
         $delete=$this->_db->query('DELETE FROM `link_company_customers` WHERE customers_idcustomer ='.$customer->getIdCustomer());
         $delete->execute();
