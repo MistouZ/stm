@@ -107,7 +107,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                                     $contactmanager = $contactmanager->getList($customer->getIdCustomer());
                                     foreach($contactmanager as $contact)
                                     {
-                                        echo "<option value=".$contact->getIdContact().">".$user->getFirstName()." ".$contact->getName()."</option>";
+                                        echo "<option value=".$contact->getIdContact().">".$contact->getFirstname()." ".$contact->getName()."</option>";
                                     }
                                     ?>
                                 </select>
