@@ -24,6 +24,7 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanger = $customermanger->getListByCompany($company->getIdcompany());
 
+print_r($customermanger);
 
 
 ?>
