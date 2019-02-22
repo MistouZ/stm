@@ -27,7 +27,6 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-
 ?>
 
 <div class="row">
@@ -74,7 +73,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                                         {
                                             if($user->getIsSeller() == 1)
                                             {
-                                                echo "<option value=".$user->getUsername().">".$user->getFirstName()." ".$user->getName()."</option>";
+                                                echo "<option value=".$user->getUsername().">".$contact->getFirstname()." ".$user->getName()."</option>";
                                             }
                                         }
                                     ?>
@@ -82,7 +81,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3" for="seller-select">Client
+                            <label class="control-label col-md-3" for="customer-select">Client
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
@@ -93,6 +92,23 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                                         {
                                             echo "<option value=" . $customer->getIdCustomer() . ">".$customer->getName()."</option>";
                                         }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="contact-select">Contact
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-4">
+                                <select id="contact-select" name="contact-select" class="form-control">
+                                    <option value="">--Choississez le contact--</option>
+                                    <?php
+                                    $contactmanager = $contactmanager->getList($customer->getIdCustomer());
+                                    foreach($contactmanager as $contact)
+                                    {
+                                        echo "<option value=".$contact->getIdContact().">".$user->getFirstName()." ".$contact->getName()."</option>";
+                                    }
                                     ?>
                                 </select>
                             </div>
