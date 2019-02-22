@@ -10,24 +10,34 @@ include("../../_cfg/cfg.php");
 
 
 if(isset($_POST['valider'])){
-    $name=$_POST['name'];
-    $firstname=$_POST['firstname'];
-    $emailAddress = $_POST['emailAddress'];
-    $phoneNumber = $_POST['phoneNumber'];
-    $customerId = $_POST["customerId"];
+    $label = $_POST["label"];
+    $description = $_POST["description"];
+    $seller = $_POST["seller-select"];
+    $year = date("Y");
+    $month = date("m");
+    $day = date("d");
+    $customerId = $_POST["customer-select"];
+    $contactId = $_POST["contact-select"];
+    $companyId = $_POST["idcompany"];
 
-    $is_active =1;
+    $status ="O";
 
     $array = array(
-        'name' => $name,
-        'firstname' => $firstname,
-        'emailAddress' => $emailAddress,
-        'phoneNumber' => $phoneNumber,
-        'isActive' => $is_active
+        'label' => $label,
+        'year' => $year,
+        'month' => $month,
+        'day' => $day,
+        'status' => $status,
+        'description' => $description,
+        'seller' => $seller,
+        'companyId' => $companyId,
+        'customerId' => $customerId,
+        'contactId' => $contactId
     );
     
-    $contact = new Contact($array);
-    $contactmanager = new ContactManager($bdd);
+    $folder = new Folder($array);
+    $foldermanager = new FoldersManager($bdd);
+
     $contactmanager->addToCustomers($contact, $customerId);
     
     header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);

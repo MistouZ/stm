@@ -119,6 +119,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
+                                <input type="hidden" name="idcompany" value="<?php echo $company->getIdcompany();?>" />
                                 <button type="submit" class="btn green">Valider</button>
                                 <button type="button" class="btn grey-salsa btn-outline">Annuler</button>
                             </div>

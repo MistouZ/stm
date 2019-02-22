@@ -13,6 +13,8 @@ include 'classes/class_suppliers.php';
 include 'classes/class_suppliersmanager.php';
 include 'classes/class_users.php';
 include 'classes/class_usersmanager.php';
+include 'classes/class_folder.php';
+include 'classes/class_foldersmanager.php';
 
 global $bdd;
 $bdd = new DB();
