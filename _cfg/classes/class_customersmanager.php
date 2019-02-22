@@ -105,7 +105,7 @@ class CustomersManager
     {
         $customers = array();
 
-        $q=$this->_db->query("SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM customer cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE cu.isActive='1' AND c.isActive='1' GROUP BY cu.name");
+        $q=$this->_db->query("SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE cu.isActive='1' AND c.isActive='1' GROUP BY cu.name");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $customers[] = new Customers($donnees);
