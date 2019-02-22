@@ -41,7 +41,7 @@ class CustomersManager
         $q->bindValue(':name', $customer->getName(), PDO::PARAM_STR);
         $q->bindValue(':physicalAddress', $customer->getPhysicalAddress(), PDO::PARAM_STR);
         $q->bindValue(':invoiceAddress', $customer->getInvoiceAddress(), PDO::PARAM_STR );
-        $q->bindValue(':isActive', $customer->getisActive(), PDO::PARAM_INT);
+        $q->bindValue(':isActive', $customer->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
 
@@ -50,7 +50,7 @@ class CustomersManager
         for ($i=0;$i<count($companies);$i++)
         {
             $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
-            $q2->bindValue(':idcustomer', $customer->getIdcustomer(), PDO::PARAM_INT);
+            $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
             $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
             $q2->execute();
         }
@@ -121,11 +121,11 @@ class CustomersManager
     public function update(customers $customer, array $companies)
     {
         $q = $this->_db->prepare('UPDATE customers SET name = :name, physicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idcustomer = :idcustomers');
-        $q->bindValue(':idcustomers', $customer->getIdcustomer(), PDO::PARAM_INT);
+        $q->bindValue(':idcustomers', $customer->getIdCustomer(), PDO::PARAM_INT);
         $q->bindValue(':name', $customer->getName(), PDO::PARAM_STR);
         $q->bindValue(':physicalAddress', $customer->getPhysicalAddress(), PDO::PARAM_STR);
         $q->bindValue(':invoiceAddress', $customer->getInvoiceAddress(), PDO::PARAM_STR );
-        $q->bindValue(':isActive', $customer->getisActive(), PDO::PARAM_INT);
+        $q->bindValue(':isActive', $customer->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
         
@@ -135,7 +135,7 @@ class CustomersManager
         for ($i=0;$i<count($companies);$i++)
         {
             $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
-            $q2->bindValue(':idcustomer', $customer->getIdcustomer(), PDO::PARAM_INT);
+            $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
             $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
             $q2->execute();
         }
