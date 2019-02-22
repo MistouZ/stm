@@ -34,11 +34,13 @@ if(isset($_POST['valider'])){
         'customerId' => $customerId,
         'contactId' => $contactId
     );
-    
-    $folder = new Folder($array);
-    $foldermanager = new FoldersManager($bdd);
 
-    $contactmanager->addToCustomers($contact, $customerId);
+    print_r($array);
+    
+    /*$folder = new Folder($array);
+    $foldermanager = new FoldersManager($bdd);*/
+
+
     
     header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
 
