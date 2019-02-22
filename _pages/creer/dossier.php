@@ -22,7 +22,7 @@ $contactmanager = new ContactManager($bdd);
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
-//$customermanger = $customermanger->getListByCompany($company->getIdcompany());
+$customermanger = $customermanger->getListByCompany($company->getIdcompany());
 
 
 
