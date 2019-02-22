@@ -225,9 +225,11 @@ $contactmanager = $contactmanager->getList($customerId);
                                     ?>
                                             <label class="checkbox-inline">
                                     <?php
-                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
+                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().' ';
+                                            if(in_array($company->getName(),$companiesList)){ echo "checked=\"checked\""; }
+                                            echo '/>';
                                     ?>
-                                                <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;" <?php if(in_array($company->getName(),$companiesList)){ echo"checked=\"checked\""; } ?> /></a>
+                                                <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
                                             </label>
                                     <?php
                                         }
