@@ -122,11 +122,5 @@
           $this->companyName = $companyName;
       }
 
-
-
-
-
-
-
   }
 ?>
