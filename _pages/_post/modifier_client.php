@@ -46,6 +46,5 @@ if(isset($_POST['valider'])){
 
 }
 
+header('Location: '.URLHOST.$_GET['company']."/client/afficher/".$customerId);
 ?>
-
-<a href="<?php echo URLHOST.$_COOKIE['company']."/client/afficher/".$idcustomer; ?>">Revenir à la liste des clients</a>
