@@ -31,23 +31,21 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
     
-    print_r($array);
-    
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
     $customermanager->update($customer, $_POST["case"]);
     echo "New customer update successfully </br/>";
 
-    /*if($supplier == 1)
+    if($supplier == 1)
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
       $suppliermanager->update($supplier,$_POST["case"]);
       echo "New provider created successfully <br />";
-    }*/
+    }
 
 }
 
 ?>
 
-<a href="<?php echo URLHOST."client/afficher" ?>">Revenir à la liste des clients</a>
+<a href="<?php echo URLHOST.$_COOKIE['company']."/client/afficher/".$idcustomer; ?>">Revenir à la liste des clients</a>
