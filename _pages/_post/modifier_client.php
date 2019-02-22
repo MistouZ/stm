@@ -34,13 +34,13 @@ if(isset($_POST['valider'])){
     $customermanager->update($customer, $_POST["case"]);
     echo "New customer created successfully </br/>";
 
-    if($supplier == 1)
+    /*if($supplier == 1)
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
       $suppliermanager->update($supplier,$_POST["case"]);
       echo "New provider created successfully <br />";
-    }
+    }*/
 
 }
 
