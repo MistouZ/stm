@@ -49,11 +49,11 @@ $companies = $companies->getList();
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Adresse physique
+                            <label class="col-md-3 control-label">Logo de la société
                                 <span class="required"> * </span>
                             </label>
                             <div class="row fileupload-buttonbar">
-                                <div class="col-md-4">
+                                <div class="col-md-9">
                                     <!-- The fileinput-button span is used to style the file input field as button -->
                                     <span class="btn green fileinput-button">
                                         <i class="fa fa-plus"></i>
