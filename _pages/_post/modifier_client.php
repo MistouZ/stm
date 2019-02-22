@@ -29,7 +29,7 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
     
-    print_r($_POST['case']);
+    print_r($array);
     
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
