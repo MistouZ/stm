@@ -22,7 +22,7 @@ $contactmanager = new ContactManager($bdd);
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
-//$customermanger = $customermanger->getListByCompany($company->getIdcompany());
+$customermanger = $customermanger->getListByCompany($company->getIdcompany());
 
 
 
@@ -80,7 +80,7 @@ $usermanager = $usermanager->getListByCompany($company->getIdcompany());
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3" for="customer-select">Client
+                            <label class="control-label col-md-3" for="seller-select">Client
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
@@ -94,6 +94,30 @@ $usermanager = $usermanager->getListByCompany($company->getIdcompany());
                                     }
                                     ?>
                                 </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Société
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-9">
+                                <div class="checkbox-list" data-error-container="#company_error">
+                                    <?php
+                                    /*foreach ($companies as $company)
+                                    {
+                                        ?>
+                                        <label class="checkbox-inline">
+                                            <?php
+                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
+                                            ?>
+                                            <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
+                                        </label>
+                                        <?php
+                                    }*/
+                                    ?>
+                                </div>
+                                <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
+                                <div id="company_error"> </div>
                             </div>
                         </div>
                     </div>
