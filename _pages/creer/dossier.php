@@ -31,7 +31,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 foreach($customermanager as $customer) {
 
-    echo $customer->getIdCustomer()." ".$customer->getName();
+    echo $customer->getName();
 }
 ?>
 
