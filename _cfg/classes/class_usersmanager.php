@@ -164,14 +164,15 @@ class UsersManager
     {
         $idcompany = (integer) $idcompany;
         $users = [];
-
-        $q=$this->_db->query("SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM users u INNER JOIN  link_company_users lk ON u.username =  lk.users_username INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND u.isActive='1' AND c.isActive='1' GROUP BY u.username");
+        $query="SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM users u INNER JOIN  link_company_users lk ON u.username =  lk.users_username INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND u.isActive='1' AND c.isActive='1' GROUP BY u.username";
+        echo $query;
+        /*$q=$this->_db->query("SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM users u INNER JOIN  link_company_users lk ON u.username =  lk.users_username INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND u.isActive='1' AND c.isActive='1' GROUP BY u.username");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $users[] = new Users($donnees);
         }
 
-        return $users;
+        return $users;*/
     }
 
     /**
