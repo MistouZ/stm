@@ -86,7 +86,7 @@ class CompaniesManager extends Features
      * @param $companyDataName
      * @return company
      */
-    public function getByDataName($companyNameData)
+    public function getByNameData($companyNameData)
     {
         $companyNameData = (string) $companyNameData;
         $q = $this->_db->query('SELECT * FROM `company` WHERE `nameData` ='.$companyDataName);
