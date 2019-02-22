@@ -21,7 +21,8 @@ $contactmanager = new ContactManager($bdd);
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
-$usermanager = $usermanager->getListByCompany($company->getIdcompany());
+echo $company->getIdcompany();
+//$usermanager = $usermanager->getListByCompany($company->getIdcompany());
 
 ?>
 
