@@ -24,6 +24,9 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
+$customer->getName();
+$customer->getIdCustomer();
+
 ?>
 
 <div class="row">
@@ -85,7 +88,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                                 <select id="customer-select" name="customer-select" class="form-control">
                                     <option value="">--Choississez le client--</option>
                                     <?php
-                                    foreach ($customermanger as $customer)
+                                    foreach ($customermanager as $customer)
                                     {
                                         echo "<option value=".$customer->getIdCustomer().">".$customer->getName()."</option>";
 
