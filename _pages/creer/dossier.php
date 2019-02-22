@@ -27,6 +27,8 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
+
+
 ?>
 
 <div class="row">
@@ -73,7 +75,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                                         {
                                             if($user->getIsSeller() == 1)
                                             {
-                                                echo "<option value=".$user->getUsername().">".$contact->getFirstname()." ".$user->getName()."</option>";
+                                                echo "<option value=".$user->getUsername().">".$user->getFirstName()()." ".$user->getName()."</option>";
                                             }
                                         }
                                     ?>
