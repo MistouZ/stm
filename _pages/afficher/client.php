@@ -218,6 +218,8 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-9">
                                     <div class="checkbox-list" data-error-container="#company_error">
                                     <?php
+                                        $companiesList = explode(",",$customer->getCompanyName());
+                                        
                                         foreach ($companies as $company)
                                         {
                                     ?>
@@ -225,7 +227,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <?php
                                             echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
                                     ?>
-                                                <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;" /></a>
+                                                <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;" accesskey="<?php if(in_array($company->getName(),$companiesList)){ echo"checked=\"checked\""; } ?>" /></a>
                                             </label>
                                     <?php
                                         }
