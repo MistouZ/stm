@@ -27,7 +27,7 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-print_r($customermanager);
+//print_r($customermanager);
 
 foreach ($customermanager as $customer)
 {
