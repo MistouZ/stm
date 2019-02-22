@@ -93,11 +93,11 @@ foreach($customermanager as $customer) {
                             <div class="col-md-4">
                                 <select id="customer-select" name="customer-select" class="form-control">
                                     <option value="">--Choississez le client--</option>
-                                    <?php
+                                    <?php/*
                                         foreach ($customermanager as $customer)
                                         {
                                             echo "<option value=" . $customer->getIdCustomer() . ">".$customer->getName()."</option>";
-                                        }
+                                        }*/
                                     ?>
                                 </select>
                             </div>
