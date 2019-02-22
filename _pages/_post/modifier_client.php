@@ -28,7 +28,9 @@ if(isset($_POST['valider'])){
         'invoiceAddress' => $invoice_address,
         'isActive' => $is_active
     );
-
+    
+    print_r($_POST['case']);
+    
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
     $customermanager->update($customer, $_POST["case"]);
