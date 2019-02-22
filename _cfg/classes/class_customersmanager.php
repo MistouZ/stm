@@ -121,7 +121,7 @@ class CustomersManager
     public function update(customers $customer, array $companies)
     {
         $q = $this->_db->prepare('UPDATE customers SET name = :name, pysicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idcustomers = :idcustomers');
-        $q->bindValue(':idcustomers', $customer->getIdCustomer(), PDO::PARAM_STR);
+        $q->bindValue(':idcustomers', $customer->getIdCustomer(), PDO::PARAM_INT);
         $q->bindValue(':name', $customer->getName(), PDO::PARAM_STR);
         $q->bindValue(':physicalAddress', $customer->getPhysicalAddress(), PDO::PARAM_STR);
         $q->bindValue(':invoiceAddress', $customer->getInvoiceAddress(), PDO::PARAM_STR );
