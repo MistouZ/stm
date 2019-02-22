@@ -36,7 +36,9 @@ class FoldersManager
      */
     public function count($companyId)
     {
-        return $this->_db->query('SELECT COUNT(*) FROM folder WHERE companyId='.$companyId.' GROUP BY company')->fetchColumn();
+        $query = 'SELECT COUNT(*) FROM folder WHERE companyId='.$companyId.' GROUP BY company';
+        echo $query;
+        //return $this->_db->query('SELECT COUNT(*) FROM folder WHERE companyId='.$companyId.' GROUP BY company')->fetchColumn();
     }
 
     /**
@@ -45,8 +47,8 @@ class FoldersManager
      */
     public function add(Folder $folder)
     {
-        $folderNumber = $this->count($folder->getCompanyId());
-        echo $folderNumber;
+        $this->count($folder->getCompanyId());
+        echo $folder->getCompanyId();
 
         /*$q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, year,month,day,status,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :year, :month, :day, :status, :description, :seller, :companyId,:customerId,:contactId)');
         $q->bindValue(':folderNumber', $folder->getFolderNumber(), PDO::PARAM_STR);
