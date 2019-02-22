@@ -87,8 +87,8 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                                     <td><?php echo $contact->getEmailAddress(); ?></td>
                                     <td><?php echo $contact->getPhoneNumber(); ?></td>
-                                    <td><a href="<?php echo URLHOST.'contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
-                                    <td><a href="<?php echo URLHOST.'contact/supprimer/'.$contact->getIdContact(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
+                                    <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                                    <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/contact/supprimer/'.$contact->getIdContact(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
                                 </tr>
                             <?php
                                 }
