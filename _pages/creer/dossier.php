@@ -18,8 +18,10 @@ $customermanger = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
+
+echo $companyNameData;
 /*récupération des objets en base*/
-$company = $companymanager->getByNameData($companyNameData);
+//$company = $companymanager->getByNameData($companyNameData);
 //$usermanager = $usermanager->getListByCompany($company->getIdcompany());
 
 ?>
