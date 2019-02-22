@@ -31,7 +31,7 @@ print_r($customermanager);
 
 foreach ($customermanager as $customer)
 {
-    echo $customer->getIdCustomer() . .$customer->getName();
+    echo $customer->getIdCustomer()." ".$customer->getName();
 }
 ?>
 
