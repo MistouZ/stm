@@ -39,7 +39,7 @@ if(isset($_POST['valider'])){
     
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);
-
+    $foldermanager->add($folder);
 
 
     
