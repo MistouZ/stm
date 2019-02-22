@@ -52,37 +52,39 @@ $companies = $companies->getList();
                             <label class="col-md-3 control-label">Logo de la société
                                 <span class="required"> * </span>
                             </label>
-                            <div class="row fileupload-buttonbar">
-                                <div class="col-md-9">
-                                    <!-- The fileinput-button span is used to style the file input field as button -->
-                                    <span class="btn green fileinput-button">
-                                        <i class="fa fa-plus"></i>
-                                        <span> Choisir le fichier... </span>
-                                        <input type="file" name="nameData[]" accept="image/png, image/jpeg" multiple=""> </span>
-                                    <button type="submit" class="btn blue start">
-                                        <i class="fa fa-upload"></i>
-                                        <span> Upload </span>
-                                    </button>
-                                    <button type="reset" class="btn warning cancel">
-                                        <i class="fa fa-ban-circle"></i>
-                                        <span> Annuler </span>
-                                    </button>
-                                    <button type="button" class="btn red delete">
-                                        <i class="fa fa-trash"></i>
-                                        <span> Supprimer </span>
-                                    </button>
-                                    <input type="checkbox" class="toggle">
-                                    <!-- The global file processing state -->
-                                    <span class="fileupload-process"> </span>
-                                </div>
-                                <!-- The global progress information -->
-                                <div class="col-lg-5 fileupload-progress fade">
-                                    <!-- The global progress bar -->
-                                    <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar progress-bar-success" style="width:0%;"> </div>
+                            <div class="col-md-9">
+                                <div class="row fileupload-buttonbar">
+                                    <div class="col-lg-12">
+                                        <!-- The fileinput-button span is used to style the file input field as button -->
+                                        <span class="btn green fileinput-button">
+                                            <i class="fa fa-plus"></i>
+                                            <span> Choisir le fichier... </span>
+                                            <input type="file" name="nameData[]" accept="image/png, image/jpeg" multiple=""> </span>
+                                        <button type="submit" class="btn blue start">
+                                            <i class="fa fa-upload"></i>
+                                            <span> Upload </span>
+                                        </button>
+                                        <button type="reset" class="btn warning cancel">
+                                            <i class="fa fa-ban-circle"></i>
+                                            <span> Annuler </span>
+                                        </button>
+                                        <button type="button" class="btn red delete">
+                                            <i class="fa fa-trash"></i>
+                                            <span> Supprimer </span>
+                                        </button>
+                                        <input type="checkbox" class="toggle">
+                                        <!-- The global file processing state -->
+                                        <span class="fileupload-process"> </span>
                                     </div>
-                                    <!-- The extended global progress information -->
-                                    <div class="progress-extended"> &nbsp; </div>
+                                    <!-- The global progress information -->
+                                    <div class="col-lg-5 fileupload-progress fade">
+                                        <!-- The global progress bar -->
+                                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+                                            <div class="progress-bar progress-bar-success" style="width:0%;"> </div>
+                                        </div>
+                                        <!-- The extended global progress information -->
+                                        <div class="progress-extended"> &nbsp; </div>
+                                    </div>
                                 </div>
                             </div>
                             <!-- The table listing the files available for upload/download -->
