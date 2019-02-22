@@ -35,7 +35,7 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer"){ ?>
+<?php if(($_GET['souscat']=="afficher" || $_GET['souscat']=="creer") && $_GET['cat']!="societe"){ ?>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
@@ -47,13 +47,28 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+<?php }elseif($_GET['cat']=="societe"){ ?>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/vendor/tmpl.min.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/vendor/load-image.min.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/vendor/canvas-to-blob.min.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/blueimp-gallery/jquery.blueimp-gallery.min.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/jquery.iframe-transport.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/jquery.fileupload.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/jquery.fileupload-process.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/jquery.fileupload-image.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/jquery.fileupload-audio.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/jquery.fileupload-video.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/jquery.fileupload-validate.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-file-upload/js/jquery.fileupload-ui.js" type="text/javascript"></script>
 <?php } ?>
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL SCRIPTS -->
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/scripts/app.min.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer"){ ?>
+<?php if(($_GET['souscat']=="afficher" || $_GET['souscat']=="creer") && $_GET['cat']!="societe"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/table-datatables-responsive.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-samples.min.js" type="text/javascript"></script>
@@ -61,6 +76,8 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-blockui.min.js" type="text/javascript"></script>
 <?php }elseif($_GET['section']=="connexion"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/login.min.js" type="text/javascript"></script>
+<?php }elseif($_GET['cat']=="societe"){ ?>
+<script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-fileupload.min.js" type="text/javascript"></script>
 <?php } ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/dashboard.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
