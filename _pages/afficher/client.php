@@ -218,7 +218,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                 <div class="col-md-9">
                                     <div class="checkbox-list" data-error-container="#company_error">
                                     <?php
-                                        $companiesList = explode(",",$customer->getCompanyName());
+                                        $companiesList = explode(", ",$customer->getCompanyName());
                                         
                                         foreach ($companies as $company)
                                         {
