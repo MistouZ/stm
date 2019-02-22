@@ -37,8 +37,9 @@ if(isset($_POST['valider'])){
 
     print_r($array);
     
-    /*$folder = new Folder($array);
-    $foldermanager = new FoldersManager($bdd);*/
+    $folder = new Folder($array);
+    $foldermanager = new FoldersManager($bdd);
+
 
 
     

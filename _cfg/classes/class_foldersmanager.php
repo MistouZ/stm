@@ -45,7 +45,10 @@ class FoldersManager
      */
     public function add(Folder $folder)
     {
-        $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, year,month,day,status,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :year, :month, :day, :status, :description, :seller, :companyId,:customerId,:contactId)');
+        $folderNumber = $this->count($folder->getCompanyId());
+        echo $folderNumber;
+
+        /*$q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, year,month,day,status,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :year, :month, :day, :status, :description, :seller, :companyId,:customerId,:contactId)');
         $q->bindValue(':folderNumber', $folder->getFolderNumber(), PDO::PARAM_STR);
         $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
         $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
@@ -58,7 +61,7 @@ class FoldersManager
         $q->bindValue(':customerId', $folder->getCustomerId(), PDO::PARAM_INT);
         $q->bindValue(':contactId', $folder->getContactId(), PDO::PARAM_INT);
 
-        $q->execute();
+        $q->execute();*/
 
     }
 
