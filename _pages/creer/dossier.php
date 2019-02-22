@@ -22,7 +22,6 @@ $contactmanager = new ContactManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 
-$user->getName()
 ?>
 
 <div class="row">
