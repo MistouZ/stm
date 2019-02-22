@@ -50,13 +50,13 @@ $companies = $companies->getList();
                             </label>
                             <div class="col-md-4">
                                 <input name="invoice_address" id="invoice_address" type="text" class="form-control" />
-                                <span class="help-block"> e.g: http://www.demo.com or http://demo.com </span>
+                                <span class="help-block"> Si différente de l'adresse physique </span>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Fournisseur
+                            <label class="control-label col-md-3">Fournisseur
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-9">
                                 <div class="checkbox-list">
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="is_supplier" name="is_supplier" id="is_supplier" /></label>
@@ -94,7 +94,7 @@ $companies = $companies->getList();
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
                                 <button type="submit" class="btn green">Valider</button>
-                                <button type="button" class="btn grey-salsa btn-outline">Anuler</button>
+                                <button type="button" class="btn grey-salsa btn-outline">Annuler</button>
                             </div>
                         </div>
                     </div>
