@@ -225,7 +225,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                     ?>
                                             <label class="checkbox-inline">
                                     <?php
-                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().' ';
+                                            echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" ';
                                             if(in_array($company->getName(),$companiesList)){ echo "checked=\"checked\""; }
                                             echo '/>';
                                     ?>
