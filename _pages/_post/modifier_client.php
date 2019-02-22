@@ -46,5 +46,5 @@ if(isset($_POST['valider'])){
 
 }
 
-header('Location: '.URLHOST.$_GET['company']."/client/afficher/".$customerId);
+header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
 ?>

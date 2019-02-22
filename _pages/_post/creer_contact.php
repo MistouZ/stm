@@ -30,6 +30,6 @@ if(isset($_POST['valider'])){
     $contactmanager = new ContactManager($bdd);
     $contactmanager->addToCustomers($contact, $customerId);
     
-    header('Location: '.URLHOST.$_GET['company']."/client/afficher/".$customerId);
+    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
 
 }
