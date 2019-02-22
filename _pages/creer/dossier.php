@@ -24,8 +24,13 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-$customer->getName();
-$customer->getIdCustomer();
+foreach ($customermanager as $customer)
+{
+    echo $customer->getName();
+    echo "<br/>"
+    echo $customer->getIdCustomer();
+
+}
 
 ?>
 
