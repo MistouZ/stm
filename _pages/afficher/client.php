@@ -59,6 +59,10 @@ $contactmanager = $contactmanager->getList($customerId);
                             <div class="col-md-5 name"> Adresse de facturation: </div>
                             <div class="col-md-7 value"> <?php echo $customer->getInvoiceAddress(); ?> </div>
                         </div>
+                        <div class="row static-info">
+                            <div class="col-md-5 name"> Société(s) affilée(s): </div>
+                            <div class="col-md-7 value"> <?php echo $customer->getCompanyName(); ?> </div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="tab_6_2">
                         <div class="actions">
