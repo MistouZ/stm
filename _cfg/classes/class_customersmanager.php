@@ -118,7 +118,7 @@ class CustomersManager
      * Update customers information
      * @param customers $customer
      */
-    public function update(customers $customer)
+    public function update(customers $customer, array $companies)
     {
         $q = $this->_db->prepare('UPDATE customers SET name = :name, pysicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idcustomers = :idcustomers');
         $q->bindValue(':idcustomers', $customer->getIdCustomer(), PDO::PARAM_STR);
@@ -128,6 +128,17 @@ class CustomersManager
         $q->bindValue(':isActive', $customer->getisActive(), PDO::PARAM_INT);
 
         $q->execute();
+        
+        $delete=$this->_db->query('DELETE FROM `link_company_customers` WHERE customers_idcustomer ='.$customer->getIdCustomer());
+        $delete->execute();
+        
+        for ($i=0;$i<count($companies);$i++)
+        {
+            $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
+            $q2->bindValue(':idcustomer', $customer->getIdcustomer(), PDO::PARAM_INT);
+            $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
+            $q2->execute();
+        }
     }
 
 }
