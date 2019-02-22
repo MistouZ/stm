@@ -75,7 +75,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                                         {
                                             if($user->getIsSeller() == 1)
                                             {
-                                                echo "<option value=".$user->getUsername().">".$user->getFirstName()()." ".$user->getName()."</option>";
+                                                echo "<option value=".$user->getUsername().">".$user->getFirstName()." ".$user->getName()."</option>";
                                             }
                                         }
                                     ?>
