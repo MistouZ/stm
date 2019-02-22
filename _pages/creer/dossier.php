@@ -27,10 +27,6 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-print_r($customermanager);
-foreach($customermanager as $customer) {
-    echo $customer->getName();
-}
 
 ?>
 
@@ -92,11 +88,11 @@ foreach($customermanager as $customer) {
                             <div class="col-md-4">
                                 <select id="customer-select" name="customer-select" class="form-control">
                                     <option value="">--Choississez le client--</option>
-                                    <?php/*
-                                        foreach ($customermanager as $customer)
+                                    <?php
+                                        foreach($customermanager as $customer)
                                         {
                                             echo "<option value=" . $customer->getIdCustomer() . ">".$customer->getName()."</option>";
-                                        }*/
+                                        }
                                     ?>
                                 </select>
                             </div>
