@@ -130,7 +130,7 @@ class CustomersManager
         $q->execute();
         
         /*$delete=$this->_db->query('DELETE FROM `link_company_customers` WHERE customers_idcustomer ='.$customer->getIdCustomer());
-        $delete->execute();*/
+        $delete->execute();
         
         for ($i=0;$i<count($companies);$i++)
         {
@@ -138,7 +138,7 @@ class CustomersManager
             $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
             $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
             $q2->execute();
-        }
+        }*/
     }
 
 }
