@@ -68,7 +68,7 @@ class CompaniesManager extends Features
     }
 
     /**
-     * Find a company by his name
+     * Find a company by his ID
      * @param $idcompany
      * @return company
      */
@@ -76,6 +76,20 @@ class CompaniesManager extends Features
     {
         $idcompany = (integer) $idcompany;
         $q = $this->_db->query('SELECT * FROM `company` WHERE `idcompany` ='.$idcompany);
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+        return new Company($donnees);
+    }
+
+    /**
+     * Find a company by his name
+     * @param $companyDataName
+     * @return company
+     */
+    public function getByDataName($companyNameData)
+    {
+        $companyNameData = (string) $companyNameData;
+        $q = $this->_db->query('SELECT * FROM `company` WHERE `nameData` ='.$companyDataName);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Company($donnees);
