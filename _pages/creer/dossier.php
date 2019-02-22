@@ -22,6 +22,9 @@ $contactmanager = new ContactManager($bdd);
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
+
+
+
 ?>
 
 <div class="row">
@@ -61,7 +64,7 @@ $usermanager = $usermanager->getListByCompany($company->getIdcompany());
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <select id="seller-select" class="form-control">
+                                <select id="seller-select" name="seller-select" class="form-control">
                                     <option value="">--Choississez le commercial--</option>
                                     <?php
                                         foreach ($usermanager as $user)
@@ -73,19 +76,23 @@ $usermanager = $usermanager->getListByCompany($company->getIdcompany());
                                         }
                                     ?>
                                 </select>
-
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Fournisseur
+                            <label class="control-label col-md-3" for="seller-select">Commercial
+                                <span class="required"> * </span>
                             </label>
-                            <div class="col-md-9">
-                                <div class="checkbox-list">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="is_supplier" name="is_supplier" id="is_supplier" /></label>
-                                </div>
-                                <span class="help-block"> Cocher si ce client est aussi un fournisseur </span>
-                                <div id="form_2_services_error"> </div>
+                            <div class="col-md-4">
+                                <select id="customer-select" name="customer-select" class="form-control">
+                                    <option value="">--Choississez le client--</option>
+                                    <?php
+                                    foreach ($customermanger as $customer)
+                                    {
+                                        echo "<option value=".$customer->getIdCustomer().">".$customer->getName()."</option>";
+
+                                    }
+                                    ?>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
