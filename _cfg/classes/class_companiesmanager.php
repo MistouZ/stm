@@ -89,7 +89,7 @@ class CompaniesManager extends Features
     public function getByNameData($companyNameData)
     {
         $companyNameData = (string) $companyNameData;
-        $q = $this->_db->query('SELECT * FROM `company` WHERE `nameData` ='.$companyNameData);
+        $q = $this->_db->query('SELECT * FROM `company` WHERE `nameData` ="'.$companyNameData.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Company($donnees);
