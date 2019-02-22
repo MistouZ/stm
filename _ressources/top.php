@@ -18,7 +18,7 @@ $prenom = $_COOKIE['prenom'];
 <!-- DOC: Remove "hide" class to enable the page header actions -->
 <div class="page-actions">
     <div class="btn-group">
-        <button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <button type="button" class="btn blue-ebonyclay btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
             <span class="hidden-sm hidden-xs">Société&nbsp;</span>
             <i class="fa fa-angle-down"></i>
         </button>
