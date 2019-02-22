@@ -14,7 +14,7 @@ $companymanager = new CompaniesManager($bdd);
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $customer = new Customers($array);
-$customermanger = new CustomersManager($bdd);
+$customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
@@ -22,7 +22,7 @@ $contactmanager = new ContactManager($bdd);
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
-$customermanger = $customermanger->getListByCompany($company->getIdcompany());
+$customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 ?>
 
