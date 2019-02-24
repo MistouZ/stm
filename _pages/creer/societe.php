@@ -59,7 +59,7 @@ $companies = $companies->getList();
                                         <span class="btn green fileinput-button">
                                             <i class="fa fa-plus"></i>
                                             <span> Choisir le fichier... </span>
-                                            <input type="file" name="nameData[]" accept="image/png, image/jpeg" multiple=""> </span>
+                                            <input type="file" name="files[]" accept="image/png, image/jpeg" multiple=""> </span>
                                         <button type="submit" class="btn blue start">
                                             <i class="fa fa-upload"></i>
                                             <span> Upload </span>
@@ -86,11 +86,11 @@ $companies = $companies->getList();
                                         <div class="progress-extended"> &nbsp; </div>
                                     </div>
                                 </div>
+                                <!-- The table listing the files available for upload/download -->
+                                <table role="presentation" class="table table-striped clearfix">
+                                    <tbody class="files"> </tbody>
+                                </table>
                             </div>
-                            <!-- The table listing the files available for upload/download -->
-                            <table role="presentation" class="table table-striped clearfix">
-                                <tbody class="files"> </tbody>
-                            </table>
                         </div>
                     </div>
                     <div class="form-actions">
