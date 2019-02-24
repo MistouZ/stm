@@ -16,12 +16,14 @@ $companyNameData = $_GET["section"];
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 
-print_r($folder);
 
-/*
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
-$customer = new Customers($array);
+
+
+print_r($user);
+
+/*$customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);*/
