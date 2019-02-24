@@ -5,9 +5,11 @@
  * @copyright 2019
  */
 
+include("../../_cfg/cfg.php");
+
 /*initialisation des objets pour l'affichage*/
 
-/*$array = array();
+$array = array();
 $companyNameData = $_GET["section"];
 
 $folder = new Folder($array);
@@ -20,7 +22,7 @@ $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
 /*récupération des objets en base*/
-/*$company = $companymanager->getByNameData($companyNameData);
+$company = $companymanager->getByNameData($companyNameData);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
 
 
@@ -71,6 +73,4 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
-</div>*/
-echo "test";
-?>
+</div>
