@@ -55,6 +55,7 @@ $companymanager = $companymanager->getList();
                             <td><?php 
                                 if(file_exists(URLHOST."images/societe/".$company->getNameData().".*")){
                                     $image = pathinfo(URLHOST."images/societe/".$company->getNameData().".*");
+                                    echo $image;
                                     echo $nom_image['basename'];
                                     echo pathinfo($image, PATHINFO_EXTENSION);
                                 }
