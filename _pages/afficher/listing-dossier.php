@@ -9,7 +9,7 @@ include("../../_cfg/cfg.php");
 
 /*initialisation des objets pour l'affichage*/
 
-$array = array();
+//$array = array();
 //$companyNameData = $_GET["section"];
 
 
