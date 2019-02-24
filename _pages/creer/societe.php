@@ -34,7 +34,7 @@ $companies = $companies->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="name" data-required="1" class="form-control" placeholder="Nom" /> </div>
+                                <input type="text" name="name" id="name" data-required="1" class="form-control" placeholder="Nom" /> </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Adresse physique
@@ -80,17 +80,3 @@ $companies = $companies->getList();
         </div>
     </div>
 </div>
-
-
-
-<html>
-    <body>
-    <h1>Création d'une société</h1>
-        <form name="inscription" method="post" action="<?php echo URLHOST."_pages/_post/creer_societe.php"; ?>" enctype="multipart/form-data">
-            <label for="name">Nom de la société :</label><input type="text" name="name" id="name"/> <br/>
-            <label for="physical_address">Adresse physique du client : </label><input type="text" name="address" id="address"/><br/>
-            <label for="nameData">Uploader le logo de la société : </label><input type="file" name="nameData" id="nameData"  accept="image/png, image/jpeg" /><br/>
-            <input type="submit" name="valider" value="OK"/>
-        </form>
-    </body>
-</html>
