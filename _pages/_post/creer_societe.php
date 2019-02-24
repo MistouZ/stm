@@ -24,15 +24,15 @@ if(isset($_POST['valider'])) {
                 'isActive' => $isActive
             );
 
-            /*$company = new Company($array);
+            $company = new Company($array);
             $companiesmanager = new CompaniesManager($bdd);
-            $companiesmanager->add($company);*/
+            $companiesmanager->add($company);
 
-            print_r($array);
 
            // header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
             
-        } else {
+        }
+        else {
             echo $uploadedFile.'<br />';
             echo $_FILES['nameData']['tmp_name'].'<br />';
             echo sys_get_temp_dir();
