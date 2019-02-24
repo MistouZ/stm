@@ -25,8 +25,9 @@ if(isset($_POST['valider'])) {
             );
 
             $company = new Company($array);
-            $companiesmanager = new CompaniesManager($bdd);
-            $companiesmanager->add($company);
+            print_r($company);
+            /*$companiesmanager = new CompaniesManager($bdd);
+            $companiesmanager->add($company);*/
 
 
            // header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
