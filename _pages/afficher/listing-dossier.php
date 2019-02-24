@@ -9,11 +9,11 @@ include("../../_cfg/cfg.php");
 
 /*initialisation des objets pour l'affichage*/
 
-//$array = array();
-//$companyNameData = $_GET["section"];
+$array = array();
+$companyNameData = $_GET["section"];
 
 
-/*
+
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $user = new Users($array);
@@ -24,8 +24,8 @@ $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
 /*récupération des objets en base*/
-//$company = $companymanager->getByNameData($companyNameData);
-//$foldermanager = $foldermanager->getList($company->getIdcompany());
+$company = $companymanager->getByNameData($companyNameData);
+$foldermanager = $foldermanager->getList($company->getIdcompany());
 
 
 ?>
@@ -35,7 +35,7 @@ $contactmanager = new ContactManager($bdd);
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des <?php //print ucwords($_GET['section']); ?>  </div>
+                    <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['section']); ?>  </div>
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
@@ -51,7 +51,7 @@ $contactmanager = new ContactManager($bdd);
                         </tr>
                     </thead>
                     <tbody>
-                    <?php/*
+                    <?php
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
@@ -67,7 +67,7 @@ $contactmanager = new ContactManager($bdd);
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
                     <?php
-                    }*/
+                    }
                     ?>
                     </tbody>
                 </table>
