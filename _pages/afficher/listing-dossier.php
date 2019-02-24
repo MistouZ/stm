@@ -5,6 +5,18 @@
  * @copyright 2019
  */
 
+/*initialisation des objets pour l'affichage*/
+
+$array = array();
+$companyNameData = $_GET["section"];
+$folder = new Folder($array);
+$foldermanager = new FoldersManager($bdd);
+$user = new Users($array);
+$usermanager = new UsersManager($bdd);
+$customer = new Customers($customer);
+$customermanager = new CustomersManager($bdd);
+$contact = new Contact($array);
+$contactmanager = new ContactManager($bdd);
 
 
 ?>
