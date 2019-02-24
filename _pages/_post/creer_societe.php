@@ -25,7 +25,7 @@ if(isset($_POST['valider'])) {
             );
 
             $company = new Company($array);
-            echo $company;
+            echo $company->getName()." ".$company->getAddress()." ".$company->getIsActive();
             /*$companiesmanager = new CompaniesManager($bdd);
             $companiesmanager->add($company);*/
 
