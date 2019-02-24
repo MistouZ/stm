@@ -53,7 +53,7 @@ $companies = $companies->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <div class="row fileupload-buttonbar">
+                                <div class="row">
                                     <div class="col-lg-12">
                                         <!-- The fileinput-button span is used to style the file input field as button -->
                                         <span class="btn green fileinput-button">
@@ -63,20 +63,7 @@ $companies = $companies->getList();
                                         <!-- The global file processing state -->
                                         <span class="fileupload-process"> </span>
                                     </div>
-                                    <!-- The global progress information -->
-                                    <div class="col-lg-5 fileupload-progress fade">
-                                        <!-- The global progress bar -->
-                                        <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                                            <div class="progress-bar progress-bar-success" style="width:0%;"> </div>
-                                        </div>
-                                        <!-- The extended global progress information -->
-                                        <div class="progress-extended"> &nbsp; </div>
-                                    </div>
                                 </div>
-                                <!-- The table listing the files available for upload/download -->
-                                <table role="presentation" class="table table-striped clearfix">
-                                    <tbody class="files"> </tbody>
-                                </table>
                             </div>
                         </div>
                     </div>
