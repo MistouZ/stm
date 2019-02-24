@@ -23,10 +23,10 @@ $usermanager = new UsersManager($bdd);
 
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
+$contact = new Contact($array);
+$contactmanager = new ContactManager($bdd);
 
-print_r($customer);
-/*$contact = new Contact($array);
-$contactmanager = new ContactManager($bdd);*/
+print_r($contact);
 
 /*récupération des objets en base*/
 /*$company = $companymanager->getByNameData($companyNameData);
