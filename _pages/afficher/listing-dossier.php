@@ -11,6 +11,10 @@ include("../../_cfg/cfg.php");
 
 $array = array();
 $companyNameData = $_GET["section"];
+
+echo $companyNameData;
+
+/*
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $user = new Users($array);
@@ -21,8 +25,8 @@ $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
 /*récupération des objets en base*/
-$company = $companymanager->getByNameData($companyNameData);
-$foldermanager = $foldermanager->getList($company->getIdcompany());
+//$company = $companymanager->getByNameData($companyNameData);
+//$foldermanager = $foldermanager->getList($company->getIdcompany());
 
 
 ?>
