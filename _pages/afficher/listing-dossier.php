@@ -8,14 +8,17 @@
 include("../../_cfg/cfg.php");
 
 $array = array();
-print_r($array);
 $companyNameData = $_GET["section"];
-echo $companyNameData;
+
 
 /*initialisation des objets pour l'affichage*/
 
-/*$folder = new Folder($array);
+$folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
+
+print_r($folder);
+
+/*
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $customer = new Customers($array);
