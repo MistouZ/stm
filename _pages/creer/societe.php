@@ -59,20 +59,7 @@ $companies = $companies->getList();
                                         <span class="btn green fileinput-button">
                                             <i class="fa fa-plus"></i>
                                             <span> Choisir le fichier... </span>
-                                            <input type="file" name="files[]" accept="image/png, image/jpeg" multiple=""> </span>
-                                        <button type="submit" class="btn blue start">
-                                            <i class="fa fa-upload"></i>
-                                            <span> Upload </span>
-                                        </button>
-                                        <button type="reset" class="btn warning cancel">
-                                            <i class="fa fa-ban-circle"></i>
-                                            <span> Annuler </span>
-                                        </button>
-                                        <button type="button" class="btn red delete">
-                                            <i class="fa fa-trash"></i>
-                                            <span> Supprimer </span>
-                                        </button>
-                                        <input type="checkbox" class="toggle">
+                                            <input type="file" name="nameData" id="nameData"  accept="image/png, image/jpeg" /> </span>
                                         <!-- The global file processing state -->
                                         <span class="fileupload-process"> </span>
                                     </div>
