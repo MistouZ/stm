@@ -10,9 +10,8 @@ include("../../_cfg/cfg.php");
 /*initialisation des objets pour l'affichage*/
 
 $array = array();
-$companyNameData = $_GET["section"];
+//$companyNameData = $_GET["section"];
 
-echo $companyNameData;
 
 /*
 $folder = new Folder($array);
