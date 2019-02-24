@@ -13,7 +13,7 @@ if(isset($_POST['valider'])) {
     $isActive = 1;
     $extension=end(explode(".", $_FILES['nameData']["name"]));
     $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
-    $array = new array();
+    $array = array();
     $company = new Company($array);
 
     if (isset($_FILES['nameData'])) {
