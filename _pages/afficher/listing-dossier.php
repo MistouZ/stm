@@ -47,10 +47,10 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                    <?php/*
                     foreach ($foldermanager as $folder)
                     {
-                       /* $customer = $customermanager->getByID($folder->getCustomerId());
+                       $customer = $customermanager->getByID($folder->getCustomerId());
                         $user = $usermanager->get($folder->getSeller());
                         $contact = $contactmanager->getById($folder->getContactId());
                         ?>
