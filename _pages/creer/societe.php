@@ -34,14 +34,14 @@ $companies = $companies->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="name" data-required="1" class="form-control" /> </div>
+                                <input type="text" name="name" data-required="1" class="form-control" placeholder="Nom" /> </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Adresse physique
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                    <input type="email" name="address" id="address" class="form-control" placeholder="Adresse"> </div>
+                                    <input type="text" name="address" id="address" class="form-control" placeholder="Adresse"> </div>
                         </div>
                         <div class="form-group ">
                             <label class="control-label col-md-3">Logo de la société
