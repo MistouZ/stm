@@ -36,7 +36,7 @@ $contactmanager = new ContactManager($bdd);
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['section']); ?>  </div>
+                    <i class="fa fa-globe"></i>Liste des <?php //print ucwords($_GET['section']); ?>  </div>
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
