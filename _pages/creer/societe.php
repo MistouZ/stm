@@ -48,21 +48,23 @@ $companies = $companies->getList();
                                     <input type="email" name="address" id="address" class="form-control" placeholder="Adresse"> </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-3 control-label">Logo de la société
-                                <span class="required"> * </span>
-                            </label>
+                        <div class="form-group ">
+                            <label class="control-label col-md-3">Logo de la société</label>
                             <div class="col-md-9">
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <!-- The fileinput-button span is used to style the file input field as button -->
-                                        <span class="btn green fileinput-button">
-                                            <i class="fa fa-plus"></i>
-                                            <span> Choisir le fichier... </span>
-                                            <input type="file" name="nameData" id="nameData"  accept="image/png, image/jpeg" />
-                                        </span>
+                                <div class="fileinput fileinput-new" data-provides="fileinput">
+                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> </div>
+                                    <div>
+                                        <span class="btn red btn-outline btn-file">
+                                            <span class="fileinput-new"> Choisir ... </span>
+                                            <span class="fileinput-exists"> Changer </span>
+                                            <input type="file" accept="image/png, image/jpeg" id="nameData" name="nameData"> </span>
+                                        <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Annuler </a>
                                     </div>
                                 </div>
+                                <div class="clearfix margin-top-10">
+                                    <span class="label label-danger">Attention</span> Le logo doit être un fichier image au format .PNG ou .JPEG.</div>
+                                <div class="clearfix margin-top-10">
+                                    <span class="label label-success">NOTE</span> Pour un meilleur rendu, supprimez les bords blancs autour du logo.</div> 
                             </div>
                         </div>
                     </div>
