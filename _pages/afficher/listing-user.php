@@ -76,9 +76,6 @@ $companymanager = new CompaniesManager($bdd);
                         <?php
                     }
                     ?>
-                        <tr>
-
-                        </tr>
                     </tbody>
                 </table>
             </div>
