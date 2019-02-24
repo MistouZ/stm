@@ -29,12 +29,11 @@ if(isset($_POST['valider'])) {
             print_r($array);
 
             $company = new Company($array);
-            echo $company->getName()." ".$company->getAddress()." ".$company->getIsActive();
-            /*$companiesmanager = new CompaniesManager($bdd);
-            $companiesmanager->add($company);*/
+            $companiesmanager = new CompaniesManager($bdd);
+            $companiesmanager->add($company);
 
 
-           // header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
+            header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
             
         }
         else {
