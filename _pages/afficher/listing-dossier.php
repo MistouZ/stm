@@ -12,8 +12,6 @@ include("../../_cfg/cfg.php");
 $array = array();
 $companyNameData = $_GET["section"];
 
-
-
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $user = new Users($array);
