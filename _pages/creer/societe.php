@@ -22,6 +22,12 @@ $companies = $companies->getList();
                 </div>
             </div>
             <div class="portlet-body form">
+                <?php if($_GET['soussouscat']=="files"){ ?>
+                <div class="alert alert-danger">
+                    <button class="close" data-close="alert"></button>
+                    <span> Le fichier sélectionner n'a pu être téléchargé. Veuillez en sélectionner un autre. </span>
+                </div>
+                <?php } ?>
                 <!-- BEGIN FORM-->
                 <form action="<?php echo URLHOST."_pages/_post/creer_societe.php"; ?>" id="inscription" name="inscription" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-body">

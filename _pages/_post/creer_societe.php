@@ -18,7 +18,6 @@ if(isset($_POST['valider'])) {
         $uploadDir = '../../images/societe/'; //path you wish to store you uploaded files
         $uploadedFile = $uploadDir . basename($_FILES['nameData']["name"]).".".$extension;
         if (move_uploaded_file($_FILES['nameData']['tmp_name'], $uploadedFile)) {
-            echo 'File was uploaded successfully.';
             $array = array(
                 'name' => $name,
                 'address' => $address,
@@ -28,11 +27,14 @@ if(isset($_POST['valider'])) {
             $company = new Company($array);
             $companiesmanager = new CompaniesManager($bdd);
             $companiesmanager->add($company);
+            
+            header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
+            
         } else {
             echo $uploadedFile.'<br />';
             echo $_FILES['nameData']['tmp_name'].'<br />';
             echo sys_get_temp_dir();
-            echo 'There was a problem saving the uploaded file';
+            header('Location: '.URLHOST.$_GET['company']."/societe/creer/files");
         }
     }
 
