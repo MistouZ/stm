@@ -77,5 +77,3 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-*/
-?>
