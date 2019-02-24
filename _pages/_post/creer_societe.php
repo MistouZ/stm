@@ -25,12 +25,15 @@ if(isset($_POST['valider'])) {
             );
 
             $company = new Company($array);
-            $companiesmanager = new CompaniesManager($bdd);
-            $companiesmanager->add($company);
+            echo $company->getName()." ".$company->getAddress()." ".$company->getIsActive();
+            /*$companiesmanager = new CompaniesManager($bdd);
+            $companiesmanager->add($company);*/
+
+
+           // header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
             
-            header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
-            
-        } else {
+        }
+        else {
             echo $uploadedFile.'<br />';
             echo $_FILES['nameData']['tmp_name'].'<br />';
             echo sys_get_temp_dir();
