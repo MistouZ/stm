@@ -30,6 +30,7 @@ $companymanager = $companymanager->getList();
                         <th class="none">Adresse</th>
                         <th class="min-phone-1">Logo</th>
                         <th class="none">Actif</th>
+                        <th class="none">test</th>
                         <th class="min-tablet">Modifier</th>
                         <th class="min-tablet">Supprimer</th>
                     </tr>
@@ -51,6 +52,15 @@ $companymanager = $companymanager->getList();
                             <td><?php echo $company->getAddress(); ?></td>
                             <td><img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getNameData();?>" style="max-height: 30px;"/></td>
                             <td><?php echo $company->getIsActive();?></td>
+                            <td><?php 
+                                
+                                    $image = glob(URLHOST."images/societe/".$company->getNameData().".*");
+                                    echo URLHOST."images/societe/".$company->getNameData();
+                                    echo print_r($image);
+                                    echo $image['basename'];
+                                    echo pathinfo($image, PATHINFO_EXTENSION);
+                                
+                            ?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/supprimer/'.$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
                         </tr>
