@@ -26,10 +26,12 @@ $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
-print_r($contact);
 
 /*récupération des objets en base*/
-/*$company = $companymanager->getByNameData($companyNameData);
+$company = $companymanager->getByNameData($companyNameData);
+
+print_r($company);
+/*
 $foldermanager = $foldermanager->getList($company->getIdcompany());
 
 
