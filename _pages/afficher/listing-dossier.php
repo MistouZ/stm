@@ -48,11 +48,11 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                     </thead>
                     <tbody>
                     <?php
-                    foreach ($foldermanager as $folder)
+                    /*foreach ($foldermanager as $folder)
                     {
                         $customer = $customermanager->getByID($folder->getCustomerId());
                         $user = $usermanager->get($folder->getSeller());
-                        $contact = $contactmanager->getById($folder->getContactId());
+                        $contact = $contactmanager->getById($folder->getContactId());*/
                         ?>
                         <tr>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
@@ -63,7 +63,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
                     <?php
-                    }
+                    //}
                     ?>
                     </tbody>
                 </table>
