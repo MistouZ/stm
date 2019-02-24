@@ -59,9 +59,8 @@ $companies = $companies->getList();
                                         <span class="btn green fileinput-button">
                                             <i class="fa fa-plus"></i>
                                             <span> Choisir le fichier... </span>
-                                            <input type="file" name="nameData" id="nameData"  accept="image/png, image/jpeg" /> </span>
-                                        <!-- The global file processing state -->
-                                        <span class="fileupload-process"> </span>
+                                            <input type="file" name="nameData" id="nameData"  accept="image/png, image/jpeg" />
+                                        </span>
                                     </div>
                                 </div>
                             </div>
