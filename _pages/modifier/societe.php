@@ -7,8 +7,8 @@
 
 $array = array();
 $company = new Company($array);
-$companies = new CompaniesManager($bdd);
-$companies = $companies->getList();
+$company = new CompaniesManager($bdd);
+$company = $company->getById($_GET['soussouscat']);
 
 ?>
 <div class="row">
@@ -18,7 +18,7 @@ $companies = $companies->getList();
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">Création d'une société</span>
+                    <span class="caption-subject font-dark sbold uppercase">Modification de la société <span style="font-style: italic; font-weight: 800;"><?php echo $company->getName(); ?></span></span>
                 </div>
             </div>
             <div class="portlet-body form">
@@ -40,25 +40,25 @@ $companies = $companies->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="name" id="name" data-required="1" class="form-control" placeholder="Nom" /> </div>
+                                <input type="text" name="name" id="name" data-required="1" class="form-control" placeholder="Nom" value="<?php echo $company->getName(); ?>" /> </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Adresse physique
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                    <input type="text" name="address" id="address" class="form-control" placeholder="Adresse" /> </div>
+                                    <input type="text" name="address" id="address" class="form-control" placeholder="Adresse" value="<?php echo $company->getAddress(); ?>" /> </div>
                         </div>
                         <div class="form-group ">
-                            <label class="control-label col-md-3">Logo de la société
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3">Logo de la société</label>
                             <div class="col-md-9">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> </div>
+                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
+                                        <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" />
+                                    </div>
                                     <div>
                                         <span class="btn red btn-outline btn-file">
-                                            <span class="fileinput-new"> Choisir ... </span>
+                                            <span class="fileinput-new"> Modifier ... </span>
                                             <span class="fileinput-exists"> Changer </span>
                                             <input type="file" accept="image/png, image/jpeg" id="nameData" name="nameData"/> </span>
                                         <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Annuler </a>
