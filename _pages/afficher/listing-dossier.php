@@ -18,6 +18,16 @@ $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
+/*récupération des objets en base*/
+$company = $companymanager->getByNameData($companyNameData);
+$foldermanager = $foldermanager->getList($company->getIdcompany());
+
+
+
+
+
+
+
 
 ?>
 <html>
@@ -43,16 +53,25 @@ $contactmanager = new ContactManager($bdd);
                         </tr>
                     </thead>
                     <tbody>
+                    <?php
+                    foreach ($foldermanager as $folder)
+                    {
+                        $customer = $customermanager->getByID($folder->getCustomerId());
+                        $user = $usermanager->get($folder->getSeller());
+                        $contact = $contactmanager->getById($folder->getContactId());
+                    )
+                        ?>
                         <tr>
-                            <td>Tiger</td>
-                            <td>Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
-                            <td>5421</td>
+                            <td><?php echo $folder->getFolderNumber(); ?></td>
+                            <td><?php echo $folder->getLabel();?></td>
+                            <td><?php echo $customer->getName(); ?></td>
+                            <td><?php echo $user->getName(); ?></td>
+                            <td><?php echo $folder->getStatus();?></td>
+                            <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
+                    <?php
+                    }
+                    ?>
                     </tbody>
                 </table>
             </div>
