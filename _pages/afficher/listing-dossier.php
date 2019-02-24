@@ -8,6 +8,7 @@
 include("../../_cfg/cfg.php");
 
 $array = array();
+print_r($array);
 $companyNameData = $_GET["section"];
 
 
