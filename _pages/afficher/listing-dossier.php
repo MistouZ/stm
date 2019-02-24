@@ -7,10 +7,11 @@
 
 include("../../_cfg/cfg.php");
 
-/*initialisation des objets pour l'affichage*/
-
 $array = array();
 $companyNameData = $_GET["section"];
+
+
+/*initialisation des objets pour l'affichage*/
 
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
