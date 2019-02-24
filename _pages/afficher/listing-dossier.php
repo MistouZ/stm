@@ -23,12 +23,6 @@ $company = $companymanager->getByNameData($companyNameData);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
 
 
-
-
-
-
-
-
 ?>
 <html>
 <div class="row">
