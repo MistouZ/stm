@@ -53,12 +53,12 @@ $companymanager = $companymanager->getList();
                             <td><img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getNameData();?>" style="max-height: 30px;"/></td>
                             <td><?php echo $company->getIsActive();?></td>
                             <td><?php 
-                                if(file_exists(glob(URLHOST."images/societe/".$company->getNameData().".*"))){
+                                
                                     $image = glob(URLHOST."images/societe/".$company->getNameData().".*");
                                     echo $image;
                                     echo $nom_image['basename'];
                                     echo pathinfo($image, PATHINFO_EXTENSION);
-                                }
+                                
                             ?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/supprimer/'.$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
