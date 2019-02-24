@@ -53,8 +53,8 @@ $companymanager = $companymanager->getList();
                             <td><img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getNameData();?>" style="max-height: 30px;"/></td>
                             <td><?php echo $company->getIsActive();?></td>
                             <td><?php 
-                                if(file_exists(URLHOST."images/societe/".$company->getNameData().".")){
-                                    $image = pathinfo(URLHOST."images/societe/".$company->getNameData().".");
+                                if(file_exists(glob(URLHOST."images/societe/".$company->getNameData().".*"))){
+                                    $image = glob(URLHOST."images/societe/".$company->getNameData().".*");
                                     echo $image;
                                     echo $nom_image['basename'];
                                     echo pathinfo($image, PATHINFO_EXTENSION);
