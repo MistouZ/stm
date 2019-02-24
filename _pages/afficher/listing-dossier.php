@@ -13,17 +13,17 @@ $companyNameData = $_GET["section"];
 
 /*initialisation des objets pour l'affichage*/
 
-$folder = new Folder($array);
+/*$folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
-$contactmanager = new ContactManager($bdd);
+$contactmanager = new ContactManager($bdd);*/
 
 /*récupération des objets en base*/
-$company = $companymanager->getByNameData($companyNameData);
+/*$company = $companymanager->getByNameData($companyNameData);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
 
 
@@ -75,3 +75,5 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+*/
+?>
