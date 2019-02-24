@@ -25,7 +25,7 @@ if(isset($_POST['valider'])) {
             );
 
             $company = new Company($array);
-            print_r($company);
+            echo $company;
             /*$companiesmanager = new CompaniesManager($bdd);
             $companiesmanager->add($company);*/
 
