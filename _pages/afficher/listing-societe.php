@@ -56,7 +56,7 @@ $companymanager = $companymanager->getList();
                                 
                                     $image = glob(URLHOST."images/societe/".$company->getNameData().".*");
                                     echo URLHOST."images/societe/".$company->getNameData();
-                                    echo print_r($image);
+                                    echo var_dump($image);
                                     echo $image['basename'];
                                     echo pathinfo($image, PATHINFO_EXTENSION);
                                 
