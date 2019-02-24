@@ -21,11 +21,11 @@ $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 
 
-print_r($user);
-
-/*$customer = new Customers($array);
+$customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$contact = new Contact($array);
+
+print_r($customer);
+/*$contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);*/
 
 /*récupération des objets en base*/
