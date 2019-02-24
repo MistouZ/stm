@@ -30,7 +30,6 @@ $contactmanager = new ContactManager($bdd);
 
 
 ?>
-<html>
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -78,4 +77,3 @@ $contactmanager = new ContactManager($bdd);
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-</html>
