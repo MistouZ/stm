@@ -5,8 +5,6 @@
  * @copyright 2019
  */
 
-include("../../_cfg/cfg.php");
-
 /*initialisation des objets pour l'affichage*/
 
 $array = array();
