@@ -55,7 +55,7 @@ $companymanager = $companymanager->getList();
                             <td><?php 
                                     $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
                                     echo $_SERVER['DOCUMENT_ROOT'].$path_image." / ";
-                                    $image = glob($path_image.".*");
+                                    $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
                                     echo var_dump($image);
                                     echo $image['basename'];
                                     echo pathinfo($image, PATHINFO_EXTENSION);
