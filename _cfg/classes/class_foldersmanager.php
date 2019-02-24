@@ -96,11 +96,11 @@ class FoldersManager
      * Get all the suppliers in the BDD
      * @return array
      */
-    public function getList()
+    public function getList($companyid)
     {
         $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder");
+        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='.$companyid.'");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $folders[] = new Folder($donnees);
