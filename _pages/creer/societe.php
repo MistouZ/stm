@@ -41,15 +41,12 @@ $companies = $companies->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <div class="input-group">
-                                    <span class="input-group-addon">
-                                        <i class="fa fa-envelope"></i>
-                                    </span>
                                     <input type="email" name="address" id="address" class="form-control" placeholder="Adresse"> </div>
-                            </div>
                         </div>
                         <div class="form-group ">
-                            <label class="control-label col-md-3">Logo de la société</label>
+                            <label class="control-label col-md-3">Logo de la société
+                                <span class="required"> * </span>
+                            </label>
                             <div class="col-md-9">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;"> </div>
