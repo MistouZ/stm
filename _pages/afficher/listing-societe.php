@@ -54,8 +54,7 @@ $companymanager = $companymanager->getList();
                             <td><?php echo $company->getIsActive();?></td>
                             <td><?php 
                                 
-                                    $image = glob(URLHOST."images/societe/".$company->getNameData().".*");
-                                    echo URLHOST."images/societe/".$company->getNameData();
+                                    $image = glob(URLHOST."images/societe/".$company->getNameData().".{jpg,jpeg,png,gif}");
                                     echo var_dump($image);
                                     echo $image['basename'];
                                     echo pathinfo($image, PATHINFO_EXTENSION);
