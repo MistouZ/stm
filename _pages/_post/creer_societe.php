@@ -24,11 +24,13 @@ if(isset($_POST['valider'])) {
                 'isActive' => $isActive
             );
 
-            $company = new Company($array);
+            /*$company = new Company($array);
             $companiesmanager = new CompaniesManager($bdd);
-            $companiesmanager->add($company);
-            
-            header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
+            $companiesmanager->add($company);*/
+
+            print_r($array);
+
+           // header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
             
         } else {
             echo $uploadedFile.'<br />';
