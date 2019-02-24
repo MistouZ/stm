@@ -13,8 +13,7 @@ if(isset($_POST['valider'])) {
     $isActive = 1;
     $extension=end(explode(".", $_FILES['nameData']["name"]));
     $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
-    $array = array();
-    $company = new Company($array);
+
 
     if (isset($_FILES['nameData'])) {
         $uploadDir = '../../images/societe/'; //path you wish to store you uploaded files
