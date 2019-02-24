@@ -6,6 +6,7 @@
  * Time: 09:12
  */
 
+include("../../_cfg/cfg.php");
 
 if(isset($_POST['valider'])) {
     $name=$_POST['name'];
