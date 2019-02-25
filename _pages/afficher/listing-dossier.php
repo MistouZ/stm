@@ -66,7 +66,7 @@ $user->getFirstName();
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
                             <td><?php echo $customer->getName(); ?></td>
-                            <td><?php echo $user->getName(); ?></td>
+                            <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                             <td><?php echo $folder->getStatus();?></td>
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
