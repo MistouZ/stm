@@ -11,7 +11,7 @@ class Folder extends Features
     private $idFolder;
     private $folderNumber;
     private $label;
-    private $status;
+    private $isActive;
     private $year;
     private $month;
     private $day;
@@ -81,18 +81,20 @@ class Folder extends Features
     /**
      * @return mixed
      */
-    public function getStatus()
+    public function getIsActive()
     {
-        return $this->status;
+        return $this->isActive;
     }
 
     /**
-     * @param mixed $status
+     * @param mixed $isActive
      */
-    public function setStatus($status)
+    public function setIsActive($isActive): void
     {
-        $this->status = $status;
+        $this->isActive = $isActive;
     }
+
+
 
     /**
      * @return mixed
