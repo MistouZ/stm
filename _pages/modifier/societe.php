@@ -54,7 +54,11 @@ $company = $company->getById($_GET['soussouscat']);
                             <div class="col-md-9">
                                 <div class="fileinput fileinput-new" data-provides="fileinput">
                                     <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                                        <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" />
+                                        <?php
+                                            $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
+                                            $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
+                                        ?>
+                                        <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getNameData();?>" />
                                     </div>
                                     <div>
                                         <span class="btn red btn-outline btn-file">
