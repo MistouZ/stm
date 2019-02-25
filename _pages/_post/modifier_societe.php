@@ -17,7 +17,7 @@ if(isset($_POST['valider'])) {
         //supression de l'ancien logo
         $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
         $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
-        echo $_SERVER['DOCUMENT_ROOT'].$path_image.basename($image[0]);
+        echo $_SERVER['DOCUMENT_ROOT'].URLHOST."images/societe/".basename($image[0]);
         fclose($_SERVER['DOCUMENT_ROOT'].$path_image.basename($image[0]));
         unlink($_SERVER['DOCUMENT_ROOT'].$path_image.basename($image[0]));
         //upload du nouveau logo
