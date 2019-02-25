@@ -28,6 +28,7 @@ $contactmanager = new ContactManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
 
+print_r($foldermanager);
 
 ?>
 <div class="row">
