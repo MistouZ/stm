@@ -59,11 +59,11 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                        $customer = $customermanager->getByID($folder->getCustomerId());
                        $user = $usermanager->get($folder->getSeller());
                        $contact = $contactmanager->getById($folder->getContactId());
-                        if($folder->getStatus() == "O")
+                        if($folder->getIsActive() == 1)
                         {
                             $folder->setStatus("Ouvert");
                         }
-                        elseif($folder->getStatus() == "C")
+                        elseif($folder->getIsActive() == 0)
                         {
                             $folder->setStatus("Fermé");
                         }
