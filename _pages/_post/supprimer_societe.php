@@ -7,7 +7,7 @@
  */
 
 include("../../_cfg/cfg.php");
-$companyId = $_POST["idCompany"];
+$companyId = $_GET["idCompany"];
 
 echo "Test : ".$companyId;
 
@@ -16,6 +16,6 @@ $company = new Company($array);
 $company->setIdcompany($_GET["idcompany"]);
 $companiesmanager = new CompaniesManager($bdd);
 $companiesmanager->delete($company);
-header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
+//header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
 
 ?>
