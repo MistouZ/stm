@@ -50,7 +50,7 @@ class TaxManager
      * @param Tax $Tax
      * Insertion tax in the DB
      */
-    /*public function addToCustomers(Tax $tax, $customers)
+    public function addToCustomers(Tax $tax, $customers)
     {
         $q = $this->_db->prepare('INSERT INTO tax (name, values,isActive) VALUES (:name, :values,:isActive)');
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
@@ -63,14 +63,11 @@ class TaxManager
 
         $q2 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomers, tax_idtax) VALUES (:idcustomer, :idtax)');
         $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
-        $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
+        $q2->bindValue(':idtax', $tax->getIdTax(), PDO::PARAM_INT);
 
         $q2->execute();
 
     }*/
-
-
-    /*Reprendre ici la gestion des TAXES remplacer les contacts par Tax*/
 
     /**
      * @param Tax $tax
@@ -79,7 +76,7 @@ class TaxManager
     public function delete(Tax $tax)
     {
         $q = $this->_db->prepare('UPDATE tax SET isActive = \'0\' WHERE idTax = :idTax');
-        $q->bindValue(':idContact', $tax->getIdTax(), PDO::PARAM_INT);
+        $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
 
         $q->execute();
     }
@@ -99,15 +96,14 @@ class TaxManager
     }
 
     /**
-     * Find a contact by his idContact
-     * @param $idContact
-     * @return Contact
+     * Find a tax by his TaxName
+     * @param $taxName
+     * @return Tax
      */
     public function getByName($taxName)
     {
         $taxName = (string) $taxName;
-        $query = 'SELECT * FROM tax WHERE name ="'.$taxName.'"';
-        $q = $this->_db->query($query);
+        $q = $this->_db->query('SELECT * FROM tax WHERE name ="'.$taxName.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Tax($donnees);
@@ -129,8 +125,6 @@ class TaxManager
 
         return $taxes;
     }
-
-
 
 
     /**
