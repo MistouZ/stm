@@ -55,8 +55,8 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
-                       $user = $usermanager->get($folder->getSeller());
-                       $contact = $contactmanager->getById($folder->getContactId());
+                       /*$user = $usermanager->get($folder->getSeller());
+                       $contact = $contactmanager->getById($folder->getContactId());*/
                         ?>
                         <tr>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
