@@ -74,7 +74,7 @@ $company = $company->getById($_GET['soussouscat']);
                                     <span class="label label-success">NOTE</span> Pour un meilleur rendu, supprimez les bords blancs autour du logo.</div> 
                             </div>
                         </div>
-                        <input type="hidden" name="idCompany" id="idCompany" data-required="1" class="form-control" placeholder="Nom" value="<?php echo $_GET['soussouscat'] ?>" />
+                        <input type="hidden" name="idCompany" id="idCompany" data-required="1" class="form-control" value="<?php echo $_GET['soussouscat'] ?>" />
                     </div>
                     <div class="form-actions">
                         <div class="row">
