@@ -34,7 +34,7 @@ if(isset($_POST['valider'])) {
     $companiesmanager = new CompaniesManager($bdd);
     $companiesmanager->update($company);
 
-    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/");
+    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
 
 }
 
