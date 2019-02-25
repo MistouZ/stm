@@ -30,7 +30,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
 
 foreach ($foldermanager as $folder)
 {
-    $folder->getFolderNumber();
+   echo $folder->getFolderNumber();
 }/*
 ?>
 <div class="row">
