@@ -31,7 +31,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
 foreach ($foldermanager as $folder)
 {
     $folder->getFolderNumber();
-}
+}/*
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -80,3 +80,5 @@ foreach ($foldermanager as $folder)
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+*/
+?>
