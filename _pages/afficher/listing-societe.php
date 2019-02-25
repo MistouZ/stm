@@ -57,8 +57,8 @@ $companymanager = $companymanager->getList();
                                     echo $_SERVER['DOCUMENT_ROOT'].$path_image." / ";
                                     $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
                                     //echo var_dump($image);
-                                    echo $image['basename'];
-                                    echo pathinfo($image, PATHINFO_EXTENSION);
+                                    echo $image[0]['basename'];
+                                    echo pathinfo($image[0], PATHINFO_EXTENSION);
                                 
                             ?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
