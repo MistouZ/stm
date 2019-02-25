@@ -28,8 +28,10 @@ $contactmanager = new ContactManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
 
-print_r($foldermanager);
-
+foreach ($foldermanager as $folder)
+{
+    $folder->getFolderNumber();
+}
 ?>
 <div class="row">
     <div class="col-md-12">
