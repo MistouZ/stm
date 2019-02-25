@@ -13,7 +13,7 @@ echo "Test : ".$companyId;
 
 $array = array();
 $company = new Company($array);
-$company->setIdcompany($_GET["idcompany"]);
+$company->setIdcompany($companyId);
 $companiesmanager = new CompaniesManager($bdd);
 $companiesmanager->delete($company);
 //header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
