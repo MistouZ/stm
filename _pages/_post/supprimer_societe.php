@@ -13,8 +13,9 @@ echo "Test : ".$companyId;
 
 $array = array();
 $company = new Company($array);
-$companymanager = new CompaniesManager($bdd);
-$companymanager = $companymanager->delete($companyId);
-header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
+$company->setIdcompany($companyId);
+$companiesmanager = new CompaniesManager($bdd);
+$companiesmanager->delete($company);
+//header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
 
 ?>
