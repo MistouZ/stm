@@ -120,8 +120,8 @@ class CompaniesManager extends Features
 
     public function update(Company $company)
     {
-        print_r($company);
-        /*$q = $this->_db->prepare('UPDATE company SET name = :name, nameData = :nameData address = :address, isActive = :isActive  WHERE idcompany = :idcompany');
+
+        $q = $this->_db->prepare('UPDATE company SET name = :name, nameData = :nameData address = :address, isActive = :isActive  WHERE idcompany = :idcompany');
         $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
         $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
         $companyName = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $company->getName()));
@@ -129,7 +129,7 @@ class CompaniesManager extends Features
         $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
 
-        $q->execute();*/
+        $q->execute();
     }
 
     public function getCompanies($username)
