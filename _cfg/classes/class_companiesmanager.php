@@ -129,7 +129,6 @@ class CompaniesManager extends Features
         $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
-        $q->debugDumpParams();
     }
 
     public function getCompanies($username)
