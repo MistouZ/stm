@@ -11,12 +11,11 @@ $companyId = $_GET["idCompany"];
 
 echo "Test : ".$companyId;
 
-$array = array(
-            'idcompany' => $companyId,
-        );
+$array = array();
 $company = new Company($array);
-$companymanager = new CompaniesManager($bdd);
-$companymanager = $companymanager->delete($company->getIdcompany());
+$company->setIdcompany($_GET["idcompany"]);
+$companiesmanager = new CompaniesManager($bdd);
+$companiesmanager->delete($company);
 header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
 
 ?>
