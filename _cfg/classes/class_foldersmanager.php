@@ -100,7 +100,7 @@ class FoldersManager
     {
         $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='.$companyid.'");
+        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid'");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $folders[] = new Folder($donnees);
@@ -117,7 +117,7 @@ class FoldersManager
     {
         $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='.$companyid.' AND isActive ='\1\' ");
+        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid' AND isActive ='\1\' ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $folders[] = new Folder($donnees);
@@ -139,7 +139,7 @@ class FoldersManager
         $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
         $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
         $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
-        $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_STR);
+        $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
         $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
         $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
         $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
