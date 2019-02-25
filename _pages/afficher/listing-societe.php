@@ -57,7 +57,7 @@ $companymanager = $companymanager->getList();
                                     echo $_SERVER['DOCUMENT_ROOT'].$path_image." / ";
                                     $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
                                     //echo var_dump($image);
-                                    echo $image[0]['basename'];
+                                    echo basename($image[0]);
                                     echo pathinfo($image[0], PATHINFO_EXTENSION);
                                 
                             ?></td>
