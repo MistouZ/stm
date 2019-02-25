@@ -54,7 +54,7 @@ class FoldersManager
         $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
         $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
         $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
-        $q->bindValue(':status', $folder->getIsActive(), PDO::PARAM_STR);
+        $q->bindValue(':status', $folder->getIsActive(), PDO::PARAM_INT);
         $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
         $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
         $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
@@ -72,7 +72,7 @@ class FoldersManager
     public function delete(Folder $folder)
     {
         $q = $this->_db->prepare('DELETE FROM folder WHERE folderId = :folderId');
-        $q->bindValue(':folderId', $folder->getFolderId(), PDO::PARAM_INT);
+        $q->bindValue(':folderId', $folder->getIdFolder(), PDO::PARAM_INT);
 
         $q->execute();
     }
@@ -93,7 +93,7 @@ class FoldersManager
 
 
     /**
-     * Get all the suppliers in the BDD
+     * Get all the folder in the BDD for the selected company
      * @return array
      */
     public function getList($companyid)
@@ -110,14 +110,14 @@ class FoldersManager
     }
 
     /**
-     * Get all the suppliers in the BDD
+     * Get all the active folder in the BDD for the selected company
      * @return array
      */
-    public function getList($companyid)
+    public function getListActive($companyid)
     {
         $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='.$companyid.'");
+        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='.$companyid.' AND isActive ='\1\' ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $folders[] = new Folder($donnees);
