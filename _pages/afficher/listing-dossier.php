@@ -28,10 +28,6 @@ $contactmanager = new ContactManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
 
-foreach ($foldermanager as $folder)
-{
-   echo $folder->getFolderNumber();
-}/*
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -59,8 +55,8 @@ foreach ($foldermanager as $folder)
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
-                        $user = $usermanager->get($folder->getSeller());
-                        $contact = $contactmanager->getById($folder->getContactId());
+                       $user = $usermanager->get($folder->getSeller());
+                       $contact = $contactmanager->getById($folder->getContactId());
                         ?>
                         <tr>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
