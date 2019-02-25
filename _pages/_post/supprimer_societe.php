@@ -16,7 +16,7 @@ $array = array(
         );
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-$companymanager = $companymanager->delete($companyId);
+$companymanager = $companymanager->delete($company->getIdcompany());
 header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
 
 ?>
