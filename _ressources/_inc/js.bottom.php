@@ -35,7 +35,7 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
-<?php if(($_GET['souscat']=="afficher" || $_GET['souscat']=="creer") && $_GET['cat']!="societe"){ ?>
+<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer"){ ?>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>

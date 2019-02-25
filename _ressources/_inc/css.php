@@ -12,7 +12,7 @@
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/icheck/skins/all.css" rel="stylesheet" type="text/css" />
-<?php if(($_GET['souscat']=="afficher" || $_GET['souscat']=="creer") && $_GET['cat']!="societe"){ ?>
+<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer"){ ?>
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-markdown/css/bootstrap-markdown.min.css" rel="stylesheet" type="text/css" />
