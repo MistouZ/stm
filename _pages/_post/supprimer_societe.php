@@ -11,7 +11,9 @@ $companyId = $_GET["idCompany"];
 
 echo "Test : ".$companyId;
 
-$array = array();
+$array = array(
+            'idcompany' => $companyId,
+        );
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $companymanager = $companymanager->delete($companyId);
