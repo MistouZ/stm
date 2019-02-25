@@ -28,9 +28,6 @@ $contactmanager = new ContactManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
 
-$user->getFirstName();
-
-
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -61,6 +58,14 @@ $user->getFirstName();
                        $customer = $customermanager->getByID($folder->getCustomerId());
                        $user = $usermanager->get($folder->getSeller());
                        $contact = $contactmanager->getById($folder->getContactId());
+                        if($folder->getStatus() == "O")
+                        {
+                            $folder->setStatus("Ouvert");
+                        }
+                        elseif($folder->getStatus() == "C")
+                        {
+                            $folder->setStatus("Fermé");
+                        }
                         ?>
                         <tr>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
