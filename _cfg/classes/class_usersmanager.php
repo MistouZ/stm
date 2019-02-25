@@ -82,12 +82,10 @@ class UsersManager
     public function get($username)
     {
         $username = (string) $username;
-        $query = "SELECT * FROM users WHERE username ='.$username.'";
-        echo $query;
-       // $q = $this->_db->query($query);
-        //$donnees = $q->fetch(PDO::FETCH_ASSOC);
+        $q = $this->_db->query("SELECT * FROM users WHERE username ='$username'");
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        //return new Users($donnees);
+        return new Users($donnees);
     }
 
     /**
