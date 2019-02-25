@@ -72,7 +72,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
                             <td><?php echo $customer->getName(); ?></td>
-                            <td><a href="<?php URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getFolderId(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                             <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                             <td><?php echo $folder->getStatus();?></td>
