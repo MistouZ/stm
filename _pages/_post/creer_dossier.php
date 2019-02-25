@@ -20,14 +20,14 @@ if(isset($_POST['valider'])){
     $contactId = $_POST["contact-select"];
     $companyId = $_POST["idcompany"];
 
-    $status ="O";
+    $isActive = 1;
 
     $array = array(
         'label' => $label,
         'year' => $year,
         'month' => $month,
         'day' => $day,
-        'status' => $status,
+        'isActive' => $isActive,
         'description' => $description,
         'seller' => $seller,
         'companyId' => $companyId,
