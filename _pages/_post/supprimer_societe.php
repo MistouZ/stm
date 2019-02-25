@@ -9,6 +9,8 @@
 include("../../_cfg/cfg.php");
 $companyId = $_GET["idCompany"];
 
+echo "Test : ".$companyId;
+
 $array = array();
 $company = new Company($array);
 $companiesmanager = new CompaniesManager($bdd);
