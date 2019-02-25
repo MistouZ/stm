@@ -58,7 +58,7 @@ $companymanager = $companymanager->getList();
                             </td>
                             <td><?php echo $company->getIsActive();?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
-                            <td><a data-placement="top" data-toggle="confirmation" data-title="Supprimer la société <?php echo $company->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_societe.php?idCompany=".$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
+                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer la société <?php echo $company->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_societe.php?idCompany=".$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                         </tr>
                         <?php
                     }
