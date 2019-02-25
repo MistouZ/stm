@@ -26,7 +26,9 @@ $contactmanager = new ContactManager($bdd);
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
-$foldermanager = $foldermanager->getList($company->getIdcompany());
+
+print_r($company);
+/*$foldermanager = $foldermanager->getList($company->getIdcompany());
 
 
 ?>
@@ -77,3 +79,5 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+*/
+?>
