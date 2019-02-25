@@ -32,8 +32,8 @@ class TaxManager
     }
 
     /**
-     * @param Contact $contact
-     * Insertion contact in the DB
+     * @param Tax $Tax
+     * Insertion tax in the DB
      */
     public function addToCustomers(Tax $tax, $customers)
     {
@@ -44,9 +44,9 @@ class TaxManager
 
         $q->execute();
 
-        $contact = $this->getByName($contact->getName(), $contact->getFirstname());
+        $tax = $this->getByName($tax->getName());
 
-        $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
+        $q2 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomers, tax_idtax) VALUES (:idcustomer, :idtax)');
         $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
         $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
 
@@ -55,27 +55,7 @@ class TaxManager
     }
 
 
-    /**
-     * @param Contact $contact
-     * Insertion contact in the DB
-     */
-    public function addToSuppliers(Contact $contact,Suppliers $suppliers)
-    {
-        $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :first_name, :email_address, :password, :phone_number, :isActive)');
-        $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
-        $q->bindValue(':first_name', $contact->getFirstName(), PDO::PARAM_STR);
-        $q->bindValue(':email_address', $contact->getEmailAddress(), PDO::PARAM_STR);
-        $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR);
-        $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
-
-        $q->execute();
-
-        $q2 = $this->_db->prepare('INSERT INTO link_suppliers_contact (suppliers_idsupplier, contact_idcontact) VALUES (:idsupplier, :idcontact)');
-        $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
-        $q2->bindValue(':idcustomer', $suppliers->getIdSupplier(), PDO::PARAM_INT);
-        $q2->execute();
-
-    }
+    /*Reprendre ici la gestion des TAXES remplacer les contacts par Tax*/
 
     /**
      * @param Contact $contact
