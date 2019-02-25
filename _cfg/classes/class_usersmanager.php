@@ -83,8 +83,9 @@ class UsersManager
     {
         $username = (string) $username;
         $query = "SELECT * FROM users WHERE username ='.$username.'";
-        $q = $this->_db->query($query);
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+        echo $query;
+       // $q = $this->_db->query($query);
+        //$donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         //return new Users($donnees);
     }
