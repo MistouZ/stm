@@ -14,7 +14,7 @@ if(isset($_POST['valider'])) {
     $isActive = 1;
     $idCompany = $_POST['idCompany'];
    
-    if (isset($_FILES['nameData'])) {
+    if (!empty($_FILES['nameData']["name"])) {
         $extension=end(explode(".", $_FILES['nameData']["name"]));
         $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
         $uploadDir = '../../images/societe/'; //path you wish to store you uploaded files
@@ -23,7 +23,7 @@ if(isset($_POST['valider'])) {
             echo $uploadedFile.'<br />';
             echo $_FILES['nameData']['tmp_name'].'<br />';
             echo sys_get_temp_dir();
-            header('Location: '.URLHOST.$_GET['company']."/societe/creer/files");
+            header('Location: '.URLHOST.$_COOKIE['company']."/societe/modifier/files");
         }
     }
     
