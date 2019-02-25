@@ -55,14 +55,14 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
-                       $user = $usermanager->get($folder->getSeller());
-                       $contact = $contactmanager->getById($folder->getContactId());
+                       /*$user = $usermanager->get($folder->getSeller());
+                       $contact = $contactmanager->getById($folder->getContactId());*/
                         ?>
                         <tr>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
-                            <td><?php echo $customer->getName(); ?></td>
-                            <td><?php echo $user->getName(); ?></td>
+                            <td><?php echo $folder->getSeller(); ?></td>
+                            <td><?php echo $folder->getContactId(); ?></td>
                             <td><?php echo $folder->getStatus();?></td>
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
