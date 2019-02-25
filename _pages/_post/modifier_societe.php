@@ -18,8 +18,8 @@ if(isset($_POST['valider'])) {
         $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
         $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
         echo $_SERVER['DOCUMENT_ROOT']."/images/societe/".basename($image[0]);
-        fclose($_SERVER['DOCUMENT_ROOT'].$path_image.basename($image[0]));
-        unlink($_SERVER['DOCUMENT_ROOT'].$path_image.basename($image[0]));
+        fclose($_SERVER['DOCUMENT_ROOT']."/images/societe/".basename($image[0]));
+        unlink($_SERVER['DOCUMENT_ROOT']."/images/societe/".basename($image[0]));
         //upload du nouveau logo
         $extension=end(explode(".", $_FILES['nameData']["name"]));
         $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
