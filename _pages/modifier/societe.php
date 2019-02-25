@@ -29,7 +29,7 @@ $company = $company->getById($_GET['soussouscat']);
                 </div>
                 <?php } ?>
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/creer_societe.php"; ?>" id="inscription" name="inscription" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="<?php echo URLHOST."_pages/_post/modifier_societe.php"; ?>" id="inscription" name="inscription" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Tous les champs doivent être remplis </div>
@@ -74,6 +74,7 @@ $company = $company->getById($_GET['soussouscat']);
                                     <span class="label label-success">NOTE</span> Pour un meilleur rendu, supprimez les bords blancs autour du logo.</div> 
                             </div>
                         </div>
+                        <input type="hidden" name="idCompany" id="idCompany" data-required="1" class="form-control" placeholder="Nom" value="<?php echo $_GET['soussouscat'] ?>" />
                     </div>
                     <div class="form-actions">
                         <div class="row">

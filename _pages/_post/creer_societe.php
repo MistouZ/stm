@@ -33,14 +33,14 @@ if(isset($_POST['valider'])) {
             $companiesmanager->add($company);
 
 
-            header('Location: '.URLHOST.$_GET['company']."/societe/afficher");
+            header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
             
         }
         else {
             echo $uploadedFile.'<br />';
             echo $_FILES['nameData']['tmp_name'].'<br />';
             echo sys_get_temp_dir();
-            header('Location: '.URLHOST.$_GET['company']."/societe/creer/files");
+            header('Location: '.URLHOST.$_COOKIE['company']."/societe/creer/files");
         }
     }
 
