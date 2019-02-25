@@ -33,6 +33,9 @@ if(isset($_POST['valider'])) {
         'address' => $address,
         'isActive' => $isActive
     );
+    
+    print_r($array);
+    
     $company = new Company($array);
     $companiesmanager = new CompaniesManager($bdd);
     $companiesmanager->update($company);
