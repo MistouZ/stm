@@ -56,10 +56,11 @@ $companymanager = $companymanager->getList();
                                     $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
                                     echo $_SERVER['DOCUMENT_ROOT'].$path_image." / ";
                                     $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
-                                    echo var_dump($image);
-                            ?>
-                            <img src="<?php echo var_dump($image); ?>" alt="<?php echo $company->getNameData();?>" style="max-height: 30px;"/>
-                            </td>
+                                    //echo var_dump($image);
+                                    echo $image['basename'];
+                                    echo pathinfo($image, PATHINFO_EXTENSION);
+                                
+                            ?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/supprimer/'.$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
                         </tr>
