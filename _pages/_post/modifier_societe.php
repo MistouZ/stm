@@ -31,13 +31,10 @@ if(isset($_POST['valider'])) {
     //print_r($array);
     
     $company = new Company($array);
-    echo "New Company OK";
     $companiesmanager = new CompaniesManager($bdd);
-    echo "New companyManager OK";
     $companiesmanager->update($company);
-    echo "Update OK";
-    
-    //header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/".$idCompany);
+
+    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/".$idCompany);
 
 }
 
