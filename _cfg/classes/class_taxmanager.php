@@ -31,11 +31,26 @@ class TaxManager
         $this->_db = $db;
     }
 
+
+    /**
+     * Adding taxes to the programme
+     * @param Tax $tax
+     */
+    public function add(Tax $tax)
+    {
+        $q = $this->_db->prepare('INSERT INTO tax (name, values,isActive) VALUES (:name, :values,:isActive)');
+        $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
+        $q->bindValue(':values', $tax->getValue(), PDO::PARAM_STR);
+        $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
+
+        $q->execute();
+    }
+
     /**
      * @param Tax $Tax
      * Insertion tax in the DB
      */
-    public function addToCustomers(Tax $tax, $customers)
+    /*public function addToCustomers(Tax $tax, $customers)
     {
         $q = $this->_db->prepare('INSERT INTO tax (name, values,isActive) VALUES (:name, :values,:isActive)');
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
@@ -52,82 +67,101 @@ class TaxManager
 
         $q2->execute();
 
-    }
+    }*/
 
 
     /*Reprendre ici la gestion des TAXES remplacer les contacts par Tax*/
 
     /**
-     * @param Contact $contact
-     * Disable contact instead of delete it
+     * @param Tax $tax
+     * Disable tax instead of delete it
      */
-    public function delete(Contact $contact)
+    public function delete(Tax $tax)
     {
-        $q = $this->_db->prepare('UPDATE contact SET isActive = \'0\' WHERE idContact = :idContact');
-        $q->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
+        $q = $this->_db->prepare('UPDATE tax SET isActive = \'0\' WHERE idTax = :idTax');
+        $q->bindValue(':idContact', $tax->getIdTax(), PDO::PARAM_INT);
 
         $q->execute();
     }
 
     /**
-     * Find a contact by his idContact
-     * @param $idContact
-     * @return Contact
+     * Find a tax by his idTax
+     * @param $idtax
+     * @return Tax
      */
-    public function getById($idContact)
+    public function getById($idtax)
     {
-        $idContact = (integer) $idContact;
-        $q = $this->_db->query('SELECT * FROM contact WHERE idContact ='.$idContact);
+        $idtax = (integer) $idtax;
+        $q = $this->_db->query('SELECT * FROM tax WHERE idTax ='.$idtax);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Contact($donnees);
+        return new Tax($donnees);
     }
+
     /**
      * Find a contact by his idContact
      * @param $idContact
      * @return Contact
      */
-    public function getByName($contactName, $contactFirstName)
+    public function getByName($taxName)
     {
-        $contactName = (string) $contactName;
-        $contactFirstName = (string) $contactFirstName;
-        $query = 'SELECT * FROM contact WHERE name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
+        $taxName = (string) $taxName;
+        $query = 'SELECT * FROM tax WHERE name ="'.$taxName.'"';
         $q = $this->_db->query($query);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Contact($donnees);
+        return new Tax($donnees);
     }
 
     /**
-     * Get all the contact in the BDD
+     * Get all the taxes in the BDD
      * @return array
      */
-    public function getList($customerId)
+    public function getList()
     {
-        $contact = [];
+        $taxes = [];
 
-        $q=$this->_db->query("SELECT cont.* FROM contact cont INNER JOIN  link_customers_contact lk ON cont.idContact =  lk.contact_idContact INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE cont.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId);
+        $q=$this->_db->query("SELECT t.* FROM tax t WHERE t.isActive='1'");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $contact[] = new Contact($donnees);
+            $taxes[] = new Tax($donnees);
         }
 
-        return $contact;
+        return $taxes;
+    }
+
+
+
+
+    /**
+     * Get all the taxes in the BDD link to customers
+     * @return array
+     */
+    public function getListByCustomer($customerId)
+    {
+        $taxes = [];
+
+        $q=$this->_db->query("SELECT t.* FROM tax t INNER JOIN  link_customers_taxes lk ON t.idTax =  lk.tax_idtax INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE t.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId);
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $taxes[] = new Tax($donnees);
+        }
+
+        return $taxes;
     }
 
     /**
-     * Update contact information
-     * @param Contact $contact
+     * Update tax information
+     * @param Tax $tax
      */
-    public function update(Contact $contact)
+
+    public function update(Tax $tax)
     {
-        $q = $this->_db->prepare('UPDATE contact SET name = :name, firstname = :firstname, emailAddress = :emailAddress, phoneNumber = :phoneNumber, isActive = :isActive  WHERE idContact = :idContact');
-        $q->bindValue(':idContact', $contact->getUsername(), PDO::PARAM_STR);
-        $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
-        $q->bindValue(':firstname', $contact->getFirstName(), PDO::PARAM_STR);
-        $q->bindValue(':emailAddress', $contact->getEmailAddress(), PDO::PARAM_STR);
-        $q->bindValue(':phoneNumber', $contact->getPhoneNumber(), PDO::PARAM_STR );
-        $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
+        $q = $this->_db->prepare('UPDATE tax SET name = :name, value = :value, isActive = :isActive  WHERE idTax = :idTax');
+        $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
+        $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
+        $q->bindValue(':values', $tax->getValue(), PDO::PARAM_STR);
+        $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
     }
