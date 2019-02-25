@@ -54,7 +54,7 @@ class FoldersManager
         $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
         $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
         $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
-        $q->bindValue(':status', $folder->getIsActive(), PDO::PARAM_INT);
+        $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
         $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
         $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
         $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
@@ -132,14 +132,14 @@ class FoldersManager
      */
     public function update(Folder $folder)
     {
-        $q = $this->_db->prepare('UPDATE folder SET folderNumber = :folderNumber, label = :label, year = :year,month = :month,day = :day,status = :status,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE folderId= :folderId');
+        $q = $this->_db->prepare('UPDATE folder SET folderNumber = :folderNumber, label = :label, year = :year,month = :month,day = :day,isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE folderId= :folderId');
         $q->bindValue(':folderId', $folder->getFolderId(), PDO::PARAM_INT);
         $q->bindValue(':folderNumber', $folder->getFolderNumber(), PDO::PARAM_STR);
         $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
         $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
         $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
         $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
-        $q->bindValue(':status', $folder->getStatus(), PDO::PARAM_STR);
+        $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_STR);
         $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
         $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
         $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
