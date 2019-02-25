@@ -58,7 +58,7 @@ $companymanager = $companymanager->getList();
                             </td>
                             <td><?php echo $company->getIsActive();?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/supprimer/'.$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
+                            <td><a href="<?php echo  URLHOST."_pages/_post/modifier_societe.php?idCompany=".$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
                         </tr>
                         <?php
                     }
