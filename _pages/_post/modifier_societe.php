@@ -2,6 +2,11 @@
 
 include("../../_cfg/cfg.php");
 
+$array = array();
+$company = new Company($array);
+$company = new CompaniesManager($bdd);
+$company = $company->getById($_POST['idCompany']);
+
 if(isset($_POST['valider'])) {
     $name=$_POST['name'];
     $address=$_POST['address'];
@@ -9,6 +14,12 @@ if(isset($_POST['valider'])) {
     $idCompany = $_POST['idCompany'];
    
     if (!empty($_FILES['nameData']["name"])) {
+        //supression de l'ancien logo
+        $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
+        $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
+        fclose($_SERVER['DOCUMENT_ROOT']."/images/societe/".basename($image[0]));
+        unlink($_SERVER['DOCUMENT_ROOT']."/images/societe/".basename($image[0]));
+        //upload du nouveau logo
         $extension=end(explode(".", $_FILES['nameData']["name"]));
         $_FILES['nameData']["name"] = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $name));
         $uploadDir = '../../images/societe/'; //path you wish to store you uploaded files
@@ -28,13 +39,11 @@ if(isset($_POST['valider'])) {
         'isActive' => $isActive
     );
     
-    //print_r($array);
-    
     $company = new Company($array);
     $companiesmanager = new CompaniesManager($bdd);
     $companiesmanager->update($company);
 
-    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/".$idCompany);
+    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
 
 }
 

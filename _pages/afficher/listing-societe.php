@@ -49,10 +49,16 @@ $companymanager = $companymanager->getList();
                         <tr>
                             <td><?php echo $company->getName(); ?></td>
                             <td><?php echo $company->getAddress(); ?></td>
-                            <td><img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getNameData();?>" style="max-height: 30px;"/></td>
+                            <td>
+                                <?php
+                                    $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
+                                    $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
+                                ?>
+                                <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getNameData();?>" style="max-height: 30px;" />
+                            </td>
                             <td><?php echo $company->getIsActive();?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/supprimer/'.$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
+                            <td><a href="<?php echo  URLHOST."_pages/_post/supprimer_societe.php?idCompany=".$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
                         </tr>
                         <?php
                     }
