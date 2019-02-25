@@ -45,6 +45,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <th class="all">Numéro de Dossier</th>
                             <th class="min-phone-l">Intitulé du dossier</th>
                             <th class="min-tablet">Client</th>
+                            <th class="min-tablet">Modifier</th>
                             <th class="none">Commercial</th>
                             <th class="none">Contact</th>
                             <th class="none">Statut du dossier</th>
@@ -71,6 +72,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
                             <td><?php echo $customer->getName(); ?></td>
+                            <td><a href="<?php echo URLHOST.'dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                             <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                             <td><?php echo $folder->getStatus();?></td>
