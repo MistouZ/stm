@@ -49,6 +49,7 @@ $user->getFirstName();
                             <th class="min-phone-l">Intitulé du dossier</th>
                             <th class="min-tablet">Client</th>
                             <th class="none">Commercial</th>
+                            <th class="none">Contact</th>
                             <th class="none">Statut du dossier</th>
                             <th class="none">Date de création</th>
                         </tr>
@@ -58,7 +59,7 @@ $user->getFirstName();
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
-                       $usermanager->get($folder->getSeller());
+                       $user = $usermanager->get($folder->getSeller());
                        $contact = $contactmanager->getById($folder->getContactId());
                         ?>
                         <tr>
@@ -66,7 +67,7 @@ $user->getFirstName();
                             <td><?php echo $folder->getLabel();?></td>
                             <td><?php echo $customer->getName(); ?></td>
                             <td><?php echo $user->getName(); ?></td>
-                            <td><?php echo $folder->getContactId(); ?></td>
+                            <td><?php echo $contact->getName()." ".$contact->setFirstname(); ?></td>
                             <td><?php echo $folder->getStatus();?></td>
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
