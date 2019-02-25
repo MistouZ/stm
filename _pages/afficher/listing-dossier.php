@@ -13,7 +13,7 @@ $companyNameData = $_GET["section"];
 
 /*initialisation des objets pour l'affichage*/
 $company = new Company($array);
-$companymanager = new ContactManager($bdd);
+$companymanager = new CompaniesManager($bdd);
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $user = new Users($array);
