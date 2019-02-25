@@ -120,7 +120,6 @@ class CompaniesManager extends Features
 
     public function update(Company $company)
     {
-
         $q = $this->_db->prepare('UPDATE company SET name = :name, nameData = :nameData address = :address, isActive = :isActive  WHERE idcompany = :idcompany');
         $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
         $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
@@ -130,6 +129,7 @@ class CompaniesManager extends Features
         $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
+        $q->->debugDumpParams();
     }
 
     public function getCompanies($username)
