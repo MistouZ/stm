@@ -2,6 +2,11 @@
 
 include("../../_cfg/cfg.php");
 
+$array = array();
+$company = new Company($array);
+$company = new CompaniesManager($bdd);
+$company = $company->getById($_POST['idCompany']);
+
 if(isset($_POST['valider'])) {
     $name=$_POST['name'];
     $address=$_POST['address'];
