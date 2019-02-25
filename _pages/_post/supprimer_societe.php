@@ -13,8 +13,8 @@ echo "Test : ".$companyId;
 
 $array = array();
 $company = new Company($array);
-$companiesmanager = new CompaniesManager($bdd);
-$companiesmanager->delete($companyId);
+$companymanager = new CompaniesManager($bdd);
+$companymanager = $companymanager->delete($companyId);
 header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
 
 ?>
