@@ -7,7 +7,7 @@
  */
 
 include("../../_cfg/cfg.php");
-$companyId = $_GET["idCompany"];
+$companyId = $_POST["idCompany"];
 
 echo "Test : ".$companyId;
 

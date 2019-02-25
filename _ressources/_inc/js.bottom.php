@@ -4,7 +4,6 @@
 <![endif]-->
 <!-- BEGIN CORE PLUGINS -->
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery.min.js" type="text/javascript"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
@@ -44,7 +43,7 @@
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-tabdrop/js/bootstrap-tabdrop.js" type="text/javascript"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap-confirmation2/dist/bootstrap-confirmation.min.js" type="text/javascript"></script>
+        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-confirmation/bootstrap-confirmation.min.js" type="text/javascript"></script>
 <?php }elseif($_GET['section']=="connexion"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>

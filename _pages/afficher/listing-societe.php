@@ -57,8 +57,13 @@ $companymanager = $companymanager->getList();
                                 <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getNameData();?>" style="max-height: 30px;" />
                             </td>
                             <td><?php echo $company->getIsActive();?></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
-                            <td><a data-toggle="confirmation" data-title="Supprimer la société <?php echo $company->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" href="<?php echo  URLHOST."_pages/_post/supprimer_societe.php?idCompany=".$company->getIdcompany(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
+                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td>
+                                <form method="post" action="<?php echo  URLHOST."_pages/_post/supprimer_societe.php"; ?>">
+                                    <input type="hidden" name="idCompany" id="idCompany" value="<?php $company->getIdcompany(); ?>" />
+                                    <button class="btn red-mint" data-toggle="confirmation" data-title="Supprimer la société <?php echo $company->getName(); ?> ?" data-placement="top" data-btn-ok-label="Supprimer" data-btn-ok-icon="icon-like" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-icon="icon-close" data-btn-cancel-class="btn-danger"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</button>
+                                </form>
+                            </td>
                         </tr>
                         <?php
                     }
