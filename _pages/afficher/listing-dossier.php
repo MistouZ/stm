@@ -61,11 +61,11 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                        $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
-                            $folder->setStatus("Ouvert");
+                            $folder->setIsActive("Ouvert");
                         }
                         elseif($folder->getIsActive() == 0)
                         {
-                            $folder->setStatus("Fermé");
+                            $folder->setIsActive("Fermé");
                         }
                         ?>
                         <tr>
