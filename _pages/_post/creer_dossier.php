@@ -42,6 +42,6 @@ if(isset($_POST['valider'])){
 
 
     
-    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/");
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher");
 
 }
