@@ -61,7 +61,7 @@ $companymanager = $companymanager->getList();
                             <td>
                                 <form method="post" action="<?php echo  URLHOST."_pages/_post/supprimer_societe.php"; ?>">
                                     <input type="hidden" name="idCompany" id="idCompany" value="<?php $company->getIdcompany(); ?>" />
-                                    <button class="btn red-mint" data-toggle="confirmation" data-title="Supprimer la société <?php echo $company->getName(); ?> ?" data-placement="top" data-btn-ok-label="Supprimer" data-btn-ok-icon="icon-like" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-icon="icon-close" data-btn-cancel-class="btn-danger"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</button>
+                                    <button type="submit" class="btn red-mint" data-toggle="confirmation" data-title="Supprimer la société <?php echo $company->getName(); ?> ?" data-placement="top" data-btn-ok-label="Supprimer" data-btn-ok-icon="icon-like" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-icon="icon-close" data-btn-cancel-class="btn-danger"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</button>
                                 </form>
                             </td>
                         </tr>
