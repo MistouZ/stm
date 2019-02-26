@@ -59,7 +59,7 @@ class CustomersManager
         {
             $q3 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomer, tax_idTax) VALUES (:idcustomer, :idTax)');
             $q3->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
-            $q3->bindValue(':percent', $taxes[$j], PDO::PARAM_STR);
+            $q3->bindValue(':idTax', $taxes[$j], PDO::PARAM_INT);
             $q3->execute();
         }
     }
