@@ -233,6 +233,25 @@
     </li>
     <li class="nav-item  ">
         <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="fas fa-percent"></i>
+            <span class="title">Taxes</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item  ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/taxes/creer'; ?>" class="nav-link ">
+                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                </a>
+            </li>
+            <li class="nav-item  ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/taxes/afficher'; ?>" class="nav-link ">
+                    <span class="title"><i class="far fa-list-alt"></i> Listing</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item  ">
+        <a href="javascript:;" class="nav-link nav-toggle">
             <i class="fas fa-exclamation-triangle"></i>
             <span class="title">Erreurs</span>
         </a>
