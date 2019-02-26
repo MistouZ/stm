@@ -53,8 +53,8 @@ class TaxManager
      */
     public function delete(Tax $tax)
     {
-        $q = $this->_db->prepare('UPDATE tax SET isActive = \'0\' WHERE percent = :percent');
-        $q->bindValue(':idTax', $tax->getPercent(), PDO::PARAM_STR);
+        $q = $this->_db->prepare('UPDATE tax SET isActive = \'0\' WHERE idTax = :idTax');
+        $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_STR);
 
         $q->execute();
     }
@@ -64,10 +64,10 @@ class TaxManager
      * @param $idtax
      * @return Tax
      */
-    public function getByPercent($percenttax)
+    public function getById($idTax)
     {
-        $percenttax = (integer) $percenttax;
-        $q = $this->_db->query('SELECT * FROM tax WHERE percent ='.$percenttax);
+        $idTaxidTax = (integer) $idTax;
+        $q = $this->_db->query('SELECT * FROM tax WHERE idTax ='.$idTax);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Tax($donnees);
@@ -114,7 +114,7 @@ class TaxManager
     {
         $taxes = [];
 
-        $q=$this->_db->query("SELECT t.* FROM tax t INNER JOIN  link_customers_taxes lk ON t.percent =  lk.tax_percent INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE t.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId);
+        $q=$this->_db->query("SELECT t.* FROM tax t INNER JOIN  link_customers_taxes lk ON t.idTax =  lk.tax_idTax INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE t.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId);
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $taxes[] = new Tax($donnees);
@@ -130,7 +130,8 @@ class TaxManager
 
     public function update(Tax $tax)
     {
-        $q = $this->_db->prepare('UPDATE tax SET name = :name, percent = :percent, value = :value, isActive = :isActive  WHERE percent = :percent');
+        $q = $this->_db->prepare('UPDATE tax SET name = :name, percent = :percent, value = :value, isActive = :isActive  WHERE idTax = :idTax');
+        $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
         $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
         $q->bindValue(':values', $tax->getValue(), PDO::PARAM_STR);
