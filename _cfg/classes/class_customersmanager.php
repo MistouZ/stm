@@ -57,7 +57,7 @@ class CustomersManager
 
         for ($j=0;$j<count($taxes);$j++)
         {
-            $q3 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomer, tax_percent) VALUES (:idcustomer, :percent)');
+            $q3 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomer, tax_idTax) VALUES (:idcustomer, :idTax)');
             $q3->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
             $q3->bindValue(':percent', $taxes[$j], PDO::PARAM_STR);
             $q3->execute();
@@ -170,9 +170,9 @@ class CustomersManager
 
         for ($j=0;$j<count($taxes);$j++)
         {
-            $q3 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomer, tax_percent) VALUES (:idcustomer, :percent)');
+            $q3 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomer, tax_idTax) VALUES (:idcustomer, :idTax)');
             $q3->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
-            $q3->bindValue(':percent', $taxes[$j], PDO::PARAM_STR);
+            $q3->bindValue(':idTax', $taxes[$j], PDO::PARAM_STR);
             $q3->execute();
         }
     }
