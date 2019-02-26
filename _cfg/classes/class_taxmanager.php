@@ -47,31 +47,7 @@ class TaxManager
         $q->execute();
     }
 
-    /**
-     * @param Tax $Tax
-     * Insertion tax in the DB
-     */
-    public function addToCustomers(Tax $tax, $customers)
-    {
-        $q = $this->_db->prepare('INSERT INTO tax (name, percent, value,isActive) VALUES (:name, :percent, :value,:isActive)');
-        $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
-        $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
-        $q->bindValue(':values', $tax->getValue(), PDO::PARAM_STR);
-        $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
-
-        $q->execute();
-
-        $tax = $this->getByName($tax->getName());
-
-        $q2 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomers, tax_idtax) VALUES (:idcustomer, :idtax)');
-        $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
-        $q2->bindValue(':idtax', $tax->getPercent(), PDO::PARAM_STR);
-
-        $q2->execute();
-
-    }
-
-    /**
+     /**
      * @param Tax $tax
      * Disable tax instead of delete it
      */
