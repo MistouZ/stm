@@ -263,7 +263,7 @@ $taxmanager = $taxmanager->getList();
                                             <label class="checkbox-inline">
                                                 <?php
                                                 echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$tax->getIdTax().'" ';
-                                                if(in_array($tax->getName(),$taxList)){ echo "checked=\"checked\""; }
+                                                if(in_array($tax->getIdTax(),$taxList)){ echo "checked=\"checked\""; }
                                                 echo '/>';
                                                 echo $tax->getName();
                                                 ?>
