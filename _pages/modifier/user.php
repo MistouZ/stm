@@ -83,7 +83,6 @@ $companies = $companies->getList();
                             </div>
                         </div>
                         <h4 class="form-section">Droits d'accès</h4>
-                        <?php echo $user->getCompanyName(); ?>
                         <div class="form-group">
                             <label class="control-label col-md-3">Société
                                 <span class="required"> * </span>
