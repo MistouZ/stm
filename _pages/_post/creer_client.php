@@ -31,7 +31,7 @@ if(isset($_POST['valider'])){
 
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-    $customermanager->add($customer, $_POST["case"]);
+    $customermanager->add($customer, $_POST["case"], $_POST["taxes"]);
     echo "New customer created successfully </br/>";
 
     if($supplier == 1)
