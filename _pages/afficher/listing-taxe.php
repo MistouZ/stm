@@ -8,7 +8,7 @@
 $array = array();
 $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
-$taxmanager = $taxmanager->getList();
+//$taxmanager = $taxmanager->getList();
 
 ?>
 <div class="row">
