@@ -24,8 +24,8 @@ $companymanager = $companymanager->getList();
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>" method="post" id="inscription" name="inscription" class="form-horizontal register-form">
-                    <div class="form-body">
+                <div class="form-body">
+                    <form action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>" method="post" id="inscription" name="inscription" class="form-horizontal register-form">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
@@ -74,7 +74,7 @@ $companymanager = $companymanager->getList();
                         <div class="form-group">
                             <label class="control-label col-md-3">Téléphone
                             </label>
-                            <div class="col-md-9">
+                            <div class="col-md-4">
                                 <input name="phone_number" id="phone_number" type="number" class="form-control" />
                             </div>
                         </div>
@@ -101,7 +101,7 @@ $companymanager = $companymanager->getList();
                                     }
                                 ?>
                                 </div>
-                                <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
+                                <span class="help-block"> Cocher la ou les société(s) affiliée(s) à l'utilisateur </span>
                                 <div id="company_error"> </div>
                             </div>
                         </div>
@@ -138,9 +138,9 @@ $companymanager = $companymanager->getList();
                             </div>
                         </div>
                     </div>
-                </form>
+                </div>
                 <!-- END FORM-->
-            </div>
+            </form>
         </div>
         <!-- END VALIDATION STATES-->
     </div>
