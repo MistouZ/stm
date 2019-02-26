@@ -31,7 +31,7 @@ $companymanager = $companymanager->getList();
                         <th class="min-phone-1">Logo</th>
                         <th class="none">Actif</th>
                         <th class="min-tablet">Modifier</th>
-                        <th class="min-tablet">Supprimer</th>
+                        <th class="min-phone-1">Supprimer</th>
                     </tr>
                     </thead>
                     <tbody>
