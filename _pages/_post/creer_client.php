@@ -35,18 +35,14 @@ if(isset($_POST['valider'])){
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
     $customermanager->add($customer, $_POST["case"], $_POST["taxes"]);
-    echo "New customer created successfully </br/>";
 
     if($supplier == 1)
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
-      $suppliermanager->add($supplier,$_POST["case"]);
-      echo "New provider created successfully <br />";
+      $suppliermanager->add($supplier,$_POST["case"],$_POST["taxes"]);
     }
-
+    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
 }
 
 ?>
-
-<a href="<?php echo URLHOST."client/afficher" ?>">Revenir à la liste des clients</a>
