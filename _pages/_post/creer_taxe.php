@@ -22,11 +22,9 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
 
-    print_r($array);
-
-    /*$tax = new Tax($array);
+    $tax = new Tax($array);
     $taxmanager = new TaxManager($bdd);
     $taxmanager->add($tax);
-    echo "New tax created successfully </br/>";*/
+    echo "New tax created successfully </br/>";
 
 }
