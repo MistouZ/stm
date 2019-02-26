@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @author Amaury
- * @copyright 2019
- */
-
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
