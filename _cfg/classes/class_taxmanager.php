@@ -67,7 +67,7 @@ class TaxManager
 
         $q2->execute();
 
-    }*/
+    }
 
     /**
      * @param Tax $tax
