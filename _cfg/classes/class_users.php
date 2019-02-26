@@ -5,8 +5,8 @@
     private $name;
     private $firstname;
     private $password;
-    private $email_address;
-    private $phone_number;
+    private $emailAddress;
+    private $phoneNumber;
     private $credential;
     private $isSeller;
     private $isActive;
@@ -113,9 +113,9 @@
       /**
        * @param mixed $email_address
        */
-      public function setEmailAddress($email_address)
+      public function setEmailAddress($emailAddress)
       {
-          $this->emailAddress = $email_address;
+          $this->emailAddress = $emailAddress;
       }
 
       /**
@@ -129,9 +129,9 @@
       /**
        * @param mixed $phone_number
        */
-      public function setPhoneNumber($phone_number)
+      public function setPhoneNumber($phoneNumber)
       {
-          $this->phoneNumber = $phone_number;
+          $this->phoneNumber = $phoneNumber;
       }
 
       /**
