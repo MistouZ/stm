@@ -103,7 +103,7 @@ $taxes = new TaxManager($bdd);
                                         ?>
                                         <label class="checkbox-inline">
                                             <?php
-                                            echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$taxes->getPercent().'" />';
+                                            echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$taxe>getPercent().'" />%';
                                             ?>
                                         </label>
                                         <?php
