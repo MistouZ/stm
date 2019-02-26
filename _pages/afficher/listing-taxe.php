@@ -51,7 +51,7 @@ $taxmanager = $taxmanager->getList();*/
                             <td><a href="<?php //echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
-                    }*/
+                   // }
                     ?>
                     </tbody>
                 </table>
