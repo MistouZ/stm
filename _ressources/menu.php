@@ -239,12 +239,12 @@
         </a>
         <ul class="sub-menu">
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/taxes/creer'; ?>" class="nav-link ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/creer'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-plus-square"></i> Créer</span>
                 </a>
             </li>
             <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/taxes/afficher'; ?>" class="nav-link ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
                 </a>
             </li>
