@@ -26,7 +26,7 @@ $taxmanager = $taxmanager->getList();
                         <tr>
                             <th class="all">Nom de la Taxe</th>
                             <th class="min-phone-l">Valeur</th>
-                            <th class="none">Actif</th>
+                            <th class="min-phone-l">Actif</th>
                             <th class="min-tablet">Modifier</th>
                         </tr>
                     </thead>
