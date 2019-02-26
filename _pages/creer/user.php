@@ -63,7 +63,7 @@ $companymanager = $companymanager->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input name="first_name" id="first_name" type="text" class="form-control" /> </div>
+                                <input name="firstname" id="firstname" type="text" class="form-control" /> </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Adresse mail
