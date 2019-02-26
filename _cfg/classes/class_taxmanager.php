@@ -38,13 +38,14 @@ class TaxManager
      */
     public function add(Tax $tax)
     {
-        $q = $this->_db->prepare('INSERT INTO tax (name, percent, value,isActive) VALUES (:name, :percent, :value,:isActive)');
+        print_r($tax);
+        /*$q = $this->_db->prepare('INSERT INTO tax (name, percent, value,isActive) VALUES (:name, :percent, :value,:isActive)');
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
         $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
         $q->bindValue(':values', $tax->getValue(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
 
-        $q->execute();
+        $q->execute();*/
     }
 
     /**
