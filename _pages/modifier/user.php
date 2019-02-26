@@ -83,6 +83,7 @@ $companies = $companies->getList();
                             </div>
                         </div>
                         <h4 class="form-section">Droits d'accès</h4>
+                        <?php echo $user->getCompanyName(); ?>
                         <div class="form-group">
                             <label class="control-label col-md-3">Société
                                 <span class="required"> * </span>
@@ -90,7 +91,6 @@ $companies = $companies->getList();
                             <div class="col-md-9">
                                 <div class="checkbox-list" data-error-container="#company_error">
                                 <?php
-                                    echo $user->getCompanyName();
                                     $companiesList = explode(", ",$user->getCompanyName());
                                     foreach ($companies as $company){
 

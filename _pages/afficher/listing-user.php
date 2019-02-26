@@ -68,7 +68,7 @@ $companymanager = new CompaniesManager($bdd);
                             <td><?php echo $user->getPhoneNumber();?></td>
                             <td><?php echo $user->getCredential();?></td>
                             <td><?php echo $company->getName();?></td>
-                            <td><?php echo $user->getCompanyName() ?></td>
+                            <td><?php echo $user->getCompanyName(); ?></td>
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><?php echo $user->getIsActive();?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
