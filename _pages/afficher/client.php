@@ -256,7 +256,6 @@ $taxmanager = $taxmanager->getList();
 
                                         $taxList = new TaxManager($bdd);
                                         $taxList = $taxList->getListByCustomer($customer->getIdCustomer());
-                                        $compareList = array_intersect($taxList,$taxmanager);
 
                                         foreach ($taxmanager as $tax)
                                         {
@@ -264,7 +263,7 @@ $taxmanager = $taxmanager->getList();
                                             <label class="checkbox-inline">
                                                 <?php
                                                 echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$tax->getIdTax().'" ';
-                                                if(in_array($tax->getName(),$compareList)){ echo "checked=\"checked\""; }
+                                                if(in_array($tax->getName(),$taxList)){ echo "checked=\"checked\""; }
                                                 echo '/>';
                                                 echo $tax->getName();
                                                 ?>
