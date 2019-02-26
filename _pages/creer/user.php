@@ -109,14 +109,16 @@ $companymanager = $companymanager->getList();
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Droits
+                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <div class="radio-list">
+                                <div class="radio-list" data-error-container="#credential_error">
                                     <label class="radio-inline"><input name="credential" id="credential1" type="radio" value="U" class="form-control" />Utilisateur</label>
                                     <label class="radio-inline"><input name="credential" id="credential2" type="radio" value="C" class="form-control" />Compta</label>
                                     <label class="radio-inline"><input name="credential" id="credential3" type="radio" value="F" class="form-control" />Facturation</label>
                                     <label class="radio-inline"><input name="credential" id="credential4" type="radio" value="A" class="form-control" />Administrateur</label>
                                 </div>
+                                <div id="credential_error"> </div>
                             </div>
                         </div>
                         <div class="form-group">
