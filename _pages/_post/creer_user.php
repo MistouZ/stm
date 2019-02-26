@@ -33,7 +33,7 @@ if(isset($_POST['valider'])) {
         'password' => $password,
         'phoneNumber' => $phone,
         'credential' => $credential,
-        'defaultCompany' => $_POST["case"][0],
+        'defaultCompany' => $_POST["societe"][0],
         'isSeller' => $is_seller,
         'isActive' => $is_active
     );
