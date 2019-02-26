@@ -6,6 +6,7 @@ $array = array();
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $usermanager = $usermanager->get($username);
+print_r($usermanager);
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 
