@@ -256,6 +256,10 @@ $taxmanager = $taxmanager->getList();
 
                                         $taxList = new TaxManager($bdd);
                                         $taxList = $taxList->getListByCustomer($customer->getIdCustomer());
+                                        print_r($taxmanager);
+                                        echo "<br />";
+                                        print_r($taxList);
+                                        /*
                                         foreach ($taxmanager as $tax)
                                         {
                                             ?>
@@ -268,7 +272,7 @@ $taxmanager = $taxmanager->getList();
                                                 ?>
                                             </label>
                                             <?php
-                                        }
+                                        }*/
                                         ?>
                                     </div>
                                     <span class="help-block">Cocher la ou les taxe(s) affiliée(s) au client </span>
