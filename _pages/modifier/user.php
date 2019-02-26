@@ -1,9 +1,5 @@
 <?php
 
-/**
- * @author Amaury
- * @copyright 2019
- */
 $username = $_GET['soussouscat'];
 
 $array = array();
