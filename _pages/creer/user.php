@@ -87,12 +87,15 @@ $companymanager = $companymanager->getList();
                                 <div class="checkbox-list" data-error-container="#company_error">
                                 <?php
                                     foreach ($companymanager as $company){
+
+                                    $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
+                                    $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
                                 ?>
                                         <label class="checkbox-inline">
                                 <?php
                                         echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
                                 ?>
-                                            <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
+                                            <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
                                         </label>
                                 <?php
                                     }
