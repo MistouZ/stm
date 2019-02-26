@@ -16,7 +16,7 @@ if(isset($_POST['valider'])){
 
     $array = array(
         'name' => $name,
-        'value' => $physical_address,
+        'value' => $value,
         'isActive' => $is_active
     );
 
