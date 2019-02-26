@@ -37,7 +37,7 @@ class UsersManager
      */
     public function add(Users $user, array $companies)
     {
-        $user->setName(strtoupper($user->getName()));
+        //$user->setName(strtoupper($user->getName()));
         $q = $this->_db->prepare('INSERT INTO users (username, name, firstname,emailAddress,password,phoneNumber,credential,defaultCompany,isSeller, isActive) VALUES (:username, :name, :firstname, :email_address, :password, :phone_number, :credential, :defaultCompany, :isSeller, :isActive)');
         $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
         $q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
