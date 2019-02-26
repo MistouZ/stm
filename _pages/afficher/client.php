@@ -253,10 +253,9 @@ $taxmanager = $taxmanager->getList();
                                 <div class="col-md-9">
                                     <div class="checkbox-list" data-error-container="#tax_error">
                                         <?php
-                                        echo $customerId." ".$customer->getIdCustomer();
 
-                                        //$taxList = $taxmanager->getListByCustomer($customerId);
-                                        //print_r($taxList);
+                                        $taxList = $taxmanager->getListByCustomer($customer->getIdCustomer());
+                                        print_r($taxList);
                                         /*
                                         foreach ($taxmanager as $tax)
                                         {
