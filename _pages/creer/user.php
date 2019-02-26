@@ -38,11 +38,15 @@ $companies = $companies->getList();
                                 <input type="text" name="username" data-required="1" class="form-control" /> </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label visible-ie8 visible-ie9">Mot de passe</label>
-                            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>
+                            <label class="control-label visible-ie8 visible-ie9 col-md-3">Mot de passe</label>
+                            <div class="col-md-4">
+                                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>
+                        </div>
                         <div class="form-group">
-                            <label class="control-label visible-ie8 visible-ie9">Confirmer le mot de passe</label>
-                            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" /> </div>
+                            <label class="control-label visible-ie8 visible-ie9 col-md-3">Confirmer le mot de passe</label>
+                            <div class="col-md-4">
+                                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" /> </div>
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Adresse physique
                                 <span class="required"> * </span>
