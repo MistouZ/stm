@@ -21,8 +21,8 @@ $contactmanager = new ContactManager($bdd);
 $contactmanager = $contactmanager->getList($customerId);
 
 //récupération de la liste des taxes
-$arrayTax = array();
-$tax = new Tax($arrayTax);
+$array = array();
+$tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 $taxmanager = $taxmanager->getList();
 
