@@ -25,10 +25,11 @@ if(isset($_POST['valider'])){
     );
 
     print_r($array);
-    /*$tax = new Tax($array);
+    $tax = new Tax($array);
     $taxmanager = new TaxManager($bdd);
     $taxmanager->update($tax);
 
-    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/".$idTax);*/
+    echo "Udpate succesfully";
+    //header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/".$idTax);
 
 }
