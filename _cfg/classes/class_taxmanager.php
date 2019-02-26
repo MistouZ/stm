@@ -112,19 +112,16 @@ class TaxManager
      */
     public function getListByCustomer($customerId)
     {
-        //$taxes = [];
+        $taxes = [];
 
-        $query = "SELECT t.* FROM tax t INNER JOIN  link_customers_taxes lk ON t.idTax =  lk.tax_idTax INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE t.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId;
 
-        echo $query;
-
-        /*$q=$this->_db->query("SELECT t.* FROM tax t INNER JOIN  link_customers_taxes lk ON t.idTax =  lk.tax_idTax INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE t.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId);
+        $q=$this->_db->query("SELECT t.* FROM tax t INNER JOIN  link_customers_taxes lk ON t.idTax =  lk.tax_idTax INNER JOIN customers c ON lk.customers_idcustomer = c.idcustomer WHERE t.isActive='1' and c.isActive='1' and c.idcustomer =".$customerId);
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $taxes[] = new Tax($donnees);
         }
 
-        return $taxes;*/
+        return $taxes;
     }
 
     /**
