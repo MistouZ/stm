@@ -133,7 +133,7 @@ $companies = $companies->getList();
                             <div class="col-md-9">
                                 <div class="checkbox-list">
                                     <label class="checkbox-inline">
-                                        <input type="checkbox" value="is_seller" name="is_seller" id="is_seller" /></label>
+                                        <input type="checkbox" value="is_seller" name="is_seller" id="is_seller" <?php if($user->getIsSeller()==1){echo "checked=\"checked\""; ?> /></label>
                                 </div>
                                 <span class="help-block"> Cocher si cet utilisateur est commercial </span>
                                 <div id="form_2_services_error"> </div>

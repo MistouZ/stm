@@ -84,7 +84,6 @@ class UsersManager
     {
         $username = (string) $username;
         $q=$this->_db->query("SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM users u INNER JOIN  link_company_users lk ON u.username =  lk.users_username INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE u.isActive='1' AND lk.users_username='$username' AND c.isActive='1' GROUP BY u.username");
-        //$q = $this->_db->query("SELECT * FROM users WHERE username ='$username'");
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Users($donnees);
