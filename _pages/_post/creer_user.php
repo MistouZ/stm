@@ -38,13 +38,10 @@ if(isset($_POST['valider'])) {
     );
 
     $user = new Users($array);
-    echo "OK";
     $usermanager = new UsersManager($bdd);
-    echo "OK2";
     $usermanager->add($user, $_POST["societe"]);
     
-    echo " / Test4";
 
 }
-//header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher");
+header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher");
 ?>
