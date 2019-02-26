@@ -118,7 +118,7 @@ class TaxManager
         $taxes = [];
 
 
-       $q=$this->_db->query("SELECT * FROM tax WHERE isActive='1' ORDER BY idTax ASC");
+       $q=$this->_db->query("SELECT * FROM tax WHERE isActive='1'");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $taxes[] = new Tax($donnees);
