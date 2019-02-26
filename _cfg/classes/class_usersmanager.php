@@ -36,7 +36,8 @@ class UsersManager
      * Insertion user in the DB
      */
     public function add(Users $user, array $companies)
-    {print_r($companies);
+    {
+        print_r($companies);
         //$user->setName(strtoupper($user->getName()));
         /*$q = $this->_db->prepare('INSERT INTO users (username, name, firstname,emailAddress,password,phoneNumber,credential,defaultCompany,isSeller, isActive) VALUES (:username, :name, :firstname, :email_address, :password, :phone_number, :credential, :defaultCompany, :isSeller, :isActive)');
         $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
@@ -59,8 +60,8 @@ class UsersManager
             $q2 = $this->_db->prepare('INSERT INTO link_company_users (users_username, company_idcompany) VALUES (:username, :id_company)');
             $q2->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
             $q2->bindValue(':id_company', $companies[$i], PDO::PARAM_INT);
-            $q2->execute();*/
-        }
+            $q2->execute();
+        }*/
     }
 
     /**
