@@ -254,20 +254,22 @@ $taxmanager = $taxmanager->getList();
                                     <div class="checkbox-list" data-error-container="#tax_error">
                                         <?php
                                         $taxList = $taxmanager->getListByCustomer($customer->getIdCustomer());
-
+                                        print_r($taxmanager);
+                                        print_r($taxList);
+                                        /*
                                         foreach ($taxmanager as $tax)
                                         {
                                             ?>
                                             <label class="checkbox-inline">
                                                 <?php
-                                                /*echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$tax->getIdTax().'" ';
+                                                echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$tax->getIdTax().'" ';
                                                 if(in_array($tax->getName(),$companiesList)){ echo "checked=\"checked\""; }
-                                                echo '/>';*/
+                                                echo '/>';
                                                 echo $tax->getName();
                                                 ?>
                                             </label>
                                             <?php
-                                        }
+                                        }*/
                                         ?>
                                     </div>
                                     <span class="help-block">Cocher la ou les taxe(s) affiliée(s) au client </span>
