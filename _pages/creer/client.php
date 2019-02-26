@@ -9,6 +9,8 @@ $array = array();
 $company = new Company($array);
 $companies = new CompaniesManager($bdd);
 $companies = $companies->getList();
+$tax = new Tax($array);
+$taxes = new TaxManager($bdd);
 
  ?>
 
@@ -86,6 +88,29 @@ $companies = $companies->getList();
                                 ?>
                                 </div>
                                 <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
+                                <div id="company_error"> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Taxes
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-9">
+                                <div class="checkbox-list" data-error-container="#tax_error">
+                                    <?php
+                                    foreach ($taxes as $tax)
+                                    {
+                                        ?>
+                                        <label class="checkbox-inline">
+                                            <?php
+                                            echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$taxes->getPercent().'" />';
+                                            ?>
+                                        </label>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                                <span class="help-block"> Cocher la ou les taxe(s) affiliée(s) au client </span>
                                 <div id="company_error"> </div>
                             </div>
                         </div>
