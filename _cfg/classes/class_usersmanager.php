@@ -38,18 +38,17 @@ class UsersManager
     public function add(Users $user, array $companies)
     {
         $user->setName(strtoupper($user->getName()));
-        $q = $this->_db->prepare('INSERT INTO users (username, name, firstname,emailAddress,password,phoneNumber,credential,defaultCompany,isSeller, isActive) VALUES (:username, :name, :firstname, :email_address, :password, :phone_number, :credential, :defaultCompany, :isSeller, :isActive)');
+        $q = $this->_db->prepare('INSERT INTO users (username, name, firstname,emailAddress,password,phoneNumber,credential,defaultCompany,isSeller, isActive) VALUES (:username, :name, :firstname, :emailAddress, :password, :phoneNumber, :credential, :defaultCompany, :isSeller, :isActive)');
         $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
-        echo $user->getUsername();
-        /*$q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
+        $q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
         $q->bindValue(':firstname', $user->getFirstName(), PDO::PARAM_STR);
-        $q->bindValue(':email_address', $user->getEmailAddress(), PDO::PARAM_STR);
+        $q->bindValue(':emailAddress', $user->getEmailAddress(), PDO::PARAM_STR);
         $q->bindValue(':password', $user->getPassword(), PDO::PARAM_STR );
-        $q->bindValue(':phone_number', $user->getPhoneNumber(), PDO::PARAM_STR );
+        $q->bindValue(':phoneNumber', $user->getPhoneNumber(), PDO::PARAM_STR );
         $q->bindValue(':credential', $user->getCredential(), PDO::PARAM_STR );
         $q->bindValue(':defaultCompany', $user->getDefaultCompany(), PDO::PARAM_INT );
         $q->bindValue(':isSeller', $user->getisSeller(), PDO::PARAM_INT);
-        $q->bindValue(':isActive', $user->getisActive(), PDO::PARAM_INT);*/
+        $q->bindValue(':isActive', $user->getisActive(), PDO::PARAM_INT);
 
         $q->execute();
 
