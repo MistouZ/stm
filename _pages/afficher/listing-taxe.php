@@ -32,7 +32,7 @@ $taxmanager = $taxmanager->getList();
                     </thead>
                     <tbody>
                     <?php
-                    foreach($taxmanager as $tax) {
+                    /*foreach($taxmanager as $tax) {
                         if($tax->getIsActive() == 1)
                         {
                             $tax->setIsActive("Oui");
@@ -45,13 +45,13 @@ $taxmanager = $taxmanager->getList();
                         $tax->setValue($taxvalue[1]."%");*/
                         ?>
                         <tr>
-                            <td><?php echo $tax->getName(); ?></td>
-                            <td><?php echo $tax->getValue(); ?></td>
-                            <td><?php echo $tax->getIsActive();?></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><?php //echo $tax->getName(); ?></td>
+                            <td><?php //echo $tax->getValue(); ?></td>
+                            <td><?php //echo $tax->getIsActive();?></td>
+                            <td><a href="<?php //echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
-                    }
+                    }*/
                     ?>
                     </tbody>
                 </table>
