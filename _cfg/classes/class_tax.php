@@ -3,6 +3,7 @@
   class Tax extends Features{
     private $idTax;
     private $name;
+    private $percent;
     private $value;
     private $isActive;
 
@@ -47,6 +48,22 @@
     public function setName($name): void
     {
       $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPercent()
+    {
+      return $this->percent;
+    }
+
+    /**
+     * @param mixed $percent
+     */
+    public function setPercent($percent): void
+    {
+      $this->percent = $percent;
     }
 
     /**
