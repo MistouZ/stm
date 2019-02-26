@@ -64,7 +64,7 @@ class TaxManager
      * @param $idtax
      * @return Tax
      */
-    public function getById($percenttax)
+    public function getByPercent($percenttax)
     {
         $percenttax = (integer) $percenttax;
         $q = $this->_db->query('SELECT * FROM tax WHERE percent ='.$percenttax);
