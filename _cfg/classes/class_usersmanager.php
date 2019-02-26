@@ -41,14 +41,23 @@ class UsersManager
         $q = $this->_db->prepare('INSERT INTO users (username, name, firstname,emailAddress,password,phoneNumber,credential,defaultCompany,isSeller, isActive) VALUES (:username, :name, :firstname, :emailAddress, :password, :phoneNumber, :credential, :defaultCompany, :isSeller, :isActive)');
         $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
         $q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
+        echo $user->getName()." / ";
         $q->bindValue(':firstname', $user->getFirstName(), PDO::PARAM_STR);
+        echo $user->getFirstName()." / ";
         $q->bindValue(':emailAddress', $user->getEmailAddress(), PDO::PARAM_STR);
+        echo $user->getEmailAddress()." / ";
         $q->bindValue(':password', $user->getPassword(), PDO::PARAM_STR );
+        echo $user->getPassword()." / ";
         $q->bindValue(':phoneNumber', $user->getPhoneNumber(), PDO::PARAM_STR );
+        echo $user->getPhoneNumber()." / ";
         $q->bindValue(':credential', $user->getCredential(), PDO::PARAM_STR );
+        echo $user->getCredential()." / ";
         $q->bindValue(':defaultCompany', $user->getDefaultCompany(), PDO::PARAM_INT );
+        echo $user->getDefaultCompany()." / ";
         $q->bindValue(':isSeller', $user->getIsSeller(), PDO::PARAM_INT);
+        echo $user->getIsSeller()." / ";
         $q->bindValue(':isActive', $user->getIsActive(), PDO::PARAM_INT);
+        echo $user->getIsActive()." / ";
 
         $q->execute();
 
@@ -190,8 +199,8 @@ class UsersManager
         $q->bindValue(':phone_number', $user->getPhoneNumber(), PDO::PARAM_STR );
         $q->bindValue(':credential', $user->getCredential(), PDO::PARAM_STR );
         $q->bindValue(':defaultCompany', $user->getDefaultCompany(), PDO::PARAM_INT);
-        $q->bindValue(':isSeller', $user->getIsSeller(), PDO::PARAM_INT);
-        $q->bindValue(':isActive', $user->getIsActive(), PDO::PARAM_INT);
+        $q->bindValue(':isSeller', $user->getisSeller(), PDO::PARAM_INT);
+        $q->bindValue(':isActive', $user->getisActive(), PDO::PARAM_INT);
 
         $q->execute();
     }
