@@ -61,11 +61,11 @@ class CompaniesManager extends Features
      */
     public function delete(Company $company)
     {
-        echo "UPDATE company SET isActive = \'0\' WHERE idcompany = ".$company->getIdcompany();
-        /*$q = $this->_db->prepare('UPDATE company SET isActive = \'0\' WHERE idcompany = :idcompany');
-        $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
+        echo "UPDATE company SET isActive = 0 WHERE idcompany = ".$company->getIdcompany();
+        $q = $this->_db->prepare('UPDATE company SET isActive = 0 WHERE idcompany = '.$company->getIdcompany());
+        //$q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
 
-        $q->execute();*/
+        $q->execute();
     }
 
     /**
