@@ -7,9 +7,10 @@ $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $usermanager = $usermanager->get($username);
 print_r($usermanager);
-$company = new Company($array);
-$companymanager = new CompaniesManager($bdd);
-$companymanager->getList();
+$arrayCompanies = array();
+$company = new Company($arrayCompanies);
+$companies = new CompaniesManager($bdd);
+$companies = $companies->getList();
 
 ?>
 
@@ -90,7 +91,7 @@ $companymanager->getList();
                                 <?php
                                 
                                     $companiesList = explode(", ",$user->getCompanyName());
-                                    foreach ($companymanager as $company){
+                                    foreach ($companies as $company){
 
                                     $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
                                     $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
