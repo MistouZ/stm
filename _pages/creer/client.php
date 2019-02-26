@@ -104,7 +104,7 @@ $taxes = $taxes->getList();
                                         ?>
                                         <label class="checkbox-inline">
                                             <?php
-                                            echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$tax->getPercent().'" />';
+                                            echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$tax->get().'" />';
                                             echo $tax->getName();
                                             ?>
                                         </label>
