@@ -8,10 +8,6 @@
 $array = array();
 
 
-/*initialisation des objets */
-$tax = new Tax($array);
-$taxes = new TaxManager($bdd);
-
  ?>
 
 <div class="row">

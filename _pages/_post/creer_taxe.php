@@ -11,11 +11,13 @@ include("../../_cfg/cfg.php");
 
 if(isset($_POST['valider'])){
     $name=$_POST['name'];
-    $value=$_POST['value'];
+    $percent = $_POST['percent'];
+    $value = ($percent /100);
     $is_active =1;
 
     $array = array(
         'name' => $name,
+        'percent' => $percent,
         'value' => $value,
         'isActive' => $is_active
     );
