@@ -24,7 +24,7 @@ $companies = $companies->getList();
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>" method="post" id="inscription" name="inscription" class="form-horizontal">
+                <form action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>" method="post" id="inscription" name="inscription" class="form-horizontal register-form">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
@@ -38,12 +38,12 @@ $companies = $companies->getList();
                                 <input type="text" name="username" data-required="1" class="form-control" /> </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label visible-ie8 visible-ie9 col-md-3">Mot de passe</label>
+                            <label class="control-label col-md-3">Mot de passe</label>
                             <div class="col-md-4">
                                 <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label visible-ie8 visible-ie9 col-md-3">Confirmer le mot de passe</label>
+                            <label class="control-label col-md-3">Confirmer le mot de passe</label>
                             <div class="col-md-4">
                                 <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" /> </div>
                         </div>
