@@ -1,9 +1,8 @@
 <?php
 
   class Tax extends Features{
-    private $idTax;
-    private $name;
     private $percent;
+    private $name;
     private $value;
     private $isActive;
 
@@ -18,21 +17,6 @@
           $this->generate($data);
       }
 
-    /**
-     * @return mixed
-     */
-    public function getIdTax()
-    {
-      return $this->idTax;
-    }
-
-    /**
-     * @param mixed $idTax
-     */
-    public function setIdTax($idTax): void
-    {
-      $this->idTax = $idTax;
-    }
 
     /**
      * @return mixed
