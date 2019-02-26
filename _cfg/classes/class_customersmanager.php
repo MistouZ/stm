@@ -143,7 +143,7 @@ class CustomersManager
      * Update customers information
      * @param customers $customer
      */
-    public function update(customers $customer, array $companies)
+    public function update(customers $customer, array $companies, array $taxes)
     {
         $q = $this->_db->prepare('UPDATE customers SET name = :name, physicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idcustomer = :idcustomers');
         $q->bindValue(':idcustomers', $customer->getIdCustomer(), PDO::PARAM_INT);
@@ -156,6 +156,9 @@ class CustomersManager
         
         $delete=$this->_db->query('DELETE FROM `link_company_customers` WHERE customers_idcustomer ='.$customer->getIdCustomer());
         $delete->execute();
+
+        $deletetaxe=$this->_db->query('DELETE FROM `link_customers_taxes` WHERE customers_idcustomer ='.$customer->getIdCustomer());
+        $deletetaxe->execute();
         
         for ($i=0;$i<count($companies);$i++)
         {
@@ -163,6 +166,14 @@ class CustomersManager
             $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
             $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
             $q2->execute();
+        }
+
+        for ($j=0;$j<count($taxes);$j++)
+        {
+            $q3 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomer, tax_percent) VALUES (:idcustomer, :percent)');
+            $q3->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
+            $q3->bindValue(':percent', $taxes[$j], PDO::PARAM_STR);
+            $q3->execute();
         }
     }
 
