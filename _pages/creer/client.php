@@ -120,7 +120,7 @@ $taxes = $taxes->getList();
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green">Valider</button>
+                                <button type="submit" name="valider" class="btn green">Valider</button>
                                 <button type="button" class="btn grey-salsa btn-outline">Annuler</button>
                             </div>
                         </div>
