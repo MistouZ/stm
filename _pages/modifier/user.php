@@ -9,6 +9,7 @@ $usermanager = $usermanager->get($username);
 print_r($usermanager);
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
+$companymanager->getList();
 
 ?>
 
