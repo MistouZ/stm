@@ -24,10 +24,11 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
 
-    $tax = new Tax($array);
+    print_r($array);
+    /*$tax = new Tax($array);
     $taxmanager = new TaxManager($bdd);
     $taxmanager->update($tax);
 
-    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/".$idTax);
+    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/".$idTax);*/
 
 }
