@@ -95,7 +95,7 @@ $companymanager = $companymanager->getList();
                                 <?php
                                         echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
                                 ?>
-                                            <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
+                                            <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
                                         </label>
                                 <?php
                                     }
