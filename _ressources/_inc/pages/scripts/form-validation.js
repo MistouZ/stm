@@ -196,10 +196,6 @@ var FormValidation = function () {
                         minlength: 2,
                         required: true
                     },
-                    email: {
-                        required: true,
-                        email: true
-                    },  
                     password: {
                         required: true
                     },
@@ -212,12 +208,16 @@ var FormValidation = function () {
                     first_name: {
                         required: true
                     },
-                    credential: {
-                        required: true
+                    email: {
+                        required: true,
+                        email: true
                     },
                     societe: {
                         required: true,
                         minlength: 1
+                    },
+                    credential: {
+                        required: true
                     }
                 },
 
