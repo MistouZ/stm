@@ -36,10 +36,6 @@ if(isset($_POST['valider'])) {
         'isSeller' => $is_seller,
         'isActive' => $is_active
     );
-    
-    print_r($array);
-    echo " / Sociétés : ".print_r($_POST['societe']);
-    
 
     $user = new Users($array);
     echo "OK";
