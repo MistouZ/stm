@@ -203,6 +203,9 @@ var FormValidation = function () {
                     password: {
                         required: true
                     },
+                    rpassword: {
+                        equalTo: "#register_password"
+                    },
                     name: {
                         required: true
                     },

@@ -25,7 +25,7 @@ $companymanager = $companymanager->getList();
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
                 <div class="form-body">
-                    <form action="" method="post" id="form_sample_3" name="form_sample_3" class="form-horizontal register-form">
+                    <form action="" method="post" id="form_sample_3" name="form_sample_3" class="form-horizontal">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
