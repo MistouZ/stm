@@ -40,13 +40,12 @@ $taxmanager = $taxmanager->getList();
                         else {
                             $tax->setIsActive("Non");
                         }
-
                         ?>
                         <tr>
                             <td><?php echo $tax->getName(); ?></td>
                             <td><?php echo $tax->getPercent(); ?>%</td>
                             <td><?php echo $tax->getIsActive();?></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getPercent(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
                     }
