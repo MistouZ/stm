@@ -8,7 +8,7 @@
 $array = array();
 $tax = new Tax($array);
 $taxes = new TaxManager($bdd);
-$taxes = $taxes->getById($_GET['soussouscat']);
+$tax = $taxes->getById($_GET['soussouscat']);
 
 ?>
 <div class="row">
@@ -18,63 +18,32 @@ $taxes = $taxes->getById($_GET['soussouscat']);
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">Modification de la société <span style="font-style: italic; font-weight: 800;"><?php echo $company->getName(); ?></span></span>
+                    <span class="caption-subject font-dark sbold uppercase">Modification de la taxe <span style="font-style: italic; font-weight: 800;"><?php echo $tax->getName(); ?></span></span>
                 </div>
             </div>
             <div class="portlet-body form">
-                <?php if($_GET['soussouscat']=="files"){ ?>
-                <div class="alert alert-danger">
-                    <button class="close" data-close="alert"></button>
-                    <span> Le fichier sélectionner n'a pu être téléchargé. Veuillez en sélectionner un autre. </span>
-                </div>
-                <?php } ?>
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/modifier_societe.php"; ?>" id="inscription" name="inscription" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="<?php echo URLHOST."_pages/_post/modifier_taxe.php"; ?>" id="inscription" name="inscription" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Tous les champs doivent être remplis </div>
                         <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Création de société effectuée avec succès </div>
+                            <button class="close" data-close="alert"></button> Modification de taxe effectuée avec succès </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nom de la société
+                            <label class="control-label col-md-3">Nom de la taxe
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="name" id="name" data-required="1" class="form-control" placeholder="Nom" value="<?php echo $company->getName(); ?>" /> </div>
+                                <input type="text" name="name" id="name" data-required="1" class="form-control" placeholder="Nom" value="<?php echo $tax->getName(); ?>" /> </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-3 control-label">Adresse physique
+                            <label class="control-label col-md-3" for="value">Valeur de la taxe en %
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                    <input type="text" name="address" id="address" class="form-control" placeholder="Adresse" value="<?php echo $company->getAddress(); ?>" /> </div>
+                                <input name="percent" id="percent" type="text" class="form-control" value="<?php echo $tax->getPercent(); ?>"/> </div>
                         </div>
-                        <div class="form-group ">
-                            <label class="control-label col-md-3">Logo de la société</label>
-                            <div class="col-md-9">
-                                <div class="fileinput fileinput-new" data-provides="fileinput">
-                                    <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 200px; height: 150px;">
-                                        <?php
-                                            $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
-                                            $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
-                                        ?>
-                                        <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getNameData();?>" />
-                                    </div>
-                                    <div>
-                                        <span class="btn red btn-outline btn-file">
-                                            <span class="fileinput-new"> Modifier ... </span>
-                                            <span class="fileinput-exists"> Changer </span>
-                                            <input type="file" accept="image/png, image/jpeg" id="nameData" name="nameData"/> </span>
-                                        <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Annuler </a>
-                                    </div>
-                                </div>
-                                <div class="clearfix margin-top-10">
-                                    <span class="label label-danger">Attention</span> Le logo doit être un fichier image au format .PNG ou .JPEG.</div>
-                                <div class="clearfix margin-top-10">
-                                    <span class="label label-success">NOTE</span> Pour un meilleur rendu, supprimez les bords blancs autour du logo.</div> 
-                            </div>
-                        </div>
-                        <input type="hidden" name="idCompany" id="idCompany" data-required="1" class="form-control" value="<?php echo $_GET['soussouscat'] ?>" />
+                        <input type="hidden" name="idTax" id="idTax" data-required="1" class="form-control" value="<?php echo $_GET['soussouscat'] ?>" />
                     </div>
                     <div class="form-actions">
                         <div class="row">
