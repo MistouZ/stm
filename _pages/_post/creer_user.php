@@ -17,16 +17,12 @@ if(isset($_POST['valider'])) {
     $phone = $_POST['phone_number'];
     $credential = $_POST["credential"];
 
-    echo "Test1 / ";
-
     if (isset($_POST["is_seller"])) {
         $is_seller = 1;
     } else {
         $is_seller = 0;
     }
     $is_active = 1;
-
-    echo "Test2 / ";
     
     $array = array(
         'username' => $username,
@@ -44,10 +40,11 @@ if(isset($_POST['valider'])) {
     print_r($array);
     echo " / Sociétés : ".print_r($_POST['societe']);
     
-    echo " / Test3";
 
     $user = new Users($array);
+    echo "OK";
     $usermanager = new UsersManager($bdd);
+    echo "OK2";
     $usermanager->add($user, $_POST["societe"]);
     
     echo " / Test4";
