@@ -32,7 +32,7 @@
                                 <input type="text" name="name" id="name" data-required="1" class="form-control" /> </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3" for="value">Valeur de la taxe
+                            <label class="control-label col-md-3" for="value">Valeur de la taxe en %
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
