@@ -66,7 +66,7 @@ class TaxManager
      */
     public function getById($idTax)
     {
-        $idTaxidTax = (integer) $idTax;
+        $idTax = (integer) $idTax;
         $q = $this->_db->query('SELECT * FROM tax WHERE idTax ='.$idTax);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
