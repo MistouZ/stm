@@ -107,10 +107,10 @@ $companymanager = $companymanager->getList();
                             </label>
                             <div class="col-md-9">
                                 <div class="radio-list">
-                                    <label class="checkbox-inline"><input name="credential" id="credential" type="radio" value="U" class="form-control" />Utilisateur</label>
-                                    <label class="checkbox-inline"><input name="credential" id="credential" type="radio" value="C" class="form-control" />Compta</label>
-                                    <label class="checkbox-inline"><input name="credential" id="credential" type="radio" value="F" class="form-control" />Facturation</label>
-                                    <label class="checkbox-inline"><input name="credential" id="credential" type="radio" value="A" class="form-control" />Administrateur</label>
+                                    <label class="radio-inline"><input name="credential" id="credential" type="radio" value="U" class="form-control" />Utilisateur</label>
+                                    <label class="radio-inline"><input name="credential" id="credential" type="radio" value="C" class="form-control" />Compta</label>
+                                    <label class="radio-inline"><input name="credential" id="credential" type="radio" value="F" class="form-control" />Facturation</label>
+                                    <label class="radio-inline"><input name="credential" id="credential" type="radio" value="A" class="form-control" />Administrateur</label>
                                 </div>
                             </div>
                         </div>
