@@ -25,7 +25,7 @@ $companymanager = $companymanager->getList();
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
                 <div class="form-body">
-                    <form action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>" method="post" id="form_sample_3" name="form_sample_3" class="form-horizontal register-form">
+                    <form action="" method="post" id="form_sample_3" name="form_sample_3" class="form-horizontal register-form">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
@@ -110,10 +110,10 @@ $companymanager = $companymanager->getList();
                             </label>
                             <div class="col-md-9">
                                 <div class="radio-list">
-                                    <label class="radio-inline"><input name="credential" id="credential" type="radio" value="U" class="form-control" />Utilisateur</label>
-                                    <label class="radio-inline"><input name="credential" id="credential" type="radio" value="C" class="form-control" />Compta</label>
-                                    <label class="radio-inline"><input name="credential" id="credential" type="radio" value="F" class="form-control" />Facturation</label>
-                                    <label class="radio-inline"><input name="credential" id="credential" type="radio" value="A" class="form-control" />Administrateur</label>
+                                    <label class="radio-inline"><input name="credential" id="credential1" type="radio" value="U" class="form-control" />Utilisateur</label>
+                                    <label class="radio-inline"><input name="credential" id="credential2" type="radio" value="C" class="form-control" />Compta</label>
+                                    <label class="radio-inline"><input name="credential" id="credential3" type="radio" value="F" class="form-control" />Facturation</label>
+                                    <label class="radio-inline"><input name="credential" id="credential4" type="radio" value="A" class="form-control" />Administrateur</label>
                                 </div>
                             </div>
                         </div>
