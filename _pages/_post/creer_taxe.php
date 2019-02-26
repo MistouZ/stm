@@ -25,6 +25,7 @@ if(isset($_POST['valider'])){
     $tax = new Tax($array);
     $taxmanager = new TaxManager($bdd);
     $taxmanager->add($tax);
-    echo "New tax created successfully </br/>";
+
+    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher");
 
 }

@@ -43,9 +43,5 @@ if(isset($_POST['valider'])) {
     $usermanager->add($user, $_POST["case"]);
 
 }
-echo "New record created successfully";
-
+header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher");
 ?>
-<html>
-<a href="<?php echo URLHOST."utilisateurs/afficher" ?>">Revenir à la liste des users </a>
-</html>
