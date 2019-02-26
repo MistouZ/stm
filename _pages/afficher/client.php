@@ -19,6 +19,12 @@ $arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
 $contactmanager = $contactmanager->getList($customerId);
+
+//récupération de la liste des taxes
+$arrayTax = array();
+$tax = new Tax($arrayTax);
+$taxmanager = new TaxManager($bdd);
+
 ?>
 <div class="portlet box grey-cascade">
     <div class="portlet-title">
@@ -219,7 +225,7 @@ $contactmanager = $contactmanager->getList($customerId);
                                     <div class="checkbox-list" data-error-container="#company_error">
                                     <?php
                                         $companiesList = explode(", ",$customer->getCompanyName());
-                                        
+
                                         foreach ($companies as $company)
                                         {
                                     ?>
@@ -236,6 +242,34 @@ $contactmanager = $contactmanager->getList($customerId);
                                     ?>
                                     </div>
                                     <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
+                                    <div id="company_error"> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Taxes
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <div class="checkbox-list" data-error-container="#tax_error">
+                                        <?php
+                                        $taxList = $taxmanager->getListByCustomer($customer->getIdCustomer());
+
+                                        foreach ($taxmanager as $tax)
+                                        {
+                                            ?>
+                                            <label class="checkbox-inline">
+                                                <?php
+                                                echo'<input type="checkbox" id="taxes[]" name="taxes[]" value="'.$tax->getIdTax().'" ';
+                                                if(in_array($tax->getName(),$companiesList)){ echo "checked=\"checked\""; }
+                                                echo '/>';
+                                                echo $tax->getName();
+                                                ?>
+                                            </label>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <span class="help-block">Cocher la ou les taxe(s) affiliée(s) au client </span>
                                     <div id="company_error"> </div>
                                 </div>
                             </div>
