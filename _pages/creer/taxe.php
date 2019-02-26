@@ -4,11 +4,7 @@
  * @author Amaury
  * @copyright 2019
  */
-
-$array = array();
-
-
- ?>
+?>
 
 <div class="row">
     <div class="col-md-12">
