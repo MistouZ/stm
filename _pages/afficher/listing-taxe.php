@@ -41,8 +41,15 @@ $taxmanager = $taxmanager->getList();
                             $tax->setIsActive("Non");
                         }
                         $taxvalue = $tax->getValue();
-                        $taxvalue = explode(".",$taxvalue);
-                        $tax->setValue($taxvalue[1]."%");
+                        if($taxvalue == 0)
+                        {
+                            $tax->setValue("0%");
+                        }
+                        else{
+                            $taxvalue = explode(".",$taxvalue);
+                            $tax->setValue($taxvalue[1]."%");
+                        }
+
                         ?>
                         <tr>
                             <td><?php echo $tax->getName(); ?></td>
