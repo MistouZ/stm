@@ -14,8 +14,10 @@ if(isset($_POST['valider'])){
     $percent = $_POST['percent'];
     $value = ($percent /100);
     $is_active =1;
+    $idTax = $_POST["idTax"];
 
     $array = array(
+        'idTax' => $idTax,
         'name' => $name,
         'percent' => $percent,
         'value' => $value,
@@ -24,8 +26,8 @@ if(isset($_POST['valider'])){
 
     $tax = new Tax($array);
     $taxmanager = new TaxManager($bdd);
-    $taxmanager->add($tax);
+    $taxmanager->update($tax);
 
-    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher");
+    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/".$idTax);
 
 }
