@@ -49,7 +49,7 @@ $taxmanager = $taxmanager->getList();
                             <td><?php echo $tax->getName(); ?></td>
                             <td><?php echo $tax->getValue(); ?></td>
                             <td><?php echo $tax->getIsActive();?></td>
-                            <td><a href="<?php echo URLHOST.'user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
                     }
