@@ -11,7 +11,6 @@ $taxmanager = new TaxManager($bdd);
 $taxmanager = $taxmanager->getList();
 
 ?>
-<html>
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -61,4 +60,3 @@ $taxmanager = $taxmanager->getList();
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-</html>
