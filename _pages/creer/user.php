@@ -12,9 +12,107 @@ $companies = $companies->getList();
 
 ?>
 
-<html>
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN VALIDATION STATES-->
+        <div class="portlet light portlet-fit bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings"></i>
+                    <span class="caption-subject sbold uppercase">Création d'un utilisateur</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>" method="post" id="inscription" name="inscription" class="form-horizontal">
+                    <div class="form-body">
+                        <div class="alert alert-danger display-hide">
+                            <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
+                        <div class="alert alert-success display-hide">
+                            <button class="close" data-close="alert"></button> L'utilisateur a bien été créé </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Login
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-4">
+                                <input type="text" name="username" data-required="1" class="form-control" /> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">Mot de passe</label>
+                            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Password" name="password" /> </div>
+                        <div class="form-group">
+                            <label class="control-label visible-ie8 visible-ie9">Confirmer le mot de passe</label>
+                            <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Re-type Your Password" name="rpassword" /> </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Adresse physique
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-4">
+                                <input name="physical_address" id="physical_address" type="text" class="form-control" /> </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Adresse de facturation
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-4">
+                                <input name="invoice_address" id="invoice_address" type="text" class="form-control" />
+                                <span class="help-block"> Si différente de l'adresse physique </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Fournisseur
+                            </label>
+                            <div class="col-md-9">
+                                <div class="checkbox-list">
+                                    <label class="checkbox-inline">
+                                        <input type="checkbox" value="is_supplier" name="is_supplier" id="is_supplier" /></label>
+                                </div>
+                                <span class="help-block"> Cocher si ce client est aussi un fournisseur </span>
+                                <div id="form_2_services_error"> </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Société
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-9">
+                                <div class="checkbox-list" data-error-container="#company_error">
+                                <?php
+                                    foreach ($companies as $company)
+                                    {
+                                ?>
+                                        <label class="checkbox-inline">
+                                <?php
+                                        echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
+                                ?>
+                                            <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
+                                        </label>
+                                <?php
+                                    }
+                                ?>
+                                </div>
+                                <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
+                                <div id="company_error"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="submit" class="btn green">Valider</button>
+                                <button type="button" class="btn grey-salsa btn-outline">Annuler</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+        <!-- END VALIDATION STATES-->
+    </div>
+</div>
 
-<body>
+
 <h1>Création d'un utilisateur </h1>
 <form name="inscription" method="post" action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>">
     <label for="login">Login :</label><input type="text" name="username" id="login" autofocus required/> <br/>
@@ -48,5 +146,4 @@ $companies = $companies->getList();
     <label for="is_seller"></label>Commercial : <input type="checkbox" id"=is_seller" name="is_seller" value="is_seller" /> <br />
     <input type="submit" name="valider" value="Send"/>
 </form>
-</body>
-</html>
+
