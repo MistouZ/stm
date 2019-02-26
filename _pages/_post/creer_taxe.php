@@ -26,6 +26,6 @@ if(isset($_POST['valider'])){
     $taxmanager = new TaxManager($bdd);
     $taxmanager->add($tax);
 
-    //header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher");
+    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher");
 
 }
