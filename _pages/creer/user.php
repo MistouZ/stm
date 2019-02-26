@@ -15,7 +15,7 @@ $companymanager = $companymanager->getList();
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN VALIDATION STATES-->
-        <div class="portlet light portlet-fit bordered">
+        <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings"></i>
@@ -25,7 +25,7 @@ $companymanager = $companymanager->getList();
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
                 <div class="form-body">
-                    <form action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>" method="post" id="inscription" name="inscription" class="form-horizontal register-form">
+                    <form action="<?php echo URLHOST."_pages/_post/creer_user.php"; ?>" method="post" id="form_sample_3" name="form_sample_3" class="form-horizontal register-form">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
@@ -93,7 +93,7 @@ $companymanager = $companymanager->getList();
                                 ?>
                                         <label class="checkbox-inline">
                                 <?php
-                                        echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
+                                        echo'<input type="checkbox" id="societe[]" name="societe[]" value="'.$company->getIdCompany().'" />';
                                 ?>
                                             <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
                                         </label>
@@ -177,7 +177,7 @@ $companymanager = $companymanager->getList();
       <option value="A" label="Administrateur"></option>
     </datalist>-->
     <br />
-    <label for="is_seller"></label>Commercial : <input type="checkbox" id"=is_seller" name="is_seller" value="is_seller" /> <br />
+    <label for="is_seller"></label>Commercial : <input type="checkbox" id="is_seller" name="is_seller" value="is_seller" /> <br />
     <input type="submit" name="valider" value="Send"/>
 </form>
 

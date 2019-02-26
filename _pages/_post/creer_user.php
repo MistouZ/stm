@@ -13,7 +13,7 @@ if(isset($_POST['valider'])) {
     $password = $_POST['password'];
     $name = $_POST['name'];
     $firstname = $_POST['firstname'];
-    $email = $_POST['email_address'];
+    $email = $_POST['email'];
     $phone = $_POST['phone_number'];
     $credential = $_POST["credential"];
 
@@ -40,7 +40,7 @@ if(isset($_POST['valider'])) {
 
     $user = new Users($array);
     $usermanager = new UsersManager($bdd);
-    $usermanager->add($user, $_POST["case"]);
+    $usermanager->add($user, $_POST["societe"]);
 
 }
 header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher");

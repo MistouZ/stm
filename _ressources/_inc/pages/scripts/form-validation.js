@@ -192,7 +192,7 @@ var FormValidation = function () {
                 focusInvalid: false, // do not focus the last invalid input
                 ignore: "", // validate all fields including form hidden input
                 rules: {
-                    name: {
+                    username: {
                         minlength: 2,
                         required: true
                     },
@@ -200,13 +200,13 @@ var FormValidation = function () {
                         required: true,
                         email: true
                     },  
-                    options1: {
+                    password: {
                         required: true
                     },
-                    options2: {
+                    name: {
                         required: true
                     },
-                    select2tags: {
+                    first_name: {
                         required: true
                     },
                     datepicker: {
@@ -215,12 +215,12 @@ var FormValidation = function () {
                     occupation: {
                         minlength: 5,
                     },
-                    membership: {
+                    credential: {
                         required: true
                     },
-                    service: {
+                    societe: {
                         required: true,
-                        minlength: 2
+                        minlength: 1
                     },
                     markdown: {
                         required: true
@@ -234,12 +234,12 @@ var FormValidation = function () {
                 },
 
                 messages: { // custom messages for radio buttons and checkboxes
-                    membership: {
-                        required: "Please select a Membership type"
+                    credential: {
+                        required: "Veuillez sélectionner le type de compte"
                     },
-                    service: {
-                        required: "Please select  at least 2 types of Service",
-                        minlength: jQuery.validator.format("Please select  at least {0} types of Service")
+                    societe: {
+                        required: "Veuillez sélectionner au moins une société",
+                        minlength: jQuery.validator.format("Veuillez sélectionner au moins {0} société")
                     }
                 },
 
