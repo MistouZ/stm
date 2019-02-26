@@ -17,7 +17,7 @@ if(isset($_POST['valider'])) {
     $phone = $_POST['phone_number'];
     $credential = $_POST["credential"];
 
-    echo "Test1";
+    echo "Test1 / ";
 
     if (isset($_POST["is_seller"])) {
         $is_seller = 1;
@@ -26,7 +26,7 @@ if(isset($_POST['valider'])) {
     }
     $is_active = 1;
 
-    echo "Test2";
+    echo "Test2 / ";
     
     $array = array(
         'username' => $username,
@@ -41,13 +41,15 @@ if(isset($_POST['valider'])) {
         'isActive' => $is_active
     );
     
-    echo "Test3";
+    print_r($array);
+    
+    echo " / Test3";
 
     $user = new Users($array);
     $usermanager = new UsersManager($bdd);
     $usermanager->add($user, $_POST["societe"]);
     
-    echo "Test4";
+    echo " / Test4";
 
 }
 //header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher");
