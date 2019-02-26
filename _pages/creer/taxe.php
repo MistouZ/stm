@@ -36,7 +36,7 @@
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input name="value" id="value" type="text" class="form-control" /> </div>
+                                <input name="percent" id="percent" type="text" class="form-control" /> </div>
                         </div>
                     </div>
                     <div class="form-actions">
