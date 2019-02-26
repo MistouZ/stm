@@ -42,6 +42,7 @@ if(isset($_POST['valider'])) {
     );
     
     print_r($array);
+    echo " / Sociétés : ".print_r($_POST['societe']);
     
     echo " / Test3";
 
