@@ -38,7 +38,7 @@ class UsersManager
     public function add(Users $user, array $companies)
     {
         $user->setName(strtoupper($user->getName()));
-        $q = $this->_db->prepare('INSERT INTO users (username, name, firstname,emailAddress,password,phoneNumber,credential,defaultCompany,isSeller, isActive) VALUES (:username, :name, :first_name, :email_address, :password, :phone_number, :credential, :defaultCompany, :isSeller, :isActive)');
+        $q = $this->_db->prepare('INSERT INTO users (username, name, firstname,emailAddress,password,phoneNumber,credential,defaultCompany,isSeller, isActive) VALUES (:username, :name, :firstname, :emailAddress, :password, :phoneNumber, :credential, :defaultCompany, :isSeller, :isActive)');
         $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
         $q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
         $q->bindValue(':firstname', $user->getFirstName(), PDO::PARAM_STR);
@@ -181,7 +181,7 @@ class UsersManager
     public function update(Users $user)
     {
         $user->setName(strtoupper($user->getName()));
-        $q = $this->_db->prepare('UPDATE users SET name = :name, firstname = :first_name, emailAddress = :email_address, password = :password, phoneNumber = :phone_number, credential = :credential, defaultCompany = :defaultCompany, isSeller = :isSeller, isActive = :isActive  WHERE username = :username');
+        $q = $this->_db->prepare('UPDATE users SET name = :name, firstname = :firstname, emailAddress = :emailAddress, password = :password, phoneNumber = :phoneNumber, credential = :credential, defaultCompany = :defaultCompany, isSeller = :isSeller, isActive = :isActive  WHERE username = :username');
         $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
         $q->bindValue(':name', $user->getName(), PDO::PARAM_STR);
         $q->bindValue(':firstname', $user->getFirstName(), PDO::PARAM_STR);

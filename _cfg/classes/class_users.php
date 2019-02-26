@@ -107,7 +107,7 @@
        */
       public function getEmailAddress()
       {
-          return $this->email_address;
+          return $this->emailAddress;
       }
 
       /**
@@ -115,7 +115,7 @@
        */
       public function setEmailAddress($email_address)
       {
-          $this->email_address = $email_address;
+          $this->emailAddress = $email_address;
       }
 
       /**
@@ -123,7 +123,7 @@
        */
       public function getPhoneNumber()
       {
-          return $this->phone_number;
+          return $this->phoneNumber;
       }
 
       /**
@@ -131,7 +131,7 @@
        */
       public function setPhoneNumber($phone_number)
       {
-          $this->phone_number = $phone_number;
+          $this->phoneNumber = $phone_number;
       }
 
       /**
