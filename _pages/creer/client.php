@@ -11,6 +11,7 @@ $companies = new CompaniesManager($bdd);
 $companies = $companies->getList();
 $tax = new Tax($array);
 $taxes = new TaxManager($bdd);
+$taxmanager = $taxmanager->getList();
 
  ?>
 
