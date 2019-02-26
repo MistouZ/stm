@@ -253,7 +253,7 @@ $taxmanager = $taxmanager->getList();
                                 <div class="col-md-9">
                                     <div class="checkbox-list" data-error-container="#tax_error">
                                         <?php
-                                        $taxList = $taxmanager->getListByCustomer($customer->getIdCustomer());
+                                        /*$taxList = $taxmanager->getListByCustomer($customer->getIdCustomer());
 
                                         foreach ($taxmanager as $tax)
                                         {
@@ -267,7 +267,7 @@ $taxmanager = $taxmanager->getList();
                                                 ?>
                                             </label>
                                             <?php
-                                        }
+                                        }*/
                                         ?>
                                     </div>
                                     <span class="help-block">Cocher la ou les taxe(s) affiliée(s) au client </span>
