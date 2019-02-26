@@ -90,7 +90,7 @@ $companies = $companies->getList();
                             <div class="col-md-9">
                                 <div class="checkbox-list" data-error-container="#company_error">
                                 <?php
-                                
+                                    echo $user->getCompanyName();
                                     $companiesList = explode(", ",$user->getCompanyName());
                                     foreach ($companies as $company){
 
