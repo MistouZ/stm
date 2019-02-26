@@ -117,13 +117,16 @@ class TaxManager
     {
         $taxes = [];
 
-        $q=$this->_db->query("SELECT t.* FROM tax t WHERE t.isActive='1'");
+        $query = "SELECT t.* FROM tax t WHERE t.isActive='1'";
+        echo $query;
+
+       /* $q=$this->_db->query("SELECT t.* FROM tax t WHERE t.isActive='1'");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $taxes[] = new Tax($donnees);
         }
 
-        return $taxes;
+        return $taxes;*/
     }
 
 
