@@ -6,9 +6,9 @@
  */
 
 $array = array();
-$tax = new Tax($array);
+/*$tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
-$taxmanager = $taxmanager->getList();
+$taxmanager = $taxmanager->getList();*/
 
 ?>
 <div class="row">
@@ -17,7 +17,7 @@ $taxmanager = $taxmanager->getList();
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des utilisateurs  </div>
+                    <i class="fa fa-globe"></i>Liste des taxes  </div>
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
@@ -32,7 +32,7 @@ $taxmanager = $taxmanager->getList();
                     </thead>
                     <tbody>
                     <?php
-                    foreach($taxmanager as $tax) {
+                    /*foreach($taxmanager as $tax) {
                         if($tax->getIsActive() == 1)
                         {
                             $tax->setIsActive("Oui");
@@ -40,18 +40,18 @@ $taxmanager = $taxmanager->getList();
                         else {
                             $tax->setIsActive("Non");
                         }
-                        $taxvalue = $tax->getValue();
+                        /*$taxvalue = $tax->getValue();
                         $taxvalue = explode(".",$taxvalue);
-                        $tax->setValue($taxvalue[1]."%");
+                        $tax->setValue($taxvalue[1]."%");*/
                         ?>
                         <tr>
-                            <td><?php echo $tax->getName(); ?></td>
-                            <td><?php echo $tax->getValue(); ?></td>
-                            <td><?php echo $tax->getIsActive();?></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><?php //echo $tax->getName(); ?></td>
+                            <td><?php //echo $tax->getValue(); ?></td>
+                            <td><?php //echo $tax->getIsActive();?></td>
+                            <td><a href="<?php //echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
-                    }
+                    }*/
                     ?>
                     </tbody>
                 </table>
