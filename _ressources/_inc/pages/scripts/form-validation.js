@@ -209,27 +209,12 @@ var FormValidation = function () {
                     first_name: {
                         required: true
                     },
-                    datepicker: {
-                        required: true
-                    },
-                    occupation: {
-                        minlength: 5,
-                    },
                     credential: {
                         required: true
                     },
                     societe: {
                         required: true,
                         minlength: 1
-                    },
-                    markdown: {
-                        required: true
-                    },
-                    editor1: {
-                        required: true
-                    },
-                    editor2: {
-                        required: true
                     }
                 },
 
