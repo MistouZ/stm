@@ -71,7 +71,7 @@ $companymanager = new CompaniesManager($bdd);
                             <td><?php echo $user->getCompanyName() ?></td>
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><?php echo $user->getIsActive();?></td>
-                            <td><a href="<?php echo URLHOST.'user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a href="<?php echo echo URLHOST.$_COOKIE['company'].'/user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
                     }
