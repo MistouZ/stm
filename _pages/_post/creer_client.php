@@ -32,7 +32,7 @@ if(isset($_POST['valider'])){
     print_r($array);
     print_r($_POST["case"]);
     print_r($_POST["taxes"]);
-    /*$customer = new Customers($array);
+    $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
     $customermanager->add($customer, $_POST["case"], $_POST["taxes"]);
     echo "New customer created successfully </br/>";
@@ -43,7 +43,7 @@ if(isset($_POST['valider'])){
       $suppliermanager = new SuppliersManager($bdd);
       $suppliermanager->add($supplier,$_POST["case"]);
       echo "New provider created successfully <br />";
-    }*/
+    }
 
 }
 
