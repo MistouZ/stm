@@ -29,7 +29,7 @@
     /**
      * @param mixed $idtax
      */
-    public function setIdtax($idTax): void
+    public function setIdTax($idTax): void
     {
       $this->idTax = $idTax;
     }
