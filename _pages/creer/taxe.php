@@ -6,12 +6,11 @@
  */
 
 $array = array();
+
+
+/*initialisation des objets */
 $tax = new Tax($array);
 $taxes = new TaxManager($bdd);
-$customer = new Customers($array);
-$customers = new CustomersManager();
-
-$taxes = $taxes->getList();
 
  ?>
 
@@ -34,42 +33,18 @@ $taxes = $taxes->getList();
                         <div class="alert alert-success display-hide">
                             <button class="close" data-close="alert"></button> La taxe a bien été créé </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nom de la taxe
+                            <label class="control-label col-md-3" for="name">Nom de la taxe
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="text" name="name" data-required="1" class="form-control" /> </div>
+                                <input type="text" name="name" id="name" data-required="1" class="form-control" /> </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Valeur de la taxe
+                            <label class="control-label col-md-3" for="value">Valeur de la taxe
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input name="physical_address" id="physical_address" type="text" class="form-control" /> </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Clients associés
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-9">
-                                <div class="checkbox-list" data-error-container="#company_error">
-                                <?php
-                                    foreach ($customers as $customer)
-                                    {
-                                ?>
-                                        <label class="checkbox-inline">
-                                <?php
-                                        echo'<input type="checkbox" id="case[]" name="case[]" value="'.$company->getIdCompany().'" />';
-                                ?>
-                                            <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
-                                        </label>
-                                <?php
-                                    }
-                                ?>
-                                </div>
-                                <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
-                                <div id="company_error"> </div>
-                            </div>
+                                <input name="value" id="value" type="text" class="form-control" /> </div>
                         </div>
                     </div>
                     <div class="form-actions">

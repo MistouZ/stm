@@ -38,7 +38,7 @@ class TaxManager
      */
     public function add(Tax $tax)
     {
-        $q = $this->_db->prepare('INSERT INTO tax (name, values,isActive) VALUES (:name, :values,:isActive)');
+        $q = $this->_db->prepare('INSERT INTO tax (name, value,isActive) VALUES (:name, :value,:isActive)');
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
         $q->bindValue(':values', $tax->getValue(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
@@ -52,7 +52,7 @@ class TaxManager
      */
     public function addToCustomers(Tax $tax, $customers)
     {
-        $q = $this->_db->prepare('INSERT INTO tax (name, values,isActive) VALUES (:name, :values,:isActive)');
+        $q = $this->_db->prepare('INSERT INTO tax (name, value,isActive) VALUES (:name, :value,:isActive)');
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
         $q->bindValue(':values', $tax->getValue(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
