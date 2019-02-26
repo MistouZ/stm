@@ -134,7 +134,7 @@ class TaxManager
         $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
         $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
-        $q->bindValue(':values', $tax->getValue(), PDO::PARAM_STR);
+        $q->bindValue(':value', $tax->getValue(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
