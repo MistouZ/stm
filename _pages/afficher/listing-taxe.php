@@ -17,7 +17,7 @@ $taxmanager = new TaxManager($bdd);
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des utilisateurs  </div>
+                    <i class="fa fa-globe"></i>Liste des taxes  </div>
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
