@@ -2,11 +2,12 @@
 
 $username = $_GET['soussouscat'];
 
+//récupération des données de l'utilisateur
 $array = array();
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
-$usermanager = $usermanager->get($username);
-print_r($usermanager);
+$user = $usermanager->get($username);
+//Liste des sociétés
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
 $companies = new CompaniesManager($bdd);
