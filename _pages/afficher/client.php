@@ -24,6 +24,7 @@ $contactmanager = $contactmanager->getList($customerId);
 $arrayTax = array();
 $tax = new Tax($arrayTax);
 $taxmanager = new TaxManager($bdd);
+$taxmanager = $taxmanager->getList();
 
 ?>
 <div class="portlet box grey-cascade">
