@@ -24,7 +24,7 @@ $contactmanager = $contactmanager->getList($customerId);
 $array = array();
 $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
-//$taxmanager = $taxmanager->getList();
+$taxmanager = $taxmanager->getList();
 
 ?>
 <div class="portlet box grey-cascade">
@@ -254,10 +254,8 @@ $taxmanager = new TaxManager($bdd);
                                     <div class="checkbox-list" data-error-container="#tax_error">
                                         <?php
 
-
-                                        $taxmanager->getListByCustomer($customer->getIdCustomer());
-                                        print_r($taxList);
-                                        /*
+                                        $taxList = new TaxManager($bdd);
+                                        $taxList = $taxList->getListByCustomer($customer->getIdCustomer());
                                         foreach ($taxmanager as $tax)
                                         {
                                             ?>
@@ -270,7 +268,7 @@ $taxmanager = new TaxManager($bdd);
                                                 ?>
                                             </label>
                                             <?php
-                                        }*/
+                                        }
                                         ?>
                                     </div>
                                     <span class="help-block">Cocher la ou les taxe(s) affiliée(s) au client </span>
