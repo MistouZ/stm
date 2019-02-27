@@ -42,9 +42,9 @@ print_r($listingCustomers);
 <script>
     function changeSelect(selected){
       //on recupere le php
-      var data = <?php echo json_encode($p2); ?>;
+      var data = <?php echo json_encode($listingCustomers); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
-      var monSelectB = document.getElementById("monSelectB");
+      var monSelectB = document.getElementById("contact-select");
       //on efface tous les children options
       while (monSelectB.firstChild) {
         monSelectB.removeChild(monSelectB.firstChild);
