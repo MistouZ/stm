@@ -12,7 +12,8 @@ $idTax = $_GET["idTax"];
 $array = array();
 $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
-$taxmanager->delete($idTax);
+$tax->setIdTax($idTax);
+$taxmanager->delete($tax);
 header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher");
 
 ?>
