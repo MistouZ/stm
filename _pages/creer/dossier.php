@@ -40,7 +40,7 @@ print_r($listingContacts);
 
 ?>
 
-<!--<script>
+<script>
     function changeSelect(selected){
       //on recupere le php
       var data = <?php echo json_encode($listingCustomers); ?>;
@@ -58,13 +58,7 @@ print_r($listingContacts);
          monSelectB.appendChild(opt);
       }
     }
-  </script>-->
-<script>
-    $('select').on('change', function() {
-        alert( this.value );
-    });
-
-</script>
+  </script>
 
 <div class="row">
     <div class="col-md-12">
@@ -122,7 +116,7 @@ print_r($listingContacts);
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <select id="customer-select" name="customer-select" class="form-control" >
+                                <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
                                     <option value="">--Choississez le client--</option>
                                     <?php
                                         foreach($customermanager as $customer)
