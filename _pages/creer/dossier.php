@@ -30,10 +30,10 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-foreach($listingCustomers as $customer){
+foreach($customermanager as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
     foreach($listingContacts as $contact){
-        $listingCustomers[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
+        $customermanager[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
         
     }
 }
