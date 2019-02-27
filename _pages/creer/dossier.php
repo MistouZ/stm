@@ -41,7 +41,7 @@ foreach($listingCustomers as $customer){
 ?>
 
 <script>
-    function changeSelect(selected){
+    /*function changeSelect(selected){
       //on recupere le php
       var data = <?php echo json_encode($listingCustomers); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
@@ -57,7 +57,10 @@ foreach($listingCustomers as $customer){
          opt.innerHTML = chaqueSousTitre;
          monSelectB.appendChild(opt);
       }
-    }
+    }*/
+    $('select').on('change', function() {
+        alert( this.value );
+    });
   </script>
 
 <div class="row">
