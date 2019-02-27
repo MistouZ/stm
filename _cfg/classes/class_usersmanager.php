@@ -201,9 +201,9 @@ class UsersManager
         
         for ($i=0;$i<count($companies);$i++)
         {
-            $q2 = $this->_db->prepare('INSERT INTO `link_company_users` (users_username, company_idcompany) VALUES (:username, :idcompany)');
+            $q2 = $this->_db->prepare('INSERT INTO link_company_users (users_username, company_idcompany) VALUES (:username, :id_company)');
             $q2->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
-            $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
+            $q2->bindValue(':id_company', $companies[$i], PDO::PARAM_INT);
             $q2->execute();
         }
     }
