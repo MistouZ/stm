@@ -190,8 +190,8 @@ class UsersManager
         $q->bindValue(':phone_number', $user->getPhoneNumber(), PDO::PARAM_STR );
         $q->bindValue(':credential', $user->getCredential(), PDO::PARAM_STR );
         $q->bindValue(':defaultCompany', $user->getDefaultCompany(), PDO::PARAM_INT);
-        $q->bindValue(':isSeller', $user->getisSeller(), PDO::PARAM_INT);
-        $q->bindValue(':isActive', $user->getisActive(), PDO::PARAM_INT);
+        $q->bindValue(':isSeller', $user->getIsSeller(), PDO::PARAM_INT);
+        $q->bindValue(':isActive', $user->getIsActive(), PDO::PARAM_INT);
 
         $q->execute();
         
