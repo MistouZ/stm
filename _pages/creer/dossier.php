@@ -17,8 +17,8 @@ $usermanager = new UsersManager($bdd);
 
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$listingCustomers = $customermanager->getList();
-print_r($listingCustomers);
+//$listingCustomers = $customermanager->getList();
+//print_r($listingCustomers);
 
 //récupération des contacts du client
 $arrayContact = array();
@@ -28,7 +28,7 @@ $contactmanager = new ContactManager($bdd);
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
-$customermanager = $customermanager->getListByCompany($company->getIdcompany());
+$listingCustomers = $customermanager->getListByCompany($company->getIdcompany());
 
 foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
