@@ -94,7 +94,7 @@ class UsersManager
         {
             $array = array(
                 'name' => "Utilisateur",
-                'firstname' => "Désactivé"
+                'firstname' => "Supprimé"
             );
             return new Users($array);
         }
