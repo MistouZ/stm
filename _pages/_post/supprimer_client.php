@@ -11,7 +11,7 @@ $idCustomer = $_GET["idCustomer"];
 
 $array = array();
 $customer = new Customers($array);
-$customer->setIdCustomer($idCustomer);
+$customer->setIdcustomer($idCustomer);
 $customermanager = new CustomersManager($bdd);
 $customermanager->delete($customer);
 header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
