@@ -50,7 +50,7 @@ $tax = $taxes->getById($_GET['soussouscat']);
                             <div class="col-md-4">
                                 <input name="default" id="default" type="checkbox" <?php if($tax->getIsDefault()==1){ echo "checked=\"checked\"";} ?>class="form-control" /> </div>
                         </div>
-                        <input type="hidden" name="idTax" id="idTax" data-required="1" class="form-control" value="<?php echo $tax->getIdTax(); ?>" />
+                        <input type="hidden" name="idTax" id="idTax" data-required="1" class="form-control" value="<?php echo $_GET['soussouscat'] ?>" />
                     </div>
                     <div class="form-actions">
                         <div class="row">

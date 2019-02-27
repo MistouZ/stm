@@ -25,6 +25,7 @@ if(isset($_POST['valider'])){
     }
 
     $array = array(
+        'idTax' => $idTax,
         'name' => $name,
         'percent' => $percent,
         'value' => $value,
