@@ -18,6 +18,7 @@ $usermanager = new UsersManager($bdd);
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $listingCustomers = $customermanager->getList();
+print_r($listingCustomers);
 
 //récupération des contacts du client
 $arrayContact = array();
@@ -31,7 +32,6 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
-    print_r($listingContacts);
     foreach($listingContacts as $contact){
         $listingCustomers[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
         
