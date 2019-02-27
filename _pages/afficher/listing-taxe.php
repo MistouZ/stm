@@ -26,7 +26,8 @@ $taxmanager = $taxmanager->getList();
                         <tr>
                             <th class="all">Nom de la Taxe</th>
                             <th class="min-phone-l">Valeur</th>
-                            <th class="min-phone-l">Actif</th>
+                            <th class="none">Actif</th>
+                            <th class="none">Taxe par défaut</th>
                             <th class="min-tablet">Modifier</th>
                         </tr>
                     </thead>
@@ -40,11 +41,19 @@ $taxmanager = $taxmanager->getList();
                         else {
                             $tax->setIsActive("Non");
                         }
+                        if($tax->getIsDefault() == 1)
+                        {
+                            $tax->setIsDefault("Oui");
+                        }
+                        else {
+                            $tax->setIsDefault("Non");
+                        }
                         ?>
                         <tr>
                             <td><?php echo $tax->getName(); ?></td>
                             <td><?php echo $tax->getPercent(); ?>%</td>
                             <td><?php echo $tax->getIsActive();?></td>
+                            <td><?php echo $tax->getIsDefault();?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                         </tr>
                         <?php
