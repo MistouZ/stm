@@ -31,9 +31,9 @@ $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 $tableauClient = array();
-$tempContact = array();
 
 foreach ($customermanager as $customer) {
+    $tempContact = array();
     $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
     if(!empty($tableauContacts)){
         foreach($tableauContacts as $tableauContact){
@@ -64,12 +64,6 @@ var_dump($tableauClient);
         opt.innerHTML = data[selected.value][i]; 
         monSelectB.appendChild(opt);
       }
-      /*for (var chaqueSousTitre of data[selected.value]){
-         var opt = document.createElement("option");
-         opt.value= chaqueSousTitre;
-         opt.innerHTML = chaqueSousTitre;
-         monSelectB.appendChild(opt);
-      }*/
     }
   </script>
 
