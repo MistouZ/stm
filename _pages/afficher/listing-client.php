@@ -21,8 +21,9 @@ $customermanager = $customermanager->getList();
                     <thead>
                         <tr>
                             <th class="all">Nom</th>
-                            <th class="min-phone-l">Afficher</th>
+                            <th class="desktop">Afficher</th>
                             <th class="min-tablet">Modifier</th>
+                            <th class="min-phone-l">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,8 +34,9 @@ $customermanager = $customermanager->getList();
                     ?>
                         <tr>
                             <td><?php echo $customer->getName(); ?></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/client/afficher/'.$customer->getIdCustomer(); ?>"><i class="fas fa-eye" alt="Détail"></i></a></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/client/modifier/'.$customer->getIdCustomer(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/client/afficher/'.$customer->getIdCustomer(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                            <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/client/modifier/'.$customer->getIdCustomer(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client <?php echo $customer->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_client.php?idCustomer=".$customer->getIdCustomer(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                         </tr>
                     <?php
                         }
