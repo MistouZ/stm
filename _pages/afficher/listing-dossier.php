@@ -57,17 +57,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
-                       //$user = $usermanager->get($folder->getSeller());
-                        print_r($usermanager->get($folder->getSeller()));
-                       /*if(count($usermanager->get($folder->getSeller())) != 0)
-                       {
-                           $user = $usermanager->get($folder->getSeller());
-                       }
-                       else
-                       {
-                           $user->setName("Utilisateur");
-                           $user->setFirstName("Désactivé");
-                       }*/
+                       $user = $usermanager->get($folder->getSeller());
                        $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
