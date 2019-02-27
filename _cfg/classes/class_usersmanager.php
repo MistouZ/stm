@@ -98,8 +98,6 @@ class UsersManager
             );
             return new Users($array);
         }
-
-        //return new Users($donnees);
     }
 
     /**

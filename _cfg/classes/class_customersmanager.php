@@ -100,8 +100,18 @@ class CustomersManager
         $idcustomer = (integer) $idcustomer;
         $q = $this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE cu.idcustomer='.$idcustomer.' AND cu.isActive=\'1\' AND c.isActive=\'1\' GROUP BY cu.name');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
+        if($donnees != NULL )
+        {
+            return new Customers($donnees);
+        }
+        else
+        {
+            $array = array(
+                'name' => "Client supprimé"
+            );
+            return new Customers($array);
+        }
 
-        return new Customers($donnees);
     }
 
 
