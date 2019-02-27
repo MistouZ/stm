@@ -102,7 +102,7 @@ $taxes = $taxes->getList();
                                     foreach ($taxes as $tax)
                                     {
                                         ?>
-                                        <label class="checkbox-inline" for="taxes[]">
+                                        <label class="checkbox-inline">
 
                                             <input type="checkbox" id="taxes[]" name="taxes[]" value="<?php echo $tax->getIdTax(); ?>"  <?php if($tax->getIsDefault()==1){ echo "checked=\"checked\"";} ?> />
                                             <?php echo $tax->getName(); ?>

@@ -26,8 +26,10 @@ $taxmanager = $taxmanager->getList();
                         <tr>
                             <th class="all">Nom de la Taxe</th>
                             <th class="min-phone-l">Valeur</th>
-                            <th class="min-phone-l">Actif</th>
+                            <th class="none">Actif</th>
+                            <th class="none">Taxe par défaut</th>
                             <th class="min-tablet">Modifier</th>
+                            <th class="min-tablet">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,12 +42,21 @@ $taxmanager = $taxmanager->getList();
                         else {
                             $tax->setIsActive("Non");
                         }
+                        if($tax->getIsDefault() == 1)
+                        {
+                            $tax->setIsDefault("Oui");
+                        }
+                        else {
+                            $tax->setIsDefault("Non");
+                        }
                         ?>
                         <tr>
                             <td><?php echo $tax->getName(); ?></td>
                             <td><?php echo $tax->getPercent(); ?>%</td>
                             <td><?php echo $tax->getIsActive();?></td>
+                            <td><?php echo $tax->getIsDefault();?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client <?php echo $tax->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                         </tr>
                         <?php
                     }
