@@ -30,9 +30,10 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-$tableauClient = array();
+$tableauClient = array('id','contacts');
 
 foreach ($customermanager as $customer) {
+    
     array_push($tableauClient,$customer->getIdCustomer(), $contactmanager->getList($customer->getIdCustomer()));
 }
 
@@ -49,7 +50,7 @@ foreach ($customermanager as $customer) {
         );  
     }
 }*/
-print_r($tableauClient);
+var_dump($tableauClient);
 
 ?>
 
