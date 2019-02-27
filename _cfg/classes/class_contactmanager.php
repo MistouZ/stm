@@ -99,7 +99,7 @@ class ContactManager
     public function getById($idContact)
     {
         $idContact = (integer) $idContact;
-        $q = $this->_db->query('SELECT * FROM contact WHERE isActive=\'0\' AND idContact ='.$idContact);
+        $q = $this->_db->query('SELECT * FROM contact WHERE isActive=\'1\' AND idContact ='.$idContact);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
         {
@@ -124,7 +124,7 @@ class ContactManager
     {
         $contactName = (string) $contactName;
         $contactFirstName = (string) $contactFirstName;
-        $query = 'SELECT * FROM contact WHERE isActive=\'0\' AND name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
+        $query = 'SELECT * FROM contact WHERE isActive=\'1\' AND name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
         $q = $this->_db->query($query);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
