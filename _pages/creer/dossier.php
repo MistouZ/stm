@@ -31,6 +31,11 @@ $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 $tableauClient = array();
+
+foreach ($customermanager as $customer) {
+    array_push($tableauClient,$customer->getIdCustomer(), $contactmanager->getList($customer->getIdCustomer()));
+}
+
 /*foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
     $tableauClient = [
@@ -44,7 +49,7 @@ $tableauClient = array();
         );  
     }
 }*/
-print_r($customermanager);
+print_r($tableauClient);
 
 ?>
 
