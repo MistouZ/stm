@@ -58,7 +58,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
                        $usermanager->get($folder->getSeller());
-                       /*$contact = $contactmanager->getById($folder->getContactId());
+                       $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
                             $folder->setIsActive("Ouvert");
@@ -79,7 +79,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
                     <?php
-                    }*/
+                    }
                     ?>
                     </tbody>
                 </table>
