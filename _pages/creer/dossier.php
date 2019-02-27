@@ -43,7 +43,7 @@ print_r($listingContacts);
 <script>
     function changeSelect(selected){
       //on recupere le php
-      var data = <?php echo json_encode($listingCustomers); ?>;
+      let data = <?php echo json_encode($listingCustomers); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
       var monSelectB = document.getElementById("contact-select");
       //on efface tous les children options
@@ -51,7 +51,7 @@ print_r($listingContacts);
         monSelectB.removeChild(monSelectB.firstChild);
       }
       //on rajoute les nouveaux children options
-      for (var chaqueSousTitre of data[selected.value]){
+      for (let chaqueSousTitre of data[selected.value]){
          var opt = document.createElement("option");
          opt.value= chaqueSousTitre;
          opt.innerHTML = chaqueSousTitre;
