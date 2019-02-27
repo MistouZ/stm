@@ -2,25 +2,25 @@
 
 $customerId = $_GET['soussouscat'];
 
-//récupération de la liste des sociétés
+//rÃ©cupÃ©ration de la liste des sociÃ©tÃ©s
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
 $companies = new CompaniesManager($bdd);
 $companies = $companies->getList();
 
-//Récupération des données client
+//RÃ©cupÃ©ration des donnÃ©es client
 $arrayClient = array();
 $customer = new Customers($arrayClient);
 $customermanager = new CustomersManager($bdd);
 $customer = $customermanager->getByID($customerId);
 
-//récupération des contacts du client
+//rÃ©cupÃ©ration des contacts du client
 $arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
 $contactmanager = $contactmanager->getList($customerId);
 
-//récupération de la liste des taxes
+//rÃ©cupÃ©ration de la liste des taxes
 $array = array();
 $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
@@ -30,7 +30,7 @@ $taxmanager = $taxmanager->getList();
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN VALIDATION STATES-->
-        <div class="portlet light form-fit bordered">
+        <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
@@ -38,46 +38,46 @@ $taxmanager = $taxmanager->getList();
                 </div>
             </div>
             <div class="portlet-body form">
-                <form action="<?php echo URLHOST."_pages/_post/modifier_client.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
+                <form action="<?php echo URLHOST."_pages/_post/modifier_client.php"; ?>" method="post" id="form_sample_2" class="form-horizontal">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Vous devez remplir les champs requis (<span class="required"> * </span>) </div>
                         <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Les modifications ont bien été prises en compte </div>
+                            <button class="close" data-close="alert"></button> Les modifications ont bien Ã©tÃ© prises en compte </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Nom du client
+                            <label class="control-label col-md-3">Nom du client
                                 <span class="required"> * </span>
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fas"></i>
                                     <input type="text" data-required="1" class="form-control" name="name" value="<?php echo $customer->getName(); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Adresse physique
+                            <label class="control-label col-md-3">Adresse physique
                                 <span class="required"> * </span>
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fas"></i>
                                     <input type="text" data-required="1" class="form-control" name="physical_address" id="physical_address" value="<?php echo $customer->getPhysicalAddress(); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Adresse de facturation
+                            <label class="control-label col-md-3">Adresse de facturation
                                 <span class="required"> * </span>
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fas"></i>
                                     <input type="text" data-required="1" class="form-control" name="invoice_address" id="invoice_address" value="<?php echo $customer->getInvoiceAddress(); ?>" /> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Fournisseur
+                            <label class="control-label col-md-3">Fournisseur
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="checkbox-list">
                                     <label class="checkbox-inline">
                                         <input type="checkbox" value="is_supplier" name="is_supplier" id="is_supplier" /></label>
@@ -87,7 +87,7 @@ $taxmanager = $taxmanager->getList();
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Société
+                            <label class="control-label col-md-3">SociÃ©tÃ©
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
@@ -113,7 +113,7 @@ $taxmanager = $taxmanager->getList();
                                     }
                                 ?>
                                 </div>
-                                <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
+                                <span class="help-block"> Cocher la ou les sociÃ©tÃ©(s) affiliÃ©e(s) au client </span>
                                 <div id="company_error"> </div>
                             </div>
                         </div>
@@ -143,7 +143,7 @@ $taxmanager = $taxmanager->getList();
                                     }
                                     ?>
                                 </div>
-                                <span class="help-block">Cocher la ou les taxe(s) affiliée(s) au client </span>
+                                <span class="help-block">Cocher la ou les taxe(s) affiliÃ©e(s) au client </span>
                                 <div id="company_error"> </div>
                             </div>
                         </div>
