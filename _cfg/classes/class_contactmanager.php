@@ -125,6 +125,7 @@ class ContactManager
         $contactName = (string) $contactName;
         $contactFirstName = (string) $contactFirstName;
         $query = 'SELECT * FROM contact WHERE isActive=\'1\' AND name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
+        echo $query;
         $q = $this->_db->query($query);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
