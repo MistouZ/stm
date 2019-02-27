@@ -31,17 +31,17 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
-    print_r($listingContacts);
+
     foreach($listingContacts as $contact){
         $listingCustomers[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
     }
 }
-//print_r($listingContacts);
+print_r($listingContacts);
 
 ?>
 
 <script>
-    /*function changeSelect(selected){
+    function changeSelect(selected){
       //on recupere le php
       var data = <?php echo json_encode($listingCustomers); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
@@ -57,10 +57,7 @@ foreach($listingCustomers as $customer){
          opt.innerHTML = chaqueSousTitre;
          monSelectB.appendChild(opt);
       }
-    }*/
-    $('select').on('change', function() {
-        alert( this.value );
-    });
+    }
   </script>
 
 <div class="row">
@@ -119,7 +116,7 @@ foreach($listingCustomers as $customer){
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <select id="customer-select" name="customer-select" class="form-control">
+                                <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
                                     <option value="">--Choississez le client--</option>
                                     <?php
                                         foreach($customermanager as $customer)
