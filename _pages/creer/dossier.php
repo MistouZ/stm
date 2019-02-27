@@ -29,11 +29,9 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-$i=0;
 foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
-    $listingCustomers[$i] = $listingContacts;
-    $i++;
+    $listingCustomers[$customer->getIdCustomer()] = $listingContacts;
 }
 print_r($listingCustomers);
 
