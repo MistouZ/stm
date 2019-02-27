@@ -12,8 +12,16 @@ include("../../_cfg/cfg.php");
 if(isset($_POST['valider'])){
     $name=$_POST['name'];
     $firstname=$_POST['firstname'];
-    $emailAddress = $_POST['emailAddress'];
-    $phoneNumber = $_POST['phoneNumber'];
+    if(!empty($_POST['emailAddress'])){
+        $emailAddress = $_POST['emailAddress'];
+    }else{
+        $emailAddress = "";
+    }
+    if(!empty($_POST['phoneNumber'])){
+        $phoneNumber = $_POST['phoneNumber'];
+    }else{
+        $phoneNumber = "";
+    }
     $customerId = $_POST["customerId"];
 
     $is_active =1;
@@ -27,7 +35,6 @@ if(isset($_POST['valider'])){
     );
     
     $contact = new Contact($array);
-    print_r($contact);
     $contactmanager = new ContactManager($bdd);
     $contactmanager->addToCustomers($contact, $customerId);
     
