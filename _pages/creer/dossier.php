@@ -32,12 +32,18 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
+    $tableauClient = array(
+        $customer->getIdCustomer() => array()
+    );
+            
     foreach($listingContacts as $contact){
-        $listingCustomers[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
-        
+        $listingCustomers = array(
+            "name" => $contact->getFirstname()." ".$contact->getName(),
+            "id" => $contact->getIdContact()
+        );  
     }
 }
-
+print_r($tableauClient);
 
 ?>
 
