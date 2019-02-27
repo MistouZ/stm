@@ -58,7 +58,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
                        //$user = $usermanager->get($folder->getSeller());
-                       if(cout($usermanager->get($folder->getSeller())) != 0)
+                       if(count($usermanager->get($folder->getSeller())) != 0)
                        {
                            $user = $usermanager->get($folder->getSeller());
                        }
