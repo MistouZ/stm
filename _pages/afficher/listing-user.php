@@ -28,10 +28,10 @@ $companymanager = new CompaniesManager($bdd);
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th class="all">Prénom</th>
-                            <th class="min-phone-l">Nom</th>
-                            <th class="min-tablet">Login</th>
-                            <th class="min-phone-l">Adresse email</th>
+                            <th class="desktop">Prénom</th>
+                            <th class="desktop">Nom</th>
+                            <th class="all">Login</th>
+                            <th class="desktop">Adresse email</th>
                             <th class="none">Numéro de téléphone</th>
                             <th class="none">Accréditation</th>
                             <th class="desktop">Société par défaut</th>
@@ -39,6 +39,7 @@ $companymanager = new CompaniesManager($bdd);
                             <th class="none">Commercial</th>
                             <th class="none">Actif</th>
                             <th class="min-tablet">Modifier</th>
+                            <th class="min-phone-l">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,7 +72,8 @@ $companymanager = new CompaniesManager($bdd);
                             <td><?php echo $user->getCompanyName(); ?></td>
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><?php echo $user->getIsActive();?></td>
-                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                            <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer l'utilisateur <?php echo $user->getUsername(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_user.php?username=".$user->getUsername(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                         </tr>
                         <?php
                     }
