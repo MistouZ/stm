@@ -58,12 +58,18 @@ var_dump($tableauClient);
         monSelectB.removeChild(monSelectB.firstChild);
       }
       //on rajoute les nouveaux children options
-      for (var chaqueSousTitre of data[selected.value]){
+      for(var i in data){
+        var opt = document.createElement("option");
+        opt.value = i;
+        opt.innerHTML = data[selected.value][i]; 
+        monSelectB.appendChild(opt);
+      }
+      /*for (var chaqueSousTitre of data[selected.value]){
          var opt = document.createElement("option");
          opt.value= chaqueSousTitre;
          opt.innerHTML = chaqueSousTitre;
          monSelectB.appendChild(opt);
-      }
+      }*/
     }
   </script>
 
