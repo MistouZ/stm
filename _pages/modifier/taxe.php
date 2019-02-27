@@ -48,7 +48,7 @@ $tax = $taxes->getById($_GET['soussouscat']);
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input name="default" id="default" type="checkbox" <?php if($tax->getIsDefault()==1){echo echo "checked=\"checked\"";} ?>class="form-control" /> </div>
+                                <input name="default" id="default" type="checkbox" <?php if($tax->getIsDefault()==1){ echo "checked=\"checked\"";} ?>class="form-control" /> </div>
                         </div>
                         <input type="hidden" name="idTax" id="idTax" data-required="1" class="form-control" value="<?php echo $_GET['soussouscat'] ?>" />
                     </div>
