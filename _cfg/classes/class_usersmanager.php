@@ -85,9 +85,8 @@ class UsersManager
         $username = (string) $username;
         $q=$this->_db->query("SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM users u INNER JOIN  link_company_users lk ON u.username =  lk.users_username INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE u.isActive='1' AND lk.users_username='$username' AND c.isActive='1' GROUP BY u.username");
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
-        /*$result = $donnees->fetchColumn();
 
-        if($result == 1 )
+        if($donnees != NULL )
         {
             return new Users($donnees);
         }
@@ -98,9 +97,9 @@ class UsersManager
                 'firstname' => "Désactivé"
             );
             return new Users($array);
-        }*/
+        }
 
-        return new Users($donnees);
+        //return new Users($donnees);
     }
 
     /**
