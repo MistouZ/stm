@@ -62,6 +62,11 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                        {
                            $user = $usermanager->get($folder->getSeller());
                        }
+                       else
+                       {
+                           $user->setName("Utilisateur");
+                           $user->setFirstName("Désactivé");
+                       }
                        $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
