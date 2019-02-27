@@ -38,28 +38,11 @@ foreach ($customermanager as $customer) {
     if(!empty($tableauContacts)){
         foreach($tableauContacts as $tableauContact){
             $tempContact[$tableauContact->getIdContact()]=$tableauContact->getFirstname().' '.$tableauContact->getName();
-            /*$tableauClient[$customer->getIdCustomer()] = array(
-                'id' => $tableauContact->getIdContact(),
-                'name' => $tableauContact->getFirstname().' '.$tableauContact->getName()
-            );*/
         }
         $tableauClient[$customer->getIdCustomer()] = $tempContact;
     }
 }
 
-/*foreach($listingCustomers as $customer){
-    $listingContacts = $contactmanager->getList($customer->getIdCustomer());
-    $tableauClient = [
-        "id" => $customer->getIdCustomer()
-    ];
-            
-    foreach($listingContacts as $contact){
-        $listingCustomers = array(
-            "name" => $contact->getFirstname()." ".$contact->getName(),
-            "id" => $contact->getIdContact()
-        );  
-    }
-}*/
 var_dump($tableauClient);
 
 ?>
@@ -67,7 +50,7 @@ var_dump($tableauClient);
 <script>
     function changeSelect(selected){
       //on recupere le php
-      let data = <?php echo json_encode($tableauClient); ?>;
+      var data = <?php echo json_encode($tableauClient); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
       var monSelectB = document.getElementById("contact-select");
       //on efface tous les children options
@@ -75,7 +58,7 @@ var_dump($tableauClient);
         monSelectB.removeChild(monSelectB.firstChild);
       }
       //on rajoute les nouveaux children options
-      for (let chaqueSousTitre of data[selected.value]){
+      for (var chaqueSousTitre of data[selected.value]){
          var opt = document.createElement("option");
          opt.value= chaqueSousTitre;
          opt.innerHTML = chaqueSousTitre;
