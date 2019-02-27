@@ -17,19 +17,47 @@ $usermanager = new UsersManager($bdd);
 
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
+$listingCustomers = $customermanager->getList();
 
-$contact = new Contact($array);
+//récupération des contacts du client
+$arrayContact = array();
+$contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
-
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-
+$i=0;
+foreach($listingCustomers as $customer){
+    $listingContacts = $contactmanager->getList($customer->getIdCustomer());
+    $listingCustomers[$i] = $listingContacts;
+    $i++;
+}
+print_r($listingCustomers);
 
 ?>
+
+<script>
+    function changeSelect(selected){
+      //on recupere le php
+      var data = <?php echo json_encode($p2); ?>;
+      console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
+      var monSelectB = document.getElementById("monSelectB");
+      //on efface tous les children options
+      while (monSelectB.firstChild) {
+        monSelectB.removeChild(monSelectB.firstChild);
+      }
+      //on rajoute les nouveaux children options
+      for (var chaqueSousTitre of data[selected.value]){
+         var opt = document.createElement("option");
+         opt.value= chaqueSousTitre;
+         opt.innerHTML = chaqueSousTitre;
+         monSelectB.appendChild(opt);
+      }
+    }
+  </script>
 
 <div class="row">
     <div class="col-md-12">
@@ -87,7 +115,7 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <select id="customer-select" name="customer-select" class="form-control">
+                                <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
                                     <option value="">--Choississez le client--</option>
                                     <?php
                                         foreach($customermanager as $customer)
