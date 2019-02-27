@@ -26,7 +26,7 @@ if(isset($_POST['valider'])) {
         $is_seller = 0;
     }
     $is_active = 1;
-    
+    echo "MDP : ".$_POST['password'];
     if(isset($_POST['password']) && !empty($_POST['password'])){
         $array = array(
             'username' => $username,
@@ -40,7 +40,7 @@ if(isset($_POST['valider'])) {
             'isSeller' => $is_seller,
             'isActive' => $is_active
         );
-        echo "Nouveau MDP";
+        echo "Nouveau MDP / ";
         print_r($array);
     }else{
         $array = array(
