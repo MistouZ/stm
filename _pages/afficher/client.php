@@ -91,7 +91,7 @@ $taxmanager = $taxmanager->getList();
                             </h4>
                         </div>
                         <div id="collapse_2_2" class="panel-collapse collapse">
-                            <div class="panel-body" style="height:200px; overflow-y:auto;">
+                            <div class="panel-body">
                                 <div class="actions">
                                     <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
                                         <i class="fas fa-plus"></i> Nouv. Contact </a>
