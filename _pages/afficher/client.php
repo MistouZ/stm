@@ -43,14 +43,14 @@ $taxmanager = $taxmanager->getList();
     <div class="portlet-body">
        <div class="row">
             <div class="col-md-12">
-                <div class="panel-group accordion scrollable" id="accordion3">
+                <div class="panel-group accordion scrollable" id="accordion2">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1"><i class="fas fa-info-circle"></i> Informations globales </a>
+                                <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion2" href="#collapse_2_1"><i class="fas fa-info-circle"></i> Informations globales </a>
                             </h4>
                         </div>
-                        <div id="collapse_3_1" class="panel-collapse in">
+                        <div id="collapse_2_1" class="panel-collapse in">
                             <div class="panel-body">
                                 <div class="row static-info">
                                     <div class="col-md-5 name"> Nom: </div>
@@ -87,10 +87,10 @@ $taxmanager = $taxmanager->getList();
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_2"><i class="fas fa-address-card"></i> Liste des contacts du clients </a>
+                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse_2_2"><i class="fas fa-address-card"></i> Liste des contacts du clients </a>
                             </h4>
                         </div>
-                        <div id="collapse_3_2" class="panel-collapse collapse">
+                        <div id="collapse_2_2" class="panel-collapse collapse">
                             <div class="panel-body" style="height:200px; overflow-y:auto;">
                                 <div class="actions">
                                     <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
