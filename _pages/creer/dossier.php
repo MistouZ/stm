@@ -35,7 +35,13 @@ $tableauClient = array();
 foreach ($customermanager as $customer) {
     $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
     if(!empty($tableauContacts)){
-        $tableauClient[$customer->getIdCustomer()] = $tableauContacts;
+        foreach($tableauContacts as $tableauContact){
+            $tableauClient[$customer->getIdCustomer()] = array(
+                'id' => $tableauContact->getIdContact(),
+                'name' => $tableauContact->getFirstname().' '.$tableauContact->getName()
+            );
+        }
+        
     }
 }
 
