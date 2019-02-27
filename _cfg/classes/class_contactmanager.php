@@ -99,10 +99,21 @@ class ContactManager
     public function getById($idContact)
     {
         $idContact = (integer) $idContact;
-        $q = $this->_db->query('SELECT * FROM contact WHERE idContact ='.$idContact);
+        $q = $this->_db->query('SELECT * FROM contact WHERE isActive=\'0\' AND idContact ='.$idContact);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
+        if($donnees != NULL )
+        {
+            return new Contact($donnees);
+        }
+        else
+        {
+            $array = array(
+                'name' => "Utilisateur",
+                'firstname' => "Supprimé"
+            );
+            return new Contact($array);
+        }
 
-        return new Contact($donnees);
     }
     /**
      * Find a contact by his idContact
@@ -113,11 +124,21 @@ class ContactManager
     {
         $contactName = (string) $contactName;
         $contactFirstName = (string) $contactFirstName;
-        $query = 'SELECT * FROM contact WHERE name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
+        $query = 'SELECT * FROM contact WHERE isActive=\'0\' AND name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
         $q = $this->_db->query($query);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
-        return new Contact($donnees);
+        if($donnees != NULL )
+        {
+            return new Contact($donnees);
+        }
+        else
+        {
+            $array = array(
+                'name' => "Utilisateur",
+                'firstname' => "Supprimé"
+            );
+            return new Contact($array);
+        }
     }
 
     /**
