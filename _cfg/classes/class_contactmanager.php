@@ -139,6 +139,7 @@ class ContactManager
             );
             return new Contact($array);
         }
+        print_r($array);
     }
 
     /**
