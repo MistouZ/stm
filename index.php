@@ -32,7 +32,7 @@ License: You must have a valid license purchased only from themeforest(the above
         <meta content="" name="StM-Compta" />
         <meta content="" name="CMG" />
         <?php include '_ressources/_inc/css.php'; ?>
-        <script src="<?php echo URLHOST;.'_ressources/_inc/global/plugins/jquery.min.js'?>"></script>
+        <!--<script src="<?php echo URLHOST;.'_ressources/_inc/global/plugins/jquery.min.js'?>"></script>-->
         <!-- END THEME LAYOUT STYLES -->
         <link rel="apple-touch-icon" sizes="57x57" href="<?php echo URLHOST;?>images/favicon/apple-touch-icon-57x57.png">
         <link rel="apple-touch-icon" sizes="60x60" href="<?php echo URLHOST;?>images/favicon/apple-touch-icon-60x60.png">
