@@ -36,7 +36,7 @@ foreach($listingCustomers as $customer){
         $listingCustomers[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
     }
 }
-print_r($listingCustomers);
+print_r($listingContacts);
 
 ?>
 
@@ -47,9 +47,9 @@ print_r($listingCustomers);
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
       var monSelectB = document.getElementById("contact-select");
       //on efface tous les children options
-      /*while (monSelectB.firstChild) {
+      while (monSelectB.firstChild) {
         monSelectB.removeChild(monSelectB.firstChild);
-      }*/
+      }
       //on rajoute les nouveaux children options
       for (var chaqueSousTitre of data[selected.value]){
          var opt = document.createElement("option");
