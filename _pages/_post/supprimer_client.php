@@ -14,6 +14,6 @@ $customer = new Customers($array);
 $customer->setIdcustomer($idCustomer);
 $customermanager = new CustomersManager($bdd);
 $customermanager->delete($customer->getIdCustomer());
-//header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
+header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
 
 ?>
