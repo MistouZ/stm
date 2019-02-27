@@ -14,7 +14,7 @@ $company = $company->getById($_GET['soussouscat']);
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN VALIDATION STATES-->
-        <div class="portlet light form-fit bordered">
+        <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
