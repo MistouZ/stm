@@ -26,8 +26,10 @@ $contactmanager = new ContactManager($bdd);
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
+print_r($company);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
-
+print_r($foldermanager);
+/*
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -53,7 +55,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                         </tr>
                     </thead>
                     <tbody>
-                    <?php/*
+                    <?php
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
@@ -79,7 +81,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
                     <?php
-                    }*/
+                    }
                     ?>
                     </tbody>
                 </table>
@@ -88,3 +90,6 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+<?php
+*/
+?>
