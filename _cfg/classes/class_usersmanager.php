@@ -180,7 +180,7 @@ class UsersManager
      */
     public function update(Users $user, array $companies, $oldusername)
     {
-        print_r($companies);
+        echo $oldusername;
         $user->setName(strtoupper($user->getName()));
         $q = $this->_db->prepare("UPDATE users SET username = :username, name = :name, firstname = :firstname, emailAddress = :emailAddress, password = :password, phoneNumber = :phoneNumber, credential = :credential, defaultCompany = :defaultCompany, isSeller = :isSeller, isActive = :isActive  WHERE username = '$oldusername'");
         $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
