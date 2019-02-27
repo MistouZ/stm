@@ -53,7 +53,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                         </tr>
                     </thead>
                     <tbody>
-                    <?php
+                    <?php/*
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
@@ -79,7 +79,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
                     <?php
-                    }
+                    }*/
                     ?>
                     </tbody>
                 </table>
