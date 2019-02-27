@@ -204,6 +204,7 @@ class UsersManager
         echo $user->getIsActive()." / ";
 
         $q->execute();
+        echo "execute OK";
         
         $delete=$this->_db->query('DELETE FROM `link_company_users` WHERE users_username ='.$oldusername);
         $delete->execute();
