@@ -27,6 +27,7 @@ if(isset($_POST['valider'])){
     );
     
     $contact = new Contact($array);
+    print_r($contact);
     $contactmanager = new ContactManager($bdd);
     $contactmanager->addToCustomers($contact, $customerId);
     
