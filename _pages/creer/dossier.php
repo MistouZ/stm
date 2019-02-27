@@ -36,7 +36,7 @@ foreach($listingCustomers as $customer){
         $listingCustomers[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
     }
 }
-print_r($listingContacts);
+print_r($listingCustomers);
 
 ?>
 
