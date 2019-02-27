@@ -59,13 +59,7 @@ print_r($listingContacts);
       }
     }
   </script>
-<script>
-    $("#customer-select").on("change", function(){
-        var selected = $(this).val();
-        $("#results").html("You selected: " + selected);
-    })
-</script>
-<div id="results"></div>
+
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN VALIDATION STATES-->
@@ -122,7 +116,7 @@ print_r($listingContacts);
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <select id="customer-select" name="customer-select" class="form-control" >
+                                <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
                                     <option value="">--Choississez le client--</option>
                                     <?php
                                         foreach($customermanager as $customer)
