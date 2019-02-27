@@ -26,10 +26,8 @@ $contactmanager = new ContactManager($bdd);
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
-print_r($company);
 $foldermanager = $foldermanager->getList($company->getIdcompany());
-print_r($foldermanager);
-/*
+
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -58,9 +56,9 @@ print_r($foldermanager);
                     <?php
                     foreach ($foldermanager as $folder)
                     {
-                       $customer = $customermanager->getByID($folder->getCustomerId());
-                       $user = $usermanager->get($folder->getSeller());
-                       $contact = $contactmanager->getById($folder->getContactId());
+                       //$customer = $customermanager->getByID($folder->getCustomerId());
+                       //$user = $usermanager->get($folder->getSeller());
+                       //$contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
                             $folder->setIsActive("Ouvert");
@@ -91,5 +89,5 @@ print_r($foldermanager);
     </div>
 </div>
 <?php
-*/
+
 ?>
