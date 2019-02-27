@@ -33,11 +33,10 @@ if(isset($_POST['valider'])){
         'isDefault' => $isdefault
     );
 
-    print_r($array);
     $tax = new Tax($array);
     $taxmanager = new TaxManager($bdd);
     $taxmanager->update($tax);
 
-    //header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher");
+    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher");
 
 }
