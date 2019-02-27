@@ -10,7 +10,7 @@ include("../../_cfg/cfg.php");
 
 if(isset($_POST['valider'])) {
     $username = $_POST['username'];
-    if(isset($_POST['password'])){
+    if(isset($_POST['password']) && !empty($_POST['password'])){
         $password = $_POST['password'];
     }
     $name = $_POST['name'];
@@ -27,7 +27,7 @@ if(isset($_POST['valider'])) {
     }
     $is_active = 1;
     
-    if(isset($_POST['password'])){
+    if(isset($_POST['password']) && !empty($_POST['password'])){
         $array = array(
             'username' => $username,
             'name' => $name,
