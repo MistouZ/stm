@@ -31,17 +31,19 @@ $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 $tableauClient = array();
+$tempContact = array();
 
 foreach ($customermanager as $customer) {
     $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
     if(!empty($tableauContacts)){
         foreach($tableauContacts as $tableauContact){
-            $tableauClient[$customer->getIdCustomer()] = array(
+            $tempContact[$tableauContact->getIdContact()]=$tableauContact->getFirstname().' '.$tableauContact->getName();
+            /*$tableauClient[$customer->getIdCustomer()] = array(
                 'id' => $tableauContact->getIdContact(),
                 'name' => $tableauContact->getFirstname().' '.$tableauContact->getName()
-            );
+            );*/
         }
-        
+        $tableauClient[$customer->getIdCustomer()] = $tempContact;
     }
 }
 
