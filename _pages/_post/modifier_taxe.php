@@ -16,12 +16,20 @@ if(isset($_POST['valider'])){
     $is_active =1;
     $idTax = $_POST["idTax"];
 
+    if(isset($_POST["default"]))
+    {
+        $isdefault = 1;
+    }
+    else{
+        $isdefault = 0;
+    }
+
     $array = array(
-        'idTax' => $idTax,
         'name' => $name,
         'percent' => $percent,
         'value' => $value,
-        'isActive' => $is_active
+        'isActive' => $is_active,
+        'isDefault' => $isdefault
     );
 
     print_r($array);

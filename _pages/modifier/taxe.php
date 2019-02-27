@@ -43,6 +43,13 @@ $tax = $taxes->getById($_GET['soussouscat']);
                             <div class="col-md-4">
                                 <input name="percent" id="percent" type="text" class="form-control" value="<?php echo $tax->getPercent(); ?>"/> </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3" for="default">Taxe par défaut
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-4">
+                                <input name="default" id="default" type="checkbox" <?php if($tax->getIsDefault()==1){ echo "checked=\"checked\"";} ?>class="form-control" /> </div>
+                        </div>
                         <input type="hidden" name="idTax" id="idTax" data-required="1" class="form-control" value="<?php echo $_GET['soussouscat'] ?>" />
                     </div>
                     <div class="form-actions">

@@ -6,6 +6,7 @@
     private $name;
     private $value;
     private $isActive;
+    private $isDefault;
 
 
       /**
@@ -97,6 +98,22 @@
     public function setIsActive($isActive): void
     {
       $this->isActive = $isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIsDefault()
+    {
+      return $this->isDefault;
+    }
+
+    /**
+     * @param mixed $isDefault
+     */
+    public function setIsDefault($isDefault): void
+    {
+      $this->isDefault = $isDefault;
     }
 
   }
