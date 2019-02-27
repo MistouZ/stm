@@ -17,8 +17,8 @@ $usermanager = new UsersManager($bdd);
 
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-//$listingCustomers = $customermanager->getList();
-//print_r($listingCustomers);
+$listingCustomers = $customermanager->getList();
+
 
 //récupération des contacts du client
 $arrayContact = array();
@@ -28,7 +28,7 @@ $contactmanager = new ContactManager($bdd);
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
-$listingCustomers = $customermanager->getListByCompany($company->getIdcompany());
+$customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
@@ -120,7 +120,7 @@ foreach($listingCustomers as $customer){
                                 <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
                                     <option value="">--Choississez le client--</option>
                                     <?php
-                                        foreach($listingCustomers as $customer)
+                                        foreach($customermanager as $customer)
                                         {
                                             echo "<option value=" . $customer->getIdCustomer() . ">".$customer->getName()."</option>";
                                         }
