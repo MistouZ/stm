@@ -132,8 +132,7 @@ class TaxManager
 
     public function update(Tax $tax)
     {
-        print_r($tax);
-        /*$q = $this->_db->prepare('UPDATE tax SET name = :name, percent = :percent, value = :value, isActive = :isActive, isDefault = :isDefault  WHERE idTax = :idTax');
+        $q = $this->_db->prepare('UPDATE tax SET name = :name, percent = :percent, value = :value, isActive = :isActive, isDefault = :isDefault  WHERE idTax = :idTax');
         $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
         $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
@@ -141,7 +140,7 @@ class TaxManager
         $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
         $q->bindValue(':isDefault', $tax->getIsDefault(), PDO::PARAM_INT);
 
-        $q->execute();*/
+        $q->execute();
     }
 
 }
