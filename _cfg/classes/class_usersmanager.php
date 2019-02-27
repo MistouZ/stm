@@ -70,7 +70,7 @@ class UsersManager
     public function delete(Users $user)
     {
         $q = $this->_db->prepare('UPDATE users SET isActive = \'0\' WHERE username = :username');
-        $q->bindValue(':username', $user->getUsername(), PDO::PARAM_INT);
+        $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
 
         $q->execute();
     }
