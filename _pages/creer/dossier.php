@@ -31,9 +31,10 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
+    print_r($listingContacts);
     foreach($listingContacts as $contact){
         $listingCustomers[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
-        print_r($listingCustomers);
+        
     }
 }
 
