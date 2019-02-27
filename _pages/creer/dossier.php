@@ -44,7 +44,7 @@ foreach($customermanager as $customer){
 <script>
     function changeSelect(selected){
       //on recupere le php
-      let data = <?php echo json_encode($listingCustomers); ?>;
+      let data = <?php echo json_encode($customermanager); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
       var monSelectB = document.getElementById("contact-select");
       //on efface tous les children options
