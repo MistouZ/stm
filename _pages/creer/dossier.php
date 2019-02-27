@@ -33,8 +33,10 @@ $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 $tableauClient = array();
 
 foreach ($customermanager as $customer) {
-    
-    array_push($tableauClient,$tableauClient[$customer->getIdCustomer()], $contactmanager->getList($customer->getIdCustomer()));
+    $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
+    if(!empty($tableauContacts)){
+        array_push($tableauClient,$tableauClient[$customer->getIdCustomer()], $tableauContacts);
+    }
 }
 
 /*foreach($listingCustomers as $customer){
