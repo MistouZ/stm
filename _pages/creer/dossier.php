@@ -30,10 +30,10 @@ $company = $companymanager->getByNameData($companyNameData);
 $usermanager = $usermanager->getListByCompany($company->getIdcompany());
 $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
-foreach($customermanager as $customer){
+foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
     foreach($listingContacts as $contact){
-        $customermanager[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
+        $listingCustomers[$customer->getIdCustomer()] = $contact->getFirstname()." ".$contact->getName();
         
     }
 }
@@ -44,7 +44,7 @@ foreach($customermanager as $customer){
 <script>
     function changeSelect(selected){
       //on recupere le php
-      let data = <?php echo json_encode($customermanager); ?>;
+      let data = <?php echo json_encode($listingCustomers); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
       var monSelectB = document.getElementById("contact-select");
       //on efface tous les children options
@@ -136,11 +136,11 @@ foreach($customermanager as $customer){
                                 <select id="contact-select" name="contact-select" class="form-control">
                                     <option value="">--Choississez le contact--</option>
                                     <?php
-                                    $contactmanager = $contactmanager->getList($customer->getIdCustomer());
+                                    /*$contactmanager = $contactmanager->getList($customer->getIdCustomer());
                                     foreach($contactmanager as $contact)
                                     {
                                         echo "<option value=".$contact->getIdContact().">".$contact->getFirstname()." ".$contact->getName()."</option>";
-                                    }
+                                    }*/
                                     ?>
                                 </select>
                             </div>
