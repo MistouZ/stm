@@ -205,7 +205,7 @@ class UsersManager
 
         $q->execute();
         echo "execute OK / ";
-        echo 'DELETE FROM `link_company_users` WHERE users_username ='.$oldusername;
+        echo 'DELETE FROM `link_company_users` WHERE users_username =\"'.$oldusername.'\"';
         
         $delete=$this->_db->query('DELETE FROM `link_company_users` WHERE users_username =\"'.$oldusername.'\"');
         $delete->execute();
