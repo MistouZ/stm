@@ -40,6 +40,8 @@ if(isset($_POST['valider'])) {
             'isSeller' => $is_seller,
             'isActive' => $is_active
         );
+        echo "Nouveau MDP";
+        print_r($array);
     }else{
         $array = array(
             'username' => $username,
@@ -52,6 +54,8 @@ if(isset($_POST['valider'])) {
             'isSeller' => $is_seller,
             'isActive' => $is_active
         );
+        echo "Ancien MDP";
+        print_r($array);
     }
 
     $user = new Users($array);
