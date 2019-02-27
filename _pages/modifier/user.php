@@ -44,7 +44,7 @@ $companies = $companies->getList();
                             <label class="control-label col-md-3">Mot de passe
                             </label>
                             <div class="col-md-4">
-                                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Mot de passe" name="password" value="" /> </div>
+                                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Mot de passe" name="password" /> </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Confirmer le mot de passe</label>
