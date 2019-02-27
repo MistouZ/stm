@@ -47,6 +47,7 @@ class ContactManager
         $q->execute();
 
         $contact = $this->getByName($contact->getName(), $contact->getFirstname());
+        print_r($contact);
 
         $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
         $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
@@ -125,7 +126,6 @@ class ContactManager
         $contactName = (string) $contactName;
         $contactFirstName = (string) $contactFirstName;
         $query = 'SELECT * FROM contact WHERE isActive=\'1\' AND name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
-        echo $query;
         $q = $this->_db->query($query);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
@@ -140,7 +140,6 @@ class ContactManager
             );
             return new Contact($array);
         }
-        print_r($array);
     }
 
     /**
