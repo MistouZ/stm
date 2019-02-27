@@ -14,7 +14,7 @@ if(isset($_POST['valider'])){
     $percent = $_POST['percent'];
     $value = ($percent /100);
     $is_active =1;
-    if(isset($_POST["checkbox"]))
+    if(isset($_POST["default"]))
     {
         $isdefault = 1;
     }
