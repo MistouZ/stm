@@ -40,7 +40,7 @@ print_r($listingContacts);
 
 ?>
 
-<script>
+<!--<script>
     function changeSelect(selected){
       //on recupere le php
       var data = <?php echo json_encode($listingCustomers); ?>;
@@ -58,7 +58,7 @@ print_r($listingContacts);
          monSelectB.appendChild(opt);
       }
     }
-  </script>
+  </script>-->
 <script>
     $('select').on('change', function() {
         alert( this.value );
