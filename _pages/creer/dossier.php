@@ -59,8 +59,6 @@ print_r($listingContacts);
       }
     }
   </script>
-
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
     $("#customer-select").on("change", function(){
         var selected = $(this).val();
