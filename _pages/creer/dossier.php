@@ -51,12 +51,12 @@ print_r($listingContacts);
         monSelectB.removeChild(monSelectB.firstChild);
       }
       //on rajoute les nouveaux children options
-      for (var chaqueSousTitre of data[selected.value]){
+      /*for (var chaqueSousTitre of data[selected.value]){
          var opt = document.createElement("option");
          opt.value= chaqueSousTitre;
          opt.innerHTML = chaqueSousTitre;
          monSelectB.appendChild(opt);
-      }
+      }*/
     }
   </script>
 
