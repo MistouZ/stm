@@ -102,7 +102,19 @@ class ContactManager
         $q = $this->_db->query('SELECT * FROM contact WHERE idContact ='.$idContact);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Contact($donnees);
+        if($donnees != NULL )
+        {
+            return new Contact($donnees);
+        }
+        else
+        {
+            $array = array(
+                'name' => "Contact",
+                'firstname' => "Supprimé"
+            );
+            return new Contact($array);
+        }
+
     }
     /**
      * Find a contact by his idContact
