@@ -42,66 +42,88 @@ $taxmanager = $taxmanager->getList();
     </div>
     <div class="portlet-body">
        <div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-3">
-                <ul class="ver-inline-menu tabbable margin-bottom-10">
-                    <li class="active">
-                        <a href="#tab_6_1" data-toggle="tab"><i class="fas fa-info-circle"></i> Global </a>
-                    </li>
-                    <li>
-                        <a href="#tab_6_2" data-toggle="tab"><i class="fas fa-address-card"></i> Contacts </a>
-                    </li>
-            </div>
-            <div class="col-md-9 col-sm-9 col-xs-9">
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tab_6_1">
-                        <div class="row static-info">
-                            <div class="col-md-5 name"> Nom: </div>
-                            <div class="col-md-7 value"> <?php echo $customer->getName(); ?> </div>
+            <div class="col-md-12">
+                <div class="panel-group accordion scrollable" id="accordion3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle accordion-toggle-styled" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_1"><i class="fas fa-info-circle"></i> Informations globales </a>
+                            </h4>
                         </div>
-                        <div class="row static-info">
-                            <div class="col-md-5 name"> Adresse physique: </div>
-                            <div class="col-md-7 value"> <?php echo $customer->getPhysicalAddress(); ?> </div>
-                        </div>
-                        <div class="row static-info">
-                            <div class="col-md-5 name"> Adresse de facturation: </div>
-                            <div class="col-md-7 value"> <?php echo $customer->getInvoiceAddress(); ?> </div>
-                        </div>
-                        <div class="row static-info">
-                            <div class="col-md-5 name"> Société(s) affilée(s): </div>
-                            <div class="col-md-7 value"> <?php echo $customer->getCompanyName(); ?> </div>
+                        <div id="collapse_3_1" class="panel-collapse in">
+                            <div class="panel-body">
+                                <div class="row static-info">
+                                    <div class="col-md-5 name"> Nom: </div>
+                                    <div class="col-md-7 value"> <?php echo $customer->getName(); ?> </div>
+                                </div>
+                                <div class="row static-info">
+                                    <div class="col-md-5 name"> Adresse physique: </div>
+                                    <div class="col-md-7 value"> <?php echo $customer->getPhysicalAddress(); ?> </div>
+                                </div>
+                                <div class="row static-info">
+                                    <div class="col-md-5 name"> Adresse de facturation: </div>
+                                    <div class="col-md-7 value"> <?php echo $customer->getInvoiceAddress(); ?> </div>
+                                </div>
+                                <div class="row static-info">
+                                    <div class="col-md-5 name"> Société(s) affilée(s): </div>
+                                    <div class="col-md-7 value">
+                                    <?php
+                                        $companiesList = explode(", ",$customer->getCompanyName());
+                                        foreach ($companies as $company)
+                                        {
+                                            $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
+                                            $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
+                                            if(in_array($company->getName(),$companiesList)){
+                                    ?>
+                                        <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/>
+                                    <?php
+                                        }}
+                                    ?>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="tab-pane fade" id="tab_6_2">
-                        <div class="actions">
-                            <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
-                                <i class="fas fa-plus"></i> Nouv. Contact </a>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion3" href="#collapse_3_2"><i class="fas fa-address-card"></i> Liste des contacts du clients </a>
+                            </h4>
                         </div>
-                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
-                                    <th class="all">Nom</th>
-                                    <th class="none">Mail</th>
-                                    <th class="none">Téléphone</th>
-                                    <th class="min-phone-l">Modifier</th>
-                                    <th class="min-tablet">Suprimer</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                                foreach($contactmanager as $contact) {
-                            ?>
-                                <tr>
-                                    <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
-                                    <td><?php echo $contact->getEmailAddress(); ?></td>
-                                    <td><?php echo $contact->getPhoneNumber(); ?></td>
-                                    <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
-                                    <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/contact/supprimer/'.$contact->getIdContact(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
-                                </tr>
-                            <?php
-                                }
-                            ?>
-                            </tbody>
-                        </table>
+                        <div id="collapse_3_2" class="panel-collapse collapse">
+                            <div class="panel-body" style="height:200px; overflow-y:auto;">
+                                <div class="actions">
+                                    <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
+                                        <i class="fas fa-plus"></i> Nouv. Contact </a>
+                                </div>
+                                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="all">Nom</th>
+                                            <th class="none">Mail</th>
+                                            <th class="none">Téléphone</th>
+                                            <th class="min-phone-l">Modifier</th>
+                                            <th class="min-tablet">Suprimer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                        foreach($contactmanager as $contact) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
+                                            <td><?php echo $contact->getEmailAddress(); ?></td>
+                                            <td><?php echo $contact->getPhoneNumber(); ?></td>
+                                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
+                                            <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/contact/supprimer/'.$contact->getIdContact(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i></a></td>
+                                        </tr>
+                                    <?php
+                                        }
+                                    ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
