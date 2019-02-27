@@ -56,7 +56,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                     <?php
                     foreach ($foldermanager as $folder)
                     {
-                       //$customer = $customermanager->getByID($folder->getCustomerId());
+                       $customer = $customermanager->getByID($folder->getCustomerId());
                        //$user = $usermanager->get($folder->getSeller());
                        //$contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
@@ -71,7 +71,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                         <tr>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
-                            <td>Custo<?php //echo $customer->getName(); ?></td>
+                            <td><?php echo $customer->getName(); ?></td>
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                             <td>User<?php //echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td>Contact<?php //echo $contact->getName()." ".$contact->getFirstname(); ?></td>
