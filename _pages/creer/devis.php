@@ -15,7 +15,7 @@
         });
     });
 </script>
-"bonus">
+<select id="bonus">
     <option value="1">-$5000</option>
     <option value="2">-$2500</option>
     <option value="3">$0</option>
