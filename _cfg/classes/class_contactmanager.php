@@ -124,8 +124,8 @@ class ContactManager
     {
         $contactName = (string) $contactName;
         $contactFirstName = (string) $contactFirstName;
-        $query = 'SELECT * FROM contact WHERE isActive=\'1\' AND name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"';
-        $q = $this->_db->query($query);
+
+        $q = $this->_db->query('SELECT * FROM contact WHERE isActive=\'1\' AND name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
         {
@@ -133,11 +133,23 @@ class ContactManager
         }
         else
         {
-            $array = array(
-                'name' => "Utilisateur",
-                'firstname' => "Supprimé"
-            );
-            return new Contact($array);
+            $q2 = $this->_db->query('SELECT * FROM contact WHERE isActive=\'0\' AND name ="'.$contactName.'" AND firstname="'.$contactFirstName.'"');
+            $donnees2 = $q2->fetch(PDO::FETCH_ASSOC);
+            if($donnees2 != NULL )
+            {
+                $array = array(
+                    'name' => "Utilisateur",
+                    'firstname' => "Supprimé"
+                );
+                return new Contact($array);
+            }
+            else
+            {
+                $array = array(
+                    'idContact' => 0
+                );
+                return new Contact($array);
+            }
         }
     }
 
