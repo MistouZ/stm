@@ -38,11 +38,12 @@ class TaxManager
      */
     public function add(Tax $tax)
     {
-        $q = $this->_db->prepare('INSERT INTO tax (percent, name, value,isActive) VALUES (:percent, :name, :value,:isActive)');
+        $q = $this->_db->prepare('INSERT INTO tax (percent, name, value,isActive, isDefault) VALUES (:percent, :name, :value,:isActive, :isDefault)');
         $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
         $q->bindValue(':value', $tax->getValue(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
+        $q->bindValue(':isDefault', $tax->getIsDefault(), PDO::PARAM_INT);
 
         $q->execute();
     }
@@ -131,12 +132,13 @@ class TaxManager
 
     public function update(Tax $tax)
     {
-        $q = $this->_db->prepare('UPDATE tax SET name = :name, percent = :percent, value = :value, isActive = :isActive  WHERE idTax = :idTax');
+        $q = $this->_db->prepare('UPDATE tax SET name = :name, percent = :percent, value = :value, isActive = :isActive, isDefault = :isDefault  WHERE idTax = :idTax');
         $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
         $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
         $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
         $q->bindValue(':value', $tax->getValue(), PDO::PARAM_STR);
         $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
+        $q->bindValue(':isDefault', $tax->getIsDefault(), PDO::PARAM_INT);
 
         $q->execute();
     }
