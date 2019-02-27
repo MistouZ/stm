@@ -59,7 +59,7 @@ var_dump($tableauClient);
 <script>
     function changeSelect(selected){
       //on recupere le php
-      let data = <?php echo json_encode($listingCustomers); ?>;
+      let data = <?php echo json_encode($tableauClient); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
       var monSelectB = document.getElementById("contact-select");
       //on efface tous les children options
