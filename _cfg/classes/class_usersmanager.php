@@ -207,6 +207,7 @@ class UsersManager
         
         $delete=$this->_db->query('DELETE FROM `link_company_users` WHERE users_username ='.$oldusername);
         $delete->execute();
+        echo "DELETE OK";
         
         for ($i=0;$i<count($companies);$i++)
         {
