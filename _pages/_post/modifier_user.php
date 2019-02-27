@@ -26,7 +26,7 @@ if(isset($_POST['valider'])) {
         $is_seller = 0;
     }
     $is_active = 1;
-    echo "MDP : ".$_POST['password'];
+    
     if(isset($_POST['password']) && !empty($_POST['password'])){
         $array = array(
             'username' => $username,
@@ -40,8 +40,6 @@ if(isset($_POST['valider'])) {
             'isSeller' => $is_seller,
             'isActive' => $is_active
         );
-        echo "Nouveau MDP / ";
-        print_r($array);
     }else{
         $array = array(
             'username' => $username,
@@ -54,12 +52,12 @@ if(isset($_POST['valider'])) {
             'isSeller' => $is_seller,
             'isActive' => $is_active
         );
-        echo "Ancien MDP";
-        print_r($array);
     }
 
     $user = new Users($array);
+    echo "OK";
     $usermanager = new UsersManager($bdd);
+    echo "OK2";
     $usermanager->update($user, $_POST["societe"],$oldusername);
     
 
