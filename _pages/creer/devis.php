@@ -11,7 +11,7 @@
 <script>
     $(document).ready(function(){
         $('#bonus').change(function() {
-            alert($("#bonus option:selected").text());
+            alert($("#bonus option:selected").value());
         });
     });
 </script>
