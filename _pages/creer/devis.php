@@ -4,7 +4,30 @@
  * @author Nicolas
  * @copyright 2019
  */
+$array = array();
+$companyNameData = $_GET["section"];
 
+/*initilisation des objets */
+$company = new Company($array);
+$companymanager = new CompaniesManager($bdd);
+
+$user = new Users($array);
+$usermanager = new UsersManager($bdd);
+
+$customer = new Customers($array);
+$customermanager = new CustomersManager($bdd);
+$listingCustomers = $customermanager->getList();
+
+
+//récupération des contacts du client
+$arrayContact = array();
+$contacts = new Contact($arrayContact);
+$contactmanager = new ContactManager($bdd);
+
+/*récupération des objets en base*/
+$company = $companymanager->getByNameData($companyNameData);
+$usermanager = $usermanager->getListByCompany($company->getIdcompany());
+$customermanager = $customermanager->getListByCompany($company->getIdcompany());
 
 
 ?>
