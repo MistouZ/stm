@@ -28,9 +28,9 @@ $companymanager = new CompaniesManager($bdd);
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+                            <th class="all">Login</th>
                             <th class="desktop">Prénom</th>
                             <th class="desktop">Nom</th>
-                            <th class="all">Login</th>
                             <th class="desktop">Adresse email</th>
                             <th class="none">Numéro de téléphone</th>
                             <th class="none">Accréditation</th>
@@ -62,9 +62,9 @@ $companymanager = new CompaniesManager($bdd);
                         }
                         ?>
                         <tr>
+                            <td><?php echo $user->getUsername();?></td>
                             <td><?php echo $user->getFirstName(); ?></td>
                             <td><?php echo $user->getName(); ?></td>
-                            <td><?php echo $user->getUsername();?></td>
                             <td><?php echo $user->getEmailAddress();?></td>
                             <td><?php echo $user->getPhoneNumber();?></td>
                             <td><?php echo $user->getCredential();?></td>
