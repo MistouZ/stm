@@ -59,6 +59,12 @@ print_r($listingContacts);
       }
     }
   </script>
+<script>
+    $('select').on('change', function() {
+        alert( this.value );
+    });
+
+</script>
 
 <div class="row">
     <div class="col-md-12">
