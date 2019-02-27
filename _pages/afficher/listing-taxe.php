@@ -29,6 +29,7 @@ $taxmanager = $taxmanager->getList();
                             <th class="none">Actif</th>
                             <th class="none">Taxe par défaut</th>
                             <th class="min-tablet">Modifier</th>
+                            <th class="min-tablet">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
