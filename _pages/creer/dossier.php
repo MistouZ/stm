@@ -119,7 +119,7 @@ foreach($listingCustomers as $customer){
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
+                                <select id="customer-select" name="customer-select" class="form-control">
                                     <option value="">--Choississez le client--</option>
                                     <?php
                                         foreach($customermanager as $customer)
