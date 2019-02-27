@@ -43,7 +43,7 @@ foreach($listingCustomers as $customer){
         );  
     }
 }
-print_r($tableauClient);
+print_r($listingCustomers);
 
 ?>
 
