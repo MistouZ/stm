@@ -33,7 +33,7 @@ foreach($listingCustomers as $customer){
     $listingContacts = $contactmanager->getList($customer->getIdCustomer());
     $listingCustomers[$customer->getIdCustomer()] = $listingContacts;
 }
-print_r($listingCustomers);
+print_r($listingContacts);
 
 ?>
 
