@@ -43,14 +43,11 @@ if(isset($_POST['valider'])){
     $test = $contact2->getIdContact();
     
     echo gettype($test);
-//$contactmanager->addToCustomers($contact, $customerId);
-//header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
-    echo $contact."rajouté au client ".$customerId;
-    
+
     if(!is_null($test)){
-        
-        
-        
+        //$contactmanager->addToCustomers($contact, $customerId);
+        echo $contact->getName()."rajouté au client ".$customerId;
+        //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }else{
         echo " / WHAT Else ?!";
     }
