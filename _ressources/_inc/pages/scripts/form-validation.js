@@ -180,11 +180,11 @@ var FormValidation = function () {
             var success3 = $('.alert-success', form3);
 
             //IMPORTANT: update CKEDITOR textarea with actual content before submit
-            form3.on('submit', function() {
+            /*form3.on('submit', function() {
                 for(var instanceName in CKEDITOR.instances) {
                     CKEDITOR.instances[instanceName].updateElement();
                 }
-            })
+            })*/
 
             form3.validate({
                 errorElement: 'span', //default input error message container
