@@ -52,9 +52,9 @@ foreach ($customermanager as $customer) {
 ?>
 
 <script>
-    /*function changeSelect(selected){
+    function changeSelect(selected){
       //on recupere le php
-      var data = <?php //echo json_encode($tableauClient); ?>;
+      var data = <?php echo json_encode($tableauClient); ?>;
       console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
       var monSelectB = document.getElementById("contact-select");
       //on efface tous les children options
@@ -69,7 +69,7 @@ foreach ($customermanager as $customer) {
         
         monSelectB.appendChild(opt);
       }
-    }*/
+    }
   </script>
 
 <div class="row">
@@ -153,11 +153,11 @@ foreach ($customermanager as $customer) {
                                 <select id="contact-select" name="contact-select" class="form-control">
                                     <option value="">--Choississez le contact--</option>
                                     <?php
-                                        foreach($contactmanager as $contact){
-                                            if($contact->getIdContact() == $folder->getCustomerId()){
-                                                echo "<option value=" . $contact->getIdContact() . " selected=\"selected\">".$contact->getFirstname().' '.$contact->getName()."</option>";
+                                        foreach($contactmanager as $contacts){
+                                            if($contacts->getIdContact() == $folder->getCustomerId()){
+                                                echo "<option value=" . $contacts->getIdContact() . " selected=\"selected\">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
                                             }else{
-                                                echo "<option value=" . $contact->getIdContact() . ">".$contact->getFirstname().' '.$contact->getName()."</option>";
+                                                echo "<option value=" . $contacts->getIdContact() . ">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
                                             }
                                         }
                                     ?>
