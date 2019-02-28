@@ -163,7 +163,7 @@ var FormValidation = function () {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
 
-            var form3 = $('#form_sample_3');
+            var form3 = $('#user');
             var error3 = $('.alert-danger', form3);
             var success3 = $('.alert-success', form3);
 
