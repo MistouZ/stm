@@ -5,6 +5,7 @@ include("../../_cfg/cfg.php");
 if(isset($_POST['valider'])){
     $name=$_POST['name'];
     $firstname=$_POST['firstname'];
+
     if(!empty($_POST['emailAddress']))
     {
         $emailAddress = $_POST['emailAddress'];
@@ -21,8 +22,8 @@ if(isset($_POST['valider'])){
     {
         $phoneNumber = "";
     }
-    $contactId = $_POST["contactId"];
 
+    $contactId = $_POST["contactId"];
     $array = array(
         'idContact' => $contactId,
         'name' => $name,
@@ -31,7 +32,6 @@ if(isset($_POST['valider'])){
         'phoneNumber' => $phoneNumber
     );
 
-    print_r($array);
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
     $contactmanager->update($contact);
