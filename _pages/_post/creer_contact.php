@@ -41,12 +41,12 @@ if(isset($_POST['valider'])){
    if($contact2->getIdContact()== 0)
     {
         $contactmanager->addToCustomers($contact, $customerId);
-        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/contactok");
+        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
     else
     {
         header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
     }
-    //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);*/
+    //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
 
 }

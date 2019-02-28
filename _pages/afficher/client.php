@@ -47,7 +47,7 @@ $taxmanager = $taxmanager->getList();
             <?php if($retour == "existe") { ?>
                 <div class="alert alert-danger">
                     <button class="close" data-close="alert"></button> Le contact existe déjà !</div>
-            <?php }elseif($retour == "contactok"){ ?>
+            <?php }elseif($retour == "ajout"){ ?>
                 <div class="alert alert-success">
                     <button class="close" data-close="alert"></button> Le contact a bien été créé !</div>
             <?php } ?>
