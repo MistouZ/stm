@@ -13,7 +13,6 @@ $companyNameData = $_GET["section"];
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($idFolder);
-print_r($folder);
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
