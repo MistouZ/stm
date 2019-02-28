@@ -160,7 +160,7 @@ var TableDatatablesResponsive = function () {
                 }
             },
             drawCallback: function() {
-                $('[data-toggle="confirmation"]').popover();
+                $('[data-toggle="confirmation"]').Confirmation();
             },
 
             "order": [
