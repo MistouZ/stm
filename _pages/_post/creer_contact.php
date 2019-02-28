@@ -53,8 +53,8 @@ if(isset($_POST['valider'])){
     }
     elseif($contact2->getName() != "Contact" && $contact2->getFirstname() != "Supprimé")
     {
-        $contactmanager->addToCustomers($contact2, $customerId);
         echo $contact2->getFirstname()."rajouté au client ".$customerId;
+        $contactmanager->addToCustomers($contact2, $customerId);
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
    else
