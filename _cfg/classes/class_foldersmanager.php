@@ -71,10 +71,15 @@ class FoldersManager
      */
     public function delete(Folder $folder)
     {
-        $q = $this->_db->prepare('DELETE FROM folder WHERE idFolder = :idFolder');
-        $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
-
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('DELETE FROM folder WHERE idFolder = :idFolder');
+            $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
+    
+            $q->execute();
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
@@ -84,11 +89,16 @@ class FoldersManager
      */
     public function get($folderId)
     {
-        $folderId = (integer) $folderId;
-        $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId);
-        $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
-        return new Folder($donnees);
+        try{
+            $folderId = (integer) $folderId;
+            $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId);
+            $donnees = $q->fetch(PDO::FETCH_ASSOC);
+    
+            return new Folder($donnees);
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
 

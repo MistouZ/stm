@@ -9,6 +9,7 @@ include("../../_cfg/cfg.php");
 
 $array = array();
 $companyNameData = $_GET["section"];
+$retour = $_GET['soussouscat'];
 
 
 /*initialisation des objets pour l'affichage*/
@@ -39,6 +40,13 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
+                <?php if($retour == "error") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le dossier n'a donc pas pu être supprimé !</div>
+                <?php }elseif($retour == "success"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le dossier a bien été supprimé !</div>
+                <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>
@@ -76,7 +84,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><?php echo $folder->getLabel();?></td>
                             <td><?php echo $customer->getName(); ?></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le dossier n° <?php echo $folder->getFolderNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_dossier.php?idCustomer=".$folder->getIdFolder(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le dossier n° <?php echo $folder->getFolderNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_dossier.php?idFolder=".$folder->getIdFolder(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $folder->getIsActive();?></span></td>
