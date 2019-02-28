@@ -69,7 +69,20 @@ $companymanager = new CompaniesManager($bdd);
                             <td><?php echo $user->getPhoneNumber();?></td>
                             <td><?php echo $user->getCredential();?></td>
                             <td><?php echo $company->getName();?></td>
-                            <td><?php echo $user->getCompanyName(); ?></td>
+                            <td>
+                                <?php
+                                    $companiesList = explode(", ",$user->getCompanyName());
+                                    foreach ($companies as $company)
+                                    {
+                                        $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
+                                        $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
+                                        if(in_array($company->getName(),$companiesList)){
+                                ?>
+                                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/>
+                                <?php
+                                    }}
+                                ?>
+                            </td>
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><?php echo $user->getIsActive();?></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
