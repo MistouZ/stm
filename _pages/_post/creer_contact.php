@@ -27,10 +27,17 @@ if(isset($_POST['valider'])){
     );
     
     $contact = new Contact($array);
-    print_r($contact);
     $contactmanager = new ContactManager($bdd);
-    $contactmanager->addToCustomers($contact, $customerId);
-    
+    $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
+    if($contact2->getIdContact()== 0)
+    {
+        $contactmanager->addToCustomers($contact, $customerId);
+        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
+    }
+    else
+    {
+        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
+    }
     header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
 
 }
