@@ -34,46 +34,49 @@ $contact = $contactmanager->getById($contactId);
                         <div class="alert alert-success display-hide">
                             <button class="close" data-close="alert"></button> Le dossier a bien été créé </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Nom
+                            <label class="control-label col-md-3">Nom
                                 <span class="required"> * </span>
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fas"></i>
                                     <input type="text" data-required="1" class="form-control" name="name" value="<?php echo $contact->getName();?>"/> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Prénom
+                            <label class="control-label col-md-3">Prénom
                                 <span class="required"> * </span>
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fas"></i>
                                     <input type="text" data-required="1" class="form-control" name="firstname" value="<?php echo $contact->getFirstname();?>"/> </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Email
+                            <label class="control-label col-md-3">Email
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <div class="input-icon right">
                                     <i class="fas"></i>
                                     <input type="email" class="form-control" name="emailAddress" value="<?php echo $contact->getEmailAddress();?>"/> </div>
                             </div>
                         </div>
                         <div class="form-group last">
-                            <label class="control-label col-md-4">Téléphone
+                            <label class="control-label col-md-3">Téléphone
                             </label>
-                            <div class="col-md-8">
+                            <div class="col-md-4">
                                 <input type="number" class="form-control" name="phoneNumber" value="<?php echo $contact->getPhoneNumber();?>"/>
                             </div>
                         </div>
                         <input type="hidden" id="contactId" name="contactId" value="<?php echo $contactId; ?>">
-                        <div class="modal-footer">
-                            <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                            <button type="submit" class="btn green" name="valider">
-                                <i class="fa fa-check"></i> Valider</button>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-3 col-md-9">
+                                    <button type="submit" name="valider" id="valider" class="btn green">Valider</button>
+                                    <button type="button" class="btn default">Annuler</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
