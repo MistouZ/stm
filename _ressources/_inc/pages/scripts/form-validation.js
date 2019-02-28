@@ -145,7 +145,7 @@ var FormValidation = function () {
                 success: function (label, element) {
                     var icon = $(element).parent('.input-icon').children('i');
                     $(element).closest('.form-group').removeClass('has-error').addClass('has-success'); // set success class to the control group
-                    icon.removeClass("fa-warning").addClass("fa-check");
+                    icon.removeClass("fa-exclamation-triangle").addClass("fa-check");
                 },
 
                 submitHandler: function (form) {
