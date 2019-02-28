@@ -34,13 +34,27 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
     
-    print_r($array);
-    
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
+<<<<<<< HEAD
+    $test = $contact2->getIdContact();
+
+    if(!is_null($test)){
+        //$contactmanager->addToCustomers($contact, $customerId);
+        echo $contact->getName()."rajouté au client ".$customerId;
+        //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+    }else{
+        echo " / WHAT Else ?!";
+    }
+
+
+
+    /*if($contact2->getIdContact()== 0)
+=======
     if($contact2->getIdContact()== 0)
+>>>>>>> 0dfe00efa6e63fde6ef4ed79aeb6562f4e1a87ec
     {
         $contactmanager->addToCustomers($contact, $customerId);
         echo $contact->getName()."rajouté au client ".$customerId;
