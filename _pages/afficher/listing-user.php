@@ -11,7 +11,7 @@ $usermanager = new UsersManager($bdd);
 $usermanager = $usermanager->getList();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-
+$companies = $companymanager->getList();
 
 ?>
 <html>
