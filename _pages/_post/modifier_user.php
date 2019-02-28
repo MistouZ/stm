@@ -58,9 +58,13 @@ if(isset($_POST['valider'])) {
     echo "OK";
     $usermanager = new UsersManager($bdd);
     echo "OK2 / ".$oldusername;
-    $usermanager->update($user, $_POST["societe"],$oldusername);
+    $test = $usermanager->update($user, $_POST["societe"],$oldusername);
     
 
 }
-header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher");
+if(is_null($test)){
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/error_modif");
+}else{
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/success_modif");
+}
 ?>
