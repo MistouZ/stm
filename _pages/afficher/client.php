@@ -46,10 +46,10 @@ $taxmanager = $taxmanager->getList();
             <div class="col-md-12">
             <?php if($retour == "existe") { ?>
                 <div class="alert alert-danger">
-                    <button class="close" data-close="alert"></button> Le contact existe déjà !! Tête de pine ! </div>
+                    <button class="close" data-close="alert"></button> Le contact existe déjà !</div>
             <?php }elseif($retour == "contactok"){ ?>
                 <div class="alert alert-success">
-                    <button class="close" data-close="alert"></button> L'utilisateur a bien été créé </div>
+                    <button class="close" data-close="alert"></button> Le contact a bien été créé !</div>
             <?php } ?>
                 <div class="panel-group accordion scrollable" id="accordion2">
                     <div class="panel panel-default">
