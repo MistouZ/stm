@@ -40,44 +40,30 @@ if(isset($_POST['valider'])){
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
-    $test = $contact2->getIdContact();
-    
-    echo gettype($test);
-
-    if(!is_null($test)){
-        //$contactmanager->addToCustomers($contact, $customerId);
-        echo $contact->getName()."rajouté au client ".$customerId;
-        //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
-    }else{
-        echo " / WHAT Else ?!";
-    }
-
-
-
-    /*if($contact2->getIdContact()== 0)
+    if($contact2->getIdContact()== 0)
     {
-        //$contactmanager->addToCustomers($contact, $customerId);
-        echo $contact."rajouté au client ".$customerId;
+        $contactmanager->addToCustomers($contact, $customerId);
+        echo $contact->getName()."rajouté au client ".$customerId;
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
     elseif($contact2->getName() == "Contact" && $contact2->getFirstname() == "Supprimé" )
     {
         echo $contact2->getIdContact()." Contact a réactivé";
-        //$contactmanager->reactivate($contact2);
-        //$contactmanager->addToCustomers($contact2, $customerId);
+        $contactmanager->reactivate($contact2);
+        $contactmanager->addToCustomers($contact2, $customerId);
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
     elseif($contact2->getName() != "Contact" && $contact2->getFirstname() != "Supprimé")
     {
-        //$contactmanager->addToCustomers($contact2, $customerId);
-        echo $contact2."rajouté au client ".$customerId;
+        $contactmanager->addToCustomers($contact2, $customerId);
+        echo $contact2->getFirstname()."rajouté au client ".$customerId;
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
    else
    {
        echo "Je fais rien";
        //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
-   }*/
+   }
     //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
 
 }
