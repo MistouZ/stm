@@ -37,16 +37,19 @@ class ContactManager
      */
     public function addToCustomers(Contact $contact, $customers)
     {
-        $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
-        $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
-        $q->bindValue(':firstname', $contact->getFirstname(), PDO::PARAM_STR);
-        $q->bindValue(':emailAddress', $contact->getEmailAddress(), PDO::PARAM_STR );
-        $q->bindValue(':phoneNumber', $contact->getPhoneNumber(), PDO::PARAM_INT);
-        $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
+        if($contact->getIdContact() == 0)
+        {
+            $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
+            $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
+            $q->bindValue(':firstname', $contact->getFirstname(), PDO::PARAM_STR);
+            $q->bindValue(':emailAddress', $contact->getEmailAddress(), PDO::PARAM_STR );
+            $q->bindValue(':phoneNumber', $contact->getPhoneNumber(), PDO::PARAM_INT);
+            $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
 
-        $q->execute();
+            $q->execute();
 
-        $contact = $this->getByName($contact->getName(), $contact->getFirstname());
+            $contact = $this->getByName($contact->getName(), $contact->getFirstname());
+        }
 
         $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
         $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
@@ -138,7 +141,7 @@ class ContactManager
             if($donnees2 != NULL )
             {
                 $array = array(
-                    'name' => "Utilisateur",
+                    'name' => "Contact",
                     'firstname' => "Supprimé"
                 );
                 return new Contact($array);
@@ -183,6 +186,19 @@ class ContactManager
         $q->bindValue(':emailAddress', $contact->getEmailAddress(), PDO::PARAM_STR);
         $q->bindValue(':phoneNumber', $contact->getPhoneNumber(), PDO::PARAM_STR );
         $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
+
+        $q->execute();
+    }
+
+
+    /**
+     * Reactivate the contact
+     * @param Contact $contact
+     */
+    public function reactivate(Contact $contact)
+    {
+        $q = $this->_db->prepare('UPDATE contact SET isActive = \'1\' WHERE idContact = :idContact');
+        $q->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
 
         $q->execute();
     }
