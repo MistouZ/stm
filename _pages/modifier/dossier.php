@@ -153,6 +153,7 @@ foreach ($customermanager as $customer) {
                                 <select id="contact-select" name="contact-select" class="form-control">
                                     <option value="">--Choississez le contact--</option>
                                     <?php
+                                        echo "test";
                                         foreach($contactmanager as $contact){
                                             if($contact->getIdContact() == $folder->getCustomerId()){
                                                 echo "<option value=" . $contact->getIdContact() . " selected=\"selected\">".$contact->getFirstname().' '.$contact->getName()."</option>";
