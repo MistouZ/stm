@@ -39,7 +39,6 @@ class ContactManager
     {
         if($contact->getIdContact() == NULL)
         {
-            echo "j'ajoute un contact à la BDD";
             /*$q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
             $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
             $q->bindValue(':firstname', $contact->getFirstname(), PDO::PARAM_STR);
@@ -142,6 +141,7 @@ class ContactManager
             if($donnees2 != NULL )
             {
                 $array = array(
+                    'idContact' => $donnees2["idContact"],
                     'name' => "Contact",
                     'firstname' => "Supprimé"
                 );
