@@ -285,9 +285,9 @@ var FormValidation = function () {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
 
-            var form3 = $('#modif_user');
-            var error3 = $('.alert-danger', form3);
-            var success3 = $('.alert-success', form3);
+            var form4 = $('#modif_user');
+            var error4 = $('.alert-danger', form4);
+            var success4 = $('.alert-success', form4);
 
             //IMPORTANT: update CKEDITOR textarea with actual content before submit
             /*form3.on('submit', function() {
@@ -296,7 +296,7 @@ var FormValidation = function () {
                 }
             })*/
 
-            form3.validate({
+            form4.validate({
                 errorElement: 'span', //default input error message container
                 errorClass: 'help-block help-block-error', // default input error message class
                 focusInvalid: false, // do not focus the last invalid input
@@ -305,9 +305,6 @@ var FormValidation = function () {
                     username: {
                         minlength: 2,
                         required: true
-                    },
-                    password: {
-                        
                     },
                     rpassword: {
                         equalTo: "#register_password"
@@ -360,9 +357,9 @@ var FormValidation = function () {
                 },
 
                 invalidHandler: function (event, validator) { //display error alert on form submit   
-                    success3.hide();
-                    error3.show();
-                    App.scrollTo(error3, -200);
+                    success4.hide();
+                    error4.show();
+                    App.scrollTo(error4, -200);
                 },
 
                 highlight: function (element) { // hightlight error inputs
@@ -381,16 +378,16 @@ var FormValidation = function () {
                 },
 
                 submitHandler: function (form) {
-                    success3.show();
-                    error3.hide();
+                    success4.show();
+                    error4.hide();
                     form[0].submit(); // submit the form
                 }
 
             });
 
              //apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
-            $('.select2me', form3).change(function () {
-                form3.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
+            $('.select2me', form4).change(function () {
+                form4.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
             });
 
             //initialize datepicker
@@ -399,7 +396,7 @@ var FormValidation = function () {
                 autoclose: true
             });
             $('.date-picker .form-control').change(function() {
-                form3.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
+                form4.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
             })
     }
 
