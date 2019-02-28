@@ -50,7 +50,10 @@ $taxmanager = $taxmanager->getList();
             <?php }elseif($retour == "ajout"){ ?>
                 <div class="alert alert-success">
                     <button class="close" data-close="alert"></button> Le contact a bien été créé !</div>
-            <?php } ?>
+            <?php }elseif($retour == "update"){ ?>
+                <div class="alert alert-success">
+                    <button class="close" data-close="alert"></button> Le contact a bien été mis à jour !</div>
+                <?php } ?>
                 <div class="panel-group accordion scrollable" id="accordion2">
                     <div class="panel panel-default">
                         <div class="panel-heading">
