@@ -70,6 +70,7 @@ $contact = $contactmanager->getById($contactId);
                             </div>
                         </div>
                         <input type="hidden" id="contactId" name="contactId" value="<?php echo $contactId; ?>">
+                        <input type="hidden" id="customerId" name="customerId" value="<?php echo $_GET['soussouscat'];?>">
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">

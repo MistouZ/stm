@@ -1,10 +1,12 @@
 <?php
 include("../../_cfg/cfg.php");
-    
+
+
 
 if(isset($_POST['valider'])){
     $name=$_POST['name'];
     $firstname=$_POST['firstname'];
+    $customerId = $_POST["customerId"];
 
     if(!empty($_POST['emailAddress']))
     {
