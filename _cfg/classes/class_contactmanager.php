@@ -37,7 +37,7 @@ class ContactManager
      */
     public function addToCustomers(Contact $contact, $customers)
     {
-        if($contact->getIdContact() < 0)
+        if($contact->getIdContact() == NULL)
         {
             echo "j'ajoute un contact à la BDD";
             /*$q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
