@@ -13,6 +13,7 @@ $array = array();
 $folder = new Folder($array);
 $folder->setIdFolder($idFolder);
 $foldermanager = new FoldersManager($bdd);
+echo "new FolderManager OK";
 $test = $foldermanager->delete($folder->getIdFolder());
 
 echo "test : ".$test;
