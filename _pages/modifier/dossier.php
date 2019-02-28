@@ -13,6 +13,7 @@ $companyNameData = $_GET["section"];
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($idFolder);
+print_r($folder);
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -42,16 +43,12 @@ foreach ($customermanager as $customer) {
     $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
     if(!empty($tableauContacts)){
         foreach($tableauContacts as $tableauContact){
-            if($folder->getContactId() == $tableauContact->getIdContact()){
-                $tempContact[$tableauContact->getIdContact()]=array($tableauContact->getFirstname().' '.$tableauContact->getName(),'selected="selected"');
-            }else{
-                $tempContact[$tableauContact->getIdContact()]=array($tableauContact->getFirstname().' '.$tableauContact->getName(),'');
-            }
+                $tempContact[$tableauContact->getIdContact()]=$tableauContact->getFirstname().' '.$tableauContact->getName();               
         }
         $tableauClient[$customer->getIdCustomer()] = $tempContact;
     }
 }
-print_r($tableauClient);
+
 ?>
 
 <script>
@@ -155,6 +152,15 @@ print_r($tableauClient);
                             <div class="col-md-4">
                                 <select id="contact-select" name="contact-select" class="form-control">
                                     <option value="">--Choississez le contact--</option>
+                                    <?php
+                                        foreach($contactmanager as $contact){
+                                            if($contact->getIdContact() == $folder->getCustomerId()){
+                                                echo "<option value=" . $contact->getIdContact() . " selected=\"selected\">".$contact->getFirstname().' '.$contact->getName()."</option>";
+                                            }else{
+                                                echo "<option value=" . $contact->getIdContact() . ">".$contact->getFirstname().' '.$contact->getName()."</option>";
+                                            }
+                                        }
+                                    ?>
                                 </select>
                             </div>
                         </div>
