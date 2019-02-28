@@ -213,7 +213,7 @@ var FormValidation = function () {
                     credential: {
                         required: "Veuillez sélectionner le type de compte"
                     },
-                    societe: {
+                    'societe[]': {
                         required: "Veuillez sélectionner au moins une société",
                         minlength: jQuery.validator.format("Veuillez sélectionner au moins {0} société")
                     }
