@@ -40,6 +40,7 @@ if(isset($_POST['valider'])){
 
     echo $contact2->getFirstname();
     echo $contact2->getName();
+    echo $contact2->getIdContact();
 
     if($contact2->getIdContact()== 0)
     {
