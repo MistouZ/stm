@@ -107,29 +107,17 @@ var FormValidation = function () {
                         minlength: 2,
                         required: true
                     },
-                    email: {
-                        required: true,
-                        email: true
+                    firstname: {
+                        minlength: 2,
+                        required: true
                     },
                     email: {
                         required: true,
                         email: true
-                    },
-                    url: {
-                        required: true,
-                        url: true
-                    },
-                    number: {
-                        required: true,
-                        number: true
                     },
                     digits: {
                         required: true,
                         digits: true
-                    },
-                    creditcard: {
-                        required: true,
-                        creditcard: true
                     },
                 },
 
