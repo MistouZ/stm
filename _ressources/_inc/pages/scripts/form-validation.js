@@ -205,14 +205,14 @@ var FormValidation = function () {
                     name: {
                         required: true
                     },
-                    first_name: {
+                    firstname: {
                         required: true
                     },
                     email: {
                         required: true,
                         email: true
                     },
-                    societe: {
+                    societe[]: {
                         required: true,
                         minlength: 1
                     },
@@ -223,11 +223,11 @@ var FormValidation = function () {
 
                 messages: { // custom messages for radio buttons and checkboxes
                     credential: {
-                        required: "Veuillez sélectionner le type de compte"
+                        required: "Veuillez sÃ©lectionner le type de compte"
                     },
                     societe: {
-                        required: "Veuillez sélectionner au moins une société",
-                        minlength: jQuery.validator.format("Veuillez sélectionner au moins {0} société")
+                        required: "Veuillez sÃ©lectionner au moins une sociÃ©tÃ©",
+                        minlength: jQuery.validator.format("Veuillez sÃ©lectionner au moins {0} sociÃ©tÃ©")
                     }
                 },
 
