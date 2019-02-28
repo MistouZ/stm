@@ -28,7 +28,7 @@ $companies = $companies->getList();
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
                 <div class="form-body">
-                    <form action="<?php echo URLHOST."_pages/_post/modifier_user.php"; ?>" method="post" id="user" name="user" class="form-horizontal">
+                    <form action="<?php echo URLHOST."_pages/_post/modifier_user.php"; ?>" method="post" id="modif_user" name="modif_user" class="form-horizontal">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
@@ -44,7 +44,8 @@ $companies = $companies->getList();
                             <label class="control-label col-md-3">Mot de passe
                             </label>
                             <div class="col-md-4">
-                                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Mot de passe" name="password" /> </div>
+                                <input class="form-control placeholder-no-fix" type="password" autocomplete="off" id="register_password" placeholder="Mot de passe" name="password" />
+                                <span class="help-block"> Pour conserver l'ancien mot de passe, ne pas remplir cette case </span></div>
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Confirmer le mot de passe</label>
