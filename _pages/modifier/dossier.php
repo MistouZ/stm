@@ -13,7 +13,6 @@ $companyNameData = $_GET["section"];
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($idFolder);
-print_r($folder);
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -43,12 +42,16 @@ foreach ($customermanager as $customer) {
     $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
     if(!empty($tableauContacts)){
         foreach($tableauContacts as $tableauContact){
-            $tempContact[$tableauContact->getIdContact()]=$tableauContact->getFirstname().' '.$tableauContact->getName();
+            if($folder->getContactId() == $tableauContact->getIdContact()){
+                $tempContact[$tableauContact->getIdContact()]=array($tableauContact->getFirstname().' '.$tableauContact->getName(),'selected="selected"');
+            }else{
+                $tempContact[$tableauContact->getIdContact()]=array($tableauContact->getFirstname().' '.$tableauContact->getName(),'');
+            }
         }
         $tableauClient[$customer->getIdCustomer()] = $tempContact;
     }
 }
-
+print_r($tempContact);
 ?>
 
 <script>
@@ -66,6 +69,7 @@ foreach ($customermanager as $customer) {
         var opt = document.createElement("option");
         opt.value = i;
         opt.innerHTML = data[selected.value][i]; 
+        
         monSelectB.appendChild(opt);
       }
     }
