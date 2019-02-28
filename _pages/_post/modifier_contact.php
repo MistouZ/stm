@@ -28,7 +28,7 @@ if(isset($_POST['valider'])){
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
     $contactmanager->update($contact);
-    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$contactId);
+    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
 }
 
 ?>
