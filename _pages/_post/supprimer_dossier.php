@@ -13,16 +13,13 @@ $array = array();
 $folder = new Folder($array);
 $folder->setIdFolder($idFolder);
 $foldermanager = new FoldersManager($bdd);
-echo "new FolderManager OK / ";
-echo $folder->getIdFolder();
 $test = $foldermanager->delete($folder->getIdFolder());
 
-echo "test : ".$test;
 
 if(is_null($test)){
-    //header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/error");
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/error");
 }else{
-    //header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/success");
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/success");
 }
 
 ?>
