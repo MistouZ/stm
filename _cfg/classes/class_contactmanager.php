@@ -132,7 +132,7 @@ class ContactManager
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
         {
-            //return new Contact($donnees);
+            return new Contact($donnees);
         }
         else
         {
@@ -145,14 +145,14 @@ class ContactManager
                     'name' => "Contact",
                     'firstname' => "Supprimé"
                 );
-                //return new Contact($array);
+                return new Contact($array);
             }
             else
             {
                 $array = array(
                     'idContact' => 0
                 );
-                //return new Contact($array);
+                return new Contact($array);
             }
         }
     }
