@@ -59,6 +59,7 @@ if(isset($_POST['valider'])){
     }
    else
    {
+       echo "Je fais rien";
        //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
    }
     //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
