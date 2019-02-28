@@ -133,9 +133,12 @@ foreach ($customermanager as $customer) {
                                 <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
                                     <option value="">--Choississez le client--</option>
                                     <?php
-                                        foreach($customermanager as $customer)
-                                        {
-                                            echo "<option value=" . $customer->getIdCustomer() . ">".$customer->getName()."</option>";
+                                        foreach($customermanager as $customer){
+                                            if($customer->getIdCustomer() == $folder->getCustomerId()){
+                                                echo "<option value=" . $customer->getIdCustomer() . " selected=\"selected\">".$customer->getName()."</option>";
+                                            }else{
+                                                echo "<option value=" . $customer->getIdCustomer() . ">".$customer->getName()."</option>";
+                                            }
                                         }
                                     ?>
                                 </select>
