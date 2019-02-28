@@ -38,7 +38,7 @@ if(isset($_POST['valider'])){
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
-    echo $contact2->getIdContact();
+    echo $contact2->getFirstname();
 
     if($contact2->getIdContact()== 0)
     {
