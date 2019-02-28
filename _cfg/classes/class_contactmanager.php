@@ -37,7 +37,7 @@ class ContactManager
      */
     public function addToCustomers(Contact $contact, $customers)
     {
-        if($contact->getIdContact() == NULL)
+        if(!isset($contact->getIdContact()))
         {
             $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
             $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
