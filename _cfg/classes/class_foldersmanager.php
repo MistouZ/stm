@@ -69,13 +69,13 @@ class FoldersManager
      * @param Folder $folder
      * Disable folder instead of delete it
      */
-    public function delete(Folder $folder)
+    public function delete($idFolder)
     {
         echo "avant try";
         try{
         echo "début try";
             $q = $this->_db->prepare('UPDATE folder SET isActive = \'0\' WHERE idFolder = :idFolder');
-            $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
+            $q->bindValue(':idFolder', $idFolder, PDO::PARAM_INT);
             $q->execute();
             
             throw new Exception('Suppresioon impossible',300);
