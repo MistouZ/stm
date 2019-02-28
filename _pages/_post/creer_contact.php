@@ -37,7 +37,7 @@ if(isset($_POST['valider'])){
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
-    if($contact2->getIdContact()== 0 || $contact2->getIdContact() != NULL)
+    if($contact2->getIdContact()== 0 || isset($contact2->getIdContact()))
     {
         $contactmanager->addToCustomers($contact, $customerId);
         header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
