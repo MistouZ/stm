@@ -155,7 +155,7 @@ foreach ($customermanager as $customer) {
                                     <option value="">--Choississez le contact--</option>
                                     <?php
                                         foreach($contactByCustomers as $contacts){
-                                            if($contacts->getIdContact() == $folder->getCustomerId()){
+                                            if($contacts->getIdContact() == $folder->getContactId()){
                                                 echo "<option value=" . $contacts->getIdContact() . " selected=\"selected\">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
                                             }else{
                                                 echo "<option value=" . $contacts->getIdContact() . ">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
