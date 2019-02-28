@@ -30,6 +30,7 @@ $listingCustomers = $customermanager->getList();
 $arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
+$contactByCustomers = $contactmanager->getList($folder->getCustomerId());
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
@@ -153,7 +154,7 @@ foreach ($customermanager as $customer) {
                                 <select id="contact-select" name="contact-select" class="form-control">
                                     <option value="">--Choississez le contact--</option>
                                     <?php
-                                        foreach($contactmanager as $contacts){
+                                        foreach($contactByCustomers as $contacts){
                                             if($contacts->getIdContact() == $folder->getCustomerId()){
                                                 echo "<option value=" . $contacts->getIdContact() . " selected=\"selected\">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
                                             }else{
