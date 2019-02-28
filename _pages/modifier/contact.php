@@ -70,7 +70,7 @@ $contact = $contactmanager->getById($contactId);
                                         <input type="number" class="form-control" name="phoneNumber" value="<?php echo $contact->getPhoneNumber();?>"/>
                                     </div>
                                 </div>
-                                <input type="hidden" id="customerId" name="customerId" value="<?php echo $contactId; ?>">
+                                <input type="hidden" id="contactId" name="contactId" value="<?php echo $contactId; ?>">
                                 <div class="modal-footer">
                                     <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                     <button type="submit" class="btn green" name="valider">
