@@ -5,14 +5,20 @@ include("../../_cfg/cfg.php");
 if(isset($_POST['valider'])){
     $name=$_POST['name'];
     $firstname=$_POST['firstname'];
-    if(!empty($_POST['emailAddress'])){
+    if(!empty($_POST['emailAddress']))
+    {
         $emailAddress = $_POST['emailAddress'];
-    }else{
+    }
+    else
+    {
         $emailAddress = "";
     }
-    if(!empty($_POST['phoneNumber'])){
+    if(!empty($_POST['phoneNumber']))
+    {
         $phoneNumber = $_POST['phoneNumber'];
-    }else{
+    }
+    else
+    {
         $phoneNumber = "";
     }
     $contactId = $_POST["contactId"];
@@ -25,10 +31,11 @@ if(isset($_POST['valider'])){
         'phoneNumber' => $phoneNumber
     );
 
-    $contact = new Contact($array);
-    $contactmanager = new ContactManager($bdd);
-    $contactmanager->update($contact);
-    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
+    print_r($array);
+    //$contact = new Contact($array);
+    //$contactmanager = new ContactManager($bdd);
+    //$contactmanager->update($contact);
+    //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
 }
 
 ?>
