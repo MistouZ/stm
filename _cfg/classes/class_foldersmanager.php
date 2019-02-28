@@ -73,7 +73,7 @@ class FoldersManager
     {
         echo "avant try";
         try{
-        echo "début try";
+        echo "dÃ©but try";
             $q = $this->_db->prepare('UPDATE folder SET isActive = \'0\' WHERE idFolder = :idFolder');
             $q->bindValue(':idFolder', $idFolder, PDO::PARAM_INT);
             $q->execute();
@@ -83,7 +83,7 @@ class FoldersManager
             return "ok";
         }
         catch(Exception $e){
-            echo "Erreur n°".$e->getCode()." : ".$e->getMessage();
+            echo "Erreur nÂ°".$e->getCode()." : ".$e->getMessage();
             return null;
         }
     }
