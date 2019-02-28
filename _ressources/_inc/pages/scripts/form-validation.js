@@ -421,6 +421,7 @@ var FormValidation = function () {
             handleValidation1();
             handleValidation2();
             handleValidation3();
+            handleValidation4();
 
         }
 
