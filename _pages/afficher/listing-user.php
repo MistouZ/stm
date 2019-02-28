@@ -73,7 +73,7 @@ $companymanager = new CompaniesManager($bdd);
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><?php echo $user->getIsActive();?></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                            <td><a class="btn red-mint" data-placement="auto top" data-toggle="confirmation" data-title="Supprimer l'utilisateur <?php echo $user->getUsername(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_user.php?username=".$user->getUsername(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                            <td><a class="btn red-mint" data-placement="auto top" data-toggle="confirmation" data-title="Supprimer l'utilisateur <?php echo $user->getUsername(); ?> ?" data-tip="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_user.php?username=".$user->getUsername(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                         </tr>
                         <?php
                     }

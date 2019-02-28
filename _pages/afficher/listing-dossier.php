@@ -78,7 +78,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $folder->getIsActive();?></span></td>
-                            <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
+                            <td><?php echo $folder->getDay()."/".$folder->getMonth()."/".$folder->getYear();?></td>
                         </tr>
                     <?php
                     }
