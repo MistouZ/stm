@@ -43,8 +43,6 @@ foreach ($customermanager as $customer) {
     }
 }
 
-var_dump($tableauClient);
-
 ?>
 
 <script>
@@ -141,13 +139,6 @@ var_dump($tableauClient);
                             <div class="col-md-4">
                                 <select id="contact-select" name="contact-select" class="form-control">
                                     <option value="">--Choississez le contact--</option>
-                                    <?php
-                                    /*$contactmanager = $contactmanager->getList($customer->getIdCustomer());
-                                    foreach($contactmanager as $contact)
-                                    {
-                                        echo "<option value=".$contact->getIdContact().">".$contact->getFirstname()." ".$contact->getName()."</option>";
-                                    }*/
-                                    ?>
                                 </select>
                             </div>
                         </div>

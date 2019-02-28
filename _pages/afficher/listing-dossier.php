@@ -62,10 +62,12 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                         if($folder->getIsActive() == 1)
                         {
                             $folder->setIsActive("Ouvert");
+                            $label = "success";
                         }
                         elseif($folder->getIsActive() == 0)
                         {
                             $folder->setIsActive("Fermé");
+                            $label = "danger";
                         }
                         ?>
                         <tr>
@@ -75,7 +77,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
                             <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
-                            <td><?php echo $folder->getIsActive();?></td>
+                            <td><span class="label label-<?php echo $label; ?>" ><?php echo $folder->getIsActive();?></span></td>
                             <td><?php echo $folder->getYear()."/".$folder->getMonth()."/".$folder->getDay();?></td>
                         </tr>
                     <?php
