@@ -38,8 +38,6 @@ if(isset($_POST['valider'])){
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
-    echo $contact2->getIdContact();
-
     if($contact2->getIdContact()== 0)
     {
         $contactmanager->addToCustomers($contact, $customerId);

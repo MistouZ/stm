@@ -39,7 +39,7 @@ class ContactManager
     {
         if($contact->getIdContact() == NULL)
         {
-            /*$q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
+            $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
             $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
             $q->bindValue(':firstname', $contact->getFirstname(), PDO::PARAM_STR);
             $q->bindValue(':emailAddress', $contact->getEmailAddress(), PDO::PARAM_STR );
@@ -48,14 +48,14 @@ class ContactManager
 
             $q->execute();
 
-            $contact = $this->getByName($contact->getName(), $contact->getFirstname());*/
+            $contact = $this->getByName($contact->getName(), $contact->getFirstname());
         }
 
-        /*$q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
+        $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
         $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
         $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
 
-        $q2->execute();*/
+        $q2->execute();
 
     }
 
