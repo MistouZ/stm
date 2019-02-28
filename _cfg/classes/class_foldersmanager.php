@@ -76,6 +76,7 @@ class FoldersManager
             $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
     
             $q->execute();
+            return "ok";
         }
         catch(Exception $e){
             return null;
