@@ -39,7 +39,7 @@ $companymanager = new CompaniesManager($bdd);
                             <th class="none">Commercial</th>
                             <th class="none">Actif</th>
                             <th class="min-tablet">Modifier</th>
-                            <th class="min-phone-l">Supprimer</th>
+                            <th class="none">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
