@@ -180,7 +180,9 @@ $taxmanager = $taxmanager->getList();
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-8">
-                                    <input type="digit" class="form-control" name="phoneNumber" />
+                                    <div class="input-icon right">
+                                        <i class="fas"></i>
+                                        <input type="digit" class="form-control" name="phoneNumber" /></div>
                                 </div>
                             </div>
                             <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
