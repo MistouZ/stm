@@ -1,6 +1,7 @@
 <?php
 
 $customerId = $_GET['soussouscat'];
+$retour = $_GET['soussoussouscat'];
 
 //récupération de la liste des sociétés
 $arrayCompanies = array();
@@ -43,6 +44,13 @@ $taxmanager = $taxmanager->getList();
     <div class="portlet-body">
        <div class="row">
             <div class="col-md-12">
+            <?php if($retour == "existe") { ?>
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button> Le contact existe déjà !! Tête de pine ! </div>
+            <?php }else{ ?>
+                <div class="alert alert-success display-hide">
+                    <button class="close" data-close="alert"></button> L'utilisateur a bien été créé </div>
+            <?php } ?>
                 <div class="panel-group accordion scrollable" id="accordion2">
                     <div class="panel panel-default">
                         <div class="panel-heading">
