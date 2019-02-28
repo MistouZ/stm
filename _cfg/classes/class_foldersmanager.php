@@ -76,8 +76,9 @@ class FoldersManager
         echo "début try";
             $q = $this->_db->prepare('UPDATE folder SET isActive = \'0\' WHERE idFolder = :idFolder');
             $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
-    
             $q->execute();
+            
+            throw new Exception('Suppresioon impossible',300);
         echo "fin try";
             return "ok";
         }
