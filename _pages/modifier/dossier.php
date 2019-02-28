@@ -166,6 +166,7 @@ foreach ($customermanager as $customer) {
                         </div>
                      </div>
                      <input type="hidden" id="idFolder" name="idFolder" value="<?php echo $idFolder; ?>">
+                     <input type="hidden" id="folderNumber" name="folderNumber" value="<?php echo $folder->getFolderNumber(); ?>">
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">

@@ -11,6 +11,7 @@ include("../../_cfg/cfg.php");
 
 if(isset($_POST['valider'])){
     $idFolder = $_POST['idFolder'];
+    $folderNumber = $_POST['folderNumber'];
     $label = $_POST["label"];
     $description = $_POST["description"];
     $seller = $_POST["seller-select"];
