@@ -140,8 +140,8 @@ class ContactManager
             $donnees2 = $q2->fetch(PDO::FETCH_ASSOC);
             if($donnees2 != NULL )
             {
-                print_r($donnees2);
                 $array = array(
+                    'idContact' => $donnees2["idcontact"],
                     'name' => "Contact",
                     'firstname' => "Supprimé"
                 );
