@@ -155,9 +155,7 @@ var TableDatatablesResponsive = function () {
 
             // setup responsive extension: http://datatables.net/extensions/responsive/
             responsive: {
-                details: {
-                   
-                }
+                details: false
             },
 
             "order": [
