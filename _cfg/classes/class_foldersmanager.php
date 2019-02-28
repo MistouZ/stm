@@ -72,7 +72,7 @@ class FoldersManager
     public function delete(Folder $folder)
     {
         try{
-            $q = $this->_db->prepare('DUPDATE folder SET isActive = \'0\' WHERE idFolder = :idFolder');
+            $q = $this->_db->prepare('UPDATE folder SET isActive = \'0\' WHERE idFolder = :idFolder');
             $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
     
             $q->execute();
