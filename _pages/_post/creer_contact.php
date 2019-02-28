@@ -40,13 +40,13 @@ if(isset($_POST['valider'])){
 
     if($contact2->getIdContact()== 0)
     {
-        $contactmanager->addToCustomers($contact, $customerId);
+        //$contactmanager->addToCustomers($contact, $customerId);
         echo $contact."rajouté au client ".$customerId;
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
     elseif($contact2->getIdContact() > 1 && ($contact2->getName() != "Contact" && $contact2->getFirstname() != "Supprimé"))
     {
-        $contactmanager->addToCustomers($contact2, $customerId);
+        //$contactmanager->addToCustomers($contact2, $customerId);
         echo $contact2."rajouté au client ".$customerId;
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
@@ -54,7 +54,7 @@ if(isset($_POST['valider'])){
     {
         echo $contact2->getIdContact()." Contact a réactivé";
         $contactmanager->reactivate($contact2);
-        $contactmanager->addToCustomers($contact2, $customerId);
+        //$contactmanager->addToCustomers($contact2, $customerId);
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");*/
     }
    else
