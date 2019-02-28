@@ -159,9 +159,6 @@ var TableDatatablesResponsive = function () {
                    
                 }
             },
-            drawCallback: function() {
-                $('[data-toggle="confirmation"]').Confirmation();
-            },
 
             "order": [
                 [0, 'asc']
