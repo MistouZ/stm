@@ -72,7 +72,7 @@ class FoldersManager
     public function delete(Folder $folder)
     {
         echo "avant try";
-        try{
+        /*try{
         echo "début try";
             $q = $this->_db->prepare('UPDATE folder SET isActive = \'0\' WHERE idFolder = :idFolder');
             $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
@@ -84,7 +84,7 @@ class FoldersManager
         catch(Exception $e){
             echo "Erreur n°".$e->getCode()." : ".$e->getMessage();
             return null;
-        }
+        }*/
     }
 
     /**
