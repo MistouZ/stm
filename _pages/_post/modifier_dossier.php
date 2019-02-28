@@ -10,6 +10,7 @@ include("../../_cfg/cfg.php");
 
 
 if(isset($_POST['valider'])){
+    $idFolder = $_POST['idFolder'];
     $label = $_POST["label"];
     $description = $_POST["description"];
     $seller = $_POST["seller-select"];
@@ -23,6 +24,7 @@ if(isset($_POST['valider'])){
     $isActive = 1;
 
     $array = array(
+        'idFolder' => $idFolder,
         'label' => $label,
         'year' => $year,
         'month' => $month,
@@ -38,7 +40,7 @@ if(isset($_POST['valider'])){
 
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);
-    $foldermanager->add($folder);
+    $foldermanager->update($folder);
 
 
     
