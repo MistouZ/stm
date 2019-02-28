@@ -71,14 +71,14 @@ class FoldersManager
      */
     public function delete($idFolder)
     {
-        echo "avant try";
+        echo " avant try / ";
         try{
-        echo "début try";
+        echo "début try / ID : ".$idFolder;
             $q = $this->_db->prepare('UPDATE folder SET isActive = \'0\' WHERE idFolder = :idFolder');
             $q->bindValue(':idFolder', $idFolder, PDO::PARAM_INT);
             $q->execute();
             
-            throw new Exception('Suppresioon impossible',300);
+            throw new Exception('Suppresion impossible',300);
         echo "fin try";
             return "ok";
         }
