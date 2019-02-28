@@ -200,7 +200,7 @@ var FormValidation = function () {
                         required: true,
                         email: true
                     },
-                    societe: {
+                    'societe[]': {
                         required: true,
                         minlength: 1
                     },

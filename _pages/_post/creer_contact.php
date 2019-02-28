@@ -34,15 +34,11 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
     
-    print_r($array);
-    
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
     $test = $contact2->getIdContact();
-    
-    echo gettype($test);
 
     if(!is_null($test)){
         //$contactmanager->addToCustomers($contact, $customerId);
