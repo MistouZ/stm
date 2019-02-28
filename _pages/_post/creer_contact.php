@@ -34,6 +34,8 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
     
+    print_r($array);
+    
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
@@ -45,6 +47,8 @@ if(isset($_POST['valider'])){
         //$contactmanager->addToCustomers($contact, $customerId);
         echo $contact."rajouté au client ".$customerId;
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+    }else{
+        echo " / WHAT Else ?!";
     }
 
 
