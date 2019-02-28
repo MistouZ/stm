@@ -51,7 +51,7 @@ foreach ($customermanager as $customer) {
         $tableauClient[$customer->getIdCustomer()] = $tempContact;
     }
 }
-print_r($tempContact);
+print_r($tableauClient);
 ?>
 
 <script>
