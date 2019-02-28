@@ -44,14 +44,14 @@ if(isset($_POST['valider'])){
         echo $contact."rajouté au client ".$customerId;
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
-    if($contact2->getName() == "Contact" && $contact2->getFirstname() == "Supprimé" )
+    elseif($contact2->getName() == "Contact" && $contact2->getFirstname() == "Supprimé" )
     {
         echo $contact2->getIdContact()." Contact a réactivé";
         //$contactmanager->reactivate($contact2);
         //$contactmanager->addToCustomers($contact2, $customerId);
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");*/
     }
-    if($contact2->getName() != "Contact" && $contact2->getFirstname() != "Supprimé")
+    elseif($contact2->getName() != "Contact" && $contact2->getFirstname() != "Supprimé")
     {
         //$contactmanager->addToCustomers($contact2, $customerId);
         echo $contact2."rajouté au client ".$customerId;
