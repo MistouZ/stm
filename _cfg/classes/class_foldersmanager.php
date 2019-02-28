@@ -132,8 +132,8 @@ class FoldersManager
      */
     public function update(Folder $folder)
     {
-        $q = $this->_db->prepare('UPDATE folder SET folderNumber = :folderNumber, label = :label, year = :year,month = :month,day = :day,isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE folderId= :folderId');
-        $q->bindValue(':folderId', $folder->getFolderId(), PDO::PARAM_INT);
+        $q = $this->_db->prepare('UPDATE folder SET folderNumber = :folderNumber, label = :label, year = :year,month = :month,day = :day,isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE idFolder= :idFolder');
+        $q->bindValue(':idFolder', $folder->getFolderId(), PDO::PARAM_INT);
         $q->bindValue(':folderNumber', $folder->getFolderNumber(), PDO::PARAM_STR);
         $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
         $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
