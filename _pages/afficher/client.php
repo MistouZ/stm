@@ -175,7 +175,7 @@ $taxmanager = $taxmanager->getList();
                                         <input type="email" class="form-control" name="emailAddress" /> </div>
                                 </div>
                             </div>
-                            <div class="form-group last">
+                            <div class="form-group">
                                 <label class="control-label col-md-4">Téléphone
                                     <span class="required"> * </span>
                                 </label>
