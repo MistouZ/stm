@@ -37,6 +37,6 @@ if(isset($_POST['valider'])){
     $contactmanager->update($contact);
 }
 
-header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/update");
+header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
 
 ?>
