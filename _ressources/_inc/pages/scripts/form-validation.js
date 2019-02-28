@@ -111,11 +111,11 @@ var FormValidation = function () {
                         minlength: 2,
                         required: true
                     },
-                    email: {
+                    emailAddress: {
                         required: true,
                         email: true
                     },
-                    digits: {
+                    phoneNumber: {
                         required: true,
                         digits: true
                     },
