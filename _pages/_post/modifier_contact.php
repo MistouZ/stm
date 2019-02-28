@@ -29,7 +29,8 @@ if(isset($_POST['valider'])){
         'name' => $name,
         'firstname' => $firstname,
         'emailAddress' => $emailAddress,
-        'phoneNumber' => $phoneNumber
+        'phoneNumber' => $phoneNumber,
+        'isActive' => 1
     );
 
     $contact = new Contact($array);
