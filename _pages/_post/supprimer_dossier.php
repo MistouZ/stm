@@ -12,9 +12,10 @@ $idFolder = $_GET["idFolder"];
 $array = array();
 $folder = new Folder($array);
 $folder->setIdFolder($idFolder);
-echo $folder->getIdFolder();
 $foldermanager = new FoldersManager($bdd);
 $test = $foldermanager->delete($folder->getIdFolder());
+
+echo "test : ".$test;
 
 if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/error");
