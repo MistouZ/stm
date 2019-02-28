@@ -39,7 +39,7 @@ $companies = $companymanager->getList();
                             <th class="none">Commercial</th>
                             <th class="none">Actif</th>
                             <th class="min-tablet">Modifier</th>
-                            <th class="none">Supprimer</th>
+                            <th class="min-phone-l">Supprimer</th>
                         </tr>
                     </thead>
                     <tbody>
