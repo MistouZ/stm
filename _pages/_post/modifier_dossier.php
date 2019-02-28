@@ -37,13 +37,13 @@ if(isset($_POST['valider'])){
         'contactId' => $contactId
     );
 
-
+    print_r($array);
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);
     $foldermanager->update($folder);
 
 
     
-    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher");
+    //header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher");
 
 }

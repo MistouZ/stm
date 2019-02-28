@@ -71,8 +71,8 @@ class FoldersManager
      */
     public function delete(Folder $folder)
     {
-        $q = $this->_db->prepare('DELETE FROM folder WHERE folderId = :folderId');
-        $q->bindValue(':folderId', $folder->getIdFolder(), PDO::PARAM_INT);
+        $q = $this->_db->prepare('DELETE FROM folder WHERE idFolder = :idFolder');
+        $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
 
         $q->execute();
     }
