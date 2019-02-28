@@ -13,7 +13,12 @@ $array = array();
 $user = new Users($array);
 $user->setUsername($username);
 $usermanager = new UsersManager($bdd);
-$usermanager->delete($user);
-header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher");
+$test = $usermanager->delete($user);
+
+if(is_null($test)){
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/error_suppr");
+}else{
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/success_suppr");
+}
 
 ?>
