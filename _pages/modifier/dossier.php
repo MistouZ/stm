@@ -9,11 +9,11 @@ $idFolder = $_GET['soussouscat'];
 $array = array();
 $companyNameData = $_GET["section"];
 
-echo $idFolder;
 /*initilisation des objets */
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($idFolder);
+print_r($folder);
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
