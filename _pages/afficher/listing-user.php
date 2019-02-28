@@ -38,7 +38,7 @@ $companymanager = new CompaniesManager($bdd);
                             <th class="none">Sociétés affiliées</th>
                             <th class="none">Commercial</th>
                             <th class="none">Actif</th>
-                            <th class="none">Modifier</th>
+                            <th class="min-tablet">Modifier</th>
                             <th class="none">Supprimer</th>
                         </tr>
                     </thead>
