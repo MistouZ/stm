@@ -44,8 +44,7 @@ if(isset($_POST['valider'])){
     
     echo gettype($test);
 
-    if($test == 0)
-    {
+    if(!is_null($test)){
         //$contactmanager->addToCustomers($contact, $customerId);
         echo $contact."rajouté au client ".$customerId;
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
