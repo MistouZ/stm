@@ -40,9 +40,9 @@ if(isset($_POST['valider'])){
 
     echo $contact2->getIdContact();
 
-    if($contact2->getIdContact() == '0')
+    if($contact2->getIdContact() == 0)
     {
-        $contactmanager->addToCustomers($contact, $customerId);
+        //$contactmanager->addToCustomers($contact, $customerId);
         echo $contact."rajouté au client ".$customerId;
         //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
