@@ -41,27 +41,23 @@ if(isset($_POST['valider'])){
     if($contact2->getIdContact()== 0)
     {
         $contactmanager->addToCustomers($contact, $customerId);
-        echo $contact->getName()."rajouté au client ".$customerId;
-        //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
     }
     elseif($contact2->getName() == "Contact" && $contact2->getFirstname() == "Supprimé" )
     {
-        echo $contact2->getIdContact()." Contact a réactivé";
         $contactmanager->reactivate($contact2);
         $contactmanager->addToCustomers($contact2, $customerId);
-        //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+
     }
     elseif($contact2->getName() != "Contact" && $contact2->getFirstname() != "Supprimé")
     {
-
         $test = $contactmanager->addToCustomers($contact2, $customerId);
         if(!is_null($test)){
-            echo $contact2->getFirstname()."rajouté au client ".$customerId;
-            //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+            header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
         }
         else {
-            echo "Je fais rien";
-            //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
+            header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
         }
 
     }

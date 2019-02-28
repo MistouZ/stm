@@ -39,7 +39,8 @@ class ContactManager
     {
         if($contact->getIdContact() == NULL)
         {
-            try{
+            try
+            {
                 $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
                 $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
                 $q->bindValue(':firstname', $contact->getFirstname(), PDO::PARAM_STR);
@@ -56,7 +57,8 @@ class ContactManager
 
             $contact = $this->getByName($contact->getName(), $contact->getFirstname());
         }
-        try {
+        try
+        {
             $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
             $q2->bindValue(':idcustomer', $customers, PDO::PARAM_INT);
             $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
