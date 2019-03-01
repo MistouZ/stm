@@ -182,9 +182,10 @@ class ContactManager
 
     /**
      * @param Contact $contact
-     * Disable contact instead of delete it
+     * Delete contact link to the customer $customer (Idcustomer)
+     * Disable the contact if there is no more link with customers
      */
-    public function delete(Contact $contact, $customer)
+    public function deleteToCustomer(Contact $contact, $customer)
     {
         $customer = (integer) $customer;
 
@@ -196,6 +197,31 @@ class ContactManager
         //compter le nombre de liaison restante sur le contact.
 
         $count = $this->_db->query('SELECT COUNT(*) FROM link_customers_contact WHERE contact_idcontact='.$contact->getIdContact().' GROUP BY contact_idcontact')->fetchColumn();
+        if($count == 0)
+        {
+            $q = $this->_db->prepare('UPDATE contact SET isActive = \'0\' WHERE idContact = :idContact');
+            $q->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
+            $q->execute();
+        }
+    }
+
+    /**
+     * @param Contact $contact
+     * Delete contact link to the supplier $supplier (Idsupplier)
+     * Disable the contact if there is no more link with suppliers
+     */
+    public function deleteToSupplier(Contact $contact, $supplier)
+    {
+        $supplier = (integer) $supplier;
+
+        $delete=$this->_db->prepare('DELETE FROM `link_suppliers_contact` WHERE contact_idcontact = :idContact AND suppliers_idsupplier = :idsupplier');
+        $delete->bindValue(':idsupplier', $supplier, PDO::PARAM_INT);
+        $delete->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
+        $delete->execute();
+
+        //compter le nombre de liaison restante sur le contact.
+
+        $count = $this->_db->query('SELECT COUNT(*) FROM link_suppliers_contact WHERE contact_idcontact='.$contact->getIdContact().' GROUP BY contact_idcontact')->fetchColumn();
         if($count == 0)
         {
             $q = $this->_db->prepare('UPDATE contact SET isActive = \'0\' WHERE idContact = :idContact');

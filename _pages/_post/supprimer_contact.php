@@ -16,7 +16,7 @@ $array = array();
 $contact = new Contact($array);
 $contact->setIdContact($contactId);
 $contactmanager = new ContactManager($bdd);
-$contactmanager->delete($contact, $customerId);
+$contactmanager->deleteToCustomer($contact, $customerId);
 
 header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/supprime");
 
