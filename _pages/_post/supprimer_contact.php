@@ -8,6 +8,7 @@
 
 include("../../_cfg/cfg.php");
 $contactId = $_GET["idContact"];
+$customerId = $_GET["idCustomer"];
 
 echo $contactId;
 
@@ -16,6 +17,6 @@ $contact = new Contact($array);
 $contact->setIdContact($contactId);
 $contactmanager = new ContactManager($bdd);
 $contactmanager->delete($contact);
-header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
+header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/supprime");
 
 ?>
