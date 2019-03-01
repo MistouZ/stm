@@ -2,13 +2,7 @@
 
 $contactId = $_GET['soussouscat'];
 
-//récupération de la liste des sociétés
-$arrayCompanies = array();
-$company = new Company($arrayCompanies);
-$companies = new CompaniesManager($bdd);
-$companies = $companies->getList();
-
-//récupération des contacts du client
+//récupération du contact à modifier du client
 $arrayContact = array();
 $contact = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
