@@ -44,16 +44,16 @@ $taxmanager = $taxmanager->getList();
     <div class="portlet-body">
        <div class="row">
             <div class="col-md-12">
-            <?php if($retour == "existe") { ?>
+            <?php if($retour == "existe"){ ?>
                 <div class="alert alert-danger">
                     <button class="close" data-close="alert"></button> Le contact existe déjà !</div>
-            <?php }elseif($retour == "supprime"){?>
+            <?php} elseif($retour == "supprime"){?>
                 <div class="alert alert-danger">
-                    <button class="close" data-close="alert"></button> Le contact a été supprimé.</div>
-            <?php}elseif($retour == "ajout"){ ?>
+                    <button class="close" data-close="alert"></button> Le contact a bien été supprimé.</div>
+            <?php} elseif($retour == "ajout"){ ?>
                 <div class="alert alert-success">
                     <button class="close" data-close="alert"></button> Le contact a bien été créé !</div>
-            <?php }elseif($retour == "update"){ ?>
+            <?php} elseif($retour == "update"){ ?>
                 <div class="alert alert-success">
                     <button class="close" data-close="alert"></button> Le contact a bien été mis à jour !</div>
                 <?php } ?>
