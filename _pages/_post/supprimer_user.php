@@ -16,9 +16,9 @@ $usermanager = new UsersManager($bdd);
 $test = $usermanager->delete($user);
 
 if(is_null($test)){
-    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/error_suppr");
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/errorsuppr");
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/success_suppr");
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/successsuppr");
 }
 
 ?>

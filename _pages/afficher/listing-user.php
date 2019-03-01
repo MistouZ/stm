@@ -5,6 +5,8 @@
  * @copyright 2019
  */
 
+$retour = $_GET['soussouscat'];
+
 $array = array();
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
@@ -22,19 +24,22 @@ $companies = $companymanager->getList();
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des utilisateurs  </div>
-                <div class="tools"> </div>
+                <div class="actions">
+                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/user/creer'; ?>" class="btn btn-default btn-sm grey-mint">
+                        <i class="fa fa-plus"></i> Créer </a>
+                </div>
             </div>
             <div class="portlet-body">
-                <?php if($retour == "error_suppr") { ?>
+                <?php if($retour == "errorsuppr") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, l'utilisateur n'a donc pas pu être supprimé !</div>
-                <?php }elseif($retour == "success_suppr"){ ?>
+                <?php }elseif($retour == "successsuppr"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> L'utilisateur a bien été supprimé !</div>
-                <?php }elseif($retour == "error_modif") { ?>
+                <?php }elseif($retour == "errormodif") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, l'utilisateur n'a donc pas pu être modifié !</div>
-                <?php }elseif($retour == "success_modif"){ ?>
+                <?php }elseif($retour == "successmodif"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> L'utilisateur a bien été modifié !</div>
                 <?php }elseif($retour == "error") { ?>
