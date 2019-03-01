@@ -3,8 +3,6 @@
 $customerId = $_GET['soussouscat'];
 $retour = $_GET['soussoussouscat'];
 
-echo $retour;
-
 //récupération de la liste des sociétés
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
