@@ -5,6 +5,8 @@
  * @copyright 2019
  */
 
+$retour = $_GET['soussouscat'];
+
 $array = array();
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
