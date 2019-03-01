@@ -27,16 +27,16 @@ $companies = $companymanager->getList();
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
-                <?php if($retour == "error_suppr") { ?>
+                <?php if($retour == "errorsuppr") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, l'utilisateur n'a donc pas pu être supprimé !</div>
-                <?php }elseif($retour == "success_suppr"){ ?>
+                <?php }elseif($retour == "successsuppr"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> L'utilisateur a bien été supprimé !</div>
-                <?php }elseif($retour == "error_modif") { ?>
+                <?php }elseif($retour == "errormodif") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, l'utilisateur n'a donc pas pu être modifié !</div>
-                <?php }elseif($retour == "success_modif"){ ?>
+                <?php }elseif($retour == "successmodif"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> L'utilisateur a bien été modifié !</div>
                 <?php }elseif($retour == "error") { ?>

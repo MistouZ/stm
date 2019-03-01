@@ -39,9 +39,13 @@ if(isset($_POST['valider'])) {
 
     $user = new Users($array);
     $usermanager = new UsersManager($bdd);
-    $usermanager->add($user, $_POST["societe"]);
+    $test = $usermanager->add($user, $_POST["societe"]);
     
 
 }
-header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher");
+if(is_null($test)){
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/error");
+}else{
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/success");
+}
 ?>
