@@ -13,8 +13,9 @@ echo $contactId;
 
 $array = array();
 $contact = new Contact($array);
+$contact->setIdContact($contactId);
 $contactmanager = new ContactManager($bdd);
-$contactmanager->delete($contactId);
+$contactmanager->delete($contact);
 echo "Contact removed successfully </br/>";
 
 ?>
