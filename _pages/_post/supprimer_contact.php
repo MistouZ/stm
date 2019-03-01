@@ -7,7 +7,9 @@
  */
 
 include("../../_cfg/cfg.php");
-$contactId = $_GET["idCustomer"];
+$contactId = $_GET["idContact"];
+
+echo $contactId;
 
 $array = array();
 $contact = new Contact($array);

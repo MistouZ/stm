@@ -126,7 +126,7 @@ $taxmanager = $taxmanager->getList();
                                             <td><?php echo $contact->getEmailAddress(); ?></td>
                                             <td><?php echo $contact->getPhoneNumber(); ?></td>
                                             <td><a href="<?php echo URLHOST.$_COOKIE['company'].'/client/'.$customerId.'/contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i></a></td>
-                                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le contact <?php echo $contact->getName().' '.$contact->getFirstName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_contact.php?idCustomer=".$contact->getIdContact(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td></td>
+                                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le contact <?php echo $contact->getName().' '.$contact->getFirstName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_contact.php?idContact=".$contact->getIdContact(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td></td>
                                         </tr>
                                     <?php
                                         }
