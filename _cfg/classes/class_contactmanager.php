@@ -184,14 +184,23 @@ class ContactManager
      * @param Contact $contact
      * Disable contact instead of delete it
      */
-    public function delete(Contact $contact)
+    public function delete(Contact $contact, $customer)
     {
-        $q = $this->_db->prepare('UPDATE contact SET isActive = \'0\' WHERE idContact = :idContact');
-        $q->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
-        $q->execute();
+        $customer = (integer) $customer;
 
-        $delete=$this->_db->prepare('DELETE FROM `link_customers_contact` WHERE contact_idcontact = :idContact');
+        $delete=$this->_db->prepare('DELETE FROM `link_customers_contact` WHERE contact_idcontact = :idContact AND customers_idcustomers = :idcustomer');
+        $delete->bindValue(':idcustomer', $customer, PDO::PARAM_INT);
         $delete->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
         $delete->execute();
+
+        //compter le nombre de liaison restante sur le contact.
+
+        $count = $this->_db->query('SELECT COUNT(*) FROM link_customers_contact WHERE contact_idcontact='.$contact->getIdContact().' GROUP BY contact_idcontact')->fetchColumn();
+        if($count == 0)
+        {
+            $q = $this->_db->prepare('UPDATE contact SET isActive = \'0\' WHERE idContact = :idContact');
+            $q->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
+            $q->execute();
+        }
     }
 }
