@@ -24,7 +24,10 @@ $companies = $companymanager->getList();
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des utilisateurs  </div>
-                <div class="tools"> </div>
+                <div class="actions">
+                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/user/creer'; ?>" class="btn btn-default btn-sm grey-mint">
+                        <i class="fa fa-plus"></i> Créer </a>
+                </div>
             </div>
             <div class="portlet-body">
                 <?php if($retour == "errorsuppr") { ?>
