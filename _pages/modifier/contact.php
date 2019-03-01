@@ -1,6 +1,6 @@
 <?php
 
-$contactId = $_GET['soussouscat'];
+$contactId = $_GET['soussoussouscat'];
 
 //récupération du contact à modifier du client
 $arrayContact = array();
