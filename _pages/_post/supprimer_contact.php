@@ -16,6 +16,6 @@ $contact = new Contact($array);
 $contact->setIdContact($contactId);
 $contactmanager = new ContactManager($bdd);
 $contactmanager->delete($contact);
-echo "Contact removed successfully </br/>";
+header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
 
 ?>
