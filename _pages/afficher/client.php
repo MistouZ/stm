@@ -50,7 +50,7 @@ $taxmanager = $taxmanager->getList();
             <?php}
                   elseif($retour == "supprime"){?>
                 <div class="alert alert-danger">
-                    <button class="close" data-close="alert"></button> Le contact a bien été supprimé.</div>
+                    <button class="close" data-close="alert"></button> Le contact a bien été supprimé !</div>
             <?php}
                   elseif($retour == "ajout"){ ?>
                 <div class="alert alert-success">
