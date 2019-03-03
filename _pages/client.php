@@ -18,7 +18,7 @@
     
         }else{
             include __DIR__.'/'.$_GET['cat5'].'/'.$_GET['soussoussouscat'].'.php'; 
-            echo "contact";
+            echo "soussoussouscat : ".$_GET['soussoussouscat'];
         }
     }
 ?>
