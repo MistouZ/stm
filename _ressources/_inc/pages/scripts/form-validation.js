@@ -434,16 +434,6 @@ var FormValidation = function () {
                     },
                 },
 
-                messages: { // custom messages for radio buttons and checkboxes
-                    credential: {
-                        required: "Veuillez sélectionner le type de compte"
-                    },
-                    'societe[]': {
-                        required: "Veuillez sélectionner au moins une société",
-                        minlength: jQuery.validator.format("Veuillez sélectionner au moins {0} société")
-                    }
-                },
-
                 errorPlacement: function (error, element) { // render error placement for each input type
                     if (element.parent(".input-group").size() > 0) {
                         error.insertAfter(element.parent(".input-group"));
