@@ -143,4 +143,15 @@ class TaxManager
         $q->execute();
     }
 
+    /**
+     * Reactivate the tax
+     * @param Tax $tax
+     */
+    public function reactivate(Tax $tax)
+    {
+        $q = $this->_db->prepare('UPDATE tax SET isActive = \'1\' WHERE idTax = :idTax');
+        $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
+        $q->execute();
+    }
+
 }
