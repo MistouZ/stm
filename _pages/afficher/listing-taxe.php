@@ -13,6 +13,19 @@ $taxmanager = $taxmanager->getList();
 ?>
 <div class="row">
     <div class="col-md-12">
+        <?php if($retour == "existe"){ ?>
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button> Le contact existe déjà !</div>
+        <?php }elseif($retour == "supprime"){?>
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button> La taxe a bien été supprimée !</div>
+        <?php }elseif($retour == "success"){ ?>
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button> La taxe a bien été créée !</div>
+        <?php }elseif($retour == "update"){ ?>
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button> La taxe a bien été mise à jour !</div>
+        <?php } ?>
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet box green">
             <div class="portlet-title">
