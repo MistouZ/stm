@@ -28,6 +28,12 @@ $customermanager = $customermanager->getList();
                 <?php }elseif($retour == "success"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> Le client a bien été créé !</div>
+                <?php }elseif($retour == "errorsuppr") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le client n'a donc pas pu être supprimé !</div>
+                <?php }elseif($retour == "successsuppr"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le client a bien été supprimé !</div>
                 <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>

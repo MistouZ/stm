@@ -3,22 +3,18 @@
         if($_GET['souscat']!="afficher"){
             if(file_exists(__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php')) {               
                 include (__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php');   
-                echo "!=afficher";
             }
         }else{
             include __DIR__.'/'.$_GET['souscat'].'/listing-client.php';
-            echo "=afficher et sousouscat int";
         }
         
     } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat']))) { 
         if(($_GET['soussoussouscat'] != "contact")){
         
             include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php'; 
-            echo "pas contact";
     
         }else{
-            include __DIR__.'/'.$_GET['cat5'].'/'.$_GET['soussoussouscat'].'.php'; 
-            echo "soussoussouscat : ".$_GET['soussoussouscat'];
+            include __DIR__.'/'.$_GET['cat5'].'/'.$_GET['soussoussouscat'].'.php';
         }
     }
 ?>

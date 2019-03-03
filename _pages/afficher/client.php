@@ -56,12 +56,6 @@ $taxmanager = $taxmanager->getList();
                 <?php }elseif($retour == "update"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> Le contact a bien été mis à jour !</div>
-                <?php }if($retour == "errorsuppr") { ?>
-                    <div class="alert alert-danger">
-                        <button class="close" data-close="alert"></button> Une erreur est survenue, le client n'a donc pas pu être supprimé !</div>
-                <?php }elseif($retour == "successsuppr"){ ?>
-                    <div class="alert alert-success">
-                        <button class="close" data-close="alert"></button> Le client a bien été supprimé !</div>
                 <?php }elseif($retour == "errormodif") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, le client n'a donc pas pu être modifié !</div>

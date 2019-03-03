@@ -16,9 +16,9 @@ $customermanager = new CustomersManager($bdd);
 $test = $customermanager->delete($customer->getIdCustomer());
 
 if(is_null($test)){
-    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$idCustomer."/errorsuppr");
+    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/errorsuppr");
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$idCustomer."/successsuppr");
+    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/successsuppr");
 }
 
 ?>
