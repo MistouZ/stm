@@ -4,6 +4,7 @@
  * @author Amaury
  * @copyright 2019
  */
+$retour = $_GET['soussouscat'];
 
 $array = array();
 $company = new Company($array);
