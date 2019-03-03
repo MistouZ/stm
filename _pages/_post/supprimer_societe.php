@@ -13,7 +13,12 @@ $array = array();
 $company = new Company($array);
 $company->setIdcompany($companyId);
 $companiesmanager = new CompaniesManager($bdd);
-$companiesmanager->delete($company);
-header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher");
+$test = $companiesmanager->delete($company);
+
+if(is_null($test)){
+    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/errorsuppr");
+}else{
+    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/successsuppr");
+}
 
 ?>

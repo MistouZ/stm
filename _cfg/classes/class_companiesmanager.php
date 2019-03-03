@@ -45,14 +45,21 @@ class CompaniesManager extends Features
      */
     public function add(Company $company)
     {
-        $q = $this->_db->prepare('INSERT INTO company (name, nameData, address,isActive) VALUES (:name, :nameData, :address, :isActive)');
-        $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
-        $companyName = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $company->getName()));
-        $q->bindValue(':nameData', $companyName, PDO::PARAM_STR);
-        $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
-        $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
-
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('INSERT INTO company (name, nameData, address,isActive) VALUES (:name, :nameData, :address, :isActive)');
+            $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
+            $companyName = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $company->getName()));
+            $q->bindValue(':nameData', $companyName, PDO::PARAM_STR);
+            $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
+            $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
+    
+            $q->execute();
+            
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
@@ -61,9 +68,16 @@ class CompaniesManager extends Features
      */
     public function delete(Company $company)
     {
-        $q = $this->_db->prepare('UPDATE company SET isActive = \'0\' WHERE idcompany = '.$company->getIdcompany());
-
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('UPDATE company SET isActive = \'0\' WHERE idcompany = '.$company->getIdcompany());
+    
+            $q->execute();
+            
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
@@ -119,15 +133,21 @@ class CompaniesManager extends Features
 
     public function update(Company $company)
     {
-        $q = $this->_db->prepare('UPDATE company SET name = :name, nameData = :nameData, address = :address, isActive = :isActive  WHERE idcompany = :idcompany');
-        $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
-        $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
-        $companyName = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $company->getName()));
-        $q->bindValue(':nameData', $companyName, PDO::PARAM_STR);
-        $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
-        $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
-
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('UPDATE company SET name = :name, nameData = :nameData, address = :address, isActive = :isActive  WHERE idcompany = :idcompany');
+            $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
+            $q->bindValue(':name', $company->getName(), PDO::PARAM_STR);
+            $companyName = strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $company->getName()));
+            $q->bindValue(':nameData', $companyName, PDO::PARAM_STR);
+            $q->bindValue(':address', $company->getAddress(), PDO::PARAM_STR);
+            $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
+    
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
     public function getCompanies($username)

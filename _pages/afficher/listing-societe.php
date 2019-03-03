@@ -23,6 +23,25 @@ $companymanager = $companymanager->getList();
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
+                <?php if($retour == "errorsuppr") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, la société n'a donc pas pu être supprimée !</div>
+                <?php }elseif($retour == "successsuppr"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> La société a bien été supprimée !</div>
+                <?php }elseif($retour == "errormodif") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, la société n'a donc pas pu être modifiée !</div>
+                <?php }elseif($retour == "successmodif"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> La société a bien été modifié !</div>
+                <?php }elseif($retour == "error") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, la société n'a donc pas pu être créée !</div>
+                <?php }elseif($retour == "success"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> La société a bien été créé !</div>
+                <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                     <tr>
