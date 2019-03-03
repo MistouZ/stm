@@ -38,14 +38,20 @@ class TaxManager
      */
     public function add(Tax $tax)
     {
-        $q = $this->_db->prepare('INSERT INTO tax (percent, name, value,isActive, isDefault) VALUES (:percent, :name, :value,:isActive, :isDefault)');
-        $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
-        $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
-        $q->bindValue(':value', $tax->getValue(), PDO::PARAM_STR);
-        $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
-        $q->bindValue(':isDefault', $tax->getIsDefault(), PDO::PARAM_INT);
+        try{
+            $q = $this->_db->prepare('INSERT INTO tax (percent, name, value,isActive, isDefault) VALUES (:percent, :name, :value,:isActive, :isDefault)');
+            $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
+            $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
+            $q->bindValue(':value', $tax->getValue(), PDO::PARAM_STR);
+            $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
+            $q->bindValue(':isDefault', $tax->getIsDefault(), PDO::PARAM_INT);
 
-        $q->execute();
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
      /**
@@ -54,10 +60,15 @@ class TaxManager
      */
     public function delete(Tax $tax)
     {
-        $q = $this->_db->prepare('UPDATE tax SET isActive = \'0\' WHERE idTax = :idTax');
-        $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_STR);
+        try{
+            $q = $this->_db->prepare('UPDATE tax SET isActive = \'0\' WHERE idTax = :idTax');
+            $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_STR);
 
-        $q->execute();
+            $q->execute();
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
@@ -132,15 +143,20 @@ class TaxManager
 
     public function update(Tax $tax)
     {
-        $q = $this->_db->prepare('UPDATE tax SET name = :name, percent = :percent, value = :value, isActive = :isActive, isDefault = :isDefault  WHERE idTax = :idTax');
-        $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
-        $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
-        $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
-        $q->bindValue(':value', $tax->getValue(), PDO::PARAM_STR);
-        $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
-        $q->bindValue(':isDefault', $tax->getIsDefault(), PDO::PARAM_INT);
+        try{
+            $q = $this->_db->prepare('UPDATE tax SET name = :name, percent = :percent, value = :value, isActive = :isActive, isDefault = :isDefault  WHERE idTax = :idTax');
+            $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
+            $q->bindValue(':name', $tax->getName(), PDO::PARAM_STR);
+            $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
+            $q->bindValue(':value', $tax->getValue(), PDO::PARAM_STR);
+            $q->bindValue(':isActive', $tax->getIsActive(), PDO::PARAM_INT);
+            $q->bindValue(':isDefault', $tax->getIsDefault(), PDO::PARAM_INT);
 
-        $q->execute();
+            $q->execute();
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
