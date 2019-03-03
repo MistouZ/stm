@@ -13,7 +13,12 @@ $array = array();
 $customer = new Customers($array);
 $customer->setIdcustomer($idCustomer);
 $customermanager = new CustomersManager($bdd);
-$customermanager->delete($customer->getIdCustomer());
-header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher");
+$test = $customermanager->delete($customer->getIdCustomer());
+
+if(is_null($test)){
+    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$idCustomer."/errorsuppr");
+}else{
+    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$idCustomer."/successsuppr");
+}
 
 ?>

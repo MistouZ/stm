@@ -1,4 +1,6 @@
 <?php
+$retour = $_GET['soussouscat'];
+
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
@@ -17,6 +19,13 @@ $customermanager = $customermanager->getList();
                 <div class="tools"> </div>
             </div>
             <div class="portlet-body">
+                <?php if($retour == "error") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le client n'a donc pas pu être créé !</div>
+                <?php }elseif($retour == "success"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le client a bien été créé !</div>
+                <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>

@@ -33,18 +33,20 @@ if(isset($_POST['valider'])){
         
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-    $customermanager->update($customer, $_POST["case"], $_POST["taxes"]);
-    echo "New customer update successfully </br/>";
+    $test = $customermanager->update($customer, $_POST["case"], $_POST["taxes"]);
 
     if($supplier == 1)
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
       $suppliermanager->update($supplier,$_POST["case"]);
-      echo "New provider created successfully <br />";
     }
 
 }
+if(is_null($test)){
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/".$customerId."/errormodif");
+}else{
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/".$customerId."/successmodif");
+}
 
-header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId);
 ?>
