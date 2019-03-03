@@ -524,7 +524,7 @@ var FormValidation = function () {
 
                 percent: {
                     required: true,
-                    float: true
+                    digits: true
                 },
             },
 
