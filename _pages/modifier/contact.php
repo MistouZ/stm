@@ -62,7 +62,9 @@ $contact = $contactmanager->getById($contactId);
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input type="digits" class="form-control" name="phoneNumber" value="<?php echo $contact->getPhoneNumber();?>"/>
+                                <div class="input-icon right">
+                                    <i class="fas"></i>
+                                    <input type="digits" class="form-control" name="phoneNumber" value="<?php echo $contact->getPhoneNumber();?>"/></div>
                             </div>
                         </div>
                         <input type="hidden" id="contactId" name="contactId" value="<?php echo $contactId; ?>">
