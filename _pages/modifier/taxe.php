@@ -30,7 +30,7 @@ $tax = $taxes->getById($_GET['soussouscat']);
                         <div class="alert alert-success display-hide">
                             <button class="close" data-close="alert"></button> Modification de taxe effectuée avec succès </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nom de la taxe
+                            <label class="control-label col-md-3" for="name">Nom de la taxe
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
