@@ -21,7 +21,7 @@ $contact = $contactmanager->getById($contactId);
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/modifier_contact.php"; ?>" method="post" id="folder_creation" name="folder_creation" class="form-horizontal">
+                <form action="<?php echo URLHOST."_pages/_post/modifier_contact.php"; ?>" method="post" id="form_sample_2" name="form_sample_2" class="form-horizontal">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
