@@ -49,6 +49,7 @@ $contact = $contactmanager->getById($contactId);
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Email
+                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
                                 <div class="input-icon right">
@@ -58,6 +59,7 @@ $contact = $contactmanager->getById($contactId);
                         </div>
                         <div class="form-group last">
                             <label class="control-label col-md-3">Téléphone
+                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
                                 <input type="number" class="form-control" name="phoneNumber" value="<?php echo $contact->getPhoneNumber();?>"/>
