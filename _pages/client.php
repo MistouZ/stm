@@ -14,9 +14,11 @@
         if($_GET['soussoussouscat'] != "contact" AND (isset($_GET['soussoussouscat']))){
         
             include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php'; 
+            echo "pas contact";
     
         }else{
             include __DIR__.'/'.$_GET['cat5'].'/'.$_GET['soussoussouscat'].'.php'; 
+            echo "contact";
         }
     }
 ?>
