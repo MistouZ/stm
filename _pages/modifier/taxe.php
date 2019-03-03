@@ -23,7 +23,7 @@ $tax = $taxes->getById($_GET['soussouscat']);
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/modifier_taxe.php"; ?>" id="inscription" name="inscription" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="<?php echo URLHOST."_pages/_post/modifier_taxe.php"; ?>" id="taxes" name="taxes" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Tous les champs doivent être remplis </div>
@@ -37,7 +37,7 @@ $tax = $taxes->getById($_GET['soussouscat']);
                                 <input type="text" name="name" id="name" data-required="1" class="form-control" placeholder="Nom" value="<?php echo $tax->getName(); ?>" /> </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3" for="value">Valeur de la taxe en %
+                            <label class="control-label col-md-3" for="percent">Valeur de la taxe en %
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
