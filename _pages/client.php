@@ -8,9 +8,11 @@
             include __DIR__.'/'.$_GET['souscat'].'/listing-client.php';
         }
         
-    } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat']))) { 
+    } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND $_GET['soussoussouscat']!="contact") { 
         
         include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php'; 
 
+    }else{
+        include __DIR__.'/'.$_GET['cat5'].'/'.$_GET['soussoussouscat'].'.php'; 
     } 
 ?>

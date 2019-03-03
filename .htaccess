@@ -26,3 +26,7 @@ RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?secti
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3&soussouscat=$4 [L,QSA]
 
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3&soussouscat=$4&soussoussouscat=$5 [L,QSA]
+
+RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3&soussouscat=$4&soussoussouscat=$5&cat5=$6 [L,QSA]
+
+RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3&soussouscat=$4&soussoussouscat=$5&cat5=$6&cat6=$7 [L,QSA]
