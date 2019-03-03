@@ -29,12 +29,12 @@ $companies = $companies->getList();
                 </div>
                 <?php } ?>
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/creer_societe.php"; ?>" id="inscription" name="inscription" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="<?php echo URLHOST."_pages/_post/creer_societe.php"; ?>" id="societe" name="societe" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
-                            <button class="close" data-close="alert"></button> Tous les champs doivent être remplis </div>
+                            <button class="close" data-close="alert"></button> Tous les champs doivent être remplis !</div>
                         <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Création de société effectuée avec succès </div>
+                            <button class="close" data-close="alert"></button> Création de société effectuée avec succès !</div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Nom de la société
                                 <span class="required"> * </span>
