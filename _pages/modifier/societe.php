@@ -29,7 +29,7 @@ $company = $company->getById($_GET['soussouscat']);
                 </div>
                 <?php } ?>
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/modifier_societe.php"; ?>" id="societe" name="societe" class="form-horizontal" method="post" enctype="multipart/form-data">
+                <form action="<?php echo URLHOST."_pages/_post/modifier_societe.php"; ?>" id="societe_modif" name="societe_modif" class="form-horizontal" method="post" enctype="multipart/form-data">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Tous les champs doivent être remplis !</div>
