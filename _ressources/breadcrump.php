@@ -1,7 +1,13 @@
 <div class="page-head" style="background-color: white; padding-left: 10px;">
     <!-- BEGIN PAGE TITLE -->
     <div class="page-title">
-        <h1 style="color: #173752 !important; font-weight: 900;"><?php print strtoupper($_GET['cat']); ?>
+        <h1 style="color: #173752 !important; font-weight: 900;">
+        <?php 
+            if (isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND $_GET['soussoussouscat']!="contact") {
+                print strtoupper($_GET['cat']); 
+            }else{
+                print strtoupper($_GET['soussoussouscat']); 
+            }?>
         </h1>
     </div>
     <!-- END PAGE TITLE -->
@@ -21,9 +27,9 @@
         <span class="active" style="color: #523a5f; font-weight: 800;"><?php print ucwords($_GET['souscat']); ?></span>
     </li>
     <?php 
-            }else{
+            }elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND $_GET['soussoussouscat']!="contact") {
     ?>
-    <i class="fa fa-circle" style="color: #aa134f;"></i>
+        <i class="fa fa-circle" style="color: #aa134f;"></i>
         
     </li>
     <li>
@@ -31,16 +37,16 @@
     </li>
         
     <?php 
-            } 
-            
-           /* if(isset($_GET['soussouscat'])){ 
-        ?>
+            }else{
+    ?>
         <i class="fa fa-circle" style="color: #aa134f;"></i>
         
     </li>
     <li>
-        <span class="active" style="color: #523a5f; font-weight: 800;"><?php print ucwords($_GET['soussouscat']); ?></span>
+        <span class="active" style="color: #523a5f; font-weight: 800;"><?php print ucwords($_GET['cat5']); ?></span>
     </li>
-    <?php } */?>
+    <?php
+            }
+    ?>
 </ul>
 <!-- END PAGE BREADCRUMB -->
