@@ -524,7 +524,8 @@ var FormValidation = function () {
 
                 percent: {
                     required: true,
-                    digits: true
+                    digits: true,
+                    decimalSeparator: '.'
                 },
             },
 
