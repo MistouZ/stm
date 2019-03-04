@@ -115,7 +115,7 @@ else{
                             }
                             elseif($folder->getIsActive() == 0 && $credential == 'A')
                             {
-                                echo "<td>Supprimé</td>";
+                                echo "<td><a class=\"btn green-dark\" data-placement=\"top\" data-toggle=\"confirmation\" data-title=\"Reactiver le dossier <?php echo $folder->getFolderNumber(); ?> ?\" data-btn-ok-label=\"Reactiver\" data-btn-ok-class=\"btn-success\" data-btn-cancel-label=\"Annuler\" data-btn-cancel-class=\"btn-danger\" data-href=\"<?php echo  URLHOST.\"_pages/_post/reactiver_dossier.php?idFolder=\".$folder->getIdFolder(); ?>\"><i class=\"fas fa-toggle-on\" alt=\"Reactiver\"></i> Reactiver</a></td>";
                             }
                             else{
                                 echo "<td>pouet</td>";
