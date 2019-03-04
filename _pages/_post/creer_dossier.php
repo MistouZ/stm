@@ -38,10 +38,12 @@ if(isset($_POST['valider'])){
 
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);
-    $foldermanager->add($folder);
+    $test = $foldermanager->add($folder);
 
-
+if(is_null($test)){
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/error");
+}else{
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/success");
+}
     
-    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher");
-
 }

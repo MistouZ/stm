@@ -17,9 +17,9 @@ $test = $foldermanager->delete($folder->getIdFolder());
 
 
 if(is_null($test)){
-    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/error");
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/errorsuppr");
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/success");
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/successsuppr");
 }
 
 ?>

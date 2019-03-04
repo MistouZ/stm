@@ -47,21 +47,28 @@ class FoldersManager
     {
         $folderNumber = $this->count($folder->getCompanyId());
         $folderNumber = $folderNumber + 1;
-
-        $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, year,month,day,isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :year, :month, :day, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
-        $q->bindValue(':folderNumber', $folderNumber, PDO::PARAM_STR);
-        $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
-        $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
-        $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
-        $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
-        $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
-        $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
-        $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
-        $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
-        $q->bindValue(':customerId', $folder->getCustomerId(), PDO::PARAM_INT);
-        $q->bindValue(':contactId', $folder->getContactId(), PDO::PARAM_INT);
-
-        $q->execute();
+        
+        try{
+            $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, year,month,day,isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :year, :month, :day, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
+            $q->bindValue(':folderNumber', $folderNumber, PDO::PARAM_STR);
+            $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
+            $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
+            $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
+            $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
+            $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
+            $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
+            $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
+            $q->bindValue(':customerId', $folder->getCustomerId(), PDO::PARAM_INT);
+            $q->bindValue(':contactId', $folder->getContactId(), PDO::PARAM_INT);
+    
+            $q->execute();
+            
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
 
     }
 
@@ -143,20 +150,26 @@ class FoldersManager
      */
     public function update(Folder $folder)
     {
-        $q = $this->_db->prepare('UPDATE folder SET label = :label, year = :year,month = :month,day = :day,isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE idFolder= :idFolder');
-        $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
-        $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
-        $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
-        $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
-        $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
-        $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
-        $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
-        $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
-        $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
-        $q->bindValue(':customerId', $folder->getCustomerId(), PDO::PARAM_INT);
-        $q->bindValue(':contactId', $folder->getContactId(), PDO::PARAM_INT);
-
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('UPDATE folder SET label = :label, year = :year,month = :month,day = :day,isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE idFolder= :idFolder');
+            $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
+            $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
+            $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
+            $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
+            $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
+            $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
+            $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
+            $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
+            $q->bindValue(':customerId', $folder->getCustomerId(), PDO::PARAM_INT);
+            $q->bindValue(':contactId', $folder->getContactId(), PDO::PARAM_INT);
+    
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
 }
