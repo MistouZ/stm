@@ -6,7 +6,7 @@ include("../../_cfg/cfg.php");
  * @copyright 2019
  */
 
-$array = array();
+/*$array = array();
 $companyNameData = $_GET["section"];
 
 $company = new Company($array);
@@ -21,7 +21,7 @@ $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
-$foldermanager = $foldermanager->getListActive($company->getIdcompany());
+$foldermanager = $foldermanager->getListActive($company->getIdcompany());*/
 
 ?>
 <div class="row">
@@ -51,12 +51,12 @@ $foldermanager = $foldermanager->getListActive($company->getIdcompany());
                             <select class="form-control" name="folder">
                                 <option value="">Choisissez un dossier...</option>
                                 <?php
-                                    foreach ($foldermanager as $folder){
+                                    /*foreach ($foldermanager as $folder){
                                         $customer = $customermanager->getByID($folder->getCustomerId());
                                 ?>
                                 <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
                                 <?php
-                                }
+                                }*/
                                 ?>
                             </select>
                         </div>
