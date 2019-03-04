@@ -9,7 +9,7 @@
         }
         
     } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat']))) { 
-        if(($_GET['soussoussouscat'] != "contact")){
+        if(isset($_GET['soussoussouscat']) AND ($_GET['soussoussouscat']!="contact")){
         
             include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php'; 
     
