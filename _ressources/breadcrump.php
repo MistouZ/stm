@@ -3,7 +3,7 @@
     <div class="page-title">
         <h1 style="color: #173752 !important; font-weight: 900;">
         <?php 
-            if (isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND (!isset($_GET['soussoussouscat']))) {
+            if (isset($_GET['souscat']) AND (!isset($_GET['soussouscat'])) AND (!isset($_GET['soussoussouscat']))) {
                 print strtoupper($_GET['cat']); 
             }elseif($_GET['soussoussouscat']!="contact"){
                 print strtoupper($_GET['soussoussouscat']); 
