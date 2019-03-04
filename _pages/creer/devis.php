@@ -29,7 +29,7 @@ $foldermanager = $foldermanager->getListActive($company->getIdcompany());*/
         <div class="portlet box blue-chambray">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fas fa-file-medical"></i>Création d'un nouveau devis</div>
+                    <i class="fas fa-file-medical"></i>CrÃ©ation d'un nouveau devis</div>
                 <div class="tools">
                     <a href="javascript:;" class="collapse"> </a>
                 </div>
@@ -40,25 +40,27 @@ $foldermanager = $foldermanager->getListActive($company->getIdcompany());*/
                     <div class="form-actions top">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green"><i class="far fa-save"></i> Enregistrer</button>
+                                <button type="submit" class="btn green"><i class="fas fa-save"></i> Enregistrer</button>
                                 <button type="button" class="btn default"><i class="fas fa-ban"></i> Annuler</button>
                             </div>
                         </div>
                     </div>
                     <div class="form-body">
                         <div class="form-group">
-                            <label class="control-label">Dossier</label>
-                            <select class="form-control" name="folder">
-                                <option value="">Choisissez un dossier...</option>
-                                <?php
-                                    /*foreach ($foldermanager as $folder){
-                                        $customer = $customermanager->getByID($folder->getCustomerId());
-                                ?>
-                                <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
-                                <?php
-                                }*/
-                                ?>
-                            </select>
+                            <div class="col-md-4">
+                                <label class="control-label">Dossier</label>
+                                <select class="form-control" name="folder">
+                                    <option value="">Choisissez un dossier...</option>
+                                    <?php
+                                        /*foreach ($foldermanager as $folder){
+                                            $customer = $customermanager->getByID($folder->getCustomerId());
+                                    ?>
+                                    <option value="<?php echo $folder->getIdFolder(); ?>">NÂ° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
+                                    <?php
+                                    }*/
+                                    ?>
+                                </select>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Email Address</label>
@@ -112,7 +114,7 @@ $foldermanager = $foldermanager->getListActive($company->getIdcompany());*/
                     <div class="form-actions fluid">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
-                                <button type="submit" class="btn green"><i class="far fa-save"></i> Enregistrer</button>
+                                <button type="submit" class="btn green"><i class="fas fa-save"></i> Enregistrer</button>
                                 <button type="button" class="btn default"><i class="fas fa-ban"></i> Annuler</button>
                             </div>
                         </div>
