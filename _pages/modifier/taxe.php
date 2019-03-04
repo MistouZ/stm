@@ -50,6 +50,17 @@ $tax = $taxes->getById($_GET['soussouscat']);
                             <div class="col-md-4">
                                 <input name="default" id="default" type="checkbox" <?php if($tax->getIsDefault()==1){ echo "checked=\"checked\"";} ?>class="form-control" /> </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Taxe active
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-9">
+                                <div class="radio-list" data-error-container="#credential_error">
+                                    <label class="radio-inline"><input name="isActive" id="isActiveO" type="radio" value="1" class="form-control" <?php if($tax->getIsActive()==1){echo "checked=\"checked\"" ;} ?> />Oui</label>
+                                    <label class="radio-inline"><input name="isActive" id="isActiveN" type="radio" value="0" class="form-control" <?php if($tax->getIsActive()==0){echo "checked=\"checked\"" ;} ?>/>Non</label>
+                                </div>
+                            </div>
+                        </div>
                         <input type="hidden" name="idTax" id="idTax" data-required="1" class="form-control" value="<?php echo $_GET['soussouscat'] ?>" />
                     </div>
                     <div class="form-actions">
