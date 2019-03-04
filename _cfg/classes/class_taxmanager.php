@@ -98,6 +98,19 @@ class TaxManager
 
         return new Tax($donnees);
     }
+    /**
+     * Find a tax by his TaxName
+     * @param $taxName
+     * @return Tax
+     */
+    public function getByPercent($taxPercent)
+    {
+        $q = $this->_db->query('SELECT * FROM tax WHERE percent LIKE "'.$taxPercent.'"');
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+        return new Tax($donnees);
+    }
+
 
     /**
      * Get all the taxes in the BDD
