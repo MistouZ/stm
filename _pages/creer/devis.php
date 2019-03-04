@@ -49,7 +49,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <div class="row form-section" style="padding: 12px 20px 15 px 20px;">
+                                <div class="row form-section" style="padding: 12px 20px 15px 20px;">
                                     <label class="col-md-2 control-label">Dossier
                                     <span class="required" aria-required="true"> * </span>
                                     </label>
@@ -86,7 +86,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="portlet light">
+                                        <div class="portlet light" style="margin-bottom: 0px !important;">
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <i class="fas fa-user-tie"></i>
