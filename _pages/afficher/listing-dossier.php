@@ -28,9 +28,11 @@ $contactmanager = new ContactManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 if($userlogged->getCredential() == "A"){
     $foldermanager = $foldermanager->getList($company->getIdcompany());
+    echo "all folder";
 }
 else{
     $foldermanager = $foldermanager->getListActive($company->getIdcompany());
+    echo "active folders";
 }
 ?>
 <div class="row">
