@@ -69,11 +69,11 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                 </div>
                                 <div id="infos" class="row form-section" style="margin: 10px 0px 10px 0px !important;">
                                     <div class="col-md-6">
-                                        <div class="portlet light" style="margin-bottom: 0px !important;">
+                                        <div class="portlet box red-soft" style="margin-bottom: 0px !important;">
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <i class="fas fa-building"></i>
-                                                    <span class="caption-subject bold font-grey-gallery uppercase"> Informations de la société </span>
+                                                    <span class="caption-subject bold uppercase"> Informations de la société </span>
                                                 </div>
                                                 <div class="tools">
                                                     <a href="" class="collapse" data-original-title="" title=""> </a>
@@ -86,11 +86,11 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="portlet light" style="margin-bottom: 0px !important;">
+                                        <div class="portlet box red-soft" style="margin-bottom: 0px !important;">
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <i class="fas fa-user-tie"></i>
-                                                    <span class="caption-subject bold font-grey-gallery uppercase"> Informations client </span>
+                                                    <span class="caption-subject bold uppercase"> Informations client </span>
                                                 </div>
                                                 <div class="tools">
                                                     <a href="" class="collapse" data-original-title="" title=""> </a>
@@ -105,6 +105,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                 </div>
                             </div>
                         </div>
+                        
                         <div class="form-group">
                             <label class="col-md-3 control-label">Email Address</label>
                             <div class="col-md-4">
