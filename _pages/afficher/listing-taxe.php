@@ -76,10 +76,10 @@ $taxmanager = $taxmanager->getAllTaxes();
                             <?php
                                 if($tax->getIsActive() == 1){?>
                                 <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client <?php echo $tax->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
-                            <?php }
-                                else{?>
+                            <?php }else
+                                {?>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Réactiver la taxe <?php echo $tax->getName(); ?> ?" data-content="Vous allez réactiver la taxe supprimée !" data-btn-ok-label="reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/reactiver_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-toggle-on" alt="reactiver"></i> Réactiver</a></td>
-                                <?php}
+                            <?php}
                             ?>
                         </tr>
                         <?php
