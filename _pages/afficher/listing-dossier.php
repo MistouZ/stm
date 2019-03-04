@@ -37,15 +37,30 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>s  </div>
-                <div class="tools"> </div>
+                <div class="actions">
+                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/creer'; ?>" class="btn btn-sm grey-mint">
+                        <i class="fa fa-plus"></i> Créer </a>
+                </div>
             </div>
             <div class="portlet-body">
-                <?php if($retour == "error") { ?>
+                <?php if($retour == "errorsuppr") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, le dossier n'a donc pas pu être supprimé !</div>
-                <?php }elseif($retour == "success"){ ?>
+                <?php }elseif($retour == "successsuppr"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> Le dossier a bien été supprimé !</div>
+                <?php }elseif($retour == "errormodif") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le dossier n'a donc pas pu être modifié !</div>
+                <?php }elseif($retour == "successmodif"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le dossier a bien été modifié !</div>
+                <?php }elseif($retour == "error") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le dossier n'a donc pas pu être créé !</div>
+                <?php }elseif($retour == "success"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le dossier a bien été créé !</div>
                 <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
