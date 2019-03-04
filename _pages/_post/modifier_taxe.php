@@ -40,7 +40,7 @@ if(isset($_POST['valider'])){
     echo $test;
     /*if(is_null($test)){
         header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/error");
-    }else{
+    }else{-
         header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/update");
     }*/
 
