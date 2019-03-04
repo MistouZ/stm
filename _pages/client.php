@@ -8,7 +8,7 @@
             include __DIR__.'/'.$_GET['souscat'].'/listing-client.php';
         }
         
-    } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat']))) {
+    } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND empty($_GET['soussoussouscat'])) {
         if(!ctype_digit($_GET['soussouscat'])){
             echo "Get : ".$_GET['soussouscat']. " int : ".ctype_digit($_GET['soussouscat']);
             include __DIR__.'/'.$_GET['souscat'].'/listing-client.php';
