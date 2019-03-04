@@ -67,7 +67,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                         </select>
                                     </div>
                                 </div>
-                                <div id="infos" class="row form-section">
+                                <div id="infos" class="row form-section" style="margin: 10px 0px 10px 0px !important;">
                                     <div class="col-md-6">
                                         <div class="portlet light" style="margin-bottom: 0px !important;">
                                             <div class="portlet-title">
