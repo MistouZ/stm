@@ -54,12 +54,10 @@ $taxmanager = $taxmanager->getAllTaxes();
                     foreach($taxmanager as $tax) {
                         if($tax->getIsActive() == 1)
                         {
-                            $active =="Oui";
-                            echo $active;
+                            $actif =="Oui";
                         }
                         else {
-                            $active == "Non";
-                            echo $active;
+                            $actif == "Non";
                         }
                         if($tax->getIsDefault() == 1)
                         {
@@ -68,13 +66,12 @@ $taxmanager = $taxmanager->getAllTaxes();
                         else {
                             $tax->setIsDefault("Non");
                         }
-                        echo $tax->getIsActive();
 
                         ?>
                         <tr>
                             <td><?php echo $tax->getName(); ?></td>
                             <td><?php echo $tax->getPercent(); ?>%</td>
-                            <td><?php echo $active;?></td>
+                            <td><?php echo $actif;?></td>
                             <td><?php echo $tax->getIsDefault();?></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                             <?php
