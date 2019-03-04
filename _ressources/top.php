@@ -9,6 +9,7 @@ $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $user = $usermanager->get($username);
 
+echo $user->getCredential();
 ?>
 <!-- BEGIN LOGO -->
 <div class="page-logo">
