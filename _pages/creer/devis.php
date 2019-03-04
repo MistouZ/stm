@@ -20,8 +20,8 @@ $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
-/*$company = $companymanager->getByNameData($companyNameData);
-$foldermanager = $foldermanager->getListActive($company->getIdcompany());*/
+$company = $companymanager->getByNameData($companyNameData);
+/*$foldermanager = $foldermanager->getListActive($company->getIdcompany());*/
 
 ?>
 <div class="row">
