@@ -75,7 +75,8 @@ else{
                             <th class="min-tablet">Modifier</th>
                             <?php if($credential == "A"){
                                 echo "<th class=\"min-tablet\">Supprimer / Réactiver</th>";
-                            }else{
+                            }
+                            else{
                                 echo "<th class=\"min-tablet\">Supprimer</th>";
                              }?>
                             <th class="none">Commercial</th>
