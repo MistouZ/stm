@@ -205,9 +205,15 @@ class TaxManager
      */
     public function reactivate(Tax $tax)
     {
-        $q = $this->_db->prepare('UPDATE tax SET isActive = \'1\' WHERE idTax = :idTax');
-        $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('UPDATE tax SET isActive = \'1\' WHERE idTax = :idTax');
+            $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_INT);
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
 }

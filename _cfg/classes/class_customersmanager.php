@@ -205,4 +205,16 @@ class CustomersManager
         }
     }
 
+
+    /**
+     * Reactivate customers
+     * @param Customers $customers
+     */
+    public function reactivate(Customers $customers)
+    {
+        $q = $this->_db->prepare('UPDATE customers SET isActive = \'1\' WHERE idcustomer = :idcustomer');
+        $q->bindValue(':idcustomer', $customers->getIdCustomer(),PDO::PARAM_INT);
+        $q->execute();
+    }
+
 }

@@ -249,4 +249,15 @@ class UsersManager
         }
     }
 
+    /**
+     * Reactivate the User
+     * @param User $user
+     */
+    public function reactivate(Users $user)
+    {
+        $q = $this->_db->prepare('UPDATE users SET isActive = \'1\' WHERE username = :username');
+        $q->bindValue(':username', $user->getUsername(),PDO::PARAM_INT);
+        $q->execute();
+    }
+
 }
