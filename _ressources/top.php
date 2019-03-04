@@ -21,7 +21,7 @@ $company = array();
 $company = new Company ($company);
 $companymanager = new CompaniesManager($bdd);
 $companymanager = $companymanager->getCompanies($_COOKIE['username']);
-echo count($companymanager);
+
 if(count($companymanager)>1){
 ?>
 <div class="page-actions">
