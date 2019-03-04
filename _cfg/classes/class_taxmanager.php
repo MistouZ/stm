@@ -128,7 +128,7 @@ class TaxManager
         $taxes = [];
 
 
-       $q=$this->_db->query("SELECT * FROM tax ORDER BY name ASC");
+       $q=$this->_db->query("SELECT * FROM tax WHERE isActive='1' ORDER BY name ASC");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $taxes[] = new Tax($donnees);
@@ -137,6 +137,23 @@ class TaxManager
         return $taxes;
     }
 
+    /**
+     * Get all the taxes in the BDD
+     * @return array
+     */
+    public function getAllTaxes()
+    {
+        $taxes = [];
+
+
+        $q=$this->_db->query("SELECT * FROM tax  ORDER BY name ASC");
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $taxes[] = new Tax($donnees);
+        }
+
+        return $taxes;
+    }
 
     /**
      * Get all the taxes in the BDD link to customers
