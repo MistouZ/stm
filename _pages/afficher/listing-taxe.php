@@ -16,7 +16,7 @@ $taxmanager = $taxmanager->getList();
     <div class="col-md-12">
         <?php if($retour == "existe"){ ?>
             <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Le contact existe déjà !</div>
+                <button class="close" data-close="alert"></button> La taxe existe déjà !</div>
         <?php }elseif($retour == "supprime"){?>
             <div class="alert alert-danger">
                 <button class="close" data-close="alert"></button> La taxe a bien été supprimée !</div>
