@@ -69,7 +69,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                 </div>
                                 <div id="infos" class="row form-section" style="margin: 10px 0px 10px 0px !important;">
                                     <div class="col-md-6">
-                                        <div class="portlet box red-soft" style="margin-bottom: 0px !important;">
+                                        <div class="portlet box purple-sharp" style="margin-bottom: 0px !important;">
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <i class="fas fa-building"></i>
@@ -86,7 +86,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="portlet box red-soft" style="margin-bottom: 0px !important;">
+                                        <div class="portlet box purple-sharp" style="margin-bottom: 0px !important;">
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <i class="fas fa-user-tie"></i>
