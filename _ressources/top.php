@@ -5,7 +5,7 @@ $username = $_COOKIE['username'];
 
 
 $arraylog = array();
-$userlogged = new Users($array);
+$userlogged = new Users($arraylog);
 $usermanagerlog = new UsersManager($bdd);
 $userlogged = $usermanagerlog->get($username);
 
