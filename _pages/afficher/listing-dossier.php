@@ -118,6 +118,9 @@ else{
                                 <td> ben rien</td>
 
                             <?php}
+                            else{
+                                echo "<td>pouet</td>";
+                            }
                             ?>
                             <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
