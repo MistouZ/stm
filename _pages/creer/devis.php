@@ -49,18 +49,58 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <label class="control-label">Dossier</label>
-                                <select class="form-control" name="folder">
-                                    <option value="">Choisissez un dossier...</option>
-                                    <?php
-                                        foreach ($foldermanager as $folder){
-                                            $customer = $customermanager->getByID($folder->getCustomerId());
-                                    ?>
-                                    <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
-                                    <?php
-                                    }
-                                    ?>
-                                </select>
+                                <div class="row">
+                                    <label class="col-md-3 control-label">Dossier</label>
+                                    <div class="col-md-9">
+                                        <select class="form-control" name="folder">
+                                            <option value="">Choisissez un dossier...</option>
+                                            <?php
+                                                foreach ($foldermanager as $folder){
+                                                    $customer = $customermanager->getByID($folder->getCustomerId());
+                                            ?>
+                                            <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="portlet light">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fas fa-building"></i>
+                                                    <span class="caption-subject bold font-grey-gallery uppercase"> Informations de la société </span>
+                                                </div>
+                                                <div class="tools">
+                                                    <a href="" class="collapse" data-original-title="" title=""> </a>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body" style="display: block;">
+                                                <h4>Société : </h4>
+                                                <h4>Comercial : </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="portlet light">
+                                            <div class="portlet-title">
+                                                <div class="caption">
+                                                    <i class="fas fa-user-tie"></i>
+                                                    <span class="caption-subject bold font-grey-gallery uppercase"> Informations client </span>
+                                                </div>
+                                                <div class="tools">
+                                                    <a href="" class="collapse" data-original-title="" title=""> </a>
+                                                </div>
+                                            </div>
+                                            <div class="portlet-body" style="display: block;">
+                                                <h4>Client : </h4>
+                                                <h4>Contact : </h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-group">
