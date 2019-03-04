@@ -64,6 +64,8 @@ class TaxManager
             $q = $this->_db->prepare('UPDATE tax SET isActive = \'0\' WHERE idTax = :idTax');
             $q->bindValue(':idTax', $tax->getIdTax(), PDO::PARAM_STR);
             $q->execute();
+            
+            return "ok";
         }
         catch(Exception $e){
             return null;
