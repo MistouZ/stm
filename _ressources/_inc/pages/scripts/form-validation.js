@@ -825,13 +825,13 @@ var FormValidation = function () {
                         minlength: 2,
                         required: true
                     },
-                    seller-select: {
+                    'seller-select': {
                         required: true
                     },
-                    customer-select: {
+                    'customer-select': {
                         required: true
                     },
-                    contact-select: {
+                    'contact-select': {
                         required: true
                     }
                 },
