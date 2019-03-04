@@ -73,11 +73,11 @@ else{
                             <th class="min-phone-l">Intitulé du dossier</th>
                             <th class="min-tablet">Client</th>
                             <th class="min-tablet">Modifier</th>
-                            <?php if($credential == "A"){ ?>
-                                <th class="min-tablet">Supprimer / Réactiver</th>
-                            <?php}else{ ?>
-                                <th class="min-tablet">Supprimer</th>
-                            <?php }?>
+                            <?php if($credential == "A"){
+                                echo "<th class=\"min-tablet\">Supprimer / Réactiver</th>";
+                            }else{
+                                echo "<th class=\"min-tablet\">Supprimer</th>";
+                             }?>
                             <th class="none">Commercial</th>
                             <th class="none">Contact</th>
                             <th class="none">Statut du dossier</th>
