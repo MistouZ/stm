@@ -40,7 +40,6 @@
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3" for="default">Taxe par défaut
-                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
                                 <input name="default" id="default" type="checkbox" class="form-control" /> </div>
