@@ -16,6 +16,14 @@ $prenom = $_COOKIE['prenom'];
 <!-- END RESPONSIVE MENU TOGGLER -->
 <!-- BEGIN PAGE ACTIONS -->
 <!-- DOC: Remove "hide" class to enable the page header actions -->
+<?php
+$company = array();
+$company = new Company ($company);
+$companymanager = new CompaniesManager($bdd);
+$companymanager = $companymanager->getCompanies($_COOKIE['username']);
+
+if(count($companymanager)>1){
+?>
 <div class="page-actions">
     <div class="btn-group">
         <button type="button" class="btn blue-ebonyclay btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
@@ -24,10 +32,7 @@ $prenom = $_COOKIE['prenom'];
         </button>
         <ul class="dropdown-menu" role="menu" style="min-width: 120px !important;">
         <?php
-            $company = array();
-            $company = new Company ($company);
-            $companymanager = new CompaniesManager($bdd);
-            $companymanager = $companymanager->getCompanies($_COOKIE['username']);
+            
             foreach($companymanager as $company){
         ?>
             <li style="text-align: center;">
@@ -40,6 +45,7 @@ $prenom = $_COOKIE['prenom'];
         </ul>
     </div>
 </div>
+<?php } ?>
 <!-- END PAGE ACTIONS -->
 <!-- BEGIN PAGE TOP -->
 <div class="page-top">
