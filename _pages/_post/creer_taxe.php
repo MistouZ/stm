@@ -32,13 +32,22 @@ if(isset($_POST['valider'])){
 
     $tax = new Tax($array);
     $taxmanager = new TaxManager($bdd);
-    $test = $taxmanager->add($tax);
-
-    if(is_null($test)){
-        header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/error");
-    }else{
-        header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/success");
+    $existe = $taxmanager->getByPercent($percent);
+    if(is_null($existe))
+    {
+        $test = $taxmanager->add($tax);
+        if(is_null($test)){
+            header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/error");
+        }else{
+            header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/success");
+        }
     }
+    else{
+        header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/existe");
+    }
+
+
+
 
 
 }
