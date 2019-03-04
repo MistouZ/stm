@@ -189,6 +189,8 @@ class TaxManager
             $q->bindValue(':isDefault', $tax->getIsDefault(), PDO::PARAM_INT);
 
             $q->execute();
+            
+            return "ok";
         }
         catch(Exception $e){
             return null;
