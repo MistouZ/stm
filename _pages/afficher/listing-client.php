@@ -1,4 +1,6 @@
 <?php
+$retour = $_GET['soussouscat'];
+
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
@@ -14,9 +16,25 @@ $customermanager = $customermanager->getList();
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
-                <div class="tools"> </div>
+                <div class="actions">
+                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/client/creer'; ?>" class="btn btn-sm grey-mint">
+                        <i class="fa fa-plus"></i> Créer </a>
+                </div>
             </div>
             <div class="portlet-body">
+                <?php if($retour == "error") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le client n'a donc pas pu être créé !</div>
+                <?php }elseif($retour == "success"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le client a bien été créé !</div>
+                <?php }elseif($retour == "errorsuppr") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le client n'a donc pas pu être supprimé !</div>
+                <?php }elseif($retour == "successsuppr"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le client a bien été supprimé !</div>
+                <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>

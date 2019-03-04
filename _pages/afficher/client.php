@@ -37,25 +37,31 @@ $taxmanager = $taxmanager->getList();
             <a href="javascript:;" class="reload"> </a>
         </div>
         <div class="actions">
-            <a data-toggle="modal" href="#modifier_client" class="btn btn-default btn-sm">
-                <i class="fa fa-pencil"></i> Modifier le client </a>
+            <a data-toggle="modal" href="#modifier_client" class="btn btn-sm grey-mint">
+                <i class="fas fa-pencil-alt"></i> Modifier le client </a>
         </div>
     </div>
     <div class="portlet-body">
        <div class="row">
             <div class="col-md-12">
-            <?php if($retour == "existe"){ ?>
-                <div class="alert alert-danger">
-                    <button class="close" data-close="alert"></button> Le contact existe déjà !</div>
-            <?php }elseif($retour == "supprime"){?>
-                <div class="alert alert-danger">
-                    <button class="close" data-close="alert"></button> Le contact a bien été supprimé !</div>
-            <?php }elseif($retour == "ajout"){ ?>
-                <div class="alert alert-success">
-                    <button class="close" data-close="alert"></button> Le contact a bien été créé !</div>
-            <?php }elseif($retour == "update"){ ?>
-                <div class="alert alert-success">
-                    <button class="close" data-close="alert"></button> Le contact a bien été mis à jour !</div>
+                <?php if($retour == "existe"){ ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Le contact existe déjà !</div>
+                <?php }elseif($retour == "supprime"){?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Le contact a bien été supprimé !</div>
+                <?php }elseif($retour == "ajout"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le contact a bien été créé !</div>
+                <?php }elseif($retour == "update"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le contact a bien été mis à jour !</div>
+                <?php }elseif($retour == "errormodif") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le client n'a donc pas pu être modifié !</div>
+                <?php }elseif($retour == "successmodif"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le client a bien été modifié !</div>
                 <?php } ?>
                 <div class="panel-group accordion scrollable" id="accordion2">
                     <div class="panel panel-default">
@@ -211,7 +217,7 @@ $taxmanager = $taxmanager->getList();
                         <h4 class="modal-title">Modification du client</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/modifier_client.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
+                        <form action="<?php echo URLHOST."_pages/_post/modifier_client.php"; ?>" method="post" id="client" class="form-horizontal form-row-seperated">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button> Vous devez remplir les champs requis (<span class="required"> * </span>) </div>
                             <div class="alert alert-success display-hide">

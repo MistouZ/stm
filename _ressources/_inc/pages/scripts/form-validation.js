@@ -681,6 +681,120 @@ var FormValidation = function () {
                 form7.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
             })
     }
+    
+    var handleValidation8 = function() {
+        // for more info visit the official plugin documentation: 
+        // http://docs.jquery.com/Plugins/Validation
+
+            var form8 = $('#client');
+            var error8 = $('.alert-danger', form8);
+            var success8 = $('.alert-success', form8);
+
+            //IMPORTANT: update CKEDITOR textarea with actual content before submit
+            /*form3.on('submit', function() {
+                for(var instanceName in CKEDITOR.instances) {
+                    CKEDITOR.instances[instanceName].updateElement();
+                }
+            })*/
+
+            form8.validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block help-block-error', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "", // validate all fields including form hidden input
+                rules: {
+                    name: {
+                        minlength: 2,
+                        required: true
+                    },
+                    physical_address: {
+                        required: true
+                    },
+                    invoice_address: {
+                        required: true
+                    },
+                    'case[]': {
+                        required: true,
+                        minlength: 1
+                    },
+                    'taxes[]': {
+                        required: true,
+                        minlength: 1
+                    }
+                },
+
+                messages: { // custom messages for radio buttons and checkboxes
+                    'case[]': {
+                        required: "Veuillez sélectionner au moins une société",
+                        minlength: jQuery.validator.format("Veuillez sélectionner au moins {0} société")
+                    },
+                    'taxes[]': {
+                        required: "Veuillez sélectionner au moins une taxe",
+                        minlength: jQuery.validator.format("Veuillez sélectionner au moins {0} taxe")
+                    }
+                },
+
+                errorPlacement: function (error, element) { // render error placement for each input type
+                    if (element.parent(".input-group").size() > 0) {
+                        error.insertAfter(element.parent(".input-group"));
+                    } else if (element.attr("data-error-container")) { 
+                        error.appendTo(element.attr("data-error-container"));
+                    } else if (element.parents('.radio-list').size() > 0) { 
+                        error.appendTo(element.parents('.radio-list').attr("data-error-container"));
+                    } else if (element.parents('.radio-inline').size() > 0) { 
+                        error.appendTo(element.parents('.radio-inline').attr("data-error-container"));
+                    } else if (element.parents('.checkbox-list').size() > 0) {
+                        error.appendTo(element.parents('.checkbox-list').attr("data-error-container"));
+                    } else if (element.parents('.checkbox-inline').size() > 0) { 
+                        error.appendTo(element.parents('.checkbox-inline').attr("data-error-container"));
+                    } else {
+                        error.insertAfter(element); // for other inputs, just perform default behavior
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit   
+                    success8.hide();
+                    error8.show();
+                    App.scrollTo(error8, -200);
+                },
+
+                highlight: function (element) { // hightlight error inputs
+                   $(element)
+                        .closest('.form-group').addClass('has-error'); // set error class to the control group
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    $(element)
+                        .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                },
+
+                success: function (label) {
+                    label
+                        .closest('.form-group').removeClass('has-error'); // set success class to the control group
+                },
+
+                submitHandler: function (form) {
+                    success8.show();
+                    error8.hide();
+                    form[0].submit(); // submit the form
+                }
+
+            });
+
+             //apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
+            $('.select2me', form8).change(function () {
+                form8.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
+            });
+
+            //initialize datepicker
+            $('.date-picker').datepicker({
+                rtl: App.isRTL(),
+                autoclose: true
+            });
+            $('.date-picker .form-control').change(function() {
+                form8.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
+            })
+    }
 
     var handleWysihtml5 = function() {
         if (!jQuery().wysihtml5) {
@@ -707,6 +821,7 @@ var FormValidation = function () {
             handleValidation5();
             handleValidation6();
             handleValidation7();
+            handleValidation8();
         }
 
     };
