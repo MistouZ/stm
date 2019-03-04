@@ -24,7 +24,7 @@ $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
-$credential = $userlogged->getCredential(
+$credential = $userlogged->getCredential();
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 if($credential == "A"){
