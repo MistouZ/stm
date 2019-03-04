@@ -21,6 +21,7 @@ $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
+echo $company->getIdcompany();
 /*$foldermanager = $foldermanager->getListActive($company->getIdcompany());*/
 
 ?>
