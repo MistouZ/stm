@@ -172,4 +172,16 @@ class FoldersManager
         }
     }
 
+
+    /**
+     * Reactivate delete Folder
+     * @param Folder $folder
+     */
+    public function reactivate(Folder $folder)
+    {
+        $q = $this->_db->prepare('UPDATE folder SET isActive = \'1\' WHERE idFolder = :idFolder');
+        $q->bindValue(':idFolder', $folder->getIdFolder(),PDO::PARAM_INT);
+        $q->execute();
+    }
+
 }
