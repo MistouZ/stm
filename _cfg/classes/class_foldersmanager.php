@@ -179,9 +179,15 @@ class FoldersManager
      */
     public function reactivate(Folder $folder)
     {
-        $q = $this->_db->prepare('UPDATE folder SET isActive = \'1\' WHERE idFolder = :idFolder');
-        $q->bindValue(':idFolder', $folder->getIdFolder(),PDO::PARAM_INT);
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('UPDATE folder SET isActive = \'1\' WHERE idFolder = :idFolder');
+            $q->bindValue(':idFolder', $folder->getIdFolder(),PDO::PARAM_INT);
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
 }
