@@ -74,13 +74,13 @@ $taxmanager = $taxmanager->getAllTaxes();
                             <td><?php echo $tax->getIsDefault();?></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/modifier/'.$tax->getIdTax(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                             <?php
-                               if($tax->getIsActive() == "Oui")
-                                {?>
-                                    <td><a class="btn green-haze" data-placement="top" data-toggle="confirmation" data-title="Reactiver le client <?php echo $tax->getName(); ?> ?" data-btn-ok-label="Reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/reactiver_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>
-                           <?php }
-                               /*else{?>
-                                    <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Reactiver le client <?php echo $tax->getName(); ?> ?" data-btn-ok-label="Reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/reactiver_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>
-                            <?php}*/?>
+                            if($tax->getIsActive() == "Oui"){?>
+                                <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client <?php echo $tax->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                            <?php}
+                            else{
+                                echo "tu peux réactiver si tu veux";
+                            }
+                            ?>
                         </tr>
                         <?php
                     }
