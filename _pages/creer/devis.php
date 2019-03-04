@@ -49,29 +49,27 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <div class="row form-section">
-                                    <div class="col-md-12">
-                                        <label class="col-md-2 control-label">Dossier
-                                        <span class="required" aria-required="true"> * </span>
-                                        </label>
-                                        <div class="col-md-10">
-                                            <select class="form-control" name="folder">
-                                                <option value="">Choisissez un dossier...</option>
-                                                <?php
-                                                    foreach ($foldermanager as $folder){
-                                                        $customer = $customermanager->getByID($folder->getCustomerId());
-                                                ?>
-                                                <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
-                                                <?php
-                                                }
-                                                ?>
-                                            </select>
-                                        </div>
+                                <div class="row form-section" style="padding: 12px 20px 15 px 20px;">
+                                    <label class="col-md-2 control-label">Dossier
+                                    <span class="required" aria-required="true"> * </span>
+                                    </label>
+                                    <div class="col-md-10">
+                                        <select class="form-control" name="folder">
+                                            <option value="">Choisissez un dossier...</option>
+                                            <?php
+                                                foreach ($foldermanager as $folder){
+                                                    $customer = $customermanager->getByID($folder->getCustomerId());
+                                            ?>
+                                            <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
+                                            <?php
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div id="infos" class="row form-section">
                                     <div class="col-md-6">
-                                        <div class="portlet light">
+                                        <div class="portlet light" style="margin-bottom: 0px !important;">
                                             <div class="portlet-title">
                                                 <div class="caption">
                                                     <i class="fas fa-building"></i>
