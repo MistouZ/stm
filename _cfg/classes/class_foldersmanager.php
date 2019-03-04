@@ -135,7 +135,7 @@ class FoldersManager
     {
         $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid' AND isActive ='\1\' ");
+        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid' AND isActive =\'1\' ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $folders[] = new Folder($donnees);
