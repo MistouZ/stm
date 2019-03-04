@@ -78,11 +78,9 @@ $taxmanager = $taxmanager->getAllTaxes();
                                 <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client <?php echo $tax->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             <?php }
                                 else{?>
-                                    <td><a class="btn green-mint" data-placement="top" data-toggle="confirmation" data-title="Réactiver la taxe <?php echo $tax->getName(); ?> ?" data-content="Vous allez réactiver la taxe supprimée !" data-btn-ok-label="reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/reactiver_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-trash-alt" alt="reactiver"></i> Réactiver</a></td>
+                                    <td><a class="fas fa-toggle-on" data-placement="top" data-toggle="confirmation" data-title="Réactiver la taxe <?php echo $tax->getName(); ?> ?" data-content="Vous allez réactiver la taxe supprimée !" data-btn-ok-label="reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/reactiver_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-trash-alt" alt="reactiver"></i> Réactiver</a></td>
                                 <?php}
                             ?>
-                            ?>
-                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client <?php echo $tax->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                         </tr>
                         <?php
                     }
