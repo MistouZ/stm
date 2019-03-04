@@ -37,11 +37,10 @@ if(isset($_POST['valider'])){
     $tax = new Tax($array);
     $taxmanager = new TaxManager($bdd);
     $test = $taxmanager->update($tax);
-    echo $test;
-    /*if(is_null($test)){
-        header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/error");
-    }else{-
-        header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/update");
-    }*/
 
+}
+if(is_null($test)){
+    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/error");
+}else{-
+    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/update");
 }
