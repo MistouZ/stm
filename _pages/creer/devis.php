@@ -49,7 +49,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <div class="row form-section" style="padding: 12px 20px 15px 20px;">
+                                <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
                                     <label class="col-md-2 control-label">Dossier
                                     <span class="required" aria-required="true"> * </span>
                                     </label>
