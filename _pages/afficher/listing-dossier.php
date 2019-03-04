@@ -74,11 +74,9 @@ else{
                             <th class="min-phone-l">Intitulé du dossier</th>
                             <th class="min-tablet">Client</th>
                             <th class="min-tablet">Modifier</th>
-                            <?php echo $userlogged->getCredential();
-                            if($userlogged->getCredential()== 'A'){ ?>
+                            <?php if($userlogged->getCredential() == "A"){ ?>
                                 <th class="min-tablet">Supprimer / Réactiver</th>
-                            <?php}
-                            else{ ?>
+                            <?php}else{ ?>
                                 <th class="min-tablet">Supprimer</th>
                             <?php }?>
                             <th class="none">Commercial</th>
