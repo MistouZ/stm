@@ -20,7 +20,7 @@ $taxmanager = $taxmanager->getList();
         <?php }elseif($retour == "supprime"){?>
             <div class="alert alert-danger">
                 <button class="close" data-close="alert"></button> La taxe a bien été supprimée !</div>
-        <?php  elseif($retour == "error"){?>
+        <?php } elseif($retour == "error"){?>
             <div class="alert alert-danger">
                 <button class="close" data-close="alert"></button> Erreur lors de la création de la taxe !</div>
         <?php }elseif($retour == "success"){ ?>
