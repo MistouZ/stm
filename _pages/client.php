@@ -13,14 +13,13 @@
             echo "Get : ".$_GET['soussouscat']. " int : ".ctype_digit($_GET['soussouscat']);
             include __DIR__.'/'.$_GET['souscat'].'/listing-client.php';
             
-        }elseif(isset($_GET['soussoussouscat']) AND ($_GET['soussoussouscat']=="contact")){
-            echo "Get3 : ".$_GET['soussouscat']. " int : ".ctype_digit($_GET['soussouscat']);
-            include __DIR__.'/'.$_GET['cat5'].'/'.$_GET['soussoussouscat'].'.php';
-            
         }else{
             echo "Get4 : ".$_GET['soussouscat']. " int : ".ctype_digit($_GET['soussouscat']);
             include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php';
         }
+    }elseif(isset($_GET['soussoussouscat']) AND ($_GET['soussoussouscat']=="contact")){
+        echo "Get3 : ".$_GET['soussouscat']. " int : ".ctype_digit($_GET['soussouscat']);
+        include __DIR__.'/'.$_GET['cat5'].'/'.$_GET['soussoussouscat'].'.php';
+        
     }
-    echo $_GET['soussoussouscat']." / ".$_GET['cat5'];
 ?>
