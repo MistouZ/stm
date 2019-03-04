@@ -67,6 +67,7 @@ $taxmanager = $taxmanager->getAllTaxes();
                             $tax->setIsDefault("Non");
                         }
                         echo $tax->getIsActive();
+                        echo $active;
                         ?>
                         <tr>
                             <td><?php echo $tax->getName(); ?></td>
