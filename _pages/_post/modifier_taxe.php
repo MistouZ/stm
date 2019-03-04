@@ -30,7 +30,7 @@ if(isset($_POST['valider'])){
         'name' => $name,
         'percent' => $percent,
         'value' => $value,
-        'isActive' => isActive,
+        'isActive' => $isActive,
         'isDefault' => $isdefault
     );
 
