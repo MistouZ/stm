@@ -55,9 +55,11 @@ $taxmanager = $taxmanager->getAllTaxes();
                         if($tax->getIsActive() == 1)
                         {
                             $active =="Oui";
+                            echo $active;
                         }
                         else {
                             $active == "Non";
+                            echo $active;
                         }
                         if($tax->getIsDefault() == 1)
                         {
@@ -67,7 +69,7 @@ $taxmanager = $taxmanager->getAllTaxes();
                             $tax->setIsDefault("Non");
                         }
                         echo $tax->getIsActive();
-                        echo $active;
+
                         ?>
                         <tr>
                             <td><?php echo $tax->getName(); ?></td>
