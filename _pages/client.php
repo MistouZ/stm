@@ -22,4 +22,5 @@
             include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php';
         }
     }
+    echo $_GET['soussoussouscat']." / ".$_GET['cat5'];
 ?>
