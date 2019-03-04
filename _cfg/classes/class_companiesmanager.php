@@ -150,6 +150,11 @@ class CompaniesManager extends Features
         }
     }
 
+
+    /**
+     * @param $username
+     * @return array
+     */
     public function getCompanies($username)
     {
         $companies = [];
@@ -160,6 +165,17 @@ class CompaniesManager extends Features
         }
 
         return $companies;
+    }
+
+    /**
+     * Reactivate the Company
+     * @param Company $company
+     */
+    public function reactivate(Company $company)
+    {
+        $q = $this->_db->prepare('UPDATE company SET isActive = \'1\' WHERE idcompany = :idcompany');
+        $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
+        $q->execute();
     }
 
 
