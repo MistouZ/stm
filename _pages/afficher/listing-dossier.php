@@ -38,7 +38,7 @@ $foldermanager = $foldermanager->getList($company->getIdcompany());
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>s  </div>
                 <div class="actions">
-                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/user/creer'; ?>" class="btn btn-sm grey-mint">
+                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer </a>
                 </div>
             </div>
