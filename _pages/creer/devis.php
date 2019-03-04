@@ -50,8 +50,8 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                         <div class="form-group">
                             <div class="col-md-12">
                                 <div class="row">
-                                    <label class="col-md-3 control-label">Dossier</label>
-                                    <div class="col-md-9">
+                                    <label class="col-md-2 control-label">Dossier</label>
+                                    <div class="col-md-10">
                                         <select class="form-control" name="folder">
                                             <option value="">Choisissez un dossier...</option>
                                             <?php
@@ -78,8 +78,8 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 </div>
                                             </div>
                                             <div class="portlet-body" style="display: block;">
-                                                <h4>Société : </h4>
-                                                <h4>Comercial : </h4>
+                                                <h5>Société : </h5>
+                                                <h5>Comercial : </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -95,8 +95,8 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 </div>
                                             </div>
                                             <div class="portlet-body" style="display: block;">
-                                                <h4>Client : </h4>
-                                                <h4>Contact : </h4>
+                                                <h5>Client : </h5>
+                                                <h5>Contact : </h5>
                                             </div>
                                         </div>
                                     </div>
