@@ -80,8 +80,8 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 </div>
                                             </div>
                                             <div class="portlet-body" style="display: block;">
-                                                <h5>Société : </h5>
-                                                <h5>Comercial : </h5>
+                                                <h5 style="font-weight: 800;">Société : </h5>
+                                                <h5 style="font-weight: 800;">Comercial : </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -97,8 +97,8 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 </div>
                                             </div>
                                             <div class="portlet-body" style="display: block;">
-                                                <h5>Client : </h5>
-                                                <h5>Contact : </h5>
+                                                <h5 style="font-weight: 800;">Client : </h5>
+                                                <h5 style="font-weight: 800;">Contact : </h5>
                                             </div>
                                         </div>
                                     </div>
