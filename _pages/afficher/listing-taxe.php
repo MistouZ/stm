@@ -54,10 +54,10 @@ $taxmanager = $taxmanager->getAllTaxes();
                     foreach($taxmanager as $tax) {
                         if($tax->getIsActive() == 1)
                         {
-                            $actif =="Oui";
+                            $actif ="Oui";
                         }
                         else {
-                            $actif == "Non";
+                            $actif = "Non";
                         }
                         if($tax->getIsDefault() == 1)
                         {
