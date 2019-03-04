@@ -4,10 +4,10 @@ $prenom = $_COOKIE['prenom'];
 $username = $_COOKIE['username'];
 
 
-$array = array();
-$user = new Users($array);
-$usermanager = new UsersManager($bdd);
-$user = $usermanager->get($username);
+$arraylog = array();
+$userlogged = new Users($array);
+$usermanagerlog = new UsersManager($bdd);
+$userlogged = $usermanagerlog->get($username);
 
 ?>
 <!-- BEGIN LOGO -->

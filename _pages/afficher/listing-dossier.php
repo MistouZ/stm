@@ -24,11 +24,11 @@ $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
-echo $user->getCredential();
+echo $userlogged->getCredential();
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
-if($user->getCredential() == "A"){
+if($userlogged->getCredential() == "A"){
     $foldermanager = $foldermanager->getList($company->getIdcompany());
 }
 else{
@@ -74,7 +74,7 @@ else{
                             <th class="min-phone-l">Intitulé du dossier</th>
                             <th class="min-tablet">Client</th>
                             <th class="min-tablet">Modifier</th>
-                            <?php if($user->getCredential()== "A"){ ?>
+                            <?php if($userlogged->getCredential()== "A"){ ?>
                                 <th class="min-tablet">Supprimer / Réactiver</th>
                             <?php}
                             else{ ?>
