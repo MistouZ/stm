@@ -10,6 +10,7 @@
         
     } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat']))) {
         if(!is_int($_GET['soussouscat'])){
+            echo "Get : ".$_GET['soussouscat']. " int : ".is_int($_GET['soussouscat']);
             include __DIR__.'/'.$_GET['souscat'].'/listing-client.php';
             
         }elseif(isset($_GET['soussoussouscat']) AND ($_GET['soussoussouscat']!="contact")){
