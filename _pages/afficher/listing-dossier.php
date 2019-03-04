@@ -27,8 +27,12 @@ $contactmanager = new ContactManager($bdd);
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
-$foldermanager = $foldermanager->getList($company->getIdcompany());
-
+if($user->getCredential() == "A"){
+    $foldermanager = $foldermanager->getList($company->getIdcompany());
+}
+else{
+    $foldermanager = $foldermanager->getListActive($company->getIdcompany());
+}
 ?>
 <div class="row">
     <div class="col-md-12">
