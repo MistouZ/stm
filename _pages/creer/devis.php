@@ -53,12 +53,12 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                 <select class="form-control" name="folder">
                                     <option value="">Choisissez un dossier...</option>
                                     <?php
-                                        /*foreach ($foldermanager as $folder){
+                                        foreach ($foldermanager as $folder){
                                             $customer = $customermanager->getByID($folder->getCustomerId());
                                     ?>
                                     <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
                                     <?php
-                                    }*/
+                                    }
                                     ?>
                                 </select>
                             </div>
