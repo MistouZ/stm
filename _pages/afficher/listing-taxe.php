@@ -17,7 +17,7 @@ $taxmanager = $taxmanager->getAllTaxes();
         <?php if($retour == "existe"){ ?>
             <div class="alert alert-danger">
                 <button class="close" data-close="alert"></button> La taxe existe déjà !</div>
-        <?php }elseif($retour == "supprime"){?>
+        <?php }elseif($retour == "delete"){?>
             <div class="alert alert-danger">
                 <button class="close" data-close="alert"></button> La taxe a bien été supprimée !</div>
         <?php } elseif($retour == "error"){?>
