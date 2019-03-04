@@ -49,7 +49,7 @@
             </form>
             <!-- END LOGIN FORM -->
             <!-- BEGIN FORGOT PASSWORD FORM -->
-            <form class="forget-form" action="index.html" method="post">
+            <form class="forget-form" action="<?php echo URLHOST."_pages/_post/reset_password.php"; ?>" method="post">
                 <h3>Mot de passe oublié ?</h3>
                 <p> Entrez votre adresse mail pour réinitialiser votre mot de passe </p>
                 <div class="form-group">
