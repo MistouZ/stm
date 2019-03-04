@@ -119,7 +119,6 @@ else{
 
                             <?php}
                             ?>
-
                             <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $folder->getIsActive();?></span></td>
