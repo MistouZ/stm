@@ -47,7 +47,7 @@ $foldermanager = $foldermanager->getListActive($company->getIdcompany());*/
                     </div>
                     <div class="form-body">
                         <div class="form-group">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <label class="control-label">Dossier</label>
                                 <select class="form-control" name="folder">
                                     <option value="">Choisissez un dossier...</option>
