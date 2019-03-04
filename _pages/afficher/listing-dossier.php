@@ -24,6 +24,7 @@ $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
+echo $user->getCredential();
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
