@@ -94,12 +94,12 @@ else{
                        $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
-                            $folder->setIsActive("Ouvert");
+                            $actif = "Ouvert";
                             $label = "success";
                         }
                         elseif($folder->getIsActive() == 0)
                         {
-                            $folder->setIsActive("Fermé");
+                            $actif = "Fermé";
                             $label = "danger";
                         }
                         ?>
@@ -109,11 +109,11 @@ else{
                             <td><?php echo $customer->getName(); ?></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                             <?php
-                            if($folder->getIsActive() == 'Ouvert' && $credential == 'A')
+                            if($folder->getIsActive() == 1 && $credential == 'A')
                             {?>
                                 <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le dossier n° <?php echo $folder->getFolderNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_dossier.php?idFolder=".$folder->getIdFolder(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             <?php}
-                            elseif($folder->getIsActive() == 'Fermé' && $credential == 'A')
+                            elseif($folder->getIsActive() == 0 && $credential == 'A')
                             {?>
                                 <td> ben rien</td>
 
@@ -121,7 +121,7 @@ else{
                             ?>
                             <td><?php echo $user->getName()." ".$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
-                            <td><span class="label label-<?php echo $label; ?>" ><?php echo $folder->getIsActive();?></span></td>
+                            <td><span class="label label-<?php echo $label; ?>" ><?php echo $actif;?></span></td>
                             <td><?php echo $folder->getDay()."/".$folder->getMonth()."/".$folder->getYear();?></td>
                         </tr>
                     <?php
