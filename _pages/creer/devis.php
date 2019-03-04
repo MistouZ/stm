@@ -49,8 +49,10 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <div class="row">
-                                    <label class="col-md-2 control-label">Dossier</label>
+                                <div class="row form-section">
+                                    <label class="col-md-2 control-label">Dossier
+                                    <span class="required" aria-required="true"> * </span>
+                                    </label>
                                     <div class="col-md-10">
                                         <select class="form-control" name="folder">
                                             <option value="">Choisissez un dossier...</option>
@@ -65,7 +67,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                         </select>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div id="infos" class="row form-section">
                                     <div class="col-md-6">
                                         <div class="portlet light">
                                             <div class="portlet-title">
