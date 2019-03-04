@@ -7,6 +7,8 @@ include("../../_cfg/cfg.php");
  */
 
 $array = array();
+$companyNameData = $_GET["section"];
+
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $folder = new Folder($array);
@@ -18,7 +20,7 @@ $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
-$company = $companymanager->getByNameData($_GET['section']);
+$company = $companymanager->getByNameData($companyNameData);
 $foldermanager = $foldermanager->getListActive($company->getIdcompany());
 
 ?>
