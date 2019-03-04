@@ -18,14 +18,11 @@ if($_COOKIE['connected']=="false"){
         $array = array();
         $company = new Company($array);
         $companymanager = new CompaniesManager($bdd);
-        $companiesList = $companymanager->getCompanies($user->getUsername());
-        if(count($companiesList)>1){
-            header('Location: '.URLHOST."select_societe");
-        }else{
-            $company = $companymanager->getById($user->getDefaultCompany());
-            setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
-            header('Location: '.URLHOST.$company->getNameData()."/accueil"); 
-        }
+        $company = $companymanager->getById($user->getDefaultCompany());
+        
+        setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
+        
+        header('Location: '.URLHOST.$company->getNameData()."/accueil");  
 }
 
 ?>
