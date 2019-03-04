@@ -78,7 +78,7 @@ $taxmanager = $taxmanager->getAllTaxes();
                                 <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client <?php echo $tax->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_taxe.php?idTax=".$tax->getIdTax(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             <?php}
                             else{
-                                echo "tu peux réactiver si tu veux";
+                                echo "<td>tu peux réactiver si tu veux</td>";
                             }
                             ?>
                         </tr>
