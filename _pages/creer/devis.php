@@ -1,10 +1,12 @@
 <?php
+include("../../_cfg/cfg.php");
 
 /**
  * @author Nicolas
  * @copyright 2019
  */
 
+$array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $folder = new Folder($array);
