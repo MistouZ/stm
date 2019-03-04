@@ -17,7 +17,7 @@ $test = $taxmanager->reactivate($tax);
 if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/error");
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/success");
+    header('Location: '.URLHOST.$_COOKIE['company']."/taxe/afficher/update");
 }
 
 ?>
