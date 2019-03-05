@@ -15,26 +15,6 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/morris/morris.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/morris/raphael-min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/counterup/jquery.counterup.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/amcharts/amcharts.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/amcharts/serial.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/amcharts/pie.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/amcharts/radar.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/amcharts/themes/light.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/amcharts/themes/patterns.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/amcharts/themes/chalk.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/ammap/ammap.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/ammap/maps/js/worldLow.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/amcharts/amstockcharts/amstock.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/fullcalendar/fullcalendar.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/flot/jquery.flot.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/flot/jquery.flot.resize.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/flot/jquery.flot.categories.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier"){ ?>    
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
