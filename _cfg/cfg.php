@@ -33,18 +33,18 @@ function getContactFormFolder($idFolder){
     echo "2";
     $user = new Users($array);
     $usermanager = new UsersManager($bdd);
-    
+    echo "3";
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-        
+    echo "4";    
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);
     $folder = $foldermanager->get($idFolder);
-    
+    echo "5";
     $arrayContact = array();
     $contacts = new Contact($arrayContact);
     $contactmanager = new ContactManager($bdd);
-    
+    echo "6";
     $customer = $customermanager->getByID($folder->getCustomerId());
     $contact = $contactmanager->getById($folder->getCustomerId());
     $company = $companymanager->getById($folder->getCompanyId());
