@@ -227,11 +227,9 @@ $('#ajout').click(function(){
 
 });
 $(document).ready(function() {
-    $("#folder").change(function(e) 
-    {
-    	e.preventDefault();
+    $("#folder").change(
     	console.log("selected.value : "+$("#folder").val()+", data[selected.value] : "+$("#folder").val());
-    	$.ajax({
+    	/*$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
     		type: "POST",
             dataType: "json",
@@ -246,7 +244,7 @@ $(document).ready(function() {
                  $("#spanCustomer").text(customer);
                  $("#spanContact").text(contact);
     	  }
-    	});
+    	});*/
     });
 });
 </script>
