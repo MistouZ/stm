@@ -8,9 +8,9 @@ function __autoload($className) {
 }
 
 
-/*function getContactFormFolder($idFolder){
-    header('Content-Type: application/json');
-    /*$bdd = new DB();
+function getContactFormFolder($idFolder){
+
+    $bdd = new DB();
     $bdd->connexion();
     
     $array = array();
@@ -23,18 +23,11 @@ function __autoload($className) {
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);   
     $folder = new Folder($array);
-    $foldermanager = new FoldersManager($bdd);*/
-    //header('Content-Type: application/json');
+    $foldermanager = new FoldersManager($bdd);
     $idFolder = json_decode($_POST['idFolder']);
     $funct = $_POST['functionCalled'];
-    $tabReponse = array('contact'=>$funct,'customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
-    echo json_encode($tabReponse);
-    /*$folder = $foldermanager->get($idFolder);
-    if(is_null($folder)){
-        echo "vide";
-    }else{
-        var_dump($folder);
-    }
+
+    $folder = $foldermanager->get($idFolder);
     
     $arrayContact = array();
     $contacts = new Contact($arrayContact);
@@ -43,32 +36,28 @@ function __autoload($className) {
     $customer = $customermanager->getByID($folder->getCustomerId());
     $contact = $contactmanager->getById($folder->getCustomerId());
     $company = $companymanager->getById($folder->getCompanyId());
-    $user = $usermanager->get($folder->getSeller());*/
+    $user = $usermanager->get($folder->getSeller());
     
-    //$tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName());
-    /*$tabReponse->contact = $contact->getFirstname().' '.$contact->getName();
+    $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName());
+    $tabReponse->contact = $contact->getFirstname().' '.$contact->getName();
     $tabReponse->customer = $customer->getName();
     $tabReponse->company = $company->getName();
-    $tabReponse->seller = $user->getName()." ".$user->getFirstName();*/
+    $tabReponse->seller = $user->getName()." ".$user->getFirstName();
     
-    /*$reponse = json_encode($tabReponse);
-    return $reponse;*/
-/*}
+    $reponse = json_encode($tabReponse);
+    echo $reponse;
+}
 
 if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
     $action = $_POST['functionCalled'];
-    $idFolder = $_POST['idFolder'];
+    $idFolder = json_decode($_POST['idFolder']);
     switch($action){
         case 'getContactFormFolder' : 
-            $tabReponse = array('contact'=>'Folder 1','customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
-            return json_encode($tabReponse);
-            //getContactFormFolder($idFolder);
-            //print_r($reponse);
-            //return $reponse;
+            getContactFormFolder($idFolder);
             break;
     }
 
-}*/
+}
 
 
 ?>
