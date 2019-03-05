@@ -52,9 +52,9 @@ function getContactFormFolder($idFolder){
     return $reponse;*/
 }
 
-if(isset($_GET['functionCalled']) && !empty($_GET['functionCalled'])) {
-    $action = $_GET['functionCalled'];
-    $idFolder = $_GET['idFolder'];
+if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
+    $action = $_POST['functionCalled'];
+    $idFolder = $_POST['idFolder'];
     switch($action){
         case 'getContactFormFolder' : 
             getContactFormFolder($idFolder);

@@ -217,7 +217,7 @@ $(document).ready(function() {
         alert(i);
     	$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
-    		type: "GET",
+    		type: "POST",
             //dataType: "json",
     		data: {functionCalled:'getContactFormFolder', idFolder:i} ,
     		contentType: false,
