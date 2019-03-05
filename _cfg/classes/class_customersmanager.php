@@ -229,9 +229,15 @@ class CustomersManager
      */
     public function reactivate(Customers $customers)
     {
-        $q = $this->_db->prepare('UPDATE customers SET isActive = \'1\' WHERE idcustomer = :idcustomer');
-        $q->bindValue(':idcustomer', $customers->getIdCustomer(),PDO::PARAM_INT);
-        $q->execute();
+       try{
+           $q = $this->_db->prepare('UPDATE customers SET isActive = \'1\' WHERE idcustomer = :idcustomer');
+           $q->bindValue(':idcustomer', $customers->getIdCustomer(),PDO::PARAM_INT);
+           $q->execute();
+           return "ok";
+       }
+       catch(Exception $e){
+        return null;
+       }
     }
 
 }
