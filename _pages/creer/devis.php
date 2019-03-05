@@ -219,7 +219,7 @@ $(document).ready(function() {
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
     		type: "GET",
             //dataType: "json",
-    		data: {functionCalled:'getContactFomFolder', idFolder:i} ,
+    		data: {functionCalled:'getContactFormFolder', idFolder:i} ,
     		contentType: false,
     	    cache: false,
     		processData:false,

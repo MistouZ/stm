@@ -54,7 +54,6 @@ if(isset($_GET['functionCalled']) && !empty($_GET['functionCalled'])) {
     $idFolder = $_GET['idFolder'];
     switch($action){
         case 'getContactFormFolder' : 
-            echo "TEST";
             $reponse = getContactFormFolder($idFolder);
             print_r($reponse);
             return $reponse;
