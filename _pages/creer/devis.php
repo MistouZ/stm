@@ -226,7 +226,7 @@ $(document).ready(function() {
     		success: function(response)
     	  {
     			 alert("sucess !");
-                 console.log(response);
+                 alert(response);
                  /*var json = $.parseJSON(response);
                  $("#spanCompany").text(json.company);
                  $("#spanSeller").text(json.seller);
