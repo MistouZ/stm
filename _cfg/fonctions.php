@@ -25,7 +25,7 @@ function getContactFormFolder($idFolder){
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);*/
     $tabReponse = array('contact'=>'Folder 1','customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
-    echo json_encode($tabReponse);
+    return json_encode($tabReponse);
     /*$folder = $foldermanager->get($idFolder);
     if(is_null($folder)){
         echo "vide";
