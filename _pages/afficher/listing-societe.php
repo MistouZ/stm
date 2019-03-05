@@ -82,7 +82,7 @@ $companymanager = $companymanager->getList();
                             <td><?php echo $company->getIsActive();?></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/societe/modifier/'.$company->getIdcompany();; ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                             <?php
-                            if($company->getIsActive() == 1)
+                            if($company->getIsActive() == "Oui")
                             {
                                 echo '<td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer la société '.$company->getName().' ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/supprimer_societe.php?idCompany='.$company->getIdcompany().'"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>';
                             }
