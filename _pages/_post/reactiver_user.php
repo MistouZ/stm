@@ -15,9 +15,9 @@ $usermanager = new UsersManager($bdd);
 $user->setUsername($username);
 $test = $usermanager->reactivate($user);
 if(is_null($test)){
-    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/erroractivate");
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/erroractivate");
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/successactivate");
+    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/successactivate");
 }
 
 ?>
