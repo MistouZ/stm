@@ -21,7 +21,7 @@ function getContactFormFolder($idFolder){
     
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-        
+    echo "coucou";    
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);
     $tabReponse = array('contact'=>'Folder 1','customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
