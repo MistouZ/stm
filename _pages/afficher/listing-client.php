@@ -4,12 +4,12 @@ $retour = $_GET['soussouscat'];
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
+$credential = $userlogged->getCredential();
 
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 if($credential == "A"){
-    //$customermanager = $customermanager->getListAllByCompany($company);
-    $customermanager = $customermanager->getListByCompany($company);
+    $customermanager = $customermanager->getListAllByCompany($company);
 }
 else{
     $customermanager = $customermanager->getListByCompany($company);
