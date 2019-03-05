@@ -25,6 +25,8 @@ function getContactFormFolder($idFolder){
     $folder = $foldermanager->get($idFolder);
     if(is_null($folder)){
         echo "vide";
+    }else{
+        var_dump($folder);
     }
     
     $arrayContact = array();
