@@ -39,6 +39,7 @@ if(isset($_GET['functionCalled']) && !empty($_GET['functionCalled'])) {
         case 'getContactFormFolder' : 
             echo "TEST";
             $reponse = getContactFormFolder($idFolder);
+            print_r($reponse);
             return $reponse;
             break;
     }
