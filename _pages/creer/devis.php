@@ -221,6 +221,7 @@ $(document).ready(function() {
             dataType: "json",
             contentType: 'application/json; charset=utf-8',
     		data: {functionCalled:'getContactFormFolder', idFolder:4} ,
+            alert("Fonction: "+functionCalled+" / Id : "+idFolder);
     		contentType: false,
     	    cache: false,
     		processData:false,
