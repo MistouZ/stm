@@ -1,7 +1,7 @@
 <?php
-//include 'cfg.php';
 
-echo "include Functions OK";
+include 'classes/class_company.php';
+include 'classes/class_companiesmanager.php';
 
 function getContactFormFolder($idFolder){
     echo "1";
