@@ -213,29 +213,24 @@ $foldermanager = $foldermanager->getListActive($idCompany);
 $(document).ready(function() {
     $("#folder").on("change",function(){
         var i = $(this).val();
-        var postJson = new Object();
-        postJson.functionCalled='getContactFormFolder';
-        postJson.idFolder=i;
-        postValue = JSON.stringify(postJson);
     	console.log("selected.value : "+i+", data[selected.value] : "+i);
         
     	$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
     		type: "POST",
-            dataType: "text",
-            //contentType: 'application/json; charset=utf-8',
-    		data: postValue ,
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+    		data: {functionCalled:'getContactFormFolder',idFolder:i },
     	    cache: false,
-    		processData:false,
     		success: function(response)
     	  {
                  alert("sucess !");
-                 alert(response);
-                 /*var json = $.parseJSON(response);
-                 $("#spanCompany").text(json.company);
-                 $("#spanSeller").text(json.seller);
-                 $("#spanCustomer").text(json.customer);
-                 $("#spanContact").text(json.contact);*/
+                 //var json = $.parseJSON(response);
+                 $("#spanCompany").text(response.company);
+                 $("#spanSeller").text(response.seller);
+                 $("#spanCustomer").text(response.customer);
+                 $("#spanContact").text(response.contact);
+                 
     	  },
           error: function (jqXHR, exception) {
             var msg = '';
