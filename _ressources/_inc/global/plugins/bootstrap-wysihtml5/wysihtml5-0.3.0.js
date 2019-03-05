@@ -5448,7 +5448,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
           charset        = doc.characterSet || doc.charset || "utf-8",
           sandboxHtml    = this._getHtml({
             charset:      charset,
-            stylesheets:  this.config.stylesheets
+            stylesheets:  'wysiwyg-color.css'
           });
 
       // Create the basic dom tree including proper DOCTYPE and charset
