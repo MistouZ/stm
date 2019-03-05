@@ -36,7 +36,7 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-easypiechart/jquery.easypiechart.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier"){ ?>
-        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
+        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-summernote/summernote.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
