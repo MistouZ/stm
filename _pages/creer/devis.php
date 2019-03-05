@@ -49,56 +49,69 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-12">
-                                <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                    <label class="col-md-2 control-label">Dossier
-                                    <span class="required" aria-required="true"> * </span>
-                                    </label>
-                                    <div class="col-md-10">
-                                        <select class="form-control" name="folder">
-                                            <option value="">Choisissez un dossier...</option>
-                                            <?php
-                                                foreach ($foldermanager as $folder){
-                                                    $customer = $customermanager->getByID($folder->getCustomerId());
-                                            ?>
-                                            <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
-                                            <?php
-                                            }
-                                            ?>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div id="infos" class="row form-section" style="margin: 10px 0px 10px 0px !important;">
-                                    <div class="col-md-6">
-                                        <div class="portlet box purple-sharp" style="margin-bottom: 0px !important;">
-                                            <div class="portlet-title">
-                                                <div class="caption">
-                                                    <i class="fas fa-building"></i>
-                                                    <span class="caption-subject bold uppercase"> Informations de la société </span>
-                                                </div>
-                                                <div class="tools">
-                                                    <a href="" class="collapse" data-original-title="" title=""> </a>
-                                                </div>
-                                            </div>
-                                            <div class="portlet-body" style="display: block;">
-                                                <h5 style="font-weight: 800;">Société : </h5>
-                                                <h5 style="font-weight: 800;">Comercial : </h5>
-                                            </div>
+                                <div class="portlet box blue-soft">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fas fa-folder"></i>
+                                            <span class="caption-subject bold uppercase"> Sélection du dossier </span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="" class="collapse" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="portlet box purple-sharp" style="margin-bottom: 0px !important;">
-                                            <div class="portlet-title">
-                                                <div class="caption">
-                                                    <i class="fas fa-user-tie"></i>
-                                                    <span class="caption-subject bold uppercase"> Informations client </span>
-                                                </div>
-                                                <div class="tools">
-                                                    <a href="" class="collapse" data-original-title="" title=""> </a>
+                                    <div class="portlet-body form" style="display: block;">
+                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
+                                            <label class="col-md-2 control-label">Dossier
+                                            <span class="required" aria-required="true"> * </span>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <select class="form-control" name="folder">
+                                                    <option value="">Choisissez un dossier...</option>
+                                                    <?php
+                                                        foreach ($foldermanager as $folder){
+                                                            $customer = $customermanager->getByID($folder->getCustomerId());
+                                                    ?>
+                                                    <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="infos" class="row form-section" style="margin: 10px 0px 10px 0px !important;">
+                                            <div class="col-md-6">
+                                                <div class="portlet box purple-sharp" style="margin-bottom: 0px !important;">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fas fa-building"></i>
+                                                            <span class="caption-subject bold uppercase"> Informations de la société </span>
+                                                        </div>
+                                                        <div class="tools">
+                                                            <a href="" class="collapse" data-original-title="" title=""> </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body" style="display: block;">
+                                                        <h5 style="font-weight: 800;">Société : </h5>
+                                                        <h5 style="font-weight: 800;">Comercial : </h5>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="portlet-body" style="display: block;">
-                                                <h5 style="font-weight: 800;">Client : </h5>
-                                                <h5 style="font-weight: 800;">Contact : </h5>
+                                            <div class="col-md-6">
+                                                <div class="portlet box purple-sharp" style="margin-bottom: 0px !important;">
+                                                    <div class="portlet-title">
+                                                        <div class="caption">
+                                                            <i class="fas fa-user-tie"></i>
+                                                            <span class="caption-subject bold uppercase"> Informations client </span>
+                                                        </div>
+                                                        <div class="tools">
+                                                            <a href="" class="collapse" data-original-title="" title=""> </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="portlet-body" style="display: block;">
+                                                        <h5 style="font-weight: 800;">Client : </h5>
+                                                        <h5 style="font-weight: 800;">Contact : </h5>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -123,9 +136,6 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <div class="col-md-12">
-                                                            <div class="summernote" id="summernote_1"> </div>
-                                                        </div>
                                                         <textarea class="wysihtml5 form-control" id="description" name="description[]" rows="4"></textarea>
                                                     </div>
                                                 </div>
