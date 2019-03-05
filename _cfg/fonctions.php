@@ -36,7 +36,10 @@ if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
     $action = $_POST['functionCalled'];
     $idFolder = $_POST['idFolder'];
     switch($action){
-        case 'getContactFormFolder' : getContactFormFolder($idFolder);break;
+        case 'getContactFormFolder' : 
+            $reponse = getContactFormFolder($idFolder);
+            return $reponse;
+            break;
     }
 
 }

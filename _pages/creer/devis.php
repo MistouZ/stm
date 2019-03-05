@@ -225,10 +225,10 @@ $(document).ready(function() {
     		processData:false,
     		success: function(response)
     	  {
-    			 $("#spanCompany").text(company);
-                 $("#spanSeller").text(seller);
-                 $("#spanCustomer").text(customer);
-                 $("#spanContact").text(contact);
+    			 $("#spanCompany").text(response.company);
+                 $("#spanSeller").text(response.seller);
+                 $("#spanCustomer").text(response.customer);
+                 $("#spanContact").text(response.contact);
     	  }
     	});
     });
