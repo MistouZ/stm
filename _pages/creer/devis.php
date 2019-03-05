@@ -215,11 +215,11 @@ $(document).ready(function() {
         var i = $(this).val();
     	console.log("selected.value : "+i+", data[selected.value] : "+i);
         alert(i);
-    	/*$.ajax({
+    	$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
     		type: "POST",
             dataType: "json",
-    		data: {functionCalled:'getContactFormFolder', idFolder:$("#folder").val()} ,
+    		data: {functionCalled:'getContactFormFolder', idFolder:i} ,
     		contentType: false,
     	cache: false,
     		processData:false,
@@ -230,7 +230,7 @@ $(document).ready(function() {
                  $("#spanCustomer").text(customer);
                  $("#spanContact").text(contact);
     	  }
-    	});*/
+    	});
     });
     
     $('#ajout').click(function(){
