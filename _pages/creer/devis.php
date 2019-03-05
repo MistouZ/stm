@@ -229,7 +229,6 @@ $(document).ready(function() {
     		processData:false,
     		success: function(response)
     	  {
-    			 alert("Fonction: "+functionCalled+" / Id : "+idFolder);
                  alert("sucess !");
                  alert(response);
                  /*var json = $.parseJSON(response);
