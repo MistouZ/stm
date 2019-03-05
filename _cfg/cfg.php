@@ -17,6 +17,7 @@ include 'classes/class_folder.php';
 include 'classes/class_foldersmanager.php';
 include 'classes/class_tax.php';
 include 'classes/class_taxmanager.php';
+include 'fonction.php';
 
 global $bdd;
 $bdd = new DB();

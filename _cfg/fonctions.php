@@ -1,31 +1,44 @@
 <?php
 
-function enleverCaracteresSpeciaux($text) {
-$utf8 = array(
-'/[áàâãªä]/u' => 'a',
-'/[ÁÀÂÃÄ]/u' => 'A',
-'/[ÍÌÎÏ]/u' => 'I',
-'/[íìîï]/u' => 'i',
-'/[éèêë]/u' => 'e',
-'/[ÉÈÊË]/u' => 'E',
-'/[óòôõºö]/u' => 'o',
-'/[ÓÒÔÕÖ]/u' => 'O',
-'/[úùûü]/u' => 'u',
-'/[ÚÙÛÜ]/u' => 'U',
-'/ç/' => 'c',
-'/Ç/' => 'C',
-'/ñ/' => 'n',
-'/Ñ/' => 'N',
-'//' => '-', // conversion d'un tiret UTF-8 en un tiret simple
-'/[]/u' => ' ', // guillemet simple
-'/[«»]/u' => ' ', // guillemet double
-'/ /' => ' ', // espace insécable (équiv. à 0x160)
-);
-return strtolower(preg_replace(array_keys($utf8), array_values($utf8), $text));
+function getContactFormFolder($idFolder){
+    $company = new Company($array);
+    $companymanager = new CompaniesManager($bdd);
+    
+    $user = new Users($array);
+    $usermanager = new UsersManager($bdd);
+    
+    $customer = new Customers($array);
+    $customermanager = new CustomersManager($bdd);
+        
+    $folder = new Folder($array);
+    $foldermanager = new FoldersManager($bdd);
+    $folder = $foldermanager->get($idFolder);
+    
+    $arrayContact = array();
+    $contacts = new Contact($arrayContact);
+    $contactmanager = new ContactManager($bdd);
+    
+    $customer = $customermanager->getByID($folder->getCustomerId());
+    $contact = $contactmanager->getById($folder->getCustomerId());
+    $company = $companymanager->getById($folder->getCompanyId());
+    $user = $usermanager->get($folder->getSeller());
+    
+    $tabReponse->contact = $contact->getFirstname().' '.$contact->getName();
+    $tabReponse->customer = $customer->getName();
+    $tabReponse->company = $company->getName();
+    $tabReponse->seller = $user->getName()." ".$user->getFirstName();;
+    
+    $reponse = json_encode($tabReponse);
+    return $reponse;
 }
 
-function transformerEnURL($string) {
-return strtolower(preg_replace(array( '#[s-]+#', '#[^A-Za-z0-9. -]+#' ), array( '-', '' ), enleverCaracteresSpeciaux(str_replace(array_keys($string), array_values($string), urldecode($string)))));
+if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
+    $action = $_POST['functionCalled'];
+    $idFolder = $_POST['idFolder'];
+    switch($action){
+        case 'getContactFormFolder' : getContactFormFolder($idFolder);break;
+    }
+
 }
 
 
