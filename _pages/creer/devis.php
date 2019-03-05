@@ -34,7 +34,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="#" id="devis" name="devis" class="form-horizontal">
+                <form action="<?php echo URLHOST."_pages/_post/creer_devis.php"; ?>" method="post" id="devis" name="devis" class="form-horizontal">
                     <div class="form-actions top">
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
@@ -115,7 +115,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" id="detaildevis" style="display: none;">
                             <div class="col-md-12">
                                 <div class="portlet box blue-dark">
                                     <div class="portlet-title">
@@ -175,7 +175,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                 </div>
                             </div>
                         </div>
-                         <div class="row">
+                         <div class="row" id="optdevis" style="display: none;">
                             <div class="col-md-12">
                                 <div class="portlet box grey-cascade" style="margin-bottom: 0px !important;">
                                     <div class="portlet-title">
@@ -228,7 +228,10 @@ $(document).ready(function() {
                  $("#spanSeller").text(response.seller);
                  $("#spanCustomer").text(response.customer);
                  $("#spanContact").text(response.contact);
-                 
+                 $("#detaildevis").css('display','');
+                 $("#detaildevis").css('display','visible');
+                 $("#optdevis").css('display','');
+                 $("#optdevis").css('display','visible');
     	  },
           error: function (jqXHR, exception) {
             var msg = '';
