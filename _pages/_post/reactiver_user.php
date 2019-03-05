@@ -14,10 +14,11 @@ $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $user->setUsername($username);
 $test = $usermanager->reactivate($user);
-if(is_null($test)){
+/*if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/erroractivate");
 }else{
     header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/successactivate");
 }
-
+*/
+echo $username;
 ?>
