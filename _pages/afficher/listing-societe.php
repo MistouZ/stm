@@ -33,6 +33,9 @@ $companymanager = $companymanager->getListAllCompanies();
                 <?php }elseif($retour == "successsuppr"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> La société a bien été supprimée !</div>
+                <?php }elseif($retour == "erroractivate") { ?>
+                <div class="alert alert-danger">
+                    <button class="close" data-close="alert"></button> Une erreur est survenue, la société n'a donc pas pu être réactivé !</div>
                 <?php }elseif($retour == "errormodif") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, la société n'a donc pas pu être modifiée !</div>
@@ -45,6 +48,9 @@ $companymanager = $companymanager->getListAllCompanies();
                 <?php }elseif($retour == "success"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> La société a bien été créé !</div>
+                <?php }elseif($retour == "successactivate"){ ?>
+                <div class="alert alert-success">
+                    <button class="close" data-close="alert"></button> La société a bien été réactivé !</div>
                 <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
