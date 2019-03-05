@@ -105,7 +105,76 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                 </div>
                             </div>
                         </div>
-                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="portlet box blue-dark" style="margin-bottom: 0px !important;">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fas fa-cogs"></i>
+                                            <span class="caption-subject bold uppercase"> Détails du devis </span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="" class="collapse" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body" style="display: block;">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <label class="control-label">Description</label>
+                                                    <input type="textarea" id="description" name="description[]" class="form-control" placeholder="Description">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Quantité</label>
+                                                    <input type="digits" id="quantite" name="quantite[]" class="form-control" placeholder="Qt.">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Remise (%)</label>
+                                                    <input type="digits" id="remise" name="remise[]" class="form-control" placeholder="xx">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Taxes</label>
+                                                    <select class="form-control" name="folder">
+                                                        <option value="">Taxes</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label class="control-label">Prix HT</label>
+                                                    <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="portlet box grey-cascade" style="margin-bottom: 0px !important;">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fas fa-sliders-h"></i>
+                                            <span class="caption-subject bold uppercase"> Options du devis </span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="" class="expand" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body" style="display: none;">
+                                        <h5 style="font-weight: 800;">Société : </h5>
+                                        <h5 style="font-weight: 800;">Comercial : </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="form-group">
                             <label class="col-md-3 control-label">Email Address</label>
                             <div class="col-md-4">
