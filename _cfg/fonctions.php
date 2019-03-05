@@ -1,7 +1,7 @@
 <?php
 include '_cfg/cfg.php';
 
-echo "include Functions OK"";
+echo "include Functions OK";
 
 function getContactFormFolder($idFolder){
     echo "1";
