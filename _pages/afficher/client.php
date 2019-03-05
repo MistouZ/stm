@@ -131,7 +131,7 @@ $taxmanager = $taxmanager->getList();
                                         foreach($contactmanager as $contact) {
                                     ?>
                                         <tr>
-                                            <td><?php echo $contact->getName()." ".$contact->getFirstname(); ?></td>
+                                            <td><?php echo $user->getFirstName().' '.$user->getName(); ?></td>
                                             <td><?php echo $contact->getEmailAddress(); ?></td>
                                             <td><?php echo $contact->getPhoneNumber(); ?></td>
                                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/client/afficher/'.$customerId.'/contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
