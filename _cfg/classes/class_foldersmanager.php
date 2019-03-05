@@ -97,10 +97,9 @@ class FoldersManager
      */
     public function get($folderId)
     {
-        
         try{
-            echo " / id Get : ".$folderId;
             $folderId = (integer) $folderId;
+            echo " / id Get int : ".$folderId;
             $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId);
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
             print_r($donnees);
