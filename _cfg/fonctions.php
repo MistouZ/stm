@@ -3,6 +3,8 @@ function __autoload($className) {
       if (file_exists('classes/class_'.$className . '.php')) { 
           require_once 'classes/class_'.$className . '.php';
           echo "OK CLASS";
+      }else{
+        echo 'classes/class_'.$className . '.php';
       }
 }
 
