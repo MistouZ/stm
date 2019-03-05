@@ -224,8 +224,6 @@ $(document).ready(function() {
     	    cache: false,
     		success: function(response)
     	  {
-                 alert("sucess !");
-                 //var json = $.parseJSON(response);
                  $("#spanCompany").text(response.company);
                  $("#spanSeller").text(response.seller);
                  $("#spanCustomer").text(response.customer);
