@@ -5503,7 +5503,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
       if (stylesheets) {
         length = stylesheets.length;
         for (; i<length; i++) {
-          html += '<link rel="stylesheet" href="' + stylesheets[i] + '">';
+          html += '<link rel="stylesheet" href="/' + stylesheets[i] + '">';
         }
       }
       templateVars.stylesheets = html;
