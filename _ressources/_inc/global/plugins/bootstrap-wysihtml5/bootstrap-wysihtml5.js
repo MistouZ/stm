@@ -398,9 +398,9 @@
         "color": false,
         "emphasis": true,
         "lists": true,
-        "html": true,
-        "link": true,
-        "image": true,
+        "html": false,
+        "link": false,
+        "image": false,
         events: {},
         parserRules: {
             classes: {
@@ -470,24 +470,24 @@
     var locale = $.fn.wysihtml5.locale = {
         en: {
             font_styles: {
-                normal: "Normal text",
-                h1: "Heading 1",
-                h2: "Heading 2",
-                h3: "Heading 3",
-                h4: "Heading 4",
-                h5: "Heading 5",
-                h6: "Heading 6"
+                normal: "Normal",
+                h1: "Titre 1",
+                h2: "Titre 2",
+                h3: "Titre 3",
+                h4: "Titre 4",
+                h5: "Titre 5",
+                h6: "Titre 6"
             },
             emphasis: {
-                bold: "Bold",
+                bold: "Gras",
                 italic: "Italic",
-                underline: "Underline"
+                underline: "Souligné"
             },
             lists: {
-                unordered: "Unordered list",
-                ordered: "Ordered list",
-                outdent: "Outdent",
-                indent: "Indent"
+                unordered: "Liste à puces",
+                ordered: "Liste numérotée",
+                outdent: "Décaller à gauche",
+                indent: "Décaller à droite"
             },
             link: {
                 insert: "Insert link",
@@ -495,11 +495,11 @@
                 target: "Open link in new window"
             },
             image: {
-                insert: "Insert image",
-                cancel: "Cancel"
+                insert: "Image",
+                cancel: "Anuler"
             },
             html: {
-                edit: "Edit HTML"
+                edit: "Editer HTML"
             },
             colours: {
                 black: "Black",
