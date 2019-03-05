@@ -2519,15 +2519,15 @@
         ['style', ['style']],
         ['font', ['bold', 'italic', 'underline', 'clear']],
         // ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-        ['fontname', ['fontname']],
+        //['fontname', ['fontname']],
         ['fontsize', ['fontsize']],
-        ['color', ['color']],
+        //['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
-        ['height', ['height']],
-        ['table', ['table']],
-        ['insert', ['link', 'picture', 'hr']],
-        ['view', ['fullscreen', 'codeview']],
-        ['help', ['help']]
+        //['height', ['height']],
+        //['table', ['table']],
+        //['insert', ['link', 'picture', 'hr']],
+        //['view', ['fullscreen', 'codeview']],
+        //['help', ['help']]
       ],
 
       plugin : { },
