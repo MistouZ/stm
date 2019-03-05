@@ -212,7 +212,9 @@ $foldermanager = $foldermanager->getListActive($idCompany);
 <script>
 $(document).ready(function() {
     $("#folder").on("change",function(){
-    	console.log("selected.value : "+$(this).val()+", data[selected.value] : "+$(this).val());
+        var i = $(this).val();
+    	console.log("selected.value : "+i+", data[selected.value] : "+i);
+        alert(i);
     	/*$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
     		type: "POST",
