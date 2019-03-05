@@ -277,7 +277,7 @@ class UsersManager
             return "ok";
         }
         catch(Exception $e){
-        return null;
+            return null;
         }
     }
 
