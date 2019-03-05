@@ -101,7 +101,7 @@ class FoldersManager
             $folderId = (integer) $folderId;
             $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId);
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
-    
+            print_r($donnees);
             return new Folder($donnees);
         }
         catch(Exception $e){
