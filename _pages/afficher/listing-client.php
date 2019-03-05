@@ -15,7 +15,7 @@ print_r($company);
 else{
     $customermanager = $customermanager->getListByCompany($company->getIdcompany());
 }
-*/
+
 ?>
 <html>
 <div class="row">
@@ -91,3 +91,4 @@ else{
     </div>
 </div>
 </html>
+<?php */?>
