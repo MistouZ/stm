@@ -37,6 +37,7 @@ class ContactManager
         {
             try
             {
+                $contact->setName(strtoupper($contact->getName()));
                 $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
                 $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
                 $q->bindValue(':firstname', $contact->getFirstname(), PDO::PARAM_STR);
@@ -67,6 +68,7 @@ class ContactManager
      */
     public function addToSuppliers(Contact $contact,Suppliers $suppliers)
     {
+        $contact->setName(strtoupper($contact->getName()));
         $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :first_name, :email_address, :password, :phone_number, :isActive)');
         $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
         $q->bindValue(':first_name', $contact->getFirstName(), PDO::PARAM_STR);
@@ -160,6 +162,7 @@ class ContactManager
      */
     public function update(Contact $contact)
     {
+        $contact->setName(strtoupper($contact->getName()));
         $q = $this->_db->prepare('UPDATE contact SET name = :name, firstname = :firstname, emailAddress = :emailAddress, phoneNumber = :phoneNumber, isActive = :isActive  WHERE idContact = :idContact');
         $q->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_STR);
         $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
