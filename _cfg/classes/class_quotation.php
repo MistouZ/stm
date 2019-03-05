@@ -19,7 +19,7 @@ class Quotation extends Features
     private $companyId;
     private $folderId;
     private $customerName;
-    private $contactId;$
+    private $contactId;
     private $descriptionId;
 
     /**
