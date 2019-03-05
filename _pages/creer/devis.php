@@ -225,7 +225,8 @@ $(document).ready(function() {
     		processData:false,
     		success: function(response)
     	  {
-    			 $("#spanCompany").text(response.company);
+    			 alert("sucess !");
+                 $("#spanCompany").text(response.company);
                  $("#spanSeller").text(response.seller);
                  $("#spanCustomer").text(response.customer);
                  $("#spanContact").text(response.contact);
