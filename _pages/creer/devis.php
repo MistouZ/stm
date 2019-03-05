@@ -228,7 +228,7 @@ $(document).ready(function() {
     
     });
 
-    $("#folder").change(function(){
+    $("#folder").on("change",function(){
     	console.log("selected.value : "+$(this).val()+", data[selected.value] : "+$(this).val());
     	/*$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
