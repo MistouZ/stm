@@ -228,7 +228,9 @@ $(document).ready(function() {
                  $("#spanSeller").text(response.seller);
                  $("#spanCustomer").text(response.customer);
                  $("#spanContact").text(response.contact);
+                 $("#detaildevis").css('display','');
                  $("#detaildevis").css('display','visible');
+                 $("#optdevis").css('display','');
                  $("#optdevis").css('display','visible');
     	  },
           error: function (jqXHR, exception) {
