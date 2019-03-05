@@ -37,7 +37,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                 <form action="#" id="devis" name="devis" class="form-horizontal">
                     <div class="form-actions top">
                         <div class="row">
-                            <div class="col-md-offset-3 col-md-9">
+                            <div class="col-md-12" style="text-align: center;">
                                 <button type="submit" class="btn green"><i class="fas fa-save"></i> Enregistrer</button>
                                 <button type="button" class="btn default"><i class="fas fa-ban"></i> Annuler</button>
                             </div>
@@ -88,8 +88,8 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                         </div>
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
-                                                        <h5 style="font-weight: 800;">Société : </h5>
-                                                        <h5 style="font-weight: 800;">Comercial : </h5>
+                                                        <h5 style="font-weight: 800;">Société : <span id="spanCompany"></span></h5>
+                                                        <h5 style="font-weight: 800;">Comercial : <span id="spanSeller"></span></h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -105,8 +105,8 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                         </div>
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
-                                                        <h5 style="font-weight: 800;">Client : </h5>
-                                                        <h5 style="font-weight: 800;">Contact : </h5>
+                                                        <h5 style="font-weight: 800;">Client : <span id="spanCustomer"></span></h5>
+                                                        <h5 style="font-weight: 800;">Contact : <span id="spanContact"></span></h5>
                                                     </div>
                                                 </div>
                                             </div>
@@ -166,7 +166,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                         </div>
                                         <div class="form-actions fluid">
                                             <div class="row">
-                                                <div class="col-md-offset-3 col-md-9">
+                                                <div class="col-md-12" style="text-align: center;">
                                                     <button type="button" id="ajout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                     </div>
                     <div class="form-actions fluid">
                         <div class="row">
-                            <div class="col-md-offset-3 col-md-9">
+                            <div class="col-md-12" style="text-align: center;">
                                 <button type="submit" class="btn green"><i class="fas fa-save"></i> Enregistrer</button>
                                 <button type="button" class="btn default"><i class="fas fa-ban"></i> Annuler</button>
                             </div>
@@ -211,7 +211,6 @@ $foldermanager = $foldermanager->getListActive($idCompany);
 </div>
 <script>
 $('#ajout').click(function(){
-
 
   // get the last DIV which ID starts with ^= "klon"
   var $div = $('div[id^="ligne"]:last').data( "arr", [ 1 ] );
@@ -227,4 +226,26 @@ $('#ajout').click(function(){
   $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
 
 });
+
+$("#folder").on('change',(function(e) 
+{
+	e.preventDefault();
+	
+	$.ajax({
+        url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
+		type: "POST",
+        dataType: "json",
+		data: {functionCalled:'getContactFormFolder', idFolder:$("#folder").val()} ,
+		contentType: false,
+	cache: false,
+		processData:false,
+		success: function(response)
+	  {
+			 $("#spanCompany").text(company);
+             $("#spanSeller").text(seller);
+             $("#spanCustomer").text(customer);
+             $("#spanContact").text(contact);
+	  }
+	});
+}));
 </script>
