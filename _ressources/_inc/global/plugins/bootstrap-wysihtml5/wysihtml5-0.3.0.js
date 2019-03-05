@@ -5448,7 +5448,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
           charset        = doc.characterSet || doc.charset || "utf-8",
           sandboxHtml    = this._getHtml({
             charset:      charset,
-            stylesheets:  this.config.stylesheets
+            stylesheets:  '_ressources/_inc/global/plugins/bootstrap-wysihtml5/wysiwyg-color.css'
           });
 
       // Create the basic dom tree including proper DOCTYPE and charset
@@ -5503,7 +5503,7 @@ wysihtml5.dom.replaceWithChildNodes = function(node) {
       if (stylesheets) {
         length = stylesheets.length;
         for (; i<length; i++) {
-          html += '<link rel="stylesheet" href="' + stylesheets[i] + '">';
+          html += '<link rel="stylesheet" href="/' + stylesheets[i] + '">';
         }
       }
       templateVars.stylesheets = html;
