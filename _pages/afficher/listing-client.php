@@ -6,9 +6,11 @@ $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $credential = $userlogged->getCredential();
 
+echo $credential;
+
 /*récupération des objets en base*/
-$company = $companymanager->getByNameData($companyNameData);
-print_r($company);
+//$company = $companymanager->getByNameData($companyNameData);
+//print_r($company);
 /*if($credential == "A"){
     $customermanager = $customermanager->getListAllByCompany($company->getIdcompany());
 }
