@@ -178,6 +178,21 @@ class UsersManager
         }
 
         return $users;
+    }/**
+ * Get all the users in the BDD
+ * @return array
+ */
+    public function getAllUsers()
+    {
+        $users = [];
+
+        $q=$this->_db->query("SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM users u INNER JOIN  link_company_users lk ON u.username =  lk.users_username INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.isActive='1' GROUP BY u.username");
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $users[] = new Users($donnees);
+        }
+
+        return $users;
     }
 
     /**
