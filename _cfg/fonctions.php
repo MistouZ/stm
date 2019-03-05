@@ -21,10 +21,9 @@ function getContactFormFolder($idFolder){
     $customermanager = new CustomersManager($bdd);
         
     $folder = new Folder($array);
-    echo 'OK folder / ';
     $foldermanager = new FoldersManager($bdd);
-    echo'OK manager / Folder N° : '.$idFolder;
-    $folder = $foldermanager->get($idFolder);
+    $tabReponse = array('contact'=>'Folder 1','customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
+    /*$folder = $foldermanager->get($idFolder);
     if(is_null($folder)){
         echo "vide";
     }else{
@@ -38,9 +37,9 @@ function getContactFormFolder($idFolder){
     $customer = $customermanager->getByID($folder->getCustomerId());
     $contact = $contactmanager->getById($folder->getCustomerId());
     $company = $companymanager->getById($folder->getCompanyId());
-    $user = $usermanager->get($folder->getSeller());
+    $user = $usermanager->get($folder->getSeller());*/
     
-    $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName());
+    //$tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName());
     /*$tabReponse->contact = $contact->getFirstname().' '.$contact->getName();
     $tabReponse->customer = $customer->getName();
     $tabReponse->company = $company->getName();
