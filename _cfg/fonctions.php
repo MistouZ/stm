@@ -2,19 +2,18 @@
 function __autoload($className) { 
       if (file_exists('./classes/class_'.strtolower($className) . '.php')) { 
           require_once './classes/class_'.strtolower($className) . '.php';
-          echo "OK CLASS";
       }else{
-        echo 'classes/class_'.$className . '.php';
+        echo 'classes/class_'.$className . '.php - Not Found';
       }
 }
 
 
 function getContactFormFolder($idFolder){
-    echo "1";
+
     $array = array();
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
-    echo "2";
+
     $user = new Users($array);
     $usermanager = new UsersManager($bdd);
     
@@ -24,6 +23,9 @@ function getContactFormFolder($idFolder){
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);
     $folder = $foldermanager->get($idFolder);
+    if(is_null($folder)){
+        echo "vide";
+    }
     
     $arrayContact = array();
     $contacts = new Contact($arrayContact);
