@@ -230,12 +230,12 @@ $(document).ready(function() {
     		success: function(response)
     	  {
                  alert("sucess !");
-                 alert(response);
-                 /*var json = $.parseJSON(response);
+                 var json = $.parseJSON(response);
                  $("#spanCompany").text(json.company);
                  $("#spanSeller").text(json.seller);
                  $("#spanCustomer").text(json.customer);
-                 $("#spanContact").text(json.contact);*/
+                 $("#spanContact").text(json.contact);
+                 
     	  },
           error: function (jqXHR, exception) {
             var msg = '';
