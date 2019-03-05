@@ -21,7 +21,9 @@ function getContactFormFolder($idFolder){
     $customermanager = new CustomersManager($bdd);
         
     $folder = new Folder($array);
+    echo 'OK folder';
     $foldermanager = new FoldersManager($bdd);
+    echo'OK manager';
     $folder = $foldermanager->get($idFolder);
     if(is_null($folder)){
         echo "vide";
