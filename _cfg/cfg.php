@@ -25,7 +25,7 @@ $bdd->connexion();
 date_default_timezone_set('Pacific/Noumea');
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
-function getContactFormFolder($idFolder){
+/*function getContactFormFolder($idFolder){
     $array = array();
     echo "1 Folder :".$idFolder." / ";
     $company = new Company($array);
@@ -71,6 +71,6 @@ if(isset($_GET['functionCalled']) && !empty($_GET['functionCalled'])) {
             break;
     }
 
-}
+}*/
 
 ?>
