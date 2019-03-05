@@ -8,7 +8,7 @@ function __autoload($className) {
 }
 
 
-function getContactFormFolder($idFolder){
+/*function getContactFormFolder($idFolder){
     header('Content-Type: application/json');
     /*$bdd = new DB();
     $bdd->connexion();
@@ -24,8 +24,9 @@ function getContactFormFolder($idFolder){
     $customermanager = new CustomersManager($bdd);   
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);*/
-    $tabReponse = array('contact'=>'Folder 1','customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
-    return json_encode($tabReponse);
+    /*$tabReponse = array('contact'=>'Folder 1','customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
+    return json_encode($tabReponse);*/
+    echo "coucou toi !";
     /*$folder = $foldermanager->get($idFolder);
     if(is_null($folder)){
         echo "vide";
@@ -50,7 +51,7 @@ function getContactFormFolder($idFolder){
     
     /*$reponse = json_encode($tabReponse);
     return $reponse;*/
-}
+/*}
 
 if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
     $action = $_POST['functionCalled'];
@@ -65,7 +66,7 @@ if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
             break;
     }
 
-}
+}*/
 
 
 ?>
