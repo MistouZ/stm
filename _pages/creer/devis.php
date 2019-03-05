@@ -62,7 +62,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                             <span class="required" aria-required="true"> * </span>
                                             </label>
                                             <div class="col-md-10">
-                                                <select class="form-control" name="folder">
+                                                <select class="form-control" id="folder" name="folder">
                                                     <option value="">Choisissez un dossier...</option>
                                                     <?php
                                                         foreach ($foldermanager as $folder){
@@ -151,7 +151,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select class="form-control" name="folder">
+                                                        <select class="form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
                                                         </select>
                                                     </div>
@@ -210,42 +210,71 @@ $foldermanager = $foldermanager->getListActive($idCompany);
     </div>
 </div>
 <script>
-$('#ajout').click(function(){
-
-  // get the last DIV which ID starts with ^= "klon"
-  var $div = $('div[id^="ligne"]:last').data( "arr", [ 1 ] );
-
-  // Read the Number from that DIV's ID (i.e: 3 from "klon3")
-  // And increment that number by 1
-  var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
-
-  // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-  var $klon = $div.clone(true).prop('id', 'ligne'+num );
-
-  // Finally insert $klon wherever you want
-  $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
+$(document).ready(function() {
+    $("#folder").on("change",function(){
+        var i = $(this).val();
+        var postJson = new Object();
+        postJson.functionCalled='getContactFormFolder';
+        postJson.idFolder=i;
+        postValue = JSON.stringify(postJson);
+    	console.log("selected.value : "+i+", data[selected.value] : "+i);
+        
+    	$.ajax({
+            url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
+    		type: "POST",
+            dataType: "json",
+            contentType: 'application/json; charset=utf-8',
+    		data: postValue ,
+    	    cache: false,
+    		processData:false,
+    		success: function(response)
+    	  {
+                 alert("sucess !");
+                 alert(response);
+                 /*var json = $.parseJSON(response);
+                 $("#spanCompany").text(json.company);
+                 $("#spanSeller").text(json.seller);
+                 $("#spanCustomer").text(json.customer);
+                 $("#spanContact").text(json.contact);*/
+    	  },
+          error: function (jqXHR, exception) {
+            var msg = '';
+            if (jqXHR.status === 0) {
+                msg = 'Not connect.\n Verify Network.';
+            } else if (jqXHR.status == 404) {
+                msg = 'Requested page not found. [404]';
+            } else if (jqXHR.status == 500) {
+                msg = 'Internal Server Error [500].';
+            } else if (exception === 'parsererror') {
+                msg = 'Requested JSON parse failed.';
+            } else if (exception === 'timeout') {
+                msg = 'Time out error.';
+            } else if (exception === 'abort') {
+                msg = 'Ajax request aborted.';
+            } else {
+                msg = 'Uncaught Error.\n' + jqXHR.responseText;
+            }
+            $('#spanCompany').html(msg);
+        },
+    	});
+    });
+    
+    $('#ajout').click(function(){
+    
+      // get the last DIV which ID starts with ^= "klon"
+      var $div = $('div[id^="ligne"]:last').data( "arr", [ 1 ] );
+    
+      // Read the Number from that DIV's ID (i.e: 3 from "klon3")
+      // And increment that number by 1
+      var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+    
+      // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
+      var $klon = $div.clone(true).prop('id', 'ligne'+num );
+    
+      // Finally insert $klon wherever you want
+      $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
+    
+    });
 
 });
-
-$("#folder").on('change',(function(e) 
-{
-	e.preventDefault();
-	
-	$.ajax({
-        url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
-		type: "POST",
-        dataType: "json",
-		data: {functionCalled:'getContactFormFolder', idFolder:$("#folder").val()} ,
-		contentType: false,
-	cache: false,
-		processData:false,
-		success: function(response)
-	  {
-			 $("#spanCompany").text(company);
-             $("#spanSeller").text(seller);
-             $("#spanCustomer").text(customer);
-             $("#spanContact").text(contact);
-	  }
-	});
-}));
 </script>
