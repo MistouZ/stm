@@ -151,7 +151,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select class="form-control" name="folder">
+                                                        <select class="form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
                                                         </select>
                                                     </div>
