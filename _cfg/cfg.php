@@ -27,7 +27,7 @@ setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
 function getContactFormFolder($idFolder){
     $array = array();
-    echo "1 Folder :".$idFolder;
+    echo "1 Folder :".$idFolder." / ";
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
     echo "2";
