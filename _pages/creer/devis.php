@@ -213,10 +213,6 @@ $foldermanager = $foldermanager->getListActive($idCompany);
 $(document).ready(function() {
     $("#folder").on("change",function(){
         var i = $(this).val();
-        var postJson = new Object();
-        postJson.functionCalled='getContactFormFolder';
-        postJson.idFolder=i;
-        postValue = JSON.stringify(postJson);
     	console.log("selected.value : "+i+", data[selected.value] : "+i);
         
     	$.ajax({
@@ -224,7 +220,7 @@ $(document).ready(function() {
     		type: "POST",
             dataType: "json",
             contentType: 'application/json; charset=utf-8',
-    		data: postValue ,
+    		data: {functionCalled:'getContactFormFolder',idFolder:i },
     	    cache: false,
     		processData:false,
     		success: function(response)
