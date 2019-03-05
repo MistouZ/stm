@@ -31,9 +31,6 @@ $foldermanager = $foldermanager->getListActive($idCompany);
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fas fa-file-medical"></i>Création d'un nouveau devis</div>
-                <div class="tools">
-                    <a href="javascript:;" class="collapse"> </a>
-                </div>
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
