@@ -72,14 +72,14 @@ class FoldersManager
     }
 
     /**
-     * @param Folder $folder
-     * Disable folder instead of delete it
+     * @param QuotationID
+     * Disable quotation instead of delete it
      */
-    public function delete($idFolder)
+    public function delete($idQuotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE folder SET isActive = \'0\' WHERE idFolder = :idFolder');
-            $q->bindValue(':idFolder', $idFolder, PDO::PARAM_INT);
+            $q = $this->_db->prepare('UPDATE quotation SET isActive = \'0\' WHERE 	idQuotation = :idQuotation');
+            $q->bindValue(':idQuotation', $idQuotation, PDO::PARAM_INT);
             $q->execute();
 
             return "ok";
@@ -90,18 +90,18 @@ class FoldersManager
     }
 
     /**
-     * Find a folder by his foldername
-     * @param $foldername
-     * @return folder
+     * Find a Quotation by his iD
+     * @param $idQuotation
+     * @return quotation
      */
-    public function get($folderId)
+    public function get($idQuotation)
     {
         try{
-            $folderId = (integer) $folderId;
-            $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId);
+            $idQuotation = (integer) $idQuotation;
+            $q = $this->_db->query('SELECT * FROM quotation WHERE $idQuotation ='.$idQuotation);
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
     
-            return new Folder($donnees);
+            return new Quotation($donnees);
         }
         catch(Exception $e){
             return null;
@@ -110,58 +110,56 @@ class FoldersManager
 
 
     /**
-     * Get all the folder in the BDD for the selected company
+     * Get all the quotation in the BDD for the selected company
      * @return array
      */
     public function getList($companyid)
     {
-        $folders = [];
+        $quotations = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid'");
+        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid'");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $folders[] = new Folder($donnees);
+            $quotations[] = new Quotation($donnees);
         }
 
-        return $folders;
+        return $quotations;
     }
 
     /**
-     * Get all the active folder in the BDD for the selected company
+     * Get all the active quotation in the BDD for the selected company
      * @return array
      */
     public function getListActive($companyid)
     {
-        $folders = [];
+        $quotations = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId=$companyid AND isActive ='1' ");
+        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND isActive ='1' ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $folders[] = new Folder($donnees);
+            $quotations[] = new Quotation($donnees);
         }
 
-        return $folders;
+        return $quotations;
     }
 
     /**
-     * Update folders information
-     * @param folder $folder
+     * Update quotation information
+     * @param quotation $quotation
      */
-    public function update(Folder $folder)
+    public function update(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE folder SET label = :label, year = :year,month = :month,day = :day,isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE idFolder= :idFolder');
-            $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
-            $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
-            $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
-            $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
-            $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
-            $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
-            $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
-            $q->bindValue(':customerId', $folder->getCustomerId(), PDO::PARAM_INT);
-            $q->bindValue(':contactId', $folder->getContactId(), PDO::PARAM_INT);
+            $q = $this->_db->prepare('UPDATE quotation SET status = :status, year = :year,month = :month,day = :day,comment = :comment,companyId = :companyId,customerId = :customerId, customerId = :customerId, contactId = :contactId WHERE $idQuotation= :$idQuotation');
+            $q->bindValue(':$idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
+            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
+            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
+            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
+            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
+            $q->bindValue(':companyId', $quotation->getCompanyId(), PDO::PARAM_INT);
+            $q->bindValue(':customerId', $quotation->getCustomerId(), PDO::PARAM_INT);
+            $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
     
             $q->execute();
             return "ok";
@@ -173,14 +171,14 @@ class FoldersManager
 
 
     /**
-     * Reactivate delete Folder
-     * @param Folder $folder
+     * Reactivate delete quotation
+     * @param quotation $quotation
      */
-    public function reactivate(Folder $folder)
+    public function reactivate(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE folder SET isActive = \'1\' WHERE idFolder = :idFolder');
-            $q->bindValue(':idFolder', $folder->getIdFolder(),PDO::PARAM_INT);
+            $q = $this->_db->prepare('UPDATE quotation SET isActive = \'1\' WHERE $idQuotation = :$idQuotation');
+            $q->bindValue(':$idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->execute();
             return "ok";
         }
