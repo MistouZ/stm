@@ -1,9 +1,10 @@
 <?php
 
 function getContactFormFolder($idFolder){
+    echo "1";
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
-    
+    echo "2";
     $user = new Users($array);
     $usermanager = new UsersManager($bdd);
     
