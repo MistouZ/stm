@@ -11,6 +11,8 @@ $credential = $userlogged->getCredential();
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 
+print_r($company);
+/*
 if($credential == "A"){
     $customermanager = $customermanager->getListAllByCompany($company->getIdcompany());
 }
@@ -93,3 +95,6 @@ else{
     </div>
 </div>
 </html>
+<?php
+*/
+?>
