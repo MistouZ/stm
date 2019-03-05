@@ -56,9 +56,15 @@ else{
                 <?php }elseif($retour == "errormodif") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, le dossier n'a donc pas pu être modifié !</div>
+                <?php }elseif($retour == "erroractivate") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le dossier n'a donc pas pu être réactivé !</div>
                 <?php }elseif($retour == "successmodif"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> Le dossier a bien été modifié !</div>
+                <?php }elseif($retour == "successactivate"){ ?>
+                <div class="alert alert-success">
+                    <button class="close" data-close="alert"></button> Le dossier a bien été réactivé !</div>
                 <?php }elseif($retour == "error") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, le dossier n'a donc pas pu être créé !</div>

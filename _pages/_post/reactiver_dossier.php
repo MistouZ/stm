@@ -15,9 +15,9 @@ $foldermanager = new FoldersManager($bdd);
 $folder->setIdFolder($idFolder);
 $test = $foldermanager->reactivate($folder);
 if(is_null($test)){
-    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/errormodif");
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/erroractivate");
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/success");
+    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/successactivate");
 }
 
 ?>
