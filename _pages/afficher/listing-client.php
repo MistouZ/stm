@@ -9,9 +9,9 @@ $credential = $userlogged->getCredential();
 
 
 /*récupération des objets en base*/
-$company = $companymanager->getByNameData($companyNameData);
+//$company = $companymanager->getByNameData($companyNameData);
 
-print_r($company);
+echo $companyNameData;
 /*
 if($credential == "A"){
     $customermanager = $customermanager->getListAllByCompany($company->getIdcompany());
