@@ -220,7 +220,7 @@ $(document).ready(function() {
     		type: "POST",
             dataType: "json",
             contentType: 'application/json; charset=utf-8',
-    		data: {functionCalled:'getContactFormFolder'},
+    		data: {functionCalled:'getContactFormFolder',idFolder:i },
     	    cache: false,
     		processData:false,
     		success: function(response)
