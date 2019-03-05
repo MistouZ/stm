@@ -32,9 +32,9 @@ function getContactFormFolder($idFolder){
     return $reponse;
 }
 
-if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
-    $action = $_POST['functionCalled'];
-    $idFolder = $_POST['idFolder'];
+if(isset($_GET['functionCalled']) && !empty($_GET['functionCalled'])) {
+    $action = $_GET['functionCalled'];
+    $idFolder = $_GET['idFolder'];
     switch($action){
         case 'getContactFormFolder' : 
             echo "TEST";

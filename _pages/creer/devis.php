@@ -221,7 +221,7 @@ $(document).ready(function() {
             dataType: "json",
     		data: {functionCalled:'getContactFormFolder', idFolder:i} ,
     		contentType: false,
-    	cache: false,
+    	    cache: false,
     		processData:false,
     		success: function(response)
     	  {
