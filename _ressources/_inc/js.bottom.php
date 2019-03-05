@@ -47,9 +47,6 @@
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-selectsplitter/bootstrap-selectsplitter.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
-        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-markdown/lib/markdown.js" type="text/javascript"></script>
-        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-markdown/js/bootstrap-markdown.js" type="text/javascript"></script>
-        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-summernote/summernote.min.js" type="text/javascript"></script>
 <?php }elseif($_GET['section']=="connexion"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
