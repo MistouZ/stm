@@ -13,7 +13,7 @@ $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $customer->setIdcustomer($idCustomer);
-$test = $foldermanager->reactivate($idCustomer);
+$test = $customermanager->reactivate($idCustomer);
 if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/erroractivate");
 }else{
