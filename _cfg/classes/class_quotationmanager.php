@@ -63,7 +63,7 @@ class FoldersManager
     
             $q->execute();
             
-            return "ok";
+            return $quotationNumber;
         }
         catch(Exception $e){
             return null;
@@ -185,6 +185,60 @@ class FoldersManager
         catch(Exception $e){
             return null;
         }
+    }
+
+    public function toProforma(Quotation $quotation)
+    {
+        try{
+            $q = $this->_db->prepare('UPDATE quotation SET status = \'P\', year = :year,month = :month,day = :day,comment = :comment WHERE $idQuotation= :$idQuotation');
+            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
+            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
+            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
+            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
+
+    }
+
+    public function toInvoice(Quotation $quotation)
+    {
+        try{
+            $q = $this->_db->prepare('UPDATE quotation SET status = \'F\', year = :year,month = :month,day = :day,comment = :comment WHERE $idQuotation= :$idQuotation');
+            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
+            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
+            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
+            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
+
+    }
+
+    public function toAsset(Quotation $quotation)
+    {
+        try{
+            $q = $this->_db->prepare('UPDATE quotation SET status = \'A\', year = :year,month = :month,day = :day,comment = :comment WHERE $idQuotation= :$idQuotation');
+            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
+            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
+            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
+            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
+
     }
 
 }
