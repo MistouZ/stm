@@ -173,9 +173,15 @@ class CompaniesManager extends Features
      */
     public function reactivate(Company $company)
     {
-        $q = $this->_db->prepare('UPDATE company SET isActive = \'1\' WHERE idcompany = :idcompany');
-        $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('UPDATE company SET isActive = \'1\' WHERE idcompany = :idcompany');
+            $q->bindValue(':idcompany', $company->getIdcompany(), PDO::PARAM_INT);
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
 
