@@ -272,7 +272,7 @@ class UsersManager
     {
         try{
             $q = $this->_db->prepare('UPDATE users SET isActive = \'1\' WHERE username = :username');
-            $q->bindValue(':username', $user->getUsername(),PDO::PARAM_INT);
+            $q->bindValue(':username', $user->getUsername(), PDO::PARAM_STR);
             $q->execute();
             return "ok";
         }
