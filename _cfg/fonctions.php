@@ -9,6 +9,7 @@ function __autoload($className) {
 
 
 function getContactFormFolder($idFolder){
+    header('Content-Type: application/json');
     /*$bdd = new DB();
     $bdd->connexion();
     

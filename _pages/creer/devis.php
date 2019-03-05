@@ -213,6 +213,8 @@ $foldermanager = $foldermanager->getListActive($idCompany);
 $(document).ready(function() {
     $("#folder").on("change",function(){
         var i = $(this).val();
+        var functionCalled='getContactFormFolder';
+        var idFolder=4;
     	console.log("selected.value : "+i+", data[selected.value] : "+i);
         alert(i);
     	$.ajax({
