@@ -62,7 +62,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                             <span class="required" aria-required="true"> * </span>
                                             </label>
                                             <div class="col-md-10">
-                                                <select class="form-control" name="folder">
+                                                <select class="form-control" id="folder" name="folder">
                                                     <option value="">Choisissez un dossier...</option>
                                                     <?php
                                                         foreach ($foldermanager as $folder){
