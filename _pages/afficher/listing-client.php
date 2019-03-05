@@ -4,8 +4,18 @@ $retour = $_GET['soussouscat'];
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$customermanager = $customermanager->getList();
+$credential = $userlogged->getCredential();
 
+echo $companyNameData;
+/*récupération des objets en base*/
+//$company = $companymanager->getByNameData($companyNameData);
+//print_r($company);
+/*if($credential == "A"){
+    $customermanager = $customermanager->getListAllByCompany($company->getIdcompany());
+}
+else{
+    $customermanager = $customermanager->getListByCompany($company->getIdcompany());
+}
 
 ?>
 <html>
@@ -41,7 +51,13 @@ $customermanager = $customermanager->getList();
                             <th class="all">Nom</th>
                             <th class="desktop">Afficher</th>
                             <th class="min-tablet">Modifier</th>
-                            <th class="min-phone-l">Supprimer</th>
+                            <?php if($credential == "A"){
+                                echo "<th class=\"min-phone-l\">Supprimer / Réactiver</th>";
+                            }
+                            else{
+                                echo "<th class=\"min-phone-l\">Supprimer</th>";
+                            }?>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -54,7 +70,16 @@ $customermanager = $customermanager->getList();
                             <td><?php echo $customer->getName(); ?></td>
                             <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/client/afficher/'.$customer->getIdCustomer(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/client/modifier/'.$customer->getIdCustomer(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client <?php echo $customer->getName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_client.php?idCustomer=".$customer->getIdCustomer(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                            <?php
+                            if($customer->getIsActive() == 1)
+                            {
+                                echo '<td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le client '.$customer->getName().' ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/supprimer_client.php?idCustomer='.$customer->getIdCustomer().'"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>';
+                            }
+                            elseif($customer->getIsActive() == 0 && $credential == 'A')
+                            {
+                                echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Réactiver le client '.$customer->getName().'?" data-btn-ok-label="Réactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_client.php?idCustomer='.$customer->getIdCustomer().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
+                            }
+                            ?>
                         </tr>
                     <?php
                         }
@@ -67,3 +92,4 @@ $customermanager = $customermanager->getList();
     </div>
 </div>
 </html>
+<?php */?>
