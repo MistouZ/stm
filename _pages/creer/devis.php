@@ -128,7 +128,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                         </div>
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
-                                        <div class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                        <div id="ligne1" class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12">
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
@@ -161,6 +161,13 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                         <label class="control-label">Prix HT</label>
                                                         <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions fluid">
+                                            <div class="row">
+                                                <div class="col-md-offset-3 col-md-9">
+                                                    <button type="button" id="ajout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -202,3 +209,22 @@ $foldermanager = $foldermanager->getListActive($idCompany);
         </div>
     </div>
 </div>
+<script>
+$('#ajout').click(function(){
+
+
+  // get the last DIV which ID starts with ^= "klon"
+  var $div = $('div[id^="ligne"]:last');
+
+  // Read the Number from that DIV's ID (i.e: 3 from "klon3")
+  // And increment that number by 1
+  var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+
+  // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
+  var $klon = $div.clone().prop('id', 'ligne'+num );
+
+  // Finally insert $klon wherever you want
+  $div.after( $klon.text('ligne'+num) );
+
+});
+</script>
