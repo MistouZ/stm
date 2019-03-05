@@ -227,7 +227,7 @@ $('#ajout').click(function(){
 
 });
 
-$("#folder").change((function(e) 
+$("#folder").change(function(e) 
 {
 	e.preventDefault();
 	console.log("selected.value : "+$("#folder").val()+", data[selected.value] : "+$("#folder").val());
@@ -247,5 +247,5 @@ $("#folder").change((function(e)
              $("#spanContact").text(contact);
 	  }
 	});
-}));
+});
 </script>
