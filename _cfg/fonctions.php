@@ -57,7 +57,9 @@ if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
     $idFolder = $_POST['idFolder'];
     switch($action){
         case 'getContactFormFolder' : 
-            getContactFormFolder($idFolder);
+            $tabReponse = array('contact'=>'Folder 1','customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
+            return json_encode($tabReponse);
+            //getContactFormFolder($idFolder);
             //print_r($reponse);
             //return $reponse;
             break;
