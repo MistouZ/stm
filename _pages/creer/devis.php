@@ -230,7 +230,7 @@ $('#ajout').click(function(){
 $("#folder").on('change',(function(e) 
 {
 	e.preventDefault();
-	
+	console.log("selected.value : "+$("#folder").val()+", data[selected.value] : "+$("#folder").val());
 	$.ajax({
         url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
 		type: "POST",
