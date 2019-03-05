@@ -23,7 +23,7 @@ function getContactFormFolder($idFolder){
     $folder = new Folder($array);
     echo 'OK folder / ';
     $foldermanager = new FoldersManager($bdd);
-    echo'OK manager / Folder N° : '.$idFolder;
+    echo'OK manager / Folder NÂ° : '.$idFolder;
     $folder = $foldermanager->get($idFolder);
     if(is_null($folder)){
         echo "vide";
