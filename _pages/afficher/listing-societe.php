@@ -9,7 +9,7 @@ $retour = $_GET['soussouscat'];
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-$companymanager = $companymanager->getList();
+$companymanager = $companymanager->getListAllCompanies();
 
 
 ?>

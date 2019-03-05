@@ -110,13 +110,30 @@ class CompaniesManager extends Features
 
 
     /**
-     * Get all the companies in the BDD
+     * Get all the  activate companies in the BDD
      * @return array
      */
     public function getList()
     {
         $companies = [];
         $q=$this->_db->query('SELECT * FROM company WHERE isActive = \'1\' ORDER BY name');
+        //$q=$this->_db->query($this->getListIsActive($company));
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $companies[] = new Company($donnees);
+        }
+
+        return $companies;
+    }
+
+    /**
+     * Get all the companies in the BDD
+     * @return array
+     */
+    public function getListAllCompanies()
+    {
+        $companies = [];
+        $q=$this->_db->query('SELECT * FROM company ORDER BY name');
         //$q=$this->_db->query($this->getListIsActive($company));
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
