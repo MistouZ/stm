@@ -97,8 +97,8 @@ class ContactManager
         else
         {
             $array = array(
-                'name' => "Contact",
-                'firstname' => "Supprimé"
+                'name' => "Supprimé",
+                'firstname' => "Contact"
             );
             return new Contact($array);
         }
@@ -126,8 +126,8 @@ class ContactManager
             {
                 $array = array(
                     'idContact' => $donnees2["idcontact"],
-                    'name' => "Contact",
-                    'firstname' => "Supprimé"
+                    'name' => "Supprimé",
+                    'firstname' => "Contact"
                 );
                 return new Contact($array);
             }
