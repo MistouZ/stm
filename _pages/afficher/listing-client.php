@@ -1,18 +1,17 @@
 <?php
 $retour = $_GET['soussouscat'];
 $companyNameData = $_GET["section"];
+$credential = $userlogged->getCredential();
 
 $array = array();
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$credential = $userlogged->getCredential();
-
+$company = new Company($array);
+$companymanager = new CompaniesManager($bdd);
 
 /*récupération des objets en base*/
-//$company = $companymanager->getByNameData($companyNameData);
+$company = $companymanager->getByNameData($companyNameData);
 
-echo $companyNameData;
-/*
 if($credential == "A"){
     $customermanager = $customermanager->getListAllByCompany($company->getIdcompany());
 }
@@ -96,5 +95,5 @@ else{
 </div>
 </html>
 <?php
-*/
+
 ?>
