@@ -226,26 +226,27 @@ $('#ajout').click(function(){
   $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
 
 });
-
-$("#folder").change(function(e) 
-{
-	e.preventDefault();
-	console.log("selected.value : "+$("#folder").val()+", data[selected.value] : "+$("#folder").val());
-	$.ajax({
-        url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
-		type: "POST",
-        dataType: "json",
-		data: {functionCalled:'getContactFormFolder', idFolder:$("#folder").val()} ,
-		contentType: false,
-	cache: false,
-		processData:false,
-		success: function(response)
-	  {
-			 $("#spanCompany").text(company);
-             $("#spanSeller").text(seller);
-             $("#spanCustomer").text(customer);
-             $("#spanContact").text(contact);
-	  }
-	});
+$(document).ready(function() {
+    $("#folder").change(function(e) 
+    {
+    	e.preventDefault();
+    	console.log("selected.value : "+$("#folder").val()+", data[selected.value] : "+$("#folder").val());
+    	$.ajax({
+            url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
+    		type: "POST",
+            dataType: "json",
+    		data: {functionCalled:'getContactFormFolder', idFolder:$("#folder").val()} ,
+    		contentType: false,
+    	cache: false,
+    		processData:false,
+    		success: function(response)
+    	  {
+    			 $("#spanCompany").text(company);
+                 $("#spanSeller").text(seller);
+                 $("#spanCustomer").text(customer);
+                 $("#spanContact").text(contact);
+    	  }
+    	});
+    });
 });
 </script>
