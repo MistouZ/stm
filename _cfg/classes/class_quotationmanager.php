@@ -100,7 +100,26 @@ class FoldersManager
             $idQuotation = (integer) $idQuotation;
             $q = $this->_db->query('SELECT * FROM quotation WHERE $idQuotation ='.$idQuotation);
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
-    
+
+            return new Quotation($donnees);
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Find a Quotation by his iD
+     * @param $quotationNumber
+     * @return quotation
+     */
+    public function getByQuotationNumber($quotationNumber)
+    {
+        try{
+            $quotationNumber = (string) $quotationNumber;
+            $q = $this->_db->query("SELECT * FROM quotation WHERE quotationNumber = '$quotationNumber'");
+            $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
             return new Quotation($donnees);
         }
         catch(Exception $e){
