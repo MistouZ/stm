@@ -210,23 +210,24 @@ $foldermanager = $foldermanager->getListActive($idCompany);
     </div>
 </div>
 <script>
-$('#ajout').click(function(){
-
-  // get the last DIV which ID starts with ^= "klon"
-  var $div = $('div[id^="ligne"]:last').data( "arr", [ 1 ] );
-
-  // Read the Number from that DIV's ID (i.e: 3 from "klon3")
-  // And increment that number by 1
-  var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
-
-  // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-  var $klon = $div.clone(true).prop('id', 'ligne'+num );
-
-  // Finally insert $klon wherever you want
-  $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
-
-});
 $(document).ready(function() {
+    $('#ajout').click(function(){
+    
+      // get the last DIV which ID starts with ^= "klon"
+      var $div = $('div[id^="ligne"]:last').data( "arr", [ 1 ] );
+    
+      // Read the Number from that DIV's ID (i.e: 3 from "klon3")
+      // And increment that number by 1
+      var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+    
+      // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
+      var $klon = $div.clone(true).prop('id', 'ligne'+num );
+    
+      // Finally insert $klon wherever you want
+      $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
+    
+    });
+
     $("#folder").change(function(){
     	console.log("selected.value : "+$("#folder").val()+", data[selected.value] : "+$("#folder").val());
     	/*$.ajax({
