@@ -120,25 +120,28 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12">
-                                                <div class="col-md-4">
+                                                <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
+                                                        <div class="col-md-12">
+                                                            <div class="summernote" id="summernote_1"> </div>
+                                                        </div>
                                                         <textarea class="wysihtml5 form-control" id="description" name="description[]" rows="4"></textarea>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Quantité</label>
                                                         <input type="digits" id="quantite" name="quantite[]" class="form-control" placeholder="Qt.">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Remise (%)</label>
                                                         <input type="digits" id="remise" name="remise[]" class="form-control" placeholder="xx">
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
                                                         <select class="form-control" name="folder">
@@ -146,7 +149,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-2">
+                                                <div class="col-md-3">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
                                                         <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
