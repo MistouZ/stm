@@ -229,7 +229,7 @@ $(document).ready(function() {
     });
 
     $("#folder").change(function(){
-    	console.log("selected.value : "+$("#folder").val()+", data[selected.value] : "+$("#folder").val());
+    	console.log("selected.value : "+$(this).val()+", data[selected.value] : "+$(this).val());
     	/*$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
     		type: "POST",
