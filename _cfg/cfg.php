@@ -26,6 +26,7 @@ date_default_timezone_set('Pacific/Noumea');
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
 function getContactFormFolder($idFolder){
+    $array = array();
     echo "1";
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
