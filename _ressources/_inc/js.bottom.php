@@ -37,7 +37,7 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery.sparkline.min.js" type="text/javascript"></script>
 <?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier"){ ?>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
-        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+        <script src="https://raw.githubusercontent.com/jhollingworth/bootstrap-wysihtml5/master/src/bootstrap-wysihtml5.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
