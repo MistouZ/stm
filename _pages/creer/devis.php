@@ -245,6 +245,6 @@ $(document).ready(function() {
                  $("#spanContact").text(contact);
     	  }
     	});*/
-    )};
+    });
 });
 </script>
