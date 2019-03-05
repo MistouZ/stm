@@ -34,7 +34,7 @@ function getContactFormFolder($idFolder){
     $contactmanager = new ContactManager($bdd);
     
     $customer = $customermanager->getByID($folder->getCustomerId());
-    $contact = $contactmanager->getById($folder->getCustomerId());
+    $contact = $contactmanager->getById($folder->getContactId());
     $company = $companymanager->getById($folder->getCompanyId());
     $user = $usermanager->get($folder->getSeller());
     
