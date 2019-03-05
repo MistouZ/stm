@@ -218,16 +218,17 @@ $(document).ready(function() {
     	$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
     		type: "POST",
-            dataType: "json",
+            //dataType: "json",
             contentType: 'application/json; charset=utf-8',
     		data: {functionCalled:'getContactFormFolder', idFolder:4} ,
-            alert("Fonction: "+functionCalled+" / Id : "+idFolder);
+            
     		contentType: false,
     	    cache: false,
     		processData:false,
     		success: function(response)
     	  {
-    			 alert("sucess !");
+    			 alert("Fonction: "+functionCalled+" / Id : "+idFolder);
+                 alert("sucess !");
                  alert(response);
                  /*var json = $.parseJSON(response);
                  $("#spanCompany").text(json.company);
