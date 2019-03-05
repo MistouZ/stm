@@ -221,10 +221,10 @@ $('#ajout').click(function(){
   var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
 
   // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-  var $klon = $div.clone(true).prop('id', 'ligne'+num ).data( "arr", $.extend( [], $div.data( "arr" ) ) );
+  var $klon = $div.clone(true).prop('id', 'ligne'+num );
 
   // Finally insert $klon wherever you want
-  $div.after( $klon.text('ligne'+num) );
+  $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
 
 });
 </script>
