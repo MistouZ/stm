@@ -9,7 +9,7 @@ function __autoload($className) {
 
 
 function getContactFormFolder($idFolder){
-    $bdd = new DB();
+    /*$bdd = new DB();
     $bdd->connexion();
     
     $array = array();
@@ -20,10 +20,9 @@ function getContactFormFolder($idFolder){
     $usermanager = new UsersManager($bdd);
     
     $customer = new Customers($array);
-    $customermanager = new CustomersManager($bdd);
-    echo "coucou";    
+    $customermanager = new CustomersManager($bdd);   
     $folder = new Folder($array);
-    $foldermanager = new FoldersManager($bdd);
+    $foldermanager = new FoldersManager($bdd);*/
     $tabReponse = array('contact'=>'Folder 1','customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
     return $tabReponse;
     /*$folder = $foldermanager->get($idFolder);
