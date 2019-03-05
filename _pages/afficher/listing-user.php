@@ -124,7 +124,7 @@ $companies = $companymanager->getList();
                                 echo '<td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer l\'utilisateur '.$user->getUsername().' ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/supprimer_user.php?username='.$user->getUsername().'"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>';
                             }
                             else{
-                                echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Reactiver l\'utilisateur '..$user->getUsername().'?" data-btn-ok-label="Reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_societe.php?idCompany='.$user->getUsername().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
+                                echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Reactiver l\'utilisateur '.$user->getUsername().'?" data-btn-ok-label="Reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_societe.php?idCompany='.$user->getUsername().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
                             }
                             ?>
                         </tr>
