@@ -1,5 +1,5 @@
 <?php
-include 'cfg.php';
+//include 'cfg.php';
 
 echo "include Functions OK";
 
