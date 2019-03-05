@@ -51,7 +51,6 @@
 <?php }elseif($_GET['section']=="connexion"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/login.min.js" type="text/javascript"></script>
 <?php } ?>
-<script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/dashboard.min.js" type="text/javascript"></script>
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME LAYOUT SCRIPTS -->
 <script src="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/scripts/layout.min.js" type="text/javascript"></script>
