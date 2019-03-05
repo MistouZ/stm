@@ -216,7 +216,7 @@ $(document).ready(function() {
     	console.log("selected.value : "+i+", data[selected.value] : "+i);
         alert(i);
     	$.ajax({
-            url: "<?php echo URLHOST."_cfg/fonctions.php?functionCalled=getContactFormFolder&idFolder=4"; ?>",
+            url: "<?php echo URLHOST."_cfg/fonctions.php?functionCalled=getContactFormFolder&idFolder="; ?>"+i,
     		type: "GET",
             dataType: "json",
     		//data: {functionCalled:'getContactFormFolder', idFolder:i} ,
