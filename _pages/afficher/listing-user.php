@@ -36,6 +36,9 @@ $companies = $companymanager->getList();
                 <?php }elseif($retour == "successsuppr"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> L'utilisateur a bien été supprimé !</div>
+                <?php }elseif($retour == "erroractivate") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, l'utilisateur n'a donc pas pu être réactivé !</div>
                 <?php }elseif($retour == "errormodif") { ?>
                     <div class="alert alert-danger">
                         <button class="close" data-close="alert"></button> Une erreur est survenue, l'utilisateur n'a donc pas pu être modifié !</div>
@@ -48,6 +51,9 @@ $companies = $companymanager->getList();
                 <?php }elseif($retour == "success"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> L'utilisateur a bien été créé !</div>
+                <?php }elseif($retour == "successactivate"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> L'utilisateur a bien été réactivé !</div>
                 <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
@@ -63,7 +69,7 @@ $companies = $companymanager->getList();
                             <th class="none">Commercial</th>
                             <th class="none">Actif</th>
                             <th class="min-tablet">Modifier</th>
-                            <th class="min-phone-l">Supprimer</th>
+                            <th class="min-phone-l">Supprimer / Réactiver</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -112,7 +118,15 @@ $companies = $companymanager->getList();
                             <td><?php echo $user->getIsSeller();?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $user->getIsActive();?></span></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/user/modifier/'.$user->getUsername(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                            <td><a class="btn red-mint" data-placement="auto top" data-toggle="confirmation" data-title="Supprimer l'utilisateur <?php echo $user->getUsername(); ?> ?" data-tip="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_user.php?username=".$user->getUsername(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                            <?php
+                            if($user->getIsActive() == "Oui")
+                            {
+                                echo '<td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer l\'utilisateur '.$user->getUsername().' ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/supprimer_user.php?username='.$user->getUsername().'"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>';
+                            }
+                            else{
+                                echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Reactiver l\'utilisateur '..$user->getUsername().'?" data-btn-ok-label="Reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_societe.php?idCompany='.$user->getUsername().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
+                            }
+                            ?>
                         </tr>
                         <?php
                     }
