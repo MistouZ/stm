@@ -270,9 +270,15 @@ class UsersManager
      */
     public function reactivate(Users $user)
     {
-        $q = $this->_db->prepare('UPDATE users SET isActive = \'1\' WHERE username = :username');
-        $q->bindValue(':username', $user->getUsername(),PDO::PARAM_INT);
-        $q->execute();
+        try{
+            $q = $this->_db->prepare('UPDATE users SET isActive = \'1\' WHERE username = :username');
+            $q->bindValue(':username', $user->getUsername(),PDO::PARAM_INT);
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+        return null;
+        }
     }
 
 }
