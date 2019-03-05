@@ -1,10 +1,8 @@
 <?php
 
-include 'classes/class_company.php';
-include 'classes/class_companiesmanager.php';
-
 function getContactFormFolder($idFolder){
     echo "1";
+    $array = array();
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
     echo "2";
