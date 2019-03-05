@@ -24,9 +24,9 @@ function __autoload($className) {
     $customermanager = new CustomersManager($bdd);   
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);*/
-    header('Content-Type: application/json');
-    $idFolder = $_POST['idFolder'];
-    $funct = $_POST['functionCalled'];
+    //header('Content-Type: application/json');
+    $idFolder = json_decode($_POST['idFolder']);
+    $funct = json_decode($_POST['functionCalled']);
     $tabReponse = array('contact'=>$funct,'customer'=>'Manager OK','company'=>$idFolder,'seller'=>'Good Seller !');
     echo json_encode($tabReponse);
     /*$folder = $foldermanager->get($idFolder);
