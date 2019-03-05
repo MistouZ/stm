@@ -51,8 +51,10 @@ $companies = $companymanager->getList();
                 <?php }elseif($retour == "success"){ ?>
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> L'utilisateur a bien été créé !</div>
-                <?php }
-                ?>
+                <?php }elseif($retour == "successactivate"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> L'utilisateur a bien été réactivé !</div>
+                <?php } ?>
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>
