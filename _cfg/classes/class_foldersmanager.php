@@ -97,6 +97,7 @@ class FoldersManager
      */
     public function get($folderId)
     {
+        echo "coucou";
         try{
             $folderId = (integer) $folderId;
             $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId);
