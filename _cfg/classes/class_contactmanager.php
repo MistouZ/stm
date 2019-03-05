@@ -97,7 +97,7 @@ class ContactManager
         else
         {
             $array = array(
-                'name' => "Utilisateur",
+                'name' => "Contact",
                 'firstname' => "Supprimé"
             );
             return new Contact($array);
