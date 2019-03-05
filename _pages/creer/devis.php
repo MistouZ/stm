@@ -222,8 +222,8 @@ $(document).ready(function() {
     	$.ajax({
             url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
     		type: "POST",
-            dataType: "json",
-            contentType: 'application/json; charset=utf-8',
+            dataType: "text",
+            //contentType: 'application/json; charset=utf-8',
     		data: postValue ,
     	    cache: false,
     		processData:false,
