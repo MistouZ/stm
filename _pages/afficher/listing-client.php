@@ -62,7 +62,7 @@ else{
                             <?php if($credential == "A"){
                                 echo "<th class=\"min-phone-l\">Supprimer / Réactiver</th>";
                             }
-                            else if($credential =="C"){
+                            elseif($credential == "C"){
                                 echo "<th class=\"min-phone-l\">Supprimer</th>";
                             }?>
                         </tr>
