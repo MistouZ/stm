@@ -216,10 +216,10 @@ $(document).ready(function() {
     	console.log("selected.value : "+i+", data[selected.value] : "+i);
         alert(i);
     	$.ajax({
-            url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
-    		type: "POST",
+            url: "<?php echo URLHOST."_cfg/fonctions.php?functionCalled=getContactFormFolder&idFolder=4"; ?>",
+    		type: "GET",
             dataType: "json",
-    		data: {functionCalled:'getContactFormFolder', idFolder:i} ,
+    		//data: {functionCalled:'getContactFormFolder', idFolder:i} ,
     		contentType: false,
     	    cache: false,
     		processData:false,
