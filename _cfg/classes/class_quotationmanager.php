@@ -63,7 +63,7 @@ class FoldersManager
     
             $q->execute();
             
-            return "ok";
+            return $quotationNumber;
         }
         catch(Exception $e){
             return null;
