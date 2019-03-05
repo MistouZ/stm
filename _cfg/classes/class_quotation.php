@@ -18,7 +18,7 @@ class Quotation extends Features
     private $comment;
     private $companyId;
     private $folderId;
-    private $customerName;
+    private $customerId;
     private $contactId;
     private $descriptionId;
 
@@ -193,17 +193,17 @@ class Quotation extends Features
     /**
      * @return mixed
      */
-    public function getCustomerName()
+    public function getCustomerId()
     {
-        return $this->customerName;
+        return $this->customerId;
     }
 
     /**
-     * @param mixed $customerName
+     * @param mixed $customerId
      */
-    public function setCustomerName($customerName)
+    public function setCustomerId($customerId)
     {
-        $this->customerName = $customerName;
+        $this->customerId = $customerId;
     }
 
     /**
