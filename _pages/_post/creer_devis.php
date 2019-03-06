@@ -47,7 +47,9 @@ $quotationmanager = new QuotationManager($bdd);
 
 $quotationNumber = $quotationmanager->add($quotation);
 if($quotationNumber != NULL){
-    echo "j'ai réussi à insérer mon devis";
+    echo "j'ai réussi à insérer mon devis ".$quotationNumber;
 }
-
+else{
+    echo "erreur j'ai rien créé";
+}
 ?>
