@@ -24,6 +24,10 @@ $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
 $foldermanager = $foldermanager->getListActive($idCompany);
 
+$tax = new Tax($array);
+$taxmanager = new TaxManager($bdd);
+$taxmanager = $taxmanager->getListByCustomer($customer->getIdCustomer());
+
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -153,6 +157,13 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                         <label class="control-label">Taxes</label>
                                                         <select class="form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
+                                                            <?php
+                                                            foreach ($taxmanager as $tax){
+                                                               ?>
+                                                                <option value="<?php echo $tax->getIdTax(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
+                                                                <?php
+                                                            }
+                                                            ?>
                                                         </select>
                                                     </div>
                                                 </div>
