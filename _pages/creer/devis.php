@@ -133,7 +133,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="wysihtml5 form-control" id="description1" name="description[]" rows="4"></textarea>
+                                                        <textarea class="form-control" id="description1" name="description[]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
