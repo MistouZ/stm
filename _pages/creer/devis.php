@@ -131,6 +131,15 @@ $taxmanager = new TaxManager($bdd);
                                         </div>
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
+                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
+                                            <label class="col-md-2 control-label">Libellé du devis
+                                            <span class="required" aria-required="true"> * </span>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="libelle" name="libelle" class="form-control" placeholder="Libellé">
+                                                <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
+                                            </div>
+                                        </div>
                                         <div id="ligne1" class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12">
                                                 <div class="col-md-6">
