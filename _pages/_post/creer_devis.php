@@ -53,16 +53,20 @@ $data = array(
     'contactId' => $contactId
 );
 
+print_r($_POST);
+
+print_r($data);
+
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-$quotationNumber = $quotationmanager->add($quotation);
+/*$quotationNumber = $quotationmanager->add($quotation);
 
 if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis ".$quotationNumber;
 }
 else{
     echo "erreur j'ai rien créé";
-}
+}*/
 
 ?>
