@@ -20,7 +20,10 @@ $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
-
+$folderId = $folder->getFolderId();
+$companyId = $folder->getCompanyId();
+$customerId = $folder->getCustomerId();
+$contactId = $folder->getContactId()
 
 $year = date("Y");
 $month = date("m");
@@ -32,10 +35,10 @@ $data = array(
     'year' => $year,
     'month' => $month,
     'day' => $day,
-    'folderId' => $folder->getFolderId(),
-    'companyId' => $folder->getCompanyId(),
-    'customerId' => $folder->getCustomerId(),
-    'contactId' => $folder->getContactId()
+    'folderId' => $folderId,
+    'companyId' => $companyId,
+    'customerId' => $customerId,
+    'contactId' => $contactId
 );
 
 //$quotation = new Quotation($data);
