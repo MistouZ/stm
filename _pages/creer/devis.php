@@ -133,7 +133,7 @@ $foldermanager = $foldermanager->getListActive($idCompany);
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="wysihtml5 form-control" id="description" name="description[]" rows="4"></textarea>
+                                                        <textarea class="wysihtml5 form-control" id="description1" name="description[]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
@@ -259,14 +259,14 @@ $(document).ready(function() {
     
       // get the last DIV which ID starts with ^= "klon"
       var $div = $('div[id^="ligne"]:last').data( "arr", [ 1 ] );
-    
+      var $textarea = $('textarea[id^="description"]:last').data( "txt", [ 1 ] );
       // Read the Number from that DIV's ID (i.e: 3 from "klon3")
       // And increment that number by 1
       var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
-    
+      
       // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-      var $klon = $div.clone(true).prop('id', 'ligne'+num );
-    
+      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().prop('id', 'ligne'+num );
+      
       // Finally insert $klon wherever you want
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
     
