@@ -34,9 +34,9 @@ class FoldersManager
     /**
      * @return mixed
      */
-    public function count($companyId)
+    public function count()
     {
-       return $this->_db->query('SELECT COUNT(*) FROM quotation WHERE companyId='.$companyId.' GROUP BY companyId')->fetchColumn();
+       return $this->_db->query('SELECT COUNT(*) FROM quotation ')->fetchColumn();
     }
 
     /**
@@ -45,8 +45,8 @@ class FoldersManager
      */
     public function add(Quotation $quotation)
     {
-        $quotationNumber = $this->count($quotation->getCompanyId());
-        $quotationNumber = $quotationNumber + 1;
+        $lastId = $this->count();
+        $quotationNumber = $quotation->getYear().($lastId + 1);
         
         try{
             $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, year,month,day,type,comment, companyId, customerId, contactId) VALUES (:quotationNumber, :status, :year, :month, :day, :comment, :companyId, :customerId, :contactId,)');
