@@ -41,7 +41,11 @@ function getContactFormFolder($idFolder){
     $company = $companymanager->getById($folder->getCompanyId());
     $user = $usermanager->get($folder->getSeller());
     $taxes = $taxesmanager->getListByCustomer($folder->getCustomerId());
-    $taxes = json_encode($taxes);
+    
+    foreach($taxes as $taxe){
+        $tabTaxe = array('name'=>$taxe->getName(), 'value'=>$taxe->getValue());
+    }
+    $taxes = json_encode($tabTaxe);
     
     $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName(),'taxes'=>$taxes);
     /*$tabReponse->contact = $contact->getFirstname().' '.$contact->getName();
