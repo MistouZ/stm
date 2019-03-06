@@ -160,7 +160,7 @@ $taxmanager = new TaxManager($bdd);
                                                             $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
                                                             foreach ($taxmanager as $tax){
                                                                ?>
-                                                                <option value="<?php echo $tax->getIdTax(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
+                                                                <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
                                                                 <?php
                                                             }
                                                             ?>
