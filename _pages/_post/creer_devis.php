@@ -12,5 +12,5 @@ print_r($_POST["remise"]);
 print_r($_POST["prix"]);
 
 echo $_POST[0];
-
+$_POST['description'][0];
 ?>
