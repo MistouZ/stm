@@ -254,8 +254,8 @@ $(document).ready(function() {
                   //on rajoute les nouveaux children options
                   for(var i in response['taxes']){
                     var opt = document.createElement("option");
-                    opt.value = response.taxes['value'][i];
-                    opt.innerHTML = response.taxes['name'][i]; 
+                    opt.value = response.taxes[i].value;
+                    opt.innerHTML = response.taxes[i].name; 
                     monSelectB.appendChild(opt);
                   }
     	  },
