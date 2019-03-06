@@ -31,13 +31,13 @@ class DescriptionManager
         $this->_db = $db;
     }
 
-    public function add(array $description)
+    public function add(array $description, Quotation $quotation)
     {
         try{
             for ($i=0;$i<count($description);$i++)
             {
                 $q = $this->_db->prepare('INSERT INTO `description` (quotationNumber, description,quantity,discount,price,tax) VALUES (:quotationNumber, :description,:quantity,:discount,:price,tax)');
-                $q->bindValue(':quotationNumber', $description["quotationNumber"][$i], PDO::PARAM_STR);
+                $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
                 $q->bindValue(':description', $description["description"][$i], PDO::PARAM_STR);
                 $q->bindValue(':quantity', $description["quantity"][$i], PDO::PARAM_INT);
                 $q->bindValue(':quantity', $description["discount"][$i], PDO::PARAM_INT);
@@ -46,12 +46,36 @@ class DescriptionManager
                 $q->execute();
             }
 
+
             return "ok";
         }
         catch(Exception $e){
             return null;
         }
 
+    }
+
+    /**
+     * Find a Quotation by his iD
+     * @param $quotationNumber
+     * @return quotation
+     */
+    public function getByQuotationNumber($quotationNumber)
+    {
+        $description = array();
+        try{
+            $quotationNumber = (string) $quotationNumber;
+            $q = $this->_db->query("SELECT * FROM description WHERE quotationNumber = '$quotationNumber'");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $description[] =new Description($donnees);
+            }
+
+            return $description;
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
 }
