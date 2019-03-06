@@ -16,14 +16,11 @@ print_r($_POST["prix"]);*/
 //print_r($_POST);
 //echo $_POST['description'][0];
 
-echo $_POST["folder"];
-
 $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 
-print_r($folder);
 
 $year = date("Y");
 $month = date("m");
