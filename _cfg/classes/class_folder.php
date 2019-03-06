@@ -17,7 +17,6 @@ class Folder extends Features
     private $day;
     private $description;
     private $companyId;
-    private $folderId;
     private $customerId;
     private $contactId;
     private $seller;
