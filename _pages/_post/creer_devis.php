@@ -44,9 +44,9 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-//$quotationmanager->add($quotation);
+$quotationmanager->add($quotation);
 
-$quotationNumber = $quotationmanager->add($quotation);
+/*$quotationNumber = $quotationmanager->add($quotation);
 echo $quotationNumber;
 
 /*if($quotationNumber != NULL){
