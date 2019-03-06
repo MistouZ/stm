@@ -156,6 +156,14 @@ $taxmanager = new TaxManager($bdd);
                                                         <label class="control-label">Taxes</label>
                                                         <select class="form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
+                                                            <?php
+                                                            $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                            foreach ($taxmanager as $tax){
+                                                               ?>
+                                                                <option value="<?php echo $tax->getIdTax(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
+                                                                <?php
+                                                            }
+                                                            ?>
                                                         </select>
                                                     </div>
                                                 </div>
