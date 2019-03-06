@@ -154,7 +154,7 @@ $taxmanager = new TaxManager($bdd);
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select id="taxe" class="form-control taxe" name="taxe[]">
+                                                        <select id="taxe" class="form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
                                                             <?php
                                                             /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
@@ -246,7 +246,7 @@ $(document).ready(function() {
                  $("#optdevis").css('display','visible');
                  
                  console.log("taxes : "+response.taxes[0].nom);
-                 var monSelectB = document.getElementByClassName("taxe");
+                 var monSelectB = document.getElementById("taxe");
                   //on efface tous les children options
                   while (monSelectB.firstChild) {
                     monSelectB.removeChild(monSelectB.firstChild);
