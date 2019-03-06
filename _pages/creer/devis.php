@@ -133,10 +133,9 @@ $taxmanager = new TaxManager($bdd);
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
                                             <label class="col-md-2 control-label">Libellé du devis
-                                            <span class="required" aria-required="true"> * </span>
                                             </label>
                                             <div class="col-md-10">
-                                                <input type="text" id="libelle" name="libelle" class="form-control" placeholder="Libellé spécifique du devis">
+                                                <input type="text" id="libelle" name="label" class="form-control" placeholder="Libellé spécifique du devis">
                                                 <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
                                             </div>
                                         </div>
@@ -182,9 +181,9 @@ $taxmanager = new TaxManager($bdd);
                                                         <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
-                                                <div style="display: none; text-align: right;" class="col-md-1">
+                                                <div id="divsuppr1" style="display: none; text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                        <button type="submit" title="Supprimer la ligne" class="btn red"><i class="fas fa-minus-square"></i></button>
+                                                        <button type="button" title="Supprimer la ligne" id="suppr1" class="btn red"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -325,7 +324,7 @@ $(document).ready(function() {
       var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
       
       // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().prop('id', 'ligne'+num );
+      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('div[id^="divsuppr"]:last').prop('id', 'divsuppr'+num ).end().find('div[id="divsuppr'+num+'"]').css('display','' ).end().find('div[id="divsuppr'+num+'"]').css('display','visible' ).end().prop('id', 'ligne'+num );
       
       // Finally insert $klon wherever you want
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
