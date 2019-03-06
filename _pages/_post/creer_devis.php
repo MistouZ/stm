@@ -20,7 +20,6 @@ $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
-print_r($folder);
 $folderId = $folder->getFolderId();
 $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
@@ -41,6 +40,8 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
+
+print_r($data);
 
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
