@@ -72,12 +72,9 @@ class Description
     /**
      * @param mixed $description
      */
-    public function setDescription($description)
+    public function setDescription($description): void
     {
-        if(is_string($description))
-        {
-            $this->description = $description;
-        }
+        $this->description = $description;
     }
 
     /**
@@ -91,9 +88,8 @@ class Description
     /**
      * @param mixed $quantity
      */
-    public function setQuantity($quantity)
+    public function setQuantity($quantity): void
     {
-        $quantity =(int) $quantity;
         $this->quantity = $quantity;
     }
 
@@ -108,9 +104,8 @@ class Description
     /**
      * @param mixed $discount
      */
-    public function setDiscount($discount)
+    public function setDiscount($discount): void
     {
-        $discount = (int) $discount;
         $this->discount = $discount;
     }
 
@@ -125,9 +120,8 @@ class Description
     /**
      * @param mixed $price
      */
-    public function setPrice($price)
+    public function setPrice($price): void
     {
-        $price = (int) $price;
         $this->price = $price;
     }
 
@@ -146,6 +140,7 @@ class Description
     {
         $this->tax = $tax;
     }
+
 
 
 
