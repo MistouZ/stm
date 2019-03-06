@@ -179,22 +179,6 @@ class Folder extends Features
     /**
      * @return mixed
      */
-    public function getFolderId()
-    {
-        return $this->folderId;
-    }
-
-    /**
-     * @param mixed $folderId
-     */
-    public function setFolderId($folderId)
-    {
-        $this->folderId = $folderId;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getCustomerId()
     {
         return $this->customerId;
