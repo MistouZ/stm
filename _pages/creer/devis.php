@@ -224,6 +224,7 @@ $(document).ready(function() {
     	    cache: false,
     		success: function(response)
     	  {
+                 console.log(response);
                  $("#spanCompany").text(response.company);
                  $("#spanSeller").text(response.seller);
                  $("#spanCustomer").text(response.customer);

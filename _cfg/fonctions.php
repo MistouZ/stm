@@ -33,16 +33,20 @@ function getContactFormFolder($idFolder){
     $contacts = new Contact($arrayContact);
     $contactmanager = new ContactManager($bdd);
     
+    $taxes = new Tax($array);
+    $taxesmanager = new TaxManager($bdd);
+    
     $customer = $customermanager->getByID($folder->getCustomerId());
     $contact = $contactmanager->getById($folder->getContactId());
     $company = $companymanager->getById($folder->getCompanyId());
     $user = $usermanager->get($folder->getSeller());
+    $taxes = $taxesmanager->getListByCustomer($folder->getCustomerId());
     
-    $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName());
-    $tabReponse->contact = $contact->getFirstname().' '.$contact->getName();
+    $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName(),'taxes'=>$taxes);
+    /*$tabReponse->contact = $contact->getFirstname().' '.$contact->getName();
     $tabReponse->customer = $customer->getName();
     $tabReponse->company = $company->getName();
-    $tabReponse->seller = $user->getName()." ".$user->getFirstName();
+    $tabReponse->seller = $user->getName()." ".$user->getFirstName();*/
     
     $reponse = json_encode($tabReponse);
     echo $reponse;
