@@ -19,7 +19,28 @@ $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 
-$quotation = new Quotation($array);
-$quotationmanager = new QuotationManage($bdd);
+
+$year = date("Y");
+$month = date("m");
+$day = date("d");
+$status = "D";
+
+$data = array(
+    'status' => $status,
+    'year' => $year,
+    'month' => $month,
+    'day' => $day,
+    'folderId' => $folder->getFolderId(),
+    'companyId' => $folder->getCompanyId(),
+    'customerId' => $folder->getCustomerId(),
+    'contactId' => $folder->getContactId()
+);
+$quotation = new Quotation($data);
+$quotationmanager = new QuotationManager($bdd);
+print_r($quotation);
+//$quotationNumber = $quotationmanager->add($quotation);
+/*if($quotationNumber != NULL){
+    echo "j'ai réussi à insérer mon devis";
+}*/
 
 ?>
