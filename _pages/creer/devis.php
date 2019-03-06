@@ -251,7 +251,7 @@ $(document).ready(function() {
                     monSelectB.removeChild(monSelectB.firstChild);
                   }
                   //on rajoute les nouveaux children options
-                  for(var i in response['taxes']){
+                  for(var i; i< response['taxes'].length; i+=1){
                     var opt = document.createElement("option");
                     opt.value = response['taxes']['value'][i];
                     opt.innerHTML = response['taxes']['name'][i]; 
