@@ -62,7 +62,7 @@ else{
 }*/
 
 $descriptions= array();
-print_r($_POST);
+//print_r($_POST);
 for($i=0;$i<count($_POST["description"]);$i++)
 {
     $dataDescription= array(
@@ -72,7 +72,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
         'price' => $_POST["prix"][$i],
         'tax' => $_POST["taxe"][$i]
     );
-  //  print_r($dataDescription);
+    print_r($dataDescription);
     //$description = new Description($dataDescription);
   //  $descriptions[$i] = $description;
 }
