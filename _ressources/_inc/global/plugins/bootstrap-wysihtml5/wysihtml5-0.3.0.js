@@ -8280,7 +8280,7 @@ wysihtml5.views.View = Base.extend(
       ],
       ADDITIONAL_CSS_RULES = [
         "html             { height: 100%; }",
-        "body             { max-height: 100px; min-height: 100%; padding: 0; margin: 0; margin-top: -1px; padding-top: 1px; }",
+        "body             { min-height: 100%; padding: 0; margin: 0; margin-top: -1px; padding-top: 1px; }",
         "._wysihtml5-temp { display: none; }",
         wysihtml5.browser.isGecko ?
           "body.placeholder { color: graytext !important; }" : 
