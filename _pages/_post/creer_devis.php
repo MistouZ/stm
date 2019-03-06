@@ -47,7 +47,7 @@ $data = array(
     'contactId' => $contactId
 );
 
-print_r($data);
+//print_r($data);
 /*$quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);*/
 
@@ -72,11 +72,11 @@ for($i=0;$i<count($_POST["description"]);$i++)
         'price' => $_POST["prix"][$i],
         'tax' => $_POST["taxe"][$i]
     );
-    print_r($dataDescription);
+  //  print_r($dataDescription);
     //$description = new Description($dataDescription);
-    $descriptions[$i] = $description;
+  //  $descriptions[$i] = $description;
 }
 
-print_r($descriptions);
+//print_r($descriptions);
 
 ?>
