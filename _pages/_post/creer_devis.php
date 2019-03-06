@@ -25,6 +25,15 @@ $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
 $contactId = $folder->getContactId();
 
+if(empty($_POST["label"]))
+{
+    $label = $folder->getLabel();
+}
+else{
+    $label = $_POST["label"];
+}
+
+
 $year = date("Y");
 $month = date("m");
 $day = date("d");
@@ -32,6 +41,7 @@ $status = "D";
 
 $data = array(
     'status' => $status,
+    'label' => $label,
     'year' => $year,
     'month' => $month,
     'day' => $day,
