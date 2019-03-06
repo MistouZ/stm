@@ -12,5 +12,14 @@ print_r($_POST["remise"]);
 print_r($_POST["prix"]);*/
 
 print_r($_POST);
-//echo $_POST['description'][0];
+echo $_POST['description'][0];
+
+$array = array();
+$folder = new Folder($array);
+$foldermanager = new FoldersManager($bdd);
+$folder = $foldermanager->get($_POST["folder"]);
+
+$quotation = new Quotation($array);
+$quotationmanager = new QuotationManage($bdd);
+
 ?>

@@ -6,7 +6,7 @@
  * Time: 10:42
  */
 
-class FoldersManager
+class QuotationManager
 {
     /**
      * PDO Database instance PDO
