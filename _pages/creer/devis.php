@@ -131,6 +131,15 @@ $taxmanager = new TaxManager($bdd);
                                         </div>
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
+                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
+                                            <label class="col-md-2 control-label">Libellé du devis
+                                            <span class="required" aria-required="true"> * </span>
+                                            </label>
+                                            <div class="col-md-10">
+                                                <input type="text" id="libelle" name="libelle" class="form-control" placeholder="Libellé spécifique du devis">
+                                                <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
+                                            </div>
+                                        </div>
                                         <div id="ligne1" class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12">
                                                 <div class="col-md-6">
@@ -167,10 +176,15 @@ $taxmanager = new TaxManager($bdd);
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
                                                         <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
+                                                    </div>
+                                                </div>
+                                                <div style="display: none;" class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <button type="submit" title="Supprimer la ligne" class="btn red"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -178,6 +192,7 @@ $taxmanager = new TaxManager($bdd);
                                         <div class="form-actions fluid">
                                             <div class="row">
                                                 <div class="col-md-12" style="text-align: center;">
+                                                    <label class="control-label">Retirer</label>
                                                     <button type="button" id="ajout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
                                                 </div>
                                             </div>
