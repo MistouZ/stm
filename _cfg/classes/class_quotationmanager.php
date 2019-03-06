@@ -146,14 +146,48 @@ class QuotationManager
     }
 
     /**
-     * Get all the active quotation in the BDD for the selected company
+     * Get all the quotation in the BDD for the selected company
      * @return array
      */
-    public function getListActive($companyid)
+    public function getListQuotation($companyid)
     {
         $quotations = [];
 
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND isActive ='1' ");
+        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND status ='D' ");
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $quotations[] = new Quotation($donnees);
+        }
+
+        return $quotations;
+    }
+
+    /**
+     * Get all the proforma in the BDD for the selected company
+     * @return array
+     */
+    public function getListProforma($companyid)
+    {
+        $quotations = [];
+
+        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND status ='P' ");
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $quotations[] = new Quotation($donnees);
+        }
+
+        return $quotations;
+    }
+
+    /**
+     * Get all the invoice in the BDD for the selected company
+     * @return array
+     */
+    public function getListInvoice($companyid)
+    {
+        $quotations = [];
+
+        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND status ='F' ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $quotations[] = new Quotation($donnees);
