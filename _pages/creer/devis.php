@@ -24,9 +24,9 @@ $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
 $foldermanager = $foldermanager->getListActive($idCompany);
 
-$tax = new Tax($array);
+/*$tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
-$taxmanager = $taxmanager->getListByCustomer($customer->getIdCustomer());
+$taxmanager = $taxmanager->getListByCustomer($customer->getIdCustomer());*/
 
 ?>
 <div class="row">
