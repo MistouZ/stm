@@ -36,7 +36,7 @@ class QuotationManager
      */
     public function count()
     {
-       return $this->_db->query('SELECT * FROM quotation ORDER BY idQuotation DESC LIMIT 1')->fetchColumn();
+       return $this->_db->query('SELECT idQuotation FROM quotation ORDER BY idQuotation DESC LIMIT 1')->fetchColumn();
     }
 
     /**
