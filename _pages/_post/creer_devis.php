@@ -5,6 +5,8 @@
  * @copyright 2019
  */
 
+include("../../_cfg/cfg.php");
+
 echo "Résultats : ";
 /*print_r($_POST['description']);
 print_r($_POST['quantite']);
@@ -37,7 +39,7 @@ $data = array(
 );
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
-print_r($data);
+print_r($quotation);
 //$quotationNumber = $quotationmanager->add($quotation);
 /*if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis";
