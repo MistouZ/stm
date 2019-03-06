@@ -181,7 +181,7 @@ $taxmanager = new TaxManager($bdd);
                                                         <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
-                                                <div style="display: none; text-align: right;" class="col-md-1">
+                                                <div id="divsuppr1" style="display: none; text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <button type="button" title="Supprimer la ligne" id="suppr1" class="btn red"><i class="fas fa-minus-square"></i></button>
                                                     </div>
@@ -324,7 +324,7 @@ $(document).ready(function() {
       var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
       
       // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('input[id^="suppr"]:last').prop('id', 'suppr'+num ).end().find('input[id="suppr'+num+'"]').css('display','' ).end().find('input[id="suppr'+num+'"]').css('display','visible' ).end().prop('id', 'ligne'+num );
+      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('div[id^="divsuppr"]:last').prop('id', 'divsuppr'+num ).end().find('div[id="suppr'+num+'"]').css('display','' ).end().find('div[id="suppr'+num+'"]').css('display','visible' ).end().prop('id', 'ligne'+num );
       
       // Finally insert $klon wherever you want
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
