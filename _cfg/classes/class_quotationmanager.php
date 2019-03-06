@@ -48,15 +48,13 @@ class QuotationManager
         $lastId = $this->count();
         $quotationNumber = $quotation->getYear().($lastId + 1);
 
-        echo $quotationNumber;
-        /*try{
-            $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, year,month,day,type,comment, companyId, customerId, contactId) VALUES (:quotationNumber, :status, :year, :month, :day, :comment, :companyId, :customerId, :contactId,)');
+        try{
+            $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, year,month,day,type,companyId, customerId, contactId) VALUES (:quotationNumber, :status, :year, :month, :day, :companyId, :customerId, :contactId,)');
             $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
             $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
             $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
-            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
             $q->bindValue(':companyId', $quotation->getCompanyId(), PDO::PARAM_INT);
             $q->bindValue(':customerId', $quotation->getCustomerId(), PDO::PARAM_INT);
             $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
@@ -68,7 +66,7 @@ class QuotationManager
         }
         catch(Exception $e){
             return null;
-        }*/
+        }
 
     }
 
