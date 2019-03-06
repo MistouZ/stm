@@ -245,7 +245,7 @@ $(document).ready(function() {
                  $("#optdevis").css('display','');
                  $("#optdevis").css('display','visible');
                  
-                 console.log("taxes : "+response.taxes.name);
+                 console.log("taxes : "+response.taxes.nom);
                  var monSelectB = document.getElementById("taxe");
                   //on efface tous les children options
                   while (monSelectB.firstChild) {
@@ -254,8 +254,8 @@ $(document).ready(function() {
                   //on rajoute les nouveaux children options
                   for(var i in response['taxes']){
                     var opt = document.createElement("option");
-                    opt.value = response.taxes[i].value;
-                    opt.innerHTML = response.taxes[i].name; 
+                    opt.value = response.taxes[i].valeur;
+                    opt.innerHTML = response.taxes[i].nom; 
                     monSelectB.appendChild(opt);
                   }
     	  },

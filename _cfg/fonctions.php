@@ -44,7 +44,7 @@ function getContactFormFolder($idFolder){
     
     $tabTaxe = array();
     foreach($taxes as $taxe){
-        array_push($tabTaxe,array('name'=>$taxe->getName(),'value'=>$taxe->getValue()));
+        array_push($tabTaxe,array('nom'=>$taxe->getName(),'valeur'=>$taxe->getValue()));
     }
     $taxes = json_encode($tabTaxe);
     
