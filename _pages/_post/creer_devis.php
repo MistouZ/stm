@@ -37,7 +37,7 @@ $data = array(
 );
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
-print_r($quotation);
+print_r($data);
 //$quotationNumber = $quotationmanager->add($quotation);
 /*if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis";
