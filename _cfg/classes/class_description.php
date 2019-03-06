@@ -6,7 +6,7 @@
  * Time: 15:03
  */
 
-class Description
+class Description extends Features
 {
     private $idDescription;
     private $quotation_number;
@@ -19,8 +19,9 @@ class Description
     /**
      * Description constructor.
      */
-    public function __construct()
+    public function __construct(array $data)
     {
+        $this->generate($data);
     }
 
     /**
