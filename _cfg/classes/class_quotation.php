@@ -187,7 +187,4 @@ class Quotation extends Features
         $this->contactId = $contactId;
     }
 
-
-
-
 }
