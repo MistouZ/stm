@@ -47,19 +47,18 @@ $data = array(
     'contactId' => $contactId
 );
 
-//print_r($data);
-/*$quotation = new Quotation($data);
-$quotationmanager = new QuotationManager($bdd);*/
+$quotation = new Quotation($data);
+$quotationmanager = new QuotationManager($bdd);
 
 
-/*$quotationNumber = $quotationmanager->add($quotation);
+$quotationNumber = $quotationmanager->add($quotation);
 
 if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis ".$quotationNumber;
 }
 else{
     echo "erreur j'ai rien créé";
-}*/
+}
 
 $descriptions= array();
 //print_r($_POST);
@@ -77,6 +76,13 @@ for($i=0;$i<count($_POST["description"]);$i++)
     $descriptions[$i] = $description;
 }
 
-print_r($descriptions);
+$test = $descriptionmanager->add($descriptions,$quotationNumber);
+if(!is_null($test))
+{
+    echo "insertion réussie";
+}
+else{
+    echo "erreur";
+}
 
 ?>
