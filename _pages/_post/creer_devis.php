@@ -8,13 +8,6 @@
 include("../../_cfg/cfg.php");
 
 echo "Résultats : ";
-/*print_r($_POST['description']);
-print_r($_POST['quantite']);
-print_r($_POST["remise"]);
-print_r($_POST["prix"]);*/
-
-//print_r($_POST);
-//echo $_POST['description'][0];
 
 $array = array();
 $folder = new Folder($array);
@@ -54,8 +47,9 @@ $data = array(
     'contactId' => $contactId
 );
 
-$quotation = new Quotation($data);
-$quotationmanager = new QuotationManager($bdd);
+print_r($data);
+/*$quotation = new Quotation($data);
+$quotationmanager = new QuotationManager($bdd);*/
 
 
 /*$quotationNumber = $quotationmanager->add($quotation);
