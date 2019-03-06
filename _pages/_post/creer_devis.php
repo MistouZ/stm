@@ -40,6 +40,12 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 print_r($data);
+echo $quotation->getContactId();
+echo $quotation->getCustomerId();
+echo $quotation->getCompanyId();
+echo $quotation->getFolderId();
+echo $quotation->getStatus();
+
 //$quotationNumber = $quotationmanager->add($quotation);
 /*if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis";
