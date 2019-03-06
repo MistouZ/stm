@@ -14,7 +14,7 @@ class Description
     private $quantity;
     private $discount;
     private $price;
-    private $tgc;
+    private $tax;
 
     /**
      * Description constructor.
@@ -134,18 +134,19 @@ class Description
     /**
      * @return mixed
      */
-    public function getTgc()
+    public function getTax()
     {
-        return $this->tgc;
+        return $this->tax;
     }
 
     /**
-     * @param mixed $tgc
+     * @param mixed $tax
      */
-    public function setTgc($tgc)
+    public function setTax($tax): void
     {
-        $tgc = (float) $tgc;
-        $this->tgc = $tgc;
+        $this->tax = $tax;
     }
+
+
 
 }

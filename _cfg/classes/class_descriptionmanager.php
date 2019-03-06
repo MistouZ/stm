@@ -31,18 +31,21 @@ class DescriptionManager
         $this->_db = $db;
     }
 
-    public function add(array $description, $quotationNumber)
+    public function add(array $descriptions, $quotationNumber)
     {
         try{
-            for ($i=0;$i<count($description);$i++)
+            $array = array();
+            $description = new Description($array);
+
+           foreach ($descriptions as $description)
             {
                 $q = $this->_db->prepare('INSERT INTO `description` (quotationNumber, description,quantity,discount,price,tax) VALUES (:quotationNumber, :description,:quantity,:discount,:price,tax)');
                 $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
-                $q->bindValue(':description', $description["description"][$i], PDO::PARAM_STR);
-                $q->bindValue(':quantity', $description["quantity"][$i], PDO::PARAM_INT);
-                $q->bindValue(':quantity', $description["discount"][$i], PDO::PARAM_INT);
-                $q->bindValue(':quantity', $description["price"][$i], PDO::PARAM_INT);
-                $q->bindValue(':quantity', $description["tax"][$i], PDO::PARAM_STR);
+                $q->bindValue(':description', $description->getDescription(), PDO::PARAM_STR);
+                $q->bindValue(':quantity', $description->getQuantity(), PDO::PARAM_INT);
+                $q->bindValue(':discount',  $description->getDiscount(), PDO::PARAM_INT);
+                $q->bindValue(':price', $description->getPrice(), PDO::PARAM_INT);
+                $q->bindValue(':tax', $description->getTax(), PDO::PARAM_STR);
                 $q->execute();
             }
 
