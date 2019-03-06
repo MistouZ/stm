@@ -40,8 +40,9 @@ $data = array(
     'customerId' => $folder->getCustomerId(),
     'contactId' => $folder->getContactId()
 );
-$quotation = new Quotation($data);
-$quotationmanager = new QuotationManager($bdd);
+
+//$quotation = new Quotation($data);
+//$quotationmanager = new QuotationManager($bdd);
 print_r($data);
 echo $quotation->getContactId();
 echo $quotation->getCustomerId();
