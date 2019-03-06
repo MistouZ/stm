@@ -5,7 +5,7 @@
  * @copyright 2019
  */
 
-echo "R�sultats : ";
+echo "Résultats : ";
 print_r($_POST['description']);
 print_r($_POST['quantite']);
 print_r($_POST["remise"]);
