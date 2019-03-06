@@ -265,7 +265,7 @@ $(document).ready(function() {
       var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
       
       // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-      var $klon = $div.clone(true)find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().prop('id', 'ligne'+num );
+      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().prop('id', 'ligne'+num );
       
       // Finally insert $klon wherever you want
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
