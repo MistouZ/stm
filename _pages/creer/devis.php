@@ -250,14 +250,14 @@ $(document).ready(function() {
                   //on efface tous les children options
                   for(var k=0; k<monSelectB.length; k++){
                       while (monSelectB[k].firstChild) {
-                        monSelectB[k].removeChild(monSelectB[i].firstChild);
+                        monSelectB[k].removeChild(monSelectB[k].firstChild);
                       }
                       //on rajoute les nouveaux children options
                       for(var i in response['taxes']){
                         var opt = document.createElement("option");
                         opt.value = response.taxes[i].valeur;
                         opt.innerHTML = response.taxes[i].nom; 
-                        monSelectB[i].appendChild(opt);
+                        monSelectB[k].appendChild(opt);
                       }
                   }
     	  },
