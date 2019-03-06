@@ -47,8 +47,9 @@ class QuotationManager
     {
         $lastId = $this->count();
         $quotationNumber = $quotation->getYear().($lastId + 1);
-        
-        try{
+
+        echo $quotationNumber;
+        /*try{
             $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, year,month,day,type,comment, companyId, customerId, contactId) VALUES (:quotationNumber, :status, :year, :month, :day, :comment, :companyId, :customerId, :contactId,)');
             $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
@@ -67,7 +68,7 @@ class QuotationManager
         }
         catch(Exception $e){
             return null;
-        }
+        }*/
 
     }
 
