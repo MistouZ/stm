@@ -36,7 +36,7 @@ class QuotationManager
      */
     public function count()
     {
-       return $this->_db->query('SELECT COUNT(*) FROM quotation ')->fetchColumn();
+       return $this->_db->query('SELECT * FROM quotation ORDER BY idQuotation DESC LIMIT 1')->fetchColumn();
     }
 
     /**
@@ -132,23 +132,6 @@ class QuotationManager
      * Get all the quotation in the BDD for the selected company
      * @return array
      */
-    public function getList($companyid)
-    {
-        $quotations = [];
-
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid'");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
-        }
-
-        return $quotations;
-    }
-
-    /**
-     * Get all the quotation in the BDD for the selected company
-     * @return array
-     */
     public function getListQuotation($companyid)
     {
         $quotations = [];
@@ -214,24 +197,6 @@ class QuotationManager
             $q->bindValue(':customerId', $quotation->getCustomerId(), PDO::PARAM_INT);
             $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
     
-            $q->execute();
-            return "ok";
-        }
-        catch(Exception $e){
-            return null;
-        }
-    }
-
-
-    /**
-     * Reactivate delete quotation
-     * @param quotation $quotation
-     */
-    public function reactivate(Quotation $quotation)
-    {
-        try{
-            $q = $this->_db->prepare('UPDATE quotation SET isActive = \'1\' WHERE $idQuotation = :$idQuotation');
-            $q->bindValue(':$idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->execute();
             return "ok";
         }
