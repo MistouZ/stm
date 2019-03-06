@@ -157,12 +157,12 @@ $taxmanager = $taxmanager->getListByCustomer($customer->getIdCustomer());
                                                         <label class="control-label">Taxes</label>
                                                         <select class="form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
-                                                            <?php
+                                                            <?php/*
                                                             foreach ($taxmanager as $tax){
                                                                ?>
                                                                 <option value="<?php echo $tax->getIdTax(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
                                                                 <?php
-                                                            }
+                                                            }*/
                                                             ?>
                                                         </select>
                                                     </div>
