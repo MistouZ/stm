@@ -46,13 +46,8 @@ function getContactFormFolder($idFolder){
     foreach($taxes as $taxe){
         array_push($tabTaxe,array('nom'=>$taxe->getName(),'valeur'=>$taxe->getValue()));
     }
-    $taxes = $tabTaxe;
     
-    $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName(),'taxes'=>$taxes);
-    /*$tabReponse->contact = $contact->getFirstname().' '.$contact->getName();
-    $tabReponse->customer = $customer->getName();
-    $tabReponse->company = $company->getName();
-    $tabReponse->seller = $user->getName()." ".$user->getFirstName();*/
+    $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName(),'taxes'=>$tabTaxe);
     
     $reponse = json_encode($tabReponse);
     echo $reponse;
