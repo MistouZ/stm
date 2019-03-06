@@ -246,7 +246,7 @@ $(document).ready(function() {
                  $("#optdevis").css('display','visible');
                  
                  console.log("taxes : "+response.taxes[0].nom);
-                 var monSelectB = document.getElementById("taxe");
+                 var monSelectB = document.getElementByName("taxe[]");
                   //on efface tous les children options
                   while (monSelectB.firstChild) {
                     monSelectB.removeChild(monSelectB.firstChild);
