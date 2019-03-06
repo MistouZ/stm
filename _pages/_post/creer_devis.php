@@ -41,14 +41,9 @@ $data = array(
     'contactId' => $contactId
 );
 
-//$quotation = new Quotation($data);
-//$quotationmanager = new QuotationManager($bdd);
-print_r($data);
-echo $quotation->getContactId();
-echo $quotation->getCustomerId();
-echo $quotation->getCompanyId();
-echo $quotation->getFolderId();
-echo $quotation->getStatus();
+$quotation = new Quotation($data);
+$quotationmanager = new QuotationManager($bdd);
+print_r($quotation);
 
 //$quotationNumber = $quotationmanager->add($quotation);
 /*if($quotationNumber != NULL){
