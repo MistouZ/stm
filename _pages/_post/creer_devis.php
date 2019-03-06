@@ -54,10 +54,6 @@ $data = array(
     'contactId' => $contactId
 );
 
-print_r($_POST);
-
-print_r($data);
-
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
