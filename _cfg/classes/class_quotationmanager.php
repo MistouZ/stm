@@ -50,8 +50,9 @@ class QuotationManager
         $quotation->setQuotationNumber($quotationNumber);
         //print_r($quotation);
         try{
-            $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, year,month,day,companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :year, :month, :day, :companyId, :folderId, :customerId, :contactId)');
+            $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, label, year,month,day,companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :label, :year, :month, :day, :companyId, :folderId, :customerId, :contactId)');
             $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
+            $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
             $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);

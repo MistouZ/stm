@@ -11,6 +11,7 @@ class Quotation extends Features
     private $idQuotation;
     private $quotationNumber;
     private $status;
+    private $label;
     private $year;
     private $month;
     private $day;
@@ -74,6 +75,23 @@ class Quotation extends Features
     {
         $this->status = $status;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLabel()
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param mixed $label
+     */
+    public function setLabel($label): void
+    {
+        $this->label = $label;
+    }
+
 
     /**
      * @return mixed
