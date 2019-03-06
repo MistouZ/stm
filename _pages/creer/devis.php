@@ -192,6 +192,7 @@ $taxmanager = new TaxManager($bdd);
                                         <div class="form-actions fluid">
                                             <div class="row">
                                                 <div class="col-md-12" style="text-align: center;">
+                                                    <label class="control-label">Retirer</label>
                                                     <button type="button" id="ajout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
                                                 </div>
                                             </div>
