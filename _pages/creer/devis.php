@@ -176,10 +176,15 @@ $taxmanager = new TaxManager($bdd);
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
                                                         <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
+                                                    </div>
+                                                </div>
+                                                <div style="display: none;" class="col-md-2">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <button type="submit" title="Supprimer la ligne" class="btn red"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
