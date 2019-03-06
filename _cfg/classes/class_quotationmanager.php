@@ -36,7 +36,7 @@ class QuotationManager
      */
     public function count()
     {
-       return $this->_db->query('SELECT IDENT_CURRENT(\'quotation\')')->fetchColumn();
+       return $this->_db->query('SELECT max(idQuotation) FROM quotation ORDER BY idQuotation')->fetchColumn();
     }
 
     /**
