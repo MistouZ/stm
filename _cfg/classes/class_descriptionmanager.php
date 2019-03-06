@@ -78,4 +78,16 @@ class DescriptionManager
         }
     }
 
+    public function delete($quotationNumber)
+    {
+        $delete=$this->_db->query('DELETE FROM `description` WHERE quotationNumber ="'.$quotationNumber.'"');
+        $delete->execute();
+    }
+
+    public function update(array $description, $quotationNumber)
+    {
+        $this->delete($quotationNumber);
+        $this->add($description,$quotationNumber);
+    }
+
 }
