@@ -14,13 +14,10 @@ class Quotation extends Features
     private $year;
     private $month;
     private $day;
-    private $type;
-    private $comment;
     private $companyId;
     private $folderId;
     private $customerId;
     private $contactId;
-    private $descriptionId;
 
     /**
      * Quotation constructor.
@@ -129,38 +126,6 @@ class Quotation extends Features
     /**
      * @return mixed
      */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getComment()
-    {
-        return $this->comment;
-    }
-
-    /**
-     * @param mixed $comment
-     */
-    public function setComment($comment)
-    {
-        $this->comment = $comment;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getCompanyId()
     {
         return $this->companyId;
@@ -221,24 +186,5 @@ class Quotation extends Features
     {
         $this->contactId = $contactId;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getDescriptionId()
-    {
-        return $this->descriptionId;
-    }
-
-    /**
-     * @param mixed $descriptionId
-     */
-    public function setDescriptionId($descriptionId)
-    {
-        $this->descriptionId = $descriptionId;
-    }
-
-
-
 
 }
