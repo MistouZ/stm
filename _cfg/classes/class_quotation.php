@@ -15,6 +15,7 @@ class Quotation extends Features
     private $year;
     private $month;
     private $day;
+    private $type;
     private $companyId;
     private $folderId;
     private $customerId;
@@ -139,6 +140,22 @@ class Quotation extends Features
     public function setDay($day)
     {
         $this->day = $day;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): void
+    {
+        $this->type = $type;
     }
 
     /**

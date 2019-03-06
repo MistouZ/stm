@@ -37,7 +37,8 @@ else{
 $year = date("Y");
 $month = date("m");
 $day = date("d");
-$status = "D";
+$status = "En cours";
+$type = "D";
 
 $data = array(
     'status' => $status,
@@ -45,6 +46,7 @@ $data = array(
     'year' => $year,
     'month' => $month,
     'day' => $day,
+    'type' => $type,
     'folderId' => $folderId,
     'companyId' => $companyId,
     'customerId' => $customerId,
