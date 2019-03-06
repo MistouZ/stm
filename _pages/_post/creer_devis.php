@@ -23,7 +23,7 @@ $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getFolderId();
 $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
-$contactId = $folder->getContactId()
+$contactId = $folder->getContactId();
 
 $year = date("Y");
 $month = date("m");
