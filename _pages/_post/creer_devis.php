@@ -68,7 +68,7 @@ else{
 }*/
 
 $descriptions= array();
-echo $_POST["description"][0];
+print_r($_POST["description"]);
 for($i=0;$i<count($_POST["description"]);$i++)
 {
     $dataDescription= array(
