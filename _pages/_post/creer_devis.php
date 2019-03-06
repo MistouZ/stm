@@ -44,16 +44,16 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-$quotationmanager->add($quotation);
+//$quotationmanager->add($quotation);
 
-/*$quotationNumber = $quotationmanager->add($quotation);
-echo $quotationNumber;
+$quotationNumber = $quotationmanager->add($quotation);
+//echo $quotationNumber;
 
-/*if($quotationNumber != NULL){
+if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis ".$quotationNumber;
 }
 else{
     echo "erreur j'ai rien créé";
-}*/
+}
 
 ?>
