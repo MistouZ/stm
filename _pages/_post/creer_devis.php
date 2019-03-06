@@ -20,6 +20,7 @@ $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
+print_r($folder);
 $folderId = $folder->getFolderId();
 $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
