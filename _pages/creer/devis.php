@@ -154,7 +154,7 @@ $taxmanager = new TaxManager($bdd);
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select class="form-control" name="taxe[]">
+                                                        <select id="taxe" class="form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
                                                             <?php
                                                             $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
@@ -244,6 +244,19 @@ $(document).ready(function() {
                  $("#detaildevis").css('display','visible');
                  $("#optdevis").css('display','');
                  $("#optdevis").css('display','visible');
+                 
+                 var monSelectB = document.getElementById("taxe");
+                  //on efface tous les children options
+                  while (monSelectB.firstChild) {
+                    monSelectB.removeChild(monSelectB.firstChild);
+                  }
+                  //on rajoute les nouveaux children options
+                  for(var i in response['taxes']){
+                    var opt = document.createElement("option");
+                    opt.value = i;
+                    opt.innerHTML = response['taxes'][i]; 
+                    monSelectB.appendChild(opt);
+                  }
     	  },
           error: function (jqXHR, exception) {
             var msg = '';
@@ -266,6 +279,24 @@ $(document).ready(function() {
         },
     	});
     });
+    
+    function changeSelect(selected){
+      //on recupere le php
+      var data = <?php echo json_encode($tableauClient); ?>;
+      console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
+      var monSelectB = document.getElementById("contact-select");
+      //on efface tous les children options
+      while (monSelectB.firstChild) {
+        monSelectB.removeChild(monSelectB.firstChild);
+      }
+      //on rajoute les nouveaux children options
+      for(var i in data[selected.value]){
+        var opt = document.createElement("option");
+        opt.value = i;
+        opt.innerHTML = data[selected.value][i]; 
+        monSelectB.appendChild(opt);
+      }
+    }
     
     $('#ajout').click(function(){
     
