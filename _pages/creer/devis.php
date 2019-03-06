@@ -245,14 +245,14 @@ $(document).ready(function() {
                  $("#optdevis").css('display','');
                  $("#optdevis").css('display','visible');
                  
-                 console.log("taille"+response.taxes.length);
+                 console.log("taille : "+response.taxes.length);
                  var monSelectB = document.getElementById("taxe");
                   //on efface tous les children options
                   while (monSelectB.firstChild) {
                     monSelectB.removeChild(monSelectB.firstChild);
                   }
                   //on rajoute les nouveaux children options
-                  for(var i; i< response['taxes'].length; i+=1){
+                  for(var i in data['taxes']){
                     var opt = document.createElement("option");
                     opt.value = response['taxes']['value'][i];
                     opt.innerHTML = response['taxes']['name'][i]; 
