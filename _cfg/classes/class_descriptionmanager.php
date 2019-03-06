@@ -31,13 +31,13 @@ class DescriptionManager
         $this->_db = $db;
     }
 
-    public function add(array $description, Quotation $quotation)
+    public function add(array $description, $quotationNumber)
     {
         try{
             for ($i=0;$i<count($description);$i++)
             {
                 $q = $this->_db->prepare('INSERT INTO `description` (quotationNumber, description,quantity,discount,price,tax) VALUES (:quotationNumber, :description,:quantity,:discount,:price,tax)');
-                $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
+                $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
                 $q->bindValue(':description', $description["description"][$i], PDO::PARAM_STR);
                 $q->bindValue(':quantity', $description["quantity"][$i], PDO::PARAM_INT);
                 $q->bindValue(':quantity', $description["discount"][$i], PDO::PARAM_INT);
