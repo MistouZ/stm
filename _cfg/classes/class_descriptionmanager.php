@@ -34,7 +34,9 @@ class DescriptionManager
     public function add(array $descriptions, $quotationNumber)
     {
         try{
-            $array = array();
+            print_r($descriptions);
+            echo $quotationNumber;
+            /*$array = array();
             $description = new Description($array);
 
            foreach ($descriptions as $description)
@@ -50,7 +52,7 @@ class DescriptionManager
             }
 
 
-            return "ok";
+          return "ok";*/
         }
         catch(Exception $e){
             return null;
