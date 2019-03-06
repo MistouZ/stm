@@ -79,7 +79,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
         'tax' => $_POST["taxe"][$i]
     );
     print_r($dataDescription);
-    $description = new Description($dataDescription);
+    //$description = new Description($dataDescription);
     $descriptions[$i] = $description;
 }
 
