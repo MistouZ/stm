@@ -296,24 +296,6 @@ $(document).ready(function() {
     	});
     });
     
-    function changeSelect(selected){
-      //on recupere le php
-      var data = <?php echo json_encode($tableauClient); ?>;
-      console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
-      var monSelectB = document.getElementById("contact-select");
-      //on efface tous les children options
-      while (monSelectB.firstChild) {
-        monSelectB.removeChild(monSelectB.firstChild);
-      }
-      //on rajoute les nouveaux children options
-      for(var i in data[selected.value]){
-        var opt = document.createElement("option");
-        opt.value = i;
-        opt.innerHTML = data[selected.value][i]; 
-        monSelectB.appendChild(opt);
-      }
-    }
-    
     $('#ajout').click(function(){
     
       // get the last DIV which ID starts with ^= "klon"
@@ -329,12 +311,11 @@ $(document).ready(function() {
       // Finally insert $klon wherever you want
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
     
-    });
-    
-    function supprLigne(){
+    });  
+
+});
+function supprLigne(){
         var nbDiv = $("div[class*='ligne'").length;
         alert(nbDiv);
     }
-
-});
 </script>
