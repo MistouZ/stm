@@ -35,6 +35,7 @@ class DescriptionManager
     {
         try{
             $array = array();
+            print_r($descriptions);
             $description = new Description($array);
            foreach ($descriptions as $description)
             {
@@ -48,7 +49,6 @@ class DescriptionManager
                 $q->bindValue(':tax', $description->getTax(), PDO::PARAM_STR);
                 $q->execute();
             }
-
 
           return "ok";
         }
