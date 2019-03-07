@@ -42,10 +42,10 @@ $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
                     <thead>
                         <tr>
                             <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro de devis</th>
+                            <th class="min-phone-l">NumÃ©ro de devis</th>
                             <th class="min-tablet">Client</th>
                             <th class="none">Dossier</th>
-                            <th class="none">Libellé</th>
+                            <th class="none">LibellÃ©</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
@@ -79,7 +79,7 @@ $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
                             <td><?php echo $folder->getLabel(); ?></td>
                             <td><?php echo $montant; ?></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/modifier/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le dossier n° '.$folder->getFolderNumber().' ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_dossier.php?idFolder='.$folder->getIdFolder(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le dossier nÂ° '.$folder->getFolderNumber().' ?" data-content="ATTENTION ! La suppression est irrÃ©versible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_dossier.php?idFolder='.$folder->getIdFolder(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                         </tr>
                         <?php
                         }
