@@ -17,10 +17,10 @@ include 'classes/class_folder.php';
 include 'classes/class_foldersmanager.php';
 include 'classes/class_tax.php';
 include 'classes/class_taxmanager.php';
-include 'classes/class_quotation.php';
+/*include 'classes/class_quotation.php';
 include 'classes/class_quotationmanager.php';
 include 'classes/class_description.php';
-include 'classes/class_descriptionmanager.php';
+include 'classes/class_descriptionmanager.php';*/
 
 global $bdd;
 $bdd = new DB();
