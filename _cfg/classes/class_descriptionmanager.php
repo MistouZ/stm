@@ -39,7 +39,7 @@ class DescriptionManager
            foreach ($descriptions as $description)
             {
                 print_r($description);
-                $q = $this->_db->prepare('INSERT INTO `description` (quotationNumber, description,quantity,discount,price,tax) VALUES (:quotationNumber, :description,:quantity,:discount,:price,tax)');
+                $q = $this->_db->prepare('INSERT INTO description (quotationNumber, description, quantity,price,tax) VALUES (:quotationNumber, :description, :quantity, :discount, :price, :tax)');
                 $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
                 $q->bindValue(':description', $description->getDescription(), PDO::PARAM_STR);
                 $q->bindValue(':quantity', $description->getQuantity(), PDO::PARAM_INT);
