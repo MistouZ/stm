@@ -15,7 +15,7 @@ class DescriptionManager
     private $_db;
 
     /**
-     * customersManager constructor.
+     * UsersManager constructor.
      * @param $_db
      */
     public function __construct($_db)
