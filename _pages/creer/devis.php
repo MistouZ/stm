@@ -139,7 +139,7 @@ $taxmanager = new TaxManager($bdd);
                                                 <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
                                             </div>
                                         </div>
-                                        <div id="ligne1" class="row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                        <div id="ligne1" class="ligne row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
@@ -183,7 +183,7 @@ $taxmanager = new TaxManager($bdd);
                                                 </div>
                                                 <div id="divsuppr1" style="display: none; text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                        <button type="button" title="Supprimer la ligne" id="suppr1" class="btn red"><i class="fas fa-minus-square"></i></button>
+                                                        <button type="button" title="Supprimer la ligne" id="suppr1" class="btn red" onclick="supprLigne();"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -330,6 +330,11 @@ $(document).ready(function() {
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
     
     });
+    
+    function supprLigne(){
+        var nbDiv = $("div[class*='ligne'").length;
+        alert(nbDiv);
+    }
 
 });
 </script>
