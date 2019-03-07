@@ -9,6 +9,7 @@ include("../../_cfg/cfg.php");
 
 $array = array();
 $companyNameData = $_GET["section"];
+$type = $_GET['cat'];
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -23,7 +24,18 @@ $quotationmanager = new QuotationManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
 
-$quotations = $quotationmanager->getListQuotation($company->getIdcompany());
+switch($type){
+    case "devis":
+        $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
+        break;
+    case "profoma":
+        $quotations = $quotationmanager->getListProforma($company->getIdcompany());
+        break;
+    case "facture":
+        $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
+        break;
+}
+
 
 
 ?>
@@ -69,7 +81,6 @@ $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
                                 $montantLigne = $montantLigne-$remise;
                                 $montantLigne = $montantLigne+$taxe;
                                 $montant = $montant+$montantLigne;
-                                echo "montant ligne : ".$montantLigne." / taxe : ".$taxe." remise : ".$remise;
                             }
                         ?>
                         <tr>
