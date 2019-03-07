@@ -49,7 +49,7 @@ class DescriptionManager
             }
 
 
-          //return "ok";
+          return "ok";
         }
         catch(Exception $e){
             return null;
