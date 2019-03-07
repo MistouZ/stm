@@ -29,8 +29,7 @@ switch($type){
         echo "devis";
         $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
         break;
-    case "profoma":
-        echo 'proforma';
+    case "proforma":
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
         break;
     case "facture":
