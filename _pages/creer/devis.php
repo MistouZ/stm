@@ -316,7 +316,6 @@ $(document).ready(function() {
 });
 function supprLigne(selected){
         var nbDiv = $("div[class*='ligne']").length;
-        .find('div[id="divsuppr'+num+'"]').css('display','' ).end()
         var selectedDiv = $("div[id='ligne"+selected+"']");
         if(nbDiv>1){
             selectedDiv.remove();
