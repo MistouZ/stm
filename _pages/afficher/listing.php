@@ -56,8 +56,8 @@ switch($type){
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro de devis</th>
                             <th class="min-tablet">Client</th>
-                            <th class="none">Dossier</th>
-                            <th class="none">Libellé</th>
+                            <th class="desktop">Dossier</th>
+                            <th class="desktop">Libellé</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
