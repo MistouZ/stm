@@ -49,6 +49,7 @@ switch($type){
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
                 <div class="tools"> </div>
             </div>
+            <?php echo $type; ?>
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
