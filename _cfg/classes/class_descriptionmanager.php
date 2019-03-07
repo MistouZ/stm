@@ -47,7 +47,6 @@ class DescriptionManager
                 $q->bindValue(':price', $description->getPrice(),PDO::PARAM_INT);
                 $q->bindValue(':tax', $description->getTax(),PDO::PARAM_STR);
                 $q->execute();
-
             }
 
           return "ok";
