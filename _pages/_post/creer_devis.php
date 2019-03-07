@@ -64,10 +64,15 @@ $descriptions= array();
 //print_r($_POST);
 for($i=0;$i<count($_POST["description"]);$i++)
 {
+    if(!isset($_POST["remise"][$i])){
+        $remise = 0;
+    }else{
+        $remise = $_POST["remise"][$i];
+    }
     $dataDescription= array(
         'description' => $_POST["description"][$i],
         'quantity' => $_POST["quantite"][$i],
-        'discount' => $_POST["remise"][$i],
+        'discount' => $remise,
         'price' => $_POST["prix"][$i],
         'tax' => $_POST["taxe"][$i]
     );
