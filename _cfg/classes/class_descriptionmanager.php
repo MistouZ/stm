@@ -31,7 +31,7 @@ class DescriptionManager
         $this->_db = $db;
     }
 
-    public function add(array $descriptions, $quotationNumber)
+    /*public function add(array $descriptions, $quotationNumber)
     {
         try{
             $array = array();
@@ -55,7 +55,7 @@ class DescriptionManager
             return null;
         }
 
-    }
+    }*/
 
     /**
      * Find a Quotation by his iD
