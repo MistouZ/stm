@@ -30,6 +30,7 @@ switch($type){
         break;
     case "profoma":
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
+        echo 'proforma';
         break;
     case "facture":
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
