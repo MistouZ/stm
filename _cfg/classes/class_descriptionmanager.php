@@ -42,10 +42,10 @@ class DescriptionManager
                 $q = $this->_db->prepare('INSERT INTO description (quotationNumber, description, quantity,price,tax) VALUES (:quotationNumber, :description, :quantity, :discount, :price, :tax)');
                 $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
                 $q->bindValue(':description', $description->getDescription(), PDO::PARAM_STR);
-                $q->bindValue(':quantity', $description->getQuantity(), PDO::PARAM_INT);
-                $q->bindValue(':discount',  $description->getDiscount(), PDO::PARAM_INT);
-                $q->bindValue(':price', $description->getPrice(), PDO::PARAM_INT);
-                $q->bindValue(':tax', $description->getTax(), PDO::PARAM_STR);
+                $q->bindValue(':quantity', $description->getQuantity(),PDO::PARAM_INT );
+                $q->bindValue(':discount',  $description->getDiscount(),PDO::PARAM_INT );
+                $q->bindValue(':price', $description->getPrice(),PDO::PARAM_INT );
+                $q->bindValue(':tax', $description->getTax(),PDO::PARAM_STR);
                 $q->execute();
                 echo "ok";
             }
