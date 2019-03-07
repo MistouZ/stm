@@ -309,6 +309,8 @@ $(document).ready(function() {
       var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('button[id^="suppr"]:last').prop('id', 'suppr'+num ).end().find('button[id^="suppr"]:last').attr('onclick', 'supprLigne('+num+')' ).end().find('div[id^="divsuppr"]:last').prop('id', 'divsuppr'+num ).end().find('div[id="divsuppr'+num+'"]').css('display','' ).end().find('div[id="divsuppr'+num+'"]').css('display','block' ).end().prop('id', 'ligne'+num );
       
       // Finally insert $klon wherever you want
+      $("div[id*='divsuppr']").css('display','' );
+      $("div[id*='divsuppr']").css('display','block' );
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
     
     });  
@@ -319,8 +321,6 @@ function supprLigne(selected){
         var selectedDiv = $("div[id='ligne"+selected+"']");
         if(nbDiv>1){
             selectedDiv.remove();
-            $("div[class*='ligne']").css('display','' );
-            $("div[class*='ligne']").css('display','block' );
         }else{
             selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','' ).end();
             selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','none' ).end();
