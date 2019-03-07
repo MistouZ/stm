@@ -9,7 +9,7 @@
 class Description extends Features
 {
     private $idDescription;
-    private $quotation_number;
+    private $quotationNumber;
     private $description;
     private $quantity;
     private $discount;
@@ -48,17 +48,17 @@ class Description extends Features
      */
     public function getQuotationNumber()
     {
-        return $this->quotation_number;
+        return $this->quotationNumber;
     }
 
     /**
      * @param mixed $quotation_number
      */
-    public function setQuotationNumber($quotation_number)
+    public function setQuotationNumber($quotationNumber)
     {
-        if(is_string($quotation_number))
+        if(is_string($quotationNumber))
         {
-            $this->quotation_number = $quotation_number;
+            $this->quotationNumber = $quotationNumber;
         }
     }
 
