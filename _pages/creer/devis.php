@@ -320,8 +320,8 @@ function supprLigne(selected){
         if(nbDiv>1){
             selectedDiv.remove();
         }else{
-            selectedDiv.find('div[id="divsuppr'+num+'"]').css('display','' ).end();
-            selectedDiv.find('div[id="divsuppr'+num+'"]').css('display','none' ).end()
+            selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','' ).end();
+            selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','none' ).end()
             alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
         }
     }
