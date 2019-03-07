@@ -142,7 +142,4 @@ class Description extends Features
         $this->tax = $tax;
     }
 
-
-
-
 }

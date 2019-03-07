@@ -66,7 +66,6 @@ for($i=0;$i<count($_POST["description"]);$i++)
 {
     $dataDescription= array(
         'description' => $_POST["description"][$i],
-        'quotation_number' => $quotationNumber,
         'quantity' => $_POST["quantite"][$i],
         'discount' => $_POST["remise"][$i],
         'price' => $_POST["prix"][$i],
@@ -77,7 +76,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
     $descriptions[$i] = $description;
 }
 
-$descriptionmanager->add($descriptions);
+$descriptionmanager->add($descriptions,$quotationNumber);
 /*if(!is_null($test))
 {
     echo "insertion réussie";

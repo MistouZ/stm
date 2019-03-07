@@ -31,16 +31,15 @@ class DescriptionManager
         $this->_db = $db;
     }
 
-    public function add(array $descriptions)
+    public function add(array $descriptions, $quotatioNumber)
     {
         try{
             print_r($descriptions);
             $array = array();
             $description = new Description($array);
-            $description->getQuotationNumber();
            foreach ($descriptions as $description)
             {
-                echo $description->getQuotationNumber()." ".$description->getDescription()." ".$description->getQuantity()." ".$description->getDiscount()." ".$description->getPrice()." ".$description->getTax();
+                echo $quotatioNumber." ".$description->getDescription()." ".$description->getQuantity()." ".$description->getDiscount()." ".$description->getPrice()." ".$description->getTax();
                 /*$q = $this->_db->prepare('INSERT INTO `description` (quotationNumber, description,quantity,discount,price,tax) VALUES (:quotationNumber, :description,:quantity,:discount,:price,tax)');
                 $q->bindValue(':quotationNumber', $description->getQuotationNumber(), PDO::PARAM_STR);
                 $q->bindValue(':description', $description->getDescription(), PDO::PARAM_STR);
@@ -96,3 +95,4 @@ class DescriptionManager
     }
 
 }
+?>
