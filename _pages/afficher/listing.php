@@ -69,6 +69,7 @@ $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
                                 $montantLigne = $montantLigne-$remise;
                                 $montantLigne = $montantLigne+$taxe;
                                 $montant = $montant+$montantLigne;
+                                echo "montant ligne : ".$montantLigne." / taxe : ".$taxe." remise : ".$remise;
                             }
                         ?>
                         <tr>
