@@ -26,6 +26,7 @@ $company = $companymanager->getByNameData($companyNameData);
 
 switch($type){
     case "devis":
+        echo "devis";
         $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
         break;
     case "profoma":
@@ -49,7 +50,6 @@ switch($type){
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
                 <div class="tools"> </div>
             </div>
-            <?php echo $type; ?>
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
