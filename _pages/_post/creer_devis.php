@@ -76,7 +76,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
     $descriptions[$i] = $description;
 }
 
-$descriptionmanager->add($descriptions,$quotationNumber);
+$test = $descriptionmanager->add($descriptions,$quotationNumber);
 if(!is_null($test))
 {
     echo "insertion réussie";
