@@ -82,12 +82,12 @@ for($i=0;$i<count($_POST["description"]);$i++)
 }
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
-if(!is_null($test))
+if(is_null($test))
 {
-    echo "insertion réussie";
+    header('Location: '.$_SERVER['HTTP_REFERER']);
 }
 else{
-    echo "erreur";
+    header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);
 }
 
 ?>
