@@ -64,7 +64,7 @@ $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
                             $montant = 0;
                             foreach($descriptions as $description){
                                 $montantLigne = $description->getQuantity()*$description->getPrice();
-                                $remise = $montantLigne*$description->getDiscount();
+                                $remise = $montantLigne*($description->getDiscount()/100);
                                 $taxe = $montantLigne*$description->getTax();
                                 $montantLigne = $montantLigne-$remise;
                                 $montantLigne = $montantLigne+$taxe;
