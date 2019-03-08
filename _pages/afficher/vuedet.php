@@ -29,12 +29,18 @@ $contactmanager = new ContactManager($bdd);
 switch($type){
     case "devis":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $entete = "du devis";
+        $enteteIcon = '<i class="fas fa-file-invoice"></i>';
         break;
     case "proforma":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $entete = "de la proforma";
+        $enteteIcon = '<i class="fas fa-file-alt"></i>';
         break;
     case "facture":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $entete = "de la facture";
+        $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         break;
 }
 $folder = $foldermanager->get($quotation->getFolderId());
@@ -118,7 +124,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-cogs"></i>Shopping Cart </div>
+                            <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
                         <div class="actions">
                             <a href="javascript:;" class="btn btn-default btn-sm">
                                 <i class="fa fa-pencil"></i> Edit </a>
