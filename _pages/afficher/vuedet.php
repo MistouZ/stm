@@ -127,7 +127,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
                         <div class="actions">
                             <a href="javascript:;" class="btn btn-default btn-sm">
-                                <i class="fa fa-pencil"></i> Edit </a>
+                                <i class="fas fa-edit"></i> Modifier </a>
                         </div>
                     </div>
                     <div class="portlet-body">
