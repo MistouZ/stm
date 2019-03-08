@@ -28,9 +28,7 @@ $contactmanager = new ContactManager($bdd);
 
 switch($type){
     case "devis":
-        //echo $idQuotation;
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
-        print_r($quotation);
         break;
     case "proforma":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
@@ -88,7 +86,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                 <div class="portlet blue-hoki box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-cogs"></i>Informations client </div>
+                            <i class="fas fa-user-tie"></i>Informations client </div>
                     </div>
                     <div class="portlet-body">
                         <div class="row static-info">
@@ -131,74 +129,40 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             <table class="table table-hover table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th> Product </th>
-                                        <th> Item Status </th>
-                                        <th> Original Price </th>
-                                        <th> Price </th>
-                                        <th> Quantity </th>
-                                        <th> Tax Amount </th>
-                                        <th> Tax Percent </th>
-                                        <th> Discount Amount </th>
-                                        <th> Total </th>
+                                        <th> Description </th>
+                                        <th> Prix à l'unité </th>
+                                        <th> QT. </th>
+                                        <th> Taxe </th>
+                                        <th> Remise </th>
+                                        <th> Prix total HT </th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                        $montant = 0;
+                                        $totalTaxe = 0;
+                                        $montantHT = 0;
+                                        foreach($descriptions as $description){
+                                        $montantLigne = $description->getQuantity()*$description->getPrice();
+                                        $remise = $montantLigne*($description->getDiscount()/100);
+                                        $taxe = $montantLigne*$description->getTax();
+                                        $totalTaxe = $totalTaxe+$taxe;
+                                        $montantLigne = $montantLigne-$remise;
+                                        $montantHT = $montantHT+$montantLigne;
+                                        $montantLigne = $montantLigne+$taxe;
+                                        $montant = $montant+$montantLigne;
+                                    ?>
                                     <tr>
-                                        <td>
-                                            <a href="javascript:;"> Product 1 </a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-sm label-success"> Available </td>
-                                        <td> 345.50$ </td>
-                                        <td> 345.50$ </td>
-                                        <td> 2 </td>
-                                        <td> 2.00$ </td>
-                                        <td> 4% </td>
-                                        <td> 0.00$ </td>
-                                        <td> 691.00$ </td>
+                                        <td><?php echo $description->getDescription(); ?></td>
+                                        <td><?php echo $description->getPrice(); ?></td>
+                                        <td><?php echo $description->getQuantity(); ?></td>
+                                        <td><?php echo $description->getTax()*100; ?> %</td>
+                                        <td><?php echo $description->getDiscount(); ?> %</td>
+                                        <td><?php echo number_format($montantLigne,0,","," "); ?></td>
                                     </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="javascript:;"> Product 1 </a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-sm label-success"> Available </td>
-                                        <td> 345.50$ </td>
-                                        <td> 345.50$ </td>
-                                        <td> 2 </td>
-                                        <td> 2.00$ </td>
-                                        <td> 4% </td>
-                                        <td> 0.00$ </td>
-                                        <td> 691.00$ </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="javascript:;"> Product 1 </a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-sm label-success"> Available </td>
-                                        <td> 345.50$ </td>
-                                        <td> 345.50$ </td>
-                                        <td> 2 </td>
-                                        <td> 2.00$ </td>
-                                        <td> 4% </td>
-                                        <td> 0.00$ </td>
-                                        <td> 691.00$ </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <a href="javascript:;"> Product 1 </a>
-                                        </td>
-                                        <td>
-                                            <span class="label label-sm label-success"> Available </td>
-                                        <td> 345.50$ </td>
-                                        <td> 345.50$ </td>
-                                        <td> 2 </td>
-                                        <td> 2.00$ </td>
-                                        <td> 4% </td>
-                                        <td> 0.00$ </td>
-                                        <td> 691.00$ </td>
-                                    </tr>
+                                    <?php
+                                        }
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -211,28 +175,16 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             <div class="col-md-6">
                 <div class="well">
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Sub Total: </div>
-                        <div class="col-md-3 value"> $1,124.50 </div>
+                        <div class="col-md-8 name"> Sous-total: </div>
+                        <div class="col-md-3 value"> <?php echo number_format($montantHT,0,","," "); ?> </div>
                     </div>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Shipping: </div>
-                        <div class="col-md-3 value"> $40.50 </div>
+                        <div class="col-md-8 name"> Taxes : </div>
+                        <div class="col-md-3 value"> <?php echo number_format($totalTaxe,0,","," "); ?> </div>
                     </div>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Grand Total: </div>
-                        <div class="col-md-3 value"> $1,260.00 </div>
-                    </div>
-                    <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Total Paid: </div>
-                        <div class="col-md-3 value"> $1,260.00 </div>
-                    </div>
-                    <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Total Refunded: </div>
-                        <div class="col-md-3 value"> $0.00 </div>
-                    </div>
-                    <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Total Due: </div>
-                        <div class="col-md-3 value"> $1,124.50 </div>
+                        <div class="col-md-8 name"> Total TTC: </div>
+                        <div class="col-md-3 value"> <?php echo number_format($montant,0,","," "); ?> </div>
                     </div>
                 </div>
             </div>
