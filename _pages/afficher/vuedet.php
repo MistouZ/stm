@@ -182,15 +182,15 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                 <div class="well">
                     <div class="row static-info align-reverse">
                         <div class="col-md-8 name"> Sous-total: </div>
-                        <div class="col-md-3 value"> <?php echo number_format($montantHT,0,","," "); ?> </div>
+                        <div class="col-md-3 value"> <?php echo number_format($montantHT,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Taxes : </div>
-                        <div class="col-md-3 value"> <?php echo number_format($totalTaxe,0,","," "); ?> </div>
+                        <div class="col-md-8 name"> Total taxes : </div>
+                        <div class="col-md-3 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
                         <div class="col-md-8 name"> Total TTC: </div>
-                        <div class="col-md-3 value"> <?php echo number_format($montant,0,","," "); ?> </div>
+                        <div class="col-md-3 value"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
                 </div>
             </div>
