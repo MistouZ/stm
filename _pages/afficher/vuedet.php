@@ -26,8 +26,9 @@ $quotationmanager = new QuotationManager($bdd);
 
 switch($type){
     case "devis":
-        echo $idQuotation;
+        //echo $idQuotation;
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        print_r($quotation);
         break;
     case "proforma":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
