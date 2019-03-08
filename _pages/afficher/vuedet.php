@@ -26,7 +26,7 @@ $quotationmanager = new QuotationManager($bdd);
 
 switch($type){
     case "devis":
-        echo "devis";
+        echo $idQuotation;
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         break;
     case "proforma":
