@@ -22,6 +22,8 @@ $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $quotation = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
+$contact = new Contact($array);
+$contactmanager = new ContactManager($bdd);
 
 
 switch($type){
