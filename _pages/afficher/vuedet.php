@@ -219,7 +219,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     <?php 
                         foreach($arrayTaxesKey["Value"] as $arrayTaxe["Value"]){ ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> <?php print_r($arrayTaxe["Value"]); ?>: </div>
+                        <div class="col-md-8 name"> <?php print_r($arrayTaxesKey["Value"]); ?>: </div>
                         <div class="col-md-8 name"> <?php echo $arrayTaxe["Value"]["Taxe"]; ?>: </div>
                         <div class="col-md-3 value"> <?php echo $arrayTaxe["Value"]["Montant"]; ?> XPF</div>
                     </div>
