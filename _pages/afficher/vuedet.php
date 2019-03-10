@@ -163,7 +163,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                     //$arrayTaxe[$description->getTax()]["Taxe"]= $tax->getName();
                                                     //$arrayTaxe["Value"]= $description->getTax();
                                                     //$arrayTaxe[$description->getTax()]["Montant"]= $taxe;
-                                                     array_push($arrayTaxe,array('Value'=>$description->getTax(),array('Taxe'=>$tax->getName(),'Montant'=>$taxe)));
+                                                     array_push($arrayTaxesKey,array('Value'=>$description->getTax(),array('Taxe'=>$tax->getName(),'Montant'=>$taxe)));
                                                 }
                                             }
                                             /*switch($description->getTax()){
