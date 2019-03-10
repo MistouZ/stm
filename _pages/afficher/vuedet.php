@@ -155,13 +155,14 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             $montantLigne = $description->getQuantity()*$description->getPrice();
                                             $remise = $montantLigne*($description->getDiscount()/100);
                                             $taxe = $montantLigne*$description->getTax();
+                                            $tax = $taxmanager->getByPercent($description->getTax()*100);
                                             array_push($arrayTaxesKey,array('Value'=>$description->getTax(),array('Taxe'=>$tax->getName(),'Montant'=>$taxe)));
                                             foreach($arrayTaxesKey as $arrayTaxe){
                                                 
                                                 /*if(isset($arrayTaxe[$description->getTax()])){
                                                     $arrayTaxe[$description->getTax()]["Montant"] = $arrayTaxe[$description->getTax()]["Montant"]+$taxe;
                                                 }else{
-                                                    $tax = $taxmanager->getByPercent($description->getTax()*100);
+                                                    
                                                     //$arrayTaxe[$description->getTax()]["Taxe"]= $tax->getName();
                                                     //$arrayTaxe["Value"]= $description->getTax();
                                                     //$arrayTaxe[$description->getTax()]["Montant"]= $taxe;
