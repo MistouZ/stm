@@ -150,19 +150,19 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         $montant = 0;
                                         $totalTaxe = 0;
                                         $montantHT = 0;
-                                        $arrayTaxesKey =  array("Taxe","Value","Montant"); 
+                                        $arrayTaxesKey =  array(); 
                                         foreach($descriptions as $description){
                                             $montantLigne = $description->getQuantity()*$description->getPrice();
                                             $remise = $montantLigne*($description->getDiscount()/100);
                                             $taxe = $montantLigne*$description->getTax();
                                             foreach($arrayTaxesKey as $arrayTaxe){
-                                                if(isset($arrayTaxe["Value"][$description->getTax()])){
-                                                    $arrayTaxe["Montant"][$description->getTax()] = $arrayTaxe["Montant"][$description->getTax()]+$taxe;
+                                                if(isset($arrayTaxe[$description->getTax()])){
+                                                    $arrayTaxe[$description->getTax()]["Montant"] = $arrayTaxe[$description->getTax()]["Montant"]+$taxe;
                                                 }else{
                                                     $tax = $taxmanager->getByPercent($description->getTax()*100);
-                                                    $arrayTaxe["Taxe"]= $tax->getName();
-                                                    $arrayTaxe["Value"]= $description->getTax();
-                                                    $arrayTaxe["Montant"]= $taxe;
+                                                    $arrayTaxe[$description->getTax()]["Taxe"]= $tax->getName();
+                                                    $arrayTaxe[$description->getTax()]["Value"]= $description->getTax();
+                                                    $arrayTaxe[$description->getTax()]["Montant"]= $taxe;
                                                 }
                                             }
                                             /*switch($description->getTax()){
@@ -215,13 +215,17 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                         <div class="col-md-8 name"> Total TTC: </div>
                         <div class="col-md-3 value"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
-                    <?php foreach($arrayTaxesKey as $arrayTaxe){ ?>
+                    <?php 
+                        $i=0;
+                        foreach($arrayTaxesKey[$i] as $arrayTaxe[$i]){ ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> <?php print_r($arrayTaxe); ?>: </div>
-                        <div class="col-md-8 name"> <?php echo $arrayTaxe["Taxe"]; ?>: </div>
-                        <div class="col-md-3 value"> <?php echo $arrayTaxe["Montant"]; ?> XPF</div>
+                        <div class="col-md-8 name"> <?php print_r($arrayTaxe[$i]); ?>: </div>
+                        <div class="col-md-8 name"> <?php echo $arrayTaxe[$i]["Taxe"]; ?>: </div>
+                        <div class="col-md-3 value"> <?php echo $arrayTaxe[$i]["Montant"]; ?> XPF</div>
                     </div>
-                    <?php } ?>
+                    <?php 
+                        $i++;
+                        } ?>
                 </div>
             </div>
         </div>
