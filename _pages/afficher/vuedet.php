@@ -217,8 +217,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     <?php 
                         foreach($arrayTaxesKey as $key => $value){ ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> <?php echo $arrayTaxe[$key]["Taxe"]; ?>: </div>
-                        <div class="col-md-3 value"> <?php echo $arrayTaxe[$key]["Montant"]; ?> XPF</div>
+                        <div class="col-md-8 name"> <?php echo $key["Taxe"]; ?>: </div>
+                        <div class="col-md-3 value"> <?php echo $key["Montant"]; ?> XPF</div>
                     </div>
                     <?php } ?>
                 </div>
