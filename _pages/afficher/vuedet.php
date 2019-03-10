@@ -171,8 +171,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             }
                                             $totalTaxe = $totalTaxe+$taxe;
                                             $montantHT = $montantHT+$montantLigne;
-                                            $montantLigne = $montantLigne+$taxe;
-                                            $montant = $montant+$montantLigne;
+                                            //$montantLigne = $montantLigne+$taxe;
+                                            $montant = $montant+$montantLigne+$taxe;
                                         ?>
                                         <tr>
                                             <td><?php echo $description->getDescription(); ?></td>
