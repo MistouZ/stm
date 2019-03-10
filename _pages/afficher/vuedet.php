@@ -156,7 +156,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             $remise = $montantLigne*($description->getDiscount()/100);
                                             $taxe = $montantLigne*$description->getTax();
                                             $tax = $taxmanager->getByPercent($description->getTax()*100);
-                                            if(in_array($arrayTaxesKey["Value"],$description->getTax())){
+                                            if(isset($arrayTaxesKey["Value"]) && $arrayTaxesKey["Value"]==$description->getTax()){
                                                 $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
                                             }else{
                                                 array_push($arrayTaxesKey,array('Value'=>$description->getTax(),array('Taxe'=>$tax->getName(),'Montant'=>$taxe)));
