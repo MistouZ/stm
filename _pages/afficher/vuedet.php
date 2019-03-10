@@ -161,7 +161,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 }else{
                                                     $tax = $taxmanager->getByPercent($description->getTax()*100);
                                                     $arrayTaxe[$description->getTax()]["Taxe"]= $tax->getName();
-                                                    $arrayTaxe[$description->getTax()]["Value"]= $description->getTax();
+                                                    $arrayTaxe["Value"]= $description->getTax();
                                                     $arrayTaxe[$description->getTax()]["Montant"]= $taxe;
                                                 }
                                             }
@@ -216,16 +216,13 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                         <div class="col-md-3 value"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
                     <?php 
-                        $i=0;
-                        foreach($arrayTaxesKey[$i] as $arrayTaxe[$i]){ ?>
+                        foreach($arrayTaxesKey["Value"] as $arrayTaxe["Value"]){ ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> <?php print_r($arrayTaxe[$i]); ?>: </div>
-                        <div class="col-md-8 name"> <?php echo $arrayTaxe[$i]["Taxe"]; ?>: </div>
-                        <div class="col-md-3 value"> <?php echo $arrayTaxe[$i]["Montant"]; ?> XPF</div>
+                        <div class="col-md-8 name"> <?php print_r($arrayTaxe["Value"]); ?>: </div>
+                        <div class="col-md-8 name"> <?php echo $arrayTaxe["Value"]["Taxe"]; ?>: </div>
+                        <div class="col-md-3 value"> <?php echo $arrayTaxe["Value"]["Montant"]; ?> XPF</div>
                     </div>
-                    <?php 
-                        $i++;
-                        } ?>
+                    <?php } ?>
                 </div>
             </div>
         </div>
