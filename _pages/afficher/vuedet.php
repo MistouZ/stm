@@ -24,6 +24,8 @@ $quotation = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
+$tax = new Tax($array);
+$taxmanager = new TaxManager($bdd);
 
 
 switch($type){
@@ -148,25 +150,45 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         $montant = 0;
                                         $totalTaxe = 0;
                                         $montantHT = 0;
+                                        $arrayTaxesKey =  array("Taxe","Value","Montant"); 
                                         foreach($descriptions as $description){
-                                        $montantLigne = $description->getQuantity()*$description->getPrice();
-                                        $remise = $montantLigne*($description->getDiscount()/100);
-                                        $taxe = $montantLigne*$description->getTax();
-                                        $totalTaxe = $totalTaxe+$taxe;
-                                        $montantLigne = $montantLigne-$remise;
-                                        $montantHT = $montantHT+$montantLigne;
-                                        $montantLigne = $montantLigne+$taxe;
-                                        $montant = $montant+$montantLigne;
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $description->getDescription(); ?></td>
-                                        <td><?php echo $description->getPrice(); ?></td>
-                                        <td><?php echo $description->getQuantity(); ?></td>
-                                        <td><?php echo $description->getTax()*100; ?> %</td>
-                                        <td><?php echo $description->getDiscount(); ?> %</td>
-                                        <td><?php echo number_format($montantLigne,0,","," "); ?></td>
-                                    </tr>
-                                    <?php
+                                            $montantLigne = $description->getQuantity()*$description->getPrice();
+                                            $remise = $montantLigne*($description->getDiscount()/100);
+                                            $taxe = $montantLigne*$description->getTax();
+                                            foreach($arrayTaxesKey as $arrayTaxe){
+                                                if(isset($arrayTaxe["Value"][$description->getTax()])){
+                                                    $arrayTaxe["Montant"][$description->getTax()] = $arrayTaxe["Montant"][$description->getTax()]+$taxe;
+                                                }else{
+                                                    $arrayTaxe["Taxe"]= $taxes->getByPercent($description->getTax()*100);;
+                                                    $arrayTaxe["Value"]= $description->getTax();
+                                                    $arrayTaxe["Montant"]= $taxe;
+                                                }
+                                            }
+                                            /*switch($description->getTax()){
+                                                case 0.03:
+                                                    break;
+                                                case 0.06:
+                                                    break;
+                                                case 0.11:
+                                                    break;
+                                                case 0.22:
+                                                    break;
+                                            }*/
+                                            $totalTaxe = $totalTaxe+$taxe;
+                                            $montantLigne = $montantLigne-$remise;
+                                            $montantHT = $montantHT+$montantLigne;
+                                            $montantLigne = $montantLigne+$taxe;
+                                            $montant = $montant+$montantLigne;
+                                        ?>
+                                        <tr>
+                                            <td><?php echo $description->getDescription(); ?></td>
+                                            <td><?php echo $description->getPrice(); ?></td>
+                                            <td><?php echo $description->getQuantity(); ?></td>
+                                            <td><?php echo $description->getTax()*100; ?> %</td>
+                                            <td><?php echo $description->getDiscount(); ?> %</td>
+                                            <td><?php echo number_format($montantLigne,0,","," "); ?></td>
+                                        </tr>
+                                        <?php
                                         }
                                     ?>
                                 </tbody>
@@ -191,6 +213,10 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     <div class="row static-info align-reverse">
                         <div class="col-md-8 name"> Total TTC: </div>
                         <div class="col-md-3 value"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
+                    </div>
+                    <div class="row static-info align-reverse">
+                        <div class="col-md-8 name"> Taxes: </div>
+                        <div class="col-md-3 value"> <?php print_r($arrayTaxesKey); ?> XPF</div>
                     </div>
                 </div>
             </div>
