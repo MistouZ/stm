@@ -156,10 +156,10 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             $remise = $montantLigne*($description->getDiscount()/100);
                                             $taxe = $montantLigne*$description->getTax();
                                             $tax = $taxmanager->getByPercent($description->getTax()*100);
-                                            if(isset($arrayTaxesKey["Value"]) && $arrayTaxesKey["Value"]==$description->getTax()){
+                                            if(isset($arrayTaxesKey[$description->getTax()])){
                                                 $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
                                             }else{
-                                                array_push($arrayTaxesKey,array('Value'=>$description->getTax(),array('Taxe'=>$tax->getName(),'Montant'=>$taxe)));
+                                                array_push($arrayTaxesKey,array($description->getTax(),array('Taxe'=>$tax->getName(),'Montant'=>$taxe)));
                                             }
                                             /*switch($description->getTax()){
                                                 case 0.03:
@@ -217,7 +217,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     <?php 
                         foreach($arrayTaxesKey as $arrayTaxe){ ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> <?php print_r($arrayTaxesKey["Value"]); ?>: </div>
                         <div class="col-md-8 name"> <?php echo $arrayTaxe["Value"]["Taxe"]; ?>: </div>
                         <div class="col-md-3 value"> <?php echo $arrayTaxe["Value"]["Montant"]; ?> XPF</div>
                     </div>
