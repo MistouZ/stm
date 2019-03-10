@@ -159,7 +159,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 if(isset($arrayTaxe["Value"][$description->getTax()])){
                                                     $arrayTaxe["Montant"][$description->getTax()] = $arrayTaxe["Montant"][$description->getTax()]+$taxe;
                                                 }else{
-                                                    $arrayTaxe["Taxe"]= $taxes->getByPercent($description->getTax()*100);;
+                                                    $tax = $taxmanager->getByPercent($description->getTax()*100);
+                                                    $arrayTaxe["Taxe"]= $tax->getName();
                                                     $arrayTaxe["Value"]= $description->getTax();
                                                     $arrayTaxe["Montant"]= $taxe;
                                                 }
