@@ -215,10 +215,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                         <div class="col-md-8 name"> Total TTC: </div>
                         <div class="col-md-3 value"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
+                    <?php foreach($arrayTaxesKey as $arrayTaxe){ ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Taxes: </div>
-                        <div class="col-md-3 value"> <?php var_dump($arrayTaxesKey); ?> XPF</div>
+                        <div class="col-md-8 name"> <?php echo $arrayTaxe["Taxe"]; ?>: </div>
+                        <div class="col-md-3 value"> <?php echo $arrayTaxe["Montant"]; ?> XPF</div>
                     </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
