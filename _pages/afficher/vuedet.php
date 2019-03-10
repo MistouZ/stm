@@ -217,7 +217,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     </div>
                     <div class="row static-info align-reverse">
                         <div class="col-md-8 name"> Taxes: </div>
-                        <div class="col-md-3 value"> <?php print_r($arrayTaxesKey); ?> XPF</div>
+                        <div class="col-md-3 value"> <?php var_dump($arrayTaxesKey); ?> XPF</div>
                     </div>
                 </div>
             </div>
