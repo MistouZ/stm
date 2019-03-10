@@ -36,6 +36,9 @@ switch($type){
     case "facture":
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
         break;
+    case "avoir":
+        $quotations = $quotationmanager->getListAvoir($company->getIdcompany());
+        break;
 }
 
 

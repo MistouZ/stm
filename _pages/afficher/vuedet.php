@@ -44,6 +44,11 @@ switch($type){
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         break;
+    case "avoir":
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $entete = "de l'avoir";
+        $enteteIcon = '<i class="fas fa-file-prescription"></i>';
+        break;
 }
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
@@ -154,26 +159,17 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         foreach($descriptions as $description){
                                             $montantLigne = $description->getQuantity()*$description->getPrice();
                                             $remise = $montantLigne*($description->getDiscount()/100);
+                                            $montantLigne = $montantLigne-$remise;
                                             $taxe = $montantLigne*$description->getTax();
                                             $tax = $taxmanager->getByPercent($description->getTax()*100);
+                                            //Calcul du détail des taxes pour l'affichage par tranche détaillée
                                             if(isset($arrayTaxesKey[$description->getTax()])){
                                                 $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
                                             }else{
                                                 $arrayTaxesKey[$description->getTax()]['Taxe']=$tax->getName();
                                                 $arrayTaxesKey[$description->getTax()]['Montant']=$taxe;
                                             }
-                                            /*switch($description->getTax()){
-                                                case 0.03:
-                                                    break;
-                                                case 0.06:
-                                                    break;
-                                                case 0.11:
-                                                    break;
-                                                case 0.22:
-                                                    break;
-                                            }*/
                                             $totalTaxe = $totalTaxe+$taxe;
-                                            $montantLigne = $montantLigne-$remise;
                                             $montantHT = $montantHT+$montantLigne;
                                             $montantLigne = $montantLigne+$taxe;
                                             $montant = $montant+$montantLigne;
