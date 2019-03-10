@@ -212,7 +212,13 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                         <div class="col-md-3 value"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> <?php print_r($arrayTaxesKey); ?>: </div>
+                        <div class="col-md-8 name"> 
+                            <?php 
+                                foreach($arrayTaxesKey as $arrayTaxe){
+                                    print_r($arrayTaxe);
+                                }
+                            ?>: 
+                        </div>
                     </div>
                     <?php 
                         foreach($arrayTaxesKey as $key => $value){ ?>
