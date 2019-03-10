@@ -214,9 +214,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     <div class="row static-info align-reverse">
                         <div class="col-md-8 name"> 
                             <?php 
-                                foreach($arrayTaxesKey as $arrayTaxe){
-                                    print_r($arrayTaxe);
-                                }
+                                print_r($arrayTaxesKey);
                             ?>: 
                         </div>
                     </div>
