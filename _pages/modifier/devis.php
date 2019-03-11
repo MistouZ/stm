@@ -159,29 +159,19 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
                                             <div class="form-group">
-                                                <label class="control-label col-md-3">Disable Past Dates</label>
+                                                <label class="control-label col-md-2">Date</label>
                                                 <div class="col-md-3">
-                                                    <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy" data-date-start-date="+0d">
+                                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text" value="<?php echo $date; ?> >
                                                         <input type="text" class="form-control" readonly>
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button">
-                                                                <i class="fa fa-calendar"></i>
+                                                                <i class="fas fa-calendar-alt"></i>
                                                             </button>
                                                         </span>
                                                     </div>
                                                     <!-- /input-group -->
-                                                    <span class="help-block"> Select date </span>
+                                                    <span class="help-block"> Cliquez sur la date pour la modifier </span>
                                                 </div>
-                                            </div>
-                                            <label class="control-label col-md-2">Date :</label>
-                                            <div class="col-md-3">
-                                                <input name="date" class="form-control form-control-inline input-medium date-picker" data-lang="FR-fr" size="16" type="text" value="<?php echo $date; ?>" />
-                                                <span class="input-group-btn">
-                                                    <button class="btn default" type="button">
-                                                        <i class="fas fa-calendar"></i>
-                                                    </button>
-                                                </span>
-                                                <span class="help-block"> Cliquez sur la date pour la modifier </span>
                                             </div>
                                         </div>
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
