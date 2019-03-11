@@ -12,7 +12,6 @@ echo "Résultats : ";
 $idQuotation = $_POST['idQuotation'];
 $type2 = $_POST['type'];
 
-echo " id : ".$idQuotation." / type : ".$type2;
 $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
@@ -32,10 +31,10 @@ else{
 }
 
 $dateTab = explode("/",$_POST['date']);
+
 $year = $dateTab[2];
 $month = $dateTab[1];
 $day = $dateTab[0];
-echo " jour : ".$day." / Mois : ".$month." / année : ".$year;
 
 $status = "En cours";
 $type = "D";
@@ -56,9 +55,9 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-
-$quotationNumber = $quotationmanager->update($idQuotation);
-
+echo "avant update / ";
+$quotation = $quotationmanager->update($idQuotation);
+echo "apres update / ";
 $descriptions= array();
 
 for($i=0;$i<count($_POST["description"]);$i++)
