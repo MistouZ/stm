@@ -157,18 +157,16 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         </div>
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
-                                        <div class="form-group" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
+                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
                                             <label class="control-label col-md-2">Date :</label>
                                             <div class="col-md-3">
-                                                <div class="input-group input-medium date date-picker">
-                                                    <input name="date" class="form-control" data-date-lang="FR-fr" size="16" type="text" value="<?php echo $date; ?>" />
-                                                    <span class="input-group-btn">
-                                                        <button class="btn default" type="button">
-                                                            <i class="fas fa-calendar"></i>
-                                                        </button>
-                                                    </span>
-                                                    <span class="help-block"> Cliquez sur la date pour la modifier </span>
-                                                </div>
+                                                <input name="date" class="form-control form-control-inline input-medium date-picker" data-lang="FR-fr" size="16" type="text" value="<?php echo $date; ?>" />
+                                                <span class="input-group-btn">
+                                                    <button class="btn default" type="button">
+                                                        <i class="fas fa-calendar"></i>
+                                                    </button>
+                                                </span>
+                                                <span class="help-block"> Cliquez sur la date pour la modifier </span>
                                             </div>
                                         </div>
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
