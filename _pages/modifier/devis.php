@@ -144,7 +144,7 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                 </div>
                             </div>
                         </div>
-                        <div class="row" id="detaildevis" style="display: none;">
+                        <div class="row" id="detaildevis">
                             <div class="col-md-12">
                                 <div class="portlet box blue-dark">
                                     <div class="portlet-title">
@@ -231,7 +231,7 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                 </div>
                             </div>
                         </div>
-                         <div class="row" id="optdevis" style="display: none;">
+                         <div class="row" id="optdevis">
                             <div class="col-md-12">
                                 <div class="portlet box grey-cascade" style="margin-bottom: 0px !important;">
                                     <div class="portlet-title">
