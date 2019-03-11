@@ -14,14 +14,18 @@ $quotation = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $test = $quotationmanager->delete($idQuotation);
 
-$descriptions = new Description($array);
-$descriptionmanager = new DescriptionManager($bdd);
-$test = $descriptionmanager->delete($idQuotation);
 
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr");
 }else{
-    header('Location: '.$_SERVER['HTTP_REFERER']."/successsuppr");
+    $descriptions = new Description($array);
+    $descriptionmanager = new DescriptionManager($bdd);
+    $test = $descriptionmanager->delete($idQuotation);
+    if(is_null($test)){
+        header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr2");
+    }else{
+        header('Location: '.$_SERVER['HTTP_REFERER']."/successsuppr");
+    }
 }
 
 ?>
