@@ -7,7 +7,7 @@
 
 include("../../_cfg/cfg.php");
 
-echo "R�sultats : ";
+echo "Résultats : ";
 
 $idQuotation = $_POST['idQuotation'];
 $type2 = $_POST['type'];
@@ -35,6 +35,7 @@ $dateTab = explode("/",$_POST['date']);
 $year = $dateTab[2];
 $month = $dateTab[1];
 $day = $dateTab[0];
+echo " jour : ".$day." / Mois : ".$month." / année : ".$year;
 
 $status = "En cours";
 $type = "D";
