@@ -33,7 +33,7 @@ else{
     $label = $_POST["label"];
 }
 
-if(isset($_POST['comment'])){
+if(!empty($_POST['comment'])){
     $comment = $_POST['comment'];
 }else{
     $comment = "";
