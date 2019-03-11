@@ -10,7 +10,11 @@
         include __DIR__.'/'.$_GET['souscat'].'/listing.php'; 
 
     } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND (isset($_GET['soussoussouscat']))) { 
-        include __DIR__.'/'.$_GET['souscat'].'/vuedet.php'; 
+        if($_GET['soussouscat']=="afficher"){
+            include __DIR__.'/'.$_GET['souscat'].'/vuedet.php';
+        }else{
+            include (__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php');
+        }
 
     }
 ?>
