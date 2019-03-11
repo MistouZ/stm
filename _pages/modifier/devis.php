@@ -161,8 +161,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <div class="form-group">
                                                 <label class="control-label col-md-2">Date</label>
                                                 <div class="col-md-3">
-                                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text" value="<?php echo $date; ?> >
-                                                        <input type="text" class="form-control" readonly>
+                                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text" value="<?php echo $date; ?>" >
+                                                        <input type="text" class="form-control">
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button">
                                                                 <i class="fas fa-calendar-alt"></i>
