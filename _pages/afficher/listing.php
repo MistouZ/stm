@@ -36,7 +36,7 @@ switch($type){
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
         break;
     case "avoir":
-        $quotations = $quotationmanager->getListAvoir($company->getIdcompany());
+        $quotations = $quotationmanager->getListAsset($company->getIdcompany());
         break;
 }
 

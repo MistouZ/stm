@@ -33,6 +33,12 @@ else{
     $label = $_POST["label"];
 }
 
+if(isset($_POST['comment'])){
+    $comment = $_POST['comment'];
+}else{
+    $comment = "";
+}
+
 $dateTab = explode("/",$_POST['date']);
 
 $year = $dateTab[2];
@@ -50,6 +56,7 @@ $data = array(
     'month' => $month,
     'day' => $day,
     'type' => $type,
+    'comment' =>$comment,
     'folderId' => $folderId,
     'companyId' => $companyId,
     'customerId' => $customerId,

@@ -186,7 +186,7 @@ class QuotationManager
      * Get all the invoice in the BDD for the selected company
      * @return array
      */
-    public function getListAvoir($companyid)
+    public function getListAsset($companyid)
     {
         $quotations = [];
 
