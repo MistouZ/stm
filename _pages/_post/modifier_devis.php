@@ -55,14 +55,18 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
-//print_r($data);
+echo "DATA: ";
+print_r($data);
 
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-echo "avant update / ";
+echo " / QUOTATION : ";
+print_r($quotation);
+/*
 $quotationmanager->update($quotation);
-echo "apres update / ";
+
+
 $descriptions= array();
 
 for($i=0;$i<count($_POST["description"]);$i++)
@@ -91,6 +95,6 @@ if(is_null($test))
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
-}
+}*/
 
 ?>
