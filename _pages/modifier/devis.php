@@ -3,7 +3,7 @@
  * @author Nicolas
  * @copyright 2019
  */
-
+echo "coucou";
 include("../../_cfg/cfg.php");
 
 $array = array();
