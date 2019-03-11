@@ -164,7 +164,7 @@ class Quotation extends Features
      */
     public function getComment()
     {
-        return $this->type;
+        return $this->comment;
     }
 
     /**
