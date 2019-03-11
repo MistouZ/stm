@@ -133,7 +133,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                         <div class="caption">
                             <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
                         <div class="actions">
-                            <a href="javascript:;" class="btn btn-default btn-sm">
+                            <a href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>" class="btn btn-default btn-sm">
                                 <i class="fas fa-edit"></i> Modifier </a>
                         </div>
                     </div>
