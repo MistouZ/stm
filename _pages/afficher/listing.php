@@ -57,7 +57,10 @@ $retour = $_GET['soussoussouscat'];
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
-                <div class="tools"> </div>
+                <div class="actions">
+                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
+                        <i class="fa fa-plus"></i> Créer un devis</a>
+                </div>
             </div>
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
