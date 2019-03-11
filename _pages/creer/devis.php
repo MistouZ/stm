@@ -261,6 +261,7 @@ $(document).ready(function() {
                  $("#spanSeller").text(response.seller);
                  $("#spanCustomer").text(response.customer);
                  $("#spanContact").text(response.contact);
+                 $("#libelle").attr("placeholder",response.label);
                  $("#detaildevis").css('display','');
                  $("#detaildevis").css('display','visible');
                  $("#optdevis").css('display','');
