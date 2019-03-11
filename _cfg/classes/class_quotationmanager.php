@@ -81,8 +81,8 @@ class QuotationManager
     public function delete($idQuotation)
     {
         try{
-            $q = $this->_db->prepare('DELETE FROM quotation WHERE idQuotation= :idQuotation');
-            $q->bindValue(':idQuotation', $idQuotation, PDO::PARAM_INT);
+            $idQuotation = (integer) $idQuotation;
+            $q = $this->_db->prepare('DELETE FROM quotation WHERE idQuotation= '.$idQuotation);
             $q->execute();
 
             return "ok";
