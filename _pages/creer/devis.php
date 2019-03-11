@@ -275,13 +275,12 @@ $(document).ready(function() {
                  $("#optdevis").css('display','');
                  $("#optdevis").css('display','visible');
                  
-                 console.log("taxes : "+response.taxes[0].nom);
                  var monSelectB = document.getElementsByClassName("taxe");
                   //on efface tous les children options
                   for(var k=0; k<monSelectB.length; k++){
                       while (monSelectB[k].firstChild) {
                         console.log("option : "+monSelectB[k]);
-                        monSelectB[k].removeChild(monSelectB[k].firstChild);
+                        monSelectB[k].removeChild(monSelectB[k].lastChild);
                       }
                       //on rajoute les nouveaux children options
                       
