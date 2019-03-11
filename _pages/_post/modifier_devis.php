@@ -87,7 +87,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
 $test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
 {
-    header('Location: '.$_SERVER['HTTP_REFERER']);
+    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/sucess");

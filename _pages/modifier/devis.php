@@ -11,6 +11,7 @@ $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
 $idQuotation = $_GET['soussoussouscat'];
+$retour = $_GET['cat5'];
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -50,6 +51,10 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 ?>
 <div class="row">
     <div class="col-md-12">
+         <?php if($retour == "error") { ?>
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être mis à jour !</div>
+        <?php } ?>
         <div class="portlet box blue-chambray">
             <div class="portlet-title">
                 <div class="caption">
