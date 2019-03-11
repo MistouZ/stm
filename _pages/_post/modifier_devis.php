@@ -72,13 +72,13 @@ echo " / QUOTATION : ";
 print_r($quotation);
 
 $test = $quotationmanager->update($quotation);
-/*
+
 
 $descriptions= array();
 
 for($i=0;$i<count($_POST["description"]);$i++)
 {
-    if(!isset($_POST["remise"][$i])){
+    if(isset($_POST["remise"][$i])){
         $remise = 0;
     }else{
         $remise = $_POST["remise"][$i];
@@ -95,7 +95,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
     $descriptions[$i] = $description;
 }
 
-$test = $descriptionmanager->update($descriptions,$idQuotation);*/
+$test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
