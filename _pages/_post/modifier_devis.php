@@ -12,6 +12,7 @@ echo "Résultats : ";
 $idQuotation = $_POST['idQuotation'];
 $type2 = $_POST['type'];
 
+echo " id : ".$idQuotation." / type : ".$type2;
 $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
