@@ -280,6 +280,7 @@ $(document).ready(function() {
                   //on efface tous les children options
                   for(var k=0; k<monSelectB.length; k++){
                       while (monSelectB[k].firstChild) {
+                        console.log("option : "+monSelectB[k]);
                         monSelectB[k].removeChild(monSelectB[k].firstChild);
                       }
                       //on rajoute les nouveaux children options
