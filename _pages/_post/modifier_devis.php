@@ -63,7 +63,7 @@ $quotationmanager = new QuotationManager($bdd);
 
 echo " / QUOTATION : ";
 print_r($quotation);
-/*
+
 $quotationmanager->update($quotation);
 
 
@@ -95,6 +95,6 @@ if(is_null($test))
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
-}*/
+}
 
 ?>
