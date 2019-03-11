@@ -27,7 +27,6 @@ $company = $companymanager->getByNameData($companyNameData);
 
 switch($type){
     case "devis":
-        echo "devis";
         $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
         break;
     case "proforma":
