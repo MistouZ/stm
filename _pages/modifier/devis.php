@@ -277,6 +277,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" id="idQuotation" name="idQuotation" value="<?php echo $idQuotation; ?>">
+                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
             </div>

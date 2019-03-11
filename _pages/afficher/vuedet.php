@@ -60,10 +60,19 @@ $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
-
+if(isset($_GET['cat5'])){
+    $retour = $_GET['cat5'];
+}
 ?>
 <div class="row">
     <div class="col-md-12">
+        <?php if($retour == "error") { ?>
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être mis à jour !</div>
+        <?php }elseif($retour == "success"){ ?>
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button> Le devis a bien été mise à jour !</div>
+        <?php } ?>
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="portlet yellow-crusta box">
