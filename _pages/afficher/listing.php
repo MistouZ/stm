@@ -41,11 +41,18 @@ switch($type){
         break;
 }
 
-
+$retour = $_GET['cat5'];
 
 ?>
 <div class="row">
     <div class="col-md-12">
+        <?php if($retour == "errorsuppr") { ?>
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être supprimé !</div>
+        <?php }elseif($retour == "successsuppr"){ ?>
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button> Le devis a bien été supprimé !</div>
+        <?php } ?>
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet box green">
             <div class="portlet-title">
