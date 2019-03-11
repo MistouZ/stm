@@ -45,7 +45,7 @@ $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
 
-
+$date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
 ?>
 <div class="row">
@@ -160,7 +160,7 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
                                             <label class="control-label col-md-2">Date :</label>
                                             <div class="col-md-3">
-                                                <input name="date" class="form-control form-control-inline input-medium date-picker" data-lang="FR-fr" size="16" type="text" value="" />
+                                                <input name="date" class="form-control form-control-inline input-medium date-picker" data-lang="FR-fr" size="16" type="text" value="<?php echo $date; ?>" />
                                                 <span class="help-block"> Cliquez sur la date pour la modifier </span>
                                             </div>
                                         </div>
