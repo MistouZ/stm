@@ -157,6 +157,13 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                         </div>
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
+                                        <div class="form-group">
+                                            <label class="control-label col-md-3">Date :</label>
+                                            <div class="col-md-3">
+                                                <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                                                <span class="help-block"> Cliquez sur la date pour la modifier </span>
+                                            </div>
+                                        </div>
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
                                             <label class="col-md-2 control-label">Libellé du devis
                                             </label>
