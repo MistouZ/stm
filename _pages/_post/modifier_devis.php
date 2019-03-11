@@ -55,7 +55,8 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
-
+print_r($data);
+/*
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
@@ -91,5 +92,5 @@ if(is_null($test))
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
 }
-
+*/
 ?>
