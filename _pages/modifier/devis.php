@@ -160,7 +160,7 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                         <div class="form-group">
                                             <label class="control-label col-md-3">Date :</label>
                                             <div class="col-md-3">
-                                                <input class="form-control form-control-inline input-medium date-picker" size="16" type="text" value="" />
+                                                <input class="form-control form-control-inline input-medium date-picker" lang="FR-fr" size="16" type="text" value="" />
                                                 <span class="help-block"> Cliquez sur la date pour la modifier </span>
                                             </div>
                                         </div>
