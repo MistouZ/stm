@@ -30,12 +30,14 @@ $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 
 $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+$company = $companymanager->getByNameData($companyNameData);
+$idCompany = $company->getIdcompany();
 
 $foldermanager = $foldermanager->getListActive($idCompany);
 
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
-$company = $companymanager->getByNameData($companyNameData);
-$idCompany = $company->getIdcompany();
+
+
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
