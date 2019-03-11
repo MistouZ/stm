@@ -9,6 +9,10 @@ include("../../_cfg/cfg.php");
 $array = array();
 $companyNameData = $_GET["section"];
 
+if(isset($_GET['soussouscat'])){
+    $retour = $_GET['soussouscat'];
+}
+
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $folder = new Folder($array);
@@ -30,6 +34,10 @@ $taxmanager = new TaxManager($bdd);
 ?>
 <div class="row">
     <div class="col-md-12">
+        <?php if($retour == "error") { ?>
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être créé !</div>
+        <?php } ?>
         <div class="portlet box blue-chambray">
             <div class="portlet-title">
                 <div class="caption">
@@ -266,8 +274,12 @@ $(document).ready(function() {
                         monSelectB[k].removeChild(monSelectB[k].firstChild);
                       }
                       //on rajoute les nouveaux children options
+                      var opt = document.createElement("option");
+                      opt.value = "";
+                      opt.innerHTML = "Sélectionnez ...";
+                      
                       for(var i in response['taxes']){
-                        var opt = document.createElement("option");
+                        opt = document.createElement("option");
                         opt.value = response.taxes[i].valeur;
                         opt.innerHTML = response.taxes[i].nom; 
                         monSelectB[k].appendChild(opt);

@@ -69,9 +69,14 @@ for($i=0;$i<count($_POST["description"]);$i++)
     }else{
         $remise = $_POST["remise"][$i];
     }
+    if(!isset($_POST["quantite"][$i])){
+        $qt = 1;
+    }else{
+        $qt = $_POST["quantite"][$i];
+    }
     $dataDescription= array(
         'description' => $_POST["description"][$i],
-        'quantity' => $_POST["quantite"][$i],
+        'quantity' => $qt,
         'discount' => $remise,
         'price' => $_POST["prix"][$i],
         'tax' => $_POST["taxe"][$i]
@@ -84,7 +89,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
 if(is_null($test))
 {
-    header('Location: '.$_SERVER['HTTP_REFERER']);
+    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);

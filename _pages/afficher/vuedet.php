@@ -71,7 +71,7 @@ if(isset($_GET['cat5'])){
                 <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être mis à jour !</div>
         <?php }elseif($retour == "success"){ ?>
             <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Le devis a bien été mise à jour !</div>
+                <button class="close" data-close="alert"></button> Le devis a bien été mis à jour !</div>
         <?php } ?>
         <div class="row">
             <div class="col-md-6 col-sm-12">
