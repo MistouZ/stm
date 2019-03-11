@@ -187,6 +187,14 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
                                             </div>
                                         </div>
+                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
+                                            <label class="col-md-2 control-label">Commentaire
+                                            </label>
+                                            <div class="col-md-6">
+                                                <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Commentaire ..."><?php echo $quotation->getComment(); ?></textarea>
+                                                <span class="help-block">Le commentaire s'affichera à la fin du devis</span>
+                                            </div>
+                                        </div>
                                         <?php 
                                             $i = 1;
                                             $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());

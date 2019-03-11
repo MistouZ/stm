@@ -50,7 +50,7 @@ class QuotationManager
         $quotation->setQuotationNumber($quotationNumber);
         //print_r($quotation);
         try{
-            $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, label, year,month,day, type, companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :label, :year, :month, :day, :type, :companyId, :folderId, :customerId, :contactId)');
+            $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, label, year,month,day, type, comment, companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :label, :year, :month, :day, :type, :comment, :companyId, :folderId, :customerId, :contactId)');
             $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
             $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
@@ -58,6 +58,7 @@ class QuotationManager
             $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
             $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
             $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
+            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
             $q->bindValue(':companyId', $quotation->getCompanyId(), PDO::PARAM_INT);
             $q->bindValue(':folderId', $quotation->getFolderId(), PDO::PARAM_INT);
             $q->bindValue(':customerId', $quotation->getCustomerId(), PDO::PARAM_INT);

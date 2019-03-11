@@ -27,6 +27,12 @@ else{
     $label = $_POST["label"];
 }
 
+if(empty($_POST['comment'])){
+    $comment = "";
+}else{
+    $comment = $_POST['comment'];
+}
+
 
 $year = date("Y");
 $month = date("m");
@@ -41,6 +47,7 @@ $data = array(
     'month' => $month,
     'day' => $day,
     'type' => $type,
+    'comment' => $comment,
     'folderId' => $folderId,
     'companyId' => $companyId,
     'customerId' => $customerId,
