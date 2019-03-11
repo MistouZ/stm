@@ -11,8 +11,10 @@
 
     } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND (isset($_GET['soussoussouscat']))) { 
         if($_GET['souscat']=="afficher"){
+            echo "1";
             include __DIR__.'/'.$_GET['souscat'].'/vuedet.php';
         }else{
+            echo "2";
             include (__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php');
         }
 
