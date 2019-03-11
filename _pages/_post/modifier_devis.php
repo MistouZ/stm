@@ -61,7 +61,7 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 echo "avant update / ";
-$quotation = $quotationmanager->update($quotation);
+$quotationmanager->update($quotation);
 echo "apres update / ";
 $descriptions= array();
 
