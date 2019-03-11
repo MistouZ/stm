@@ -20,6 +20,7 @@ class Quotation extends Features
     private $folderId;
     private $customerId;
     private $contactId;
+    private $comment;
 
     /**
      * Quotation constructor.
@@ -156,6 +157,22 @@ class Quotation extends Features
     public function setType($type): void
     {
         $this->type = $type;
+    }
+    
+    /**
+     * @return mixed
+     */
+    public function getComment()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $comment
+     */
+    public function setComment($comment): void
+    {
+        $this->comment = $comment;
     }
 
     /**

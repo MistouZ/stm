@@ -206,7 +206,7 @@ class QuotationManager
     public function update(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET status = :status, label = :label, year = :year,month = :month,day = :day, type = :type, comment = :comment,companyId = :companyId, folderId = :folderId, customerId = :customerId, contactId = :contactId WHERE idQuotation= :idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET status = :status, label = :label, year = :year, month = :month, day = :day, type = :type, comment = :comment, companyId = :companyId, folderId = :folderId, customerId = :customerId, contactId = :contactId WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
