@@ -71,7 +71,7 @@ $descriptions= array();
 //print_r($_POST);
 for($i=0;$i<count($_POST["description"]);$i++)
 {
-    if(!isset($_POST["description"][$i])){
+    if(isset($_POST["description"][$i])){
         if(!isset($_POST["remise"][$i])){
             $remise = 0;
         }else{
