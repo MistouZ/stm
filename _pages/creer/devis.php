@@ -171,7 +171,7 @@ $taxmanager = new TaxManager($bdd);
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
                                                         <select id="taxe" class="taxe form-control" name="taxe[]">
-                                                            <option value="">Taxes</option>
+                                                            <option value="">Sélectionnez ...</option>
                                                             <?php
                                                             /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
                                                             foreach ($taxmanager as $tax){

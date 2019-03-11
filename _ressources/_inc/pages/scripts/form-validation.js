@@ -902,7 +902,7 @@ var FormValidation = function () {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
 
-            var form10 = $('#dossier');
+            var form10 = $('#devis');
             var error10 = $('.alert-danger', form10);
             var success10 = $('.alert-success', form10);
 
