@@ -157,8 +157,8 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                         </div>
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
-                                        <div class="row form-section">
-                                            <label class="control-label col-md-3">Date :</label>
+                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
+                                            <label class="control-label col-md-2">Date :</label>
                                             <div class="col-md-3">
                                                 <input name="date" class="form-control form-control-inline input-medium date-picker" data-lang="FR-fr" size="16" type="text" value="" />
                                                 <span class="help-block"> Cliquez sur la date pour la modifier </span>
