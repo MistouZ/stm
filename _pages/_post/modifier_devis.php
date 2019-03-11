@@ -22,8 +22,8 @@ $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
 $contactId = $folder->getContactId();
 $quotationNumber = new Quotation($array);
-$quotationmanager = new QuotationManager($bdd);
-$quotationNumber = $quotationmanager->getByQuotationNumber($idQuotation);
+$quotationmanagerNumber = new QuotationManager($bdd);
+$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 
 if(empty($_POST["label"]))
 {
@@ -58,7 +58,7 @@ $data = array(
 
 print_r($data);
 $quotation = new Quotation($data);
-
+$quotationmanager = new QuotationManager($bdd);
 
 echo "avant update / ";
 $quotation = $quotationmanager->update($quotation);
