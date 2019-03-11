@@ -40,6 +40,7 @@ $status = "En cours";
 $type = "D";
 
 $data = array(
+    'idQuotation' => $idQuotation,
     'status' => $status,
     'label' => $label,
     'year' => $year,
