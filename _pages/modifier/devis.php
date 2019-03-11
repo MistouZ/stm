@@ -166,7 +166,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <div class="form-group" style="margin-bottom: 0px;">
                                                 <label class="control-label col-md-2">Date</label>
                                                 <div class="col-md-3">
-                                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text" data-date-value="<?php echo $date; ?>" >
+                                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
                                                         <input type="text" name="date" class="form-control" value="<?php echo $date; ?>">
                                                         <span class="input-group-btn">
                                                             <button class="btn default" type="button">
@@ -183,7 +183,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <label class="col-md-2 control-label">Libellé du devis
                                             </label>
                                             <div class="col-md-6">
-                                                <input type="text" id="libelle" name="label" class="form-control" value="<?php echo $folderRecup->getLabel(); ?>" placeholder="Libellé spécifique du devis">
+                                                <input type="text" id="libelle" name="label" class="form-control" placeholder="<?php echo $folderRecup->getLabel(); ?>">
+                                                <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
                                             </div>
                                         </div>
                                         <?php 
