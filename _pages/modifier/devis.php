@@ -161,28 +161,30 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                             <label class="col-md-2 control-label">Libellé du devis
                                             </label>
                                             <div class="col-md-6">
-                                                <input type="text" id="libelle" name="label" class="form-control" placeholder="Libellé spécifique du devis">
-                                                <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
+                                                <input type="text" id="libelle" name="label" class="form-control" value="<?php echo $folderRecup->getLabel(); ?>" placeholder="Libellé spécifique du devis">
                                             </div>
                                         </div>
-                                        <div id="ligne1" class="ligne row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                        <?php 
+                                            $i = 1;
+                                            foreach($descriptions as $description){ ?>
+                                        <div id="ligne<?php echo $i; ?>" class="ligne row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="form-control" id="description1" name="description[]" rows="4"></textarea>
+                                                        <textarea class="form-control" id="description<?php echo $i; ?>" name="description[]" rows="4"><?php echo $description->getDescription(); ?></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Quantité</label>
-                                                        <input type="digits" id="quantite" name="quantite[]" class="form-control" placeholder="Qt.">
+                                                        <input type="digits" id="quantite" name="quantite[]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Remise (%)</label>
-                                                        <input type="digits" id="remise" name="remise[]" class="form-control" placeholder="xx">
+                                                        <input type="digits" id="remise" name="remise[]" value="<?php echo $description->getDiscount(); ?>" class="form-control" placeholder="xx">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
@@ -191,12 +193,12 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                                         <select id="taxe" class="taxe form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
                                                             <?php
-                                                            /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                            $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
                                                             foreach ($taxmanager as $tax){
                                                                ?>
-                                                                <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
+                                                                <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getPercent()." %"; ?></option>
                                                                 <?php
-                                                            }*/
+                                                            }
                                                             ?>
                                                         </select>
                                                     </div>
@@ -204,16 +206,20 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                                 <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
-                                                        <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
+                                                        <input type="digits" id="prix" name="prix[]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
-                                                <div id="divsuppr1" style="text-align: right;" class="col-md-1">
+                                                <div id="divsuppr<?php echo $i; ?>" style="text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                        <button type="button" title="Supprimer la ligne" id="suppr1" class="btn red" onclick="supprLigne(1);"><i class="fas fa-minus-square"></i></button>
+                                                        <button type="button" title="Supprimer la ligne" id="suppr<?php echo $i; ?>" class="btn red" onclick="supprLigne(<?php echo $i; ?>);"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php 
+                                            $i++;
+                                            } 
+                                        ?>
                                         <div class="form-actions fluid">
                                             <div class="row">
                                                 <div class="col-md-12" style="text-align: center;">
