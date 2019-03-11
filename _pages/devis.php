@@ -14,7 +14,7 @@
             echo "1";
             include __DIR__.'/'.$_GET['souscat'].'/vuedet.php';
         }else{
-            echo "2";
+            echo '/'.$_GET['souscat'].'/'.$_GET['cat'].'.php';
             include (__DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php');
         }
 
