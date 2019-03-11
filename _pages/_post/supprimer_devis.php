@@ -11,23 +11,22 @@ $idQuotation = $_GET["idQuotation"];
 $quotationNumber = $_GET['quotationNumber'];
 
 $array = array();
-$quotation = new Quotation($array);
-$quotationmanager = new QuotationManager($bdd);
-echo "id : ".$idQuotation." / Number : ".$quotationNumber;
-$test = $quotationmanager->delete($idQuotation);
+$descriptions = new Description($array);
+$descriptionmanager = new DescriptionManager($bdd);
+$test = $descriptionmanager->delete($quotationNumber);
 
-/*
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr");
 }else{
-    $descriptions = new Description($array);
-    $descriptionmanager = new DescriptionManager($bdd);
-    $test = $descriptionmanager->delete($quotationNumber);
+    $quotation = new Quotation($array);
+    $quotationmanager = new QuotationManager($bdd);
+    echo "id : ".$idQuotation." / Number : ".$quotationNumber;
+    $test = $quotationmanager->delete($idQuotation);
     if(is_null($test)){
         header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr2");
     }else{
         header('Location: '.$_SERVER['HTTP_REFERER']."/successsuppr");
     }
 }
-*/
+
 ?>
