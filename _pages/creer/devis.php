@@ -278,8 +278,8 @@ $(document).ready(function() {
                  console.log("taxes : "+response.taxes[0].nom);
                  var monSelectB = document.getElementsByClassName("taxe");
                   //on efface tous les children options
-                  for(var k=0; k<monSelectB.length; k++){
-                      while (monSelectB.length > 1) {
+                  for(var k=1; k<monSelectB.length; k++){
+                      while (monSelectB[k].firstChild) {
                         monSelectB[k].removeChild(monSelectB[k].firstChild);
                       }
                       //on rajoute les nouveaux children options
