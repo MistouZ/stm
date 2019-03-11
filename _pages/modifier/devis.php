@@ -3,7 +3,7 @@
  * @author Nicolas
  * @copyright 2019
  */
-echo "coucou";
+
 include("../../_cfg/cfg.php");
 
 $array = array();
@@ -29,6 +29,8 @@ $contactmanager = new ContactManager($bdd);
 $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 
+$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+
 $foldermanager = $foldermanager->getListActive($idCompany);
 
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
@@ -41,7 +43,7 @@ $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
 
-$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+
 
 ?>
 <div class="row">
