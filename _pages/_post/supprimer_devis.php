@@ -8,6 +8,7 @@
 
 include("../../_cfg/cfg.php");
 $idQuotation = $_GET["idQuotation"];
+$quotationNumber = $_GET['quotationNumber'];
 
 $array = array();
 $quotation = new Quotation($array);
@@ -20,7 +21,7 @@ if(is_null($test)){
 }else{
     $descriptions = new Description($array);
     $descriptionmanager = new DescriptionManager($bdd);
-    $test = $descriptionmanager->delete($idQuotation);
+    $test = $descriptionmanager->delete($quotationNumber);
     if(is_null($test)){
         header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr2");
     }else{

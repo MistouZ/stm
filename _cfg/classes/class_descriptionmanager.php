@@ -82,8 +82,14 @@ class DescriptionManager
 
     public function delete($quotationNumber)
     {
-        $delete=$this->_db->query("DELETE FROM `description` WHERE quotationNumber ='$quotationNumber'");
-        $delete->execute();
+        try{
+            $delete=$this->_db->query("DELETE FROM `description` WHERE quotationNumber ='$quotationNumber'");
+            $delete->execute();
+            return $description;
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
     public function update(array $description, $quotationNumber)
