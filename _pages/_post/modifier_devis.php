@@ -64,8 +64,8 @@ $quotationmanager = new QuotationManager($bdd);
 echo " / QUOTATION : ";
 print_r($quotation);
 
-$quotationmanager->update($quotation);
-
+$test = $quotationmanager->update($quotation);
+/*
 
 $descriptions= array();
 
@@ -88,7 +88,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
     $descriptions[$i] = $description;
 }
 
-$test = $descriptionmanager->update($descriptions,$idQuotation);
+$test = $descriptionmanager->update($descriptions,$idQuotation);*/
 if(is_null($test))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
