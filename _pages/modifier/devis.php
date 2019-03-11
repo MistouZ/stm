@@ -158,7 +158,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                            <div class="form-group">
+                                            <div class="form-group" style="margin-bottom: 0px;">
                                                 <label class="control-label col-md-2">Date</label>
                                                 <div class="col-md-3">
                                                     <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text" data-date-value="<?php echo $date; ?>" >
