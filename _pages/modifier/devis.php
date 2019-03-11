@@ -193,7 +193,7 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                                         <select id="taxe" class="taxe form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
                                                             <?php
-                                                            $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                            $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
                                                             foreach ($taxmanager as $tax){
                                                             ?>
                                                                 <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName()." %"; ?></option>
