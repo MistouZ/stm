@@ -40,7 +40,7 @@ switch($type){
         break;
 }
 
-$retour = $_GET['cat5'];
+$retour = $_GET['soussoussouscat'];
 
 ?>
 <div class="row">
