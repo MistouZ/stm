@@ -13,9 +13,10 @@ $quotationNumber = $_GET['quotationNumber'];
 $array = array();
 $quotation = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
+echo "id : ".$idQuotation." / Number : ".$quotationNumber;
 $test = $quotationmanager->delete($idQuotation);
 
-
+/*
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr");
 }else{
@@ -28,5 +29,5 @@ if(is_null($test)){
         header('Location: '.$_SERVER['HTTP_REFERER']."/successsuppr");
     }
 }
-
+*/
 ?>
