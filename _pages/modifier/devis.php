@@ -166,6 +166,7 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                         </div>
                                         <?php 
                                             $i = 1;
+                                            $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
                                             foreach($descriptions as $description){ ?>
                                         <div id="ligne<?php echo $i; ?>" class="ligne row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
@@ -193,10 +194,10 @@ $customer = $customermanager->getById($quotation->getCustomerId());
                                                         <select id="taxe" class="taxe form-control" name="taxe[]">
                                                             <option value="">Taxes</option>
                                                             <?php
-                                                            $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
+                                                            
                                                             foreach ($taxmanager as $tax){
                                                             ?>
-                                                                <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName()." %"; ?></option>
+                                                                <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
                                                                 <?php
                                                             }
                                                             ?>
