@@ -64,26 +64,28 @@ $descriptions= array();
 //print_r($_POST);
 for($i=0;$i<count($_POST["description"]);$i++)
 {
-    if(!isset($_POST["remise"][$i])){
-        $remise = 0;
-    }else{
-        $remise = $_POST["remise"][$i];
-    }
-    if(!isset($_POST["quantite"][$i])){
-        $qt = 1;
-    }else{
-        $qt = $_POST["quantite"][$i];
-    }
-    $dataDescription= array(
-        'description' => $_POST["description"][$i],
-        'quantity' => $qt,
-        'discount' => $remise,
-        'price' => $_POST["prix"][$i],
-        'tax' => $_POST["taxe"][$i]
-    );
+    if(!isset($_POST["description"][$i])){
+        if(!isset($_POST["remise"][$i])){
+            $remise = 0;
+        }else{
+            $remise = $_POST["remise"][$i];
+        }
+        if(!isset($_POST["quantite"][$i])){
+            $qt = 1;
+        }else{
+            $qt = $_POST["quantite"][$i];
+        }
+        $dataDescription= array(
+            'description' => $_POST["description"][$i],
+            'quantity' => $qt,
+            'discount' => $remise,
+            'price' => $_POST["prix"][$i],
+            'tax' => $_POST["taxe"][$i]
+        );
 
-    $description = new Description($dataDescription);
-    $descriptions[$i] = $description;
+        $description = new Description($dataDescription);
+        $descriptions[$i] = $description;
+    }
 }
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
