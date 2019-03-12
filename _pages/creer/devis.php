@@ -336,17 +336,17 @@ $(document).ready(function() {
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
       
         $("[name^=description]").each(function () {
-            $(this).rules("add", {
+            $("#devis").rules("add", {
                 required: true
             });
         });
         $("[name^=taxe]").each(function () {
-            $(this).rules("add", {
+            $("#devis").rules("add", {
                 required: true
             });
         });
         $("[name^=prix]").each(function () {
-            $(this).rules("add", {
+            $("#devis").rules("add", {
                 required: true
             });
         });
