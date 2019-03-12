@@ -70,7 +70,7 @@ $test = $quotationmanager->update($quotation);
 
 
 $descriptions= array();
-print_r($_POST["description"]);
+echo $_POST["description"][1];
 /*
 for($i=0;$i<count($_POST["description"]);$i++)
 {
