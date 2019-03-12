@@ -204,7 +204,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="form-control" id="description<?php echo $i; ?>" name="description[1]" rows="4"><?php echo $description->getDescription(); ?></textarea>
+                                                        <textarea class="form-control" id="description<?php echo $i; ?>" name="description[<?php echo $i; ?>]" rows="4"><?php echo $description->getDescription(); ?></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
