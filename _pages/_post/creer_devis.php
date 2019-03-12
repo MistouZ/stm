@@ -71,7 +71,7 @@ $descriptions= array();
 
 for($i=1;$i<=count($_POST["description"]);$i++)
 {
-    if(!empty($_POST["description"][$i])){
+    if(!strlen(trim($_POST["description"][$i]))){
         if(empty($_POST["remise"][$i])){
             $remise = 0;
         }else{
