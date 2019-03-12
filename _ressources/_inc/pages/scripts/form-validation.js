@@ -987,6 +987,16 @@ var FormValidation = function () {
                     required: true
                 });
             });
+            $("[name^=taxe]").each(function () {
+                $(this).rules("add", {
+                    required: true
+                });
+            });
+            $("[name^=prix]").each(function () {
+                $(this).rules("add", {
+                    required: true
+                });
+            });
             
              //apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
             $('.select2me', form10).change(function () {
