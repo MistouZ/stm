@@ -335,20 +335,15 @@ $(document).ready(function() {
       $("div[id*='divsuppr']").css('display','block' );
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
       
-        $("[name^=description]").each(function () {
-            $(handleValidation10).rules("add", {
-                required: true
-            });
+       
+        $("#description"+num).rules("add", {
+            required: true
         });
-        $("[name^=taxe]").each(function () {
-            $(handleValidation10).rules("add", {
-                required: true
-            });
+        $("#taxe"+num).rules("add", {
+            required: true
         });
-        $("[name^=prix]").each(function () {
-            $(handleValidation10).rules("add", {
-                required: true
-            });
+        $("#prix"+num).rules("add", {
+            required: true;
         });
     
     });  
