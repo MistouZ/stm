@@ -338,13 +338,13 @@ $(document).ready(function() {
       $("#devis").validate(
         $("#description"+num).rules("add", {
             required: true
-        });
+        }),
         $("#taxe"+num).rules("add", {
             required: true
-        });
+        }),
         $("#prix"+num).rules("add", {
             required: true
-        });
+        })
       );
     
     });  
