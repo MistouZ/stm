@@ -77,7 +77,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
         }else{
             $remise = $_POST["remise"][$i];
         }
-        if(!isset($_POST["quantite"][$i])){
+        if(empty($_POST["quantite"][$i])){
             $qt = 1;
         }else{
             $qt = $_POST["quantite"][$i];

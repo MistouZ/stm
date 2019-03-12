@@ -218,7 +218,7 @@ class QuotationManager
             //$q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
             $q->bindValue(':companyId', $quotation->getCompanyId(), PDO::PARAM_INT);
             $q->bindValue(':folderId', $quotation->getFolderId(), PDO::PARAM_INT);
-            $q->bindValue(':customerid', $quotation->getCustomerId(), PDO::PARAM_INT);
+            $q->bindValue(':customerId', $quotation->getCustomerId(), PDO::PARAM_INT);
             $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
     
             $q->execute();
