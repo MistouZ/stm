@@ -74,10 +74,15 @@ echo $_POST["description"][1];
 
 for($i=1;$i<=count($_POST["description"]);$i++)
 {
-    if(isset($_POST["remise"][$i])){
+    if(empty($_POST["remise"][$i])){
         $remise = 0;
     }else{
         $remise = $_POST["remise"][$i];
+    }
+    if(empty($_POST["quantite"][$i])){
+            $qt = 1;
+    }else{
+        $qt = $_POST["quantite"][$i];
     }
     $dataDescription= array(
         'description' => $_POST["description"][$i],
