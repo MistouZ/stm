@@ -62,20 +62,16 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
-echo "DATA: ";
-print_r($data);
 
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
-
-echo " / QUOTATION : ";
-print_r($quotation);
 
 $test = $quotationmanager->update($quotation);
 
 
 $descriptions= array();
-
+print_r($_POST["description"]);
+/*
 for($i=0;$i<count($_POST["description"]);$i++)
 {
     if(isset($_POST["remise"][$i])){
@@ -102,6 +98,6 @@ if(is_null($test))
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
-}
+}*/
 
 ?>
