@@ -98,13 +98,13 @@ for($i=1;$i<=count($_POST["description"]);$i++)
 echo "count : ".count($_POST["description"]);
 print_r($descriptions);
 
-/*$test = $descriptionmanager->update($descriptions,$idQuotation);
+$test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
-}*/
+}
 
 ?>
