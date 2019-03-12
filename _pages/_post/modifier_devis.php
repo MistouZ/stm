@@ -86,7 +86,7 @@ for($i=1;$i<=count($_POST["description"]);$i++)
     }
     $dataDescription= array(
         'description' => $_POST["description"][$i],
-        'quantity' => $_POST["quantite"][$i],
+        'quantity' => $qt,
         'discount' => $remise,
         'price' => $_POST["prix"][$i],
         'tax' => $_POST["taxe"][$i]
