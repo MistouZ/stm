@@ -283,9 +283,13 @@ $(document).ready(function() {
                         monSelectB[k].removeChild(monSelectB[k].firstChild);
                       }
                       //on rajoute les nouveaux children options
-                      
+                      var opt = document.createElement("option");
+                        opt.value = "";
+                        opt.innerHTML = "Sélectionnez ..."; 
+                        monSelectB[k].appendChild(opt);
+                        
                       for(var i in response['taxes']){
-                        var opt = document.createElement("option");
+                        opt = document.createElement("option");
                         opt.value = response.taxes[i].valeur;
                         opt.innerHTML = response.taxes[i].nom; 
                         monSelectB[k].appendChild(opt);
