@@ -921,17 +921,6 @@ var FormValidation = function () {
                 rules: {
                     folder: {
                         required: true
-                    },
-                    'description[]': {
-                        minlength: 2,
-                        required: true
-                    },
-                    'taxe[]': {
-                        required: true
-                    },
-                    'prix[]': {
-                        minlength: 1,
-                        required: true
                     }
                 },
 
