@@ -277,10 +277,10 @@ $(document).ready(function() {
                  
                  var monSelectB = document.getElementsByClassName("taxe");
                   //on efface tous les children options
-                  for(var k=1; k<(monSelectB.length+1); k++){
+                  for(var k=0; k<monSelectB.length; k++){
                       while (monSelectB[k].firstChild) {
                         console.log("option : "+monSelectB[k]);
-                        monSelectB[k].removeChild(monSelectB[k].lastChild);
+                        monSelectB[k].removeChild(monSelectB[k].firstChild);
                       }
                       //on rajoute les nouveaux children options
                       
