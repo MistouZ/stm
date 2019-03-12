@@ -343,7 +343,7 @@ $(document).ready(function() {
             required: true
         });
         $("#prix"+num).rules("add", {
-            required: true;
+            required: true
         });
     
     });  
