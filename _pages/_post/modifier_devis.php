@@ -71,7 +71,7 @@ $test = $quotationmanager->update($quotation);
 
 $descriptions= array();
 echo $_POST["description"][1];
-/*
+
 for($i=0;$i<count($_POST["description"]);$i++)
 {
     if(isset($_POST["remise"][$i])){
@@ -90,7 +90,8 @@ for($i=0;$i<count($_POST["description"]);$i++)
     $description = new Description($dataDescription);
     $descriptions[$i] = $description;
 }
-
+echo $descriptions[1];
+/*
 $test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
 {
