@@ -981,7 +981,13 @@ var FormValidation = function () {
                 }
 
             });
-
+            
+            $("[name^=description]").each(function () {
+                $(this).rules("add", {
+                    required: true
+                });
+            });
+            
              //apply validation on select2 dropdown value change, this only needed for chosen dropdown integration.
             $('.select2me', form10).change(function () {
                 form10.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input
