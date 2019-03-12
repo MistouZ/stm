@@ -166,19 +166,19 @@ $taxmanager = new TaxManager($bdd);
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Quantité</label>
-                                                        <input type="digits" id="quantite" name="quantite[]" class="form-control" placeholder="Qt.">
+                                                        <input type="digits" id="quantite" name="quantite[1]" class="form-control" placeholder="Qt.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Remise (%)</label>
-                                                        <input type="digits" id="remise" name="remise[]" class="form-control" placeholder="xx">
+                                                        <input type="digits" id="remise" name="remise[1]" class="form-control" placeholder="xx">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select id="taxe" class="taxe form-control" name="taxe[]">
+                                                        <select id="taxe" class="taxe form-control" name="taxe[1]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
                                                             /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
@@ -194,7 +194,7 @@ $taxmanager = new TaxManager($bdd);
                                                 <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
-                                                        <input type="digits" id="prix" name="prix[]" class="form-control" placeholder="HT">
+                                                        <input type="digits" id="prix" name="prix[1]" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
                                                 <div id="divsuppr1" style="text-align: right;" class="col-md-1">
@@ -328,7 +328,7 @@ $(document).ready(function() {
       var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
       
       // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('textarea[name^="description"]:last').prop('name', 'description['+num+']' ).end().find('button[id^="suppr"]:last').prop('id', 'suppr'+num ).end().find('button[id^="suppr"]:last').attr('onclick', 'supprLigne('+num+')' ).end().find('div[id^="divsuppr"]:last').prop('id', 'divsuppr'+num ).end().find('div[id="divsuppr'+num+'"]').css('display','' ).end().find('div[id="divsuppr'+num+'"]').css('display','block' ).end().prop('id', 'ligne'+num );
+      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('textarea[name^="description"]:last').prop('name', 'description['+num+']' ).end().find('input[name^="quantite"]:last').prop('name', 'quantite['+num+']' ).end().find('input[name^="remise"]:last').prop('name', 'remise['+num+']' ).end().find('input[name^="taxe"]:last').prop('name', 'taxe['+num+']' ).end().find('input[name^="prix"]:last').prop('name', 'prix['+num+']' ).end().find('button[id^="suppr"]:last').prop('id', 'suppr'+num ).end().find('button[id^="suppr"]:last').attr('onclick', 'supprLigne('+num+')' ).end().find('div[id^="divsuppr"]:last').prop('id', 'divsuppr'+num ).end().find('div[id="divsuppr'+num+'"]').css('display','' ).end().find('div[id="divsuppr'+num+'"]').css('display','block' ).end().prop('id', 'ligne'+num );
       
       // Finally insert $klon wherever you want
       $("div[id*='divsuppr']").css('display','' );
