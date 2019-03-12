@@ -94,8 +94,8 @@ for($i=1;$i<=count($_POST["description"]);$i++)
         $descriptions[$i] = $description;
     }
 }
-
-$test = $descriptionmanager->add($descriptions,$quotationNumber);
+print_r($descriptions);
+/*$test = $descriptionmanager->add($descriptions,$quotationNumber);
 if(is_null($test))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
@@ -103,5 +103,5 @@ if(is_null($test))
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);
 }
-
+*/
 ?>
