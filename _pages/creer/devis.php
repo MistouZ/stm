@@ -335,17 +335,17 @@ $(document).ready(function() {
       $("div[id*='divsuppr']").css('display','block' );
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
       
-      $("#devis").validate(
-        $("#description"+num).rules("add", {
+      $("#devis").validate();
+      
+      $("#description"+num).rules("add", {
             required: true
-        }),
-        $("#taxe"+num).rules("add", {
+      });
+      $("#taxe"+num).rules("add", {
             required: true
-        }),
-        $("#prix"+num).rules("add", {
+      });
+      $("#prix"+num).rules("add", {
             required: true
-        })
-      );
+      });
     
     });  
 
