@@ -335,7 +335,7 @@ $(document).ready(function() {
       $("div[id*='divsuppr']").css('display','block' );
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
       
-      $("#description"+num).each(function(){
+      /*$("#description"+num).each(function(){
         $(this).rules("add", {
             required: true
         });
@@ -349,7 +349,7 @@ $(document).ready(function() {
         $(this).rules("add", {
             required: true
         });
-      });
+      });*/
     
     });  
 
