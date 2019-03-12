@@ -222,7 +222,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select id="taxe" class="taxe form-control" name="taxe[<?php echo $i; ?>]">
+                                                        <select id="taxe<?php echo $i; ?>" class="taxe form-control" name="taxe[<?php echo $i; ?>]">
                                                             <option value="">Taxes</option>
                                                             <?php
                                                             
@@ -238,7 +238,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
-                                                        <input type="digits" id="prix" name="prix[<?php echo $i; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
+                                                        <input type="digits" id="prix<?php echo $i; ?>" name="prix[<?php echo $i; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
                                                 <div id="divsuppr<?php echo $i; ?>" style="text-align: right;" class="col-md-1">
@@ -378,12 +378,28 @@ $(document).ready(function() {
       var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
       
       // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-      var $klon = $div.clone(true).find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('textarea[name^="description"]:last').prop('name', 'description['+num+']' ).end().find('input[name^="quantite"]:last').prop('name', 'quantite['+num+']' ).end().find('input[name^="remise"]:last').prop('name', 'remise['+num+']' ).end().find('select[name^="taxe"]:last').prop('name', 'taxe['+num+']' ).end().find('input[name^="prix"]:last').prop('name', 'prix['+num+']' ).end().find('button[id^="suppr"]:last').prop('id', 'suppr'+num ).end().find('button[id^="suppr"]:last').attr('onclick', 'supprLigne('+num+')' ).end().find('div[id^="divsuppr"]:last').prop('id', 'divsuppr'+num ).end().find('div[id="divsuppr'+num+'"]').css('display','' ).end().find('div[id="divsuppr'+num+'"]').css('display','block' ).end().prop('id', 'ligne'+num );
+      var $klon = $div.clone(true).find(".help-block-error").text("").end().find(".has-error").removeClass("has-error").end().find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('textarea[name^="description"]:last').prop('name', 'description['+num+']' ).end().find('input[name^="quantite"]:last').prop('name', 'quantite['+num+']' ).end().find('input[name^="remise"]:last').prop('name', 'remise['+num+']' ).end().find('select[name^="taxe"]:last').prop('name', 'taxe['+num+']' ).end().find('select[id^="taxe"]:last').prop('id', 'taxe'+num ).end().find('input[name^="prix"]:last').prop('name', 'prix['+num+']' ).end().find('input[id^="prix"]:last').prop('id', 'prix'+num ).end().find('button[id^="suppr"]:last').prop('id', 'suppr'+num ).end().find('button[id^="suppr"]:last').attr('onclick', 'supprLigne('+num+')' ).end().find('div[id^="divsuppr"]:last').prop('id', 'divsuppr'+num ).end().find('div[id="divsuppr'+num+'"]').css('display','' ).end().find('div[id="divsuppr'+num+'"]').css('display','block' ).end().prop('id', 'ligne'+num );
       
       // Finally insert $klon wherever you want
       $("div[id*='divsuppr']").css('display','' );
       $("div[id*='divsuppr']").css('display','block' );
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
+      
+      $("#description"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
+      $("#taxe"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
+      $("#prix"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
     
     });  
 
