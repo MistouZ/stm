@@ -335,17 +335,17 @@ $(document).ready(function() {
       $("div[id*='divsuppr']").css('display','block' );
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
       
-      $("#description"+num).each(function{
+      $("#description"+num).each(function(){
         $(this).rules("add", {
             required: true
         });
       });
-      $("#taxe"+num).each(function{
+      $("#taxe"+num).each(function(){
         $(this).rules("add", {
             required: true
         });
       });
-      $("#prix"+num).each(function{
+      $("#prix"+num).each(function(){
         $(this).rules("add", {
             required: true
         });
