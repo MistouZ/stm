@@ -69,7 +69,7 @@ else{
 
 $descriptions= array();
 //print_r($_POST);
-for($i=0;$i<count($_POST["description"]);$i++)
+for($i=1;$i<=count($_POST["description"]);$i++)
 {
     if(!empty($_POST["description"][$i])){
         if(!isset($_POST["remise"][$i])){

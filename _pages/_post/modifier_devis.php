@@ -72,7 +72,7 @@ $test = $quotationmanager->update($quotation);
 $descriptions= array();
 echo $_POST["description"][1];
 
-for($i=0;$i<count($_POST["description"]);$i++)
+for($i=1;$i<=count($_POST["description"]);$i++)
 {
     if(isset($_POST["remise"][$i])){
         $remise = 0;
@@ -91,7 +91,7 @@ for($i=0;$i<count($_POST["description"]);$i++)
     $descriptions[$i] = $description;
 }
 print_r($descriptions);
-/*
+
 $test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
 {
@@ -99,6 +99,6 @@ if(is_null($test))
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
-}*/
+}
 
 ?>
