@@ -74,26 +74,28 @@ echo $_POST["description"][1];
 
 for($i=1;$i<=count($_POST["description"]);$i++)
 {
-    if(empty($_POST["remise"][$i])){
-        $remise = 0;
-    }else{
-        $remise = $_POST["remise"][$i];
+    if(strlen(trim($_POST["description"][$i]))>0){
+        if(empty($_POST["remise"][$i])){
+            $remise = 0;
+        }else{
+            $remise = $_POST["remise"][$i];
+        }
+        if(empty($_POST["quantite"][$i])){
+                $qt = 1;
+        }else{
+            $qt = $_POST["quantite"][$i];
+        }
+        $dataDescription= array(
+            'description' => $_POST["description"][$i],
+            'quantity' => $qt,
+            'discount' => $remise,
+            'price' => $_POST["prix"][$i],
+            'tax' => $_POST["taxe"][$i]
+        );
+    
+        $description = new Description($dataDescription);
+        $descriptions[$i] = $description;
     }
-    if(empty($_POST["quantite"][$i])){
-            $qt = 1;
-    }else{
-        $qt = $_POST["quantite"][$i];
-    }
-    $dataDescription= array(
-        'description' => $_POST["description"][$i],
-        'quantity' => $qt,
-        'discount' => $remise,
-        'price' => $_POST["prix"][$i],
-        'tax' => $_POST["taxe"][$i]
-    );
-
-    $description = new Description($dataDescription);
-    $descriptions[$i] = $description;
 }
 echo "count : ".count($_POST["description"]);
 print_r($descriptions);
