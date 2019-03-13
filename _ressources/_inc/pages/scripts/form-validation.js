@@ -1081,7 +1081,8 @@ var FormValidation = function () {
             //initialize datepicker
             $('.date-picker').datepicker({
                 rtl: App.isRTL(),
-                autoclose: true
+                autoclose: true,
+                defaultDate: new Date()
             });
             $('.date-picker .form-control').change(function() {
                 form11.validate().element($(this)); //revalidate the chosen dropdown value and show error or success message for the input 
