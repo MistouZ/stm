@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * customer: adewynter
+ * supplier: adewynter
  * Date: 27/11/2018
  * Time: 10:42
  */
@@ -32,38 +32,30 @@ class SuppliersManager
     }
 
     /**
-     * @param customers $customer
-     * Insertion customer in the DB
+     * @param supplier $supplier
+     * Insertion supplier in the DB
      */
-    public function add(Customers $customer, array $companies, array $taxes)
+    public function add(Suppliers $supplier, array $companies)
     {
         try{
-            $q = $this->_db->prepare('INSERT INTO customers (name, physicalAddress,invoiceAddress,isActive) VALUES (:name, :physicalAddress, :invoiceAddress,:isActive)');
-            $q->bindValue(':name', $customer->getName(), PDO::PARAM_STR);
-            $q->bindValue(':physicalAddress', $customer->getPhysicalAddress(), PDO::PARAM_STR);
-            $q->bindValue(':invoiceAddress', $customer->getInvoiceAddress(), PDO::PARAM_STR );
-            $q->bindValue(':isActive', $customer->getIsActive(), PDO::PARAM_INT);
+            $q = $this->_db->prepare('INSERT INTO suppliers (name, physicalAddress,invoiceAddress,isActive) VALUES (:name, :physicalAddress, :invoiceAddress,:isActive)');
+            $q->bindValue(':name', $supplier->getName(), PDO::PARAM_STR);
+            $q->bindValue(':physicalAddress', $supplier->getPhysicalAddress(), PDO::PARAM_STR);
+            $q->bindValue(':invoiceAddress', $supplier->getInvoiceAddress(), PDO::PARAM_STR );
+            $q->bindValue(':isActive', $supplier->getIsActive(), PDO::PARAM_INT);
     
             $q->execute();
-    
-            $customer = $this->getByName($customer->getName());
+
+            $supplier = $this->getByName($supplier->getName());
     
             for ($i=0;$i<count($companies);$i++)
             {
-                $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
-                $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
+                $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (company_idcompany, suppliers_idsupplier) VALUES (:idcompany, :idsupplier)');
+                $q2->bindValue(':idsupplier', $supplier->getIdSupplier(), PDO::PARAM_INT);
                 $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
                 $q2->execute();
             }
-    
-            for ($j=0;$j<count($taxes);$j++)
-            {
-                $q3 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomer, tax_idTax) VALUES (:idcustomer, :idTax)');
-                $q3->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
-                $q3->bindValue(':idTax', $taxes[$j], PDO::PARAM_INT);
-                $q3->execute();
-            }
-            return "ok";
+
         }
         catch(Exception $e){
             return null;
@@ -71,14 +63,14 @@ class SuppliersManager
     }
 
     /**
-     * @param integer $idcustomer
-     * Disable customer instead of delete it
+     * @param integer $idsupplier
+     * Disable supplier instead of delete it
      */
-    public function delete($idcustomer)
+    public function delete($idsupplier)
     {
         try{
-            $q = $this->_db->prepare('UPDATE customers SET isActive = \'0\' WHERE idcustomer = :idcustomer');
-            $q->bindValue(':idcustomer', $idcustomer, PDO::PARAM_INT);
+            $q = $this->_db->prepare('UPDATE suppliers SET isActive = \'0\' WHERE idsupplier = :idsupplier');
+            $q->bindValue(':idsupplier', $idsupplier, PDO::PARAM_INT);
     
             $q->execute();
             return "ok";
@@ -89,17 +81,17 @@ class SuppliersManager
     }
 
     /**
-     * Find a customer by his customername
-     * @param $customername
-     * @return customers
+     * Find a supplier by his name
+     * @param $suppliername
+     * @return supplier
      */
-    public function getByName($customername)
+    public function getByName($suppliername)
     {
-        $customername = (string) $customername;
-        $q = $this->_db->query('SELECT * FROM customers WHERE name ="'.$customername.'"');
+        $suppliername = (string) $suppliername;
+        $q = $this->_db->query('SELECT * FROM suppliers WHERE name ="'.$suppliername.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-        return new Customers($donnees);
+        return new Suppliers($donnees);
     }
 
 
@@ -107,21 +99,21 @@ class SuppliersManager
      * @param $idcustomer
      * @return Customers
      */
-    public function getByID($idcustomer)
+    public function getByID($idsupplier)
     {
-        $idcustomer = (integer) $idcustomer;
-        $q = $this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE cu.idcustomer='.$idcustomer.' AND cu.isActive=\'1\' AND c.isActive=\'1\' GROUP BY cu.name');
+        $idsupplier = (integer) $idsupplier;
+        $q = $this->_db->query('SELECT su.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE su.idsupplier='.$idsupplier.' AND su.isActive=\'1\' AND c.isActive=\'1\' GROUP BY su.name');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
         {
-            return new Customers($donnees);
+            return new Suppliers($donnees);
         }
         else
         {
             $array = array(
-                'name' => "Client supprimé"
+                'name' => "Fournisseur supprimé"
             );
-            return new Customers($array);
+            return new Suppliers($array);
         }
 
     }
