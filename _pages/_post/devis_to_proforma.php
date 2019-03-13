@@ -32,7 +32,7 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->toProforma($quotation);
-
+echo $test;
 if(is_null($test))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/errorProforma");
