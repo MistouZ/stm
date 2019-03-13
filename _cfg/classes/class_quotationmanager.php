@@ -229,7 +229,7 @@ class QuotationManager
         }
     }
 
-    public function toProforma(Quotation $quotation)
+    public function changeType(Quotation $quotation)
     {
         try{
             $q = $this->_db->prepare('UPDATE quotation SET type = :type, status = :status, year = :year, month = :month, day = :day WHERE idQuotation= :idQuotation');
