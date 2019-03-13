@@ -122,7 +122,7 @@ $retour = $_GET['soussoussouscat'];
 </div>
 <script language="JavaScript">
 function toggle(source) {
-  checkboxes = document.getElementsByName('selection');
+  checkboxes = document.getElementsByName('selection[]');
   for(var checkbox in checkboxes)
     checkbox.checked = source.checked;
 }
