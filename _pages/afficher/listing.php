@@ -66,7 +66,7 @@ $retour = $_GET['soussoussouscat'];
                 <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>
-                            <th style="text-align: center !important;" class="desktop"><input type="checkbox" onclick="toggle(this);" /></th>
+                            <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" /></th>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro de devis</th>
                             <th class="min-tablet">Client</th>
@@ -121,9 +121,16 @@ $retour = $_GET['soussoussouscat'];
     </div>
 </div>
 <script language="JavaScript">
-function toggle(source) {
-  checkboxes = document.getElementsByName('selection');
-  for(var checkbox in checkboxes)
-    checkbox.checked = source.checked;
-}
+$('#uniform-select-all').click(function(event) {   
+    if(this.checked) {
+        // Iterate each checkbox
+        $(':checkbox').each(function() {
+            this.checked = true;                        
+        });
+    } else {
+        $(':checkbox').each(function() {
+            this.checked = false;                       
+        });
+    }
+});
 </script>
