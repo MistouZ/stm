@@ -147,7 +147,11 @@ var TableDatatablesResponsive = function () {
             //},
 
             // setup buttons extentension: http://datatables.net/extensions/buttons/
-            
+            buttons: [
+                { extend: 'Imprimer', className: 'btn default' },
+                { extend: 'PDF', className: 'btn default' },
+                { extend: 'csv', className: 'btn default' }
+            ],
 
             // setup responsive extension: http://datatables.net/extensions/responsive/
             responsive: {
@@ -155,21 +159,9 @@ var TableDatatablesResponsive = function () {
                    
                 }
             },
-            
-            'columnDefs': [
-              {
-                 'targets': 0,
-                 'checkboxes': {
-                    'selectRow': true
-                 }
-              }
-           ],
-           'select': {
-              'style': 'multi'
-           },
-            
+
             "order": [
-                [1, 'asc']
+                [0, 'asc']
             ],
             
             "lengthMenu": [

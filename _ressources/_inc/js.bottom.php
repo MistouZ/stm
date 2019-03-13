@@ -28,7 +28,6 @@
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
-        <script type="text/javascript" src="//gyrocode.github.io/jquery-datatables-checkboxes/1.2.11/js/dataTables.checkboxes.min.js"></script>
 <?php }elseif($_GET['section']=="connexion"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
@@ -44,7 +43,7 @@
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
-<script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/table-datatables-responsive.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/table-datatables-responsive.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-samples.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-validation.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-blockui.min.js" type="text/javascript"></script>
