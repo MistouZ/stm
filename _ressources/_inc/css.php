@@ -28,7 +28,7 @@
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN THEME GLOBAL STYLES -->
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/css/components.css" rel="stylesheet" id="style_components" type="text/css" />
-<link href="<?php echo URLHOST;?>_ressources/_inc/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo URLHOST;?>_ressources/_inc/global/css/plugins.css" rel="stylesheet" type="text/css" />
 <!-- END THEME GLOBAL STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
 <?php if($_GET['section']=="connexion"){ ?>
