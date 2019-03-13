@@ -207,14 +207,14 @@ class SuppliersManager
 
 
     /**
-     * Reactivate customers
-     * @param Customers $customers
+     * Reactivate supplier
+     * @param Suppliers $suppliers
      */
-    public function reactivate(Customers $customers)
+    public function reactivate(Suppliers $suppliers)
     {
        try{
-           $q = $this->_db->prepare('UPDATE customers SET isActive = \'1\' WHERE idcustomer = :idcustomer');
-           $q->bindValue(':idcustomer', $customers->getIdCustomer(),PDO::PARAM_INT);
+           $q = $this->_db->prepare('UPDATE suppliers SET isActive = \'1\' WHERE idsupplier = :idsupplier');
+           $q->bindValue(':idsupplier', $suppliers->getIdSupplier(), PDO::PARAM_INT);
            $q->execute();
            return "ok";
        }
