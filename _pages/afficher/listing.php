@@ -121,9 +121,9 @@ $retour = $_GET['soussoussouscat'];
     </div>
 </div>
 <script language="JavaScript">
-$('#uniform-select-all').click(function(event) {
+$('#select-all').click(function(event) {
     alert("coucou !");
-    if($('#uniform-select-all').find('.checked')) {
+    if($('#select-all').parent('.checked')) {
         // Iterate each checkbox
         $(':checkbox').each(function() {
             this.checked = true;                        
