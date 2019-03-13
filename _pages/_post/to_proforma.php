@@ -33,7 +33,7 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-$test = $quotationmanager->toProforma($quotation);
+$test = $quotationmanager->changeType($quotation);
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
