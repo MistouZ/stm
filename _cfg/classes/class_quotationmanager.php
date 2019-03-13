@@ -282,5 +282,21 @@ class QuotationManager
         }
 
     }
+    
+    public function changeDate(Quotation $quotation)
+    {
+        try{
+            $q = $this->_db->prepare('UPDATE quotation SET year = :year, month = :month, day = :day WHERE idQuotation= :idQuotation');
+            $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
+            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
+            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
+            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->execute();
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
 
 }
