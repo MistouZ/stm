@@ -81,17 +81,16 @@ class QuotationManager
      */
     public function delete($idQuotation)
     {
-        //try{
+        try{
             $idQuotation = (integer) $idQuotation;
-            $query = "DELETE FROM quotation WHERE idQuotation='$idQuotation'";
-            $q = $this->_db->query($query);
+            $q = $this->_db->query("DELETE FROM quotation WHERE idQuotation='$idQuotation'");
             $q->execute();
 
-          /*  return "ok";
+           return "ok";
         }
         catch(Exception $e){
             return null;
-        }*/
+        }
     }
 
     /**
