@@ -25,12 +25,14 @@ if(isset($_POST['valider'])) {
 
     $supplier = new Suppliers($array);
     $suppliermanager = new SuppliersManager($bdd);
-    $suppliermanager->add($supplier, $_POST["case"]);
-    echo "New supplier created successfully </br/>";
+    $test = $suppliermanager->add($supplier, $_POST["case"]);
+
+    if (is_null($test)) {
+        header('Location: ' . URLHOST . $_COOKIE['company'] . "/fournisseur/afficher/error");
+    } else {
+        header('Location: ' . URLHOST . $_COOKIE['company'] . "/fournisseur/afficher/success");
+    }
+
+
 }
-
-
-
 ?>
-
-<a href="<?php echo URLHOST.$_COOKIE['company']."/fournisseur/afficher" ?>">Revenir à la liste des fournisseurs</a>
