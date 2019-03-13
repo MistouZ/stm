@@ -159,9 +159,21 @@ var TableDatatablesResponsive = function () {
                    
                 }
             },
-
+            
+            'columnDefs': [
+              {
+                 'targets': 0,
+                 'checkboxes': {
+                    'selectRow': true
+                 }
+              }
+           ],
+           'select': {
+              'style': 'multi'
+           },
+            
             "order": [
-                [0, 'asc']
+                [1, 'asc']
             ],
             
             "lengthMenu": [
