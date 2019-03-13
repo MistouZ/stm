@@ -36,7 +36,7 @@ $test = $quotationmanager->toProforma($quotation);
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$quotationNumber.'/successProforma');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$quotationNumber->getIdQuotation().'/successProforma');
 }
 
 ?>
