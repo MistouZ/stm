@@ -110,7 +110,7 @@ if(isset($_GET['cat5'])){
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Date: </div>
-                            <div class="col-md-7 value"> <?php echo $date; ?> <a data-toggle="modal" href="#modif_date" class="btn btn-default btn-sm"><i class="fas fa-edit"></i></a></div>
+                            <div class="col-md-7 value"> <?php echo $date; ?> <a data-toggle="modal" href="#modif_date" ><i class="fas fa-edit"></i></a></div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Dossier N°: </div>
