@@ -7,8 +7,6 @@
 
 include("../../_cfg/cfg.php");
 
-echo "Résultats : ";
-
 $idQuotation = $_POST['idQuotation'];
 $type2 = $_POST['type'];
 

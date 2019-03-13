@@ -33,6 +33,16 @@ switch($type){
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+        $buttons = '<div class="actions">
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-edit"></i> Modifier </a>
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-print"></i> Imprimer </a>
+                        <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
+                            <i class="fas fa-file-alt"></i> => Proforma </a>
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
+                    </div>';
         break;
     case "proforma":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
@@ -226,6 +236,43 @@ if(isset($_GET['cat5'])){
                         <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
                         <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Passer le devis <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en proforma</h4>
+                    </div>
+                    <div class="modal-body form">
+                        <form action="<?php echo URLHOST."_pages/_post/devis_to_proforma.php"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
+                            <div class="form-group">
+                                <label class="control-label col-md-4">Date
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-8">
+                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
+                                        <input type="text" name="date" class="form-control" value="">
+                                        <span class="input-group-btn">
+                                            <button class="btn default" type="button">
+                                                <i class="fas fa-calendar-alt"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                    <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
+                                </div>
+                            </div>
+                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
+                            <div class="modal-footer">
+                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                                <button type="submit" class="btn green" name="valider">
+                                    <i class="fa fa-check"></i> Valider</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
