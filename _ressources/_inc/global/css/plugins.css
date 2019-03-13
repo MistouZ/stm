@@ -331,7 +331,7 @@ Bootstrap Select
   border: 0;
   font-family: "Font Awesome 5 Free";
   font-style: normal;
-  font-weight: normal; }
+  font-weight: 800; }
 
 .bootstrap-select .selected i {
   color: #aaa; }
