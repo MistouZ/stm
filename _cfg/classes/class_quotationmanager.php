@@ -84,9 +84,8 @@ class QuotationManager
         //try{
             $idQuotation = (integer) $idQuotation;
             $query = "DELETE FROM quotation WHERE idQuotation='$idQuotation'";
-            echo $query;
-            /*$q = $this->_db->query('DELETE FROM quotation WHERE idQuotation='.$idQuotation);
-            $q->execute();*/
+            $q = $this->_db->query($query);
+            $q->execute();
 
           /*  return "ok";
         }
