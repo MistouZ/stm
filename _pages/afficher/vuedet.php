@@ -151,10 +151,7 @@ if(isset($_GET['cat5'])){
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
-                        <div class="actions">
-                            <a href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>" class="btn btn-default btn-sm">
-                                <i class="fas fa-edit"></i> Modifier </a>
-                        </div>
+                            <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
