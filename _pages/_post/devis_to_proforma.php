@@ -9,6 +9,7 @@ include("../../_cfg/cfg.php");
 
 $idQuotation = $_POST['quotationNumber'];
 $dateTab = explode("/",$_POST['date']);
+$type2 = $_POST['type'];
 
 $array = array();
 $quotationNumber = new Quotation($array);
@@ -36,7 +37,7 @@ $test = $quotationmanager->toProforma($quotation);
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$idQuotation.'/successProforma');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$idQuotation.'/successProforma');
 }
 
 ?>
