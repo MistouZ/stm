@@ -231,6 +231,7 @@ class QuotationManager
 
     public function toProforma(Quotation $quotation)
     {
+        print_r($quotation);
         try{
             $q = $this->_db->prepare('UPDATE quotation SET type = \'P\', status = :status, year = :year, month = :month, day = :day WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
