@@ -117,7 +117,7 @@
         </ul>
     </li>
     <li class="nav-item  ">
-        <a href="<?php echo URLHOST.$_COOKIE['company'].'/proforma/afficher'; ?>" class="nav-link nav-toggle">
+        <a href="<?php echo URLHOST.$_COOKIE['company'].'/proforma/afficher/cours'; ?>" class="nav-link nav-toggle">
             <i class="fas fa-file-alt"></i>
             <span class="title">Proformas</span>
         </a>
