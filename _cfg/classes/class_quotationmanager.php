@@ -245,7 +245,6 @@ class QuotationManager
         catch(Exception $e){
             return null;
         }
-
     }
 
     public function toInvoice(Quotation $quotation)

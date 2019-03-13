@@ -1,9 +1,10 @@
 <?php
-
+ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
 /**
  * @author Nicolas
  * @copyright 2019
  */
+ 
 include("../../_cfg/cfg.php");
 
 $idQuotation = $_POST['quotationNumber'];
@@ -32,8 +33,7 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->toProforma($quotation);
-if(is_null($test))
-{
+if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
     header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$quotationNumber.'/successProforma');
