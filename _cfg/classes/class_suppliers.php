@@ -1,6 +1,6 @@
 <?php
   class Suppliers extends Features{
-    private $idSupplier;
+    private $idsupplier;
     private $name;
     private $physicalAddress;
     private $invoiceAddress;
@@ -8,7 +8,7 @@
     private $companyName;
 
       /**
-       * Supplier constructor.
+       * Customer constructor.
        * @param array $data
        */
       public function __construct(array $data)
@@ -21,16 +21,17 @@
        */
       public function getIdSupplier()
       {
-          return $this->idSupplier;
+          return $this->idsupplier;
       }
 
       /**
-       * @param mixed $idSupplier
+       * @param mixed $idsupplier
        */
-      public function setIdSupplier($idSupplier)
+      public function setIdsupplier($idsupplier): void
       {
-          $this->idSupplier = $idSupplier;
+          $this->idsupplier = $idsupplier;
       }
+
 
       /**
        * @return mixed
@@ -43,9 +44,12 @@
       /**
        * @param mixed $name
        */
-      public function setName($name)
+      public function setName($name): void
       {
-          $this->name = $name;
+          if(is_string($name))
+          {
+              $this->name = $name;
+          }
       }
 
       /**
@@ -59,9 +63,12 @@
       /**
        * @param mixed $physicalAddress
        */
-      public function setPhysicalAddress($physicalAddress)
+      public function setPhysicalAddress($physicalAddress): void
       {
-          $this->physicalAddress = $physicalAddress;
+          if(is_string($physicalAddress))
+          {
+              $this->physicalAddress = $physicalAddress;
+          }
       }
 
       /**
@@ -75,15 +82,18 @@
       /**
        * @param mixed $invoiceAddress
        */
-      public function setInvoiceAddress($invoiceAddress)
+      public function setInvoiceAddress($invoiceAddress): void
       {
-          $this->invoiceAddress = $invoiceAddress;
+          if(is_string($invoiceAddress))
+          {
+              $this->invoiceAddress = $invoiceAddress;
+          }
       }
 
       /**
        * @return mixed
        */
-      public function getisActive()
+      public function getIsActive()
       {
           return $this->isActive;
       }
@@ -111,8 +121,6 @@
       {
           $this->companyName = $companyName;
       }
-
-
 
   }
 ?>
