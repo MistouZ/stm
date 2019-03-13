@@ -27,6 +27,7 @@
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-selectsplitter/bootstrap-selectsplitter.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js" type="text/javascript"></script>
+        <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
 <?php }elseif($_GET['section']=="connexion"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
@@ -48,6 +49,7 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-blockui.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-confirmations.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/components-bootstrap-select-splitter.min.js" type="text/javascript"></script>
+<script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/components-bootstrap-select.min.js" type="text/javascript"></script>
 <?php }elseif($_GET['section']=="connexion"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/login.min.js" type="text/javascript"></script>
 <?php } ?>

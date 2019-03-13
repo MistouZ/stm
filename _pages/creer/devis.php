@@ -73,7 +73,7 @@ $taxmanager = new TaxManager($bdd);
                                             <span class="required" aria-required="true"> * </span>
                                             </label>
                                             <div class="col-md-10">
-                                                <select class="form-control" id="folder" name="folder">
+                                                <select class="form-control" id="folder" name="folder" data-live-search="true" data-size="8">
                                                     <option value="">Choisissez un dossier...</option>
                                                     <?php
                                                         foreach ($foldermanager as $folder){
