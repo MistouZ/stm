@@ -6,13 +6,18 @@
  */
 include("../../_cfg/cfg.php");
 
+$idQuotation = $_POST['quotationNumber'];
 $dateTab = explode("/",$_POST['date']);
+$quotationNumber = new Quotation($array);
+$quotationmanagerNumber = new QuotationManager($bdd);
+$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 
 $year = $dateTab[2];
 $month = $dateTab[1];
 $day = $dateTab[0];
 
 $data = array(
+    'idQuotation' => $quotationNumber->getIdQuotation(),
     'status' => 'En cours',
     'label' => $label,
     'year' => $year,
