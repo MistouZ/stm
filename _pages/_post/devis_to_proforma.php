@@ -27,12 +27,12 @@ $data = array(
     'day' => $day,
     'type' => 'P'
 );
-
+echo"ok 1";
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
-
+echo"ok 2";
 $test = $quotationmanager->toProforma($quotation);
-
+echo"ok 3";
 if(is_null($test))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/errorProforma");
