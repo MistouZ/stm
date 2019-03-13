@@ -99,6 +99,7 @@ $retour = $_GET['soussoussouscat'];
                             }
                         ?>
                         <tr>
+                            <td></td>
                             <td><?php echo $date; ?></td>
                             <td><?php echo $quotation->getQuotationNumber(); ?></td>
                             <td><?php echo $customer->getName(); ?></td>
