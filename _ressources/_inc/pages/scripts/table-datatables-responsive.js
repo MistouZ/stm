@@ -147,11 +147,7 @@ var TableDatatablesResponsive = function () {
             //},
 
             // setup buttons extentension: http://datatables.net/extensions/buttons/
-            buttons: [
-                { extend: 'Imprimer', className: 'btn default' },
-                { extend: 'PDF', className: 'btn default' },
-                { extend: 'csv', className: 'btn default' }
-            ],
+            
 
             // setup responsive extension: http://datatables.net/extensions/responsive/
             responsive: {
