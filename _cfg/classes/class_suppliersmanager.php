@@ -50,7 +50,7 @@ class SuppliersManager
     
             for ($i=0;$i<count($companies);$i++)
             {
-                $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (company_idcompany, suppliers_idsupplier) VALUES (:idcompany, :idsupplier)');
+                $q2 = $this->_db->prepare('INSERT INTO `link_company_suppliers` (company_idcompany, suppliers_idsupplier) VALUES (:idcompany, :idsupplier)');
                 $q2->bindValue(':idsupplier', $supplier->getIdSupplier(), PDO::PARAM_INT);
                 $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
                 $q2->execute();
@@ -120,93 +120,84 @@ class SuppliersManager
 
 
     /**
-     * Get all the customers in the BDD
+     * Get all the active suppliers in the BDD
      * @return array
      */
     public function getList()
     {
-        $customers = array();
+        $suppliers = array();
 
-        $q=$this->_db->query("SELECT * FROM customers WHERE isActive='1'");
+        $q=$this->_db->query("SELECT * FROM suppliers WHERE isActive='1'");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $customers[] = new Customers($donnees);
+            $suppliers[] = new Suppliers($donnees);
         }
 
-        return $customers;
+        return $suppliers;
     }
 
     /**
-     * Get all the active customers in the BDD filtered by Company
+     * Get all the active suppliers in the BDD filtered by Company
      * @return array
      */
     public function getListByCompany($idcompany)
     {
         $idcompany = (integer) $idcompany;
-        $customers = array();
-        $q=$this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND cu.isActive=\'1\' AND c.isActive=\'1\' GROUP BY cu.name');
+        $suppliers = array();
+        $q=$this->_db->query('SELECT su.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND su.isActive=\'1\' AND c.isActive=\'1\' GROUP BY su.name');
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $customers[] = new Customers($donnees);
+            $suppliers[] = new Suppliers($donnees);
         }
 
-        return $customers;
+        return $suppliers;
     }
 
     /**
-     * Get all the customers in the BDD filtered by Company
+     * Get all the suppliers in the BDD filtered by Company
      * @return array
      */
     public function getListAllByCompany($idcompany)
     {
         $idcompany = (integer) $idcompany;
-        $customers = array();
-        $q=$this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND c.isActive=\'1\' GROUP BY cu.name');
+        $suppliers = array();
+        $q=$this->_db->query('SELECT su.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND c.isActive=\'1\' GROUP BY su.name');
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
-            $customers[] = new Customers($donnees);
+            $suppliers[] = new Suppliers($donnees);
         }
 
-        return $customers;
+        return $suppliers;
     }
 
     /**
-     * Update customers information
-     * @param customers $customer
+     * Update suppliers information
+     * @param suppliers $suppliers
      */
-    public function update(customers $customer, array $companies, array $taxes)
+    public function update(Suppliers $suppliers, array $companies)
     {
         try{
-            $q = $this->_db->prepare('UPDATE customers SET name = :name, physicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idcustomer = :idcustomers');
-            $q->bindValue(':idcustomers', $customer->getIdCustomer(), PDO::PARAM_INT);
-            $q->bindValue(':name', $customer->getName(), PDO::PARAM_STR);
-            $q->bindValue(':physicalAddress', $customer->getPhysicalAddress(), PDO::PARAM_STR);
-            $q->bindValue(':invoiceAddress', $customer->getInvoiceAddress(), PDO::PARAM_STR );
-            $q->bindValue(':isActive', $customer->getIsActive(), PDO::PARAM_INT);
+            $q = $this->_db->prepare('UPDATE suppliers SET name = :name, physicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idsupplier = :idsupplier');
+            $q->bindValue(':idsupplier', $supplier->getIdSupplier(), PDO::PARAM_INT);
+            $q->bindValue(':name', $supplier->getName(), PDO::PARAM_STR);
+            $q->bindValue(':physicalAddress', $supplier->getPhysicalAddress(), PDO::PARAM_STR);
+            $q->bindValue(':invoiceAddress', $supplier->getInvoiceAddress(), PDO::PARAM_STR );
+            $q->bindValue(':isActive', $supplier->getIsActive(), PDO::PARAM_INT);
     
             $q->execute();
             
-            $delete=$this->_db->query('DELETE FROM `link_company_customers` WHERE customers_idcustomer ='.$customer->getIdCustomer());
+            $delete=$this->_db->query('DELETE FROM `link_company_suppliers` WHERE suppliers_idsupplier ='.$supplier->getIdSupplier());
             $delete->execute();
-    
-            $deletetaxe=$this->_db->query('DELETE FROM `link_customers_taxes` WHERE customers_idcustomer ='.$customer->getIdCustomer());
-            $deletetaxe->execute();
-            
+
             for ($i=0;$i<count($companies);$i++)
             {
-                $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
-                $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
+                $q2 = $this->_db->prepare('INSERT INTO `link_company_suppliers` (company_idcompany, suppliers_idsupplier) VALUES (:idcompany, :idsupplier)');
+                $q2->bindValue(':idsupplier', $supplier->getIdSupplier(), PDO::PARAM_INT);
                 $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
                 $q2->execute();
             }
     
-            for ($j=0;$j<count($taxes);$j++)
-            {
-                $q3 = $this->_db->prepare('INSERT INTO link_customers_taxes (customers_idcustomer, tax_idTax) VALUES (:idcustomer, :idTax)');
-                $q3->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
-                $q3->bindValue(':idTax', $taxes[$j], PDO::PARAM_INT);
-                $q3->execute();
-            }
+
             return "ok";
         }
         catch(Exception $e){
