@@ -1006,7 +1006,7 @@ var FormValidation = function () {
         // for more info visit the official plugin documentation: 
         // http://docs.jquery.com/Plugins/Validation
 
-            var form11 = $('#devis');
+            var form11 = $('#to_proforma');
             var error11 = $('.alert-danger', form11);
             var success11 = $('.alert-success', form11);
 
