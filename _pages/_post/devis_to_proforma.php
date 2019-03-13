@@ -8,6 +8,8 @@ include("../../_cfg/cfg.php");
 
 $idQuotation = $_POST['quotationNumber'];
 $dateTab = explode("/",$_POST['date']);
+
+$array = array();
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
