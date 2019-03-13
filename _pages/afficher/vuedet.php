@@ -27,6 +27,7 @@ $contactmanager = new ContactManager($bdd);
 $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 
+$dateToProforma = date('d/m/Y');
 
 switch($type){
     case "devis":
@@ -257,7 +258,7 @@ if(isset($_GET['cat5'])){
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" readonly="" data-date-todayHighlight="true" data-date-toggleActive="true" >
+                                        <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
                                         <span class="input-group-btn">
                                             <button class="btn default" type="button">
                                                 <i class="fas fa-calendar-alt"></i>
