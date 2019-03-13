@@ -174,7 +174,7 @@ class SuppliersManager
      * Update suppliers information
      * @param suppliers $suppliers
      */
-    public function update(Suppliers $suppliers, array $companies)
+    public function update(Suppliers $supplier, array $companies)
     {
         try{
             $q = $this->_db->prepare('UPDATE suppliers SET name = :name, physicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idsupplier = :idsupplier');
