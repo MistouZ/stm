@@ -82,6 +82,12 @@ if(isset($_GET['cat5'])){
         <?php }elseif($retour == "success"){ ?>
             <div class="alert alert-success">
                 <button class="close" data-close="alert"></button> Le devis a bien été mis à jour !</div>
+        <?php }elseif($retour == "errorProforma") { ?>
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu passer en proforma !</div>
+        <?php }elseif($retour == "successProforma"){ ?>
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button> Le devis est bien passé en proforma !</div>
         <?php } ?>
         <div class="row">
             <div class="col-md-6 col-sm-12">
@@ -244,14 +250,14 @@ if(isset($_GET['cat5'])){
                         <h4 class="modal-title">Passer le devis <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en proforma</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/devis_to_proforma.php"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
+                        <form action="" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Date
                                     <span class="required"> * </span>
                                 </label>
                                 <div class="col-md-8">
                                     <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="">
+                                        <input type="text" name="date" class="form-control">
                                         <span class="input-group-btn">
                                             <button class="btn default" type="button">
                                                 <i class="fas fa-calendar-alt"></i>
