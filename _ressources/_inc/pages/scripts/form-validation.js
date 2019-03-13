@@ -996,7 +996,7 @@ var FormValidation = function () {
             });
 
             //initialize datepicker
-            $('.date-picker').date({
+            $('.date-picker').datepicker({
                 rtl: App.isRTL(),
                 autoclose: true
             });
@@ -1079,7 +1079,7 @@ var FormValidation = function () {
             });
             
             //initialize datepicker
-            $('.date-picker').date({
+            $('.date-picker').datepicker({
                 rtl: App.isRTL(),
                 autoclose: true
             });
