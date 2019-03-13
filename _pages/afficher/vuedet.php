@@ -250,7 +250,7 @@ if(isset($_GET['cat5'])){
                         <h4 class="modal-title">Passer le devis <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en proforma</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
+                        <form action="<?php echo URLHOST."_pages/_post/devis_to_proforma.php"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Date
                                     <span class="required"> * </span>

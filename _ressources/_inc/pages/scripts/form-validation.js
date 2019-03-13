@@ -921,6 +921,9 @@ var FormValidation = function () {
                 rules: {
                     folder: {
                         required: true
+                    },
+                    date: {
+                        required: true
                     }
                 },
 
@@ -993,7 +996,7 @@ var FormValidation = function () {
             });
 
             //initialize datepicker
-            $('.date-picker').datepicker({
+            $('.date-picker').date({
                 rtl: App.isRTL(),
                 autoclose: true
             });
@@ -1076,7 +1079,7 @@ var FormValidation = function () {
             });
             
             //initialize datepicker
-            $('.date-picker').datepicker({
+            $('.date-picker').date({
                 rtl: App.isRTL(),
                 autoclose: true
             });
