@@ -10,6 +10,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
+$dateToProforma = date('d/m/Y');
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -23,6 +24,7 @@ $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
+
 
 switch($type){
     case "devis":
@@ -137,10 +139,163 @@ $retour = $_GET['soussoussouscat'];
                             ?>
                         </tbody>
                     </table>
+                    <input type="hidden" name="date" id="date" />
                 </form>
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+<div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en proforma</h4>
+            </div>
+            <div class="modal-body form">
+                <form action="<?php echo URLHOST."_pages/_post/to_proforma.php"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Date
+                            <span class="required"> * </span>
+                        </label>
+                        <div class="col-md-8">
+                            <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
+                                <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
+                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
+                    <div class="modal-footer">
+                        <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn green" id="validerProforma" name="validerProforma" value="validerProforma">
+                            <i class="fa fa-check"></i> Valider</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="to_facture" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en facture</h4>
+            </div>
+            <div class="modal-body form">
+                <form action="<?php echo URLHOST."_pages/_post/to_facture.php"; ?>" method="post" id="to_facture" class="form-horizontal form-row-seperated">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Date
+                            <span class="required"> * </span>
+                        </label>
+                        <div class="col-md-8">
+                            <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
+                                <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
+                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
+                    <div class="modal-footer">
+                        <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn green" id="validerFacture" name="validerFacture" value="validerFacture">
+                            <i class="fa fa-check"></i> Valider</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="to_avoir" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en avoir</h4>
+            </div>
+            <div class="modal-body form">
+                <form action="<?php echo URLHOST."_pages/_post/to_avoir.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Date
+                            <span class="required"> * </span>
+                        </label>
+                        <div class="col-md-8">
+                            <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
+                                <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
+                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
+                    <div class="modal-footer">
+                        <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn green" id="validerAvoir" name="validerAvoir" value="validerAvoir">
+                            <i class="fa fa-check"></i> Valider</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="to_devis" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en devis</h4>
+            </div>
+            <div class="modal-body form">
+                <form action="<?php echo URLHOST."_pages/_post/to_devis.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
+                    <div class="form-group">
+                        <label class="control-label col-md-4">Date
+                            <span class="required"> * </span>
+                        </label>
+                        <div class="col-md-8">
+                            <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
+                                <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                <span class="input-group-btn">
+                                    <button class="btn default" type="button">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
+                        </div>
+                    </div>
+                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
+                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
+                    <div class="modal-footer">
+                        <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn green" id="validerDevis" name="validerDevis" value="validerDevis">
+                            <i class="fa fa-check"></i> Valider</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
     </div>
 </div>
 <script language="JavaScript">
