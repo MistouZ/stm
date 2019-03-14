@@ -8,6 +8,14 @@ $contact = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
 $contact = $contactmanager->getById($contactId);
 
+if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
+    $testCat = 'fournisseur';
+    $supplierId = $_GET["soussouscat"];
+}else{
+    $testCat = 'client';
+    $customerId = $_GET["soussouscat"];
+}
+
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -69,14 +77,10 @@ $contact = $contactmanager->getById($contactId);
                         </div>
                         <input type="hidden" id="contactId" name="contactId" value="<?php echo $contactId; ?>">
                         <?php
-                        if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
-                            $testCat = 'fournisseur';
-                            $supplierId = $_GET["soussouscat"];
-                            echo "<input type=\"hidden\" id=\"supplierId\" name=\"supplierId\" value=\".$supplierId.\">";
+                        if($testCat == 'client'){
+                            echo "<input type=\"hidden\" id=\"customerId\" name=\"customerId\" value=\"$customerId\">";
                         }else{
-                            $testCat = 'client';
-                            $customerId = $_GET["soussouscat"];
-                            echo "<input type=\"hidden\" id=\"customerId\" name=\"customerId\" value=\".$customerId.\">";
+                            echo "<input type=\"hidden\" id=\"supplierId\" name=\"supplierId\" value=\"$supplierId\">";
                         }
                         ?>
 
