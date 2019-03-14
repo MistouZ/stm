@@ -123,12 +123,14 @@ $retour = $_GET['soussoussouscat'];
 <script language="JavaScript">
 $('#select-all').click(function(event) {
     alert("coucou !");
-    if($('#select-all').parent('.checked')) {
+    if($(this).parent('.checked')) {
+        alert("checked");
         // Iterate each checkbox
         $(':checkbox').each(function() {
             this.checked = true;                        
         });
     } else {
+        alert("not checked");
         $(':checkbox').each(function() {
             this.checked = false;                       
         });
