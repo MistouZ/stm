@@ -1,5 +1,4 @@
 <?php
-ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
 /**
  * @author Nicolas
  * @copyright 2019
@@ -29,27 +28,27 @@ switch($type){
     case "devis":
         $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
-                        <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
+                        <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
-                        <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
+                        <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                     </div>';
         break;
     case "proforma":
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
         $buttons = '<div id="actions">
-                        <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
+                        <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
-                        <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
+                        <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-invoice"></i> => Devis </a>
                     </div>';
         break;
     case "facture":
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
         $buttons = '<div id="actions">
-                        <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
+                        <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
-                        <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
+                        <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-invoice"></i> => Devis </a>
                     </div>';
         break;
