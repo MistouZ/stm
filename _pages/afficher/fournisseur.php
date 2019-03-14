@@ -193,6 +193,7 @@ echo $supplier->getIdSupplier();
                                 </div>
                             </div>
                             <input type="hidden" id="supplierId" name="supplierId" value="<?php echo $supplierId; ?>">
+                            <input type="hidden" id="categorie" name="categorie" value="<?php echo $_GET['cat']; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
