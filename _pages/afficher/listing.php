@@ -125,8 +125,8 @@ $('#select-all').on("click",function(event) {
     if($(this).parent('.checked')) {
         // Iterate each checkbox
         $('input:checkbox').each(function() {
-            alert(this.val());
-            this.attr('checked','checked');                        
+            alert($(this).val());
+            $(this).attr('checked','checked');                        
         });
     } else {
         alert("not checked");
