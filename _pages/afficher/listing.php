@@ -145,7 +145,7 @@ $retour = $_GET['soussoussouscat'];
 </div>
 <script language="JavaScript">
 $('#select-all').click(function(){
-    $('#select-all').is(":checked"){
+    if($('#select-all').is(":checked")){
         alert("check");
     }else{
         alert("uncheck");
