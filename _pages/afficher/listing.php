@@ -148,14 +148,14 @@ $('#select-all').click(function(){
     if($('#select-all').attr("checked")){
         alert("check");
         $('#select-all').removeAttr('checked');
-        $('.selection input:checkbox').each(function() {
+        $('.selection').each(function() {
             $(this).removeAttr('checked');                   
         });
         $.uniform.update();
     }else{
         alert("uncheck");
         $('#select-all').attr('checked','checked');
-        $('.selection input:checkbox').each(function() {
+        $('.selection').each(function() {
             $(this).attr('checked','checked');                   
         });
         $.uniform.update();
