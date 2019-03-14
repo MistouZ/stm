@@ -235,6 +235,7 @@ class ContactManager
         $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
         $q->execute();
     }
+
     /**
      * Reactivate the contact
      * @param Contact $contact
