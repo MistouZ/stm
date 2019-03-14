@@ -17,7 +17,7 @@ $supplier = $suppliermanager->getByID($supplierId);
 
 //récupération des contacts du client
 $arrayContact = array();
-$contacts = new Contact($arrayContact);
+$contact = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
 $contactmanager = $contactmanager->getListSupplier($supplierId);
 
