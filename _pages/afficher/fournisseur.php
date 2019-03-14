@@ -21,7 +21,7 @@ $contact = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
 $contactmanager = $contactmanager->getListSupplier($supplierId);
 
-
+print_r($contactmanager);
 ?>
 <div class="portlet box grey-cascade">
     <div class="portlet-title">
