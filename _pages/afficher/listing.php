@@ -158,7 +158,7 @@ $('#select-all').click(function(){
         $('.selection').each(function() {
             //$(this).attr('checked','checked').uniform('refresh');
             $(this).prop('checked',true);
-            //$(this).parent('span').addClass('checked');
+            $(this).parent('span').addClass('checked');
             //$.uniform.update(this);                   
         });
     }
