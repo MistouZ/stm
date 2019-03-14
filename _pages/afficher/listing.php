@@ -160,8 +160,9 @@ $('#select-all').on("click",function(event) {
     }
 });
 $('#multiSelection :checkbox').change(function() {
-    // this will contain a reference to the checkbox   
-    if (this.checked) {
+    var nb = $('#multiSelection :checkbox').length;
+      
+    if (nb>0) {
         $("#actions").css("display","");
         $("#actions").css("display","inline"); 
     } else {
