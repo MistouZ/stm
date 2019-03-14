@@ -105,7 +105,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                 <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse_2_2"><i class="fas fa-address-card"></i> Liste des contacts du clients </a>
                             </h4>
                         </div>
-                        <div id="collapse_2_2" class="panel-collapse collapse">
+                        <!--<div id="collapse_2_2" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="actions">
                                     <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
@@ -138,7 +138,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
