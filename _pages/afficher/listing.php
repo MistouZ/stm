@@ -162,7 +162,7 @@ $('#multiSelection :checkbox').change(function() {
     // this will contain a reference to the checkbox   
     if (this.checked) {
         $("#actions").css("display","");
-        $("#actions").css("display","block"); 
+        $("#actions").css("display","inline"); 
     } else {
         $("#actions").css("display","");
         $("#actions").css("display","none");
