@@ -24,6 +24,8 @@ if(isset($_POST['valider'])){
         $phoneNumber = "";
     }
 
+    $contactId = $_POST["contactId"];
+
     $array = array(
         'idContact' => $contactId,
         'name' => $name,
