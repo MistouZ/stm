@@ -146,20 +146,16 @@ $retour = $_GET['soussoussouscat'];
 <script language="JavaScript">
 $('#select-all').click(function(){
     if($('#select-all').attr("checked")){
-        //alert("check");
         $('#select-all').removeAttr('checked');
         $('.selection').each(function() {
             $(this).removeAttr('checked').uniform('refresh');      
         });
         $.uniform.update();
     }else{
-        //alert("uncheck");
         $('#select-all').attr('checked','checked');
         $('.selection').each(function() {
-            //$(this).attr('checked','checked').uniform('refresh');
             $(this).prop('checked',true);
-            $(this).parent('span').addClass('checked');
-            //$.uniform.update(this);                   
+            $(this).parent('span').addClass('checked');               
         });
     }
 });
@@ -167,10 +163,15 @@ $('#select-all').click(function(){
 $('#multiSelection :checkbox').change(function() {
     //$.uniform.update();
     var nb = $('#multiSelection :checkbox:checked').length;
+    var nbTotal = $('#multiSelection :checkbox').length;
     alert(nb);  
     if (nb>0) {
-        $("#actions").css("display","");
-        $("#actions").css("display","inline"); 
+        if(nb==1 && $('#select-all').attr("checked")){
+            $('#select-all').removeAttr('checked');
+        }else{
+            $("#actions").css("display","");
+            $("#actions").css("display","inline");
+        }
     } else {
         $("#actions").css("display","");
         $("#actions").css("display","none");
