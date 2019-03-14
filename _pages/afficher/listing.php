@@ -149,7 +149,6 @@ $('#select-all').click(function(){
         //alert("check");
         $('#select-all').removeAttr('checked');
         $('.selection').each(function() {
-            $(this).uniform();
             $(this).removeAttr('checked').uniform('refresh');      
         });
         $.uniform.update();
@@ -157,9 +156,8 @@ $('#select-all').click(function(){
         //alert("uncheck");
         $('#select-all').attr('checked','checked');
         $('.selection').each(function() {
-            $(this).uniform();
-            $(this).attr('checked','checked').uniform('refresh');
-            
+            //$(this).attr('checked','checked').uniform('refresh');
+            $(this).prop('checked',true);
             //$(this).parent('span').addClass('checked');
             //$.uniform.update(this);                   
         });
