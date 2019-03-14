@@ -146,7 +146,7 @@ $retour = $_GET['soussoussouscat'];
 <script language="JavaScript">
 $('#select-all').click(function(){
     if($('#select-all').attr("checked")){
-        alert("check");
+        //alert("check");
         $('#select-all').removeAttr('checked');
         $('.selection').each(function() {
             $(this).removeAttr('checked');
@@ -154,7 +154,7 @@ $('#select-all').click(function(){
         });
         $.uniform.update();
     }else{
-        alert("uncheck");
+        //alert("uncheck");
         $('#select-all').attr('checked','checked');
         $('.selection').each(function() {
             $(this).attr('checked','checked');
@@ -198,7 +198,8 @@ $('#select-all').click(function(){
 });*/
 
 $('#multiSelection :checkbox').change(function() {
-    var nb = $('#multiSelection :checkbox').length;  
+    var nb = $('#multiSelection :checkbox').length;
+    alert(nb);  
     if (nb>0) {
         $("#actions").css("display","");
         $("#actions").css("display","inline"); 
