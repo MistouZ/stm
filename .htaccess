@@ -11,10 +11,10 @@ RewriteCond %{HTTPS} on
 RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteBase /
 
+RewriteRule ^$ accueil [L,QSA]
+
 RewriteCond %{HTTP_COOKIE} !connected=true
 RewriteRule .* http://%{HTTP_HOST}/index.php?section=connexion [R=301,L]
-
-RewriteRule ^$ accueil [L,QSA]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
