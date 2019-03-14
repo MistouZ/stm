@@ -22,7 +22,6 @@ if(isset($_POST['valider'])){
     }else{
         $phoneNumber = "";
     }
-    $customerId = $_POST["customerId"];
 
     $is_active =1;
 
@@ -33,6 +32,8 @@ if(isset($_POST['valider'])){
         'phoneNumber' => $phoneNumber,
         'isActive' => $is_active
     );
+
+    $customerId = $_POST["customerId"];
     
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);

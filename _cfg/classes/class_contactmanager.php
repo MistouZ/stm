@@ -45,6 +45,7 @@ class ContactManager
                 $q->bindValue(':phoneNumber', $contact->getPhoneNumber(), PDO::PARAM_INT);
                 $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
                 $q->execute();
+
             }
             catch(Exception $e){
                 return null;
@@ -68,18 +69,34 @@ class ContactManager
      */
     public function addToSuppliers(Contact $contact,Suppliers $suppliers)
     {
-        $contact->setName(strtoupper($contact->getName()));
-        $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :first_name, :email_address, :password, :phone_number, :isActive)');
-        $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
-        $q->bindValue(':first_name', $contact->getFirstName(), PDO::PARAM_STR);
-        $q->bindValue(':email_address', $contact->getEmailAddress(), PDO::PARAM_STR);
-        $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR);
-        $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
-        $q->execute();
-        $q2 = $this->_db->prepare('INSERT INTO link_suppliers_contact (suppliers_idsupplier, contact_idcontact) VALUES (:idsupplier, :idcontact)');
-        $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
-        $q2->bindValue(':idcustomer', $suppliers->getIdSupplier(), PDO::PARAM_INT);
-        $q2->execute();
+        if($contact->getIdContact() == NULL)
+        {
+            try
+            {
+                $contact->setName(strtoupper($contact->getName()));
+                $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :first_name, :email_address, :password, :phone_number, :isActive)');
+                $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
+                $q->bindValue(':first_name', $contact->getFirstName(), PDO::PARAM_STR);
+                $q->bindValue(':email_address', $contact->getEmailAddress(), PDO::PARAM_STR);
+                $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR);
+                $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
+                $q->execute();
+            }
+            catch(Exception $e){
+                return null;
+            }
+            $contact = $this->getByName($contact->getName(), $contact->getFirstname());
+        }
+        try
+        {
+            $q2 = $this->_db->prepare('INSERT INTO link_suppliers_contact (suppliers_idsupplier, contact_idcontact) VALUES (:idsupplier, :idcontact)');
+            $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
+            $q2->bindValue(':idcustomer', $suppliers->getIdSupplier(), PDO::PARAM_INT);
+            $q2->execute();
+        }
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
