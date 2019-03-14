@@ -151,14 +151,14 @@ $('#select-all').on("click",function(event) {
         // Iterate each checkbox
         alert("checked");
         $('input:checkbox').each(function() {
-            $(this).attr('checked','checked');
+            //$(this).attr('checked','checked');
             $(this).parent('span').addClass('checked');                         
         });
     } else {
         alert("removed");
         $(this).removeAttr('checked');
         $('input:checkbox').each(function() {
-            $(this).removeAttr('checked');
+            //$(this).removeAttr('checked');
             $(this).parent('span').removeClass('checked');                       
         });
     }
