@@ -9,7 +9,7 @@ $company = new Company($arrayCompanies);
 $companies = new CompaniesManager($bdd);
 $companies = $companies->getList();
 
-//Récupération des données client
+//Récupération des données fournisseur
 $arraySupplier = array();
 $suplier = new Suppliers($arraySupplier);
 $suppliermanager = new SuppliersManager($bdd);
@@ -26,13 +26,13 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
 <div class="portlet box grey-cascade">
     <div class="portlet-title">
         <div class="caption">
-            <i class="fas fa-user-tie"></i>Informations du client <span style="font-style: italic; font-weight: 800;"><?php echo $customer->getName(); ?></span></div>
+            <i class="fas fa-user-tie"></i>Informations du fournisseur <span style="font-style: italic; font-weight: 800;"><?php echo $supplier->getName(); ?></span></div>
         <div class="tools">
             <a href="javascript:;" class="collapse"> </a>
             <a href="javascript:;" class="reload"> </a>
         </div>
         <div class="actions">
-            <a data-toggle="modal" href="#modifier_client" class="btn btn-sm grey-mint">
+            <a data-toggle="modal" href="#modifier_fournisseur" class="btn btn-sm grey-mint">
                 <i class="fas fa-pencil-alt"></i> Modifier le client </a>
         </div>
     </div>
