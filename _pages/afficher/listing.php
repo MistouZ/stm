@@ -148,9 +148,11 @@ $retour = $_GET['soussoussouscat'];
 $('#select-all').click(function(){
     if($(this).is(':checked')){
         $('.selection').attr("checked",true);
+        $.uniform.update();
     }
     else{
         $('.selection').attr("checked",false);
+        $.uniform.update();
     }
 });
 /*$('#select-all').on("click",function(event) {
