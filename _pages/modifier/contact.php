@@ -8,14 +8,13 @@ $contact = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
 $contact = $contactmanager->getById($contactId);
 
-if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
+if($_GET["cat"] == "fournisseur"){
     $testCat = 'fournisseur';
     $supplierId = $_GET["soussouscat"];
 }else{
     $testCat = 'client';
     $customerId = $_GET["soussouscat"];
 }
-echo $_GET["cat"];
 ?>
 <div class="row">
     <div class="col-md-12">
