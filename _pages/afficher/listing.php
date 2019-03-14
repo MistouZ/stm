@@ -158,10 +158,11 @@ $('#select-all').click(function(){
         $('#select-all').attr('checked','checked');
         $('.selection').each(function() {
             $(this).attr('checked','checked');
-            $(this).uniform();
+            
             //$(this).parent('span').addClass('checked');
             //$.uniform.update(this);                   
         });
+        $('.selection').uniform();
         //$.uniform.update();
     }
     /*if($(".checker input:checkbox:checked")){
@@ -180,24 +181,6 @@ $('#select-all').click(function(){
         });
     }*/
 });
-/*$('#select-all').on("click",function(event) {
-    $.uniform.update('#select-all');
-    if($(this).parent('.checked')) {
-        // Iterate each checkbox
-        alert("checked");
-        $('input:checkbox').each(function() {
-            //$(this).attr('checked','checked');
-            $(this).parent('span').addClass('checked');                         
-        });
-    } else {
-        alert("removed");
-        $(this).removeAttr('checked');
-        $('input:checkbox').each(function() {
-            //$(this).removeAttr('checked');
-            $(this).parent('span').removeClass('checked');                       
-        });
-    }
-});*/
 
 $('#multiSelection :checkbox').change(function() {
     //$.uniform.update();
