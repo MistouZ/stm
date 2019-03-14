@@ -96,8 +96,8 @@ class SuppliersManager
 
 
     /**
-     * @param $idcustomer
-     * @return Customers
+     * @param $idsupplier
+     * @return Suppliers
      */
     public function getByID($idsupplier)
     {

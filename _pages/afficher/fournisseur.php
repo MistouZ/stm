@@ -3,8 +3,6 @@
 $supplierId = $_GET['soussouscat'];
 $retour = $_GET['soussoussouscat'];
 
-echo $supplierId;
-
 //récupération de la liste des sociétés
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
@@ -21,7 +19,7 @@ $suplier = $suppliermanager->getByID($supplierId);
 $arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
-$contactmanager = $contactmanager->getListSupplier($supplierId);
+//$contactmanager = $contactmanager->getListSupplier($supplierId);
 
 
 ?>
@@ -35,7 +33,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
         </div>
         <div class="actions">
             <a data-toggle="modal" href="#modifier_fournisseur" class="btn btn-sm grey-mint">
-                <i class="fas fa-pencil-alt"></i> Modifier le client </a>
+                <i class="fas fa-pencil-alt"></i> Modifier le Fournisseur </a>
         </div>
     </div>
     <div class="portlet-body">
@@ -280,7 +278,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                     <div id="company_error"> </div>
                                 </div>
                             </div>
-                            <input type="hidden" id="customerId" name="customerId" value="<?php echo $supplierId; ?>">
+                            <input type="hidden" id="supplierId" name="supplierId" value="<?php echo $supplierId; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
