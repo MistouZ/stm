@@ -7,14 +7,14 @@ Require valid-user
 #Options +FollowSymlinks
 
 RewriteEngine On
-# RewriteCond %{HTTPS} on
-# RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+RewriteCond %{HTTPS} on
+RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteBase /
 
 RewriteRule ^$ accueil [L,QSA]
 
 RewriteCond %{HTTP_COOKIE} !connected=true [NC]
-RewriteRule .* http://%{HTTP_HOST}/index.php?section=connexion [R=401,L]
+RewriteRule .* index.php?section=connexion [R,QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
