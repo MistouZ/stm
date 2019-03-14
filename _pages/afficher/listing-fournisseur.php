@@ -75,8 +75,8 @@ else{
                             ?>
                             <tr>
                                 <td><?php echo $supplier->getName(); ?></td>
-                                <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/client/afficher/'.$supplier->getIdSupplier(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
-                                <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/client/modifier/'.$supplier->getIdSupplier(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                                <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/fournisseur/afficher/'.$supplier->getIdSupplier(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                                <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/fournisseur/modifier/'.$supplier->getIdSupplier(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                 <?php
                                 if($supplier->getIsActive() == 1 && ($credential == "A" || $credential== "C"))
                                 {
