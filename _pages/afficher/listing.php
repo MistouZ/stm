@@ -122,7 +122,7 @@ $retour = $_GET['soussoussouscat'];
                                 }
                             ?>
                             <tr>
-                                <td><input type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
+                                <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
@@ -145,7 +145,15 @@ $retour = $_GET['soussoussouscat'];
     </div>
 </div>
 <script language="JavaScript">
-$('#select-all').on("click",function(event) {
+$('#select-all').click(function(){
+    if($(this).is(':checked')){
+        $('.selection').attr("checked",true);
+    }
+    else{
+        $('.selection').attr("checked",false);
+    }
+});
+/*$('#select-all').on("click",function(event) {
     $.uniform.update('#select-all');
     if($(this).parent('.checked')) {
         // Iterate each checkbox
@@ -162,7 +170,7 @@ $('#select-all').on("click",function(event) {
             $(this).parent('span').removeClass('checked');                       
         });
     }
-});
+});*/
 
 $('#multiSelection :checkbox').change(function() {
     var nb = $('#multiSelection :checkbox').length;
