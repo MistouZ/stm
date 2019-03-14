@@ -15,7 +15,7 @@ $supplier = new Suppliers($arraySupplier);
 $suppliermanager = new SuppliersManager($bdd);
 $supplier = $suppliermanager->getByID($supplierId);
 
-//récupération des contacts du client
+//récupération des contacts du fournisseur
 $arrayContact = array();
 $contact = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
@@ -102,7 +102,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h4 class="panel-title">
-                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse_2_2"><i class="fas fa-address-card"></i> Liste des contacts du clients </a>
+                                <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse_2_2"><i class="fas fa-address-card"></i> Liste des contacts du fournisseur </a>
                             </h4>
                         </div>
                         <div id="collapse_2_2" class="panel-collapse collapse">
@@ -209,7 +209,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Modification du client</h4>
+                        <h4 class="modal-title">Modification du fournisseur</h4>
                     </div>
                     <div class="modal-body form">
                         <form action="<?php echo URLHOST."_pages/_post/modifier_fournisseur.php"; ?>" method="post" id="fournisseur" class="form-horizontal form-row-seperated">
