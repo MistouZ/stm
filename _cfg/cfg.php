@@ -29,4 +29,8 @@ $bdd->connexion();
 date_default_timezone_set('Pacific/Noumea');
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
+if (!isset($_COOKIE['hasVisited']) || $_COOKIE['connected']=="false") {
+    header('Location: '.URLHOST.'connexion');
+}
+
 ?>
