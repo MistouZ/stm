@@ -24,6 +24,8 @@ if(isset($_POST['valider'])){
         $phoneNumber = "";
     }
 
+    $contactId = $_POST["contactId"];
+
     $array = array(
         'idContact' => $contactId,
         'name' => $name,
@@ -36,16 +38,22 @@ if(isset($_POST['valider'])){
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
 
+    print_r($contact);
+
     if(isset($_POST["customerId"]))
     {
         $customerId = $_POST["customerId"];
+        echo "Customer Update".$customerId;
         $contactmanager->update($contact);
+        echo "Contact Updated".$customerId;
         header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/update");
     }
     elseif (isset($_POST["supplierId"]))
     {
         $supplierId = $_POST["supplierId"];
+        echo "Supplier Update".$supplierId;
         $contactmanager->update($contact);
+        echo "Contact Updated".$supplierId;
         header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/udpate");
     }
 }
