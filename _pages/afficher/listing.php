@@ -149,14 +149,16 @@ $('#select-all').click(function(){
         alert("check");
         $('#select-all').removeAttr('checked');
         $('.selection').each(function() {
-            $(this).removeAttr('checked');                   
+            $(this).removeAttr('checked');
+            $.uniform.update();                   
         });
         $.uniform.update();
     }else{
         alert("uncheck");
         $('#select-all').attr('checked','checked');
         $('.selection').each(function() {
-            $(this).attr('checked','checked');                   
+            $(this).attr('checked','checked');
+            $.uniform.update();                   
         });
         $.uniform.update();
     }
