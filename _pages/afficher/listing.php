@@ -152,9 +152,9 @@ $('#select-all').on("click",function(event) {
             $(this).parent('span').addClass('checked');                         
         });
     } else {
-        $(this).attr('checked','');
+        $(this).removeAttr('checked');
         $('input:checkbox').each(function() {
-            $(this).attr('checked','');
+            $(this).removeAttr('checked');
             $(this).parent('span').removeClass('checked');                       
         });
     }
