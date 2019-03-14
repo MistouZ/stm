@@ -229,6 +229,7 @@ class ContactManager
         echo $contact->getIdContact();
         echo $contact->getName();
         echo $contact->getFirstname();
+        echo $contact->getEmailAddress();
         echo $contact->getPhoneNumber();
         echo $contact->getisActive();
 
