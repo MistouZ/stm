@@ -23,7 +23,7 @@ if(isset($_GET["idCustomer"]))
 elseif (isset($_GET["idSupplier"]))
 {
     $supplierId = $_GET["idSupplier"];
-    $contactmanager->deleteToCustomer($contact, $supplierId);
+    $contactmanager->deleteToSupplier($contact, $supplierId);
     header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/supprime");
 }
 
