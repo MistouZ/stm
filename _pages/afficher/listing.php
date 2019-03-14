@@ -150,7 +150,7 @@ $('#select-all').click(function(){
         $('#select-all').prop("checked",false);
         $.uniform.update();
     }else{
-        alert("check");
+        alert("uncheck");
         $('#select-all').prop("checked",true);
         $.uniform.update();
     }
