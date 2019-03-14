@@ -147,11 +147,11 @@ $retour = $_GET['soussoussouscat'];
 $('#select-all').click(function(){
     if($('#select-all').is(":checked")){
         alert("check");
-        $('#select-all').prop("checked",false);
+        $('#select-all').removeAttr('checked');
         $.uniform.update();
     }else{
         alert("uncheck");
-        $('#select-all').prop("checked",true);
+        $('#select-all').attr('checked','checked');
         $.uniform.update();
     }
     /*if($(".checker input:checkbox:checked")){
