@@ -29,10 +29,6 @@ switch($type){
     case "devis":
         $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-edit"></i> Modifier </a>
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
                         <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
@@ -42,8 +38,6 @@ switch($type){
     case "proforma":
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
         $buttons = '<div id="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                         <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
@@ -53,8 +47,6 @@ switch($type){
     case "facture":
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
         $buttons = '<div id="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
                         <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
@@ -64,8 +56,7 @@ switch($type){
     case "avoir":
         $quotations = $quotationmanager->getListAsset($company->getIdcompany());
         $buttons = '<div id="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i> Imprimer </a>
+                        
                     </div>';
         break;
 }
