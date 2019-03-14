@@ -226,6 +226,12 @@ class ContactManager
     public function update(Contact $contact)
     {
         $contact->setName(strtoupper($contact->getName()));
+        echo $contact->getIdContact();
+        echo $contact->getName();
+        echo $contact->getFirstname();
+        echo $contact->getPhoneNumber();
+        echo $contact->getisActive();
+
         $q = $this->_db->prepare('UPDATE contact SET name = :name, firstname = :firstname, emailAddress = :emailAddress, phoneNumber = :phoneNumber, isActive = :isActive  WHERE idContact = :idContact');
         $q->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
         $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
