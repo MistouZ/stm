@@ -212,7 +212,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                         <h4 class="modal-title">Modification du client</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/modifier_fournisseur.php"; ?>" method="post" id="client" class="form-horizontal form-row-seperated">
+                        <form action="<?php echo URLHOST."_pages/_post/modifier_fournisseur.php"; ?>" method="post" id="fournisseur" class="form-horizontal form-row-seperated">
                             <div class="alert alert-danger display-hide">
                                 <button class="close" data-close="alert"></button> Vous devez remplir les champs requis (<span class="required"> * </span>) </div>
                             <div class="alert alert-success display-hide">
