@@ -150,7 +150,7 @@ $('#select-all').click(function(){
         $('#select-all').removeAttr('checked');
         $('.selection').each(function() {
             $(this).removeAttr('checked');
-            $.uniform.update(this);                   
+            //$.uniform.update(this);                   
         });
         //$.uniform.update();
     }else{
@@ -158,7 +158,7 @@ $('#select-all').click(function(){
         $('#select-all').attr('checked','checked');
         $('.selection').each(function() {
             $(this).attr('checked','checked');
-            $.uniform.update(this);                   
+            //$.uniform.update(this);                   
         });
         //$.uniform.update();
     }
