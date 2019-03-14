@@ -22,8 +22,12 @@ if(isset($_POST['valider'])){
     }else{
         $phoneNumber = "";
     }
-    $customerId = $_POST["customerId"];
-
+    if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
+        $customerId = $_POST["supplierId"];
+    }else{
+        $customerId = $_POST["customerId"];
+    }
+    
     $is_active =1;
 
     $array = array(
