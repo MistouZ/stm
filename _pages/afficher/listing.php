@@ -28,15 +28,45 @@ $company = $companymanager->getByNameData($companyNameData);
 switch($type){
     case "devis":
         $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
+        $buttons = '<div id="actions" style="display:none;">
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-edit"></i> Modifier </a>
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-print"></i> Imprimer </a>
+                        <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
+                            <i class="fas fa-file-alt"></i> => Proforma </a>
+                        <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
+                            <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
+                    </div>';
         break;
     case "proforma":
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
+        $buttons = '<div id="actions">
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-print"></i> Imprimer </a>
+                        <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
+                            <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
+                        <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
+                            <i class="fas fa-file-invoice"></i> => Devis </a>
+                    </div>';
         break;
     case "facture":
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
+        $buttons = '<div id="actions">
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-print"></i> Imprimer </a>
+                        <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
+                            <i class="fas fa-file-prescription"></i> => Avoir </a>
+                        <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
+                            <i class="fas fa-file-invoice"></i> => Devis </a>
+                    </div>';
         break;
     case "avoir":
         $quotations = $quotationmanager->getListAsset($company->getIdcompany());
+        $buttons = '<div id="actions">
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-print"></i> Imprimer </a>
+                    </div>';
         break;
 }
 
@@ -63,58 +93,60 @@ $retour = $_GET['soussoussouscat'];
                 </div>
             </div>
             <div class="portlet-body">
-                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
-                    <thead>
-                        <tr>
-                            <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" /></th>
-                            <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro de devis</th>
-                            <th class="min-tablet">Client</th>
-                            <th class="desktop">Dossier</th>
-                            <th class="desktop">Libellé</th>
-                            <th class="none">Montant total</th>
-                            <th class="desktop">Détail</th>
-                            <th class="desktop">Modifier</th>
-                            <th class="desktop">Supprimer</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach($quotations as $quotation){
-                            //initialisation au format date pour organiser le tableau
-                            $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
-                            $customer = $customermanager->getById($quotation->getCustomerId());
-                            $folder = $foldermanager->get($quotation->getFolderId());
-                            $descriptions = new Description($array);
-                            $descriptionmanager = new DescriptionManager($bdd);
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-                            $montant = 0;
-                            foreach($descriptions as $description){
-                                $montantLigne = $description->getQuantity()*$description->getPrice();
-                                $remise = $montantLigne*($description->getDiscount()/100);
-                                $taxe = $montantLigne*$description->getTax();
-                                $montantLigne = $montantLigne-$remise;
-                                $montantLigne = $montantLigne+$taxe;
-                                $montant = $montant+$montantLigne;
+                <form id="multiSelection">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" /></th>
+                                <th class="all">Date</th>
+                                <th class="min-phone-l">Numéro de devis</th>
+                                <th class="min-tablet">Client</th>
+                                <th class="desktop">Dossier</th>
+                                <th class="desktop">Libellé</th>
+                                <th class="none">Montant total</th>
+                                <th class="desktop">Détail</th>
+                                <th class="desktop">Modifier</th>
+                                <th class="desktop">Supprimer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            foreach($quotations as $quotation){
+                                //initialisation au format date pour organiser le tableau
+                                $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                                $customer = $customermanager->getById($quotation->getCustomerId());
+                                $folder = $foldermanager->get($quotation->getFolderId());
+                                $descriptions = new Description($array);
+                                $descriptionmanager = new DescriptionManager($bdd);
+                                $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                                $montant = 0;
+                                foreach($descriptions as $description){
+                                    $montantLigne = $description->getQuantity()*$description->getPrice();
+                                    $remise = $montantLigne*($description->getDiscount()/100);
+                                    $taxe = $montantLigne*$description->getTax();
+                                    $montantLigne = $montantLigne-$remise;
+                                    $montantLigne = $montantLigne+$taxe;
+                                    $montant = $montant+$montantLigne;
+                                }
+                            ?>
+                            <tr>
+                                <td><input type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
+                                <td><?php echo $date; ?></td>
+                                <td><?php echo $quotation->getQuotationNumber(); ?></td>
+                                <td><?php echo $customer->getName(); ?></td>
+                                <td><?php echo $folder->getFolderNumber(); ?></td>
+                                <td><?php echo $folder->getLabel(); ?></td>
+                                <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
+                                <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                                <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                                <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                            </tr>
+                            <?php
                             }
-                        ?>
-                        <tr>
-                            <td><input type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
-                            <td><?php echo $date; ?></td>
-                            <td><?php echo $quotation->getQuotationNumber(); ?></td>
-                            <td><?php echo $customer->getName(); ?></td>
-                            <td><?php echo $folder->getFolderNumber(); ?></td>
-                            <td><?php echo $folder->getLabel(); ?></td>
-                            <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
-                            <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
-                            <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
-                        </tr>
-                        <?php
-                        }
-                        ?>
-                    </tbody>
-                </table>
+                            ?>
+                        </tbody>
+                    </table>
+                </form>
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
@@ -125,15 +157,25 @@ $('#select-all').on("click",function(event) {
     if($(this).parent('.checked')) {
         // Iterate each checkbox
         $('input:checkbox').each(function() {
-            alert($(this).val());
             $(this).parent('span').attr('checked','checked');
             $(this).parent('span').addClass('checked');                         
         });
     } else {
-        alert("not checked");
         $('input:checkbox').each(function() {
-            this.checked = false;                       
+            $(this).parent('span').attr('checked','');
+            $(this).parent('span').removeClass('checked');                       
         });
     }
 });
+$('#multiSelection :checkbox').change(function() {
+    // this will contain a reference to the checkbox   
+    if (this.checked) {
+        $("#actions").css("display","");
+        $("#actions").css("display","block"); 
+    } else {
+        $("#actions").css("display","");
+        $("#actions").css("display","none");
+    }
+});
+
 </script>
