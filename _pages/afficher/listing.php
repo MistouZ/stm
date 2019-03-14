@@ -168,7 +168,7 @@ $('#select-all').on("click",function(event) {
         });
     }
 });
-$('#multiSelection :checkbox').change(function() {
+/*$('#multiSelection :checkbox').change(function() {
     // this will contain a reference to the checkbox   
     if (this.checked) {
         $("#actions").css("display","");
@@ -177,6 +177,6 @@ $('#multiSelection :checkbox').change(function() {
         $("#actions").css("display","");
         $("#actions").css("display","none");
     }
-});
+});*/
 
 </script>
