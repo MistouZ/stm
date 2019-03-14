@@ -14,7 +14,7 @@ RewriteBase /
 RewriteRule ^$ accueil [L,QSA]
 
 RewriteCond %{HTTP_COOKIE} !connected=true [NC]
-RewriteRule .* index.php?section=connexion [R,QSA,L]
+RewriteRule .* index.php/connexion [R,QSA,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
