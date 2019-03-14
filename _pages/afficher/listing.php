@@ -150,7 +150,7 @@ $('#select-all').click(function(){
         $('#select-all').removeAttr('checked');
         $('.selection').each(function() {
             $(this).removeAttr('checked');
-            //$.uniform.update(this);                   
+            $.uniform.update(this);                   
         });
         //$.uniform.update();
     }else{
@@ -159,7 +159,7 @@ $('#select-all').click(function(){
         $('.selection').each(function() {
             $(this).attr('checked','checked');
             $(this).parent('span').addClass('checked');
-            //$.uniform.update(this);                   
+            $.uniform.update(this);                   
         });
         //$.uniform.update();
     }
@@ -199,6 +199,7 @@ $('#select-all').click(function(){
 });*/
 
 $('#multiSelection :checkbox').change(function() {
+    $.uniform.update();
     var nb = $('#multiSelection :checkbox:checked').length;
     alert(nb);  
     if (nb>0) {
