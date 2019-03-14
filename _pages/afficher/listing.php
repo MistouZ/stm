@@ -167,7 +167,7 @@ $('#multiSelection :checkbox').change(function() {
     alert(nb);  
     if (nb>=1) {
         if($('#select-all').attr("checked")){
-            $('#select-all').removeAttr('checked');
+            $('#select-all').removeAttr('checked').uniform('refresh');
         }else{
             $("#actions").css("display","");
             $("#actions").css("display","inline");
