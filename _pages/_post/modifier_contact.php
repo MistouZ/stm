@@ -40,13 +40,13 @@ if(isset($_POST['valider'])){
     {
         $customerId = $_POST["customerId"];
         $contactmanager->update($contact);
-        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/supprime");
+        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/update");
     }
     elseif (isset($_POST["supplierId"]))
     {
         $supplierId = $_POST["supplierId"];
         $contactmanager->update($contact);
-        header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/supprime");
+        header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/udpate");
     }
 }
 
