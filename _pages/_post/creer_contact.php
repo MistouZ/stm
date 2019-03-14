@@ -33,9 +33,6 @@ if(isset($_POST['valider'])){
 
     $is_active =1;
 
-    echo $testCat;
-    echo $customerId;
-
     $array = array(
         'name' => $name,
         'firstname' => $firstname,
@@ -45,9 +42,10 @@ if(isset($_POST['valider'])){
     );
 
     $contact = new Contact($array);
-    print_r($contact);
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
+
+    print_r($contact2);
 
     if($contact2->getIdContact()== 0)
     {
