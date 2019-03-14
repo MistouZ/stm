@@ -51,7 +51,7 @@ if(isset($_POST['valider'])){
     elseif (isset($_POST["supplierId"]))
     {
         $supplierId = $_POST["supplierId"];
-        echo "Supplier Update".$supplierId;
+        //echo "Supplier Update".$supplierId;
         $contactmanager->update($contact);
         echo "Contact Updated".$supplierId;
         header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/udpate");
