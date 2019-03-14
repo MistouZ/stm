@@ -198,7 +198,7 @@ $('#select-all').click(function(){
 });*/
 
 $('#multiSelection :checkbox').change(function() {
-    var nb = $('#multiSelection :checkbox').length;
+    var nb = $('#multiSelection :checkbox:checked').length;
     alert(nb);  
     if (nb>0) {
         $("#actions").css("display","");
