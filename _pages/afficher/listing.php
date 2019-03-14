@@ -152,6 +152,7 @@ $('#select-all').on("click",function(event) {
             $(this).parent('span').addClass('checked');                         
         });
     } else {
+        alert("removed");
         $(this).removeAttr('checked');
         $('input:checkbox').each(function() {
             $(this).removeAttr('checked');
