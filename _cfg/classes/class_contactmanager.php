@@ -164,7 +164,7 @@ class ContactManager
     public function getListSupplier($supplierId)
     {
         $contact = [];
-        $q=$this->_db->query("SELECT cont.* FROM contact cont INNER JOIN  link_suppliers_contact lk ON cont.idContact =  lk.contact_idContact INNER JOIN suppliers s ON lk.suppliers_idsupplier = s.idsupplier WHERE cont.isActive='1' and s.isActive='1' and s.idsupplier =".$supplierId);
+        $q=$this->_db->query("SELECT cont.* FROM contact cont INNER JOIN  link_suppliers_contact lk ON cont.idContact =  lk.contact_idcontact INNER JOIN suppliers s ON lk.suppliers_idsupplier = s.idsupplier WHERE cont.isActive='1' and s.isActive='1' and s.idsupplier =".$supplierId);
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $contact[] = new Contact($donnees);
