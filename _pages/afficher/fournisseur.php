@@ -19,7 +19,7 @@ $suplier = $suppliermanager->getByID($supplierId);
 $arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
-//$contactmanager = $contactmanager->getListSupplier($supplierId);
+$contactmanager = $contactmanager->getListSupplier($supplierId);
 
 
 ?>
