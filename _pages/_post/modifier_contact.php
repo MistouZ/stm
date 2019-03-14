@@ -39,6 +39,7 @@ if(isset($_POST['valider'])){
     $contactmanager = new ContactManager($bdd);
 
     print_r($contact);
+    print_r($contactmanager);
 
     if(isset($_POST["customerId"]))
     {
