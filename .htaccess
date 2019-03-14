@@ -13,8 +13,8 @@ RewriteBase /
 
 RewriteRule ^$ accueil [L,QSA]
 
-RewriteCond %{HTTP_COOKIE} !connected=true
-RewriteRule .* http://%{HTTP_HOST}/index.php?section=connexion [R=301,L]
+RewriteCond %{HTTP_COOKIE} !connected=true [NC]
+RewriteRule .* http://%{HTTP_HOST}/index.php?section=connexion [R=401,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
