@@ -42,16 +42,16 @@ if(isset($_POST['valider'])){
 
     if(isset($_POST["customerId"]))
     {
+        echo "Customer Update";
         $customerId = $_POST["customerId"];
         $contactmanager->update($contact);
-        echo "Customer Update";
         header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/update");
     }
     elseif (isset($_POST["supplierId"]))
     {
+        echo "Supplier Update";
         $supplierId = $_POST["supplierId"];
         $contactmanager->update($contact);
-        echo "Supplier Update";
         header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/udpate");
     }
 }
