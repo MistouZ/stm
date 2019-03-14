@@ -152,7 +152,7 @@ $('#select-all').click(function(){
             $(this).removeAttr('checked');
             //$.uniform.update(this);                   
         });
-        //$.uniform.update();
+        $.uniform.update();
     }else{
         //alert("uncheck");
         $('#select-all').attr('checked','checked');
