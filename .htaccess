@@ -13,11 +13,11 @@ RewriteBase /
 
 RewriteRule ^$ accueil [L,QSA]
 
-RewriteCond %{HTTP_COOKIE} !connected=true [NC]
-RewriteRule .* index.php/connexion [R,QSA,L]
-
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{HTTP_COOKIE} !connected=true [NC]
+RewriteRule ^([a-zA-Z0-9\-]+)$ index.php?section=connexion [R,QSA,L]
 
 RewriteRule ^([a-zA-Z0-9\-]+)$ index.php?section=$1 [L,QSA]
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2 [L,QSA]
