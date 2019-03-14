@@ -147,7 +147,10 @@ $retour = $_GET['soussoussouscat'];
 $('#select-all').click(function(){
     if($(this).is(':checked')){
         $('.selection').attr("checked",true);
-        $.uniform.update('.selection');
+        $('input:checkbox').each(function() {
+           $.uniform.update(this);                         
+        });
+        //$.uniform.update('.selection');
     }
     else{
         $('.selection').attr("checked",false);
