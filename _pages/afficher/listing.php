@@ -147,8 +147,12 @@ $retour = $_GET['soussoussouscat'];
 $('#select-all').click(function(){
     if($('#select-all').is(":checked")){
         alert("check");
+        $('#select-all').prop("checked",false);
+        $.uniform.update();
     }else{
-        alert("uncheck");
+        alert("check");
+        $('#select-all').prop("checked",true);
+        $.uniform.update();
     }
     /*if($(".checker input:checkbox:checked")){
          alert("checked");
@@ -164,8 +168,8 @@ $('#select-all').click(function(){
             var check = $(this).parent('span').removeClass('checked');
             $.uniform.update(check);                      
         });
-    }
-});*/
+    }*/
+});
 /*$('#select-all').on("click",function(event) {
     $.uniform.update('#select-all');
     if($(this).parent('.checked')) {
