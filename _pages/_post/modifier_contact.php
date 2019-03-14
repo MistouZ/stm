@@ -6,7 +6,6 @@ include("../../_cfg/cfg.php");
 if(isset($_POST['valider'])){
     $name=$_POST['name'];
     $firstname=$_POST['firstname'];
-    $customerId = $_POST["customerId"];
 
     if(!empty($_POST['emailAddress']))
     {
@@ -25,7 +24,6 @@ if(isset($_POST['valider'])){
         $phoneNumber = "";
     }
 
-    $contactId = $_POST["contactId"];
     $array = array(
         'idContact' => $contactId,
         'name' => $name,
@@ -37,9 +35,20 @@ if(isset($_POST['valider'])){
 
     $contact = new Contact($array);
     $contactmanager = new ContactManager($bdd);
-    $contactmanager->update($contact);
+
+    if(isset($_POST["customerId"]))
+    {
+        $customerId = $_POST["customerId"];
+        $contactmanager->update($contact);
+        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/update");
+    }
+    elseif (isset($_POST["supplierId"]))
+    {
+        $supplierId = $_POST["supplierId"];
+        $contactmanager->update($contact);
+        header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/udpate");
+    }
 }
 
-header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/update");
 
 ?>
