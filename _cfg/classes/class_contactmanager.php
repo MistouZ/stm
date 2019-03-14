@@ -249,7 +249,7 @@ class ContactManager
     {
         $supplier = (integer) $supplier;
 
-        $delete=$this->_db->prepare('DELETE FROM `link_suppliers_contact` WHERE contact_idcontact = :idContact AND suppliers_idsupplier = :idsupplier');
+        $delete=$this->_db->prepare('DELETE FROM `link_suppliers_contact` WHERE suppliers_idsupplier = :idsupplier AND contact_idcontact = :idContact');
         $delete->bindValue(':idsupplier', $supplier, PDO::PARAM_INT);
         $delete->bindValue(':idContact', $contact->getIdContact(), PDO::PARAM_INT);
         $delete->execute();
