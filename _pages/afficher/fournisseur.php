@@ -145,11 +145,11 @@ else{
 
 
                                             <?php
-                                            if($customer->getIsActive() == 1 && ($credential == "A" || $credential== "C"))
+                                            if($supplier->getIsActive() == 1 && ($credential == "A" || $credential== "C"))
                                             {
                                                 echo '<td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le contact '.$contact->getName().' '.$contact->getFirstName().' ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST."_pages/_post/supprimer_contact.php?idContact=".$contact->getIdContact()."&idSupplier=".$supplier->getIdSupplier().'"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td></td>';
                                             }
-                                            elseif($customer->getIsActive() == 0 && $credential == 'A')
+                                            elseif($supplier->getIsActive() == 0 && $credential == 'A')
                                             {
                                                 echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Réactiver le contact '.$contact->getName().' '.$contact->getFirstName().' ?" data-btn-ok-label="Réactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_contact.php?idContact='.$contact->getIdContact().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
                                             }
