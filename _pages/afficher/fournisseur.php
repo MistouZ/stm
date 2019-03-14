@@ -33,7 +33,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
         </div>
         <div class="actions">
             <a data-toggle="modal" href="#modifier_fournisseur" class="btn btn-sm grey-mint">
-                <i class="fas fa-pencil-alt"></i> Modifier le client </a>
+                <i class="fas fa-pencil-alt"></i> Modifier le Fournisseur </a>
         </div>
     </div>
     <div class="portlet-body">
