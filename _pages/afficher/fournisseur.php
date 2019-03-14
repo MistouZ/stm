@@ -278,7 +278,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                     <div id="company_error"> </div>
                                 </div>
                             </div>
-                            <input type="hidden" id="customerId" name="customerId" value="<?php echo $supplierId; ?>">
+                            <input type="hidden" id="supplierId" name="supplierId" value="<?php echo $supplierId; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
