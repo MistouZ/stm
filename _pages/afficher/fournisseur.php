@@ -2,6 +2,7 @@
 //ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
 $supplierId = $_GET['soussouscat'];
 $retour = $_GET['soussoussouscat'];
+$credential = $userlogged->getCredential();
 
 //récupération de la liste des sociétés
 $arrayCompanies = array();
@@ -19,7 +20,14 @@ $supplier = $suppliermanager->getByID($supplierId);
 $arrayContact = array();
 $contact = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
-$contactmanager = $contactmanager->getListSupplier($supplierId);
+
+
+if($credential == "A"){
+    $contactmanager = $contactmanager->getListAllToSupplier($supplierId);
+}
+else{
+    $contactmanager = $contactmanager->getListSupplier($supplierId);
+}
 
 ?>
 <div class="portlet box grey-cascade">
@@ -117,7 +125,12 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                         <th class="none">Mail</th>
                                         <th class="none">Téléphone</th>
                                         <th class="min-phone-l">Modifier</th>
-                                        <th class="min-tablet">Suprimer</th>
+                                        <?php if($credential == "A"){
+                                            echo "<th class=\"min-phone-l\">Supprimer / Réactiver</th>";
+                                        }
+                                        elseif($credential == "C"){
+                                            echo "<th class=\"min-phone-l\">Supprimer</th>";
+                                        }?>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -129,7 +142,18 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                             <td><?php echo $contact->getEmailAddress(); ?></td>
                                             <td><?php echo $contact->getPhoneNumber(); ?></td>
                                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/fournisseur/afficher/'.$supplierId.'/contact/modifier/'.$contact->getIdContact(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le contact <?php echo $contact->getName().' '.$contact->getFirstName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_contact.php?idContact=".$contact->getIdContact()."&idSupplier=".$supplier->getIdSupplier(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td></td>
+
+
+                                            <?php
+                                            if($customer->getIsActive() == 1 && ($credential == "A" || $credential== "C"))
+                                            {
+                                                echo '<td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le contact '.$contact->getName().' '.$contact->getFirstName().' ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST."_pages/_post/supprimer_contact.php?idContact=".$contact->getIdContact()."&idSupplier=".$supplier->getIdSupplier().'"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td></td>';
+                                            }
+                                            elseif($customer->getIsActive() == 0 && $credential == 'A')
+                                            {
+                                                echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Réactiver le contact '.$contact->getName().' '.$contact->getFirstName().' ?" data-btn-ok-label="Réactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_contact.php?idContact='.$contact->getIdContact().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
+                                            }
+                                            ?>
                                         </tr>
                                         <?php
                                     }
