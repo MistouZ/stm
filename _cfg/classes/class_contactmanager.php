@@ -67,7 +67,7 @@ class ContactManager
      * @param Contact $contact
      * Insertion contact in the DB
      */
-    public function addToSuppliers(Contact $contact,Suppliers $suppliers)
+    public function addToSuppliers(Contact $contact,$suppliers)
     {
         if($contact->getIdContact() == NULL)
         {
@@ -89,9 +89,9 @@ class ContactManager
         }
         try
         {
-            $q2 = $this->_db->prepare('INSERT INTO link_suppliers_contact (suppliers_idsupplier, contact_idcontact) VALUES (:idsupplier, :idcontact)');
+            $q2 = $this->_db->prepare('INSERT INTO link_suppliers_contact (contact_idcontact, suppliers_idsupplier) VALUES (:idcontact, :idsupplier)');
             $q2->bindValue(':idcontact', $contact->getIdContact(), PDO::PARAM_INT);
-            $q2->bindValue(':idcustomer', $suppliers->getIdSupplier(), PDO::PARAM_INT);
+            $q2->bindValue(':idcustomer', $suppliers, PDO::PARAM_INT);
             $q2->execute();
         }
         catch(Exception $e){
