@@ -3,6 +3,8 @@
 $supplierId = $_GET['soussouscat'];
 $retour = $_GET['soussoussouscat'];
 
+echo $supplierId;
+
 //récupération de la liste des sociétés
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
