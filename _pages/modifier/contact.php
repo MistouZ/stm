@@ -34,7 +34,7 @@ if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Le dossier a bien été créé </div>
+                            <button class="close" data-close="alert"></button> Le contact a bien été créé </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Nom
                                 <span class="required"> * </span>
