@@ -15,7 +15,7 @@ if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
     $testCat = 'client';
     $customerId = $_GET["soussouscat"];
 }
-echo $_POST['souscat'];
+echo $_POST['cat'];
 
 ?>
 <div class="row">
