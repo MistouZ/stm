@@ -17,7 +17,7 @@ $supplier = $suppliermanager->getByID($supplierId);
 
 //récupération des contacts du client
 $arrayContact = array();
-$contacts = new Contact($arrayContact);
+$contact = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
 $contactmanager = $contactmanager->getListSupplier($supplierId);
 
@@ -123,7 +123,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                     </thead>
                                     <tbody>
                                     <?php
-                                    /*foreach($contactmanager as $contact) {
+                                    foreach($contactmanager as $contact) {
                                         ?>
                                         <tr>
                                             <td><?php echo $contact->getFirstname()." ".$contact->getName(); ?></td>
@@ -133,7 +133,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                             <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le contact <?php echo $contact->getName().' '.$contact->getFirstName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_contact.php?idContact=".$contact->getIdContact()."&idSupplier=".$supplier->getIdSupplier(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td></td>
                                         </tr>
                                         <?php
-                                    }*/
+                                    }
                                     ?>
                                     </tbody>
                                 </table>
