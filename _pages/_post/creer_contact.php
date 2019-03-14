@@ -24,6 +24,7 @@ if(isset($_POST['valider'])){
     }
     if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
         $testCat = 'fournisseur';
+        echo $testCat;
         $customerId = $_POST["supplierId"];
     }else{
         $testCat = 'client';
