@@ -145,8 +145,12 @@ $retour = $_GET['soussoussouscat'];
 </div>
 <script language="JavaScript">
 $('#select-all').click(function(){
-    $.uniform.update("#select-all");
-    if($(".checker input:checkbox:checked")){
+    $('#select-all').is(":checked"){
+        alert("check");
+    }else{
+        alert("uncheck");
+    }
+    /*if($(".checker input:checkbox:checked")){
          alert("checked");
          $('.selection').each(function() {
             //$(this).attr('checked','checked');
@@ -161,7 +165,7 @@ $('#select-all').click(function(){
             $.uniform.update(check);                      
         });
     }
-});
+});*/
 /*$('#select-all').on("click",function(event) {
     $.uniform.update('#select-all');
     if($(this).parent('.checked')) {
