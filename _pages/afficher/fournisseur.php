@@ -105,7 +105,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                 <a class="accordion-toggle accordion-toggle-styled collapsed" data-toggle="collapse" data-parent="#accordion2" href="#collapse_2_2"><i class="fas fa-address-card"></i> Liste des contacts du clients </a>
                             </h4>
                         </div>
-                        <!--<div id="collapse_2_2" class="panel-collapse collapse">
+                        <div id="collapse_2_2" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <div class="actions">
                                     <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
@@ -123,7 +123,7 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                     </thead>
                                     <tbody>
                                     <?php
-                                    foreach($contactmanager as $contact) {
+                                    /*foreach($contactmanager as $contact) {
                                         ?>
                                         <tr>
                                             <td><?php echo $contact->getFirstname()." ".$contact->getName(); ?></td>
@@ -133,12 +133,12 @@ $contactmanager = $contactmanager->getListSupplier($supplierId);
                                             <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le contact <?php echo $contact->getName().' '.$contact->getFirstName(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo  URLHOST."_pages/_post/supprimer_contact.php?idContact=".$contact->getIdContact()."&idSupplier=".$supplier->getIdSupplier(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td></td>
                                         </tr>
                                         <?php
-                                    }
+                                    }*/
                                     ?>
                                     </tbody>
                                 </table>
                             </div>
-                        </div>-->
+                        </div>
                     </div>
                 </div>
             </div>
