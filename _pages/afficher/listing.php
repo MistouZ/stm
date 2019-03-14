@@ -78,7 +78,6 @@ $retour = $_GET['soussoussouscat'];
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
                 <div class="actions">
-                    <input id="" type="checkbox" />
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer un devis</a>
                     <?php echo $buttons; ?>
@@ -122,7 +121,7 @@ $retour = $_GET['soussoussouscat'];
                                 }
                             ?>
                             <tr>
-                                <td><input type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
+                                <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
@@ -145,27 +144,38 @@ $retour = $_GET['soussoussouscat'];
     </div>
 </div>
 <script language="JavaScript">
-$('#select-all').on("click",function(event) {
+$('#select-all').click(function(){
+    if($(this).is(':checked')){
+        $('.selection').attr("checked",true);
+        $.uniform.update();
+    }
+    else{
+        $('.selection').attr("checked",false);
+        $.uniform.update();
+    }
+});
+/*$('#select-all').on("click",function(event) {
+    $.uniform.update('#select-all');
     if($(this).parent('.checked')) {
         // Iterate each checkbox
         alert("checked");
         $('input:checkbox').each(function() {
-            $(this).attr('checked','checked');
+            //$(this).attr('checked','checked');
             $(this).parent('span').addClass('checked');                         
         });
     } else {
         alert("removed");
         $(this).removeAttr('checked');
         $('input:checkbox').each(function() {
-            $(this).removeAttr('checked');
+            //$(this).removeAttr('checked');
             $(this).parent('span').removeClass('checked');                       
         });
     }
-});
+});*/
 
 $('#multiSelection :checkbox').change(function() {
     var nb = $('#multiSelection :checkbox').length;
-      
+    alert(nb);  
     if (nb>0) {
         $("#actions").css("display","");
         $("#actions").css("display","inline"); 
