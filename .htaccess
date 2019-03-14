@@ -7,26 +7,22 @@ Require valid-user
 #Options +FollowSymlinks
 
 RewriteEngine On
-RewriteCond %{HTTPS} on
-RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+# RewriteCond %{HTTPS} on
+# RewriteRule (.*) http://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteBase /
 
 RewriteRule ^$ accueil [L,QSA]
 
-RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{HTTP_COOKIE} !connected=true
+RewriteRule .* http://%{HTTP_HOST}/index.php?section=connexion [R=301,L]
 
+RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule ^([a-zA-Z0-9\-]+)$ index.php?section=$1 [L,QSA]
-
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2 [L,QSA]
-
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3 [L,QSA]
-
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3&soussouscat=$4 [L,QSA]
-
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3&soussouscat=$4&soussoussouscat=$5 [L,QSA]
-
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3&soussouscat=$4&soussoussouscat=$5&cat5=$6 [L,QSA]
-
 RewriteRule ^([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)/([a-zA-Z0-9\-]+)$ index.php?section=$1&cat=$2&souscat=$3&soussouscat=$4&soussoussouscat=$5&cat5=$6&cat6=$7 [L,QSA]
