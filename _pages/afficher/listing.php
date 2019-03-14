@@ -199,7 +199,7 @@ $('#select-all').click(function(){
 });*/
 
 $('#multiSelection :checkbox').change(function() {
-    $.uniform.update();
+    //$.uniform.update();
     var nb = $('#multiSelection :checkbox:checked').length;
     alert(nb);  
     if (nb>0) {
