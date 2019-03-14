@@ -204,7 +204,7 @@ echo $supplier->getIdSupplier();
                 </div>
             </div>
         </div>
-        <div id="modifier_client" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+        <div id="modifier_fournisseur" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
