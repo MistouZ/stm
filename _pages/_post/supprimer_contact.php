@@ -27,8 +27,4 @@ elseif (isset($_GET["idSupplier"]))
     header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/supprime");
 }
 
-
-
-
-
 ?>
