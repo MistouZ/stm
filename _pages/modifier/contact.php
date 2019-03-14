@@ -68,7 +68,19 @@ $contact = $contactmanager->getById($contactId);
                             </div>
                         </div>
                         <input type="hidden" id="contactId" name="contactId" value="<?php echo $contactId; ?>">
-                        <input type="hidden" id="customerId" name="customerId" value="<?php echo $_GET['soussouscat'];?>">
+                        <?php
+                        if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
+                            $testCat = 'fournisseur';
+                            $supplierId = $_GET["soussouscat"];
+                            echo "<input type=\"hidden\" id=\"supplierId\" name=\"supplierId\" value=\".$supplierId.\">";
+                        }else{
+                            $testCat = 'client';
+                            $customerId = $_GET["soussouscat"];
+                            echo "<input type=\"hidden\" id=\"customerId\" name=\"customerId\" value=\".$customerId.\">";
+                        }
+                        ?>
+
+
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
