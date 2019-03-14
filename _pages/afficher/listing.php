@@ -174,6 +174,7 @@ $('#multiSelection :checkbox').change(function() {
     } else {
         $("#actions").css("display","");
         $("#actions").css("display","none");
+        $('#select-all').removeAttr('checked');
     }
 });
 
