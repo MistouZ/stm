@@ -11,15 +11,15 @@ $companies = $companies->getList();
 
 //Récupération des données fournisseur
 $arraySupplier = array();
-$suplier = new Suppliers($arraySupplier);
+$supplier = new Suppliers($arraySupplier);
 $suppliermanager = new SuppliersManager($bdd);
-$suplier = $suppliermanager->getByID($supplierId);
+$supplier = $suppliermanager->getByID($supplierId);
 
 //récupération des contacts du client
 $arrayContact = array();
 $contacts = new Contact($arrayContact);
 $contactmanager = new ContactManager($bdd);
-//$contactmanager = $contactmanager->getListSupplier($supplierId);
+$contactmanager = $contactmanager->getListSupplier($supplierId);
 
 
 ?>
