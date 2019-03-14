@@ -160,7 +160,7 @@ class ContactManager
         }
     }
     /**
-     * Get all the contact in the BDD
+     * Get all the active contact in the BDD
      * @return array
      */
     public function getList($customerId)
@@ -178,6 +178,21 @@ class ContactManager
      * Get all the contact in the BDD
      * @return array
      */
+    public function getListAllToCustomer($customerId)
+    {
+        $contact = [];
+        $q=$this->_db->query("SELECT cont.* FROM contact cont INNER JOIN  link_customers_contact lk ON cont.idContact =  lk.contact_idContact INNER JOIN customers c ON lk.customers_idcustomers = c.idcustomer WHERE c.isActive='1' and c.idcustomer =".$customerId);
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $contact[] = new Contact($donnees);
+        }
+        return $contact;
+    }
+
+    /**
+     * Get all the active contact in the BDD
+     * @return array
+     */
     public function getListSupplier($supplierId)
     {
         $contact = [];
@@ -188,6 +203,22 @@ class ContactManager
         }
         return $contact;
     }
+
+    /**
+     * Get all the contact in the BDD
+     * @return array
+     */
+    public function getListAllToSupplier($supplierId)
+    {
+        $contact = [];
+        $q=$this->_db->query("SELECT cont.* FROM contact cont INNER JOIN  link_suppliers_contact lk ON cont.idContact =  lk.contact_idcontact INNER JOIN suppliers s ON lk.suppliers_idsupplier = s.idsupplier WHERE s.isActive='1' and s.idsupplier =".$supplierId);
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $contact[] = new Contact($donnees);
+        }
+        return $contact;
+    }
+
     /**
      * Update contact information
      * @param Contact $contact
