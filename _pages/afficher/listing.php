@@ -148,12 +148,12 @@ $('#select-all').on("click",function(event) {
     if($(this).parent('.checked')) {
         // Iterate each checkbox
         $('input:checkbox').each(function() {
-            $(this).parent('span').attr('checked','checked');
+            $(this).attr('checked','checked');
             $(this).parent('span').addClass('checked');                         
         });
     } else {
         $('input:checkbox').each(function() {
-            $(this).parent('span').attr('checked','');
+            $(this).attr('checked','');
             $(this).parent('span').removeClass('checked');                       
         });
     }
