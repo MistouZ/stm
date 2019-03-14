@@ -74,11 +74,11 @@ class ContactManager
             try
             {
                 $contact->setName(strtoupper($contact->getName()));
-                $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :first_name, :email_address, :password, :phone_number, :isActive)');
+                $q = $this->_db->prepare('INSERT INTO contact (name, firstname,emailAddress,phoneNumber,isActive) VALUES (:name, :firstname, :emailAddress, :phoneNumber,:isActive)');
                 $q->bindValue(':name', $contact->getName(), PDO::PARAM_STR);
-                $q->bindValue(':first_name', $contact->getFirstName(), PDO::PARAM_STR);
-                $q->bindValue(':email_address', $contact->getEmailAddress(), PDO::PARAM_STR);
-                $q->bindValue(':phone_number', $contact->getPhoneNumber(), PDO::PARAM_STR);
+                $q->bindValue(':firstname', $contact->getFirstname(), PDO::PARAM_STR);
+                $q->bindValue(':emailAddress', $contact->getEmailAddress(), PDO::PARAM_STR );
+                $q->bindValue(':phoneNumber', $contact->getPhoneNumber(), PDO::PARAM_INT);
                 $q->bindValue(':isActive', $contact->getisActive(), PDO::PARAM_INT);
                 $q->execute();
             }
