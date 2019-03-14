@@ -28,9 +28,9 @@ switch($type){
     case "devis":
         $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
-                        <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm">
+                        <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm" title="Passer la sélection en proforma">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
-                        <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm">
+                        <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm" title="Passer la sélection en facture">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                     </div>';
         break;
@@ -147,6 +147,7 @@ $retour = $_GET['soussoussouscat'];
 $('#select-all').on("click",function(event) {
     if($(this).parent('.checked')) {
         // Iterate each checkbox
+        alert("checked");
         $('input:checkbox').each(function() {
             $(this).attr('checked','checked');
             $(this).parent('span').addClass('checked');                         
