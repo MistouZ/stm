@@ -165,12 +165,14 @@ $('#multiSelection :checkbox').change(function() {
     var nb = $('#multiSelection :checkbox:checked').length;
     var nbTotal = $('#multiSelection :checkbox').length;
     alert(nb);  
-    if (nb>=1) {
-        if($('#select-all').attr("checked")){
-            $('#select-all').removeAttr('checked').uniform('refresh');
-        }else{
-            $("#actions").css("display","");
-            $("#actions").css("display","inline");
+    if (nb>0) {
+        if(nb==1){
+            if($('#select-all').attr("checked")){
+                $('#select-all').removeAttr('checked').uniform('refresh');
+            }else{
+                $("#actions").css("display","");
+                $("#actions").css("display","inline");
+            }
         }
     } else {
         $("#actions").css("display","");
