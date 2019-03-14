@@ -147,6 +147,7 @@ $retour = $_GET['soussoussouscat'];
 $('#select-all').on("click",function(event) {
     if($(this).parent('.checked')) {
         // Iterate each checkbox
+        alert("checked");
         $('input:checkbox').each(function() {
             $(this).attr('checked','checked');
             $(this).parent('span').addClass('checked');                         
