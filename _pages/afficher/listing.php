@@ -78,6 +78,7 @@ $retour = $_GET['soussoussouscat'];
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
                 <div class="actions">
+                    <input id="" type="checkbox" />
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer un devis</a>
                     <?php echo $buttons; ?>
@@ -161,6 +162,7 @@ $('#select-all').on("click",function(event) {
         });
     }
 });
+
 $('#multiSelection :checkbox').change(function() {
     var nb = $('#multiSelection :checkbox').length;
       
