@@ -90,6 +90,7 @@ $retour = $_GET['soussoussouscat'];
                 <div class="actions">
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer un devis</a>
+                    <?php echo $buttons; ?>
                 </div>
             </div>
             <div class="portlet-body">
