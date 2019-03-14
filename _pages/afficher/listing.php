@@ -174,8 +174,7 @@ $('#select-all').click(function(){
 });*/
 
 $('#multiSelection :checkbox').change(function() {
-    var nb = $('#multiSelection :checkbox').length;
-    alert(nb);  
+    var nb = $('#multiSelection :checkbox').length;  
     if (nb>0) {
         $("#actions").css("display","");
         $("#actions").css("display","inline"); 
