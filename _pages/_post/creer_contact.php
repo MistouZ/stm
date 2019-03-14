@@ -22,6 +22,7 @@ if(isset($_POST['valider'])){
     }else{
         $phoneNumber = "";
     }
+
     if(isset($_POST['categorie']) && !empty($_POST['categorie'])){
         $testCat = 'fournisseur';
         $customerId = $_POST["supplierId"];
@@ -29,8 +30,11 @@ if(isset($_POST['valider'])){
         $testCat = 'client';
         $customerId = $_POST["customerId"];
     }
-    
+
     $is_active =1;
+
+    echo $testCat;
+    echo $customerId;
 
     $array = array(
         'name' => $name,
@@ -39,8 +43,9 @@ if(isset($_POST['valider'])){
         'phoneNumber' => $phoneNumber,
         'isActive' => $is_active
     );
-    
+
     $contact = new Contact($array);
+    print_r($contact);
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
