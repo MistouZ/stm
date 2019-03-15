@@ -28,14 +28,10 @@ $taxmanager = new TaxManager($bdd);
 
 $folder = $foldermanager->get($folderId);
 
-//print_r($folder);
 $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
-print_r($company);
-print_r($users);
-/*$customer = $customermanager->getById($folderId->getCustomerId());
+$customer = $customermanager->getById($folder->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
-
 
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
@@ -82,6 +78,14 @@ if(isset($_GET['cat5'])){
                         <div class="row static-info">
                             <div class="col-md-5 name"> Commercial : </div>
                             <div class="col-md-7 value"> <?php echo $user->getName().' '.$user->getFirstName(); ?> </div>
+                        </div>
+                        <div class="row static-info">
+                            <div class="col-md-5 name"> </div>
+                            <div class="col-md-7 value"> </div>
+                        </div>
+                        <div class="row static-info">
+                            <div class="col-md-5 name"> </div>
+                            <div class="col-md-7 value"> </div>
                         </div>
                     </div>
                 </div>
