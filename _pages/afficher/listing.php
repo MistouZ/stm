@@ -198,7 +198,7 @@ $retour = $_GET['soussoussouscat'];
                         </label>
                         <div class="col-md-8">
                             <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                <input type="text" name="date_facture" id="date_facture" class="form-control" value="<?php echo $dateToProforma; ?>" >
                                 <span class="input-group-btn">
                                     <button class="btn default" type="button">
                                         <i class="fas fa-calendar-alt"></i>
@@ -212,7 +212,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerFacture" name="validerFacture" value="facture" onclick="submitDate(facture);return false;">
+                        <button type="submit" class="btn green" id="validerFacture" name="validerFacture" value="facture" onclick="submitDate(facture);">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -236,7 +236,7 @@ $retour = $_GET['soussoussouscat'];
                         </label>
                         <div class="col-md-8">
                             <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                <input type="text" name="date_avoir" id="date_avoir" class="form-control" value="<?php echo $dateToProforma; ?>" >
                                 <span class="input-group-btn">
                                     <button class="btn default" type="button">
                                         <i class="fas fa-calendar-alt"></i>
@@ -250,7 +250,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerAvoir" name="validerAvoir" value="avoir" onclick="submitDate(avoir);return false;">
+                        <button type="submit" class="btn green" id="validerAvoir" name="validerAvoir" value="avoir" onclick="submitDate(avoir);">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -267,14 +267,14 @@ $retour = $_GET['soussoussouscat'];
                 <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en devis</h4>
             </div>
             <div class="modal-body form">
-                <form action="" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
+                <form action="" method="post" id="to_devis" class="form-horizontal form-row-seperated">
                     <div class="form-group">
                         <label class="control-label col-md-4">Date
                             <span class="required"> * </span>
                         </label>
                         <div class="col-md-8">
                             <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                <input type="text" name="date_devis" id="date_devis" class="form-control" value="<?php echo $dateToProforma; ?>" >
                                 <span class="input-group-btn">
                                     <button class="btn default" type="button">
                                         <i class="fas fa-calendar-alt"></i>
@@ -288,7 +288,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerDevis" name="validerDevis" value="devis" onclick="submitDate(devis);return false;">
+                        <button type="submit" class="btn green" id="validerDevis" name="validerDevis" value="devis" onclick="submitDate(devis);">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
