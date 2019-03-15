@@ -338,6 +338,8 @@ function submitDate(selected){
     alert(selected);
     var inputSelected = $('#date_'+selected).val();
     alert(inputSelected);
+    $("#date").val(inputSelected);
+    alert($("#date").val());
 }
 
 </script>
