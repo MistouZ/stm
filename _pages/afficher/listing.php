@@ -138,12 +138,7 @@ $retour = $_GET['soussoussouscat'];
                                 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                 $montant = 0;
                                 foreach($descriptions as $description){
-                                    $montantLigne = $description->getQuantity()*$description->getPrice();
-                                    $remise = $montantLigne*($description->getDiscount()/100);
-                                    $taxe = $montantLigne*$description->getTax();
-                                    $montantLigne = $montantLigne-$remise;
-                                    $montantLigne = $montantLigne+$taxe;
-                                    $montant = $montant+$montantLigne;
+                                    calculMontantTotalTTC($description);
                                 }
                             ?>
                             <tr>
@@ -359,11 +354,8 @@ $('#multiSelection :checkbox').change(function() {
 });
 
 function submitDate(selected){
-    alert(selected);
     var inputSelected = $('#date_'+selected).val();
-    alert(inputSelected);
     $("#date").val(inputSelected);
-    alert($("#date").val());
     $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
     $('#multiSelection').submit();
 }
