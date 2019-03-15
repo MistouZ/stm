@@ -27,10 +27,14 @@ $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 
 $folder = $foldermanager->get($folderId);
-$company = $companymanager->getByNameData($companyNameData);
+
+print_r($folder);
+/*$company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($folderId->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
+
+
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
 
