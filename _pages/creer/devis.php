@@ -229,7 +229,7 @@ $taxmanager = new TaxManager($bdd);
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body form" style="display: block;">
+                                    <div class="portlet-body form" style="display: none;">
                                         <div id="ligneOption1" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-6">
@@ -302,7 +302,7 @@ $taxmanager = new TaxManager($bdd);
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body form" style="display: block;">
+                                    <div class="portlet-body form" style="display: none;">
                                         <div id="ligneCout1" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-4">
