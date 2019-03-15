@@ -74,7 +74,7 @@ $i=1;
 
 while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
-    $j = key($_POST["description"]).'<br />';
+    $j = key($_POST["description"]);
     echo $postDescription.'<br />';
     echo $j;
     if(strlen(trim($postDescription))>0){
