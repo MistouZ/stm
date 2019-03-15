@@ -161,7 +161,7 @@ $retour = $_GET['soussoussouscat'];
                         </label>
                         <div class="col-md-8">
                             <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                <input type="text" name="date_proforma" id="date_proforma" class="form-control" value="<?php echo $dateToProforma; ?>" >
                                 <span class="input-group-btn">
                                     <button class="btn default" type="button">
                                         <i class="fas fa-calendar-alt"></i>
@@ -317,8 +317,7 @@ $('#select-all').click(function(){
 $('#multiSelection :checkbox').change(function() {
     //$.uniform.update();
     var nb = $('#multiSelection :checkbox:checked').length;
-    var nbTotal = $('#multiSelection :checkbox').length;
-    alert(nb);  
+    var nbTotal = $('#multiSelection :checkbox').length; 
     if (nb>0) {
         if(nb==1){
             if($('#select-all').attr("checked")){
@@ -337,6 +336,8 @@ $('#multiSelection :checkbox').change(function() {
 
 function submitDate(selected){
     alert(selected);
+    var inputSelected = $('#date_'+selected).val();
+    alert(inputSelected);
 }
 
 </script>
