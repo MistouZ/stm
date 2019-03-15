@@ -82,12 +82,14 @@ foreach($_POST["description"] as $postDescription){
         }else{
             $qt = $_POST["quantite"][$i];
         }
+        $price = $_POST["prix"][$i];
+        $tax = $_POST["taxe"][$i];
         $dataDescription= array(
             'description' => $postDescription,
             'quantity' => $qt,
             'discount' => $remise,
-            'price' => $_POST["prix"][$i],
-            'tax' => $_POST["taxe"][$i]
+            'price' => $price,
+            'tax' => $tax
         );
     
         $description = new Description($dataDescription);
