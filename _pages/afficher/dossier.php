@@ -39,6 +39,31 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$fol
 if(isset($_GET['cat5'])){
     $retour = $_GET['cat5'];
 }
+
+switch($type){
+    case "devis":
+        $quotation = $quotationmanager->getByFolderId($folderId);
+        $entete = "du devis";
+        $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+        break;
+    case "proforma":
+        $quotation = $quotationmanager->getByFolderId($folderId);
+        $entete = "de la proforma";
+        $enteteIcon = '<i class="fas fa-file-alt"></i>';
+        break;
+    case "facture":
+        $quotation = $quotationmanager->getByFolderId($folderId);
+        $entete = "de la facture";
+        $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
+        break;
+    case "avoir":
+        $quotation = $quotationmanager->getByFolderId($folderId);
+        $entete = "de l'avoir";
+        $enteteIcon = '<i class="fas fa-file-prescription"></i>';
+        break;
+}
+
+
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -123,7 +148,6 @@ if(isset($_GET['cat5'])){
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
-                        <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
