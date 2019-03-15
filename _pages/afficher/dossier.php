@@ -165,6 +165,11 @@ switch($type){
                         <tbody>
                         <?php
                         foreach($quotations as $quotation){
+                            if($quotation->getType() == "D") {
+                                $type = "devis";
+                                if($quotation->getStatus() == "En cours"){
+                                    $type2 = "cours";
+                                }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $descriptions = new Description($array);
@@ -174,11 +179,7 @@ switch($type){
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description);
                             }
-                            if($quotation->getType() == "D") {
-                                $type = "devis";
-                                if($quotation->getStatus() == "En cours"){
-                                    $type2 = "cours";
-                                }
+
                             ?>
                             <tr>
                                 <td><?php echo $date; ?></td>
@@ -230,6 +231,11 @@ switch($type){
                         <tbody>
                         <?php
                         foreach($quotations as $quotation){
+                            if($quotation->getType() == "P") {
+                                $type = "proforma";
+                                if($quotation->getStatus() == "En cours"){
+                                    $type2 = "cours";
+                                }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $descriptions = new Description($array);
@@ -239,11 +245,7 @@ switch($type){
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description);
                             }
-                            if($quotation->getType() == "P") {
-                                $type = "proforma";
-                                if($quotation->getStatus() == "En cours"){
-                                    $type2 = "cours";
-                                }
+
                                 ?>
                                 <tr>
                                     <td><?php echo $date; ?></td>
@@ -295,6 +297,11 @@ switch($type){
                         <tbody>
                         <?php
                         foreach($quotations as $quotation){
+                            if($quotation->getType() == "F") {
+                                $type = "facture";
+                                if($quotation->getStatus() == "En cours"){
+                                    $type2 = "cours";
+                                }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $descriptions = new Description($array);
@@ -304,11 +311,7 @@ switch($type){
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description);
                             }
-                            if($quotation->getType() == "F") {
-                                $type = "facture";
-                                if($quotation->getStatus() == "En cours"){
-                                    $type2 = "cours";
-                                }
+
                                 ?>
                                 <tr>
                                     <td><?php echo $date; ?></td>
