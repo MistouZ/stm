@@ -71,7 +71,6 @@ $descriptions= array();
 print_r($_POST["description"]);
 $i=1;
 foreach($_POST["description"] as $postDescription){
-//for($i=1;$i<=count($_POST["description"]);$i++){
     if(strlen(trim($postDescription[$i]))>0){
         if(empty($_POST["remise"][$i])){
             $remise = 0;
@@ -99,7 +98,7 @@ foreach($_POST["description"] as $postDescription){
 echo "count : ".count($_POST["description"]);
 print_r($descriptions);
 
-/*$test = $descriptionmanager->update($descriptions,$idQuotation);
+$test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
 {
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
@@ -107,5 +106,4 @@ if(is_null($test))
 else{
   header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
 }
-*/
 ?>
