@@ -79,7 +79,7 @@ foreach ($customermanager as $customer) {
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings"></i>
-                    <span class="caption-subject sbold uppercase">Création d'un dossier</span>
+                    <span class="caption-subject sbold uppercase">Modification d'un dossier</span>
                 </div>
             </div>
             <div class="portlet-body form">
