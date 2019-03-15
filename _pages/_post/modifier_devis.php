@@ -70,7 +70,7 @@ $descriptions= array();
 
 print_r($_POST["description"]);
 $i=1;
-while($_POST["description"]){
+while(!empty($_POST["description"][$i])){
 //for($i=1;$i<=count($_POST["description"]);$i++){
     if(strlen(trim($_POST["description"][$i]))>0){
         if(empty($_POST["remise"][$i])){
