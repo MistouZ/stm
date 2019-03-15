@@ -40,6 +40,27 @@ if(isset($_GET['cat5'])){
     $retour = $_GET['cat5'];
 }
 
+switch($type){
+    case "devis":
+
+        $entete = "du devis";
+        $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+        break;
+    case "proforma":
+        $entete = "de la proforma";
+        $enteteIcon = '<i class="fas fa-file-alt"></i>';
+        break;
+    case "facture":
+        $entete = "de la facture";
+        $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
+        break;
+    case "avoir":
+        $entete = "de l'avoir";
+        $enteteIcon = '<i class="fas fa-file-prescription"></i>';
+        break;
+}
+
+
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -117,309 +138,67 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="portlet grey-cascade box">
-                    <div class="portlet-title">
-                        <div class="caption">
-
-                            <?php
-                            switch($type){
-                                case "devis":
-
-                                    $entete = "du devis";
-                                    $enteteIcon = '<i class="fas fa-file-invoice"></i>';
-                                    break;
-                                case "proforma":
-                                    $quotation = $quotationmanager->getByFolderId($folderId);
-                                    $entete = "de la proforma";
-                                    $enteteIcon = '<i class="fas fa-file-alt"></i>';
-                                    break;
-                                case "facture":
-                                    $quotation = $quotationmanager->getByFolderId($folderId);
-                                    $entete = "de la facture";
-                                    $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
-                                    break;
-                                case "avoir":
-                                    $quotation = $quotationmanager->getByFolderId($folderId);
-                                    $entete = "de l'avoir";
-                                    $enteteIcon = '<i class="fas fa-file-prescription"></i>';
-                                    break;
-                            }
-
-                            ?>
-                            <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
+            <div class="portlet box green">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
+                    <div class="actions">
+                        <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
+                            <i class="fa fa-plus"></i> Créer un devis</a>
+                        <?php echo $buttons; ?>
                     </div>
-                    <div class="portlet-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th> Description </th>
-                                    <th> Prix à l'unité </th>
-                                    <th> QT. </th>
-                                    <th> Taxe </th>
-                                    <th> Remise </th>
-                                    <th> Prix total HT </th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php
+                </div>
+                <div class="portlet-body">
+                    <form id="multiSelection" method="post">
+                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
+                                <th class="all">Date</th>
+                                <th class="min-phone-l">Numéro de devis</th>
+                                <th class="min-tablet">Client</th>
+                                <th class="desktop">Dossier</th>
+                                <th class="desktop">Libellé</th>
+                                <th class="none">Montant total</th>
+                                <th class="desktop">Détail</th>
+                                <th class="desktop">Modifier</th>
+                                <th class="desktop">Supprimer</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            foreach($quotations as $quotation){
+                                //initialisation au format date pour organiser le tableau
+                                $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                                $customer = $customermanager->getById($quotation->getCustomerId());
+                                $folder = $foldermanager->get($quotation->getFolderId());
+                                $descriptions = new Description($array);
+                                $descriptionmanager = new DescriptionManager($bdd);
+                                $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                 $montant = 0;
-                                $totalTaxe = 0;
-                                $montantHT = 0;
-                                $arrayTaxesKey =  array();
                                 foreach($descriptions as $description){
-                                    $montantLigne = $description->getQuantity()*$description->getPrice();
-                                    $remise = $montantLigne*($description->getDiscount()/100);
-                                    $montantLigne = $montantLigne-$remise;
-                                    $taxe = $montantLigne*$description->getTax();
-                                    $tax = $taxmanager->getByPercent($description->getTax()*100);
-                                    //Calcul du détail des taxes pour l'affichage par tranche détaillée
-                                    if(isset($arrayTaxesKey[$description->getTax()])){
-                                        $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
-                                    }else{
-                                        $arrayTaxesKey[$description->getTax()]['Taxe']=$tax->getName();
-                                        $arrayTaxesKey[$description->getTax()]['Montant']=$taxe;
-                                    }
-                                    $totalTaxe = $totalTaxe+$taxe;
-                                    $montantHT = $montantHT+$montantLigne;
-                                    //$montantLigne = $montantLigne+$taxe;
-                                    $montant = $montant+$montantLigne+$taxe;
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $description->getDescription(); ?></td>
-                                        <td><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
-                                        <td><?php echo $description->getQuantity(); ?></td>
-                                        <td><?php echo $description->getTax()*100; ?> %</td>
-                                        <td><?php echo $description->getDiscount(); ?> %</td>
-                                        <td><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
-                                    </tr>
-                                    <?php
+                                    $montant = calculMontantTotalTTC($description);
                                 }
                                 ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6"> </div>
-            <div class="col-md-6">
-                <div class="well">
-                    <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Sous-total: </div>
-                        <div class="col-md-3 value"> <?php echo number_format($montantHT,0,","," "); ?> XPF</div>
-                    </div>
-                    <div class="row static-info align-reverse">
-                        <div class="col-md-8 name"> Total taxes : </div>
-                        <div class="col-md-3 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
-                    </div>
-                    <?php
-                    foreach($arrayTaxesKey as $key => $value){
-                        if($arrayTaxesKey[$key]["Montant"]>0){
+                                <tr>
+                                    <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
+                                    <td><?php echo $date; ?></td>
+                                    <td><?php echo $quotation->getQuotationNumber(); ?></td>
+                                    <td><?php echo $customer->getName(); ?></td>
+                                    <td><?php echo $folder->getFolderNumber(); ?></td>
+                                    <td><?php echo $folder->getLabel(); ?></td>
+                                    <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
+                                    <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                                    <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                                    <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                                </tr>
+                                <?php
+                            }
                             ?>
-                            <div class="row static-info align-reverse">
-                                <div class="col-md-8 name" style="font-size: 11px; font-style: italic;"> <?php echo $arrayTaxesKey[$key]["Taxe"]; ?> : </div>
-                                <div class="col-md-3 value" style="font-size: 11px; font-style: italic;"> <?php echo number_format($arrayTaxesKey[$key]["Montant"],0,","," "); ?> XPF</div>
-                            </div>
-                        <?php }} ?>
-                    <div class="row static-info align-reverse">
-                        <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
-                        <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en proforma</h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_proforma.php"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="to_facture" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en facture</h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_facture.php"; ?>" method="post" id="to_facture" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="to_avoir" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en avoir</h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_avoir.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="to_devis" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en devis</h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_devis.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="modif_date" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Modifier la date <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span></h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/modifier_date.php"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $date; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Cliquez sur la date pour la modifier</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
+                            </tbody>
+                        </table>
+                        <input type="hidden" name="date" id="date" />
+                    </form>
                 </div>
             </div>
         </div>
