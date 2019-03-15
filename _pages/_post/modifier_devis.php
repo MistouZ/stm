@@ -69,9 +69,9 @@ $test = $quotationmanager->update($quotation);
 $descriptions= array();
 
 print_r($_POST["description"]);
-
-for($i=1;$i<=count($_POST["description"]);$i++)
-{
+$i=1;
+while($_POST["description"]){
+//for($i=1;$i<=count($_POST["description"]);$i++){
     if(strlen(trim($_POST["description"][$i]))>0){
         if(empty($_POST["remise"][$i])){
             $remise = 0;
@@ -94,6 +94,7 @@ for($i=1;$i<=count($_POST["description"]);$i++)
         $description = new Description($dataDescription);
         $descriptions[$i] = $description;
     }
+    $i++;
 }
 echo "count : ".count($_POST["description"]);
 print_r($descriptions);
