@@ -561,7 +561,7 @@ $(document).ready(function() {
     });  
 
 });
-function supprLigne(selected){
+function supprLigneDevis(selected){
     var nbDiv = $("div[class*='ligne']").length;
     var selectedDiv = $("div[id='ligne"+selected+"']");
     if(nbDiv>1){
