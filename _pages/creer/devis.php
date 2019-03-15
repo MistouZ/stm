@@ -157,30 +157,30 @@ $taxmanager = new TaxManager($bdd);
                                                 <span class="help-block">Le commentaire s'affichera à la fin du devis</span>
                                             </div>
                                         </div>
-                                        <div id="ligne1" class="ligne row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                        <div id="ligneDevis1" class="ligne row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="form-control" id="description1" name="description[1]" rows="4"></textarea>
+                                                        <textarea class="form-control" id="descriptionDevis1" name="descriptionDevis[1]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Quantité</label>
-                                                        <input type="digits" id="quantite" name="quantite[1]" class="form-control" placeholder="Qt.">
+                                                        <input type="digits" id="quantiteDevis" name="quantiteDevis[1]" class="form-control" placeholder="Qt.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Remise (%)</label>
-                                                        <input type="digits" id="remise" name="remise[1]" class="form-control" placeholder="xx">
+                                                        <input type="digits" id="remiseDevis" name="remiseDevis[1]" class="form-control" placeholder="xx">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select id="taxe1" class="taxe form-control" name="taxe[1]">
+                                                        <select id="taxeDevis1" class="taxe form-control" name="taxeDevis[1]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
                                                             /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
@@ -196,12 +196,12 @@ $taxmanager = new TaxManager($bdd);
                                                 <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
-                                                        <input type="digits" id="prix1" name="prix[1]" class="form-control" placeholder="HT">
+                                                        <input type="digits" id="prixDevis1" name="prixDevis[1]" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
-                                                <div id="divsuppr1" style="text-align: right;" class="col-md-1">
+                                                <div id="divsupprDevis1" style="text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                        <button type="button" title="Supprimer la ligne" id="suppr1" class="btn red" onclick="supprLigne(1);"><i class="fas fa-minus-square"></i></button>
+                                                        <button type="button" title="Supprimer la ligne" id="supprDevis1" class="btn red" onclick="supprLigneDevis(1);"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -460,31 +460,31 @@ $(document).ready(function() {
     $('#ajout').click(function(){
     
       // get the last DIV which ID starts with ^= "klon"
-      var $div = $('div[id^="ligne"]:last').data( "arr", [ 1 ] );
-      var $textarea = $('textarea[id^="description"]:last').data( "txt", [ 1 ] );
+      var $div = $('div[id^="ligneDevis"]:last').data( "arr", [ 1 ] );
+      var $textarea = $('textarea[id^="descriptionDevis"]:last').data( "txt", [ 1 ] );
       // Read the Number from that DIV's ID (i.e: 3 from "klon3")
       // And increment that number by 1
       var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
       
       // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-      var $klon = $div.clone(true).find(".help-block-error").text("").end().find(".has-error").removeClass("has-error").end().find("input,textarea").val("").end().find('textarea[id^="description"]:last').prop('id', 'description'+num ).end().find('textarea[name^="description"]:last').prop('name', 'description['+num+']' ).end().find('input[name^="quantite"]:last').prop('name', 'quantite['+num+']' ).end().find('input[name^="remise"]:last').prop('name', 'remise['+num+']' ).end().find('select[name^="taxe"]:last').prop('name', 'taxe['+num+']' ).end().find('select[id^="taxe"]:last').prop('id', 'taxe'+num ).end().find('input[name^="prix"]:last').prop('name', 'prix['+num+']' ).end().find('input[id^="prix"]:last').prop('id', 'prix'+num ).end().find('button[id^="suppr"]:last').prop('id', 'suppr'+num ).end().find('button[id^="suppr"]:last').attr('onclick', 'supprLigne('+num+')' ).end().find('div[id^="divsuppr"]:last').prop('id', 'divsuppr'+num ).end().find('div[id="divsuppr'+num+'"]').css('display','' ).end().find('div[id="divsuppr'+num+'"]').css('display','block' ).end().prop('id', 'ligne'+num );
+      var $klon = $div.clone(true).find(".help-block-error").text("").end().find(".has-error").removeClass("has-error").end().find("input,textarea").val("").end().find('textarea[id^="descriptionDevis"]:last').prop('id', 'descriptionDevis'+num ).end().find('textarea[name^="descriptionDevis"]:last').prop('name', 'descriptionDevis['+num+']' ).end().find('input[name^="quantiteDevis"]:last').prop('name', 'quantiteDevis['+num+']' ).end().find('input[name^="remiseDevis"]:last').prop('name', 'remiseDevis['+num+']' ).end().find('select[name^="taxeDevis"]:last').prop('name', 'taxeDevis['+num+']' ).end().find('select[id^="taxeDevis"]:last').prop('id', 'taxeDevis'+num ).end().find('input[name^="prixDevis"]:last').prop('name', 'prixDevis['+num+']' ).end().find('input[id^="prixDevis"]:last').prop('id', 'prixDevis'+num ).end().find('button[id^="supprDevis"]:last').prop('id', 'supprDevis'+num ).end().find('button[id^="supprDevis"]:last').attr('onclick', 'supprLigneDevis('+num+')' ).end().find('div[id^="divsupprDevis"]:last').prop('id', 'divsupprDevis'+num ).end().find('div[id="divsupprDevis'+num+'"]').css('display','' ).end().find('div[id="divsupprDevis'+num+'"]').css('display','block' ).end().prop('id', 'ligneDevis'+num );
       
       // Finally insert $klon wherever you want
-      $("div[id*='divsuppr']").css('display','' );
-      $("div[id*='divsuppr']").css('display','block' );
+      $("div[id*='divsupprDevis']").css('display','' );
+      $("div[id*='divsupprDevis']").css('display','block' );
       $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
       
-      $("#description"+num).each(function(){
+      $("#descriptionDevis"+num).each(function(){
         $(this).rules("add", {
             required: true
         });
       });
-      $("#taxe"+num).each(function(){
+      $("#taxeDevis"+num).each(function(){
         $(this).rules("add", {
             required: true
         });
       });
-      $("#prix"+num).each(function(){
+      $("#prixDevis"+num).each(function(){
         $(this).rules("add", {
             required: true
         });
