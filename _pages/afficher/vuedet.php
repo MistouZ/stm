@@ -237,11 +237,11 @@ if(isset($_GET['cat5'])){
                                         ?>
                                         <tr>
                                             <td><?php echo $description->getDescription(); ?></td>
-                                            <td><?php echo $description->getPrice(); ?></td>
+                                            <td><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
                                             <td><?php echo $description->getTax()*100; ?> %</td>
                                             <td><?php echo $description->getDiscount(); ?> %</td>
-                                            <td><?php echo number_format($montantLigne,0,","," "); ?></td>
+                                            <td><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
                                         </tr>
                                         <?php
                                         }
