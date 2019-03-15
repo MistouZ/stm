@@ -391,6 +391,8 @@ $(document).ready(function() {
                  $("#detaildevis").css('display','visible');
                  $("#optdevis").css('display','');
                  $("#optdevis").css('display','visible');
+                 $("#coutdevis").css('display','');
+                 $("#coutdevis").css('display','visible');
                  
                  var monSelectB = document.getElementsByClassName("taxe");
                   //on efface tous les children options
