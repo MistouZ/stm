@@ -68,10 +68,7 @@ $test = $quotationmanager->update($quotation);
 
 $descriptions= array();
 
-//print_r($_POST["description"]);
 $i=1;
-//echo key($_POST["description"]);
-
 while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
     $j = key($_POST["description"]);
@@ -103,42 +100,6 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
     next($_POST["description"]);
 }
 
-
-
-
-/*$i=1;
-foreach($_POST["description"] as $postDescription){
-    echo key($_POST["description"]);
-
-    if(strlen(trim($postDescription))>0){
-        if(empty($_POST["remise"][$i])){
-            $remise = 0;
-        }else{
-            $remise = $_POST["remise"][$i];
-        }
-        if(empty($_POST["quantite"][$i])){
-                $qt = 1;
-        }else{
-            $qt = $_POST["quantite"][$i];
-        }
-        $price = $_POST["prix"][$i];
-        $tax = $_POST["taxe"][$i];
-        $dataDescription= array(
-            'description' => $postDescription,
-            'quantity' => $qt,
-            'discount' => $remise,
-            'price' => $price,
-            'tax' => $tax
-        );
-    
-        $description = new Description($dataDescription);
-        $descriptions[$i] = $description;
-    }
-    $i++;
-}*/
-
-//echo "count : ".count($descriptions);
-//print_r($descriptions);
 
 $test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
