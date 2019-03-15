@@ -10,6 +10,8 @@ $array = array();
 $companyNameData = $_GET["section"];
 
 $soussouscat = $_GET['soussouscat'];
+
+echo $soussouscat;
 /*
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
