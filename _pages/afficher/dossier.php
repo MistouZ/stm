@@ -28,15 +28,15 @@ $taxmanager = new TaxManager($bdd);
 
 $folder = $foldermanager->get($folderId);
 
-//print_r($folder);
 $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
-print_r($company);
-print_r($user);
-/*$customer = $customermanager->getById($folderId->getCustomerId());
+$customer = $customermanager->getById($folderId->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
 
+print_r($customer);
+print_r($contact);
 
+/*
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
 
