@@ -76,6 +76,7 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
     $j = key($_POST["description"]).'<br />';
     echo $postDescription.'<br />';
+    echo $j;
     if(strlen(trim($postDescription))>0){
         if(empty($_POST["remise"][$j])){
             $remise = 0;
