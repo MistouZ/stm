@@ -86,7 +86,7 @@ $retour = $_GET['soussoussouscat'];
                 </div>
             </div>
             <div class="portlet-body">
-                <form id="multiSelection">
+                <form id="multiSelection" method="post">
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -340,6 +340,8 @@ function submitDate(selected){
     alert(inputSelected);
     $("#date").val(inputSelected);
     alert($("#date").val());
+    $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
+    $('#multiSelection').submit();
 }
 
 </script>
