@@ -74,21 +74,21 @@ $i=1;
 
 while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
-    echo key(current($_POST["description"])).'<br />';
-    echo $postDescription;
-    /*if(strlen(trim(array_values($_POST["description"])))>0){
-        if(empty($_POST["remise"][$i])){
+    $j = key($_POST["description"]).'<br />';
+    echo $postDescription.'<br />';
+    if(strlen(trim($postDescription))>0){
+        if(empty($_POST["remise"][$j])){
             $remise = 0;
         }else{
-            $remise = $_POST["remise"][$i];
+            $remise = $_POST["remise"][$j];
         }
-        if(empty($_POST["quantite"][$i])){
+        if(empty($_POST["quantite"][$j])){
             $qt = 1;
         }else{
-            $qt = $_POST["quantite"][$i];
+            $qt = $_POST["quantite"][$j];
         }
-        $price = $_POST["prix"][$i];
-        $tax = $_POST["taxe"][$i];
+        $price = $_POST["prix"][$j];
+        $tax = $_POST["taxe"][$j];
         $dataDescription= array(
             'description' => $postDescription,
             'quantity' => $qt,
@@ -100,7 +100,7 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
         $description = new Description($dataDescription);
         $descriptions[$i] = $description;
     }
-    */
+    $i++;
     next($_POST["description"]);
 }
 
@@ -136,11 +136,12 @@ foreach($_POST["description"] as $postDescription){
         $descriptions[$i] = $description;
     }
     $i++;
-}
-//echo "count : ".count($descriptions);
+}*/
+
+echo "count : ".count($descriptions);
 print_r($descriptions);
 
-//$test = $descriptionmanager->update($descriptions,$idQuotation);
+$test = $descriptionmanager->update($descriptions,$idQuotation);
 /*if(is_null($test))
 {
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
