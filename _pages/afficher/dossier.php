@@ -32,7 +32,7 @@ $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($folder->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
-$quotationmanager = $quotationmanager->getByFolderId($folderId);
+$quotations = $quotationmanager->getByFolderId($folderId);
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
 
