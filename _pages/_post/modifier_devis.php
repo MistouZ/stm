@@ -95,7 +95,7 @@ foreach($_POST["description"] as $postDescription){
     }
     $i++;
 }
-echo "count : ".count($_POST["description"]);
+echo "count : ".count($descriptions);
 print_r($descriptions);
 
 /*$test = $descriptionmanager->update($descriptions,$idQuotation);
