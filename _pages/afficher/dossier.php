@@ -28,10 +28,10 @@ $taxmanager = new TaxManager($bdd);
 
 $folder = $foldermanager->get($folderId);
 
-print_r($folder);
-/*$company = $companymanager->getByNameData($companyNameData);
+//print_r($folder);
+$company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
-$customer = $customermanager->getById($folderId->getCustomerId());
+/*$customer = $customermanager->getById($folderId->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
 
 
