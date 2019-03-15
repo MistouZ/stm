@@ -30,13 +30,9 @@ $folder = $foldermanager->get($folderId);
 
 $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
-//$customer = $customermanager->getById($folderId->getCustomerId());
+$customer = $customermanager->getById($folder->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
 
-//print_r($customer);
-print_r($contact);
-
-/*
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
 
