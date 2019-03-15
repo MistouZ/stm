@@ -38,7 +38,7 @@ switch($type){
         break;
     case "proforma":
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
-        $buttons = '<div id="actions">
+        $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                         <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
@@ -47,7 +47,7 @@ switch($type){
         break;
     case "facture":
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
-        $buttons = '<div id="actions">
+        $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
                         <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
@@ -56,7 +56,7 @@ switch($type){
         break;
     case "avoir":
         $quotations = $quotationmanager->getListAsset($company->getIdcompany());
-        $buttons = '<div id="actions">
+        $buttons = '<div id="actions" style="display:none;">
                         
                     </div>';
         break;
