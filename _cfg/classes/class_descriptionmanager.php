@@ -95,8 +95,12 @@ class DescriptionManager
     public function update(array $description, $quotationNumber)
     {
         try{
-            $this->delete($quotationNumber);
-            $this->add($description,$quotationNumber);
+            $test = $this->delete($quotationNumber);
+            if(!is_null($test))
+            {
+                echo "suppresion réussie ".$quotationNumber;
+            }
+            //$this->add($description,$quotationNumber);
             return $description;
         }
         catch(Exception $e){
