@@ -9,10 +9,8 @@ include("../../_cfg/cfg.php");
 $array = array();
 $companyNameData = $_GET["section"];
 
-$soussouscat = $_GET['soussouscat'];
+$folderId = $_GET['soussouscat'];
 
-echo $soussouscat;
-/*
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $folder = new Folder($array);
@@ -28,10 +26,10 @@ $contactmanager = new ContactManager($bdd);
 $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 
-$folder = $foldermanager->get($quotation->getFolderId());
+$folder = $foldermanager->get($folderId);
 $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
-$customer = $customermanager->getById($quotation->getCustomerId());
+$customer = $customermanager->getById($folderId->getCustomerId());
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
 
 if(isset($_GET['cat5'])){
@@ -111,7 +109,7 @@ if(isset($_GET['cat5'])){
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
@@ -390,7 +388,7 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
 */?>
