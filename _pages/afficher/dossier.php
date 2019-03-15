@@ -31,10 +31,10 @@ $folder = $foldermanager->get($folderId);
 $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($folderId->getCustomerId());
-$contact = $contactmanager->getById($folder->getContactId());
+//$contact = $contactmanager->getById($folder->getContactId());
 
 print_r($customer);
-print_r($contact);
+//print_r($contact);
 
 /*
 
