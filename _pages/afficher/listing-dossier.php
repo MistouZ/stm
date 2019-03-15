@@ -78,6 +78,7 @@ else{
                             <th class="all">Numéro de Dossier</th>
                             <th class="min-phone-l">Intitulé du dossier</th>
                             <th class="min-tablet">Client</th>
+                            <th class="desktop">Afficher</th>
                             <th class="min-tablet">Modifier</th>
                             <?php if($credential == "A"){
                                 echo "<th class=\"min-tablet\">Supprimer / Réactiver</th>";
@@ -113,6 +114,7 @@ else{
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
                             <td><?php echo $customer->getName(); ?></td>
+                            <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.$folder->getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                             <?php
                             if($folder->getIsActive() == 1)
