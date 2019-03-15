@@ -83,6 +83,10 @@ if(isset($_GET['cat5'])){
                             <div class="col-md-5 name"> </div>
                             <div class="col-md-7 value"> </div>
                         </div>
+                        <div class="row static-info">
+                            <div class="col-md-5 name"> </div>
+                            <div class="col-md-7 value"> </div>
+                        </div>
                     </div>
                 </div>
             </div>
