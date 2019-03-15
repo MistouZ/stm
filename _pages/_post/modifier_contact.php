@@ -43,14 +43,25 @@ if(isset($_POST['valider'])){
     if(isset($_POST["customerId"]))
     {
         $customerId = $_POST["customerId"];
-        $contactmanager->update($contact);
-        header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/update");
+        $test = $contactmanager->update($contact);
+        if(!is_null($test))
+        {
+            header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/update");
+        }
+        else{
+            header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
+        }
     }
     elseif (isset($_POST["supplierId"]))
     {
         $supplierId = $_POST["supplierId"];
         $contactmanager->update($contact);
-        header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/udpate");
+        if(!is_null($test)) {
+            header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/udpate");
+        }
+        else{
+            header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/existe");
+        }
     }
 }
 
