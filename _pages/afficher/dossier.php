@@ -32,7 +32,7 @@ $folder = $foldermanager->get($folderId);
 $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
 print_r($company);
-print_r($users);
+print_r($user);
 /*$customer = $customermanager->getById($folderId->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
 
