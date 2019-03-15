@@ -71,7 +71,7 @@ $descriptions= array();
 print_r($_POST["description"]);
 $i=1;
 foreach($_POST["description"] as $postDescription){
-    if(strlen(trim($postDescription[$i]))>0){
+    if(strlen(trim($postDescription))>0){
         if(empty($_POST["remise"][$i])){
             $remise = 0;
         }else{
@@ -83,7 +83,7 @@ foreach($_POST["description"] as $postDescription){
             $qt = $_POST["quantite"][$i];
         }
         $dataDescription= array(
-            'description' => $postDescription[$i],
+            'description' => $postDescription,
             'quantity' => $qt,
             'discount' => $remise,
             'price' => $_POST["prix"][$i],
