@@ -974,17 +974,17 @@ var FormValidation = function () {
 
             });
             
-            $("[name^=description]").each(function () {
+            $("[name^=descriptionDevis]").each(function () {
                 $(this).rules("add", {
                     required: true
                 });
             });
-            $("[name^=taxe]").each(function () {
+            $("[name^=taxeDevis]").each(function () {
                 $(this).rules("add", {
                     required: true
                 });
             });
-            $("[name^=prix]").each(function () {
+            $("[name^=prixDevis]").each(function () {
                 $(this).rules("add", {
                     required: true
                 });

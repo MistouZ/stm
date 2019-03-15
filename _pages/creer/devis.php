@@ -229,7 +229,7 @@ $taxmanager = new TaxManager($bdd);
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body form" style="display: block;">
+                                    <div class="portlet-body form" style="display: none;">
                                         <div id="ligneOption1" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-6">
@@ -302,7 +302,7 @@ $taxmanager = new TaxManager($bdd);
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body form" style="display: block;">
+                                    <div class="portlet-body form" style="display: none;">
                                         <div id="ligneCout1" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-4">
@@ -311,7 +311,7 @@ $taxmanager = new TaxManager($bdd);
                                                         <select id="fournisseur1" class="form-control" name="fournisseur[1]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            $suppliermanager = $suppliermanager->getListAllByCompany($_GET['section']);
+                                                            $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
                                                             foreach ($suppliermanager as $supplier){
                                                                ?>
                                                                 <option value="<?php echo $supplier->getIdSupplier(); ?>"><?php echo $supplier->getName(); ?></option>
@@ -580,7 +580,7 @@ function supprLigneOption(selected){
     }else{
         selectedDiv.find('div[id="divsupprOption'+selected+'"]').css('display','' ).end();
         selectedDiv.find('div[id="divsupprOption'+selected+'"]').css('display','none' ).end();
-        alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
+        alert("Il n'est pas possible de supprimer la dernière ligne des options !");
     }
 }
 function supprLigneCout(selected){
@@ -591,7 +591,7 @@ function supprLigneCout(selected){
     }else{
         selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','' ).end();
         selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','none' ).end();
-        alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
+        alert("Il n'est pas possible de supprimer la dernière ligne des coûts !");
     }
 }
 </script>
