@@ -75,7 +75,7 @@ $i=1;
 while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
     echo key($_POST["description"]).'<br />';
-    echo array_values($_POST["description"]);
+    echo $postDescription;
     /*if(strlen(trim(array_values($_POST["description"])))>0){
         if(empty($_POST["remise"][$i])){
             $remise = 0;
