@@ -80,16 +80,8 @@ if(isset($_GET['cat5'])){
                             <div class="col-md-7 value"> <?php echo $user->getName().' '.$user->getFirstName(); ?> </div>
                         </div>
                         <div class="row static-info">
-                            <div class="col-md-5 name"> </div>
-                            <div class="col-md-7 value"> </div>
-                        </div>
-                        <div class="row static-info">
-                            <div class="col-md-5 name"> </div>
-                            <div class="col-md-7 value"> </div>
-                        </div>
-                        <div class="row static-info">
-                            <div class="col-md-5 name"> </div>
-                            <div class="col-md-7 value"> </div>
+                            <div class="col-md-5 name">&nbsp;</div>
+                            <div class="col-md-7 value">&nbsp;</div>
                         </div>
                     </div>
                 </div>
@@ -125,12 +117,12 @@ if(isset($_GET['cat5'])){
                 </div>
             </div>
         </div>
-        <!--<div class="row">
+        <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php /*echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
+                            <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
                         <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
@@ -394,7 +386,7 @@ if(isset($_GET['cat5'])){
                                 </div>
                             </div>
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; */ ?>">
+                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
@@ -404,7 +396,6 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
     </div>
 </div>
-*/?>
