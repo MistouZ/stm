@@ -200,7 +200,6 @@ switch($type){
                         <input type="hidden" name="date" id="date" />
                     </form>
                 </div>
-            </div>
         </div>
     </div>
 </div>
