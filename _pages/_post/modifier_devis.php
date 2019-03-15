@@ -72,6 +72,20 @@ $descriptions= array();
 $i=1;
 echo key($_POST["description"]);
 foreach(array_values($_POST["description"]) as $postDescription){
+
+echo $postDescription;
+/*while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
+
+    echo key($_POST["description"]).'<br />';
+    next($_POST["description"]);*/
+}
+
+
+
+
+/*$i=1;
+foreach($_POST["description"] as $postDescription){
+>>>>>>> 4f27e69bd3cb9b402f2a45cbcb2a94b125ac54f9
     echo key($_POST["description"]);
 
     if(strlen(trim($postDescription))>0){
