@@ -100,7 +100,7 @@ class DescriptionManager
             {
                 echo "suppresion réussie ".$quotationNumber;
             }
-            //$this->add($description,$quotationNumber);
+            $this->add($description,$quotationNumber);
             return $description;
         }
         catch(Exception $e){
