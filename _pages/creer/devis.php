@@ -157,7 +157,7 @@ $taxmanager = new TaxManager($bdd);
                                                 <span class="help-block">Le commentaire s'affichera à la fin du devis</span>
                                             </div>
                                         </div>
-                                        <div id="ligneDevis1" class="ligne row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                        <div id="ligneDevis1" class="ligneDevis row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
@@ -562,13 +562,13 @@ $(document).ready(function() {
 
 });
 function supprLigneDevis(selected){
-    var nbDiv = $("div[class*='ligne']").length;
-    var selectedDiv = $("div[id='ligne"+selected+"']");
+    var nbDiv = $("div[class*='ligneDevis']").length;
+    var selectedDiv = $("div[id='ligneDevis"+selected+"']");
     if(nbDiv>1){
         selectedDiv.remove();
     }else{
-        selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','' ).end();
-        selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','none' ).end();
+        selectedDiv.find('div[id="divsupprDevis'+selected+'"]').css('display','' ).end();
+        selectedDiv.find('div[id="divsupprDevis'+selected+'"]').css('display','none' ).end();
         alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
     }
 }
