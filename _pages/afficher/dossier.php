@@ -32,37 +32,13 @@ $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($folder->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
-
+$quotationmanager = $quotationmanager->getByFolderId($folderId);
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
 
 if(isset($_GET['cat5'])){
     $retour = $_GET['cat5'];
 }
-
-switch($type){
-    case "devis":
-        $quotation = $quotationmanager->getByFolderId($folderId);
-        $entete = "du devis";
-        $enteteIcon = '<i class="fas fa-file-invoice"></i>';
-        break;
-    case "proforma":
-        $quotation = $quotationmanager->getByFolderId($folderId);
-        $entete = "de la proforma";
-        $enteteIcon = '<i class="fas fa-file-alt"></i>';
-        break;
-    case "facture":
-        $quotation = $quotationmanager->getByFolderId($folderId);
-        $entete = "de la facture";
-        $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
-        break;
-    case "avoir":
-        $quotation = $quotationmanager->getByFolderId($folderId);
-        $entete = "de l'avoir";
-        $enteteIcon = '<i class="fas fa-file-prescription"></i>';
-        break;
-}
-
 
 ?>
 <div class="row">
@@ -147,6 +123,32 @@ switch($type){
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
+
+                            <?php
+                            switch($type){
+                                case "devis":
+
+                                    $entete = "du devis";
+                                    $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+                                    break;
+                                case "proforma":
+                                    $quotation = $quotationmanager->getByFolderId($folderId);
+                                    $entete = "de la proforma";
+                                    $enteteIcon = '<i class="fas fa-file-alt"></i>';
+                                    break;
+                                case "facture":
+                                    $quotation = $quotationmanager->getByFolderId($folderId);
+                                    $entete = "de la facture";
+                                    $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
+                                    break;
+                                case "avoir":
+                                    $quotation = $quotationmanager->getByFolderId($folderId);
+                                    $entete = "de l'avoir";
+                                    $enteteIcon = '<i class="fas fa-file-prescription"></i>';
+                                    break;
+                            }
+
+                            ?>
                             <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
                     </div>
                     <div class="portlet-body">
