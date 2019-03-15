@@ -219,7 +219,7 @@ $taxmanager = new TaxManager($bdd);
                         </div>
                          <div class="row" id="optdevis" style="display: none;">
                             <div class="col-md-12">
-                                <div class="portlet box grey-cascade" style="margin-bottom: 0px !important;">
+                                <div class="portlet box grey-cascade">
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fas fa-sliders-h"></i>
@@ -292,10 +292,10 @@ $taxmanager = new TaxManager($bdd);
                         </div>
                         <div class="row" id="coutdevis" style="display: none;">
                             <div class="col-md-12">
-                                <div class="portlet box grey-cascade" style="margin-bottom: 0px !important;">
+                                <div class="portlet box purple-sharp" style="margin-bottom: 0px !important;">
                                     <div class="portlet-title">
                                         <div class="caption">
-                                            <i class="fas fa-sliders-h"></i>
+                                            <i class="fas fa-hand-holding-usd"></i>
                                             <span class="caption-subject bold uppercase"> Coûts liés au devis </span>
                                         </div>
                                         <div class="tools">
