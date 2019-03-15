@@ -277,7 +277,7 @@ switch($type){
                         <thead>
                         <tr>
                             <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro de devis</th>
+                            <th class="min-phone-l">Numéro de facture</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
@@ -296,16 +296,28 @@ switch($type){
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description);
                             }
-                            ?>
-                            <tr>
-                                <td><?php echo $date; ?></td>
-                                <td><?php echo $quotation->getQuotationNumber(); ?></td>
-                                <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
-                                <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
-                                <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                                <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
-                            </tr>
-                            <?php
+                            if($quotation->getType() == "F") {
+                                ?>
+                                <tr>
+                                    <td><?php echo $date; ?></td>
+                                    <td><?php echo $quotation->getQuotationNumber(); ?></td>
+                                    <td><?php echo number_format($montant, 0, ",", " "); ?> XPF</td>
+                                    <td><a class="btn green-meadow"
+                                           href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/afficher/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                                    class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                                    <td><a class="btn blue-steel"
+                                           href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/modifier/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                                    class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                                    <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
+                                           data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
+                                           data-content="ATTENTION ! La suppression est irréversible !"
+                                           data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
+                                           data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
+                                           data-href="<?php echo URLHOST . '_pages/_post/supprimer_devis.php?idQuotation=' . $quotation->getIdQuotation() . '&quotationNumber=' . $quotation->getQuotationNumber(); ?>"><i
+                                                    class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                                </tr>
+                                <?php
+                            }
                         }
                         ?>
                         </tbody>
