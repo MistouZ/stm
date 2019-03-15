@@ -174,6 +174,128 @@ switch($type){
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description);
                             }
+                            if($quotation->getType() == "D") {
+                            ?>
+                            <tr>
+                                <td><?php echo $date; ?></td>
+                                <td><?php echo $quotation->getQuotationNumber(); ?></td>
+                                <td><?php echo number_format($montant, 0, ",", " "); ?> XPF</td>
+                                <td><a class="btn green-meadow"
+                                       href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/afficher/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                                class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                                <td><a class="btn blue-steel"
+                                       href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/modifier/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                                class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                                <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
+                                       data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
+                                       data-content="ATTENTION ! La suppression est irréversible !"
+                                       data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
+                                       data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
+                                       data-href="<?php echo URLHOST . '_pages/_post/supprimer_devis.php?idQuotation=' . $quotation->getIdQuotation() . '&quotationNumber=' . $quotation->getQuotationNumber(); ?>"><i
+                                                class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                            </tr>
+                            <?php
+                            }
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="date" id="date" />
+                </form>
+            </div>
+        </div>
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe"></i>Liste des Proformas
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form id="multiSelection" method="post">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th class="all">Date</th>
+                            <th class="min-phone-l">Numéro de proforma</th>
+                            <th class="none">Montant total</th>
+                            <th class="desktop">Détail</th>
+                            <th class="desktop">Modifier</th>
+                            <th class="desktop">Supprimer</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach($quotations as $quotation){
+                            //initialisation au format date pour organiser le tableau
+                            $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                            $descriptions = new Description($array);
+                            $descriptionmanager = new DescriptionManager($bdd);
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                            $montant = 0;
+                            foreach($descriptions as $description){
+                                $montant = calculMontantTotalTTC($description);
+                            }
+                            if($quotation->getType() == "P") {
+                                ?>
+                                <tr>
+                                    <td><?php echo $date; ?></td>
+                                    <td><?php echo $quotation->getQuotationNumber(); ?></td>
+                                    <td><?php echo number_format($montant, 0, ",", " "); ?> XPF</td>
+                                    <td><a class="btn green-meadow"
+                                           href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/afficher/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                                    class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                                    <td><a class="btn blue-steel"
+                                           href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/modifier/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                                    class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                                    <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
+                                           data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
+                                           data-content="ATTENTION ! La suppression est irréversible !"
+                                           data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
+                                           data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
+                                           data-href="<?php echo URLHOST . '_pages/_post/supprimer_devis.php?idQuotation=' . $quotation->getIdQuotation() . '&quotationNumber=' . $quotation->getQuotationNumber(); ?>"><i
+                                                    class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                                </tr>
+                                <?php
+                            }
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                    <input type="hidden" name="date" id="date" />
+                </form>
+            </div>
+        </div>
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="fa fa-globe"></i>Liste des Factures
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form id="multiSelection" method="post">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                        <thead>
+                        <tr>
+                            <th class="all">Date</th>
+                            <th class="min-phone-l">Numéro de devis</th>
+                            <th class="none">Montant total</th>
+                            <th class="desktop">Détail</th>
+                            <th class="desktop">Modifier</th>
+                            <th class="desktop">Supprimer</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        foreach($quotations as $quotation){
+                            //initialisation au format date pour organiser le tableau
+                            $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                            $descriptions = new Description($array);
+                            $descriptionmanager = new DescriptionManager($bdd);
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                            $montant = 0;
+                            foreach($descriptions as $description){
+                                $montant = calculMontantTotalTTC($description);
+                            }
                             ?>
                             <tr>
                                 <td><?php echo $date; ?></td>
