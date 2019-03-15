@@ -70,6 +70,8 @@ $test = $quotationmanager->update($quotation);
 $descriptions= array();
 echo $_POST["description"][1];
 
+print_r($_POST["description"]);
+
 for($i=1;$i<=count($_POST["description"]);$i++)
 {
     if(strlen(trim($_POST["description"][$i]))>0){
@@ -101,10 +103,10 @@ print_r($descriptions);
 $test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
 {
-    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
+   // header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
+  //  header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
 }
 
 ?>
