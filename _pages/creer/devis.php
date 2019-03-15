@@ -580,7 +580,7 @@ function supprLigneOption(selected){
     }else{
         selectedDiv.find('div[id="divsupprOption'+selected+'"]').css('display','' ).end();
         selectedDiv.find('div[id="divsupprOption'+selected+'"]').css('display','none' ).end();
-        alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
+        alert("Il n'est pas possible de supprimer la dernière ligne des options !");
     }
 }
 function supprLigneCout(selected){
@@ -591,7 +591,7 @@ function supprLigneCout(selected){
     }else{
         selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','' ).end();
         selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','none' ).end();
-        alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
+        alert("Il n'est pas possible de supprimer la dernière ligne des coûts !");
     }
 }
 </script>
