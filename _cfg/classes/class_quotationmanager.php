@@ -139,11 +139,14 @@ class QuotationManager
     public function getByFolderId($folderId)
     {
         try{
-            $quotationNumber = (string) $quotationNumber;
+            $folderId = (string) $folderId;
             $q = $this->_db->query("SELECT * FROM `quotation` WHERE folderId = '$folderId'");
-            $donnees = $q->fetch(PDO::FETCH_ASSOC);
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
 
-            return new Quotation($donnees);
+            return $quotations;
         }
         catch(Exception $e){
             return null;
