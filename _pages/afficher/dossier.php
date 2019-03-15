@@ -31,6 +31,8 @@ $folder = $foldermanager->get($folderId);
 //print_r($folder);
 $company = $companymanager->getByNameData($companyNameData);
 $user = $usermanager->get($folder->getSeller());
+print_r($company);
+print_r($users);
 /*$customer = $customermanager->getById($folderId->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
 
