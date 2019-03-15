@@ -154,7 +154,7 @@ $retour = $_GET['soussoussouscat'];
                 <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en proforma</h4>
             </div>
             <div class="modal-body form">
-                <form action="<?php echo URLHOST."_pages/_post/to_proforma.php"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
+                <form action="" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
                     <div class="form-group">
                         <label class="control-label col-md-4">Date
                             <span class="required"> * </span>
@@ -175,7 +175,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerProforma" name="validerProforma" value="validerProforma">
+                        <button type="submit" class="btn green" id="validerProforma" name="validerProforma" value="proforma">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -192,7 +192,7 @@ $retour = $_GET['soussoussouscat'];
                 <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en facture</h4>
             </div>
             <div class="modal-body form">
-                <form action="<?php echo URLHOST."_pages/_post/to_facture.php"; ?>" method="post" id="to_facture" class="form-horizontal form-row-seperated">
+                <form action="" method="post" id="to_facture" class="form-horizontal form-row-seperated">
                     <div class="form-group">
                         <label class="control-label col-md-4">Date
                             <span class="required"> * </span>
@@ -213,7 +213,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerFacture" name="validerFacture" value="validerFacture">
+                        <button type="submit" class="btn green" id="validerFacture" name="validerFacture" value="facture">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -230,7 +230,7 @@ $retour = $_GET['soussoussouscat'];
                 <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en avoir</h4>
             </div>
             <div class="modal-body form">
-                <form action="<?php echo URLHOST."_pages/_post/to_avoir.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
+                <form action="" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
                     <div class="form-group">
                         <label class="control-label col-md-4">Date
                             <span class="required"> * </span>
@@ -251,7 +251,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerAvoir" name="validerAvoir" value="validerAvoir">
+                        <button type="submit" class="btn green" id="validerAvoir" name="validerAvoir" value="avoir">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -268,7 +268,7 @@ $retour = $_GET['soussoussouscat'];
                 <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en devis</h4>
             </div>
             <div class="modal-body form">
-                <form action="<?php echo URLHOST."_pages/_post/to_devis.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
+                <form action="" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
                     <div class="form-group">
                         <label class="control-label col-md-4">Date
                             <span class="required"> * </span>
@@ -289,7 +289,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerDevis" name="validerDevis" value="validerDevis">
+                        <button type="submit" class="btn green" id="validerDevis" name="validerDevis" value="devis">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -335,5 +335,6 @@ $('#multiSelection :checkbox').change(function() {
         $('#select-all').removeAttr('checked');
     }
 });
+
 
 </script>

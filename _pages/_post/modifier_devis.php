@@ -66,9 +66,7 @@ $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->update($quotation);
 
-
 $descriptions= array();
-echo $_POST["description"][1];
 
 print_r($_POST["description"]);
 
