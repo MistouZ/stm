@@ -70,15 +70,38 @@ $descriptions= array();
 
 //print_r($_POST["description"]);
 $i=1;
-echo key($_POST["description"]);
-foreach(array_values($_POST["description"]) as $postDescription){
+//echo key($_POST["description"]);
 
-    echo $postDescription;
-    echo key($postDescription);
-/*while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
+while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
     echo key($_POST["description"]).'<br />';
-    next($_POST["description"]);*/
+    echo array_values($_POST["description"]);
+    /*if(strlen(trim(array_values($_POST["description"])))>0){
+        if(empty($_POST["remise"][$i])){
+            $remise = 0;
+        }else{
+            $remise = $_POST["remise"][$i];
+        }
+        if(empty($_POST["quantite"][$i])){
+            $qt = 1;
+        }else{
+            $qt = $_POST["quantite"][$i];
+        }
+        $price = $_POST["prix"][$i];
+        $tax = $_POST["taxe"][$i];
+        $dataDescription= array(
+            'description' => $postDescription,
+            'quantity' => $qt,
+            'discount' => $remise,
+            'price' => $price,
+            'tax' => $tax
+        );
+
+        $description = new Description($dataDescription);
+        $descriptions[$i] = $description;
+    }
+    */
+    next($_POST["description"]);
 }
 
 
@@ -86,7 +109,6 @@ foreach(array_values($_POST["description"]) as $postDescription){
 
 /*$i=1;
 foreach($_POST["description"] as $postDescription){
->>>>>>> 4f27e69bd3cb9b402f2a45cbcb2a94b125ac54f9
     echo key($_POST["description"]);
 
     if(strlen(trim($postDescription))>0){
