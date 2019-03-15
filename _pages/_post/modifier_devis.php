@@ -68,7 +68,7 @@ $test = $quotationmanager->update($quotation);
 
 $descriptions= array();
 
-print_r($_POST["description"]);
+//print_r($_POST["description"]);
 $i=1;
 foreach($_POST["description"] as $postDescription){
     if(strlen(trim($postDescription))>0){
@@ -95,7 +95,7 @@ foreach($_POST["description"] as $postDescription){
     }
     $i++;
 }
-echo "count : ".count($descriptions);
+//echo "count : ".count($descriptions);
 //print_r($descriptions);
 
 $test = $descriptionmanager->update($descriptions,$idQuotation);
