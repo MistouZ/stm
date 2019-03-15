@@ -71,6 +71,8 @@ function calculMontantTotalTTC(Description $description){
     $montantLigne = $montantLigne-$remise;
     $montantLigne = $montantLigne+$taxe;
     $montant = $montant+$montantLigne;
+    
+    return $montant;
 }
 
 ?>
