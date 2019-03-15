@@ -340,6 +340,8 @@ function submitDate(selected){
     alert(inputSelected);
     $("#date").val(inputSelected);
     alert($("#date").val());
+    $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
+    $('#multiSelection').submit();
 }
 
 </script>
