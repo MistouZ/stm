@@ -96,7 +96,7 @@ for($i=1;$i<=count($_POST["description"]);$i++)
     }
 }
 echo "count : ".count($_POST["description"]);
-//print_r($descriptions);
+print_r($descriptions);
 
 /*$test = $descriptionmanager->update($descriptions,$idQuotation);
 if(is_null($test))
