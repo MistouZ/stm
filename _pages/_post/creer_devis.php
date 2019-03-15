@@ -67,25 +67,26 @@ else{
     echo "erreur j'ai rien créé";
 }
 
+//Ajout des lignes du devis
 $descriptions= array();
 
 $i=1;
-while(($postDescription = current($_POST["description"])) !== FALSE ){
+while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
-    $j = key($_POST["description"]);
+    $j = key($_POST["descriptionDevis"]);
     if(strlen(trim($postDescription))>0){
-        if(empty($_POST["remise"][$j])){
+        if(empty($_POST["remiseDevis"][$j])){
             $remise = 0;
         }else{
-            $remise = $_POST["remise"][$j];
+            $remise = $_POST["remiseDevis"][$j];
         }
-        if(empty($_POST["quantite"][$j])){
+        if(empty($_POST["quantiteDevis"][$j])){
             $qt = 1;
         }else{
-            $qt = $_POST["quantite"][$j];
+            $qt = $_POST["quantiteDevis"][$j];
         }
-        $price = $_POST["prix"][$j];
-        $tax = $_POST["taxe"][$j];
+        $price = $_POST["prixDevis"][$j];
+        $tax = $_POST["taxeDevis"][$j];
         $dataDescription= array(
             'description' => $postDescription,
             'quantity' => $qt,
@@ -98,7 +99,7 @@ while(($postDescription = current($_POST["description"])) !== FALSE ){
         $descriptions[$i] = $description;
     }
     $i++;
-    next($_POST["description"]);
+    next($_POST["descriptionDevis"]);
 }
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
