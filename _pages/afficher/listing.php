@@ -175,7 +175,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerProforma" name="validerProforma" value="proforma" onclick="submitDate(proforma);">
+                        <button type="submit" class="btn green" id="validerProforma" name="validerProforma" value="proforma" onclick="submitDate(proforma);return false;">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -212,7 +212,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerFacture" name="validerFacture" value="facture" onclick="submitDate(facture);">
+                        <button type="submit" class="btn green" id="validerFacture" name="validerFacture" value="facture" onclick="submitDate(facture);return false;">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -250,7 +250,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerAvoir" name="validerAvoir" value="avoir" onclick="submitDate(avoir);">
+                        <button type="submit" class="btn green" id="validerAvoir" name="validerAvoir" value="avoir" onclick="submitDate(avoir);return false;">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
@@ -288,7 +288,7 @@ $retour = $_GET['soussoussouscat'];
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="modal-footer">
                         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                        <button type="submit" class="btn green" id="validerDevis" name="validerDevis" value="devis" onclick="submitDate(devis);">
+                        <button type="submit" class="btn green" id="validerDevis" name="validerDevis" value="devis" onclick="submitDate(devis);return false;">
                             <i class="fa fa-check"></i> Valider</button>
                     </div>
                 </form>
