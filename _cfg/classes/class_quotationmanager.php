@@ -131,6 +131,25 @@ class QuotationManager
         }
     }
 
+    /**
+     * Find a Quotation by his iD
+     * @param $folderId
+     * @return quotation
+     */
+    public function getByFolderId($folderId)
+    {
+        try{
+            $quotationNumber = (string) $quotationNumber;
+            $q = $this->_db->query("SELECT * FROM `quotation` WHERE folderId = '$folderId'");
+            $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+            return new Quotation($donnees);
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
 
     /**
      * Get all the quotation in the BDD for the selected company
