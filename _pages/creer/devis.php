@@ -23,6 +23,8 @@ $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
+$supplier = new Suppliers($array);
+$suppliermanager = new SuppliersManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
@@ -227,9 +229,124 @@ $taxmanager = new TaxManager($bdd);
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body" style="display: none;">
-                                        <h5 style="font-weight: 800;">Société : </h5>
-                                        <h5 style="font-weight: 800;">Comercial : </h5>
+                                    <div class="portlet-body form" style="display: block;">
+                                        <div id="ligneOption1" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                            <div class="col-md-12" style="display: flex; align-items: center;">
+                                                <div class="col-md-6">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Description</label>
+                                                        <textarea class="form-control" id="descriptionOption1" name="descriptionOption[1]" rows="4"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Quantité</label>
+                                                        <input type="digits" id="quantiteOption" name="quantiteOption[1]" class="form-control" placeholder="Qt.">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Remise (%)</label>
+                                                        <input type="digits" id="remiseOption" name="remiseOption[1]" class="form-control" placeholder="xx">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Taxes</label>
+                                                        <select id="taxeOption1" class="taxe form-control" name="taxeOption[1]">
+                                                            <option value="">Sélectionnez ...</option>
+                                                            <?php
+                                                            /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                            foreach ($taxmanager as $tax){
+                                                               ?>
+                                                                <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
+                                                                <?php
+                                                            }*/
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Prix HT</label>
+                                                        <input type="digits" id="prixOption1" name="prixOption[1]" class="form-control" placeholder="HT">
+                                                    </div>
+                                                </div>
+                                                <div id="divsupprOption1" style="text-align: right;" class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <button type="button" title="Supprimer la ligne" id="supprOption1" class="btn red" onclick="supprLigneOption(1);"><i class="fas fa-minus-square"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions fluid">
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="button" id="ajoutOption" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" id="coutdevis" style="display: none;">
+                            <div class="col-md-12">
+                                <div class="portlet box grey-cascade" style="margin-bottom: 0px !important;">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fas fa-sliders-h"></i>
+                                            <span class="caption-subject bold uppercase"> Coûts liés au devis </span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="" class="expand" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form" style="display: block;">
+                                        <div id="ligneOption1" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                            <div class="col-md-12" style="display: flex; align-items: center;">
+                                                <div class="col-md-4">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Fournisseur</label>
+                                                        <select id="fournisseur1" class="form-control" name="fournisseur[1]">
+                                                            <option value="">Sélectionnez ...</option>
+                                                            <?php
+                                                            $suppliermanager = $suppliermanager->getListAllByCompany($_GET['section']);
+                                                            foreach ($suppliermanager as $supplier){
+                                                               ?>
+                                                                <option value="<?php echo $supplier->getIdSupplier(); ?>"><?php echo $supplier->getName(); ?></option>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Description</label>
+                                                        <textarea class="form-control" id="descriptionOption1" name="descriptionOption[1]" rows="4"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Prix HT</label>
+                                                        <input type="digits" id="prixOption1" name="prixOption[1]" class="form-control" placeholder="HT">
+                                                    </div>
+                                                </div>
+                                                <div id="divsupprOption1" style="text-align: right;" class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <button type="button" title="Supprimer la ligne" id="supprOption1" class="btn red" onclick="supprLigneOption(1);"><i class="fas fa-minus-square"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions fluid">
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="button" id="ajoutOption" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -295,6 +412,26 @@ $(document).ready(function() {
                         monSelectB[k].appendChild(opt);
                       }
                   }
+                  var monSelectC = document.getElementsByClassName("taxeOption");
+                  //on efface tous les children options
+                  for(var k=0; k<monSelectC.length; k++){
+                      while (monSelectC[k].firstChild) {
+                        console.log("option : "+monSelectC[k]);
+                        monSelectC[k].removeChild(monSelectC[k].firstChild);
+                      }
+                      //on rajoute les nouveaux children options
+                      var opt = document.createElement("option");
+                        opt.value = "";
+                        opt.innerHTML = "Sélectionnez ..."; 
+                        monSelectC[k].appendChild(opt);
+                        
+                      for(var i in response['taxes']){
+                        opt = document.createElement("option");
+                        opt.value = response.taxes[i].valeur;
+                        opt.innerHTML = response.taxes[i].nom; 
+                        monSelectC[k].appendChild(opt);
+                      }
+                  }
     	  },
           error: function (jqXHR, exception) {
             var msg = '';
@@ -351,18 +488,86 @@ $(document).ready(function() {
         });
       });
     
+    });
+    $('#ajoutOption').click(function(){
+    
+      // get the last DIV which ID starts with ^= "klon"
+      var $div = $('div[id^="ligneOption"]:last').data( "arr", [ 1 ] );
+      var $textarea = $('textarea[id^="descriptionOption"]:last').data( "txt", [ 1 ] );
+      // Read the Number from that DIV's ID (i.e: 3 from "klon3")
+      // And increment that number by 1
+      var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+      
+      // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
+      var $klon = $div.clone(true).find(".help-block-error").text("").end().find(".has-error").removeClass("has-error").end().find("input,textarea").val("").end().find('textarea[id^="descriptionOption"]:last').prop('id', 'descriptionOption'+num ).end().find('textarea[name^="descriptionOption"]:last').prop('name', 'descriptionOption['+num+']' ).end().find('input[name^="quantiteOption"]:last').prop('name', 'quantiteOption['+num+']' ).end().find('input[name^="remiseOption"]:last').prop('name', 'remiseOption['+num+']' ).end().find('select[name^="taxeOption"]:last').prop('name', 'taxeOption['+num+']' ).end().find('select[id^="taxeOption"]:last').prop('id', 'taxeOption'+num ).end().find('input[name^="prixOption"]:last').prop('name', 'prixOption['+num+']' ).end().find('input[id^="prixOption"]:last').prop('id', 'prixOption'+num ).end().find('button[id^="supprOption"]:last').prop('id', 'supprOption'+num ).end().find('button[id^="supprOption"]:last').attr('onclick', 'supprLigneOption('+num+')' ).end().find('div[id^="divsupprOption"]:last').prop('id', 'divsupprOption'+num ).end().find('div[id="divsupprOption'+num+'"]').css('display','' ).end().find('div[id="divsupprOption'+num+'"]').css('display','block' ).end().prop('id', 'ligneOption'+num );
+      
+      // Finally insert $klon wherever you want
+      $("div[id*='divsupprOption']").css('display','' );
+      $("div[id*='divsupprOption']").css('display','block' );
+      $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
+      
+      $("#descriptionOption"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
+      $("#taxeOption"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
+      $("#prixOption"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
+    
+    });
+    $('#ajoutCout').click(function(){
+    
+      // get the last DIV which ID starts with ^= "klon"
+      var $div = $('div[id^="ligneCout"]:last').data( "arr", [ 1 ] );
+      var $textarea = $('textarea[id^="descriptionCout"]:last').data( "txt", [ 1 ] );
+      // Read the Number from that DIV's ID (i.e: 3 from "klon3")
+      // And increment that number by 1
+      var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
+      
+      // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
+      var $klon = $div.clone(true).find(".help-block-error").text("").end().find(".has-error").removeClass("has-error").end().find("input,textarea").val("").end().find('textarea[id^="descriptionCout"]:last').prop('id', 'descriptionCout'+num ).end().find('textarea[name^="descriptionCout"]:last').prop('name', 'descriptionCout['+num+']' ).end().find('input[name^="quantiteCout"]:last').prop('name', 'quantiteCout['+num+']' ).end().find('input[name^="remiseCout"]:last').prop('name', 'remiseCout['+num+']' ).end().find('select[name^="taxeCout"]:last').prop('name', 'taxeCout['+num+']' ).end().find('select[id^="taxeCout"]:last').prop('id', 'taxeCout'+num ).end().find('input[name^="prixCout"]:last').prop('name', 'prixCout['+num+']' ).end().find('input[id^="prixCout"]:last').prop('id', 'prixCout'+num ).end().find('button[id^="supprCout"]:last').prop('id', 'supprCout'+num ).end().find('button[id^="supprCout"]:last').attr('onclick', 'supprLigneCout('+num+')' ).end().find('div[id^="divsupprCout"]:last').prop('id', 'divsupprCout'+num ).end().find('div[id="divsupprCout'+num+'"]').css('display','' ).end().find('div[id="divsupprCout'+num+'"]').css('display','block' ).end().prop('id', 'ligneCout'+num );
+      
+      // Finally insert $klon wherever you want
+      $("div[id*='divsupprCout']").css('display','' );
+      $("div[id*='divsupprCout']").css('display','block' );
+      $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
+      
+      $("#descriptionCout"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
+      $("#taxeCout"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
+      $("#prixCout"+num).each(function(){
+        $(this).rules("add", {
+            required: true
+        });
+      });
+    
     });  
 
 });
 function supprLigne(selected){
-        var nbDiv = $("div[class*='ligne']").length;
-        var selectedDiv = $("div[id='ligne"+selected+"']");
-        if(nbDiv>1){
-            selectedDiv.remove();
-        }else{
-            selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','' ).end();
-            selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','none' ).end();
-            alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
-        }
+    var nbDiv = $("div[class*='ligne']").length;
+    var selectedDiv = $("div[id='ligne"+selected+"']");
+    if(nbDiv>1){
+        selectedDiv.remove();
+    }else{
+        selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','' ).end();
+        selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','none' ).end();
+        alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
     }
+}
 </script>

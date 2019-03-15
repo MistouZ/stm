@@ -170,7 +170,7 @@ $retour = $_GET['soussoussouscat'];
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en proforma</h4>
+                <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span style="font-style: italic; font-weight: 800;">en proforma</span></h4>
             </div>
             <div class="modal-body form">
                 <form action="" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
@@ -207,7 +207,7 @@ $retour = $_GET['soussoussouscat'];
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en facture</h4>
+                <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span style="font-style: italic; font-weight: 800;">en facture</span></h4>
             </div>
             <div class="modal-body form">
                 <form action="" method="post" id="to_facture" class="form-horizontal form-row-seperated">
@@ -245,7 +245,7 @@ $retour = $_GET['soussoussouscat'];
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en avoir</h4>
+                <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span style="font-style: italic; font-weight: 800;">en avoir</span></h4>
             </div>
             <div class="modal-body form">
                 <form action="" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
@@ -283,7 +283,7 @@ $retour = $_GET['soussoussouscat'];
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en devis</h4>
+                <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span style="font-style: italic; font-weight: 800;">en devis</span></h4>
             </div>
             <div class="modal-body form">
                 <form action="" method="post" id="to_devis" class="form-horizontal form-row-seperated">
