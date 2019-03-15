@@ -303,7 +303,7 @@ $taxmanager = new TaxManager($bdd);
                                         </div>
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
-                                        <div id="ligneOption1" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                        <div id="ligneCout1" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-4">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
@@ -324,18 +324,18 @@ $taxmanager = new TaxManager($bdd);
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="form-control" id="descriptionOption1" name="descriptionOption[1]" rows="4"></textarea>
+                                                        <textarea class="form-control" id="descriptionCout1" name="descriptionCout[1]" rows="4"></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
-                                                        <input type="digits" id="prixOption1" name="prixOption[1]" class="form-control" placeholder="HT">
+                                                        <input type="digits" id="prixCout1" name="prixCout[1]" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
-                                                <div id="divsupprOption1" style="text-align: right;" class="col-md-1">
+                                                <div id="divsupprCout1" style="text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                        <button type="button" title="Supprimer la ligne" id="supprOption1" class="btn red" onclick="supprLigneOption(1);"><i class="fas fa-minus-square"></i></button>
+                                                        <button type="button" title="Supprimer la ligne" id="supprCout1" class="btn red" onclick="supprLigneCout(1);"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -343,7 +343,7 @@ $taxmanager = new TaxManager($bdd);
                                         <div class="form-actions fluid">
                                             <div class="row">
                                                 <div class="col-md-12" style="text-align: center;">
-                                                    <button type="button" id="ajoutOption" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
+                                                    <button type="button" id="ajoutCout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -569,6 +569,28 @@ function supprLigne(selected){
     }else{
         selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','' ).end();
         selectedDiv.find('div[id="divsuppr'+selected+'"]').css('display','none' ).end();
+        alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
+    }
+}
+function supprLigneOption(selected){
+    var nbDiv = $("div[class*='ligneOption']").length;
+    var selectedDiv = $("div[id='ligneOption"+selected+"']");
+    if(nbDiv>1){
+        selectedDiv.remove();
+    }else{
+        selectedDiv.find('div[id="divsupprOption'+selected+'"]').css('display','' ).end();
+        selectedDiv.find('div[id="divsupprOption'+selected+'"]').css('display','none' ).end();
+        alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
+    }
+}
+function supprLigneCout(selected){
+    var nbDiv = $("div[class*='ligneCout']").length;
+    var selectedDiv = $("div[id='ligneCout"+selected+"']");
+    if(nbDiv>1){
+        selectedDiv.remove();
+    }else{
+        selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','' ).end();
+        selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','none' ).end();
         alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
     }
 }
