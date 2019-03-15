@@ -73,7 +73,8 @@ $i=1;
 echo key($_POST["description"]);
 foreach(array_values($_POST["description"]) as $postDescription){
 
-echo $postDescription;
+    echo $postDescription;
+    echo key($postDescription);
 /*while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
     echo key($_POST["description"]).'<br />';
