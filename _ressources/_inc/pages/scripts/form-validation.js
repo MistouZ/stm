@@ -948,7 +948,7 @@ var FormValidation = function () {
                 invalidHandler: function (event, validator) { //display error alert on form submit   
                     success10.hide();
                     error10.show();
-                    App.scrollTo(error10, 0);
+                    App.scrollTo(error10, -200);
                 },
 
                 highlight: function (element) { // hightlight error inputs
