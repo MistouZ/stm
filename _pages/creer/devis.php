@@ -292,7 +292,7 @@ $taxmanager = new TaxManager($bdd);
                         </div>
                         <div class="row" id="coutdevis" style="display: none;">
                             <div class="col-md-12">
-                                <div class="portlet box purple-sharp" style="margin-bottom: 0px !important;">
+                                <div class="portlet box red-flamingo" style="margin-bottom: 0px !important;">
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fas fa-hand-holding-usd"></i>
