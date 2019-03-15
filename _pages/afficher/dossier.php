@@ -175,16 +175,20 @@ switch($type){
                                 $montant = calculMontantTotalTTC($description);
                             }
                             if($quotation->getType() == "D") {
+                                $type = "devis";
+                                if($quotation->getStatus() == "En cours"){
+                                    $type2 = "cours";
+                                }
                             ?>
                             <tr>
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo number_format($montant, 0, ",", " "); ?> XPF</td>
                                 <td><a class="btn green-meadow"
-                                       href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/afficher/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                       href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
                                                 class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                                 <td><a class="btn blue-steel"
-                                       href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/modifier/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                       href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
                                                 class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                 <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
                                        data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
@@ -236,23 +240,27 @@ switch($type){
                                 $montant = calculMontantTotalTTC($description);
                             }
                             if($quotation->getType() == "P") {
+                                $type = "proforma";
+                                if($quotation->getStatus() == "En cours"){
+                                    $type2 = "cours";
+                                }
                                 ?>
                                 <tr>
                                     <td><?php echo $date; ?></td>
                                     <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                     <td><?php echo number_format($montant, 0, ",", " "); ?> XPF</td>
                                     <td><a class="btn green-meadow"
-                                           href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/afficher/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                           href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                                     <td><a class="btn blue-steel"
-                                           href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/modifier/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                           href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
                                            data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
                                            data-content="ATTENTION ! La suppression est irréversible !"
                                            data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
                                            data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
-                                           data-href="<?php echo URLHOST . '_pages/_post/supprimer_devis.php?idQuotation=' . $quotation->getIdQuotation() . '&quotationNumber=' . $quotation->getQuotationNumber(); ?>"><i
+                                           data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                                 </tr>
                                 <?php
@@ -297,23 +305,27 @@ switch($type){
                                 $montant = calculMontantTotalTTC($description);
                             }
                             if($quotation->getType() == "F") {
+                                $type = "facture";
+                                if($quotation->getStatus() == "En cours"){
+                                    $type2 = "cours";
+                                }
                                 ?>
                                 <tr>
                                     <td><?php echo $date; ?></td>
                                     <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                     <td><?php echo number_format($montant, 0, ",", " "); ?> XPF</td>
                                     <td><a class="btn green-meadow"
-                                           href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/afficher/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                           href="<?php echo URLHOST . $_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'. $quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                                     <td><a class="btn blue-steel"
-                                           href="<?php echo URLHOST . $_COOKIE['company'] . '/' . $type . '/modifier/' . $type2 . '/' . $quotation->getQuotationNumber(); ?>"><i
+                                           href="<?php echo URLHOST . $_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'. $quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
                                            data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
                                            data-content="ATTENTION ! La suppression est irréversible !"
                                            data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
                                            data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
-                                           data-href="<?php echo URLHOST . '_pages/_post/supprimer_devis.php?idQuotation=' . $quotation->getIdQuotation() . '&quotationNumber=' . $quotation->getQuotationNumber(); ?>"><i
+                                           data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                                 </tr>
                                 <?php
