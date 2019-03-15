@@ -100,7 +100,7 @@ foreach($_POST["description"] as $postDescription){
     $i++;
 }
 //echo "count : ".count($descriptions);
-//print_r($descriptions);
+print_r($descriptions);
 
 //$test = $descriptionmanager->update($descriptions,$idQuotation);
 /*if(is_null($test))
