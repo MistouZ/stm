@@ -223,6 +223,7 @@ if(isset($_GET['cat5'])){
                                             $montantLigne = $montantLigne-$remise;
                                             $taxe = $montantLigne*$description->getTax();
                                             $tax = $taxmanager->getByPercent($description->getTax()*100);
+                                            
                                             //Calcul du détail des taxes pour l'affichage par tranche détaillée
                                             if(isset($arrayTaxesKey[$description->getTax()])){
                                                 $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
@@ -230,9 +231,9 @@ if(isset($_GET['cat5'])){
                                                 $arrayTaxesKey[$description->getTax()]['Taxe']=$tax->getName();
                                                 $arrayTaxesKey[$description->getTax()]['Montant']=$taxe;
                                             }
+                                            
                                             $totalTaxe = $totalTaxe+$taxe;
                                             $montantHT = $montantHT+$montantLigne;
-                                            //$montantLigne = $montantLigne+$taxe;
                                             $montant = $montant+$montantLigne+$taxe;
                                         ?>
                                         <tr>
