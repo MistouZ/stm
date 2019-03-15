@@ -71,7 +71,7 @@ $descriptions= array();
 //print_r($_POST["description"]);
 $i=1;
 foreach($_POST["description"] as $postDescription){
-    echo key($_POST["description"]);
+    echo key($postDescription);
 
     if(strlen(trim($postDescription))>0){
         if(empty($_POST["remise"][$i])){
