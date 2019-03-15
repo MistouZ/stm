@@ -117,7 +117,7 @@ if(isset($_GET['cat5'])){
                 </div>
             </div>
         </div>
-        <!--<div class="row">
+        <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
@@ -396,7 +396,6 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
-        </div>-->
+        </div>
     </div>
 </div>
-*/?>
