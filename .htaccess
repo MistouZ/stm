@@ -5,6 +5,7 @@ AuthType Basic
 AuthUserFile "/var/www/vhosts/bitwin.nc/dev.bitwin.nc/.htpasswd"
 Require valid-user
 #Options +FollowSymlinks
+Options -Multiviews
 
 RewriteEngine On
 RewriteCond %{HTTPS} on
