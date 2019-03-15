@@ -142,7 +142,7 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
+                    <i class="fa fa-globe"></i>Liste des Devis  </div>
                 <div class="actions">
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer un devis</a>
@@ -157,9 +157,6 @@ switch($type){
                             <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro de devis</th>
-                            <th class="min-tablet">Client</th>
-                            <th class="desktop">Dossier</th>
-                            <th class="desktop">Libellé</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
@@ -185,9 +182,6 @@ switch($type){
                                 <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
-                                <td><?php echo $customer->getName(); ?></td>
-                                <td><?php echo $folder->getFolderNumber(); ?></td>
-                                <td><?php echo $folder->getLabel(); ?></td>
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                                 <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
