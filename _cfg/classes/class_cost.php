@@ -13,7 +13,7 @@ class Cost
     private $value;
     private $quotationNumber;
     private $folderId;
-    private $providerId;
+    private $supplierId;
 
     /**
      * Cost constructor.
@@ -112,20 +112,17 @@ class Cost
     /**
      * @return mixed
      */
-    public function getProviderId()
+    public function getSupplierId()
     {
-        return $this->providerId;
+        return $this->supplierId;
     }
 
     /**
-     * @param mixed $providerId
+     * @param mixed $supplierId
      */
-    public function setProviderId($providerId): void
+    public function setSupplierId($supplierId): void
     {
-        $this->providerId = $providerId;
+        $this->supplierId = $supplierId;
     }
-
-
-
 
 }
