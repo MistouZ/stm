@@ -121,6 +121,29 @@ class CostManager
             return null;
         }
     }
+    /**
+     * Find a Cost by his iD
+     * @param $supplierId
+     * @return cost
+     */
+    public function getBySupplierId($supplierId)
+    {
+        $cost = array();
+        try{
+            $supplierId = (string) $supplierId;
+            $q = $this->_db->query("SELECT * FROM `cost` WHERE supplierId = '$supplierId'");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $cost[] = new Cost($donnees);
+            }
+
+            return $cost;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
 
 
     /**
