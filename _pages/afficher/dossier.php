@@ -350,7 +350,7 @@ switch($type){
                 </form>
             </div>
         </div>
-        <div class="portlet box green">
+        <div class="portlet box green" style="display: none;">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des Avoirs
