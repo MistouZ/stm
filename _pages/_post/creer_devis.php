@@ -13,6 +13,7 @@ $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $descriptionmanager = new DescriptionManager($bdd);
+$costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
@@ -160,6 +161,8 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
     $i++;
     next($_POST["descriptionCout"]);
 }
+
+$test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
 
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
