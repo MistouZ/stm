@@ -11,9 +11,9 @@ class Cost
     private $idCost;
     private $description;
     private $value;
-    private $quotation_id;
-    private $folder_id;
-    private $provider_id;
+    private $quotationNumber;
+    private $folderId;
+    private $providerId;
 
     /**
      * Cost constructor.
@@ -79,35 +79,34 @@ class Cost
     /**
      * @return mixed
      */
-    public function getQuotationId()
+    public function getQuotationNumber()
     {
-        return $this->quotation_id;
+        return $this->quotationNumber;
     }
 
     /**
-     * @param mixed $quotation_id
+     * @param mixed $quotationNumber
      */
-    public function setQuotationId($quotation_id)
+    public function setQuotationNumber($quotationNumber): void
     {
-        $quotation_id = (int) $quotation_id;
-        $this->quotation_id = $quotation_id;
+        $this->quotationNumber = $quotationNumber;
     }
+
 
     /**
      * @return mixed
      */
     public function getFolderId()
     {
-        return $this->folder_id;
+        return $this->folderId;
     }
 
     /**
-     * @param mixed $folder_id
+     * @param mixed $folderId
      */
-    public function setFolderId($folder_id)
+    public function setFolderId($folderId): void
     {
-        $folder_id = (int) $folder_id;
-        $this->folder_id = $folder_id;
+        $this->folderId = $folderId;
     }
 
     /**
@@ -115,17 +114,18 @@ class Cost
      */
     public function getProviderId()
     {
-        return $this->provider_id;
+        return $this->providerId;
     }
 
     /**
-     * @param mixed $provider_id
+     * @param mixed $providerId
      */
-    public function setProviderId($provider_id)
+    public function setProviderId($providerId): void
     {
-        $provider_id = (int) $provider_id;
-        $this->provider_id = $provider_id;
+        $this->providerId = $providerId;
     }
+
+
 
 
 }
