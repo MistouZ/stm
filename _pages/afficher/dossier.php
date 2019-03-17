@@ -143,11 +143,6 @@ switch($type){
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des Devis  </div>
-                <!--<div class="actions">
-                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
-                        <i class="fa fa-plus"></i> Créer un devis</a>
-                    <?php echo $buttons; ?>
-                </div>-->
                 <div class="tools">
                     <a href="" class="expand" data-original-title="" title=""> </a>
                 </div>
