@@ -103,7 +103,45 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 }
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
-if(is_null($test))
+
+
+$i=1;
+while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
+
+    $j = key($_POST["descriptionOption"]);
+    if(strlen(trim($postDescriptionOption))>0){
+        if(empty($_POST["remiseOption"][$j])){
+            $remise = 0;
+        }else{
+            $remise = $_POST["remiseOption"][$j];
+        }
+        if(empty($_POST["quantiteOption"][$j])){
+            $qt = 1;
+        }else{
+            $qt = $_POST["quantiteOptions"][$j];
+        }
+        $price = $_POST["prixOption"][$j];
+        $tax = $_POST["taxeOptions"][$j];
+        $dataDescriptionOption= array(
+            'description' => $postDescription,
+            'quantity' => $qt,
+            'discount' => $remise,
+            'price' => $price,
+            'tax' => $tax
+        );
+
+        $descriptionOption = new Description($dataDescription);
+        $descriptionsOption[$i] = $descriptionOption;
+    }
+    $i++;
+    next($_POST["descriptionOption"]);
+}
+
+$test2 = $descriptionmanager->add($descriptionsOption,$quotationNumber);
+
+
+
+if(is_null($test) || is_null($test2) || is_null($test3))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
