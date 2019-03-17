@@ -215,7 +215,7 @@ switch($type){
                     <i class="fa fa-globe"></i>Liste des Proformas
                 </div>
                 <div class="tools">
-                    <a href="" class="collapse" data-original-title="" title=""> </a>
+                    <a href="" class="expand" data-original-title="" title=""> </a>
                 </div>
             </div>
             <div class="portlet-body">
