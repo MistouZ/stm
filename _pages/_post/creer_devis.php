@@ -123,7 +123,7 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
         $price = $_POST["prixOption"][$j];
         $tax = $_POST["taxeOptions"][$j];
         $dataDescriptionOption= array(
-            'description' => $postDescription,
+            'description' => $postDescriptionOption,
             'quantity' => $qt,
             'discount' => $remise,
             'price' => $price,
@@ -140,7 +140,26 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
 
 $test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
 
+$i=1;
+while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
+    $j = key($_POST["descriptionCout"]);
+    if(strlen(trim($postDescriptionCout))>0){
+
+        $price = $_POST["prixCout"][$j];
+        $supplier = $_POST["fournisseur"][$j];
+        $dataCost= array(
+            'description' => $postDescriptionCout,
+            'value' => $price,
+            'supplierId' => $supplier
+        );
+
+        $descriptionCout = new Cost($dataCost);
+        $descriptionsCout[$i] = $descriptionCout;
+    }
+    $i++;
+    next($_POST["descriptionCout"]);
+}
 
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
