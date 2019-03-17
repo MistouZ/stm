@@ -32,33 +32,25 @@ class CostManager
     }
 
 
-
     /**
-     * @param Quotation $quotation
-     * Insertion Quotation in the DB
+     * @param Cost $cost
+     * @param $quotationNumber
+     * @return string|null
      */
-    public function add(Cost $cost)
+    public function add(Cost $cost, $quotationNumber)
     {
 
         try{
-            $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, folderId,supplierId) VALUES (:quotationNumber, :status, :label, :year, :month, :day, :type, :comment, :companyId, :folderId, :customerId, :contactId)');
-            $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
-            $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
-            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
-            $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
-            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
-            $q->bindValue(':companyId', $quotation->getCompanyId(), PDO::PARAM_INT);
-            $q->bindValue(':folderId', $quotation->getFolderId(), PDO::PARAM_INT);
-            $q->bindValue(':customerId', $quotation->getCustomerId(), PDO::PARAM_INT);
-            $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
-
+            $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, folderId,supplierId) VALUES (:description, :value, :quotationNumber, :folderId, :supplierId)');
+            $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
+            $q->bindValue(':description', $cost->getDescription(), PDO::PARAM_STR);
+            $q->bindValue(':value', $cost->getValue(), PDO::PARAM_INT);
+            $q->bindValue(':folderId', $cost->getFolderId(), PDO::PARAM_INT);
+            $q->bindValue(':supplierId', $cost->getSupplierId(), PDO::PARAM_INT);
     
             $q->execute();
             
-            return $quotationNumber;
+            return "ok";
         }
         catch(Exception $e){
             return null;
@@ -67,14 +59,13 @@ class CostManager
     }
 
     /**
-     * @param QuotationID
-     * Disable quotation instead of delete it
+     * @param $quotationNumber
+     * @return string|null
      */
-    public function delete($idQuotation)
+    public function delete($quotationNumber)
     {
         try{
-            $idQuotation = (integer) $idQuotation;
-            $q = $this->_db->query("DELETE FROM quotation WHERE idQuotation='$idQuotation'");
+            $q = $this->_db->query("DELETE FROM cost WHERE quotationNumber='$quotationNumber'");
             $q->execute();
 
            return "ok";
@@ -85,59 +76,46 @@ class CostManager
     }
 
     /**
-     * Find a Quotation by his iD
-     * @param $idQuotation
-     * @return quotation
-     */
-    public function get($idQuotation)
-    {
-        try{
-            $idQuotation = (integer) $idQuotation;
-            $q = $this->_db->query('SELECT * FROM quotation WHERE $idQuotation ='.$idQuotation);
-            $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
-            return new Quotation($donnees);
-        }
-        catch(Exception $e){
-            return null;
-        }
-    }
-
-    /**
-     * Find a Quotation by his iD
+     * Find a Cost by his iD
      * @param $quotationNumber
-     * @return quotation
+     * @return cost
      */
     public function getByQuotationNumber($quotationNumber)
     {
+        $cost = array();
         try{
             $quotationNumber = (string) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber'");
-            $donnees = $q->fetch(PDO::FETCH_ASSOC);
+            $q = $this->_db->query("SELECT * FROM cost WHERE quotationNumber = '$quotationNumber'");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $cost[] =new Cost($donnees);
+            }
 
-            return new Quotation($donnees);
+            return $cost;
         }
         catch(Exception $e){
             return null;
         }
     }
 
+
     /**
-     * Find a Quotation by his iD
+     * Find a Cost by his iD
      * @param $folderId
-     * @return quotation
+     * @return cost
      */
     public function getByFolderId($folderId)
     {
+        $cost = array();
         try{
             $folderId = (string) $folderId;
-            $q = $this->_db->query("SELECT * FROM `quotation` WHERE folderId = '$folderId'");
+            $q = $this->_db->query("SELECT * FROM `cost` WHERE folderId = '$folderId'");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
-                $quotations[] = new Quotation($donnees);
+                $cost[] = new Cost($donnees);
             }
 
-            return $quotations;
+            return $cost;
         }
         catch(Exception $e){
             return null;
@@ -146,166 +124,20 @@ class CostManager
 
 
     /**
-     * Get all the quotation in the BDD for the selected company
-     * @return array
+     * @param array $cost
+     * @param $quotationNumber
+     * @return array|null
      */
-    public function getListQuotation($companyid)
-    {
-        $quotations = [];
-
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='D' ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
-        }
-
-        return $quotations;
-    }
-
-    /**
-     * Get all the proforma in the BDD for the selected company
-     * @return array
-     */
-    public function getListProforma($companyid)
-    {
-        $quotations = [];
-
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='P' ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
-        }
-
-        return $quotations;
-    }
-
-    /**
-     * Get all the invoice in the BDD for the selected company
-     * @return array
-     */
-    public function getListInvoice($companyid)
-    {
-        $quotations = [];
-
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='F' ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
-        }
-
-        return $quotations;
-    }
-    
-    /**
-     * Get all the invoice in the BDD for the selected company
-     * @return array
-     */
-    public function getListAsset($companyid)
-    {
-        $quotations = [];
-
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='A' ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
-        }
-
-        return $quotations;
-    }
-
-    /**
-     * Update quotation information
-     * @param quotation $quotation
-     */
-    public function update(Quotation $quotation)
+    public function update(array $cost, $quotationNumber)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET status = :status, label = :label, year = :year, month = :month, day = :day, type = :type, comment = :comment, companyId = :companyId, folderId = :folderId, customerId = :customerId, contactId = :contactId WHERE idQuotation= :idQuotation');
-            $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
-            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
-            $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
-            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
-            $q->bindValue(':companyId', $quotation->getCompanyId(), PDO::PARAM_INT);
-            $q->bindValue(':folderId', $quotation->getFolderId(), PDO::PARAM_INT);
-            $q->bindValue(':customerId', $quotation->getCustomerId(), PDO::PARAM_INT);
-            $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
-    
-            $q->execute();
-            return "ok";
-        }
-        catch(Exception $e){
-            return null;
-        }
-    }
-
-    public function changeType(Quotation $quotation)
-    {
-        try{
-            $q = $this->_db->prepare('UPDATE quotation SET type = :type, status = :status, year = :year, month = :month, day = :day WHERE idQuotation= :idQuotation');
-            $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
-            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
-            $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
-            $q->execute();
-            return "ok";
-        }
-        catch(Exception $e){
-            return null;
-        }
-    }
-
-    public function toInvoice(Quotation $quotation)
-    {
-        try{
-            $q = $this->_db->prepare('UPDATE quotation SET type = \'F\', year = :year,month = :month,day = :day,comment = :comment WHERE $idQuotation= :$idQuotation');
-            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
-            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
-            $q->execute();
-            return "ok";
-        }
-        catch(Exception $e){
-            return null;
-        }
-
-    }
-
-    public function toAsset(Quotation $quotation)
-    {
-        try{
-            $q = $this->_db->prepare('UPDATE quotation SET type = \'A\', year = :year,month = :month,day = :day,comment = :comment WHERE $idQuotation= :$idQuotation');
-            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
-            $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
-            $q->execute();
-            return "ok";
-        }
-        catch(Exception $e){
-            return null;
-        }
-
-    }
-    
-    public function changeDate(Quotation $quotation)
-    {
-        try{
-            $q = $this->_db->prepare('UPDATE quotation SET year = :year, month = :month, day = :day WHERE idQuotation= :idQuotation');
-            $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
-            $q->execute();
-            return "ok";
+            $test = $this->delete($quotationNumber);
+            if(!is_null($test))
+            {
+                echo "suppresion réussie ".$quotationNumber;
+            }
+            $this->add($cost,$quotationNumber);
+            return $cost;
         }
         catch(Exception $e){
             return null;
