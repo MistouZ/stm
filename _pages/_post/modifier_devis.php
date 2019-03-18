@@ -7,7 +7,7 @@
 
 include("../../_cfg/cfg.php");
 
-$idQuotation = $_POST['$quotationNumber'];
+$quotationNumber = $_POST['$quotationNumber'];
 $type2 = $_POST['type'];
 
 $array = array();
@@ -19,9 +19,9 @@ $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
 $contactId = $folder->getContactId();
-$quotationNumber = new Quotation($array);
-$quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
+$quotation = new Quotation($array);
+$quotationmanager = new QuotationManager($bdd);
+$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
 
 if(empty($_POST["label"]))
 {
@@ -47,7 +47,7 @@ $status = "En cours";
 $type = "D";
 
 $data = array(
-    'idQuotation' => $quotationNumber->getIdQuotation(),
+    'idQuotation' => $quotation->getIdQuotation(),
     'status' => $status,
     'label' => $label,
     'year' => $year,
@@ -66,7 +66,7 @@ $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->update($quotation);
 
-echo $idQuotation;
+print_r($quotation);
 
 $descriptions= array();
 /*
