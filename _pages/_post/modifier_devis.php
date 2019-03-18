@@ -24,8 +24,6 @@ $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
 
-print_r($quotationGet);
-
 if(empty($_POST["label"]))
 {
     $label = $folder->getLabel();
@@ -50,7 +48,7 @@ $status = "En cours";
 $type = "D";
 
 $data = array(
-    'idQuotation' => $quotation->getIdQuotation(),
+    'idQuotation' => $quotationGet->getIdQuotation(),
     'status' => $status,
     'label' => $label,
     'year' => $year,
