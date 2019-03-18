@@ -42,7 +42,6 @@ $foldermanager = $foldermanager->getListActive($idCompany);
 
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
 
-
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
@@ -363,7 +362,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     <?php
                                     $k = 1;
                                     print_r($costmanager);
-                                    /*foreach($costmanager as $cost){ ?>
+                                    foreach($costmanager as $cost){ ?>
                                     <div class="portlet-body form" style="display: none;">
                                         <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
@@ -376,7 +375,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                             $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
                                                             foreach ($suppliermanager as $supplier){
                                                                 ?>
-                                                                <option value="<?php echo $supplier->getIdSupplier(); ?>"><?php echo $supplier->getName(); ?></option>
+                                                                <option value="<?php echo $supplier->getIdSupplier(); ?>" <?php if($cost->getSupplierId()== $supplier->getIdSupplier()){echo "selected=\"selected\""; } ?> ><?php echo $supplier->getName(); ?></option>
                                                                 <?php
                                                             }
                                                             ?>
@@ -386,13 +385,13 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="form-control" id="descriptionCout<?php echo $k; ?>" name="descriptionCout[<?php echo $k; ?>]" rows="4"></textarea>
+                                                        <textarea class="form-control" id="descriptionCout<?php echo $k; ?>" name="descriptionCout[<?php echo $k; ?>]" rows="4"><?php echo $cost->getDescription(); ?></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
-                                                        <input type="digits" id="prixCout<?php echo $k; ?>" name="prixCout[<?php echo $k; ?>]" class="form-control" placeholder="HT">
+                                                        <input type="digits" id="prixCout<?php echo $k; ?>" name="prixCout[<?php echo $k; ?>]" value="<?php echo $cost->getValue(); ?>"class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
                                                 <div id="divsupprCout<?php echo $k; ?>" style="text-align: right;" class="col-md-1">
@@ -412,7 +411,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     </div>
                                     <?php
                                     $k++;
-                                    }*/
+                                    }
                                     ?>
                                 </div>
                             </div>
