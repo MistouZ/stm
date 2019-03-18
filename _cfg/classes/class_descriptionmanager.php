@@ -114,9 +114,11 @@ class DescriptionManager
     public function delete($quotationNumber)
     {
         try{
-            $delete=$this->_db->query("DELETE FROM `description` WHERE quotationNumber LIKE '$quotationNumber'%");
+            $query = "DELETE FROM `description` WHERE quotationNumber LIKE '$quotationNumber'%";
+            echo $query;
+            /*$delete=$this->_db->query("DELETE FROM `description` WHERE quotationNumber LIKE '$quotationNumber'%");
             $delete->execute();
-            return "ok";
+            return "ok";*/
         }
         catch(Exception $e){
             return null;
