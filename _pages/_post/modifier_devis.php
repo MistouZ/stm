@@ -65,7 +65,7 @@ $data = array(
 
 $quotation = new Quotation($data);
 $test = $quotationmanager->update($quotation);
-
+print_r($test);
 $descriptions= array();
 
 print_r($_POST["descriptionDevis"]);
