@@ -10,7 +10,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
-$idQuotation = $_GET['soussoussouscat'];
+$quotationNumber = $_GET['soussoussouscat'];
 $retour = $_GET['cat5'];
 
 $company = new Company($array);
@@ -34,7 +34,7 @@ $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
-$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+$quotation = $quotationmanager->getByQuotationNumber($quotationNumber);
 $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
 
@@ -425,7 +425,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" id="idQuotation" name="idQuotation" value="<?php echo $idQuotation; ?>">
+                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
