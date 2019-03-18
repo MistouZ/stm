@@ -250,7 +250,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 </div>
                                                 <div id="divsupprDevis<?php echo $i; ?>" style="text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                        <button type="button" title="Supprimer la ligne" id="suppr<?php echo $i; ?>" class="btn red" onclick="supprLigne(<?php echo $i; ?>);"><i class="fas fa-minus-square"></i></button>
+                                                        <button type="button" title="Supprimer la ligne" id="suppr<?php echo $i; ?>" class="btn red" onclick="supprLigneDevis(<?php echo $i; ?>);"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
