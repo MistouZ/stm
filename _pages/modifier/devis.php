@@ -229,7 +229,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select id="taxe<?php echo $i; ?>" class="taxe form-control" name="taxe[<?php echo $i; ?>]">
+                                                        <select id="taxeDevis<?php echo $i; ?>" class="taxe form-control" name="taxe[<?php echo $i; ?>]">
                                                             <option value="">Taxes</option>
                                                             <?php
 
@@ -248,7 +248,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                         <input type="digits" id="prix<?php echo $i; ?>" name="prix[<?php echo $i; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
-                                                <div id="divsuppr<?php echo $i; ?>" style="text-align: right;" class="col-md-1">
+                                                <div id="divsupprDevis<?php echo $i; ?>" style="text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <button type="button" title="Supprimer la ligne" id="suppr<?php echo $i; ?>" class="btn red" onclick="supprLigne(<?php echo $i; ?>);"><i class="fas fa-minus-square"></i></button>
                                                     </div>
