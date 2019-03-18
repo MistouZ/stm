@@ -307,11 +307,11 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                         <select id="taxeOption<?php echo $j; ?>" class="taxe form-control" name="taxeOption[<?php echo $j; ?>]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            /*foreach ($taxOption as $tax){
+                                                            foreach ($taxmanager as $tax){
                                                                 ?>
                                                                 <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
                                                                 <?php
-                                                            }*/
+                                                            }
                                                             ?>
                                                         </select>
                                                     </div>
