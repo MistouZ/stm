@@ -100,7 +100,7 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
     $i++;
     next($_POST["description"]);
 }
-
+print_r($descriptions);
 $test = $descriptionmanager->update($descriptions,$quotationNumber);
 echo $test;
 /*
