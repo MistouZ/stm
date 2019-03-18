@@ -145,12 +145,14 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
-    echo $postDescriptionCout;
     $j = key($_POST["descriptionCout"]);
+    echo $j;
     if(strlen(trim($postDescriptionCout))>0){
 
         $price = $_POST["prixCout"][$j];
+        echo $price;
         $supplier = $_POST["fournisseur"][$j];
+        echo $supplier;
         $dataCost= array(
             'description' => $postDescriptionCout,
             'value' => $price,
