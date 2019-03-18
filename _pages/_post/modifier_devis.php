@@ -102,7 +102,7 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
     next($_POST["descriptionDevis"]);
 }
 
-$test = $descriptionmanager->update($descriptions,$idQuotation);
+//$test = $descriptionmanager->update($descriptions,$idQuotation);
 print_r($descriptions);
 /*
 $i=1;
