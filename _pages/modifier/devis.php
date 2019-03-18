@@ -365,7 +365,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     $k = 1;
                                     print_r($costmanager);
                                     foreach($costmanager as $cost){ ?>
-                                    <div class="portlet-body form" style="display: none;">
+                                    <div class="portlet-body form" >
                                         <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-4">
