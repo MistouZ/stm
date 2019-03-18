@@ -68,6 +68,8 @@ $test = $quotationmanager->update($quotation);
 
 $descriptions= array();
 
+print_r($_POST["descriptionDevis"]);
+/*
 $i=1;
 while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
