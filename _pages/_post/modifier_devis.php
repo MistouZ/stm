@@ -15,6 +15,7 @@ $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $descriptionmanager = new DescriptionManager($bdd);
+$costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
@@ -101,7 +102,6 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
 $test = $descriptionmanager->update($descriptions,$quotationNumber);
 
-
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
 
@@ -135,7 +135,6 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
 }
 $quotationNumberOption = $quotationNumber.'_option';
 $test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
-echo "test2 ".$test2;
 
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
