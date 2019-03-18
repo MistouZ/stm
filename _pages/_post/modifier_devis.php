@@ -9,7 +9,8 @@ include("../../_cfg/cfg.php");
 
 $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
-echo $quotationNumber;
+
+
 $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
@@ -23,7 +24,7 @@ $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
 
-
+echo $quotationNumber;
 
 if(empty($_POST["label"]))
 {
