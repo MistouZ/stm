@@ -37,19 +37,23 @@ class CostManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function add(Cost $cost, $quotationNumber)
+    public function add(array $costs, $quotationNumber)
     {
 
         try{
-            $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, folderId,supplierId) VALUES (:description, :value, :quotationNumber, :folderId, :supplierId)');
-            $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
-            $q->bindValue(':description', $cost->getDescription(), PDO::PARAM_STR);
-            $q->bindValue(':value', $cost->getValue(), PDO::PARAM_INT);
-            $q->bindValue(':folderId', $cost->getFolderId(), PDO::PARAM_INT);
-            $q->bindValue(':supplierId', $cost->getSupplierId(), PDO::PARAM_INT);
-    
-            $q->execute();
-            
+            $array = array();
+            $cost = new Cost($array);
+            foreach ($costs as $cost)
+            {
+                $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, folderId,supplierId) VALUES (:description, :value, :quotationNumber, :folderId, :supplierId)');
+                $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
+                $q->bindValue(':description', $cost->getDescription(), PDO::PARAM_STR);
+                $q->bindValue(':value', $cost->getValue(), PDO::PARAM_INT);
+                $q->bindValue(':folderId', $cost->getFolderId(), PDO::PARAM_INT);
+                $q->bindValue(':supplierId', $cost->getSupplierId(), PDO::PARAM_INT);
+
+                $q->execute();
+            }
             return "ok";
         }
         catch(Exception $e){
