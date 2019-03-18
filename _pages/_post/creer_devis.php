@@ -103,7 +103,7 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
     next($_POST["descriptionDevis"]);
 }
 
-//$test = $descriptionmanager->add($descriptions,$quotationNumber);
+$test = $descriptionmanager->add($descriptions,$quotationNumber);
 
 
 $i=1;
@@ -141,8 +141,6 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
 
 $test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
 
-print_r($descriptionsOption);
-
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
@@ -163,9 +161,9 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
     $i++;
     next($_POST["descriptionCout"]);
 }
-
-$test3 = $costmanager->add($descriptionsCout,$quotationNumberOption);
 print_r($descriptionsCout);
+//test3 = $costmanager->add($descriptionsCout,$quotationNumberOption);
+
 /*
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
