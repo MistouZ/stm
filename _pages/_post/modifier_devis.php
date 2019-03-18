@@ -67,7 +67,7 @@ $quotation = new Quotation($data);
 $test = $quotationmanager->update($quotation);
 
 $descriptions= array();
-/*
+
 $i=1;
 while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
@@ -102,6 +102,9 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
 $test = $descriptionmanager->update($descriptions,$quotationNumber);
 print_r($test);
+
+
+/*
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
 
