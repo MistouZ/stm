@@ -65,10 +65,10 @@ $data = array(
 $quotation = new Quotation($data);
 $test = $quotationmanager->update($quotation);
 
-print_r($quotation);
+
 
 $descriptions= array();
-/*
+
 $i=1;
 while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
@@ -101,7 +101,7 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
     next($_POST["description"]);
 }
 
-$test = $descriptionmanager->update($descriptions,$idQuotation);
+$test = $descriptionmanager->update($descriptions,$quotationNumber);
 
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
@@ -135,7 +135,7 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
     next($_POST["descriptionOption"]);
 }
 
-$quotationNumberOption = $idQuotation.'_option';
+$quotationNumberOption = $quotationNumber.'_option';
 $test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
 
 
@@ -162,7 +162,7 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 }
 
 
-$test3 = $costmanager->update($descriptionsCout,$idQuotation);
+$test3 = $costmanager->update($descriptionsCout,$quotationNumber);
 
 
 
@@ -173,5 +173,4 @@ if(is_null($test))
 else{
   header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
 }
-*/
 ?>
