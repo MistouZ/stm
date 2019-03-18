@@ -417,8 +417,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
-                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                     <div class="form-actions fluid">
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
@@ -427,6 +425,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
+                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
             </div>
