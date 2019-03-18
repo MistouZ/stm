@@ -94,7 +94,6 @@ class DescriptionManager
         $description = array();
         try{
             $quotationNumber = (string) $quotationNumber;
-            $query = "SELECT * FROM description WHERE quotationNumber = '".$quotationNumber."_option'";
             $q = $this->_db->query("SELECT * FROM description WHERE quotationNumber = '".$quotationNumber."_option'");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
