@@ -163,7 +163,8 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 }
 
 $test3 = $costmanager->add($descriptionsCout,$quotationNumberOption);
-
+print_r($descriptionsCout);
+/*
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
@@ -171,5 +172,5 @@ if(is_null($test) || is_null($test2) || is_null($test3))
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);
 }
-
+*/
 ?>
