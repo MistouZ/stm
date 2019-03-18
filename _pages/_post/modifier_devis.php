@@ -98,9 +98,9 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
     $i++;
     next($_POST["description"]);
 }
-print_r($_POST["description"]);
+print_r($descriptions);
 $test = $descriptionmanager->update($descriptions,$quotationNumber);
-echo $test;
+print_r($test);
 /*
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
