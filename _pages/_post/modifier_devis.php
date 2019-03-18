@@ -103,6 +103,7 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
 $test = $descriptionmanager->update($descriptions,$quotationNumber);
 
+/*
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
 
@@ -164,7 +165,7 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
 $test3 = $costmanager->update($descriptionsCout,$quotationNumber);
 
-
+*/
 
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
