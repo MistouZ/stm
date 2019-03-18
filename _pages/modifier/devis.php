@@ -42,7 +42,6 @@ $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-$descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
@@ -279,6 +278,10 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     <div class="portlet-body form" style="display: none;">
                                         <div id="ligneOption1" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
+                                                <?php
+                                                $j = 1;
+                                                $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
+                                                foreach($descriptions as $description){ ?>
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
@@ -337,6 +340,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <div class="form-actions fluid">
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
