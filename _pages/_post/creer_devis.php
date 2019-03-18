@@ -164,8 +164,7 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 }
 
 
-print_r($descriptionsCout);
-//test3 = $costmanager->add($descriptionsCout,$quotationNumberOption);
+$test3 = $costmanager->add($descriptionsCout,$quotationNumberOption);
 
 /*
 if(is_null($test) || is_null($test2) || is_null($test3))
