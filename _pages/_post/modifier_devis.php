@@ -69,6 +69,8 @@ print_r($test);
 $descriptions= array();
 
 print_r($_POST["descriptionDevis"]);
+print_r($_POST["descriptionOption"]);
+print_r($_POST["descriptionCout"]);
 /*
 $i=1;
 while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
