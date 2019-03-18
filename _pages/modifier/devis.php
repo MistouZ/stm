@@ -281,6 +281,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <?php
                                                 $j = 1;
+                                                $taxOption = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
                                                 foreach($descriptionsOption as $description){ ?>
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
@@ -306,7 +307,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                         <select id="taxeOption<?php echo $j; ?>" class="taxe form-control" name="taxeOption[<?php echo $j; ?>]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            $taxOption = $taxmanager->getListByCustomer($folder->getCustomerId());
                                                             foreach ($taxOption as $tax){
                                                                 ?>
                                                                 <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
