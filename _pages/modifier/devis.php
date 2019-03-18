@@ -206,12 +206,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             $i = 1;
                                             $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
                                             foreach($descriptions as $description){ ?>
-                                        <div id="ligne<?php echo $i; ?>" class="ligne row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                        <div id="ligneDevis<?php echo $i; ?>" class="ligneDevis" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="form-control" id="description<?php echo $i; ?>" name="description[<?php echo $i; ?>]" rows="4"><?php echo $description->getDescription(); ?></textarea>
+                                                        <textarea class="form-control" id="descriptionDevis<?php echo $i; ?>" name="description[<?php echo $i; ?>]" rows="4"><?php echo $description->getDescription(); ?></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
