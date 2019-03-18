@@ -21,6 +21,8 @@ include 'classes/class_quotation.php';
 include 'classes/class_quotationmanager.php';
 include 'classes/class_description.php';
 include 'classes/class_descriptionmanager.php';
+include 'classes/class_cost.php';
+include 'classes/class_costmanager.php';
 
 global $bdd;
 $bdd = new DB();
