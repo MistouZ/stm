@@ -51,6 +51,8 @@ $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
+$suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
+
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
 ?>
@@ -371,12 +373,11 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                         <select id="fournisseur<?php echo $k; ?>" class="form-control" name="fournisseur[<?php echo $k; ?>]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            /*$suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
                                                             foreach ($suppliermanager as $supplier){
                                                                 ?>
                                                                 <option value="<?php echo $supplier->getIdSupplier(); ?>" <?php if($cost->getSupplierId()== $supplier->getIdSupplier()){echo "selected=\"selected\""; } ?> ><?php echo $supplier->getName(); ?></option>
                                                                 <?php
-                                                            }*/
+                                                            }
                                                             ?>
                                                         </select>
                                                     </div>
