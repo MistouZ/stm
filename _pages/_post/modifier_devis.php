@@ -136,7 +136,7 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
 $quotationNumberOption = $quotationNumber.'_option';
 $test2 = $descriptionmanager->update($descriptionsOption,$quotationNumberOption);
 
-print_r($_POST["fournisseur"]);
+
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 

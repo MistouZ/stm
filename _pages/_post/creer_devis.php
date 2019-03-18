@@ -58,7 +58,9 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
+print_r($_POST["fournisseur"]);
 
+/*
 $quotationNumber = $quotationmanager->add($quotation);
 
 if($quotationNumber != NULL){
@@ -175,5 +177,5 @@ if(is_null($test) || is_null($test2) || is_null($test3))
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);
 }
-
+*/
 ?>
