@@ -416,6 +416,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 </div>
                             </div>
                         </div>
+                    </div>
                     <div class="form-actions fluid">
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
