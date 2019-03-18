@@ -103,8 +103,8 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 }
 
 $test = $descriptionmanager->update($descriptions,$idQuotation);
-
-
+print_r($descriptions);
+/*
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
 
@@ -173,5 +173,5 @@ if(is_null($test))
 else{
   header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
 }
-
+*/
 ?>
