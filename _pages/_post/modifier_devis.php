@@ -134,7 +134,7 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
     next($_POST["descriptionOption"]);
 }
 $quotationNumberOption = $quotationNumber.'_option';
-$test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
+$test2 = $descriptionmanager->update($descriptionsOption,$quotationNumberOption);
 
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
