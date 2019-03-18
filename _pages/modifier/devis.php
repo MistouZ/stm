@@ -43,6 +43,7 @@ $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
+print_r($descriptionsOption);
 $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
