@@ -69,8 +69,9 @@ class CostManager
     public function delete($quotationNumber)
     {
         try{
-            $q = $this->_db->query("DELETE FROM cost WHERE quotationNumber='$quotationNumber'");
-            $q->execute();
+            echo "DELETE FROM cost WHERE quotationNumber='$quotationNumber'";
+            /*$q = $this->_db->query("DELETE FROM cost WHERE quotationNumber='$quotationNumber'");
+            $q->execute();*/
 
            return "ok";
         }
@@ -163,8 +164,8 @@ class CostManager
             {
                 echo "suppresion réussie ".$quotationNumber;
             }
-            $this->add($cost,$quotationNumber);
-            return $cost;
+            /*$this->add($cost,$quotationNumber);
+            return $cost;*/
         }
         catch(Exception $e){
             return null;
