@@ -119,10 +119,10 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
         if(empty($_POST["quantiteOption"][$j])){
             $qt = 1;
         }else{
-            $qt = $_POST["quantiteOptions"][$j];
+            $qt = $_POST["quantiteOption"][$j];
         }
         $price = $_POST["prixOption"][$j];
-        $tax = $_POST["taxeOptions"][$j];
+        $tax = $_POST["taxeOption"][$j];
         $dataDescriptionOption= array(
             'description' => $postDescriptionOption,
             'quantity' => $qt,
