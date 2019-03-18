@@ -297,13 +297,13 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Quantité</label>
-                                                        <input type="digits" id="quantiteOption<?php echo $j; ?>" name="quantiteOption[<?php echo $j; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
+                                                        <input type="digits" id="quantiteOption" name="quantiteOption[<?php echo $j; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Remise (%)</label>
-                                                        <input type="digits" id="remiseOption<?php echo $j; ?>" name="remiseOption[<?php echo $j; ?>]" value="<?php echo $description->getDiscount(); ?>" class="form-control" placeholder="xx">
+                                                        <input type="digits" id="remiseOption" name="remiseOption[<?php echo $j; ?>]" value="<?php echo $description->getDiscount(); ?>" class="form-control" placeholder="xx">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
