@@ -31,6 +31,11 @@ class DescriptionManager
         $this->_db = $db;
     }
 
+    /**
+     * @param array $descriptions
+     * @param $quotationNumber
+     * @return string|null
+     */
     public function add(array $descriptions, $quotationNumber)
     {
         try{
@@ -79,6 +84,33 @@ class DescriptionManager
         }
     }
 
+
+    /**
+     * @param $quotationNumber
+     * @return array|null
+     */
+    public function getOption($quotationNumber)
+    {
+        $description = array();
+        try{
+            $quotationNumber = (string) $quotationNumber;
+            $q = $this->_db->query("SELECT * FROM description WHERE quotationNumber = '".$quotationNumber."_option'");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $description[] =new Description($donnees);
+            }
+
+            return $description;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * @param $quotationNumber
+     * @return string|null
+     */
     public function delete($quotationNumber)
     {
         try{
@@ -91,6 +123,11 @@ class DescriptionManager
         }
     }
 
+    /**
+     * @param array $description
+     * @param $quotationNumber
+     * @return array|null
+     */
     public function update(array $description, $quotationNumber)
     {
         try{

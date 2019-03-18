@@ -42,6 +42,7 @@ $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
@@ -263,9 +264,9 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 </div>
                             </div>
                         </div>
-                         <div class="row" id="optdevis">
+                        <div class="row" id="optdevis" style="display: none;">
                             <div class="col-md-12">
-                                <div class="portlet box grey-cascade" style="margin-bottom: 0px !important;">
+                                <div class="portlet box grey-cascade">
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fas fa-sliders-h"></i>
@@ -275,9 +276,67 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body" style="display: none;">
-                                        <h5 style="font-weight: 800;">Société : </h5>
-                                        <h5 style="font-weight: 800;">Comercial : </h5>
+                                    <div class="portlet-body form" style="display: none;">
+                                        <div id="ligneOption1" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                            <div class="col-md-12" style="display: flex; align-items: center;">
+                                                <?php
+                                                $j = 1;
+                                                $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
+                                                foreach($descriptionsOption as $description){ ?>
+                                                <div class="col-md-6">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Description</label>
+                                                        <textarea class="form-control" id="descriptionOption<?php echo $j; ?>" name="descriptionOption[<?php echo $j; ?>]" rows="4"><?php echo $description->getDescription(); ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Quantité</label>
+                                                        <input type="digits" id="quantiteOption<?php echo $j; ?>" name="quantiteOption[<?php echo $j; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Remise (%)</label>
+                                                        <input type="digits" id="remiseOption<?php echo $j; ?>" name="remiseOption[<?php echo $j; ?>]" value="<?php echo $description->getDiscount(); ?>" class="form-control" placeholder="xx">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Taxes</label>
+                                                        <select id="taxeOption<?php echo $j; ?>" class="taxe form-control" name="taxeOption[<?php echo $j; ?>]">
+                                                            <option value="">Sélectionnez ...</option>
+                                                            <?php
+                                                            $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                            foreach ($taxmanager as $tax){
+                                                                ?>
+                                                                <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
+                                                                <?php
+                                                            }
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Prix HT</label>
+                                                        <input type="digits" id="prixOption<?php echo $j; ?>" name="prixOption[<?php echo $j; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
+                                                    </div>
+                                                </div>
+                                                <div id="divsupprOption1" style="text-align: right;" class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <button type="button" title="Supprimer la ligne" id="supprOption<?php echo $j; ?>" class="btn red" onclick="supprLigneOption(<?php echo $j; ?>);"><i class="fas fa-minus-square"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions fluid">
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="button" id="ajoutOption" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
