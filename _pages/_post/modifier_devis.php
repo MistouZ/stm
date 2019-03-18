@@ -66,8 +66,10 @@ $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->update($quotation);
 
-$descriptions= array();
+echo $idQuotation;
 
+$descriptions= array();
+/*
 $i=1;
 while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 
@@ -172,5 +174,5 @@ if(is_null($test))
 else{
   header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
 }
-
+*/
 ?>
