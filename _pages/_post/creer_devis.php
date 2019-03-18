@@ -141,11 +141,11 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
 
 //$test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
 
-print_r($_POST["descriptionCout"]);
-/*
+
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
+    echo $postDescriptionCout;
     $j = key($_POST["descriptionCout"]);
     if(strlen(trim($postDescriptionCout))>0){
 
