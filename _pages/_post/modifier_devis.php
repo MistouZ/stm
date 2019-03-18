@@ -157,7 +157,7 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
     $i++;
     next($_POST["descriptionCout"]);
 }
-print_r($descriptionsCout);
+
 $test3 = $costmanager->update($descriptionsCout,$quotationNumber);
 
 
