@@ -68,23 +68,25 @@ $test = $quotationmanager->update($quotation);
 
 $descriptions= array();
 
-$i=1;
-while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
+$descriptions= array();
 
-    $j = key($_POST["description"]);
+$i=1;
+while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
+
+    $j = key($_POST["descriptionDevis"]);
     if(strlen(trim($postDescription))>0){
-        if(empty($_POST["remise"][$j])){
+        if(empty($_POST["remiseDevis"][$j])){
             $remise = 0;
         }else{
-            $remise = $_POST["remise"][$j];
+            $remise = $_POST["remiseDevis"][$j];
         }
-        if(empty($_POST["quantite"][$j])){
+        if(empty($_POST["quantiteDevis"][$j])){
             $qt = 1;
         }else{
-            $qt = $_POST["quantite"][$j];
+            $qt = $_POST["quantiteDevis"][$j];
         }
-        $price = $_POST["prix"][$j];
-        $tax = $_POST["taxe"][$j];
+        $price = $_POST["prixDevis"][$j];
+        $tax = $_POST["taxeDevis"][$j];
         $dataDescription= array(
             'description' => $postDescription,
             'quantity' => $qt,
@@ -97,11 +99,73 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
         $descriptions[$i] = $description;
     }
     $i++;
-    next($_POST["description"]);
+    next($_POST["descriptionDevis"]);
+}
+
+$test = $descriptionmanager->update($descriptions,$quotationNumber);
+
+
+$i=1;
+while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
+
+    $j = key($_POST["descriptionOption"]);
+    if(strlen(trim($postDescriptionOption))>0){
+        if(empty($_POST["remiseOption"][$j])){
+            $remise = 0;
+        }else{
+            $remise = $_POST["remiseOption"][$j];
+        }
+        if(empty($_POST["quantiteOption"][$j])){
+            $qt = 1;
+        }else{
+            $qt = $_POST["quantiteOption"][$j];
+        }
+        $price = $_POST["prixOption"][$j];
+        $tax = $_POST["taxeOption"][$j];
+        $dataDescriptionOption= array(
+            'description' => $postDescriptionOption,
+            'quantity' => $qt,
+            'discount' => $remise,
+            'price' => $price,
+            'tax' => $tax
+        );
+
+        $descriptionOption = new Description($dataDescriptionOption);
+        $descriptionsOption[$i] = $descriptionOption;
+    }
+    $i++;
+    next($_POST["descriptionOption"]);
+}
+
+$quotationNumberOption = $quotationNumber.'_option';
+$test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
+
+
+$i=1;
+while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
+
+    $j = key($_POST["descriptionCout"]);
+    if(strlen(trim($postDescriptionCout))>0){
+
+        $price = $_POST["prixCout"][$j];
+        $supplier = $_POST["fournisseur"][$j];
+        $dataDescriptionCout= array(
+            'description' => $postDescriptionCout,
+            'value' => $price,
+            'folderId' => $folderId,
+            'supplierId' => $supplier
+        );
+
+        $descriptionCout = new Cost($dataDescriptionCout);
+        $descriptionsCout[$i] = $descriptionCout;
+    }
+    $i++;
+    next($_POST["descriptionCout"]);
 }
 
 
-$test = $descriptionmanager->update($descriptions,$idQuotation);
+$test3 = $costmanager->add($descriptionsCout,$quotationNumber);
+
 if(is_null($test))
 {
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
