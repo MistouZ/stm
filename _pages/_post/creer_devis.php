@@ -141,10 +141,6 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
 
 //$test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
 
-print_r($_POST["descriptionCout"]);
-print_r($_POST["prixCout"]);
-print_r($_POST["fournisseur"]);
-
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
@@ -152,22 +148,22 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
     if(strlen(trim($postDescriptionCout))>0){
 
         $price = $_POST["prixCout"][$j];
-        echo $price;
         $supplier = $_POST["fournisseur"][$j];
-        echo $supplier;
-        $dataCost= array(
-            'description' => $postDescriptionCout,
+        $dataDescriptionCout= array(
+            'description' => $postDescriptionOption,
             'value' => $price,
             'supplierId' => $supplier
         );
 
-        $descriptionCout = new Cost($dataCost);
+        $descriptionCout = new Cost($dataDescriptionCout);
         $descriptionsCout[$i] = $descriptionCout;
     }
     $i++;
     next($_POST["descriptionCout"]);
 }
-//print_r($descriptionsCout);
+
+
+print_r($descriptionsCout);
 //test3 = $costmanager->add($descriptionsCout,$quotationNumberOption);
 
 /*

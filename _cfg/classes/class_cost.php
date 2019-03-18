@@ -6,7 +6,7 @@
  * Time: 14:07
  */
 
-class Cost
+class Cost extends Features
 {
     private $idCost;
     private $description;
@@ -18,8 +18,9 @@ class Cost
     /**
      * Cost constructor.
      */
-    public function __construct()
+    public function __construct(array $data)
     {
+        $this->generate($data);
     }
 
     /**
