@@ -24,7 +24,7 @@ $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
 
-echo $quotationNumber;
+print_r($quotationGet);
 
 if(empty($_POST["label"]))
 {
