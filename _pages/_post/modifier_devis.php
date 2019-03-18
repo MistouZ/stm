@@ -23,6 +23,8 @@ $quotation = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
 
+echo $quotationNumber;
+
 if(empty($_POST["label"]))
 {
     $label = $folder->getLabel();
