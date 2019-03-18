@@ -165,7 +165,7 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
 
 $test3 = $costmanager->add($descriptionsCout,$quotationNumber);
-
+echo $test3;
 /*
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
