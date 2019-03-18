@@ -131,7 +131,7 @@ while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE 
             'tax' => $tax
         );
 
-        $descriptionOption = new Description($dataDescription);
+        $descriptionOption = new Description($dataDescriptionOption);
         $descriptionsOption[$i] = $descriptionOption;
     }
     $i++;
