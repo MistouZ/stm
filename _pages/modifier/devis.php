@@ -371,12 +371,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                         <select id="fournisseur<?php echo $k; ?>" class="form-control" name="fournisseur[<?php echo $k; ?>]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
+                                                            /*$suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
                                                             foreach ($suppliermanager as $supplier){
                                                                 ?>
                                                                 <option value="<?php echo $supplier->getIdSupplier(); ?>" <?php if($cost->getSupplierId()== $supplier->getIdSupplier()){echo "selected=\"selected\""; } ?> ><?php echo $supplier->getName(); ?></option>
                                                                 <?php
-                                                            }
+                                                            }*/
                                                             ?>
                                                         </select>
                                                     </div>
