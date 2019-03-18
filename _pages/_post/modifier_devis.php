@@ -159,8 +159,7 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 }
 print_r($descriptionsCout);
 $test3 = $costmanager->update($descriptionsCout,$quotationNumber);
-echo "test3 ".$test3;
-/*
+
 
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
@@ -168,5 +167,5 @@ if(is_null($test) || is_null($test2) || is_null($test3))
 }
 else{
   header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
-}*/
+}
 ?>
