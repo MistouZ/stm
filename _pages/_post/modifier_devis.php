@@ -102,7 +102,7 @@ while ( ($postDescription = current($_POST["description"])) !== FALSE ) {
 }
 
 $test = $descriptionmanager->update($descriptions,$quotationNumber);
-
+echo $test;
 /*
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
@@ -165,7 +165,7 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
 $test3 = $costmanager->update($descriptionsCout,$quotationNumber);
 
-*/
+
 
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
@@ -173,5 +173,5 @@ if(is_null($test) || is_null($test2) || is_null($test3))
 }
 else{
   header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
-}
+}*/
 ?>
