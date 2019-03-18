@@ -217,7 +217,7 @@ $taxmanager = new TaxManager($bdd);
                                 </div>
                             </div>
                         </div>
-                         <div class="row" id="optdevis" style="display: none;">
+                        <div class="row" id="optdevis" style="display: none;">
                             <div class="col-md-12">
                                 <div class="portlet box grey-cascade">
                                     <div class="portlet-title">

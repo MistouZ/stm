@@ -264,7 +264,79 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 </div>
                             </div>
                         </div>
-
+                        <div class="row" id="optdevis" style="display: none;">
+                            <div class="col-md-12">
+                                <div class="portlet box grey-cascade">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fas fa-sliders-h"></i>
+                                            <span class="caption-subject bold uppercase"> Options du devis </span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="" class="expand" data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form" style="display: none;">
+                                        <div id="ligneOption1" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                            <div class="col-md-12" style="display: flex; align-items: center;">
+                                                <div class="col-md-6">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Description</label>
+                                                        <textarea class="form-control" id="descriptionOption1" name="descriptionOption[1]" rows="4"></textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Quantité</label>
+                                                        <input type="digits" id="quantiteOption" name="quantiteOption[1]" class="form-control" placeholder="Qt.">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Remise (%)</label>
+                                                        <input type="digits" id="remiseOption" name="remiseOption[1]" class="form-control" placeholder="xx">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Taxes</label>
+                                                        <select id="taxeOption1" class="taxe form-control" name="taxeOption[1]">
+                                                            <option value="">Sélectionnez ...</option>
+                                                            <?php
+                                                            /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                            foreach ($taxmanager as $tax){
+                                                               ?>
+                                                                <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
+                                                                <?php
+                                                            }*/
+                                                            ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <label class="control-label">Prix HT</label>
+                                                        <input type="digits" id="prixOption1" name="prixOption[1]" class="form-control" placeholder="HT">
+                                                    </div>
+                                                </div>
+                                                <div id="divsupprOption1" style="text-align: right;" class="col-md-1">
+                                                    <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                        <button type="button" title="Supprimer la ligne" id="supprOption1" class="btn red" onclick="supprLigneOption(1);"><i class="fas fa-minus-square"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-actions fluid">
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="button" id="ajoutOption" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     <div class="form-actions fluid">
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
