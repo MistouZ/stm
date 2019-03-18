@@ -19,9 +19,9 @@ $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
 $contactId = $folder->getContactId();
-$quotation = new Quotation($array);
+$quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
+$quotationGet = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
 
 echo $quotationNumber;
 
@@ -64,8 +64,6 @@ $data = array(
 );
 
 $quotation = new Quotation($data);
-$quotationmanager = new QuotationManager($bdd);
-
 $test = $quotationmanager->update($quotation);
 
 print_r($quotation);
