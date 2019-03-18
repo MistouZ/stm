@@ -7,7 +7,7 @@
 
 include("../../_cfg/cfg.php");
 
-$idQuotation = $_POST['idQuotation'];
+$idQuotation = $_POST['$quotationNumber'];
 $type2 = $_POST['type'];
 
 $array = array();
