@@ -263,7 +263,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 </div>
                             </div>
                         </div>
-                        <div class="row" id="optdevis" style="display: none;">
+                        <div class="row" id="optdevis" >
                             <div class="col-md-12">
                                 <div class="portlet box grey-cascade">
                                     <div class="portlet-title">
