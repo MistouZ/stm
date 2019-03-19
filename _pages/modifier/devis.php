@@ -360,10 +360,10 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <span class="caption-subject bold uppercase"> Coûts liés au devis </span>
                                         </div>
                                         <div class="tools">
-                                            <a href="" class="expand" data-original-title="" title=""> </a>
+                                            <a href="" <?php if(count($costmanager) == 0){ echo 'class="expand"';}else{echo 'class="collapse"';} ?> data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body form">
+                                    <div class="portlet-body form" <?php if(count($costmanager) == 0){ echo 'style="display: none;';} ?>>
                                         <?php
                                         $k = 1;
                                         foreach($costmanager as $cost){ ?>
