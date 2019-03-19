@@ -364,7 +364,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     <?php
                                     $k = 1;
                                     //print_r($costmanager);
-                                    if(is_empty($costmanager)){
+                                    if(count($costmanager) == 0){
                                         echo "cost manager vide";
                                     }
                                     /*if(!is_empty($costmanager)){
