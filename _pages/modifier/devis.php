@@ -408,7 +408,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         }
                                     }elseif(count($costmanager) == 0){
                                         ?>
-                                        <div class="portlet-body form" >
+                                        <div class="portlet-body form" style="display: none;" >
                                             <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                 <div class="col-md-12" style="display: flex; align-items: center;">
                                                     <div class="col-md-4">
