@@ -363,7 +363,9 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     </div>
                                     <?php
                                     $k = 1;
-                                    if(!is_empty($costmanager)){
+                                    print_r($costmanager);
+
+                                    /*if(!is_empty($costmanager)){
                                         foreach($costmanager as $cost){ ?>
                                             <div class="portlet-body form" >
                                                 <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
@@ -447,8 +449,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php}
-
+                                    <?php}*/
                                     ?>
                                     <div class="form-actions fluid">
                                         <div class="row">
