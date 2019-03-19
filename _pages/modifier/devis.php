@@ -363,14 +363,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     </div>
                                     <?php
                                     $k = 1;
-                                    //print_r($costmanager);
-                                    if(count($costmanager) == 0){
-                                        echo "cost manager vide";
-                                    }
-                                    else{
-                                        echo "cost manger non vide";
-                                    }
-                                    /*if(!is_empty($costmanager)){
+                                   if(count($costmanager) > 0){
                                         foreach($costmanager as $cost){ ?>
                                             <div class="portlet-body form" >
                                                 <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
@@ -454,7 +447,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 </div>
                                             </div>
                                         </div>
-                                    <?php}*/
+                                    <?php}
                                     ?>
                                     <div class="form-actions fluid">
                                         <div class="row">
