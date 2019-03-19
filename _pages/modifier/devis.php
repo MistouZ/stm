@@ -361,7 +361,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body form" >
+                                    <div class="portlet-body form" <?php if(count($costmanager) == 0){echo "style=\"display:none;\"";}?> >
                                     <?php
                                     $k = 1;
                                    if(count($costmanager) > 0){
