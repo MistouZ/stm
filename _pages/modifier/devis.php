@@ -349,7 +349,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 </div>
                             </div>
                         </div>
-                        <div class="row" id="coutdevis" style="display: none;">
+                        <div class="row" id="coutdevis">
                             <div class="col-md-12">
                                 <div class="portlet box red-flamingo" style="margin-bottom: 0px !important;">
                                     <div class="portlet-title">
@@ -360,6 +360,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         <div class="tools">
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
+                                    </div>
                                     <?php
                                     $k = 1;
                                    if(count($costmanager) > 0){
