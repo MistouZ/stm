@@ -361,11 +361,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
+                                    <div class="portlet-body form" >
                                     <?php
                                     $k = 1;
                                    if(count($costmanager) > 0){
                                         foreach($costmanager as $cost){ ?>
-                                            <div class="portlet-body form" >
+
                                                 <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                     <div class="col-md-12" style="display: flex; align-items: center;">
                                                         <div class="col-md-4">
@@ -402,13 +403,11 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
                                             <?php
                                             $k++;
                                         }
                                     }elseif(count($costmanager) == 0){
                                         ?>
-                                        <div class="portlet-body form" style="display: none;" >
                                             <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                 <div class="col-md-12" style="display: flex; align-items: center;">
                                                     <div class="col-md-4">
@@ -449,6 +448,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     <?php
                                     }
                                     ?>
+                                </div>
                                     <div class="form-actions fluid">
                                         <div class="row">
                                             <div class="col-md-12" style="text-align: center;">
