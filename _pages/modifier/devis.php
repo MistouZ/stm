@@ -263,7 +263,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <a href="" class="expand" data-original-title="" title=""> </a>
                                         </div>
                                     </div>
-                                    <div class="portlet-body form" style="display: none;">
+                                    <div class="portlet-body form" >
                                         <?php
                                         $j = 1;
                                         foreach($descriptionsOption as $description){ ?>
