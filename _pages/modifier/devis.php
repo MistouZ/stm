@@ -172,7 +172,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <label class="col-md-2 control-label">Libellé du devis
                                             </label>
                                             <div class="col-md-6">
-                                                <input type="text" id="libelle" name="label" class="form-control" placeholder="Libellé spécifique du devis">
+                                                <input type="text" id="libelle" name="label" class="form-control" placeholder="<?php echo $folderRecup->getLabel(); ?>">
                                                 <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
                                             </div>
                                         </div>
@@ -180,7 +180,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             <label class="col-md-2 control-label">Commentaire
                                             </label>
                                             <div class="col-md-6">
-                                                <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Commentaire ..."></textarea>
+                                                <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Commentaire ..."><?php echo $quotation->getComment(); ?></textarea>
                                                 <span class="help-block">Le commentaire s'affichera à la fin du devis</span>
                                             </div>
                                         </div>
