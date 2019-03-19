@@ -184,38 +184,41 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <span class="help-block">Le commentaire s'affichera à la fin du devis</span>
                                             </div>
                                         </div>
-                                        <div id="ligneDevis1" class="ligneDevis row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                        <?php
+                                        $i = 1;
+                                        $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
+                                        foreach($descriptions as $description){ ?>
+                                        <div id="ligneDevis<?php echo $i; ?>" class="ligneDevis row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                             <div class="col-md-12" style="display: flex; align-items: center;">
                                                 <div class="col-md-6">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Description</label>
-                                                        <textarea class="form-control" id="descriptionDevis1" name="descriptionDevis[1]" rows="4"></textarea>
+                                                        <textarea class="form-control" id="descriptionDevis<?php echo $i; ?>" name="descriptionDevis[<?php echo $i; ?>]" rows="4"><?php echo $description->getDescription(); ?></textarea>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Quantité</label>
-                                                        <input type="digits" id="quantiteDevis" name="quantiteDevis[1]" class="form-control" placeholder="Qt.">
+                                                        <input type="digits" id="quantiteDevis<?php echo $i; ?>" name="quantiteDevis[<?php echo $i; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Remise (%)</label>
-                                                        <input type="digits" id="remiseDevis" name="remiseDevis[1]" class="form-control" placeholder="xx">
+                                                        <input type="digits" id="remiseDevis<?php echo $i; ?>" name="remiseDevis[<?php echo $i; ?>]" value="<?php echo $description->getDiscount(); ?>" class="form-control" placeholder="xx">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Taxes</label>
-                                                        <select id="taxeDevis1" class="taxe form-control" name="taxeDevis[1]">
+                                                        <select id="taxeDevis<?php echo $i; ?>" class="taxe form-control" name="taxeDevis[<?php echo $i; ?>]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
                                                             foreach ($taxmanager as $tax){
-                                                               ?>
-                                                                <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
+                                                                ?>
+                                                                <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
                                                                 <?php
-                                                            }*/
+                                                            }
                                                             ?>
                                                         </select>
                                                     </div>
@@ -223,16 +226,20 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <div class="col-md-2">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Prix HT</label>
-                                                        <input type="digits" id="prixDevis1" name="prixDevis[1]" class="form-control" placeholder="HT">
+                                                        <input type="digits" id="prixDevis<?php echo $i; ?>" name="prixDevis[<?php echo $i; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
                                                     </div>
                                                 </div>
                                                 <div id="divsupprDevis1" style="text-align: right;" class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                        <button type="button" title="Supprimer la ligne" id="supprDevis1" class="btn red" onclick="supprLigneDevis(1);"><i class="fas fa-minus-square"></i></button>
+                                                        <button type="button" title="Supprimer la ligne" id="supprDevis<?php echo $i; ?>" class="btn red" onclick="supprLigneDevis(<?php echo $i; ?>);"><i class="fas fa-minus-square"></i></button>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                            <?php
+                                            $i++;
+                                        }
+                                        ?>
                                         <div class="form-actions fluid">
                                             <div class="row">
                                                 <div class="col-md-12" style="text-align: center;">
