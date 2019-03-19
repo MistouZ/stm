@@ -287,7 +287,62 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     <div class="portlet-body form" <?php if(count($descriptionsOption) == 0){ echo 'style="display: none;"';}else{echo 'style="display: block;"';} ?>>
                                         <?php
                                         $j = 1;
-                                        foreach($descriptionsOption as $description){ ?>
+                                        if(count($descriptionsOption) > 0){
+                                            foreach($descriptionsOption as $description){ ?>
+                                                <div id="ligneOption<?php echo $j; ?>" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                    <div class="col-md-12" style="display: flex; align-items: center;">
+                                                        <div class="col-md-6">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">Description</label>
+                                                                <textarea class="form-control" id="descriptionOption<?php echo $j; ?>" name="descriptionOption[<?php echo $j; ?>]" rows="4"><?php echo $description->getDescription(); ?></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">Quantité</label>
+                                                                <input type="digits" id="quantiteOption" name="quantiteOption[<?php echo $j; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">Remise (%)</label>
+                                                                <input type="digits" id="remiseOption" name="remiseOption[<?php echo $j; ?>]" value="<?php echo $description->getDiscount(); ?>" class="form-control" placeholder="xx">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-1">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">Taxes</label>
+                                                                <select id="taxeOption<?php echo $j; ?>" class="taxe form-control" name="taxeOption[<?php echo $j; ?>]">
+                                                                    <option value="">Sélectionnez ...</option>
+                                                                    <?php
+                                                                    foreach ($taxmanager as $tax){
+                                                                        ?>
+                                                                        <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">Prix HT</label>
+                                                                <input type="digits" id="prixOption<?php echo $j; ?>" name="prixOption[<?php echo $j; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
+                                                            </div>
+                                                        </div>
+                                                        <div id="divsupprOption<?php echo $j; ?>" style="text-align: right;" class="col-md-1">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <button type="button" title="Supprimer la ligne" id="supprOption<?php echo $j; ?>" class="btn red" onclick="supprLigneOption(<?php echo $j; ?>);"><i class="fas fa-minus-square"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                $j++;
+                                            }
+                                        }
+                                        else{
+                                        ?>
                                             <div id="ligneOption<?php echo $j; ?>" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                 <div class="col-md-12" style="display: flex; align-items: center;">
                                                     <div class="col-md-6">
@@ -336,8 +391,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                     </div>
                                                 </div>
                                             </div>
-                                            <?php
-                                            $j++;
+                                        <?php
                                         }
                                         ?>
                                         <div class="form-actions fluid">
