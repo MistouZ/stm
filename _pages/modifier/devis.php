@@ -101,9 +101,15 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                     <?php
                                                     foreach ($foldermanager as $folder){
                                                         $customer = $customermanager->getByID($folder->getCustomerId());
-                                                        ?>
-                                                        <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
-                                                        <?php
+                                                        if($quotation->getFolderId() == $folder->getIdFolder()){
+                                                            ?>
+                                                            <option value="<?php echo $folder->getIdFolder(); ?>"selected="selected">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
+                                                            <?php
+                                                        }else{
+                                                            ?>
+                                                            <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
+                                                            <?php
+                                                        }
                                                     }
                                                     ?>
                                                 </select>
