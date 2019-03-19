@@ -65,7 +65,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         <div class="portlet box blue-chambray">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fas fa-file-medical"></i>Modification du devis <span style="font-weight: 800; font-style: italic;"><?php echo $idQuotation; ?></span></div>
+                    <i class="fas fa-file-medical"></i>Modification du devis <span style="font-weight: 800; font-style: italic;"><?php echo $quotationNumber; ?></span></div>
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
@@ -408,6 +408,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
+                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
             </div>
