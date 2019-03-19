@@ -402,15 +402,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="form-actions fluid">
-                                                    <div class="row">
-                                                        <div class="col-md-12" style="text-align: center;">
-                                                            <button type="button" id="ajoutCout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </div>
-
                                             <?php
                                             $k++;
                                         }
@@ -454,16 +446,16 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 </div>
                                             </div>
                                         </div>
-                                       <div class="form-actions fluid">
-                                           <div class="row">
-                                               <div class="col-md-12" style="text-align: center;">
-                                                   <button type="button" id="ajoutCout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
-                                               </div>
-                                           </div>
-                                       </div>
                                     <?php
                                     }
                                     ?>
+                                    <div class="form-actions fluid">
+                                        <div class="row">
+                                            <div class="col-md-12" style="text-align: center;">
+                                                <button type="button" id="ajoutCout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
