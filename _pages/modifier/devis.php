@@ -457,7 +457,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         </div>
                                     </div>
                                 </div>
-                                </div>
                             </div>
                         </div>
                     </div>
