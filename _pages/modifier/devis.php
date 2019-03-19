@@ -367,6 +367,9 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     if(count($costmanager) == 0){
                                         echo "cost manager vide";
                                     }
+                                    else{
+                                        echo "cost manger non vide";
+                                    }
                                     /*if(!is_empty($costmanager)){
                                         foreach($costmanager as $cost){ ?>
                                             <div class="portlet-body form" >
