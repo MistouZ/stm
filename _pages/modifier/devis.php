@@ -349,7 +349,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 </div>
                             </div>
                         </div>
-                        <div class="row" id="coutdevis">
+                        <div class="row" id="coutdevis" <?php if(count($costmanager) == 0){echo 'style="display: none;"';}?> >
                             <div class="col-md-12">
                                 <div class="portlet box red-flamingo" style="margin-bottom: 0px !important;">
                                     <div class="portlet-title">
