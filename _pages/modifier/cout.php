@@ -69,7 +69,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/modifier_dcout.php"; ?>" method="post" id="cout" name="cout" class="form-horizontal">
+                <form action="<?php echo URLHOST."_pages/_post/modifier_cout.php"; ?>" method="post" id="cout" name="cout" class="form-horizontal">
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-12">
