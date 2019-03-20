@@ -56,6 +56,7 @@ class SuppliersManager
                 $q2->execute();
             }
 
+            return "ok";
         }
         catch(Exception $e){
             return null;
