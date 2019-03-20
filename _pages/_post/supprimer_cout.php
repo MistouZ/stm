@@ -13,7 +13,7 @@ $costId = $_GET['costId'];
 $array = array();
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
-$test = $costmanager->delete($quotationNumber);
+$test = $costmanager->delete($costId);
 
 
 if(is_null($test)){
