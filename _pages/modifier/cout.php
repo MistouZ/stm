@@ -77,7 +77,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fas fa-folder"></i>
-                                            <span class="caption-subject bold uppercase"> Sélection du dossier </span>
+                                            <span class="caption-subject bold uppercase">Modification des coûts </span>
                                         </div>
                                         <div class="tools">
                                             <a href="" class="collapse" data-original-title="" title=""> </a>
@@ -89,23 +89,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                 <span class="required" aria-required="true"> * </span>
                                             </label>
                                             <div class="col-md-10">
-                                                <select class="form-control" id="folder" name="folder">
-                                                    <option value="">Choisissez un dossier...</option>
-                                                    <?php
-                                                    foreach ($foldermanager as $folder){
-                                                        $customer = $customermanager->getByID($folder->getCustomerId());
-                                                        if($quotation->getFolderId() == $folder->getIdFolder()){
-                                                            ?>
-                                                            <option value="<?php echo $folder->getIdFolder(); ?>"selected="selected">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
-                                                            <?php
-                                                        }else{
-                                                            ?>
-                                                            <option value="<?php echo $folder->getIdFolder(); ?>">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></option>
-                                                            <?php
-                                                        }
-                                                    }
-                                                    ?>
-                                                </select>
+                                                <span><?php echo $folder->getIdFolder(); ?>"selected="selected">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></span>
                                             </div>
                                         </div>
                                         <div id="infos" class="row form-section" style="margin: 10px 0px 0px 0px !important;">
