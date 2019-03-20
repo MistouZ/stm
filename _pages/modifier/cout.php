@@ -60,7 +60,7 @@ echo $quotationNumber;
         <div class="portlet box blue-chambray">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fas fa-file-medical"></i>Modification du coût du dossier<span style="font-weight: 800; font-style: italic;"><?php echo $folderRecup->getFolderNumber(); ?></span></div>
+                    <i class="fas fa-file-medical"></i>Modification du coût du dossier <span style="font-weight: 800; font-style: italic;"><?php echo $folderRecup->getFolderNumber(); ?></span></div>
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
@@ -81,7 +81,7 @@ echo $quotationNumber;
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
                                             <label class="col-md-2 control-label">Dossier
-                                                <span class="required" aria-required="true">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></span>
+                                                <span class="required" aria-required="true">N° <?php echo $folderRecup->getFolderNumber()." ".$folderRecup->getLabel()." (".strtoupper($customer->getName()).")"; ?></span>
                                             </label>
                                         </div>
                                         <div id="infos" class="row form-section" style="margin: 10px 0px 0px 0px !important;">
