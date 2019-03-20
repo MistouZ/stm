@@ -27,6 +27,8 @@ $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 $cost = new Cost($array);
 $costManager = new CostManager($bdd);
+$supplier = new Suppliers($array);
+$suppliermanager = new SuppliersManager($bdd);
 
 $folder = $foldermanager->get($folderId);
 
@@ -444,11 +446,8 @@ switch($type){
                         foreach($costs as $cost){
 
                                 //initialisation au format date pour organiser le tableau
-                                $montant = 0;
-                                foreach($descriptions as $description){
-                                    $montant = calculMontantTotalTTC($description);
-                                }
-
+                                $cout = 0;
+                                $cout = calculCoutTotal($cost);
                                 ?>
                                 <tr>
                                     <td><?php echo $date; ?></td>
