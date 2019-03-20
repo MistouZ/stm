@@ -30,9 +30,9 @@ if(isset($_POST['valider'])){
 
 }
 if(is_null($test)){
-    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/errormodif");
+    header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/errormodif");
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/successmodif");
+    header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/successmodif");
 }
 
 ?>
