@@ -41,8 +41,8 @@ $costs = $costManager->getByFolderId($folderId);
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
 
-if(isset($_GET['cat5'])){
-    $retour = $_GET['cat5'];
+if(isset($_GET['cat'])){
+    $retour = $_GET['cat'];
 }
 
 switch($type){
