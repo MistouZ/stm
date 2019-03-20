@@ -10,7 +10,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $folderId = $_GET['soussouscat'];
-//$quotationNumber = $_GET['soussoussouscat'];
+$quotationNumber = $_GET['soussoussouscat'];
 $retour = $_GET['cat5'];
 
 $company = new Company($array);
@@ -43,7 +43,7 @@ $folderRecup = $foldermanagerRecup->get($folderId);
 $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($folderRecup->getCustomerId());
-$costmanager = $costmanager->getByQuotationNumber($folderRecup->getIdFolder());
+$costmanager = $costmanager->getByFolderId($folderRecup->getIdFolder());
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
@@ -243,8 +243,8 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
                     <input type="hidden" id="folderId" name="folderId" value="<?php echo $folderId; ?>">
-                    <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
             </div>
@@ -253,163 +253,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
 </div>
 <script>
     $(document).ready(function() {
-        $("#folder").on("change",function(){
-            var i = $(this).val();
-            console.log("selected.value : "+i+", data[selected.value] : "+i);
 
-            $.ajax({
-                url: "<?php echo URLHOST."_cfg/fonctions.php"; ?>",
-                type: "POST",
-                dataType: "json",
-                contentType: 'application/x-www-form-urlencoded',
-                data: {functionCalled:'getContactFormFolder',idFolder:i },
-                cache: false,
-                success: function(response)
-                {
-                    console.log(response);
-                    $("#spanCompany").text(response.company);
-                    $("#spanSeller").text(response.seller);
-                    $("#spanCustomer").text(response.customer);
-                    $("#spanContact").text(response.contact);
-                    $("#libelle").attr("placeholder",response.label);
-                    $("#detaildevis").css('display','');
-                    $("#detaildevis").css('display','visible');
-                    $("#optdevis").css('display','');
-                    $("#optdevis").css('display','visible');
-                    $("#coutdevis").css('display','');
-                    $("#coutdevis").css('display','visible');
-
-                    var monSelectB = document.getElementsByClassName("taxe");
-                    //on efface tous les children options
-                    for(var k=0; k<monSelectB.length; k++){
-                        while (monSelectB[k].firstChild) {
-                            console.log("option : "+monSelectB[k]);
-                            monSelectB[k].removeChild(monSelectB[k].firstChild);
-                        }
-                        //on rajoute les nouveaux children options
-                        var opt = document.createElement("option");
-                        opt.value = "";
-                        opt.innerHTML = "Sélectionnez ...";
-                        monSelectB[k].appendChild(opt);
-
-                        for(var i in response['taxes']){
-                            opt = document.createElement("option");
-                            opt.value = response.taxes[i].valeur;
-                            opt.innerHTML = response.taxes[i].nom;
-                            monSelectB[k].appendChild(opt);
-                        }
-                    }
-                    var monSelectC = document.getElementsByClassName("taxeOption");
-                    //on efface tous les children options
-                    for(var k=0; k<monSelectC.length; k++){
-                        while (monSelectC[k].firstChild) {
-                            console.log("option : "+monSelectC[k]);
-                            monSelectC[k].removeChild(monSelectC[k].firstChild);
-                        }
-                        //on rajoute les nouveaux children options
-                        var opt = document.createElement("option");
-                        opt.value = "";
-                        opt.innerHTML = "Sélectionnez ...";
-                        monSelectC[k].appendChild(opt);
-
-                        for(var i in response['taxes']){
-                            opt = document.createElement("option");
-                            opt.value = response.taxes[i].valeur;
-                            opt.innerHTML = response.taxes[i].nom;
-                            monSelectC[k].appendChild(opt);
-                        }
-                    }
-                },
-                error: function (jqXHR, exception) {
-                    var msg = '';
-                    if (jqXHR.status === 0) {
-                        msg = 'Not connect.\n Verify Network.';
-                    } else if (jqXHR.status == 404) {
-                        msg = 'Requested page not found. [404]';
-                    } else if (jqXHR.status == 500) {
-                        msg = 'Internal Server Error [500].';
-                    } else if (exception === 'parsererror') {
-                        msg = 'Requested JSON parse failed.';
-                    } else if (exception === 'timeout') {
-                        msg = 'Time out error.';
-                    } else if (exception === 'abort') {
-                        msg = 'Ajax request aborted.';
-                    } else {
-                        msg = 'Uncaught Error.\n' + jqXHR.responseText;
-                    }
-                    $('#spanCompany').html(msg);
-                },
-            });
-        });
-
-        $('#ajout').click(function(){
-
-            // get the last DIV which ID starts with ^= "klon"
-            var $div = $('div[id^="ligneDevis"]:last').data( "arr", [ 1 ] );
-            var $textarea = $('textarea[id^="descriptionDevis"]:last').data( "txt", [ 1 ] );
-            // Read the Number from that DIV's ID (i.e: 3 from "klon3")
-            // And increment that number by 1
-            var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
-
-            // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-            var $klon = $div.clone(true).find(".help-block-error").text("").end().find(".has-error").removeClass("has-error").end().find("input,textarea").val("").end().find('textarea[id^="descriptionDevis"]:last').prop('id', 'descriptionDevis'+num ).end().find('textarea[name^="descriptionDevis"]:last').prop('name', 'descriptionDevis['+num+']' ).end().find('input[name^="quantiteDevis"]:last').prop('name', 'quantiteDevis['+num+']' ).end().find('input[name^="remiseDevis"]:last').prop('name', 'remiseDevis['+num+']' ).end().find('select[name^="taxeDevis"]:last').prop('name', 'taxeDevis['+num+']' ).end().find('select[id^="taxeDevis"]:last').prop('id', 'taxeDevis'+num ).end().find('input[name^="prixDevis"]:last').prop('name', 'prixDevis['+num+']' ).end().find('input[id^="prixDevis"]:last').prop('id', 'prixDevis'+num ).end().find('button[id^="supprDevis"]:last').prop('id', 'supprDevis'+num ).end().find('button[id^="supprDevis"]:last').attr('onclick', 'supprLigneDevis('+num+')' ).end().find('div[id^="divsupprDevis"]:last').prop('id', 'divsupprDevis'+num ).end().find('div[id="divsupprDevis'+num+'"]').css('display','' ).end().find('div[id="divsupprDevis'+num+'"]').css('display','block' ).end().prop('id', 'ligneDevis'+num );
-
-            // Finally insert $klon wherever you want
-            $("div[id*='divsupprDevis']").css('display','' );
-            $("div[id*='divsupprDevis']").css('display','block' );
-            $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
-
-            $("#descriptionDevis"+num).each(function(){
-                $(this).rules("add", {
-                    required: true
-                });
-            });
-            $("#taxeDevis"+num).each(function(){
-                $(this).rules("add", {
-                    required: true
-                });
-            });
-            $("#prixDevis"+num).each(function(){
-                $(this).rules("add", {
-                    required: true
-                });
-            });
-
-        });
-        $('#ajoutOption').click(function(){
-
-            // get the last DIV which ID starts with ^= "klon"
-            var $div = $('div[id^="ligneOption"]:last').data( "arr", [ 1 ] );
-            var $textarea = $('textarea[id^="descriptionOption"]:last').data( "txt", [ 1 ] );
-            // Read the Number from that DIV's ID (i.e: 3 from "klon3")
-            // And increment that number by 1
-            var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
-
-            // Clone it and assign the new ID (i.e: from num 4 to ID "klon4")
-            var $klon = $div.clone(true).find(".help-block-error").text("").end().find(".has-error").removeClass("has-error").end().find("input,textarea").val("").end().find('textarea[id^="descriptionOption"]:last').prop('id', 'descriptionOption'+num ).end().find('textarea[name^="descriptionOption"]:last').prop('name', 'descriptionOption['+num+']' ).end().find('input[name^="quantiteOption"]:last').prop('name', 'quantiteOption['+num+']' ).end().find('input[name^="remiseOption"]:last').prop('name', 'remiseOption['+num+']' ).end().find('select[name^="taxeOption"]:last').prop('name', 'taxeOption['+num+']' ).end().find('select[id^="taxeOption"]:last').prop('id', 'taxeOption'+num ).end().find('input[name^="prixOption"]:last').prop('name', 'prixOption['+num+']' ).end().find('input[id^="prixOption"]:last').prop('id', 'prixOption'+num ).end().find('button[id^="supprOption"]:last').prop('id', 'supprOption'+num ).end().find('button[id^="supprOption"]:last').attr('onclick', 'supprLigneOption('+num+')' ).end().find('div[id^="divsupprOption"]:last').prop('id', 'divsupprOption'+num ).end().find('div[id="divsupprOption'+num+'"]').css('display','' ).end().find('div[id="divsupprOption'+num+'"]').css('display','block' ).end().prop('id', 'ligneOption'+num );
-
-            // Finally insert $klon wherever you want
-            $("div[id*='divsupprOption']").css('display','' );
-            $("div[id*='divsupprOption']").css('display','block' );
-            $div.after( $klon.data( "arr", $.extend( [], $div.data( "arr" ) ) ) );
-
-            $("#descriptionOption"+num).each(function(){
-                $(this).rules("add", {
-                    required: true
-                });
-            });
-            $("#taxeOption"+num).each(function(){
-                $(this).rules("add", {
-                    required: true
-                });
-            });
-            $("#prixOption"+num).each(function(){
-                $(this).rules("add", {
-                    required: true
-                });
-            });
-
-        });
         $('#ajoutCout').click(function(){
 
             // get the last DIV which ID starts with ^= "klon"
@@ -446,28 +290,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
         });
 
     });
-    function supprLigneDevis(selected){
-        var nbDiv = $("div[class*='ligneDevis']").length;
-        var selectedDiv = $("div[id='ligneDevis"+selected+"']");
-        if(nbDiv>1){
-            selectedDiv.remove();
-        }else{
-            selectedDiv.find('div[id="divsupprDevis'+selected+'"]').css('display','' ).end();
-            selectedDiv.find('div[id="divsupprDevis'+selected+'"]').css('display','none' ).end();
-            alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
-        }
-    }
-    function supprLigneOption(selected){
-        var nbDiv = $("div[class*='ligneOption']").length;
-        var selectedDiv = $("div[id='ligneOption"+selected+"']");
-        if(nbDiv>1){
-            selectedDiv.remove();
-        }else{
-            selectedDiv.find('div[id="divsupprOption'+selected+'"]').css('display','' ).end();
-            selectedDiv.find('div[id="divsupprOption'+selected+'"]').css('display','none' ).end();
-            alert("Il n'est pas possible de supprimer la dernière ligne des options !");
-        }
-    }
+
     function supprLigneCout(selected){
         var nbDiv = $("div[class*='ligneCout']").length;
         var selectedDiv = $("div[id='ligneCout"+selected+"']");
