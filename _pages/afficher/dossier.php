@@ -419,10 +419,10 @@ switch($type){
                 </form>
             </div>
         </div>
-        <div class="portlet box green">
+        <div class="portlet box red-flamingo">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des Avoirs
+                    <i class="fa fa-globe"></i>Liste des Coûts
                 </div>
                 <div class="tools">
                     <a href="" class="expand" data-original-title="" title=""> </a>
