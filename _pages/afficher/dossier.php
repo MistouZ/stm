@@ -461,7 +461,7 @@ switch($type){
                                            data-content="ATTENTION ! La suppression est irréversible !"
                                            data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
                                            data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
-                                           data-href="<?php echo URLHOST.'_pages/_post/supprimer_cout.php?folderId='.$cost->getFolderId().'&costId='.$cost->getIdCost(); ?>"><i
+                                           data-href="<?php echo URLHOST.'_pages/_post/supprimer_cout.php?folderId='.$cost->getFolderId().'&quotationNumber='.$cost->getQuotationNumber(); ?>"><i
                                                     class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                                 </tr>
                                 <?php
