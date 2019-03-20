@@ -8,8 +8,6 @@ include("../../_cfg/cfg.php");
 
 $array = array();
 $companyNameData = $_GET["section"];
-$type = $_GET['cat'];
-$type2 = $_GET['soussouscat'];
 $quotationNumber = $_GET['soussoussouscat'];
 $retour = $_GET['cat5'];
 
@@ -21,14 +19,8 @@ $folderRecup = new Folder($array);
 $foldermanagerRecup = new FoldersManager($bdd);
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
-$customer = new Customers($array);
-$customermanager = new CustomersManager($bdd);
 $quotation = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$contact = new Contact($array);
-$contactmanager = new ContactManager($bdd);
-$tax = new Tax($array);
-$taxmanager = new TaxManager($bdd);
 $supplier = new Suppliers($array);
 $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
@@ -42,14 +34,11 @@ $foldermanager = $foldermanager->getListActive($idCompany);
 
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
 
-$descriptions = new Description($array);
-$descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-$descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
