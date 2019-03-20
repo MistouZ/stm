@@ -5,6 +5,8 @@
  * Date: 19/02/2019
  * Time: 16:22
  */
+include("../../_cfg/cfg.php");
+
 if(isset($_POST['valider'])) {
     $name = $_POST['name'];
     $physical_address = $_POST['physical_address'];
