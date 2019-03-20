@@ -10,6 +10,7 @@ include("../../_cfg/cfg.php");
 $quotationNumber = $_POST['quotationNumber'];
 $folderId = $_POST['folderId'];
 
+$costmanager = new CostManager($bdd);
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
