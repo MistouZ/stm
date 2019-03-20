@@ -80,7 +80,8 @@ echo $quotationNumber;
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                            <label class="col-md-2 control-label">Dossier N° <?php echo $folderRecup->getFolderNumber()." ".$folderRecup->getLabel(); ?>
+                                            <label class="col-md-2 control-label">
+                                                <h5 style="font-weight: 800;">Dossier N° <?php echo $folderRecup->getFolderNumber()." ".$folderRecup->getLabel(); ?></h5>
                                             </label>
                                         </div>
                                         <div id="infos" class="row form-section" style="margin: 10px 0px 0px 0px !important;">
