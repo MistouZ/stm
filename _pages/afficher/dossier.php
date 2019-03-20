@@ -443,11 +443,10 @@ switch($type){
                         <tbody>
                         <?php
                         foreach($costs as $cost){
-
                                 //initialisation au format date pour organiser le tableau
                                 $cout = 0;
                                 $cout = calculCoutTotal($cost);
-                                $supplier = $suppliermanager->getByID($cost->getSupplierId())
+                                $supplier = $suppliermanager->getByID($cost->getSupplierId());
                                 ?>
                                 <tr>
                                     <td><?php echo $supplier->getName(); ?></td>
