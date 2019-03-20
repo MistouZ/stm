@@ -17,29 +17,13 @@ $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folderRecup = new Folder($array);
 $foldermanagerRecup = new FoldersManager($bdd);
-$user = new Users($array);
-$usermanager = new UsersManager($bdd);
-$quotation = new Quotation($array);
-$quotationmanager = new QuotationManager($bdd);
 $supplier = new Suppliers($array);
 $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
-$quotation = $quotationmanager->getByQuotationNumber($quotationNumber);
-$company = $companymanager->getByNameData($companyNameData);
-$idCompany = $company->getIdcompany();
-
-$foldermanager = $foldermanager->getListActive($idCompany);
-
-$folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
-
-$contact = $contactmanager->getById($folderRecup->getContactId());
-$user = $usermanager->get($folderRecup->getSeller());
-$customer = $customermanager->getById($quotation->getCustomerId());
+$folderRecup = $foldermanagerRecup->get($cost->getFolderId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
-
-
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
@@ -49,16 +33,16 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     <div class="col-md-12">
         <?php if($retour == "error") { ?>
             <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être mis à jour !</div>
+                <button class="close" data-close="alert"></button> Une erreur est survenue, le coût n'a donc pas pu être être mis à jour !</div>
         <?php } ?>
         <div class="portlet box blue-chambray">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fas fa-file-medical"></i>Modification du devis <span style="font-weight: 800; font-style: italic;"><?php echo $idQuotation; ?></span></div>
+                    <i class="fas fa-file-medical"></i>Modification du coût du dossier<span style="font-weight: 800; font-style: italic;"><?php echo $folderRecup->getFolderNumber(); ?></span></div>
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/modifier_devis.php"; ?>" method="post" id="devis" name="devis" class="form-horizontal">
+                <form action="<?php echo URLHOST."_pages/_post/modifier_dcout.php"; ?>" method="post" id="cout" name="cout" class="form-horizontal">
                     <div class="form-actions top">
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
