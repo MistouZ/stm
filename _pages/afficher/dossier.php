@@ -454,7 +454,7 @@ switch($type){
                                     <td><?php echo $cost->getDescription(); ?></td>
                                     <td><?php echo number_format($cout, 0, ",", " "); ?> XPF</td>
                                     <td><a class="btn blue-steel"
-                                           href="<?php echo URLHOST . $_COOKIE['company'].'/dossier/modifier/cout/'. $cost->getQuotationNumber(); ?>"><i
+                                           href="<?php echo URLHOST . $_COOKIE['company'].'/dossier/modifier/cout/'.$cost->getFolderId().'/'.$cost->getQuotationNumber(); ?>"><i
                                                     class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
                                            data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
