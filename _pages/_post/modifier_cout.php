@@ -32,18 +32,16 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
     next($_POST["descriptionCout"]);
 }
 
-print_r($descriptionsCout);
-echo $quotationNumber;
 
-//$test3 = $costmanager->update($descriptionsCout,$quotationNumber);
+$test3 = $costmanager->update($descriptionsCout,$quotationNumber);
 //print_r($test3);
 
-/*
+
 if(is_null($test3))
 {
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
   header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/".$folderId."/success");
-}*/
+}
 ?>
