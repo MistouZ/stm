@@ -47,9 +47,6 @@ $costmanager = $costmanager->getByFolderId($folderRecup->getIdFolder());
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
-echo $folderId;
-echo $quotationNumber;
-
 ?>
 <div class="row">
     <div class="col-md-12">
