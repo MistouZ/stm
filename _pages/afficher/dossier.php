@@ -147,7 +147,7 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des Devis  </div>
+                    <i class="fas fa-file-invoice"></i>Liste des Devis  </div>
                 <div class="tools">
                     <a href="" class="expand" data-original-title="" title=""> </a>
                 </div>
@@ -215,7 +215,7 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des Proformas
+                    <i class="fas fa-file-alt"></i>Liste des Proformas
                 </div>
                 <div class="tools">
                     <a href="" class="expand" data-original-title="" title=""> </a>
@@ -284,7 +284,7 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des Factures
+                    <i class="fas fa-file-invoice-dollar"></i>Liste des Factures
                 </div>
                 <div class="tools">
                     <a href="" class="expand" data-original-title="" title=""> </a>
@@ -353,7 +353,7 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des Avoirs
+                    <i class="fas fa-file-prescription"></i>Liste des Avoirs
                 </div>
                 <div class="tools">
                     <a href="" class="expand" data-original-title="" title=""> </a>
