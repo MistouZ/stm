@@ -419,7 +419,7 @@ switch($type){
                 </form>
             </div>
         </div>
-        <div class="portlet box red-flamingo">
+        <!--<div class="portlet box red-flamingo">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fas fa-hand-holding-usd"></i>Liste des Coûts
@@ -471,6 +471,6 @@ switch($type){
                     <input type="hidden" name="date" id="date" />
                 </form>
             </div>
-        </div>
+        </div>-->
     </div>
 </div>
