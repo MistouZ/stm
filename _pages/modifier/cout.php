@@ -8,6 +8,8 @@ include("../../_cfg/cfg.php");
 
 $array = array();
 $companyNameData = $_GET["section"];
+$type = $_GET['cat'];
+$type2 = $_GET['soussouscat'];
 $quotationNumber = $_GET['soussoussouscat'];
 $retour = $_GET['cat5'];
 
@@ -17,13 +19,38 @@ $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folderRecup = new Folder($array);
 $foldermanagerRecup = new FoldersManager($bdd);
+$user = new Users($array);
+$usermanager = new UsersManager($bdd);
+$customer = new Customers($array);
+$customermanager = new CustomersManager($bdd);
+$quotation = new Quotation($array);
+$quotationmanager = new QuotationManager($bdd);
+$contact = new Contact($array);
+$contactmanager = new ContactManager($bdd);
+$tax = new Tax($array);
+$taxmanager = new TaxManager($bdd);
 $supplier = new Suppliers($array);
 $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
-$folderRecup = $foldermanagerRecup->get($cost->getFolderId());
+$quotation = $quotationmanager->getByQuotationNumber($quotationNumber);
+$company = $companymanager->getByNameData($companyNameData);
+$idCompany = $company->getIdcompany();
+
+$foldermanager = $foldermanager->getListActive($idCompany);
+
+$folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
+
+$descriptions = new Description($array);
+$descriptionmanager = new DescriptionManager($bdd);
+$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
+$contact = $contactmanager->getById($folderRecup->getContactId());
+$user = $usermanager->get($folderRecup->getSeller());
+$customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
@@ -43,14 +70,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
                 <form action="<?php echo URLHOST."_pages/_post/modifier_dcout.php"; ?>" method="post" id="cout" name="cout" class="form-horizontal">
-                    <div class="form-actions top">
-                        <div class="row">
-                            <div class="col-md-12" style="text-align: center;">
-                                <button type="submit" class="btn green"><i class="fas fa-save"></i> Enregistrer</button>
-                                <button type="button" class="btn default"><i class="fas fa-ban"></i> Annuler</button>
-                            </div>
-                        </div>
-                    </div>
                     <div class="form-body">
                         <div class="form-group">
                             <div class="col-md-12">
@@ -122,254 +141,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                                         <h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customer->getName(); ?></span></h5>
                                                         <h5 style="font-weight: 800;">Contact : <span id="spanContact"><?php echo $contact->getFirstname()." ".$contact->getName(); ?></span></h5>
                                                     </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="detaildevis">
-                            <div class="col-md-12">
-                                <div class="portlet box blue-dark">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="fas fa-cogs"></i>
-                                            <span class="caption-subject bold uppercase"> Détails du devis </span>
-                                        </div>
-                                        <div class="tools">
-                                            <a href="" class="collapse" data-original-title="" title=""> </a>
-                                        </div>
-                                    </div>
-                                    <div class="portlet-body form" style="display: block;">
-                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                            <div class="form-group" style="margin-bottom: 0px;">
-                                                <label class="control-label col-md-2">Date</label>
-                                                <div class="col-md-3">
-                                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                                        <input type="text" name="date" class="form-control" value="<?php echo $date; ?>">
-                                                        <span class="input-group-btn">
-                                                            <button class="btn default" type="button">
-                                                                <i class="fas fa-calendar-alt"></i>
-                                                            </button>
-                                                        </span>
-                                                    </div>
-                                                    <!-- /input-group -->
-                                                    <span class="help-block"> Cliquez sur la date pour la modifier </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                            <label class="col-md-2 control-label">Libellé du devis
-                                            </label>
-                                            <div class="col-md-6">
-                                                <input type="text" id="libelle" name="label" class="form-control" placeholder="<?php echo $folderRecup->getLabel(); ?>">
-                                                <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
-                                            </div>
-                                        </div>
-                                        <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                            <label class="col-md-2 control-label">Commentaire
-                                            </label>
-                                            <div class="col-md-6">
-                                                <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="Commentaire ..."><?php echo $quotation->getComment(); ?></textarea>
-                                                <span class="help-block">Le commentaire s'affichera à la fin du devis</span>
-                                            </div>
-                                        </div>
-                                        <?php
-                                        $i = 1;
-                                        $taxmanager = $taxmanager->getListByCustomer($folderRecup->getCustomerId());
-                                        foreach($descriptions as $description){ ?>
-                                            <div id="ligneDevis<?php echo $i; ?>" class="ligneDevis" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                <div class="col-md-12" style="display: flex; align-items: center;">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Description</label>
-                                                            <textarea class="form-control" id="descriptionDevis<?php echo $i; ?>" name="descriptionDevis[<?php echo $i; ?>]" rows="4"><?php echo $description->getDescription(); ?></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Quantité</label>
-                                                            <input type="digits" id="quantiteDevis<?php echo $i; ?>" name="quantiteDevis[<?php echo $i; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Remise (%)</label>
-                                                            <input type="digits" id="remiseDevis<?php echo $i; ?>" name="remiseDevis[<?php echo $i; ?>]" value="<?php echo $description->getDiscount(); ?>" class="form-control" placeholder="xx">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Taxes</label>
-                                                            <select id="taxeDevis<?php echo $i; ?>" class="taxe form-control" name="taxeDevis[<?php echo $i; ?>]">
-                                                                <option value="">Taxes</option>
-                                                                <?php
-
-                                                                foreach ($taxmanager as $tax){
-                                                                    ?>
-                                                                    <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
-                                                                    <?php
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Prix HT</label>
-                                                            <input type="digits" id="prixDevis<?php echo $i; ?>" name="prixDevis[<?php echo $i; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
-                                                        </div>
-                                                    </div>
-                                                    <div id="divsupprDevis<?php echo $i; ?>" style="text-align: right;" class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <button type="button" title="Supprimer la ligne" id="suppr<?php echo $i; ?>" class="btn red" onclick="supprLigneDevis(<?php echo $i; ?>);"><i class="fas fa-minus-square"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <?php
-                                            $i++;
-                                        }
-                                        ?>
-                                        <div class="form-actions fluid">
-                                            <div class="row">
-                                                <div class="col-md-12" style="text-align: center;">
-                                                    <button type="button" id="ajout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row" id="optdevis" >
-                            <div class="col-md-12">
-                                <div class="portlet box grey-cascade">
-                                    <div class="portlet-title">
-                                        <div class="caption">
-                                            <i class="fas fa-sliders-h"></i>
-                                            <span class="caption-subject bold uppercase"> Options du devis </span>
-                                        </div>
-                                        <div class="tools">
-                                            <a href="" <?php if(count($descriptionsOption) == 0){ echo 'class="expand"';}else{echo 'class="collapse"';} ?>  data-original-title="" title=""> </a>
-                                        </div>
-                                    </div>
-                                    <div class="portlet-body form" <?php if(count($descriptionsOption) == 0){ echo 'style="display: none;"';}else{echo 'style="display: block;"';} ?>>
-                                        <?php
-                                        $j = 1;
-                                        if(count($descriptionsOption) > 0){
-                                            foreach($descriptionsOption as $description){ ?>
-                                                <div id="ligneOption<?php echo $j; ?>" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                    <div class="col-md-12" style="display: flex; align-items: center;">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                                <label class="control-label">Description</label>
-                                                                <textarea class="form-control" id="descriptionOption<?php echo $j; ?>" name="descriptionOption[<?php echo $j; ?>]" rows="4"><?php echo $description->getDescription(); ?></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                                <label class="control-label">Quantité</label>
-                                                                <input type="digits" id="quantiteOption" name="quantiteOption[<?php echo $j; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                                <label class="control-label">Remise (%)</label>
-                                                                <input type="digits" id="remiseOption" name="remiseOption[<?php echo $j; ?>]" value="<?php echo $description->getDiscount(); ?>" class="form-control" placeholder="xx">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-1">
-                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                                <label class="control-label">Taxes</label>
-                                                                <select id="taxeOption<?php echo $j; ?>" class="taxe form-control" name="taxeOption[<?php echo $j; ?>]">
-                                                                    <option value="">Sélectionnez ...</option>
-                                                                    <?php
-                                                                    foreach ($taxmanager as $tax){
-                                                                        ?>
-                                                                        <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
-                                                                        <?php
-                                                                    }
-                                                                    ?>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-2">
-                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                                <label class="control-label">Prix HT</label>
-                                                                <input type="digits" id="prixOption<?php echo $j; ?>" name="prixOption[<?php echo $j; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
-                                                            </div>
-                                                        </div>
-                                                        <div id="divsupprOption<?php echo $j; ?>" style="text-align: right;" class="col-md-1">
-                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                                <button type="button" title="Supprimer la ligne" id="supprOption<?php echo $j; ?>" class="btn red" onclick="supprLigneOption(<?php echo $j; ?>);"><i class="fas fa-minus-square"></i></button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <?php
-                                                $j++;
-                                            }
-                                        }
-                                        else{
-                                        ?>
-                                            <div id="ligneOption<?php echo $j; ?>" class="ligneOption row" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                <div class="col-md-12" style="display: flex; align-items: center;">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Description</label>
-                                                            <textarea class="form-control" id="descriptionOption<?php echo $j; ?>" name="descriptionOption[<?php echo $j; ?>]" rows="4"></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Quantité</label>
-                                                            <input type="digits" id="quantiteOption<?php echo $j; ?>" name="quantiteOption[<?php echo $j; ?>]" class="form-control" placeholder="Qt.">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Remise (%)</label>
-                                                            <input type="digits" id="remiseOption<?php echo $j; ?>" name="remiseOption[<?php echo $j; ?>]" class="form-control" placeholder="xx">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Taxes</label>
-                                                            <select id="taxeOption<?php echo $j; ?>" class="taxe form-control" name="taxeOption[<?php echo $j; ?>]">
-                                                                <option value="">Sélectionnez ...</option>
-                                                                <?php
-                                                                /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
-                                                                foreach ($taxmanager as $tax){
-                                                                   ?>
-                                                                    <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
-                                                                    <?php
-                                                                }*/
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-2">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <label class="control-label">Prix HT</label>
-                                                            <input type="digits" id="prixOption<?php echo $j; ?>" name="prixOption[<?php echo $j; ?>]" class="form-control" placeholder="HT">
-                                                        </div>
-                                                    </div>
-                                                    <div id="divsupprOption<?php echo $j; ?>" style="text-align: right;" class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <button type="button" title="Supprimer la ligne" id="supprOption<?php echo $j; ?>" class="btn red" onclick="supprLigneOption(<?php echo $j; ?>);"><i class="fas fa-minus-square"></i></button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        <?php
-                                        }
-                                        ?>
-                                        <div class="form-actions fluid">
-                                            <div class="row">
-                                                <div class="col-md-12" style="text-align: center;">
-                                                    <button type="button" id="ajoutOption" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
                                                 </div>
                                             </div>
                                         </div>
