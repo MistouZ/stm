@@ -66,13 +66,30 @@ class CostManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function delete($quotationNumber)
+    public function deleteByQuotationNumber($quotationNumber)
     {
         try{
             $q = $this->_db->query("DELETE FROM cost WHERE quotationNumber='$quotationNumber'");
             $q->execute();
 
            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * @param $costId
+     * @return string|null
+     */
+    public function delete($costId)
+    {
+        try{
+            $q = $this->_db->query("DELETE FROM cost WHERE idcost='$costId'");
+            $q->execute();
+
+            return "ok";
         }
         catch(Exception $e){
             return null;
@@ -159,7 +176,7 @@ class CostManager
     {
         try{
 
-            $test = $this->delete($quotationNumber);
+            $test = $this->deletedeleteByQuotationNumber($quotationNumber);
             if(!is_null($test))
             {
                 echo "suppresion réussie ".$quotationNumber;

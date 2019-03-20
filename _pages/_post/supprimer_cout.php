@@ -8,7 +8,7 @@
 
 include("../../_cfg/cfg.php");
 $idFolder = $_GET["idFolder"];
-$quotationNumber = $_GET['quotationNumber'];
+$costId = $_GET['costId'];
 
 $array = array();
 $cost = new Cost($array);
