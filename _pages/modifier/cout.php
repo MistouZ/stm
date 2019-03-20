@@ -9,8 +9,8 @@ include("../../_cfg/cfg.php");
 $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
-$type2 = $_GET['soussouscat'];
-$quotationNumber = $_GET['soussoussouscat'];
+$folderId = $_GET['soussouscat'];
+//$quotationNumber = $_GET['soussoussouscat'];
 $retour = $_GET['cat5'];
 
 $company = new Company($array);
@@ -23,8 +23,6 @@ $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$quotation = new Quotation($array);
-$quotationmanager = new QuotationManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 $tax = new Tax($array);
@@ -34,26 +32,21 @@ $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
-$quotation = $quotationmanager->getByQuotationNumber($quotationNumber);
+
 $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
 
 $foldermanager = $foldermanager->getListActive($idCompany);
 
-$folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
+$folderRecup = $foldermanagerRecup->get($folderId);
 
-$descriptions = new Description($array);
-$descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-$descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
-$customer = $customermanager->getById($quotation->getCustomerId());
-$costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$customer = $customermanager->getById($folderRecup->getCustomerId());
+$costmanager = $costmanager->getByQuotationNumber($folderRecup->getIdFolder());
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
-$date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
 ?>
 <div class="row">
@@ -250,7 +243,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             </div>
                         </div>
                     </div>
-                    <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
+                    <input type="hidden" id="folderId" name="folderId" value="<?php echo $folderId; ?>">
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
