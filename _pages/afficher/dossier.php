@@ -431,8 +431,8 @@ switch($type){
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro d'avoir</th>
+                            <th class="all">Fournisseur</th>
+                            <th class="none">Description</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
@@ -441,17 +441,9 @@ switch($type){
                         </thead>
                         <tbody>
                         <?php
-                        foreach($quotations as $quotation){
-                            if($quotation->getType() == "A") {
-                                $type = "avoir";
-                                if($quotation->getStatus() == "En cours"){
-                                    $type2 = "cours";
-                                }
+                        foreach($costs as $cost){
+
                                 //initialisation au format date pour organiser le tableau
-                                $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
-                                $descriptions = new Description($array);
-                                $descriptionmanager = new DescriptionManager($bdd);
-                                $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                 $montant = 0;
                                 foreach($descriptions as $description){
                                     $montant = calculMontantTotalTTC($description);
@@ -478,7 +470,6 @@ switch($type){
                                 </tr>
                                 <?php
                             }
-                        }
                         ?>
                         </tbody>
                     </table>
