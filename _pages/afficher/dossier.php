@@ -422,7 +422,7 @@ switch($type){
         <div class="portlet box red-flamingo">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des Coûts
+                    <i class="fas fa-hand-holding-usd"></i>Liste des Coûts
                 </div>
                 <div class="tools">
                     <a href="" class="expand" data-original-title="" title=""> </a>
