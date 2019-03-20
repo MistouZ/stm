@@ -81,10 +81,9 @@ echo $quotationNumber;
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
                                             <label class="col-md-2 control-label">Dossier
-                                                <span class="required" aria-required="true"> * </span>
                                             </label>
                                             <div class="col-md-10">
-                                                <span><?php echo $folder->getIdFolder(); ?>"selected="selected">N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></span>
+                                                <span>N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?></span>
                                             </div>
                                         </div>
                                         <div id="infos" class="row form-section" style="margin: 10px 0px 0px 0px !important;">
