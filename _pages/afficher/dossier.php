@@ -419,7 +419,7 @@ switch($type){
                 </form>
             </div>
         </div>
-        <!--<div class="portlet box red-flamingo">
+        <div class="portlet box red-flamingo">
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fas fa-hand-holding-usd"></i>Liste des Coûts
@@ -443,17 +443,18 @@ switch($type){
                         <tbody>
                         <?php
                         foreach($costs as $cost){
+
                                 //initialisation au format date pour organiser le tableau
                                 $cout = 0;
                                 $cout = calculCoutTotal($cost);
-                                $supplier = $suppliermanager->getByID($cost->getSupplierId());
+                                $supplier = $suppliermanager->getByID($cost->getSupplierId())
                                 ?>
                                 <tr>
                                     <td><?php echo $supplier->getName(); ?></td>
                                     <td><?php echo $cost->getDescription(); ?></td>
                                     <td><?php echo number_format($cout, 0, ",", " "); ?> XPF</td>
                                     <td><a class="btn blue-steel"
-                                           href="<?php echo URLHOST . $_COOKIE['company'].'/dossier/modifier/cout/'. $cost->getFolderId().'/'.$cost->getQuotationNumber(); ?>"><i
+                                           href="<?php echo URLHOST . $_COOKIE['company'].'/dossier/modifier/cout/'. $cost->getFolderId(); ?>"><i
                                                     class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
                                            data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
@@ -471,6 +472,6 @@ switch($type){
                     <input type="hidden" name="date" id="date" />
                 </form>
             </div>
-        </div>-->
+        </div>
     </div>
 </div>
