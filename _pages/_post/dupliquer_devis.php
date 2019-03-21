@@ -73,7 +73,7 @@ if(is_null($test))
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);
+    header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber."/".$quotationNumber);
 }
 
 ?>
