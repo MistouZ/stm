@@ -11,8 +11,9 @@ include("../../_cfg/cfg.php");
 $array = array();
 $descriptionmanager = new DescriptionManager($bdd);
 $quotationmanager = new QuotationManager($bdd);
+$description = new Description($array);
+$descriptionmanager = new DescriptionManager($bdd);
 $quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"]);
-
 $folderId = $quotation->getFolderId();
 $companyId = $quotation->getCompanyId();
 $customerId = $quotation->getCustomerId();
@@ -40,8 +41,6 @@ $data = array(
 );
 
 $duplicate = new Quotation($data);
-
-/*
 $quotationNumber = $quotationmanager->add($quotation);
 
 if($quotationNumber != NULL){
@@ -51,112 +50,29 @@ else{
     echo "erreur j'ai rien créé";
 }
 
-//Ajout des lignes du devis
+//récupération des descriptions du devis en cours
+$getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
+$i = 1;
 $descriptions= array();
-
-$i=1;
-while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
-
-    $j = key($_POST["descriptionDevis"]);
-    if(strlen(trim($postDescription))>0){
-        if(empty($_POST["remiseDevis"][$j])){
-            $remise = 0;
-        }else{
-            $remise = $_POST["remiseDevis"][$j];
-        }
-        if(empty($_POST["quantiteDevis"][$j])){
-            $qt = 1;
-        }else{
-            $qt = $_POST["quantiteDevis"][$j];
-        }
-        $price = $_POST["prixDevis"][$j];
-        $tax = $_POST["taxeDevis"][$j];
-        $dataDescription= array(
-            'description' => $postDescription,
-            'quantity' => $qt,
-            'discount' => $remise,
-            'price' => $price,
-            'tax' => $tax
-        );
-
-        $description = new Description($dataDescription);
-        $descriptions[$i] = $description;
-    }
+foreach ($getDescription as $description)
+{
+    $descriptions[$i] = $description;
     $i++;
-    next($_POST["descriptionDevis"]);
 }
 
-$test = $descriptionmanager->add($descriptions,$quotationNumber);
+print_r($getDescription);
+print_r($descriptions);
 
+//$test = $descriptionmanager->add($descriptions,$quotationNumber);
 
-$i=1;
-while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
-
-    $j = key($_POST["descriptionOption"]);
-    if(strlen(trim($postDescriptionOption))>0){
-        if(empty($_POST["remiseOption"][$j])){
-            $remise = 0;
-        }else{
-            $remise = $_POST["remiseOption"][$j];
-        }
-        if(empty($_POST["quantiteOption"][$j])){
-            $qt = 1;
-        }else{
-            $qt = $_POST["quantiteOption"][$j];
-        }
-        $price = $_POST["prixOption"][$j];
-        $tax = $_POST["taxeOption"][$j];
-        $dataDescriptionOption= array(
-            'description' => $postDescriptionOption,
-            'quantity' => $qt,
-            'discount' => $remise,
-            'price' => $price,
-            'tax' => $tax
-        );
-
-        $descriptionOption = new Description($dataDescriptionOption);
-        $descriptionsOption[$i] = $descriptionOption;
-    }
-    $i++;
-    next($_POST["descriptionOption"]);
-}
-
-$quotationNumberOption = $quotationNumber.'_option';
-$test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
-
-
-$i=1;
-while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
-
-    $j = key($_POST["descriptionCout"]);
-    if(strlen(trim($postDescriptionCout))>0){
-
-        $price = $_POST["prixCout"][$j];
-        $supplier = $_POST["fournisseur"][$j];
-        $dataDescriptionCout= array(
-            'description' => $postDescriptionCout,
-            'value' => $price,
-            'folderId' => $folderId,
-            'supplierId' => $supplier
-        );
-
-        $descriptionCout = new Cost($dataDescriptionCout);
-        $descriptionsCout[$i] = $descriptionCout;
-    }
-    $i++;
-    next($_POST["descriptionCout"]);
-}
-
-
-$test3 = $costmanager->add($descriptionsCout,$quotationNumber);
-
-
+/*
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);
-}
-*/
+}*/
+
 ?>
