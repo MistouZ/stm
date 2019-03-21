@@ -46,8 +46,8 @@ $data = array(
 );
 
 $duplicate = new Quotation($data);
-$quotationNumber = $quotationmanager->add($duplicate);
-
+//$quotationNumber = $quotationmanager->add($duplicate);
+/*
 if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis ".$quotationNumber;
 }
@@ -70,7 +70,8 @@ foreach ($getDescription as $description)
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
 */
 $getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
-
+print_r($getCost);
+/*
 $j = 0;
 $costs= array();
 foreach ($getCost as $cost)
