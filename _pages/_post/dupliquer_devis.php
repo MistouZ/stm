@@ -66,7 +66,7 @@ foreach ($getDescription as $description)
 }
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
-
+echo $test;
 
 if(is_null($test))
 {
