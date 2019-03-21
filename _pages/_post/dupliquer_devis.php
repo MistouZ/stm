@@ -54,7 +54,7 @@ if($quotationNumber != NULL){
 else{
     echo "erreur j'ai rien créé";
 }
-
+/*
 //récupération des descriptions du devis en cours
 $getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
@@ -70,7 +70,7 @@ foreach ($getDescription as $description)
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
 
 $getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
-
+*/
 $j = 0;
 $costs= array();
 foreach ($getDescription as $cost)
