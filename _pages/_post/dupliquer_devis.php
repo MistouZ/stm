@@ -41,7 +41,7 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
-echo $data;
+print_r($data);
 /*
 $duplicate = new Quotation($data);
 $quotationNumber = $quotationmanager->add($duplicate);
