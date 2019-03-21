@@ -21,6 +21,7 @@ $companyId = $quotation->getCompanyId();
 $customerId = $quotation->getCustomerId();
 $contactId = $quotation->getContactId();
 $comment = $quotation->getComment();
+$label = $quotation->getLabel();
 
 $year = date("Y");
 $month = date("m");
