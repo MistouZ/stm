@@ -42,13 +42,10 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
-print_r($data);
 
 $duplicate = new Quotation($data);
 $quotationNumber = $quotationmanager->add($duplicate);
 
-echo $quotationNumber;
-/*
 if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis ".$quotationNumber;
 }
@@ -68,18 +65,15 @@ foreach ($getDescription as $description)
     $i++;
 }
 
-print_r($getDescription);
-print_r($descriptions);
+$test = $descriptionmanager->add($descriptions,$quotationNumber);
 
-//$test = $descriptionmanager->add($descriptions,$quotationNumber);
 
-/*
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);
-}*/
+}
 
 ?>
