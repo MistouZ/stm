@@ -80,7 +80,7 @@ foreach ($getDescription as $cost)
     $j++;
 }
 $test2 = $costmanager->add($costs,$quotationNumber);
-
+/*
 if(is_null($test) || is_null($test2))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
@@ -88,5 +88,5 @@ if(is_null($test) || is_null($test2))
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/cours/".$quotationNumber);
 }
-
+*/
 ?>
