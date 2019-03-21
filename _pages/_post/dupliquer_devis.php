@@ -42,10 +42,11 @@ $data = array(
     'contactId' => $contactId
 );
 print_r($data);
-/*
+
 $duplicate = new Quotation($data);
 $quotationNumber = $quotationmanager->add($duplicate);
-
+print_r($quotationNumber);
+/*
 if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis ".$quotationNumber;
 }
