@@ -43,7 +43,9 @@ switch($type){
                             <i class="fas fa-file-alt"></i> => Proforma </a>
                         <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/dupliquer/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                        <!--<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/dupliquer/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-edit"></i> Dupliquer </a>-->
+                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-edit"></i> Dupliquer </a>
                     </div>';
         break;
