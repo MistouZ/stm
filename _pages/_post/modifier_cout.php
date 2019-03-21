@@ -1,7 +1,7 @@
 <?php
 
 /**
- * @author Nicolas
+ * @author Amaury
  * @copyright 2019
  */
 
