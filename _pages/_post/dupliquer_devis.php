@@ -13,6 +13,8 @@ $descriptionmanager = new DescriptionManager($bdd);
 $quotationmanager = new QuotationManager($bdd);
 $description = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
+
+//récupération des données du devis initial à dupliquer
 $quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"]);
 $folderId = $quotation->getFolderId();
 $companyId = $quotation->getCompanyId();
@@ -41,7 +43,7 @@ $data = array(
 );
 
 $duplicate = new Quotation($data);
-$quotationNumber = $quotationmanager->add($quotation);
+$quotationNumber = $quotationmanager->add($duplicate);
 
 if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis ".$quotationNumber;
