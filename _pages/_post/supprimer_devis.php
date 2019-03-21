@@ -13,8 +13,10 @@ $quotationNumber = $_GET['quotationNumber'];
 $array = array();
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
+$cost = new Cost($array);
+$costmanager = new CostManager($bdd);
 $test = $descriptionmanager->delete($quotationNumber);
-
+$test2 = $costmanager->deleteByQuotationNumber($quotationNumber);
 
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr");
