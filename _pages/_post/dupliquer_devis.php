@@ -7,32 +7,16 @@
 
 include("../../_cfg/cfg.php");
 
-echo "Résultats : ";
 
 $array = array();
-$folder = new Folder($array);
-$foldermanager = new FoldersManager($bdd);
 $descriptionmanager = new DescriptionManager($bdd);
-$costmanager = new CostManager($bdd);
-$folder = $foldermanager->get($_POST["folder"]);
-$folderId = $folder->getIdFolder();
-$companyId = $folder->getCompanyId();
-$customerId = $folder->getCustomerId();
-$contactId = $folder->getContactId();
+$quotationmanager = new QuotationManager($bdd);
+$quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"]);
 
-if(empty($_POST["label"]))
-{
-    $label = $folder->getLabel();
-}
-else{
-    $label = $_POST["label"];
-}
-
-if(empty($_POST['comment'])){
-    $comment = "";
-}else{
-    $comment = $_POST['comment'];
-}
+$folderId = $quotation->getFolderId();
+$companyId = $quotation->getCompanyId();
+$customerId = $quotation->getCustomerId();
+$contactId = $quotation->getContactId();
 
 
 $year = date("Y");
@@ -55,10 +39,9 @@ $data = array(
     'contactId' => $contactId
 );
 
-$quotation = new Quotation($data);
-$quotationmanager = new QuotationManager($bdd);
+$duplicate = new Quotation($data);
 
-
+/*
 $quotationNumber = $quotationmanager->add($quotation);
 
 if($quotationNumber != NULL){
@@ -175,4 +158,5 @@ if(is_null($test) || is_null($test2) || is_null($test3))
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$quotationNumber);
 }
+*/
 ?>
