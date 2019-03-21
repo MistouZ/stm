@@ -68,12 +68,12 @@ foreach ($getDescription as $description)
 }
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
-
-$getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
 */
+$getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
 $j = 0;
 $costs= array();
-foreach ($getDescription as $cost)
+foreach ($getCost as $cost)
 {
     $cost->setQuotationNumber($quotationNumber);
     $costs[$j] = $cost;
