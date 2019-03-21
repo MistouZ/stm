@@ -13,6 +13,8 @@ $descriptionmanager = new DescriptionManager($bdd);
 $quotationmanager = new QuotationManager($bdd);
 $description = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
+$cost = new Cost($array);
+$costmanager = new CostManager($bdd);
 
 //récupération des données du devis initial à dupliquer
 $quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"]);
@@ -66,9 +68,20 @@ foreach ($getDescription as $description)
 }
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
-echo $test;
 
-if(is_null($test))
+$getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
+$i = 0;
+$costs= array();
+foreach ($getDescription as $cost)
+{
+    $cost->setQuotationNumber($quotationNumber);
+    $costs[$i] = $cost;
+    $i++;
+}
+$test2 = $costmanager->add($costs,$quotationNumber);
+
+if(is_null($test) || is_null($test2))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
