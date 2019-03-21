@@ -71,13 +71,13 @@ $test = $descriptionmanager->add($descriptions,$quotationNumber);
 
 $getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
-$i = 0;
+$j = 0;
 $costs= array();
 foreach ($getDescription as $cost)
 {
     $cost->setQuotationNumber($quotationNumber);
-    $costs[$i] = $cost;
-    $i++;
+    $costs[$j] = $cost;
+    $j++;
 }
 $test2 = $costmanager->add($costs,$quotationNumber);
 
