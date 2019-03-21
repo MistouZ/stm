@@ -41,7 +41,8 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
-
+echo $data;
+/*
 $duplicate = new Quotation($data);
 $quotationNumber = $quotationmanager->add($duplicate);
 
@@ -55,10 +56,11 @@ else{
 //récupération des descriptions du devis en cours
 $getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
-$i = 1;
+$i = 0;
 $descriptions= array();
 foreach ($getDescription as $description)
 {
+    $description->setQuotationNumber($quotationNumber);
     $descriptions[$i] = $description;
     $i++;
 }
