@@ -20,7 +20,7 @@ $folderId = $quotation->getFolderId();
 $companyId = $quotation->getCompanyId();
 $customerId = $quotation->getCustomerId();
 $contactId = $quotation->getContactId();
-
+$comment = $quotation->getComment();
 
 $year = date("Y");
 $month = date("m");
