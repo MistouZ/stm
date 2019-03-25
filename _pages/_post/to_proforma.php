@@ -77,7 +77,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
 
     $duplicate = new Quotation($data);
-    //$newquotationNumber = $quotationmanager->add($duplicate);
+    $newquotationNumber = $quotationmanager->add($duplicate);
     $getDescription = $descriptionmanager->getByQuotationNumber($quotationGet->getQuotationNumber());
     echo $quotationGet->getQuotationNumber();
     print_r($getDescription);
@@ -90,16 +90,16 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $i++;
     }
     // Duplication des descriptions pour garder l'original sur le reste du devis partiel
-    //$test = $descriptionmanager->add($descriptions,$newquotationNumber);
+    $test = $descriptionmanager->add($descriptions,$newquotationNumber);
     $rest = 100 - $percent;
 
     $dataShattered = array(
-     //   'quotationNumber' => $newquotationNumber,
+        'quotationNumber' => $newquotationNumber,
         'percent' => $rest
     );
     print_r($dataShattered);
     $shatteredQuotation = new ShatteredQuotation($dataShattered);
-   // $test2 = $shatteredQuotationManager->add($shatteredQuotation);
+    $test2 = $shatteredQuotationManager->add($shatteredQuotation);
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage à facturer
 
@@ -117,7 +117,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $j++;
     }
     print_r($descriptionsReduced);
-    //$test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
+    $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
 
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
@@ -129,13 +129,13 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
 
     $quotation = new Quotation($data);
-    //$test4 = $quotationmanager->changeType($quotation);
+    $test4 = $quotationmanager->changeType($quotation);
 }
-/*
+
 if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
     header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
 }
-*/
+
 ?>
