@@ -7,14 +7,14 @@ ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
  
 include("../../_cfg/cfg.php");
 
-$idQuotation = $_POST['quotationNumber'];
+$quotationNumber = $_POST['quotationNumber'];
 $dateTab = explode("/",$_POST['date']);
 $type2 = $_POST['type'];
 
 $array = array();
-$quotationNumber = new Quotation($array);
-$quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
+$quotationGet = new Quotation($array);
+$quotationmanager = new QuotationManager($bdd);
+$quotationGet = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
 
 $year = $dateTab[2];
 $month = $dateTab[1];
@@ -31,7 +31,6 @@ $data = array(
 );
 
 $quotation = new Quotation($data);
-$quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
 if(is_null($test)){
