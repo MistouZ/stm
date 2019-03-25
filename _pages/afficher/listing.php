@@ -160,8 +160,9 @@ $retour = $_GET['soussoussouscat'];
                                     $shatteredQuotation = $shatteredQuoptationManager->getByQuotationNumber($quotation->getQuotationNumber());
                                     $percent = $shatteredQuotation->getPercent();
                                     foreach ($descriptions as $description) {
+                                        $price = round(getPercentOfNumber($description->getPrice(),$percent));
+                                        $description->setPrice($price);
                                         $montant = calculMontantTotalTTC($description);
-                                        $montant = round(getPercentOfNumber($description->getPrice(),$percent));
                                     }
                                 }
                             ?>
