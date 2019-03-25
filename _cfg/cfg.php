@@ -23,6 +23,8 @@ include 'classes/class_description.php';
 include 'classes/class_descriptionmanager.php';
 include 'classes/class_cost.php';
 include 'classes/class_costmanager.php';
+include 'classes/class_shatteredquotation.php';
+include 'classes/class_shatteredquotationmanager.php';
 
 global $bdd;
 $bdd = new DB();
