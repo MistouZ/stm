@@ -12,13 +12,12 @@ $dateTab = explode("/",$_POST['date']);
 $type2 = $_POST['type'];
 $percent = $_POST["shattered_percent"];
 
+echo $percent;
 
 $array = array();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
-
-
 
 $year = $dateTab[2];
 $month = $dateTab[1];
