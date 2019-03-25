@@ -29,7 +29,6 @@ if($_POST["shattered"] == "full" || $percent = 100)
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
         'status' => 'En cours',
-        'label' => $label,
         'year' => $year,
         'month' => $month,
         'day' => $day,
