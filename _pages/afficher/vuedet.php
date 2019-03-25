@@ -317,8 +317,8 @@ if(isset($_GET['cat5'])){
                                 </label>
                                 <div class="col-md-9">
                                     <div class="radio-list" data-error-container="#credential_error">
-                                        <label class="radio-inline"><input name="credential" id="credential1" type="radio" value="Full" class="form-control" />Non</label>
-                                        <label class="radio-inline"><input name="credential" id="credential2" type="radio" value="Partial" class="form-control" />Partiel</label>
+                                        <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" />Non</label>
+                                        <label class="radio-inline"><input name="shattered" id="shattered2" type="radio" value="partial" class="form-control" />Partiel</label>
                                     </div>
                                     <div id="credential_error"> </div>
                                 </div>
