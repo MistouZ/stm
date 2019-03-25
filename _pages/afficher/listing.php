@@ -159,7 +159,6 @@ $retour = $_GET['soussoussouscat'];
                                 elseif ($type2 == "partiels"){
                                     $shatteredQuotation = $shatteredQuoptationManager->getByQuotationNumber($quotation->getQuotationNumber());
                                     $percent = $shatteredQuotation->getPercent();
-                                    echo $percent;
                                     foreach ($descriptions as $description) {
                                         $price = round(getPercentOfNumber($description->getPrice(),$percent));
                                         $description->setPrice($price);
