@@ -311,6 +311,25 @@ if(isset($_GET['cat5'])){
                                     <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Partiel
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <div class="radio-list" data-error-container="#credential_error">
+                                        <label class="radio-inline"><input name="credential" id="credential1" type="radio" value="Full" class="form-control" />Non</label>
+                                        <label class="radio-inline"><input name="credential" id="credential2" type="radio" value="Partial" class="form-control" />Partiel</label>
+                                    </div>
+                                    <div id="credential_error"> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Pourcentage à facturer
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-4">
+                                    <input name="shattered_percent" id="shattered_percent" type="text" class="form-control" /> </div>
+                            </div>
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                             <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                             <div class="modal-footer">

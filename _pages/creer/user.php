@@ -51,7 +51,6 @@ $companymanager = $companymanager->getList();
                             <div class="col-md-4">
                                 <input name="name" id="name" type="text" class="form-control" /> </div>
                         </div>
-                        
                         <div class="form-group">
                             <label class="control-label col-md-3">Prénom
                                 <span class="required"> * </span>
