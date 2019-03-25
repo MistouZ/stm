@@ -75,14 +75,14 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
 
     $duplicate = new Quotation($data);
     //$newquotationNumber = $quotationmanager->add($duplicate);
-    print_r($newquotationNumber);
+   //print_r($newquotationNumber);
     $getDescription = $descriptionmanager->getByQuotationNumber($quotationGet->getQuotationNumber());
 
     $i = 0;
     $descriptions= array();
     foreach ($getDescription as $description)
     {
-        $description->setQuotationNumber($newquotationNumber);
+        //$description->setQuotationNumber($newquotationNumber);
         $descriptions[$i] = $description;
         $i++;
     }
@@ -91,7 +91,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $rest = 100 - $percent;
 
     $dataShattered = array(
-        'quotationNumber' => $newquotationNumber,
+        //'quotationNumber' => $newquotationNumber,
         'percent' => $rest
     );
     print_r($dataShattered);
