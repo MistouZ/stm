@@ -23,7 +23,7 @@ $year = $dateTab[2];
 $month = $dateTab[1];
 $day = $dateTab[0];
 
-if($_POST["shattered"] == "full" || $percent = 100)
+if($_POST["shattered"] == "full" || $percent == 100)
 {
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
