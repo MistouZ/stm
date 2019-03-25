@@ -113,7 +113,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $j++;
     }
     print_r($descriptionsReduced);
-    $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
+    //$test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
     //reste à modifier le devis en proforma
 
     $data = array(
