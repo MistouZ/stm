@@ -38,6 +38,9 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $quotation = new Quotation($data);
 
     $test = $quotationmanager->changeType($quotation);
+    $test2 = "ok";
+    $test3 ="ok";
+    $test4 = "ok";
 }
 elseif ($_POST["shattered"] == "partial" && $percent < 100)
 {
@@ -127,7 +130,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $test4 = $quotationmanager->changeType($quotation);
 }
 
-if(is_null($test) || (is_null($test2) || is_null($test3) || is_null($test4))){
+if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
     header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
