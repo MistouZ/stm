@@ -22,6 +22,8 @@ $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
+$shatteredQuotation = new ShatteredQuotation($array);
+$shatteredQuoptationManager = new ShatteredQuotationManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
 
@@ -149,8 +151,18 @@ $retour = $_GET['soussoussouscat'];
                                 $descriptionmanager = new DescriptionManager($bdd);
                                 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                 $montant = 0;
-                                foreach($descriptions as $description){
-                                    $montant = calculMontantTotalTTC($description);
+                                if($type2 == "cours") {
+                                    foreach ($descriptions as $description) {
+                                        $montant = calculMontantTotalTTC($description);
+                                    }
+                                }
+                                elseif ($type2 == "partiels"){
+                                    $shatteredQuotation = $shatteredQuoptationManager->getByQuotationNumber($quotation->getQuotationNumber());
+                                    $percent = $shatteredQuotation->getPercent();
+                                    foreach ($descriptions as $description) {
+                                        $montant = calculMontantTotalTTC($description);
+                                        $montant = round(getPercentOfNumber($description->getPrice(),$percent));
+                                    }
                                 }
                             ?>
                             <tr>
