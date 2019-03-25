@@ -103,6 +103,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $j = 0;
     $descriptionsReduced= array();
     $descriptionReduced = new Description($array);
+    print_r($getDescription);
     foreach ($getDescription as $descriptionReduced)
     {
         $value = getPercentOfNumber($descriptionReduced->getPrice(),$shattered);
