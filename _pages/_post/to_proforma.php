@@ -77,7 +77,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     //$newquotationNumber = $quotationmanager->add($duplicate);
    //print_r($newquotationNumber);
     $getDescription = $descriptionmanager->getByQuotationNumber($quotationGet->getQuotationNumber());
-
+    print_r($getDescription);
     $i = 0;
     $descriptions= array();
     foreach ($getDescription as $description)
