@@ -21,7 +21,7 @@ $month = $dateTab[1];
 $day = $dateTab[0];
 
 $data = array(
-    'idQuotation' => $quotationNumber->getIdQuotation(),
+    'idQuotation' => $quotationGet->getIdQuotation(),
     'status' => 'En cours',
     'label' => $label,
     'year' => $year,
