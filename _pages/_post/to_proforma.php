@@ -6,6 +6,7 @@ ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
  */
  
 include("../../_cfg/cfg.php");
+include "../../_cfg/fonctions.php";
 
 $quotationNumber = $_POST['quotationNumber'];
 $dateTab = explode("/",$_POST['date']);
@@ -75,7 +76,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $duplicate = new Quotation($data);
     $newquotationNumber = $quotationmanager->add($duplicate);
     print_r($newquotationNumber);
-    $getDescription = $descriptionmanager->getByQuotationNumber($quotationGet->getQuotationNumber());
+    //$getDescription = $descriptionmanager->getByQuotationNumber($quotationGet->getQuotationNumber());
 
     $i = 0;
     $descriptions= array();
@@ -86,7 +87,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $i++;
     }
     // Duplication des descriptions pour garder l'original sur le reste du devis partiel
-    $test = $descriptionmanager->add($descriptions,$newquotationNumber);
+    //$test = $descriptionmanager->add($descriptions,$newquotationNumber);
     $rest = 100 - $percent;
 
     $dataShattered = array(
@@ -95,7 +96,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
     print_r($dataShattered);
     $shatteredQuotation = new ShatteredQuotation($dataShattered);
-    $test2 = $shatteredQuotationManager->add($shatteredQuotation);
+    //$test2 = $shatteredQuotationManager->add($shatteredQuotation);
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage à facturer
 
