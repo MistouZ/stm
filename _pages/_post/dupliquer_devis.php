@@ -47,14 +47,14 @@ $data = array(
 
 $duplicate = new Quotation($data);
 $quotationNumber = $quotationmanager->add($duplicate);
-/*
+
 if($quotationNumber != NULL){
     echo "j'ai réussi à insérer mon devis ".$quotationNumber;
 }
 else{
     echo "erreur j'ai rien créé";
 }
-/*
+
 //récupération des descriptions du devis en cours
 $getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
@@ -68,9 +68,10 @@ foreach ($getDescription as $description)
 }
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
-*/
+
+//récupération des couts associés au devis
+
 $getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
-print_r($getCost);
 
 $j = 0;
 $costs= array();
@@ -81,7 +82,7 @@ foreach ($getCost as $cost)
     $j++;
 }
 $test2 = $costmanager->add($costs,$quotationNumber);
-/*
+
 if(is_null($test) || is_null($test2))
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
@@ -89,5 +90,5 @@ if(is_null($test) || is_null($test2))
 else{
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/cours/".$quotationNumber);
 }
-*/
+
 ?>
