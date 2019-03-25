@@ -172,6 +172,23 @@ class QuotationManager
     }
 
     /**
+     * Get all the quotation in the BDD for the selected company
+     * @return array
+     */
+    public function getListShatteredQuotation($companyid)
+    {
+        $quotations = [];
+
+        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='S' ");
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $quotations[] = new Quotation($donnees);
+        }
+
+        return $quotations;
+    }
+
+    /**
      * Get all the proforma in the BDD for the selected company
      * @return array
      */
