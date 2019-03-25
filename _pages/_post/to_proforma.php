@@ -76,6 +76,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
 
     $duplicate = new Quotation($data);
     $newquotationNumber = $quotationmanager->add($duplicate);
+    print_r($newquotationNumber);
     $getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
     $i = 0;
@@ -87,15 +88,16 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $i++;
     }
     // Duplication des descriptions pour garder l'original sur le reste du devis partiel
-    $test2 = $descriptionmanager->add($descriptions,$newquotationNumber);
+    $test = $descriptionmanager->add($descriptions,$newquotationNumber);
     $rest = 100 - $percent;
 
     $dataShattered = array(
         'quotationNumber' => $newquotationNumber,
         'percent' => $rest
     );
+    print_r($dataShattered);
     $shatteredQuotation = new ShatteredQuotation($dataShattered);
-    $test3 = $shatteredQuotationManager->add($shatteredQuotation);
+    $test2 = $shatteredQuotationManager->add($shatteredQuotation);
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage à facturer
 
@@ -110,8 +112,22 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $j++;
     }
 
-    $test4 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
+    $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
     //reste à modifier le devis en proforma
+
+    $data = array(
+        'idQuotation' => $quotationGet->getIdQuotation(),
+        'status' => 'En cours',
+        'label' => $label,
+        'year' => $year,
+        'month' => $month,
+        'day' => $day,
+        'type' => 'P'
+    );
+
+    $quotation = new Quotation($data);
+
+    $test4 = $quotationmanager->changeType($quotation);
 }
 /*
 if(is_null($test)){
