@@ -32,15 +32,6 @@ class ShatteredQuotationManager
     }
 
     /**
-     * @return mixed
-     */
-    public function count()
-    {
-       return $this->_db->query('SELECT max(idShatteredQuotation) FROM shattered_quotation ORDER BY idShatteredQuotation')->fetchColumn();
-    }
-
-
-    /**
      * @param ShatteredQuotation $quotation
      * @return string|null
      */
