@@ -19,6 +19,7 @@ $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
 
 
+
 $year = $dateTab[2];
 $month = $dateTab[1];
 $day = $dateTab[0];
@@ -43,6 +44,8 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
 {
     $descriptionmanager = new DescriptionManager($bdd);
     $description = new Description($array);
+
+    $shatteredQuotationManager = new ShatteredQuotationManager($bdd);
 
     $folderId = $quotationGet->getFolderId();
     $companyId = $quotationGet->getCompanyId();
@@ -87,15 +90,34 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $test2 = $descriptionmanager->add($descriptions,$newquotationNumber);
     $rest = 100 - $percent;
 
+    $dataShattered = array(
+        'quotationNumber' => $newquotationNumber,
+        'percent' => $rest
+    );
+    $shatteredQuotation = new ShatteredQuotation($dataShattered);
+    $test3 = $shatteredQuotationManager->add($shatteredQuotation);
 
-    /*$value = getPercentOfNumber($description->getPrice(),$shattered);
-    $description->setPrice(round($value));*/
+    //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage à facturer
+
+    $j = 0;
+    $descriptionsReduced= array();
+    $descriptionReduced = new Description($array);
+    foreach ($getDescription as $descriptionReduced)
+    {
+        $value = getPercentOfNumber($descriptionReduced->getPrice(),$shattered);
+        $descriptionReduced->setPrice(round($value));
+        $descriptionsReduced[$j] = $descriptionReduced;
+        $j++;
+    }
+
+    $test4 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
 
 }
+/*
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
     header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
 }
-
+*/
 ?>
