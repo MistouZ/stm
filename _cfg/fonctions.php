@@ -82,5 +82,9 @@ function calculCoutTotal(Cost $cost){
     return $cout;
 }
 
+function getPercentOfNumber($number, $percent){
+    return ($percent / 100) * $number;
+}
+
 
 ?>

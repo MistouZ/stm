@@ -9,7 +9,6 @@ include("../../_cfg/cfg.php");
 
 
 $array = array();
-$descriptionmanager = new DescriptionManager($bdd);
 $quotationmanager = new QuotationManager($bdd);
 $description = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
