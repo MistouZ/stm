@@ -29,7 +29,7 @@ $company = $companymanager->getByNameData($companyNameData);
 
 switch($type){
     case "devis":
-        if($type2=="cours"){
+        //if($type2=="cours"){
             $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
             $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm" title="Passer la sélection en proforma">
@@ -37,7 +37,7 @@ switch($type){
                         <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm" title="Passer la sélection en facture">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                     </div>';
-        }
+        /*}
         elseif($type2=="partiels"){
             $quotations = $quotationmanager->getListShatteredQuotation($company->getIdcompany());
             $buttons = '<div id="actions" style="display:none;">
@@ -46,7 +46,7 @@ switch($type){
                         <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm" title="Passer la sélection en facture">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                     </div>';
-        }
+        }*/
 
         break;
     case "proforma":
