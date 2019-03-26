@@ -107,14 +107,16 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $descriptionsReduced= array();
     $descriptionReduced = new Description($array);
     print_r($getDescription);
-    /*foreach ($getDescription as $descriptionReduced)
+    foreach ($getDescription as $descriptionReduced)
     {
         $value = getPercentOfNumber($descriptionReduced->getPrice(),$percent);
         $descriptionReduced->setPrice(round($value));
         $descriptionsReduced[$j] = $descriptionReduced;
         $j++;
-    }*/
-    $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
+    }
+    //$test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
+
+    print_r($getDescription);
 
     $k = 0;
     /*foreach ($getDescription as $description)
