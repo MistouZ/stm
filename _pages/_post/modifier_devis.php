@@ -10,6 +10,7 @@ include("../../_cfg/cfg.php");
 $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
 
+echo $quotationNumber;
 
 $array = array();
 $folder = new Folder($array);
