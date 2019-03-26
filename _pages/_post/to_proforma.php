@@ -78,29 +78,29 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
 
     $duplicate = new Quotation($data);
-    $newquotationNumber = $quotationmanager->add($duplicate);
+    //$newquotationNumber = $quotationmanager->add($duplicate);
     $getDescription = $descriptionmanager->getByQuotationNumber($quotationGet->getQuotationNumber());
-    $quotationInit = $quotationGet->getQuotationNumber()."_init";
+    //$quotationInit = $quotationGet->getQuotationNumber()."_init";
     $rest = 100 - $percent;
 
     $i = 0;
     $descriptions= array();
     foreach ($getDescription as $description)
     {
-        $description->setQuotationNumber($quotationInit);
+        //$description->setQuotationNumber($quotationInit);
         $descriptions[$i] = $description;
         $i++;
     }
     // Duplication des descriptions pour garder l'original
-    $test = $descriptionmanager->add($descriptions,$quotationInit);
+    //$test = $descriptionmanager->add($descriptions,$quotationInit);
 
 
     $dataShattered = array(
-        'quotationNumber' => $newquotationNumber,
+        //'quotationNumber' => $newquotationNumber,
         'percent' => $rest
     );
     $shatteredQuotation = new ShatteredQuotation($dataShattered);
-    $test2 = $shatteredQuotationManager->add($shatteredQuotation);
+    //$test2 = $shatteredQuotationManager->add($shatteredQuotation);
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage à facturer
 
@@ -114,18 +114,19 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $k++;
     }
     //insertion du reste à payer
-    $test3 = $descriptionmanager->add($descriptions,$newquotationNumber);
+    //$test3 = $descriptionmanager->add($descriptions,$newquotationNumber);
 
     $j = 0;
     $descriptionsReduced= array();
     $descriptionReduced = new Description($array);
-    foreach ($getDescription as $descriptionReduced)
+    print_r($getDescription);
+    /*foreach ($getDescription as $descriptionReduced)
     {
         $value = getPercentOfNumber($descriptionReduced->getPrice(),$percent);
         $descriptionReduced->setPrice(round($value));
         $descriptionsReduced[$j] = $descriptionReduced;
         $j++;
-    }
+    }*/
     $test4 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
 
 
