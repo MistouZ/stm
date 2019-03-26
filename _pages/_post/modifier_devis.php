@@ -156,11 +156,10 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
     $i++;
     next($_POST["descriptionCout"]);
 }
-print_r($descriptionsCout);
 $test4 = $costmanager->update($descriptionsCout,$quotationNumber);
 
 
-if(is_null($test) || is_null($test2) || is_null($test3))
+if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4))
 {
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
