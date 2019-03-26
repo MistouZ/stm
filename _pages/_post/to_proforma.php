@@ -142,13 +142,13 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
 
     $quotation = new Quotation($data);
-    $test5 = $quotationmanager->changeType($quotation);
+    //$test5 = $quotationmanager->changeType($quotation);
 }
-
+/*
 if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4) || is_null($test5)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
     header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
 }
-
+*/
 ?>
