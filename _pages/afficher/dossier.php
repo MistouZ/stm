@@ -446,7 +446,7 @@ switch($type){
 
                                 //initialisation au format date pour organiser le tableau
                                 $cout = 0;
-                                $cout = calculCoutTotal($cost);
+                                $cout = calculCoutTotal($cost, $cout);
                                 $supplier = $suppliermanager->getByID($cost->getSupplierId())
                                 ?>
                                 <tr>
