@@ -41,6 +41,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $test2 = "ok";
     $test3 ="ok";
     $test4 = "ok";
+    $test5 = "ok";
 }
 elseif ($_POST["shattered"] == "partial" && $percent < 100)
 {
@@ -79,25 +80,27 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $duplicate = new Quotation($data);
     $newquotationNumber = $quotationmanager->add($duplicate);
     $getDescription = $descriptionmanager->getByQuotationNumber($quotationGet->getQuotationNumber());
-    echo $quotationGet->getQuotationNumber();
-    print_r($getDescription);
+    $quotationInit = $quotationGet->getQuotationNumber()."_init";
+    $rest = 100 - $percent;
+
     $i = 0;
     $descriptions= array();
     foreach ($getDescription as $description)
     {
-      //  $description->setQuotationNumber($newquotationNumber);
+        $description->setQuotationNumber($quotationInit);
         $descriptions[$i] = $description;
         $i++;
     }
-    // Duplication des descriptions pour garder l'original sur le reste du devis partiel
-    $test = $descriptionmanager->add($descriptions,$newquotationNumber);
-    $rest = 100 - $percent;
+    // Duplication des descriptions pour garder l'original
+    $test = $descriptionmanager->add($descriptions,$quotationInit);
+
+
+
 
     $dataShattered = array(
         'quotationNumber' => $newquotationNumber,
         'percent' => $rest
     );
-    print_r($dataShattered);
     $shatteredQuotation = new ShatteredQuotation($dataShattered);
     $test2 = $shatteredQuotationManager->add($shatteredQuotation);
 
@@ -110,14 +113,25 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     foreach ($getDescription as $descriptionReduced)
     {
         $value = getPercentOfNumber($descriptionReduced->getPrice(),$percent);
-        echo $value;
         $descriptionReduced->setPrice(round($value));
-        echo $descriptionReduced->getPrice();
         $descriptionsReduced[$j] = $descriptionReduced;
         $j++;
     }
     print_r($descriptionsReduced);
     $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
+
+    $k = 0;
+    foreach ($getDescription as $description)
+    {
+        $value = getPercentOfNumber($description->getPrice(),$rest);
+        $description->setPrice(round($value));
+        $description->setQuotationNumber($newquotationNumber);
+        $descriptions[$k] = $description;
+        $k++;
+    }
+    //insertion du reste à payer
+    $test4 = $descriptionmanager->add($descriptions,$newquotationNumber);
+
 
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
@@ -129,10 +143,10 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
 
     $quotation = new Quotation($data);
-    $test4 = $quotationmanager->changeType($quotation);
+    $test5 = $quotationmanager->changeType($quotation);
 }
 
-if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4)){
+if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4) || is_null($test5)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
     header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');

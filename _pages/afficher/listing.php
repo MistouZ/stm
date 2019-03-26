@@ -151,19 +151,8 @@ $retour = $_GET['soussoussouscat'];
                                 $descriptionmanager = new DescriptionManager($bdd);
                                 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                 $montant = 0;
-                                if($type2 == "cours") {
-                                    foreach ($descriptions as $description) {
+                                foreach ($descriptions as $description) {
                                         $montant = calculMontantTotalTTC($description);
-                                    }
-                                }
-                                elseif ($type2 == "partiels"){
-                                    $shatteredQuotation = $shatteredQuoptationManager->getByQuotationNumber($quotation->getQuotationNumber());
-                                    $percent = $shatteredQuotation->getPercent();
-                                    foreach ($descriptions as $description) {
-                                        $price = round(getPercentOfNumber($description->getPrice(),$percent));
-                                        $description->setPrice($price);
-                                        $montant = calculMontantTotalTTC($description);
-                                    }
                                 }
                             ?>
                             <tr>
