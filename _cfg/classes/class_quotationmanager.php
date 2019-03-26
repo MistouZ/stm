@@ -51,7 +51,7 @@ class QuotationManager
         //print_r($quotation);
         try{
             $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, label, year,month,day, type, comment, companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :label, :year, :month, :day, :type, :comment, :companyId, :folderId, :customerId, :contactId)');
-            $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
+            $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_INT);
             $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
@@ -120,7 +120,7 @@ class QuotationManager
     public function getByQuotationNumber($quotationNumber)
     {
         try{
-            $quotationNumber = (string) $quotationNumber;
+            $quotationNumber = (integer) $quotationNumber;
             $q = $this->_db->query("SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber'");
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
