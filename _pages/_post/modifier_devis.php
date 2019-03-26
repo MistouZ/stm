@@ -138,7 +138,6 @@ $test3 = $descriptionmanager->update($descriptionsOption,$quotationNumberOption)
 
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
-echo "je gère les coûts maintenant";
     $j = key($_POST["descriptionCout"]);
     if(strlen(trim($postDescriptionCout))>0){
 
@@ -157,9 +156,9 @@ echo "je gère les coûts maintenant";
     $i++;
     next($_POST["descriptionCout"]);
 }
-
+print_r($descriptionsCout);
 $test4 = $costmanager->update($descriptionsCout,$quotationNumber);
-echo "test4".print_r($test4);
+
 
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
