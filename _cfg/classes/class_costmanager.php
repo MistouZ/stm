@@ -175,7 +175,8 @@ class CostManager
     public function update(array $cost, $quotationNumber)
     {
         try{
-
+            print_r($cost);
+            echo $quotationNumber;
             $test = $this->deletedeleteByQuotationNumber($quotationNumber);
             if(!is_null($test))
             {
