@@ -130,10 +130,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     //insertion du reste à payer
     //$test4 = $descriptionmanager->add($descriptions,$newquotationNumber);
 
-
-
-
-    $data = array(
+    /*$data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
         'status' => 'En cours',
         'year' => $year,
@@ -141,9 +138,8 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         'day' => $day,
         'type' => 'P'
     );
-
     $quotation = new Quotation($data);
-    //$test5 = $quotationmanager->changeType($quotation);
+    //$test5 = $quotationmanager->changeType($quotation);*/
 }
 /*
 if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4) || is_null($test5)){
