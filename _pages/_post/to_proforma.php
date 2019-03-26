@@ -94,7 +94,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
 
 
     $dataShattered = array(
-        //'quotationNumber' => $newquotationNumber,
+        'quotationNumber' => $newquotationNumber,
         'percent' => $rest
     );
     $shatteredQuotation = new ShatteredQuotation($dataShattered);
