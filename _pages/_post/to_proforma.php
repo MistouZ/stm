@@ -117,13 +117,14 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
 
     $getDescriptionInit = $descriptionmanager->getByQuotationNumber($quotationInit);
+    $descriptionRest = new Description($array);
     $k = 0;
-    foreach ($getDescriptionInit as $description)
+    foreach ($getDescriptionInit as $descriptionRest)
     {
-        $value = getPercentOfNumber($description->getPrice(),$rest);
-        $description->setPrice(round($value));
-        $description->setQuotationNumber($newquotationNumber);
-        $descriptions[$k] = $description;
+        $value = getPercentOfNumber($descriptionRest->getPrice(),$rest);
+        $descriptionRest->setPrice(round($value));
+        $descriptionRest->setQuotationNumber($newquotationNumber);
+        $descriptions[$k] = $descriptionRest;
         $k++;
     }
     //insertion du reste à payer
