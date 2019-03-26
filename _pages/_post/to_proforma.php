@@ -102,7 +102,6 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage à facturer
 
-
     $j = 0;
     $descriptionsReduced= array();
     $descriptionReduced = new Description($array);

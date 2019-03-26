@@ -23,7 +23,7 @@ $customermanager = new CustomersManager($bdd);
 $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $shatteredQuotation = new ShatteredQuotation($array);
-$shatteredQuoptationManager = new ShatteredQuotationManager($bdd);
+$shatteredQuotationManager = new ShatteredQuotationManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
 
