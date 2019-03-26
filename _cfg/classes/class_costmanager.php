@@ -46,7 +46,7 @@ class CostManager
             foreach ($costs as $cost)
             {
                 $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, folderId,supplierId) VALUES (:description, :value, :quotationNumber, :folderId, :supplierId)');
-                $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
+                $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_INT);
                 $q->bindValue(':description', $cost->getDescription(), PDO::PARAM_STR);
                 $q->bindValue(':value', $cost->getValue(), PDO::PARAM_INT);
                 $q->bindValue(':folderId', $cost->getFolderId(), PDO::PARAM_INT);
