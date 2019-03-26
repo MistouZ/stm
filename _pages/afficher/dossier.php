@@ -180,7 +180,7 @@ switch($type){
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                             $montant = 0;
                             foreach($descriptions as $description){
-                                $montant = calculMontantTotalTTC($description);
+                                $montant = calculMontantTotalTTC($description, $montant);
                             }
 
                             ?>
@@ -249,7 +249,7 @@ switch($type){
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                             $montant = 0;
                             foreach($descriptions as $description){
-                                $montant = calculMontantTotalTTC($description);
+                                $montant = calculMontantTotalTTC($description, $montant);
                             }
 
                                 ?>
@@ -318,7 +318,7 @@ switch($type){
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                             $montant = 0;
                             foreach($descriptions as $description){
-                                $montant = calculMontantTotalTTC($description);
+                                $montant = calculMontantTotalTTC($description, $montant);
                             }
 
                                 ?>
@@ -387,7 +387,7 @@ switch($type){
                                 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                 $montant = 0;
                                 foreach($descriptions as $description){
-                                    $montant = calculMontantTotalTTC($description);
+                                    $montant = calculMontantTotalTTC($description, $montant);
                                 }
 
                                 ?>
@@ -446,7 +446,7 @@ switch($type){
 
                                 //initialisation au format date pour organiser le tableau
                                 $cout = 0;
-                                $cout = calculCoutTotal($cost);
+                                $cout = calculCoutTotal($cost, $cout);
                                 $supplier = $suppliermanager->getByID($cost->getSupplierId())
                                 ?>
                                 <tr>
