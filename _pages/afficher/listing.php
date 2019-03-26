@@ -152,7 +152,6 @@ $retour = $_GET['soussoussouscat'];
                                 $montant = 0;
                                 foreach ($descriptions as $description) {
                                     $montant = calculMontantTotalTTC($description, $montant);
-                                    echo $montant;
                                 }
                             ?>
                             <tr>
