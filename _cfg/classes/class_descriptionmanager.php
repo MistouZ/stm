@@ -135,9 +135,13 @@ class DescriptionManager
             $test = $this->delete($quotationNumber);
             if(!is_null($test))
             {
-               // echo "suppresion réussie ".$quotationNumber;
+                echo "suppresion réussie ".$quotationNumber;
             }
-            $this->add($description,$quotationNumber);
+            $test2 =$this->add($description,$quotationNumber);
+            if(!is_null($test2))
+            {
+                echo "Ajout réussie ".$quotationNumber;
+            }
             return $description;
         }
         catch(Exception $e){
