@@ -95,8 +95,6 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $test = $descriptionmanager->add($descriptions,$quotationInit);
 
 
-
-
     $dataShattered = array(
         'quotationNumber' => $newquotationNumber,
         'percent' => $rest
@@ -105,20 +103,6 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $test2 = $shatteredQuotationManager->add($shatteredQuotation);
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage à facturer
-
-    $j = 0;
-    $descriptionsReduced= array();
-    $descriptionReduced = new Description($array);
-    print_r($getDescription);
-    foreach ($getDescription as $descriptionReduced)
-    {
-        $value = getPercentOfNumber($descriptionReduced->getPrice(),$percent);
-        $descriptionReduced->setPrice(round($value));
-        $descriptionsReduced[$j] = $descriptionReduced;
-        $j++;
-    }
-    print_r($descriptionsReduced);
-    $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
 
     $k = 0;
     foreach ($getDescription as $description)
@@ -130,7 +114,21 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $k++;
     }
     //insertion du reste à payer
-    $test4 = $descriptionmanager->add($descriptions,$newquotationNumber);
+    $test3 = $descriptionmanager->add($descriptions,$newquotationNumber);
+
+    $j = 0;
+    $descriptionsReduced= array();
+    $descriptionReduced = new Description($array);
+    foreach ($getDescription as $descriptionReduced)
+    {
+        $value = getPercentOfNumber($descriptionReduced->getPrice(),$percent);
+        $descriptionReduced->setPrice(round($value));
+        $descriptionsReduced[$j] = $descriptionReduced;
+        $j++;
+    }
+    $test4 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
+
+
 
 
     $data = array(
