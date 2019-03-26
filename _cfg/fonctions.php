@@ -75,9 +75,9 @@ function calculMontantTotalTTC(Description $description, $montant){
     return $montant;
 }
 
-function calculCoutTotal(Cost $cost){
-    $montantLigne = $cost->getValue();
-    $cout = $cout+$montantLigne;
+function calculCoutTotal(Cost $cost, $cout){
+    $coutLigne = $cost->getValue();
+    $cout = $cout+$coutLigne;
 
     return $cout;
 }
