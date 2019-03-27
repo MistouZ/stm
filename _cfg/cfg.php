@@ -1,7 +1,7 @@
 <?php
 define('URLHOST','http://dev.bitwin.nc/');
 
-/*include 'classes/class_db.php';
+include 'classes/class_db.php';
 include 'classes/class_features.php';
 include 'classes/class_company.php';
 include 'classes/class_companiesmanager.php';
@@ -25,8 +25,7 @@ include 'classes/class_cost.php';
 include 'classes/class_costmanager.php';
 include 'classes/class_shatteredquotation.php';
 include 'classes/class_shatteredquotationmanager.php';
-*/
-include './fonctions.php';
+
 
 global $bdd;
 $bdd = new DB();
