@@ -9,7 +9,8 @@
 class ShatteredQuotation extends Features
 {
     private $idShatteredQuotation;
-    private $quotationNumber;
+    private $quotationNumberInit;
+    private $quotationNumberChild;
     private $percent;
 
     /**
@@ -39,18 +40,35 @@ class ShatteredQuotation extends Features
     /**
      * @return mixed
      */
-    public function getQuotationNumber()
+    public function getQuotationNumberInit()
     {
-        return $this->quotationNumber;
+        return $this->quotationNumberInit;
     }
 
     /**
-     * @param mixed $quotationNumber
+     * @param mixed $quotationNumberInit
      */
-    public function setQuotationNumber($quotationNumber): void
+    public function setQuotationNumberInit($quotationNumberInit): void
     {
-        $this->quotationNumber = $quotationNumber;
+        $this->quotationNumberInit = $quotationNumberInit;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getQuotationNumberChild()
+    {
+        return $this->quotationNumberChild;
+    }
+
+    /**
+     * @param mixed $quotationNumberChild
+     */
+    public function setQuotationNumberChild($quotationNumberChild): void
+    {
+        $this->quotationNumberChild = $quotationNumberChild;
+    }
+
 
     /**
      * @return mixed

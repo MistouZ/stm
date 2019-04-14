@@ -38,8 +38,9 @@ class ShatteredQuotationManager
     public function add(ShatteredQuotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('INSERT INTO shattered_quotation (quotationNumber, percent) VALUES (:quotationNumber, :percent)');
-            $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
+            $q = $this->_db->prepare('INSERT INTO shattered_quotation (quotationNumberInit, quotationNumberChild, percent) VALUES (:quotationNumberInit, :quotationNumberChild,:percent)');
+            $q->bindValue(':quotationNumberInit', $quotation->getQuotationNumberInit(), PDO::PARAM_STR);
+            $q->bindValue(':quotationNumberChild', $quotation->getQuotationNumberChild(), PDO::PARAM_STR);
             $q->bindValue(':percent', $quotation->getPercent(), PDO::PARAM_INT);
 
     
@@ -94,11 +95,29 @@ class ShatteredQuotationManager
      * @param $quotationNumber
      * @return ShatteredQuotation|null
      */
-    public function getByQuotationNumber($quotationNumber)
+    public function getByQuotationNumberInit($quotationNumberInit)
     {
         try{
-            $quotationNumber = (string) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM `shattered_quotation` WHERE quotationNumber = '$quotationNumber'");
+            $quotationNumberInit = (string) $quotationNumberInit;
+            $q = $this->_db->query("SELECT * FROM `shattered_quotation` WHERE quotationNumberInit = '$quotationNumberInit'");
+            $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+            return new ShatteredQuotation($donnees);
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * @param $quotationNumber
+     * @return ShatteredQuotation|null
+     */
+    public function getByQuotationNumberChild($quotationNumberChild)
+    {
+        try{
+            $quotationNumberChild = (string) $quotationNumberChild;
+            $q = $this->_db->query("SELECT * FROM `shattered_quotation` WHERE quotationNumberChild = '$quotationNumberChild'");
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
             return new ShatteredQuotation($donnees);
@@ -116,8 +135,9 @@ class ShatteredQuotationManager
     public function update(ShatteredQuotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE shattered_quotation SET percent = :percent,  WHERE idShatteredQuotation= :idShatteredQuotation');
+            $q = $this->_db->prepare('UPDATE shattered_quotation SET percent = :percent, quotationNumberChild = :quotationNumberChild  WHERE idShatteredQuotation= :idShatteredQuotation');
             $q->bindValue(':idShatteredQuotation', $quotation->getIdShatteredQuotation(), PDO::PARAM_INT);
+            $q->bindValue(':quotationNumberChild', $quotation->getQuotationNumberChild(), PDO::PARAM_STR);
             $q->bindValue(':percent', $quotation->getPercent(), PDO::PARAM_INT);
     
             $q->execute();
