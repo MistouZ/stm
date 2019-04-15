@@ -36,10 +36,23 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $quotation = new Quotation($data);
 
     $test = $quotationmanager->changeType($quotation);
-    $test2 = "ok";
-    $test3 ="ok";
+    if($type2 == "partiels")
+    {
+        $descriptionmanager = new DescriptionManager($bdd);
+        $shatteredQuotationManager = new ShatteredQuotationManager($bdd);
+        $shatteredQuotationInit = new ShatteredQuotation($array);
+        $shatteredQuotationInit = $shatteredQuotationManager->getByQuotationNumberChild($quotationNumber);
+        $quotationNumber = $shatteredQuotationInit->getQuotationNumberInit();
+        $quotationInit = $quotationNumber."_init";
+        $test2 = $descriptionmanager->delete($quotationInit);
+        $test3 = $shatteredQuotation->delete($quotationInit);
+    }
+    else{
+        $test2 = "ok";
+        $test3 = "ok";
+    }
     $test4a = "ok";
-    $test4b = "ok";
+    $test4b ="ok";
     $test5 = "ok";
 }
 elseif ($_POST["shattered"] == "partial" && $percent < 100)
