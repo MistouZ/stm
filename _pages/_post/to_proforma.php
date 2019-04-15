@@ -45,7 +45,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
         $quotationNumber = $shatteredQuotationInit->getQuotationNumberInit();
         $quotationInit = $quotationNumber."_init";
         $test2 = $descriptionmanager->delete($quotationInit);
-        $test3 = $shatteredQuotation->delete($quotationInit);
+        $test3 = $shatteredQuotationManager->delete($quotationInit);
     }
     else{
         $test2 = "ok";
@@ -172,7 +172,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     {
         //il ne reste rien à facturer alors je supprime les données partielles
         $test4a = $descriptionmanager->delete($quotationInit);
-        $test4b = $shatteredQuotation->delete($quotationInit);
+        $test4b = $shatteredQuotationManager->delete($quotationInit);
     }
 
 
