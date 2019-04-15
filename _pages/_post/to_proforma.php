@@ -38,7 +38,8 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $test = $quotationmanager->changeType($quotation);
     $test2 = "ok";
     $test3 ="ok";
-    $test4 = "ok";
+    $test4a = "ok";
+    $test4b = "ok";
     $test5 = "ok";
 }
 elseif ($_POST["shattered"] == "partial" && $percent < 100)
