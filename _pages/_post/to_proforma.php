@@ -151,7 +151,8 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
             $k++;
         }
         //insertion du reste à payer
-        $test4 = $descriptionmanager->add($descriptions,$newquotationNumber);
+        $test4a = $descriptionmanager->add($descriptions,$newquotationNumber);
+        $test4b = "ok";
     }
     else
     {
@@ -173,7 +174,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $test5 = $quotationmanager->changeType($quotation);
 }
 
-if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4) || is_null($test5)){
+if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
     header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
