@@ -85,10 +85,12 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $shatteredQuotationInit = new ShatteredQuotation($array);
         $shatteredQuotationInit = $shatteredQuotationManager->getByQuotationNumberChild($quotationNumber);
         $quotationNumber = $shatteredQuotationInit->getQuotationNumberInit();
+        $quotationNumberChild = $shatteredQuotationInit->getQuotationNumberChild();
         $quotationInit = $quotationNumber."_init";
         $getDescription = $descriptionmanager->getByQuotationNumber($quotationInit);
         $rest = $shatteredQuotationInit->getPercent();
         $rest = $rest - $percent;
+        $idShatteredQuotation = $shatteredQuotationInit->getIdShatteredQuotation();
     }
     else
     {
@@ -128,21 +130,35 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $descriptionsReduced[$j] = $descriptionReduced;
         $j++;
     }
-    $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
-
-    $getDescriptionInit = $descriptionmanager->getByQuotationNumber($quotationInit);
-    $descriptionRest = new Description($array);
-    $k = 0;
-    foreach ($getDescriptionInit as $descriptionRest)
-    {
-        $value = getPercentOfNumber($descriptionRest->getPrice(),$rest);
-        $descriptionRest->setPrice(round($value));
-        $descriptionRest->setQuotationNumber($newquotationNumber);
-        $descriptions[$k] = $descriptionRest;
-        $k++;
+    if($type3 == "S"){
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumberChild);
     }
-    //insertion du reste à payer
-    $test4 = $descriptionmanager->add($descriptions,$newquotationNumber);
+    else{
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
+    }
+
+    if($rest != 0)
+    {
+        $getDescriptionInit = $descriptionmanager->getByQuotationNumber($quotationInit);
+        $descriptionRest = new Description($array);
+        $k = 0;
+        foreach ($getDescriptionInit as $descriptionRest)
+        {
+            $value = getPercentOfNumber($descriptionRest->getPrice(),$rest);
+            $descriptionRest->setPrice(round($value));
+            $descriptionRest->setQuotationNumber($newquotationNumber);
+            $descriptions[$k] = $descriptionRest;
+            $k++;
+        }
+        //insertion du reste à payer
+        $test4 = $descriptionmanager->add($descriptions,$newquotationNumber);
+    }
+    else
+    {
+        $test4a = $descriptionmanager->delete($quotationInit);
+        $test4b = $shatteredQuotation->delete($idShatteredQuotation);
+    }
+
 
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
