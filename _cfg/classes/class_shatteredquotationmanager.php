@@ -58,11 +58,11 @@ class ShatteredQuotationManager
      * @param $idShatteredQuotation
      * @return string|null
      */
-    public function delete($idShatteredQuotation)
+    public function delete($quotationNumberInit)
     {
         try{
-            $idShatteredQuotation = (integer) $idShatteredQuotation;
-            $q = $this->_db->query("DELETE FROM shattered_quotation WHERE $idShatteredQuotation='$idShatteredQuotation'");
+            $quotationNumberInit = (integer) $quotationNumberInit;
+            $q = $this->_db->query("DELETE FROM shattered_quotation WHERE quotationNumberInit = '$quotationNumberInit'");
             $q->execute();
 
            return "ok";

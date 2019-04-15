@@ -158,7 +158,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     {
         //il ne reste rien à facturer alors je supprime les données partielles
         $test4a = $descriptionmanager->delete($quotationInit);
-        $test4b = $shatteredQuotation->delete($idShatteredQuotation);
+        $test4b = $shatteredQuotation->delete($quotationInit);
     }
 
 
