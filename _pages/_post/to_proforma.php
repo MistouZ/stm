@@ -54,6 +54,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $contactId = $quotationGet->getContactId();
     $comment = $quotationGet->getComment();
     $label = $quotationGet->getLabel();
+    $type3 = $quotationGet->getType();
 
     $year = date("Y");
     $month = date("m");
@@ -77,21 +78,34 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
 
     $duplicate = new Quotation($data);
     $newquotationNumber = $quotationmanager->add($duplicate);
-    $getDescription = $descriptionmanager->getByQuotationNumber($quotationNumber);
-    $quotationInit = $quotationGet->getQuotationNumber()."_init";
-    $rest = 100 - $percent;
 
-    $i = 0;
-    $descriptions= array();
-    foreach ($getDescription as $description)
+    //si le devis est déjà partiel, je récupère les données initiales
+    if($type3 == "S")
     {
-        $description->setQuotationNumber($quotationInit);
-        $descriptions[$i] = $description;
-        $i++;
+        $shatteredQuotationInit = new ShatteredQuotation($array);
+        $shatteredQuotationInit = $shatteredQuotationManager->getByQuotationNumberChild($quotationNumber);
+        $quotationNumber = $shatteredQuotationInit->getQuotationNumberInit();
+        $quotationInit = $quotationNumber."_init";
+        $getDescription = $descriptionmanager->getByQuotationNumber($quotationInit);
+        $rest = $shatteredQuotationInit->getPercent();
+        $rest = $rest - $percent;
     }
-    // Duplication des descriptions pour garder l'original
-    $test = $descriptionmanager->add($descriptions,$quotationInit);
-
+    else
+    {
+        $getDescription = $descriptionmanager->getByQuotationNumber($quotationNumber);
+        $quotationInit = $quotationGet->getQuotationNumber()."_init";
+        $rest = 100 - $percent;
+        $i = 0;
+        $descriptions= array();
+        foreach ($getDescription as $description)
+        {
+            $description->setQuotationNumber($quotationInit);
+            $descriptions[$i] = $description;
+            $i++;
+        }
+        // Duplication des descriptions pour garder l'original
+        $test = $descriptionmanager->add($descriptions,$quotationInit);
+    }
 
     $dataShattered = array(
         'quotationNumberInit' => $quotationNumber,
@@ -101,7 +115,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $shatteredQuotation = new ShatteredQuotation($dataShattered);
     $test2 = $shatteredQuotationManager->add($shatteredQuotation);
 
-    //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage à facturer
+    //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage restant à facturer
 
     $j = 0;
     $descriptionsReduced= array();
