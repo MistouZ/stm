@@ -26,6 +26,8 @@ $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
+$shatteredQuotation = new ShatteredQuotation($array);
+$shatteredManager = new ShatteredQuotationManager($bdd);
 
 $dateToProforma = date('d/m/Y');
 
@@ -93,6 +95,8 @@ $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotati
 $contact = $contactmanager->getById($folder->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
+$shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->getQuotationNumber());
+
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
 if(isset($_GET['cat5'])){
@@ -317,7 +321,20 @@ if(isset($_GET['cat5'])){
                                 </label>
                                 <div class="col-md-9">
                                     <div class="radio-list" data-error-container="#credential_error">
-                                        <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" />Non</label>
+                                        <?php if($quotation->getType() == "S")
+                                            {
+                                            ?>
+                                                <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" /><?php echo $shatteredQuotation->getPercent(); ?>
+                                                    ?></label>
+                                            <?php
+                                            }
+                                            else{
+                                            ?>
+                                                <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" />Non</label>
+                                            <?php
+                                            }
+                                            ?>
+
                                         <label class="radio-inline"><input name="shattered" id="shattered2" type="radio" value="partial" class="form-control" />Partiel</label>
                                     </div>
                                     <div id="credential_error"> </div>
