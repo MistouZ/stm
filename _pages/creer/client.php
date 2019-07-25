@@ -104,17 +104,20 @@ $taxes = $taxes->getList();
                             <label class="control-label col-md-3">Sous-compte associé au client
                                 <span class="required"> * </span>
                             </label>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-1">
                                 <input type="text" class="form-control" placeholder="Ss-compte-1" id="customer_subaccount_1" name="customer_subaccount_1">
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-1">
                                 <input type="text" class="form-control" placeholder="Ss-compte-2" id="customer_subaccount_2" name="customer_subaccount_2">
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-1">
                                 <input type="text" class="form-control" placeholder="Ss-compte-3" id="customer_subaccount_3" name="customer_subaccount_3">
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-1">
                                 <input type="text" class="form-control" placeholder="Ss-compte-4" id="customer_subaccount_4" name="customer_subaccount_4">
+                            </div>
+                            <div class="form-group col-md-1">
+                                <input type="text" class="form-control" placeholder="Ss-compte-5" id="customer_subaccount_5" name="customer_subaccount_5">
                             </div>
                         </div>
                         <div class="form-group">
