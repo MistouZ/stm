@@ -110,7 +110,7 @@ $taxes = $taxes->getList();
                                 ?>
                                 <div class="form-row col-md-1">
                                     <?php
-                                    echo '<input type="text" class="form-control" placeholder="Ss-compte-'.$company->getNameData().'" id="subaccount['.$company->getIdCompany().']" name="subaccount['.$company->getIdCompany().']">';
+                                    echo '<input type="text" class="form-control" placeholder="'.$company->getNameData().'" id="subaccount['.$company->getIdCompany().']" name="subaccount['.$company->getIdCompany().']">';
                                     ?>
                                 </div>
                                 <?php
