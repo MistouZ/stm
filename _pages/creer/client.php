@@ -132,6 +132,9 @@ $taxes = $taxes->getList();
                                 <input type="text" class="form-control" placeholder="Ss-compte-Itech" id="subaccount[5]" name="subaccount[5]">
                             </div>-->
                         </div>
+                        <div>
+
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Taxes
                                 <span class="required"> * </span>
