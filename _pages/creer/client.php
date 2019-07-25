@@ -104,7 +104,19 @@ $taxes = $taxes->getList();
                             <label class="control-label col-md-3">Sous-compte associé au client
                                 <span class="required"> * </span>
                             </label>
-                            <div class="form-group col-md-2">
+                            <?php
+                            foreach ($companies as $company)
+                            {
+                                ?>
+                                <div class="form-group col-md-2">
+                                    <?php
+                                    echo '<input type="text" class="form-control" placeholder="Ss-compte-'.$company->getNameData().'" id="subaccount['.$company->getIdCompany().']" name="subaccount['.$company->getIdCompany().']">';
+                                    ?>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                            <!--<div class="form-group col-md-2">
                                 <input type="text" class="form-control" placeholder="Ss-compte-Bitwin" id="subaccount[4]" name="subaccount[4]">
                             </div>
                             <div class="form-group col-md-2">
@@ -118,7 +130,7 @@ $taxes = $taxes->getList();
                             </div>
                             <div class="form-group col-md-2">
                                 <input type="text" class="form-control" placeholder="Ss-compte-Itech" id="subaccount[5]" name="subaccount[5]">
-                            </div>
+                            </div>-->
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Taxes
@@ -159,3 +171,16 @@ $taxes = $taxes->getList();
         <!-- END VALIDATION STATES-->
     </div>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#case[]").change(function(){
+            if($(this).prop("checked") == true){
+                $("#subaccount").val("checked");
+            }
+            else if($(this).prop("checked") == false){
+                $("#input").val("unchecked");
+            }
+        });
+    });
+</script>
