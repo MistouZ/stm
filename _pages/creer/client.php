@@ -105,19 +105,19 @@ $taxes = $taxes->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-Concept" id="customer_subaccount_1" name="customer_subaccount_1">
+                                <input type="text" class="form-control" placeholder="Ss-compte-Bitwin" id="subaccount[4]" name="subaccount[4]">
                             </div>
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-Concerto" id="customer_subaccount_2" name="customer_subaccount_2">
+                                <input type="text" class="form-control" placeholder="Ss-compte-CMG" id="subaccount[3]" name="subaccount[3]">
                             </div>
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-CMG" id="customer_subaccount_3" name="customer_subaccount_3">
+                                <input type="text" class="form-control" placeholder="Ss-compte-Concept" id="subaccount[1]" name="subaccount[1]">
                             </div>
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-Bitwin" id="customer_subaccount_4" name="customer_subaccount_4">
+                                <input type="text" class="form-control" placeholder="Ss-compte-Concerto" id="subaccount[2]" name="subaccount[2]">
                             </div>
                             <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-Itech" id="customer_subaccount_5" name="customer_subaccount_5">
+                                <input type="text" class="form-control" placeholder="Ss-compte-Itech" id="subaccount[5]" name="subaccount[5]">
                             </div>
                         </div>
                         <div class="form-group">
