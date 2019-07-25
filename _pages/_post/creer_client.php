@@ -32,9 +32,11 @@ if(isset($_POST['valider'])){
     print_r($array);
     print_r($_POST["case"]);
     print_r($_POST["taxes"]);
+    print_r($_POST["account"]);
+    print_r($_POST["subaccount"]);
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-    $test = $customermanager->add($customer, $_POST["case"], $_POST["taxes"]);
+    /*$test = $customermanager->add($customer, $_POST["case"], $_POST["taxes"]);
 
     if($supplier == 1)
     {
@@ -47,7 +49,7 @@ if(isset($_POST['valider'])){
         header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/error");
     }else{
         header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/success");
-    }
+    }*/
 }
 
 ?>

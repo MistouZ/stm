@@ -97,7 +97,7 @@ $taxes = $taxes->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
-                                <input name="customer_account" id="customer_account" type="text" class="form-control" />
+                                <input name="account" id="account" type="text" class="form-control" />
                             </div>
                         </div>
                         <div class="form-row">
