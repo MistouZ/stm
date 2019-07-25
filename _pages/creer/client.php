@@ -93,6 +93,31 @@ $taxes = $taxes->getList();
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="control-label col-md-3">Compte associé au client
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-4">
+                                <input name="customer_account" id="customer_account" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label class="control-label col-md-3">Sous-compte associé au client
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Ss-compte-1" id="customer_subaccount_1" name="customer_subaccount_1">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Ss-compte-2" id="customer_subaccount_2" name="customer_subaccount_2">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Ss-compte-3" id="customer_subaccount_3" name="customer_subaccount_3">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="Ss-compte-4" id="customer_subaccount_4" name="customer_subaccount_4">
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="control-label col-md-3">Taxes
                                 <span class="required"> * </span>
                             </label>
