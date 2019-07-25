@@ -108,7 +108,7 @@ $taxes = $taxes->getList();
                             foreach ($companies as $company)
                             {
                                 ?>
-                                <div class="form-row col-md-1">
+                                <div class="form-row col-md-1" id="subaccount[<?php echo $company->getNameData(); ?>]">
                                     <?php
                                     echo '<input type="text" class="form-control" placeholder="'.$company->getNameData().'" id="subaccount['.$company->getIdCompany().']" name="subaccount['.$company->getIdCompany().']">';
                                     ?>
