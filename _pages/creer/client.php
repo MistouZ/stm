@@ -108,7 +108,7 @@ $taxes = $taxes->getList();
                             foreach ($companies as $company)
                             {
                                 ?>
-                                <div class="form-group col-md-2">
+                                <div class="form-row col-md-2">
                                     <?php
                                     echo '<input type="text" class="form-control" placeholder="Ss-compte-'.$company->getNameData().'" id="subaccount['.$company->getIdCompany().']" name="subaccount['.$company->getIdCompany().']">';
                                     ?>
