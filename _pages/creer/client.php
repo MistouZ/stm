@@ -161,7 +161,7 @@ $taxes = $taxes->getList();
     $(function() {
 
         // Get the form fields and hidden div
-        var checkbox = $("#case[]");
+        var checkbox = $(".case[]");
         var hidden = $("#subaccount[]");
 
         // Hide the fields.
