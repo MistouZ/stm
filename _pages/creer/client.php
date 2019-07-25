@@ -100,7 +100,7 @@ $taxes = $taxes->getList();
                                 <input name="account" id="account" type="text" class="form-control" />
                             </div>
                         </div>
-                        <div class="form-row">
+                        <div class="form-group">
                             <label class="control-label col-md-3">Sous-compte associé au client
                                 <span class="required"> * </span>
                             </label>
@@ -116,24 +116,6 @@ $taxes = $taxes->getList();
                                 <?php
                             }
                             ?>
-                            <!--<div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-Bitwin" id="subaccount[4]" name="subaccount[4]">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-CMG" id="subaccount[3]" name="subaccount[3]">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-Concept" id="subaccount[1]" name="subaccount[1]">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-Concerto" id="subaccount[2]" name="subaccount[2]">
-                            </div>
-                            <div class="form-group col-md-2">
-                                <input type="text" class="form-control" placeholder="Ss-compte-Itech" id="subaccount[5]" name="subaccount[5]">
-                            </div>-->
-                        </div>
-                        <div>
-
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Taxes
