@@ -29,11 +29,9 @@ if(isset($_POST['valider'])){
         'isActive' => $is_active
     );
 
-    print_r($_POST["case"]);
-    print_r($_POST["subaccount"]);
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-    /*$test = $customermanager->add($customer, $_POST["case"], $_POST["taxes"]);
+    $test = $customermanager->add($customer, $_POST["case"], $_POST["account"],$_POST["subaccount"], $_POST["taxes"]);
 
     if($supplier == 1)
     {
@@ -46,7 +44,7 @@ if(isset($_POST['valider'])){
         header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/error");
     }else{
         header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/success");
-    }*/
+    }
 }
 
 ?>

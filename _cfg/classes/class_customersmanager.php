@@ -35,7 +35,7 @@ class CustomersManager
      * @param customers $customer
      * Insertion customer in the DB
      */
-    public function add(Customers $customer, array $companies, array $taxes)
+    public function add(Customers $customer, array $companies, $account, array $subaccount, array $taxes)
     {
         try{
             $q = $this->_db->prepare('INSERT INTO customers (name, physicalAddress,invoiceAddress,isActive) VALUES (:name, :physicalAddress, :invoiceAddress,:isActive)');
@@ -50,9 +50,13 @@ class CustomersManager
     
             for ($i=0;$i<count($companies);$i++)
             {
-                $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
+                $subaccount_value = $subaccount[$companies[$i]];
+                $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany, account, subaccount) VALUES (:idcustomer, :idcompany, :account, :subaccount)');
                 $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
                 $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
+                $q2->bindValue(':account', $account, PDO::PARAM_INT);
+                $q2->bindValue(':subaccount', $subaccount_value, PDO::PARAM_STR );
+
                 $q2->execute();
             }
     
