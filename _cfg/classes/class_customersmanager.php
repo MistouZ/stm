@@ -114,7 +114,7 @@ class CustomersManager
     public function getByID($idcustomer)
     {
         $idcustomer = (integer) $idcustomer;
-        $q = $this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE cu.idcustomer='.$idcustomer.' AND cu.isActive=\'1\' AND c.isActive=\'1\' GROUP BY cu.name');
+        $q = $this->_db->query('SELECT cu.*, lk.account, GROUP_CONCAT(CONCAT_WS(\'_\', lk.company_idcompany, subaccount) SEPARATOR \', \') AS subaccount, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE cu.idcustomer='.$idcustomer.' AND cu.isActive=\'1\' AND c.isActive=\'1\' GROUP BY cu.name');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
         {
