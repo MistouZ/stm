@@ -199,7 +199,7 @@ $taxes = $taxes->getList();
     $(document).ready(function() {
         var hidden = $("#hidden_fields");
         hidden.hide();
-        var companies = [];
+        //var companies = [];
         $.each($("input[name='case[]']:checked"), function(){
             alert($(this).val());
             hidden.show();
