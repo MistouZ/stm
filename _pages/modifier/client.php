@@ -136,6 +136,7 @@ $taxmanager = $taxmanager->getList();
                                 {
                                     $subaccounts = explode("_",$subaccountsList[$i] );
                                     print_r($subaccounts);
+                                    $i++;
                                 }
                             foreach ($companies as $company)
                             {
