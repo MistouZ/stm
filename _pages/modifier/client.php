@@ -130,8 +130,8 @@ $taxmanager = $taxmanager->getList();
                                 <span class="required"> * </span>
                             </label>
                             <?php
-                               // $subaccountsList = explode(", ",$customer->getSubaccount());
-                                //echo count($subaccountsList);
+                                $subaccountsList = explode(", ",$customer->getSubaccount());
+                                echo count($subaccountsList);
                                 /*while ($i < count($subaccountsList))
                                 {
                                     $subaccounts = explode("_",$subaccountsList );
