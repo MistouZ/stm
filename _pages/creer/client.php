@@ -199,11 +199,11 @@ $taxes = $taxes->getList();
     $(document).ready(function() {
         var hidden = $("#hidden_fields");
         hidden.hide();
+        var companies = [];
+        $.each($("input[name='case']:checked"), function(){
+            alert($(this).val());
+            hidden.show();
+        });
 
-            /*var companies = [];
-            $.each($("input[name='case']:checked"), function(){
-                companies.push($(this).val());
-            });
-            alert("My favourite sports are: " + favorite.join(", "));*/
     });
 </script>
