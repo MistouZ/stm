@@ -130,6 +130,7 @@ $taxmanager = $taxmanager->getList();
                                 <span class="required"> * </span>
                             </label>
                             <?php
+                                /*récupération des sous comptes du client par société */
                                 $subaccountsList = explode(", ",$customer->getSubaccount());
                                 $i = 0;
                                 $subaccounts = array();
@@ -141,17 +142,17 @@ $taxmanager = $taxmanager->getList();
                                     $subaccounts[$j] = $k;
                                     $i++;
                                 }
-                                print_r($subaccounts);
-                            foreach ($companies as $company)
-                            {
-                                ?>
-                                <div class="form-row col-md-1" id="subaccount[<?php echo $company->getIdCompany(); ?>]">
-                                    <?php
-                                    echo '<input type="text" class="form-control" placeholder="'.$company->getNameData().'"  name="subaccount['.$company->getIdCompany().']">';
+
+                                foreach ($companies as $company)
+                                {
                                     ?>
-                                </div>
-                                <?php
-                            }
+                                    <div class="form-row col-md-1" id="subaccount[<?php echo $company->getIdCompany(); ?>]">
+                                        <?php
+                                        echo '<input type="text" class="form-control" placeholder="'.$company->getNameData().'"  name="subaccount['.$company->getIdCompany().']" value="'.$subaccounts[$company->getIdCompany()].'">';
+                                        ?>
+                                    </div>
+                                    <?php
+                                }
                             ?>
                         </div>
                         <div class="form-group">
