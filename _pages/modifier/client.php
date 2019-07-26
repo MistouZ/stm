@@ -138,7 +138,7 @@ $taxmanager = $taxmanager->getList();
                                     $subaccountsList2 = explode("_",$subaccountsList[$i] );
                                     $j = $subaccountsList2[0];
                                     $k = $subaccountsList2[1];
-                                    $subaccounts[$j] = $subaccounts[$k];
+                                    $subaccounts[$j] = $k;
                                     $i++;
                                 }
                                 print_r($subaccounts);
