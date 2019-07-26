@@ -130,7 +130,7 @@ $taxmanager = $taxmanager->getList();
                                 <span class="required"> * </span>
                             </label>
                             <?php
-                                $subaccounts = $customer->getSubaccount();
+                                $subaccounts = explode(", ",$customer->getSubaccount());
                                 print_r($subaccounts);
                             foreach ($companies as $company)
                             {
