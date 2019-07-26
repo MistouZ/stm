@@ -100,7 +100,7 @@ $taxes = $taxes->getList();
                                 <input name="account" id="account" type="text" class="form-control" />
                             </div>
                         </div>
-                        <div class="form-group" id="subaccount_full">
+                        <div class="form-group" id="hidden_fields">
                             <label class="control-label col-md-3">Sous-compte associé au client
                                 <span class="required"> * </span>
                             </label>
@@ -162,7 +162,7 @@ $taxes = $taxes->getList();
 
         // Get the form fields and hidden div
         //var checkbox = $("#case[]");
-        var hidden = $("#subaccount_full");
+        var hidden = $("#hidden_fields");
 
         // Hide the fields.
         // Use JS to do this in case the user doesn't have JS
@@ -192,6 +192,6 @@ $taxes = $taxes->getList();
                 //
                 // $("#hidden_field").val("");
             }
-        });
-    });*/
+        });*/
+    });
 </script>
