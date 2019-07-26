@@ -186,7 +186,7 @@ class CustomersManager
      * Update customers information
      * @param customers $customer
      */
-    public function update(customers $customer, array $companies, array $taxes)
+    public function update(customers $customer, array $companies, $account, array $subaccount, array $taxes)
     {
         try{
             $q = $this->_db->prepare('UPDATE customers SET name = :name, physicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idcustomer = :idcustomers');
@@ -203,12 +203,16 @@ class CustomersManager
     
             $deletetaxe=$this->_db->query('DELETE FROM `link_customers_taxes` WHERE customers_idcustomer ='.$customer->getIdCustomer());
             $deletetaxe->execute();
-            
+
             for ($i=0;$i<count($companies);$i++)
             {
-                $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany) VALUES (:idcustomer, :idcompany)');
+                $subaccount_value = $subaccount[$companies[$i]];
+                $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany, account, subaccount) VALUES (:idcustomer, :idcompany, :account, :subaccount)');
                 $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
                 $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
+                $q2->bindValue(':account', $account, PDO::PARAM_INT);
+                $q2->bindValue(':subaccount', $subaccount_value, PDO::PARAM_STR );
+
                 $q2->execute();
             }
     
