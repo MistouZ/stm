@@ -33,7 +33,7 @@ if(isset($_POST['valider'])){
         
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
-    $test = $customermanager->update($customer, $_POST["case"], $_POST["taxes"]);
+    $test = $customermanager->update($customer, $_POST["case"], $_POST["account"],$_POST["subaccount"], $_POST["taxes"]);
 
     if($supplier == 1)
     {
