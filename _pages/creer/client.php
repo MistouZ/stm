@@ -161,7 +161,7 @@ $taxes = $taxes->getList();
     $(function() {
 
         // Get the form fields and hidden div
-        var checkbox = $("case[]");
+        var checkbox = $("#case[]");
         var hidden = $("#hidden_fields");
 
         // Hide the fields.
@@ -195,15 +195,3 @@ $taxes = $taxes->getList();
         });
     });
 </script>-->
-<script type="text/javascript">
-    $(document).ready(function() {
-        var hidden = $("#hidden_fields");
-        hidden.hide();
-        //var companies = [];
-        $.each($("input[name='case']:checked"), function(){
-            alert($(this).val());
-            hidden.show();
-        });
-
-    });
-</script>
