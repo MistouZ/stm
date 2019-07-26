@@ -161,7 +161,7 @@ $taxes = $taxes->getList();
     $(function() {
 
         // Get the form fields and hidden div
-        var checkbox = $(".case[]");
+        //var checkbox = $("#case[]");
         var hidden = $("#subaccount_full");
 
         // Hide the fields.
@@ -171,7 +171,7 @@ $taxes = $taxes->getList();
 
         // Setup an event listener for when the state of the
         // checkbox changes.
-        checkbox.change(function() {
+        /*checkbox.change(function() {
             // Check to see if the checkbox is checked.
             // If it is, show the fields and populate the input.
             // If not, hide the fields.
@@ -193,5 +193,5 @@ $taxes = $taxes->getList();
                 // $("#hidden_field").val("");
             }
         });
-    });
+    });*/
 </script>
