@@ -157,11 +157,11 @@ $taxes = $taxes->getList();
     </div>
 </div>
 
-<script type="text/javascript">
+<!--<script type="text/javascript">
     $(function() {
 
         // Get the form fields and hidden div
-        var checkbox = $("#case[]");
+        var checkbox = $("case[]");
         var hidden = $("#hidden_fields");
 
         // Hide the fields.
@@ -194,4 +194,15 @@ $taxes = $taxes->getList();
             }
         });
     });
-</script>
+</script>-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        var hidden = $("#hidden_fields");
+        hidden.hide();
+
+            /*var companies = [];
+            $.each($("input[name='case']:checked"), function(){
+                companies.push($(this).val());
+            });
+            alert("My favourite sports are: " + favorite.join(", "));*/
+    });
