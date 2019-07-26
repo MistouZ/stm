@@ -131,8 +131,7 @@ $taxmanager = $taxmanager->getList();
                             </label>
                             <?php
                                 $subaccountsList = explode(", ",$customer->getSubaccount());
-                                $i=0;
-                                echo count($subaccountsList);
+                                //echo count($subaccountsList);
                                 /*while ($i < count($subaccountsList))
                                 {
                                     $subaccounts = explode("_",$subaccountsList );
