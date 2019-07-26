@@ -206,3 +206,4 @@ $taxes = $taxes->getList();
             });
             alert("My favourite sports are: " + favorite.join(", "));*/
     });
+</script>
