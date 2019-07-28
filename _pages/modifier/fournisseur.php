@@ -29,7 +29,7 @@ $contactmanager = $contactmanager->getList($supplierId);
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings font-dark"></i>
-                    <span class="caption-subject font-dark sbold uppercase">Modification du fournisseur <span style="font-style: italic; font-weight: 800;"><?php echo $company->getName(); ?></span></span>
+                    <span class="caption-subject font-dark sbold uppercase">Modification du fournisseur <span style="font-style: italic; font-weight: 800;"><?php echo $supplier->getName(); ?></span></span>
                 </div>
             </div>
             <div class="portlet-body form">
