@@ -77,6 +77,31 @@ $companies = $companies->getList();
                                 <div id="company_error"> </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Compte associé au fournisseur
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-4">
+                                <input name="account" id="account" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group" id="hidden_fields">
+                            <label class="control-label col-md-3">Sous-compte associé au client
+                                <span class="required"> * </span>
+                            </label>
+                            <?php
+                            foreach ($companies as $company)
+                            {
+                                ?>
+                                <div class="form-row col-md-1" id="subaccount[<?php echo $company->getIdCompany(); ?>]">
+                                    <?php
+                                    echo '<input type="text" class="form-control" placeholder="'.$company->getNameData().'"  name="subaccount['.$company->getIdCompany().']">';
+                                    ?>
+                                </div>
+                                <?php
+                            }
+                            ?>
+                        </div>
                     </div>
                     <div class="form-actions">
                         <div class="row">
