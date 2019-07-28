@@ -205,12 +205,11 @@ class CustomersManager
 
             for ($i=0;$i<count($companies);$i++)
             {
-                $subaccount_value = $subaccount[$companies[$i]];
                 $q2 = $this->_db->prepare('INSERT INTO `link_company_customers` (customers_idcustomer, company_idcompany, account, subaccount) VALUES (:idcustomer, :idcompany, :account, :subaccount)');
                 $q2->bindValue(':idcustomer', $customer->getIdCustomer(), PDO::PARAM_INT);
                 $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
                 $q2->bindValue(':account', $account, PDO::PARAM_INT);
-                $q2->bindValue(':subaccount', $subaccount_value, PDO::PARAM_STR );
+                $q2->bindValue(':subaccount', $subaccount[$companies[$i]], PDO::PARAM_STR );
 
                 $q2->execute();
             }

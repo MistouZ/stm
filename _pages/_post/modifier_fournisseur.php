@@ -26,7 +26,7 @@ if(isset($_POST['valider'])){
         
     $supplier = new Suppliers($array);
     $suppliermanager = new SuppliersManager($bdd);
-    $test =$suppliermanager->update($supplier,$_POST["case"]);
+    $test =$suppliermanager->update($supplier,$_POST["case"],$_POST["account"],$_POST["subaccount"]);
 
 }
 if(is_null($test)){
