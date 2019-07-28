@@ -27,7 +27,7 @@ if(isset($_POST['valider'])) {
 
     $supplier = new Suppliers($array);
     $suppliermanager = new SuppliersManager($bdd);
-    $test = $suppliermanager->add($supplier, $_POST["case"]);
+    $test = $suppliermanager->add($supplier, $_POST["case"],$_POST["account"],$_POST["subaccount"]);
 
     if (is_null($test)) {
         header('Location: ' . URLHOST . $_COOKIE['company'] . "/fournisseur/afficher/error");

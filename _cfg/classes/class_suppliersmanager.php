@@ -35,7 +35,7 @@ class SuppliersManager
      * @param supplier $supplier
      * Insertion supplier in the DB
      */
-    public function add(Suppliers $supplier, array $companies)
+    public function add(Suppliers $supplier, array $companies, $account, array $subaccount)
     {
         try{
             $q = $this->_db->prepare('INSERT INTO suppliers (name, physicalAddress,invoiceAddress,isActive) VALUES (:name, :physicalAddress, :invoiceAddress,:isActive)');
@@ -50,9 +50,11 @@ class SuppliersManager
     
             for ($i=0;$i<count($companies);$i++)
             {
-                $q2 = $this->_db->prepare('INSERT INTO `link_company_suppliers` (company_idcompany, suppliers_idsupplier) VALUES (:idcompany, :idsupplier)');
+                $q2 = $this->_db->prepare('INSERT INTO `link_company_suppliers` (company_idcompany, suppliers_idsupplier,account, subaccount) VALUES (:idcompany, :idsupplier,:account, :subaccount)');
                 $q2->bindValue(':idsupplier', $supplier->getIdSupplier(), PDO::PARAM_INT);
                 $q2->bindValue(':idcompany', $companies[$i], PDO::PARAM_INT);
+                $q2->bindValue(':account', $account, PDO::PARAM_INT);
+                $q2->bindValue(':subaccount', $subaccount[$companies[$i]], PDO::PARAM_STR );
                 $q2->execute();
             }
 
