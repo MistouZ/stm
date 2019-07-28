@@ -6,6 +6,9 @@
     private $invoiceAddress;
     private $isActive;
     private $companyName;
+    private $account;
+    private $subaccount;
+
 
       /**
        * Customer constructor.
@@ -120,6 +123,38 @@
       public function setCompanyName($companyName)
       {
           $this->companyName = $companyName;
+      }
+
+      /**
+       * @return mixed
+       */
+      public function getAccount()
+      {
+          return $this->account;
+      }
+
+      /**
+       * @param mixed $account
+       */
+      public function setAccount($account): void
+      {
+          $this->account = $account;
+      }
+
+      /**
+       * @return mixed
+       */
+      public function getSubaccount()
+      {
+          return $this->subaccount;
+      }
+
+      /**
+       * @param mixed $subaccount
+       */
+      public function setSubaccount($subaccount): void
+      {
+          $this->subaccount = $subaccount;
       }
 
   }

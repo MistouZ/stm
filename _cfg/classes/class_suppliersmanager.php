@@ -103,7 +103,7 @@ class SuppliersManager
     public function getByID($idsupplier)
     {
         $idsupplier = (integer) $idsupplier;
-        $q = $this->_db->query('SELECT su.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE su.idsupplier='.$idsupplier.' AND su.isActive=\'1\' AND c.isActive=\'1\' GROUP BY su.name');
+        $q = $this->_db->query('SELECT su.*, lk.account, GROUP_CONCAT(CONCAT_WS(\'_\', lk.company_idcompany, subaccount) SEPARATOR \', \') AS subaccount, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE su.idsupplier='.$idsupplier.' AND su.isActive=\'1\' AND c.isActive=\'1\' GROUP BY su.name');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
         {
