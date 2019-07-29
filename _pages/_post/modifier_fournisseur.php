@@ -26,13 +26,15 @@ if(isset($_POST['valider'])){
         
     $supplier = new Suppliers($array);
     $suppliermanager = new SuppliersManager($bdd);
-    $test =$suppliermanager->update($supplier,$_POST["case"],$_POST["account"],$_POST["subaccount"]);
+    echo $_POST["account"];
+    print_r($_POST["subaccount"]);
+    //$test =$suppliermanager->update($supplier,$_POST["case"],$_POST["account"],$_POST["subaccount"]);
 
-}
+}/*
 if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/errormodif");
 }else{
     header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$supplierId."/successmodif");
 }
-
+*/
 ?>
