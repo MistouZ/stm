@@ -51,7 +51,7 @@
       {
           if(is_string($name))
           {
-              $this->name = $name;
+              $this->name = ucwords($name);
           }
       }
 
@@ -70,7 +70,7 @@
       {
           if(is_string($physicalAddress))
           {
-              $this->physicalAddress = $physicalAddress;
+              $this->physicalAddress = ucwords($physicalAddress);
           }
       }
 
@@ -89,7 +89,7 @@
       {
           if(is_string($invoiceAddress))
           {
-              $this->invoiceAddress = $invoiceAddress;
+              $this->invoiceAddress = ucwords($invoiceAddress);
           }
       }
 
