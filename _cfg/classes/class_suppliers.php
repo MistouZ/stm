@@ -51,7 +51,7 @@
       {
           if(is_string($name))
           {
-              $this->name = ucwords($name);
+              $this->name = mb_strtoupper($name);
           }
       }
 
@@ -66,11 +66,11 @@
       /**
        * @param mixed $physicalAddress
        */
-      public function setPhysicalAddress($physicalAddress): void
+      public function setPhysicalAddress($physicalAddress)
       {
           if(is_string($physicalAddress))
           {
-              $this->physicalAddress = ucwords($physicalAddress);
+              $this->physicalAddress = $physicalAddress;
           }
       }
 
@@ -85,11 +85,11 @@
       /**
        * @param mixed $invoiceAddress
        */
-      public function setInvoiceAddress($invoiceAddress): void
+      public function setInvoiceAddress($invoiceAddress)
       {
           if(is_string($invoiceAddress))
           {
-              $this->invoiceAddress = ucwords($invoiceAddress);
+              $this->invoiceAddress = $invoiceAddress;
           }
       }
 

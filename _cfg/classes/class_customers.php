@@ -29,7 +29,7 @@
       /**
        * @param mixed $idcustomer
        */
-      public function setIdcustomer($idcustomer): void
+      public function setIdcustomer($idcustomer)
       {
           $idcustomer = (int) $idcustomer;
           $this->idcustomer = $idcustomer;
@@ -46,11 +46,11 @@
       /**
        * @param mixed $name
        */
-      public function setName($name): void
+      public function setName($name)
       {
           if(is_string($name))
           {
-              $this->name = ucwords($name);
+              $this->name = mb_strtoupper($name);
           }
       }
 
@@ -65,11 +65,11 @@
       /**
        * @param mixed $physicalAddress
        */
-      public function setPhysicalAddress($physicalAddress): void
+      public function setPhysicalAddress($physicalAddress)
       {
           if(is_string($physicalAddress))
           {
-              $this->physicalAddress = ucwords($physicalAddress);
+              $this->physicalAddress = $physicalAddress;
           }
       }
 
@@ -84,11 +84,11 @@
       /**
        * @param mixed $invoiceAddress
        */
-      public function setInvoiceAddress($invoiceAddress): void
+      public function setInvoiceAddress($invoiceAddress)
       {
           if(is_string($invoiceAddress))
           {
-              $this->invoiceAddress = ucwords($invoiceAddress);
+              $this->invoiceAddress = $invoiceAddress;
           }
       }
 
@@ -135,7 +135,7 @@
       /**
        * @param mixed $account
        */
-      public function setAccount($account): void
+      public function setAccount($account)
       {
           $this->account = $account;
       }
@@ -151,7 +151,7 @@
       /**
        * @param mixed $subaccount
        */
-      public function setSubaccount($subaccount): void
+      public function setSubaccount($subaccount)
       {
           $this->subaccount = $subaccount;
       }
