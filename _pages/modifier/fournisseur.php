@@ -110,7 +110,7 @@ $contactmanager = $contactmanager->getList($supplierId);
                             </div>
                         </div>
                         <div class="form-group" id="hidden_fields">
-                            <label class="control-label col-md-3">Sous-compte associé au client
+                            <label class="control-label col-md-3">Sous-compte associé au fournisseur
                                 <span class="required"> * </span>
                             </label>
                             <?php
