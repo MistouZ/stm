@@ -139,7 +139,7 @@ $contactmanager = $contactmanager->getList($supplierId);
                                 }
                             ?>
                         </div>
-                        <input type="hidden" id="customerId" name="customerId" value="<?php echo $supplierId; ?>">
+                        <input type="hidden" id="supplierId" name="supplierId" value="<?php echo $supplierId; ?>">
                         <div class="form-actions">
                             <div class="row">
                                 <div class="col-md-offset-3 col-md-9">
