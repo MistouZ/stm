@@ -49,7 +49,7 @@
        */
       public function setName($name)
       {
-          $this->name = $name;
+          $this->name = mb_strtoupper($name);
       }
 
       /**
