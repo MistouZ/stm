@@ -99,7 +99,7 @@ class FoldersManager
     {
         try{
             $folderId = (integer) $folderId;
-            $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId.'ORDER BY folderNumber DESC');
+            $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId);
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
             return new Folder($donnees);
         }
