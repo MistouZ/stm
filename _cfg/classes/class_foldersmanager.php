@@ -99,7 +99,7 @@ class FoldersManager
     {
         try{
             $folderId = (integer) $folderId;
-            $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId);
+            $q = $this->_db->query('SELECT * FROM folder WHERE idFolder ='.$folderId.'ORDER BY folderNumber DESC');
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
             return new Folder($donnees);
         }
@@ -117,7 +117,7 @@ class FoldersManager
     {
         $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid'");
+        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid' ORDER BY folderNumber DESC");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $folders[] = new Folder($donnees);
@@ -134,7 +134,7 @@ class FoldersManager
     {
         $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId=$companyid AND isActive ='1' ");
+        $q=$this->_db->query("SELECT * FROM folder WHERE companyId=$companyid AND isActive ='1' ORDER BY folderNumber DESC ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $folders[] = new Folder($donnees);
