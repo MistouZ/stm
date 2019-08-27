@@ -30,7 +30,7 @@ $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
 
 $dateToProforma = date('d/m/Y');
-
+echo $idQuotation;
 switch($type){
     case "devis":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
