@@ -246,7 +246,7 @@ if(isset($_GET['cat5'])){
                                             $totalTaxe = $totalTaxe+$taxe;
                                             $montantHT = $montantHT+$montantLigne;
                                             $montant = $montant+$montantLigne+$taxe;
-                                            echo $description->getDescription();
+                                            print_r($description);
                                         ?>
                                         <tr>
                                             <td><?php echo $description->getDescription(); ?></td>
