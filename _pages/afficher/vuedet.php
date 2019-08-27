@@ -67,6 +67,7 @@ switch($type){
         break;
     case "facture":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        print_r($quotation);
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         $buttons = '<div class="actions">
