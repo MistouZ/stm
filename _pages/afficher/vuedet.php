@@ -67,7 +67,6 @@ switch($type){
         break;
     case "facture":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
-        print_r($quotation);
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         $buttons = '<div class="actions">
@@ -89,6 +88,10 @@ switch($type){
                     </div>';
         break;
 }
+
+print_r($quotation);
+print_r($descriptions);
+
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
@@ -101,8 +104,7 @@ $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->g
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
-print_r($quotation);
-print_r($descriptions);
+
 
 
 /*
