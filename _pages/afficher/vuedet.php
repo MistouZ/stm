@@ -99,6 +99,11 @@ $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->g
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
+print_r($quotation);
+print_r($descriptions);
+
+
+/*
 if(isset($_GET['cat5'])){
     $retour = $_GET['cat5'];
 }
