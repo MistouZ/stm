@@ -30,8 +30,7 @@ $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
 
 $dateToProforma = date('d/m/Y');
-echo $idQuotation;
-echo $type;
+
 switch($type){
     case "devis":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
@@ -88,14 +87,11 @@ switch($type){
                     </div>';
         break;
 }
-
-
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-print_r($descriptions);
 $contact = $contactmanager->getById($folder->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
@@ -103,10 +99,6 @@ $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->g
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
-
-
-
-/*
 if(isset($_GET['cat5'])){
     $retour = $_GET['cat5'];
 }
