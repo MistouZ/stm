@@ -227,7 +227,8 @@ if(isset($_GET['cat5'])){
                                         $montant = 0;
                                         $totalTaxe = 0;
                                         $montantHT = 0;
-                                        $arrayTaxesKey =  array(); 
+                                        $arrayTaxesKey =  array();
+                                        print_r($descriptions);
                                         foreach($descriptions as $description){
                                             $montantLigne = $description->getQuantity()*$description->getPrice();
                                             $remise = $montantLigne*($description->getDiscount()/100);
