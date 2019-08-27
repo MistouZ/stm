@@ -95,11 +95,12 @@ $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotati
 $contact = $contactmanager->getById($folder->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
+/*
 if($quotation->getType() == "S")
 {
     $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->getQuotationNumber());
 }
-
+*/
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
 if(isset($_GET['cat5'])){
