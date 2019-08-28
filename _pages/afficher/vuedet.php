@@ -523,11 +523,29 @@ if(isset($_GET['cat5'])){
 <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+<script>
+    // Import DejaVu Sans font for embedding
+    kendo.pdf.defineFont({
+        "DejaVu Sans":
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans.ttf",
+
+        "DejaVu Sans|Bold":
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+
+        "DejaVu Sans|Bold|Italic":
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+
+        "DejaVu Sans|Italic":
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
+    });
+</script>
 <script>
     function ExportPdf(){
         kendo.drawing
             .drawDOM("#myCanvas",
                 {
+                    font: "'DejaVu Sans', Arial, sans-serif",
                     paperSize: "A4",
                     margin: { top: "1cm", bottom: "2cm", right: "3cm", left: "3cm" },
                     scale: 0.8,
