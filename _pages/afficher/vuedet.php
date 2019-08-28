@@ -534,7 +534,7 @@ if(isset($_GET['cat5'])){
                         top    : "40mm",
                         right  : "20mm",
                         bottom : "40mm"
-                    }
+                    },
                     scale: 0.8,
                     height: 500
                 })
