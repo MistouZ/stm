@@ -520,9 +520,9 @@ if(isset($_GET['cat5'])){
     </div>
 </div>
 <button onclick="ExportPdf()">Exporter</button>
-<script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
 
 <script>
     // Import DejaVu Sans font for embedding
