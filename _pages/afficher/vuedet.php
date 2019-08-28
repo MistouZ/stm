@@ -545,9 +545,9 @@ if(isset($_GET['cat5'])){
         kendo.drawing
             .drawDOM("#myCanvas",
                 {
-                    font: "'DejaVu Sans', Arial, sans-serif",
+                    font: "'DejaVu Sans'",
                     paperSize: "A4",
-                    margin: { top: "1cm", bottom: "2cm", right: "3cm", left: "3cm" },
+                    margin: { top: "1cm", bottom: "2cm", right: "1cm", left: "1cm" },
                     scale: 0.8,
                     height: 500
                 })
