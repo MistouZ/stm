@@ -233,6 +233,7 @@ if(isset($_GET['cat5'])){
                                             $remise = $montantLigne*($description->getDiscount()/100);
                                             $montantLigne = $montantLigne-$remise;
                                             $taxe = $montantLigne*$description->getTax();
+                                            echo $taxe;
                                             $tax = $taxmanager->getByPercent($description->getTax()*100);
 
                                             //Calcul du détail des taxes pour l'affichage par tranche détaillée
