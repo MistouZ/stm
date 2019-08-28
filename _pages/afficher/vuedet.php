@@ -230,6 +230,7 @@ if(isset($_GET['cat5'])){
                                         $arrayTaxesKey =  array();
                                         foreach($descriptions as $description){
                                             print_r($description);
+                                            echo $description->getDescription();
                                             $montantLigne = $description->getQuantity()*$description->getPrice();
                                             $remise = $montantLigne*($description->getDiscount()/100);
                                             $montantLigne = $montantLigne-$remise;
