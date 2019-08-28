@@ -102,43 +102,9 @@ if($quotation->getType() == "S")
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
-if(isset($_GET['cat5'])){
-    $retour = $_GET['cat5'];
-}
 ?>
 <div class="row">
-    <div class="col-md-12">
-        <?php if($retour == "error") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être mis à jour !</div>
-        <?php }elseif($retour == "success"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Le devis a bien été mis à jour !</div>
-        <?php }elseif($retour == "errorProforma") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Erreur lors du passage en proforma !</div>
-        <?php }elseif($retour == "successProforma"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Passage en proforma effectué avec succès !</div>
-        <?php }elseif($retour == "errorDate") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Une erreur est survenue, la date n'a donc pas pu être mise à jour !</div>
-        <?php }elseif($retour == "successDate"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> La date a bien été modifiée !</div>
-        <?php }elseif($retour == "errorFacture") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Erreur lors du passage en facture !</div>
-        <?php }elseif($retour == "successFacture"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Passage en facture effectué avec succès !</div>
-        <?php }elseif($retour == "errorDevis") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Erreur lors du passage en devis !</div>
-        <?php }elseif($retour == "successDevis"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
-        <?php } ?>
+    <div id="myCanvas">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="portlet yellow-crusta box">
@@ -200,6 +166,7 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -516,4 +483,42 @@ if(isset($_GET['cat5'])){
         </div>
     </div>
 </div>
+<button onclick="ExportPdf()">Exporter</button>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
+https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css
+https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css
 
+<script>
+    // Import DejaVu Sans font for embedding
+    kendo.pdf.defineFont({
+        "DejaVu Sans":
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans.ttf",
+
+        "DejaVu Sans|Bold":
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+
+        "DejaVu Sans|Bold|Italic":
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+
+        "DejaVu Sans|Italic":
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
+    });
+</script>
+<script>
+    function ExportPdf(){
+        kendo.drawing
+            .drawDOM("#myCanvas",
+                {
+                    font: "'DejaVu Sans'",
+                    paperSize: "A4",
+                    margin: { top: "1cm", bottom: "2cm", right: "1cm", left: "1cm" },
+                    scale: 0.8,
+                    height: 500
+                })
+            .then(function(group){
+                kendo.drawing.pdf.saveAs(group, "Exported.pdf")
+            });
+    }
+</script>
