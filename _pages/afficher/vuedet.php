@@ -36,11 +36,11 @@ switch($type){
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
-        $buttons = '<div class="actions" xmlns="http://www.w3.org/1999/html">
-                        <a href="' .URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+        $buttons = '<div class="actions">
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-edit"></i> Modifier </a>
                         <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i><button id="cmd">Imrpimer</button></a>
+                            <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
                         <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
@@ -57,7 +57,7 @@ switch($type){
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
         $buttons = '<div class="actions">
                         <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i><button id="cmd">Imrpimer</button> </a>
+                            <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                         <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
@@ -69,8 +69,8 @@ switch($type){
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         $buttons = '<div class="actions">
-                        <!--<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm"></a>-->
-                            <i class="fas fa-print"></i><button id="cmd">Imrpimer</button>
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
                         <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
@@ -139,7 +139,6 @@ if(isset($_GET['cat5'])){
             <div class="alert alert-success">
                 <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
         <?php } ?>
-        <div id="content">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="portlet yellow-crusta box">
@@ -234,6 +233,7 @@ if(isset($_GET['cat5'])){
                                             $remise = $montantLigne*($description->getDiscount()/100);
                                             $montantLigne = $montantLigne-$remise;
                                             $taxe = $montantLigne*$description->getTax();
+                                            echo $taxe;
                                             $tax = $taxmanager->getByPercent($description->getTax()*100);
 
                                             //Calcul du détail des taxes pour l'affichage par tranche détaillée
@@ -293,7 +293,6 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
-        </div>
         </div>
         <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -518,28 +517,3 @@ if(isset($_GET['cat5'])){
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-<script>
-    var doc = new jsPDF();
-    var specialElementHandlers = {
-        '#elementH': function (element, renderer) {
-            return true;
-        }
-    };
-
-    $('#cmd').click(function () {
-        html2canvas(document.getElementById("content"), {
-            onrendered: function(canvas) {
-
-                var imgData = canvas.toDataURL('image/png');
-                console.log('Report Image URL: '+imgData);
-                var doc = new jsPDF('p', 'mm', 'a4'); //210mm wide and 297mm high
-
-                doc.addImage(imgData, 'PNG', 0, 0, 211, 298);
-                doc.save('sample.pdf');
-            }
-        });
-    });
-</script>
