@@ -69,8 +69,8 @@ switch($type){
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         $buttons = '<div class="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i><button id="cmd">Imrpimer</button></a>
+                        <!--<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm"></a>-->
+                            <i class="fas fa-print"></i><button id="cmd">Imrpimer</button>
                         <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
                         <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
