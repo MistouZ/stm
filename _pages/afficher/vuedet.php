@@ -139,6 +139,7 @@ if(isset($_GET['cat5'])){
             <div class="alert alert-success">
                 <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
         <?php } ?>
+        <div id="content">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="portlet yellow-crusta box">
@@ -293,6 +294,7 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -517,3 +519,20 @@ if(isset($_GET['cat5'])){
         </div>
     </div>
 </div>
+
+<script>
+var doc = new jsPDF();
+var elementHTML = $('#content').html();
+var specialElementHandlers = {
+'#elementH': function (element, renderer) {
+return true;
+}
+};
+doc.fromHTML(elementHTML, 15, 15, {
+'width': 170,
+'elementHandlers': specialElementHandlers
+});
+
+// Save the PDF
+doc.save('devis.pdf');
+</script>
