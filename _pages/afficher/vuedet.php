@@ -529,12 +529,7 @@ if(isset($_GET['cat5'])){
             .drawDOM("#myCanvas",
                 {
                     paperSize: "A4",
-                    margin: {
-                        left   : "20mm",
-                        top    : "40mm",
-                        right  : "20mm",
-                        bottom : "40mm"
-                    },
+                    margin: { top: "1cm", bottom: "2cm", right: "3cm", left: "3cm" },
                     scale: 0.8,
                     height: 500
                 })
