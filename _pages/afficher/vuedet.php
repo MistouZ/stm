@@ -523,6 +523,11 @@ if(isset($_GET['cat5'])){
 <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
 <script>
     var doc = new jsPDF();
+    var specialElementHandlers = {
+        '#elementH': function (element, renderer) {
+            return true;
+        }
+    };
 
     $('#cmd').click(function () {
         doc.fromHTML($('#content').html(), 15, 15, {
