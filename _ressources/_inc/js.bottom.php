@@ -59,6 +59,3 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/layouts/layout4/scripts/demo.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
 <!-- END THEME LAYOUT SCRIPTS -->
-<!-- SCRIPT CONVERSION EN PDF-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-<!-- SCRIPT CONVERSION EN PDF-->
