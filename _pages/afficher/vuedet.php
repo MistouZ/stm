@@ -519,7 +519,7 @@ if(isset($_GET['cat5'])){
         </div>
     </div>
 </div>
-<script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script> // dependency for Kendo UI API
+<script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
 <script>
