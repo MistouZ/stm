@@ -487,8 +487,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jszip.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css"></script>
-<script src="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-material.min.css"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.material.min.css"></script>
 
 <script>
     // Import DejaVu Sans font for embedding
