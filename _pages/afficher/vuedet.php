@@ -548,7 +548,7 @@ if(isset($_GET['cat5'])){
                     font: "'DejaVu Sans'",
                     paperSize: "A4",
                     margin: { top: "1cm", bottom: "2cm", right: "1cm", left: "1cm" },
-                    scale: 0.2,
+                    scale: 0.8,
                     height: 500
                 })
             .then(function(group){
