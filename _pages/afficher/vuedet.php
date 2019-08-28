@@ -229,11 +229,15 @@ if(isset($_GET['cat5'])){
                                         $montantHT = 0;
                                         $arrayTaxesKey =  array();
                                         foreach($descriptions as $description){
-
+                                            echo $description->getDescription();
                                             $montantLigne = $description->getQuantity()*$description->getPrice();
+                                            echo $description->getDescription();
                                             $remise = $montantLigne*($description->getDiscount()/100);
+                                            echo $description->getDescription();
                                             $montantLigne = $montantLigne-$remise;
+                                            echo $description->getDescription();
                                             $taxe = $montantLigne*$description->getTax();
+                                            echo $description->getDescription();
                                             $tax = $taxmanager->getByPercent($description->getTax()*100);
                                             echo $description->getDescription();
                                             //Calcul du détail des taxes pour l'affichage par tranche détaillée
