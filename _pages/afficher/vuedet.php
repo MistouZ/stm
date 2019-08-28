@@ -536,9 +536,9 @@ if(isset($_GET['cat5'])){
 
                 var imgData = canvas.toDataURL('image/png');
                 console.log('Report Image URL: '+imgData);
-                var doc = new jsPDF(); //210mm wide and 297mm high
+                var doc = new jsPDF('p', 'mm', 'a4'); //210mm wide and 297mm high
 
-                doc.addImage(imgData, 'PNG', 10, 10);
+                doc.addImage(imgData, 'PNG', 0, 0, 211, 298);
                 doc.save('sample.pdf');
             }
         });
