@@ -506,6 +506,17 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
     });
 </script>
+<script type="x/kendo-template" id="page-template">
+    <div class="page-template">
+        <div class="header">
+            <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
+        </div>
+        <div class="footer" style="text-align: center">
+
+            <h2> #:pageNum# </h2> //footer has the page count
+        </div>
+    </div>
+</script>
 <script>
     function ExportPdf(){
         kendo.drawing
