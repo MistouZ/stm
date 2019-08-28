@@ -139,6 +139,7 @@ if(isset($_GET['cat5'])){
             <div class="alert alert-success">
                 <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
         <?php } ?>
+        <div id="myCanvas">
         <div class="row">
             <div class="col-md-6 col-sm-12">
                 <div class="portlet yellow-crusta box">
@@ -200,6 +201,7 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
+        </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -517,3 +519,21 @@ if(isset($_GET['cat5'])){
         </div>
     </div>
 </div>
+<script src="https://kendo.cdn.telerik.com/2017.2.621/js/jquery.min.js"></script> // dependency for Kendo UI API
+<script src="https://kendo.cdn.telerik.com/2017.2.621/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+<script>
+    function ExportPdf(){
+        kendo.drawing
+            .drawDOM("#myCanvas",
+                {
+                    paperSize: "A4",
+                    margin: { top: "1cm", bottom: "1cm" },
+                    scale: 0.8,
+                    height: 500
+                })
+            .then(function(group){
+                kendo.drawing.pdf.saveAs(group, "Exported.pdf")
+            });
+    }
+</script>
