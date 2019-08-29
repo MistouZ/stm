@@ -296,12 +296,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 </script>
 <script type="text/javascript" language="javascript">
 
-    setInterval(function () {document.getElementById("Exporter").click();}, 200);
+    setInterval(function () {document.getElementById("Exporter").click();}, 100);
 
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 200);
+        }, 300);
     }
 
     function ExportPdf(){
