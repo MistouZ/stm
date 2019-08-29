@@ -308,7 +308,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     keepTogether: ".prevent-split"
                 })
             .then(function(group){
-                kendo.drawing.pdf.saveAs(group, "export.pdf")
+                kendo.drawing.pdf.saveAs(group, filename+".pdf")
             });
     }
 </script>
