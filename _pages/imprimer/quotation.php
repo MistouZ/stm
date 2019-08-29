@@ -123,7 +123,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Dossier N°: </div>
-                            <div class="col-md-7 value"><strong></strong><?php echo $folder->getFolderNumber(); ?></strong></div>
+                            <div class="col-md-7 value"><strong><?php echo $folder->getFolderNumber(); ?></strong></div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Commercial : </div>
