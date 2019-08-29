@@ -295,6 +295,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     </div>
 </script>
 <script type="text/javascript" language="javascript">
+    function closeWindow() {
+        setTimeout(function() {
+            window.close();
+        }, 3000);
+    }
+
     function ExportPdf(){
         var filename = document.getElementById("filename").value;
         kendo.drawing
@@ -311,7 +317,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
             });
-        window.open('','_self').close();
+        window.onload = closeWindow();
     }
 </script>
 <style>
