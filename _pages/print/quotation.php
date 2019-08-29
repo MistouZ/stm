@@ -326,158 +326,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             </div>
                         </form>
                     </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="to_facture" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en facture</h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_facture.php"; ?>" method="post" id="to_facture" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="to_avoir" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en avoir</h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_avoir.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="to_devis" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en devis</h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_devis.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $dateToProforma; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div id="modif_date" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                        <h4 class="modal-title">Modifier la date <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span></h4>
-                    </div>
-                    <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/modifier_date.php"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
-                            <div class="form-group">
-                                <label class="control-label col-md-4">Date
-                                    <span class="required"> * </span>
-                                </label>
-                                <div class="col-md-8">
-                                    <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                        <input type="text" name="date" class="form-control" value="<?php echo $date; ?>" >
-                                        <span class="input-group-btn">
-                                            <button class="btn default" type="button">
-                                                <i class="fas fa-calendar-alt"></i>
-                                            </button>
-                                        </span>
-                                    </div>
-                                    <span class="help-block">Cliquez sur la date pour la modifier</span>
-                                </div>
-                            </div>
-                            <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
-                            <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <div class="modal-footer">
-                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-                                <button type="submit" class="btn green" name="valider">
-                                    <i class="fa fa-check"></i> Valider</button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -524,9 +372,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                 {
                     font: "'DejaVu Sans'",
                     paperSize: "A4",
+                    multiPage : true,
                     margin: { top: "1cm", bottom: "2cm", right: "1cm", left: "1cm" },
-                    scale: 0.8,
-                    height: 500
+                    scale: 0.75,
+                    height: 500,
+                    template: $("#page-template").html(),
+                    keepTogether: ".prevent-split"
                 })
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, "Exported.pdf")
