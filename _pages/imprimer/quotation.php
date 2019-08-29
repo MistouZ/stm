@@ -320,7 +320,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         position: absolute;
         left: 20px;
         right: 20px;
-        font-size: 90%;
+        /*font-size: 90%;*/
     }
     .page-template .header {
         top: 20px;
