@@ -297,7 +297,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 <script type="text/javascript" language="javascript">
 
     window.onload = function(){
-        document.getElementById('#Exporter').click();
+        document.getElementById('Exporter').click();
 
     function closeWindow() {
         setTimeout(function() {
