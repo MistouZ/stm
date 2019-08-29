@@ -187,7 +187,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         <th> Prix total HT </th>
                                     </tr>
                                 </thead>
-                               <!-- <tbody>
+                               <tbody>
                                     <?php
                                         $montant = 0;
                                         $totalTaxe = 0;
@@ -223,7 +223,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                         <?php
                                         }
                                     ?>
-                                </tbody>-->
+                                </tbody>
                             </table>
                         </div>
                     </div>
