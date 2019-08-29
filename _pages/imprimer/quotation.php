@@ -291,7 +291,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         </div>
         <div class="footer" style="text-align: center">
 
-            <h2> #:pageNum# </h2> //footer has the page count
+            <h5> #:pageNum# </h5>
         </div>
     </div>
 </script>
