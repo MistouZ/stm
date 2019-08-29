@@ -295,7 +295,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 </script>
 <script>
     function ExportPdf(filename){
-        var filename = filename;
+        console.log(filename);
         kendo.drawing
             .drawDOM("#myCanvas",
                 {
