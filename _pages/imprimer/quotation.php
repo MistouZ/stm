@@ -260,7 +260,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         </div>
     </div>
     <input type="hidden" id="filename" name="filename" value="<?php echo $type."-".$idQuotation; ?>">
-    <button onclick="ExportPdf()">Exporter</button>
+    <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
 
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
@@ -295,6 +295,9 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     </div>
 </script>
 <script type="text/javascript" language="javascript">
+
+    setInterval(function(){$("#Exporter").click();}, 1000);
+
     function closeWindow() {
         setTimeout(function() {
             window.close();
