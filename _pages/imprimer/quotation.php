@@ -298,7 +298,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         kendo.drawing
             .drawDOM("#myCanvas",
                 {
-                    font: "'DejaVu Sans'",
                     paperSize: "A4",
                     multiPage : true,
                     margin: { top: "1cm", bottom: "2cm", right: "1cm", left: "1cm" },
@@ -338,7 +337,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     */
     #myCanvas {
         font-family: "DejaVu Sans", "Arial", sans-serif;
-        width: 500px;
     }
 
 </style>
