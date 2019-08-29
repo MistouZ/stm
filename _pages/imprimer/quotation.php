@@ -213,12 +213,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                             $montant = $montant+$montantLigne+$taxe;
                                         ?>
                                         <tr>
-                                            <td><?php echo $description->getDescription(); ?></td>
-                                            <td><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
+                                            <td class="col-md-5"><?php echo $description->getDescription(); ?></td>
+                                            <td class="col-md-2"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
                                             <td><?php echo $description->getTax()*100; ?> %</td>
                                             <td><?php echo $description->getDiscount(); ?> %</td>
-                                            <td><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
+                                            <td class="col-md-2"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
                                         </tr>
                                         <?php
                                         }
