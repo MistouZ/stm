@@ -175,7 +175,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
                     </div>
                     <div class="portlet-body">
-                        <div>
+                        <div class="table-responsive">
                             <table class="table table-hover table-bordered table-striped">
                                 <thead>
                                     <tr>
@@ -259,8 +259,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             </div>
         </div>
     </div>
-</div>
-<button onclick="ExportPdf()">Exporter</button>
+    <button onclick="ExportPdf()">Exporter</button>
 </div>
 
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
