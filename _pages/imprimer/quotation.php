@@ -267,7 +267,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-material.min.css"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.material.min.css"></script>
-
 <script>
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
@@ -313,3 +312,33 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             });
     }
 </script>
+<style>
+    /*
+        Make sure everything in the page template is absolutely positioned.
+        All positions are relative to the page container.
+    */
+    .page-template > * {
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        font-size: 90%;
+    }
+    .page-template .header {
+        top: 20px;
+        border-bottom: 1px solid #000;
+    }
+    .page-template .footer {
+        bottom: 20px;
+        border-top: 1px solid #000;
+    }
+
+    /*
+        Use the DejaVu Sans font for display and embedding in the PDF file.
+        The standard PDF fonts have no support for Unicode characters.
+    */
+    #myCanvas {
+        font-family: "DejaVu Sans", "Arial", sans-serif;
+        width: 500px;
+    }
+
+</style>
