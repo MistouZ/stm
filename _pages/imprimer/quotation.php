@@ -259,7 +259,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             </div>
         </div>
     </div>
-    <button onclick="ExportPdf()">Exporter</button>
+    <button onclick="ExportPdf(<?php echo $type.$idQuotation; ?>)">Exporter</button>
 </div>
 
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
@@ -294,7 +294,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     </div>
 </script>
 <script>
-    function ExportPdf(){
+    function ExportPdf(filename){
         kendo.drawing
             .drawDOM("#myCanvas",
                 {
@@ -307,7 +307,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     keepTogether: ".prevent-split"
                 })
             .then(function(group){
-                kendo.drawing.pdf.saveAs(group, "Exported.pdf")
+                kendo.drawing.pdf.saveAs(group, filename+".pdf")
             });
     }
 </script>
