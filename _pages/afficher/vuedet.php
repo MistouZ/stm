@@ -39,7 +39,7 @@ switch($type){
         $buttons = '<div class="actions">
                         <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-edit"></i> Modifier </a>
-                        <a target="_self" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                        <a target="_parent" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
