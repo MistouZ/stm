@@ -235,11 +235,11 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             <div class="col-md-6">
                 <div class="well">
                     <div class="row static-info align-reverse">
-                        <div class="col-md-3 name"> Sous-total: </div>
+                        <div class="col-md-4 name"> Sous-total: </div>
                         <div class="col-md-8 value"> <?php echo number_format($montantHT,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-3 name"> Total taxes : </div>
+                        <div class="col-md-4 name"> Total taxes : </div>
                         <div class="col-md-8 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
                     </div>
                     <?php 
@@ -247,12 +247,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             if($arrayTaxesKey[$key]["Montant"]>0){
                     ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-3 name" style="font-size: 11px; font-style: italic;"> <?php echo $arrayTaxesKey[$key]["Taxe"]; ?> : </div>
+                        <div class="col-md-4 name" style="font-size: 11px; font-style: italic;"> <?php echo $arrayTaxesKey[$key]["Taxe"]; ?> : </div>
                         <div class="col-md-8 value" style="font-size: 11px; font-style: italic;"> <?php echo number_format($arrayTaxesKey[$key]["Montant"],0,","," "); ?> XPF</div>
                     </div>
                     <?php }} ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-3 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
+                        <div class="col-md-4 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
                         <div class="col-md-8 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
                 </div>
