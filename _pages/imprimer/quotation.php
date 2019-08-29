@@ -180,11 +180,11 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 <thead>
                                     <tr>
                                         <th class="col-md-4"> Description </th>
-                                        <th class="col-md-3"> Prix à l'unité </th>
+                                        <th class="col-md-2"> Prix à l'unité </th>
                                         <th> QT. </th>
                                         <th> Taxe </th>
                                         <th> Remise </th>
-                                        <th class="col-md-3"> Prix total HT </th>
+                                        <th class="col-md-2"> Prix total HT </th>
                                     </tr>
                                 </thead>
                                <tbody>
