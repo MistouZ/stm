@@ -285,10 +285,10 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 </script>
 <script type="x/kendo-template" id="page-template">
     <div class="page-template">
-        <div class="header" align="center">
+        <div class="header" >
             <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
         </div>
-        <div class="footer" style="text-align: center">
+        <div class="footer">
             <h5> #:pageNum# </h5>
         </div>
     </div>
@@ -325,10 +325,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     .page-template .header {
         top: 20px;
         border-bottom: 1px solid #000;
+        align-content: center;
     }
     .page-template .footer {
         bottom: 20px;
         border-top: 1px solid #000;
+        text-align: center;
     }
 
     /*
