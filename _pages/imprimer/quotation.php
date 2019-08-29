@@ -286,7 +286,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 </script>
 <script type="x/kendo-template" id="page-template">
     <div class="page-template">
-        <div class="header">
+        <div class="header" align="center">
             <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
         </div>
         <div class="footer" style="text-align: center">
