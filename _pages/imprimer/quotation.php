@@ -325,9 +325,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     .page-template .header {
         top: 20px;
         border-bottom: 1px solid #000;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+        text-align: center;
     }
     .page-template .footer {
         bottom: 20px;
