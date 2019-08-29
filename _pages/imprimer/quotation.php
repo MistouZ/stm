@@ -293,7 +293,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         </div>
     </div>
 </script>
-<script>
+<script type="text/javascript" language="javascript">
     function ExportPdf(filename){
         if (filename === undefined) {
             filename = "Exported";
