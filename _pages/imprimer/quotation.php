@@ -164,7 +164,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             </div>
         </div>
         <div class="row static-info">
-            <div class="col-md name"> Libellé : </div>
+            <div class="col-md-1 name"> Libellé : </div>
             <div class="col-md-7 value"> <?php echo $folder->getLabel(); ?> </div>
         </div>
         <div class="row">
