@@ -298,7 +298,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 100);
+        }, 200);
     }
 
     function ExportPdf(){
