@@ -103,7 +103,7 @@ if($quotation->getType() == "S")
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
 ?>
-<div class="row">
+<div class="row" xmlns="http://www.w3.org/1999/html">
     <div id="myCanvas">
         <div class="row">
             <div class="col-md-6 col-sm-12">
@@ -115,19 +115,19 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     <div class="portlet-body">
                         <div class="row static-info">
                             <div class="col-md-5 name"> <?php echo ucwords($type); ?>: </div>
-                            <div class="col-md-7 value"> <?php echo $quotation->getQuotationNumber(); ?></div>
+                            <div class="col-md-7 value"><strong> <?php echo $quotation->getQuotationNumber(); ?></strong></div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Date: </div>
-                            <div class="col-md-7 value"> <?php echo $date; ?> <a data-toggle="modal" href="#modif_date" ><i class="fas fa-edit"></i></a></div>
+                            <div class="col-md-7 value"><strong> <?php echo $date; ?></strong></div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Dossier N°: </div>
-                            <div class="col-md-7 value"><?php echo $folder->getFolderNumber(); ?></div>
+                            <div class="col-md-7 value"><strong></strong><?php echo $folder->getFolderNumber(); ?></strong></div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Commercial : </div>
-                            <div class="col-md-7 value"> <?php echo $user->getName().' '.$user->getFirstName(); ?> </div>
+                            <div class="col-md-7 value"><strong> <?php echo $user->getName().' '.$user->getFirstName(); ?> </strong></div>
                         </div>
                     </div>
                 </div>
@@ -141,23 +141,23 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     <div class="portlet-body">
                         <div class="row static-info">
                             <div class="col-md-5 name"> Client: </div>
-                            <div class="col-md-7 value"> <?php echo $customer->getName(); ?> </div>
+                            <div class="col-md-7 value"><strong> <?php echo $customer->getName(); ?> </strong></div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Adresse: </div>
-                            <div class="col-md-7 value"> <?php echo $customer->getInvoiceAddress(); ?> </div>
+                            <div class="col-md-7 value"><strong><?php echo $customer->getInvoiceAddress(); ?></strong> </div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Contact: </div>
-                            <div class="col-md-7 value"> <?php echo $contact->getFirstname()." ".$contact->getName(); ?> </div>
+                            <div class="col-md-7 value"><strong><?php echo $contact->getFirstname()." ".$contact->getName(); ?></strong></div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Téléphone: </div>
-                            <div class="col-md-7 value"> <?php echo $contact->getPhoneNumber(); ?> </div>
+                            <div class="col-md-7 value"><strong> <?php echo $contact->getPhoneNumber(); ?></strong> </div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Mail: </div>
-                            <div class="col-md-7 value"> <?php echo $contact->getEmailAddress(); ?> </div>
+                            <div class="col-md-7 value"> <strong><?php echo $contact->getEmailAddress(); ?></strong> </div>
                         </div>
                     </div>
                 </div>
