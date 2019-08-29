@@ -169,7 +169,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         </div>
         </div>
         <div class="row">
-            <div class="col-md-14 col-sm-14">
+            <div class="col-md-12 col-sm-12">
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
