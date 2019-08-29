@@ -260,8 +260,9 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             </div>
         </div>
     </div>
-</div>
 <button onclick="ExportPdf()">Exporter</button>
+</div>
+
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jszip.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
