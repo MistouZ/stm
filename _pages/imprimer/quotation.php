@@ -296,7 +296,11 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
 </script>
 <script type="text/javascript" language="javascript">
 
-    setInterval(function () {document.getElementById("Exporter").click();}, 1000);
+    document.getElementById("Exporter").addEventListener("click", handler);
+    function handler(e) {
+        // remove this handler
+        e.target.removeEventListener(e.type, arguments.callee);
+    }
 
     function closeWindow() {
         setTimeout(function() {
