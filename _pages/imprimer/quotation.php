@@ -311,7 +311,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
             });
-        myWindow.close();
+        window.open('','_self').close();
     }
 </script>
 <style>
