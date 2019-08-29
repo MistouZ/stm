@@ -176,7 +176,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
                     </div>
                     <div class="portlet-body">
-                        <div class="table-responsive">
+                        <div>
                             <table class="table table-hover table-bordered table-striped">
                                 <thead>
                                     <tr>
