@@ -169,7 +169,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-sm-12">
+            <div class="col-md-14 col-sm-14">
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
@@ -182,11 +182,11 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                                 <thead>
                                     <tr>
                                         <th class="col-sm-5"> Description </th>
-                                        <th class="col-sm-2"> Prix à l'unité </th>
+                                        <th class="col-sm-3"> Prix à l'unité </th>
                                         <th class="col-sm-1"> QT. </th>
                                         <th class="col-sm-1"> Taxe </th>
                                         <th class="col-sm-1"> Remise </th>
-                                        <th class="col-sm-2"> Prix total HT </th>
+                                        <th class="col-sm-3"> Prix total HT </th>
                                     </tr>
                                 </thead>
                                 <tbody>
