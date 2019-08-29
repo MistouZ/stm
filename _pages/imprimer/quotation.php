@@ -167,7 +167,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                 </div>
             </div>
         </div>
-        </div>
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="portlet grey-cascade box">
@@ -260,6 +259,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             </div>
         </div>
     </div>
+</div>
 <button onclick="ExportPdf()">Exporter</button>
 </div>
 
