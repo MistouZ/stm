@@ -252,8 +252,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     </div>
                     <?php }} ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-7 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
-                        <div class="col-md-5 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
+                        <div class="col-md-6 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
+                        <div class="col-md-6 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
                 </div>
             </div>
