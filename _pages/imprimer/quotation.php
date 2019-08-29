@@ -179,7 +179,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             <table class="table table-hover table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="col-sm-4"> Description </th>
+                                        <th class="col-md-4"> Description </th>
                                         <th> Prix à l'unité </th>
                                         <th> QT. </th>
                                         <th> Taxe </th>
