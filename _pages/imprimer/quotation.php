@@ -231,7 +231,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6"></div>
+            <div class="col-md-5"></div>
             <div class="col-md-6">
                 <div class="well">
                     <div class="row static-info align-reverse">
