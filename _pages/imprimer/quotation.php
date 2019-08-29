@@ -126,10 +126,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                             <div class="col-md-7 value"><?php echo $folder->getFolderNumber(); ?></div>
                         </div>
                         <div class="row static-info">
-                            <div class="col-md-5 name"> Libellé : </div>
-                            <div class="col-md-7 value"> <?php echo $folder->getLabel(); ?> </div>
-                        </div>
-                        <div class="row static-info">
                             <div class="col-md-5 name"> Commercial : </div>
                             <div class="col-md-7 value"> <?php echo $user->getName().' '.$user->getFirstName(); ?> </div>
                         </div>
@@ -166,6 +162,10 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="row static-info">
+            <div class="col-md-5 name"> Libellé : </div>
+            <div class="col-md-7 value"> <?php echo $folder->getLabel(); ?> </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12">
@@ -290,7 +290,6 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
             <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
         </div>
         <div class="footer" style="text-align: center">
-
             <h5> #:pageNum# </h5>
         </div>
     </div>
