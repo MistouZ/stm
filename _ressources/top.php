@@ -75,11 +75,16 @@ if(count($companymanager)>1){
     </form>
     <!-- END HEADER SEARCH BOX -->
     <!-- BEGIN TOP NAVIGATION MENU -->
+    <?php
+    $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH);
+    $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
+    print_r($image);
+    ?>
     <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
             <li class="dropdown dropdown-user dropdown-dark">
                 <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="padding: 16px 10px 18px !important;">
-                    <span class="username"> <img src="<?php echo URLHOST; ?>images/societe/<?php echo $_COOKIE['company']; ?>.jpg" alt="<?php echo $_COOKIE['company']; ?>" class="logo-default" style="max-height: 40px;" /> </span>
+                    <span class="username"> <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $_COOKIE['company']; ?>" class="logo-default" style="max-height: 40px;" /> </span>
                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                     </a>
             </li>
