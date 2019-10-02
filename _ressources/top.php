@@ -13,6 +13,7 @@ $userlogged = $usermanagerlog->get($username);
 <!-- BEGIN LOGO -->
 <div class="page-logo">
     <a href="<?php echo URLHOST.$_COOKIE['company'].'/accueil'; ?>">
+        >
         <img src="<?php echo URLHOST; ?>/images/logo.png" alt="logo" class="logo-default" style="width: 50px; margin: 13px 75px 0; " /> </a>
     <div class="menu-toggler sidebar-toggler">
         <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
@@ -42,10 +43,12 @@ if(count($companymanager)>1){
         <?php
             
             foreach($companymanager as $company){
+                $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH);
+                $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
         ?>
             <li style="text-align: center;">
                 <a href="<?php echo URLHOST.'_pages/_post/change_company.php?company='.$company->getNameData(); ?>">
-                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 40px;" /></a>
+                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 40px;" /></a>
             </li>
         <?php 
             } 
