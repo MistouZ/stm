@@ -45,7 +45,21 @@ if(count($companymanager)>1){
         ?>
             <li style="text-align: center;">
                 <a href="<?php echo URLHOST.'_pages/_post/change_company.php?company='.$company->getNameData(); ?>">
+                    <?php
+                    if(file_exists(URLHOST.'/images/societe/'.$company->getNameData().'.jpg'))
+                    {
+                        ?>
                     <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 40px;" /></a>
+                    <?php
+                    }
+                    else
+                    {
+                     ?>
+                        <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getNameData(); ?>.png" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 40px;" /></a>
+                    <?php
+                    }
+                    ?>
+
             </li>
         <?php 
             } 
