@@ -8,7 +8,7 @@
 
 class DB
 {
-    private $host = 'mysql:host=localhost;port=3306; dbname=stm_compta_dev';
+    private $host = 'mysql:host=localhost;port=3306; dbname=exotic_stm';
     private $username = 'stm-adm';
     private $password = 'gx@M5v59';
     private $bdd;
