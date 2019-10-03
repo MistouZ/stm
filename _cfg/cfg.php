@@ -34,6 +34,13 @@ $bdd->connexion();
 date_default_timezone_set('Pacific/Noumea');
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
-
+if (!isset($_COOKIE['connected']) && $_COOKIE['connected']=="false") {
+    if ($_SERVER['REQUEST_URI'] != "connexion") {
+        echo "je suis là";
+        header('Location: ' . URLHOST . 'connexion');
+    }else{
+        echo "en fait non je suis ici";
+    }
+}
 
 ?>
