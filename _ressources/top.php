@@ -76,6 +76,7 @@ if(count($companymanager)>1){
     <?php
         $path_image = parse_url(URLHOST."images/societe/".$_COOKIE['company'], PHP_URL_PATH);
         $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
+        print_r($image[0]);
     ?>
     <div class="top-menu">
         <ul class="nav navbar-nav pull-right">
