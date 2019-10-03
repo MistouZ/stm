@@ -35,11 +35,7 @@ date_default_timezone_set('Pacific/Noumea');
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
 if (isset($_COOKIE['connected']) && $_COOKIE['connected']=="false") {
-    echo "le cookie n'est pas bon";
     if ($_SERVER['REQUEST_URI'] != "/connexion") header('Location: ' . URLHOST . 'connexion');
-}
-else{
-    echo "je ne passe pas par la requête d'avant";
 }
 
 ?>
