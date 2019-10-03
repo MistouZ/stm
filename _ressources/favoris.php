@@ -9,7 +9,7 @@
             </div>
             <div class="desc"> Nouveau dossier </div>
         </div>
-        <a class="more" href="<?php echo URLHOST.'/'.$_COOKIE['company'];?>/dossier/creer"> Créer un dossier
+        <a class="more" href="<?php echo URLHOST.$_COOKIE['company'];?>/dossier/creer"> Créer un dossier
             <i class="m-icon-swapright m-icon-white"></i>
         </a>
     </div>
@@ -24,7 +24,7 @@
                 + </div>
             <div class="desc"> Nouveau devis </div>
         </div>
-        <a class="more" href="<?php echo URLHOST.'/'.$_COOKIE['company'];?>/devis/creer"> Créer un devis
+        <a class="more" href="<?php echo URLHOST.$_COOKIE['company'];?>/devis/creer"> Créer un devis
             <i class="m-icon-swapright m-icon-white"></i>
         </a>
     </div>
@@ -40,7 +40,7 @@
             </div>
             <div class="desc"> Voir </div>
         </div>
-        <a class="more" href="<?php echo URLHOST.'/'.$_COOKIE['company'];?>/devis/afficher"> Afficher la liste des devis
+        <a class="more" href="<?php echo URLHOST.$_COOKIE['company'];?>/devis/afficher"> Afficher la liste des devis
             <i class="m-icon-swapright m-icon-white"></i>
         </a>
     </div>
@@ -55,7 +55,7 @@
                 <i class="fas fa-search"></i></span></div>
             <div class="desc"> Voir </div>
         </div>
-        <a class="more" href="<?php echo URLHOST.'/'.$_COOKIE['company'];?>/dossier/afficher"> Afficher la liste des dossiers
+        <a class="more" href="<?php echo URLHOST.$_COOKIE['company'];?>/dossier/afficher"> Afficher la liste des dossiers
             <i class="m-icon-swapright m-icon-white"></i>
         </a>
     </div>
