@@ -5,7 +5,7 @@ include '_cfg/cfg.php';
 include '_cfg/fonctions.php';
 
 if (!isset($_COOKIE['connected']) && $_COOKIE['connected']=="false") {
-    if ($_SERVER['REQUEST_URI'] != "/connexion") {
+    if ($_SERVER['REQUEST_URI'] != "connexion") {
         header('Location: ' . URLHOST . 'connexion');
     }
 }
