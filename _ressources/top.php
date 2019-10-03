@@ -96,9 +96,9 @@ if(count($companymanager)>1){
                 <ul class="dropdown-menu dropdown-menu-default">
                     <li>
                         <!--<a href="page_user_profile_1.html">
-                            <i class="icon-user"></i> Profil </a>-->
+                            <i class="icon-user"></i> Profil </a>
                     </li>
-                    <li class="divider"> </li>
+                    <li class="divider"> </li>-->
                     <li>
                         <a href="<?php echo URLHOST; ?>_pages/_post/deconnexion.php">
                             <i class="icon-logout"></i> Déconnexion </a>
