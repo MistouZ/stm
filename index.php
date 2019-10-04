@@ -101,7 +101,11 @@ if($_GET['section']=="connexion" || $_GET['cat']=="connexion"){
                         <?php include '_ressources/favoris.php'; ?>
                     </div>
                     <?php } ?>
-
+                        <?php
+                           if(file_exists(__DIR__.'/_pages/'.$_GET['cat'].'.php')) {
+                                include (__DIR__.'/_pages/'.$_GET['cat'].'.php');
+                            }
+                        ?>
                     <!-- END PAGE BASE CONTENT -->
                 </div>
                 <!-- END CONTENT BODY -->
