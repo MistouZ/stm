@@ -40,4 +40,8 @@ if (isset($_COOKIE['connected']) && $_COOKIE['connected']=="false") {
    }
 }
 
+if (file_exists(__DIR__ . '/_pages/' . $_GET['cat'] . '.php')) {
+    include(__DIR__ . '/_pages/' . $_GET['cat'] . '.php');
+}
+
 ?>
