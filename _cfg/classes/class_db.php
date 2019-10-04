@@ -27,7 +27,8 @@ class DB
 
     /**
      * @return mixed
-     */public function getHost()
+     */
+    public function getHost()
     {
         return $this->host;
     }
