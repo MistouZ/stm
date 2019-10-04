@@ -102,9 +102,9 @@ if($_GET['section']=="connexion" || $_GET['cat']=="connexion"){
                     </div>
                     <?php } ?>
                         <?php 
-                           /* if(file_exists(__DIR__.'/_pages/'.$_GET['cat'].'.php')) {
+                           if(file_exists(__DIR__.'/_pages/'.$_GET['cat'].'.php')) {
                                 include (__DIR__.'/_pages/'.$_GET['cat'].'.php');   
-                            }*/
+                            }
                         ?>
                     <!-- END PAGE BASE CONTENT -->
                 </div>
