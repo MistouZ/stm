@@ -1,5 +1,5 @@
 <?php
-define('URLHOST','https://exotic.bitwin.nc/');
+define('URLHOST','http://exotic.bitwin.nc/');
 
 include 'classes/class_db.php';
 include 'classes/class_features.php';
