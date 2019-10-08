@@ -152,45 +152,53 @@
             <span class="title">Avoirs</span>
         </a>
     </li>
-    <li class="heading">
-        <h3 class="uppercase"><i class="fas fa-calculator"></i> Analyses</h3>
-    </li>
-    <li class="nav-item  ">
-        <a href="javascript:;" class="nav-link nav-toggle">
-            <i class="fas fa-chart-line"></i>
-            <span class="title">Palmares</span>
-            <span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/palmares/afficher'; ?>" class="nav-link " target="_blank">
-                    <span class="title"><i class="fas fa-chart-pie"></i> Devis</span>
-                </a>
-            </li>
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/palmares/afficher'; ?>" class="nav-link ">
-                    <span class="title"><i class="fas fa-chart-area"></i> Proformas</span>
-                </a>
-            </li>
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/palmares/afficher'; ?>" class="nav-link " target="_blank">
-                    <span class="title"><i class="fas fa-chart-line"></i> Factures</span>
-                </a>
-            </li>
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/palmares/afficher'; ?>" class="nav-link " target="_blank">
-                    <span class="title"><i class="fas fa-chart-bar"></i> Avoirs</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="nav-item  ">
-        <a href="javascript:;" class="nav-link nav-toggle">
-            <i class="fas fa-chart-bar"></i>
-            <span class="title">Analyse des coûts</span>
-        </a>
-    </li>
-    <?php if($_COOKIE["credential"] == "A") {
+    <?php if($_COOKIE["credential"] == "A" && $_COOKIE["credential"] == "F") {
+
+        ?>
+        <li class="heading">
+            <h3 class="uppercase"><i class="fas fa-calculator"></i> Analyses</h3>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fas fa-chart-line"></i>
+                <span class="title">Palmares</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/afficher'; ?>" class="nav-link "
+                       target="_blank">
+                        <span class="title"><i class="fas fa-chart-pie"></i> Devis</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/afficher'; ?>" class="nav-link ">
+                        <span class="title"><i class="fas fa-chart-area"></i> Proformas</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/afficher'; ?>" class="nav-link "
+                       target="_blank">
+                        <span class="title"><i class="fas fa-chart-line"></i> Factures</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/afficher'; ?>" class="nav-link "
+                       target="_blank">
+                        <span class="title"><i class="fas fa-chart-bar"></i> Avoirs</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fas fa-chart-bar"></i>
+                <span class="title">Analyse des coûts</span>
+            </a>
+        </li>
+        <?php
+    }
+    if($_COOKIE["credential"] == "A") {
 
         ?>
         <li class="heading">
