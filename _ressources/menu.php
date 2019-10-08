@@ -268,6 +268,5 @@
         <?php
     }
     ?>
-    ?>
 </ul>
 <!-- END SIDEBAR MENU -->
