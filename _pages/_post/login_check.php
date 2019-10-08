@@ -21,8 +21,8 @@ if($_COOKIE['connected']=="false"){
         $company = $companymanager->getById($user->getDefaultCompany());
         
         setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
-        
-        header('Location: '.URLHOST.$company->getNameData()."/accueil");  
+        print_r($_COOKIE);
+       // header('Location: '.URLHOST.$company->getNameData()."/accueil");
 }
 
 ?>
