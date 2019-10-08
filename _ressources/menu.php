@@ -190,6 +190,7 @@
             <span class="title">Analyse des coûts</span>
         </a>
     </li>
+    <?php if
     <li class="heading">
         <h3 class="uppercase"><i class="fas fa-toolbox"></i> Administration</h3>
     </li>
