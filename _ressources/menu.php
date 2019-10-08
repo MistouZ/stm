@@ -190,77 +190,84 @@
             <span class="title">Analyse des coûts</span>
         </a>
     </li>
-    <li class="heading">
-        <h3 class="uppercase"><i class="fas fa-toolbox"></i> Administration</h3>
-    </li>
-    <li class="nav-item  ">
-        <a href="javascript:;" class="nav-link nav-toggle">
-            <i class="fas fa-user-shield"></i>
-            <span class="title">Sécurité</span>
-            <span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/user/creer'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
-                </a>
-            </li>
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/user/afficher'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-list-alt"></i> Listing</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="nav-item  ">
-        <a href="javascript:;" class="nav-link nav-toggle">
-            <i class="fas fa-building"></i>
-            <span class="title">Société</span>
-            <span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/creer'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
-                </a>
-            </li>
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/societe/afficher'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-list-alt"></i> Listing</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="nav-item  ">
-        <a href="javascript:;" class="nav-link nav-toggle">
-            <i class="fas fa-percent"></i>
-            <span class="title">Taxes</span>
-            <span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/creer'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
-                </a>
-            </li>
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/taxe/afficher'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-list-alt"></i> Listing</span>
-                </a>
-            </li>
-        </ul>
-    </li>
-    <li class="nav-item  ">
-        <a href="javascript:;" class="nav-link nav-toggle">
-            <i class="fas fa-exclamation-triangle"></i>
-            <span class="title">Erreurs</span>
-        </a>
-    </li>
-    <li class="nav-item  ">
-        <a href="javascript:;" class="nav-link nav-toggle">
-            <i class="far fa-question-circle"></i>
-            <span class="title">FAQ</span>
-        </a>
-    </li>
+    <?php if($_COOKIE["credential"] == "A") {
+
+        ?>
+        <li class="heading">
+            <h3 class="uppercase"><i class="fas fa-toolbox"></i> Administration</h3>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fas fa-user-shield"></i>
+                <span class="title">Sécurité</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/user/creer'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/user/afficher'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-list-alt"></i> Listing</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fas fa-building"></i>
+                <span class="title">Société</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/societe/creer'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/societe/afficher'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-list-alt"></i> Listing</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fas fa-percent"></i>
+                <span class="title">Taxes</span>
+                <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/taxe/creer'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                    </a>
+                </li>
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/taxe/afficher'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-list-alt"></i> Listing</span>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="fas fa-exclamation-triangle"></i>
+                <span class="title">Erreurs</span>
+            </a>
+        </li>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="far fa-question-circle"></i>
+                <span class="title">FAQ</span>
+            </a>
+        </li>
+        <?php
+    }
+    ?>
+    ?>
 </ul>
 <!-- END SIDEBAR MENU -->
