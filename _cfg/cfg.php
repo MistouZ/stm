@@ -31,7 +31,7 @@ global $bdd;
 $bdd = new DB();
 $bdd->connexion();
 
-date_default_timezone_set('Pacific/Tahiti');
+date_default_timezone_set('Pacific/Noumea');
 setlocale (LC_TIME, 'fr_FR.utf8','fra');
 
 if (!isset($_COOKIE['connected']) || $_COOKIE['connected']=="false") {
