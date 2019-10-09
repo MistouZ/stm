@@ -152,7 +152,7 @@
             <span class="title">Avoirs</span>
         </a>
     </li>
-    <?php if($_COOKIE["credential"] == "A" && $_COOKIE["credential"] == "F") {
+    <?php if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
 
         ?>
         <li class="heading">
