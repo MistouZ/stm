@@ -24,11 +24,17 @@
             <span class="arrow"></span>
         </a>
         <ul class="sub-menu">
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/client/creer'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
-                </a>
-            </li>
+            <?php
+            if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
+                ?>
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/client/creer'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                    </a>
+                </li>
+                <?php
+            }
+            ?>
             <li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/client/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
@@ -43,11 +49,17 @@
             <span class="arrow"></span>
         </a>
         <ul class="sub-menu">
-            <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/fournisseur/creer'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-plus-square"></i> Créer</span>
-                </a>
-            </li>
+            <?php
+            if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
+                ?>
+                <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/fournisseur/creer'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-plus-square"></i> Créer</span>
+                    </a>
+                </li>
+                <?php
+            }
+            ?>
             <li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/fournisseur/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
@@ -152,9 +164,9 @@
             <span class="title">Avoirs</span>
         </a>
     </li>
-    <?php if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
-
-        ?>
+    <?php
+        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
+    ?>
         <li class="heading">
             <h3 class="uppercase"><i class="fas fa-calculator"></i> Analyses</h3>
         </li>
