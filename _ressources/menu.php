@@ -43,17 +43,11 @@
             <span class="arrow"></span>
         </a>
         <ul class="sub-menu">
-            <?php
-            if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
-                ?>
-                <li class="nav-item  ">
+            <li class="nav-item  ">
                     <a href="<?php echo URLHOST . $_COOKIE['company'] . '/fournisseur/creer'; ?>" class="nav-link ">
                         <span class="title"><i class="far fa-plus-square"></i> Créer</span>
                     </a>
-                </li>
-                <?php
-            }
-            ?>
+            </li>
             <li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/fournisseur/afficher'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Listing</span>
