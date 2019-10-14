@@ -306,7 +306,7 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 250);
+        }, 300);
     }
 
     function ExportPdf(){
@@ -325,7 +325,7 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
             });
-       // window.onload = closeWindow();
+       window.onload = closeWindow();
     }
 </script>
 <style>
