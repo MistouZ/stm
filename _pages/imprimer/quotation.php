@@ -306,7 +306,7 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 200);
+        }, 250);
     }
 
     function ExportPdf(){
