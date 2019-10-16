@@ -306,7 +306,7 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 500); // 300 pour NC sur serveur MLS
+        }, 800); // 300 pour NC sur serveur MLS
     }
 
     function ExportPdf(){
