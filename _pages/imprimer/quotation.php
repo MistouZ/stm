@@ -159,8 +159,8 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
                             <div class="col-md-7 value"><strong> <?php echo $contact->getPhoneNumber(); ?></strong> </div>
                         </div>
                         <div class="row static-info">
-                            <div class="col-md-5 name"> Mail: </div>
-                            <div class="col-md-7 value"> <strong><?php echo $contact->getEmailAddress(); ?></strong> </div>
+                            <div class="col-md-4 name"> Mail: </div>
+                            <div class="col-md-8 value"> <strong><?php echo $contact->getEmailAddress(); ?></strong> </div>
                         </div>
                     </div>
                 </div>
