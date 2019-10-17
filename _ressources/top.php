@@ -30,7 +30,7 @@ $company = new Company ($company);
 $companymanager = new CompaniesManager($bdd);
 $companymanager = $companymanager->getCompanies($_COOKIE['username']);
 
-if(count($companymanager)>1){
+if(count($companymanager)>1 || ($_COOKIE["credential"] == "A")){
 ?>
 <div class="page-actions">
     <div class="btn-group">
