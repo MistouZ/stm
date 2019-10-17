@@ -291,6 +291,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         </div>
         <div class="footer">
             <h5> #:pageNum# / #:totalPages# </h5>
+            <img src="<?php echo URLHOST; ?>images/footer/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 120px;" />
         </div>
     </div>
 </script>
