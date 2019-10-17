@@ -314,11 +314,13 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
         kendo.drawing
             .drawDOM("#myCanvas",
                 {
-                    paperSize: "A4",
+                    paperSize: {width: "7in", height: "9.25in""},
                     multiPage : true,
                     margin: { top: "3cm", bottom: "2cm", right: "1cm", left: "1cm" },
                     scale: 0.75,
                     height: 500,
+                    border:"none",
+                    landscape : false,
                     template: $("#page-template").html(),
                     keepTogether: ".prevent-split"
                 })
