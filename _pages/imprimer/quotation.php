@@ -293,7 +293,7 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
             <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
         </div>
         <div class="footer">
-            <h5> #:pageNum# </h5>
+            <h5> #:pageNum# / #:totalPages#</h5>
         </div>
     </div>
 </script>
