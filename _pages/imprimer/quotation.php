@@ -320,6 +320,7 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
                     scale: 0.75,
                     height: 500,
                     landscape : false,
+                    border : "none",
                     template: $("#page-template").html(),
                     keepTogether: ".prevent-split"
                 })
