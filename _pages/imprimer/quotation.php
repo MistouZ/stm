@@ -102,9 +102,6 @@ if($quotation->getType() == "S")
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
 
-$path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH);
-$image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
-
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
     <div id="myCanvas">
@@ -290,7 +287,7 @@ $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
 <script type="x/kendo-template" id="page-template">
     <div class="page-template">
         <div class="header" >
-            <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
+            <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
         </div>
         <div class="footer">
             <h5> #:pageNum# / #:totalPages# </h5>
