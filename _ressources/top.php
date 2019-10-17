@@ -42,8 +42,6 @@ if(count($companymanager)>1 || ($_COOKIE["credential"] == "A")){
         <?php
             
             foreach($companymanager as $company){
-              /*  $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH);
-                $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");*/
         ?>
             <li style="text-align: center;">
                 <a href="<?php echo URLHOST.'_pages/_post/change_company.php?company='.$company->getNameData(); ?>">
