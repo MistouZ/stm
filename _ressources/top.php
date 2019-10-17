@@ -42,12 +42,12 @@ if(count($companymanager)>1 || ($_COOKIE["credential"] == "A")){
         <?php
             
             foreach($companymanager as $company){
-                $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH);
-                $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
+              /*  $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH);
+                $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");*/
         ?>
             <li style="text-align: center;">
                 <a href="<?php echo URLHOST.'_pages/_post/change_company.php?company='.$company->getNameData(); ?>">
-                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 40px;" /></a>
+                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo $company->getName(); ?>.jpg" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 40px;" /></a>
             </li>
         <?php 
             } 
