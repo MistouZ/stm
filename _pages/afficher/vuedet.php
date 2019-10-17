@@ -293,10 +293,6 @@ if(isset($_GET['cat5'])){
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6"> </div>
-            <div class="col-md-6" value><?php echo $quotation->getComment(); ?></div>
-        </div>
         <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
