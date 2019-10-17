@@ -248,7 +248,7 @@ if(isset($_GET['cat5'])){
                                             $montant = $montant+$montantLigne+$taxe;
                                         ?>
                                         <tr>
-                                            <td><?php echo $description->getDescription(); ?></td>
+                                            <td><?php echo nl2br($description->getDescription()); ?></td>
                                             <td><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
                                             <td><?php echo $description->getTax()*100; ?> %</td>
