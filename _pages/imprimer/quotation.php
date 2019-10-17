@@ -258,6 +258,12 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
+                <?php echo $quotation->getComment(); ?>
+            </div>
+        </div>
     </div>
     <input type="hidden" id="filename" name="filename" value="<?php echo $type."-".$idQuotation; ?>">
     <button id="Exporter" onclick="ExportPdf()">Exporter</button>
