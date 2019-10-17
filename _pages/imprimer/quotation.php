@@ -260,7 +260,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
         </div>
         <div class="row">
             <div class="col-md-5"></div>
-            <div class="col-md-7">
+            <div class="col-md-7" style="font-size: 10px; font-style: italic;">
                 <?php echo $quotation->getComment(); ?>
             </div>
         </div>
