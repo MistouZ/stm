@@ -102,7 +102,7 @@ $companies = $companies->getList();
                                             ?>
                                             <label class="radio-inline">
                                                 <?php
-                                                echo '<input type="radio" name="defautcompany" value="' . $company->getIdCompany() . '"';
+                                                echo '<input type="radio" name="defaultCompany" value="' . $company->getIdCompany() . '"';
                                                 if ($user->getDefaultCompany() == $company->getIdCompany() ) {
                                                     echo "checked=\"checked\"";
                                                 }
