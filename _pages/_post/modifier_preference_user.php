@@ -42,12 +42,13 @@ if(isset($_POST['valider'])) {
     $usermanager = new UsersManager($bdd);
     echo "OK2 ";
     $test = $usermanager->updatePreference($user);
-    
+print_r($user);
+echo $test;
 
-}
+}/*
 if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/errormodif");
 }else{
     header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/successmodif");
-}
+}*/
 ?>
