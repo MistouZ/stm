@@ -63,8 +63,8 @@ if(isset($_POST['valider'])) {
 
 }
 if(is_null($test)){
-    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/errormodif");
+    header('Location: '.URLHOST.$_COOKIE['company']."/accueil/errormodif");
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company']."/user/afficher/successmodif");
+    header('Location: '.URLHOST.$_COOKIE['company']."/accueil/successmodif");
 }
 ?>
