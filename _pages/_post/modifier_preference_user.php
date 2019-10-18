@@ -37,6 +37,8 @@ if(isset($_POST['valider'])) {
         );
     }
 
+    print_r($array);
+
     $user = new Users($array);
     echo "OK";
     $usermanager = new UsersManager($bdd);
