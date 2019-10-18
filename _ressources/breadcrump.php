@@ -22,7 +22,7 @@
     <li>
         <a href="<?php echo URLHOST.$_COOKIE['company'].'/accueil'; ?>" style="font-weight: 800;">Accueil</a>
         <?php
-            if(isset($_GET['souscat']) && empty($_GET['soussouscat']) || $_GET['soussouscat']=="successmodif" || $_GET['soussouscat']=="errormodif"){
+            if(isset($_GET['souscat']) && empty($_GET['soussouscat']) && $_GET["souscat"] !="successmodif" && $_GET["souscat"] !="errormodif" ){
         ?>
         <i class="fa fa-circle" style="color: #aa134f;"></i>
         
