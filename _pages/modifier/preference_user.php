@@ -83,36 +83,46 @@ $companies = $companies->getList();
                                 <input name="phone_number" id="phone_number" type="number" class="form-control" value="<?php echo $user->getPhoneNumber(); ?>" />
                             </div>
                         </div>
-                        <h4 class="form-section">Gestion société</h4>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Société par défaut
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-9">
-                                <div class="radio-list" data-error-container="#company_error">
-                                <?php
-                                    $companiesList = explode(", ",$user->getCompanyName());
-                                    foreach ($companies as $company){
+                        <?php
+                        if((count($companiesList)>1)) {
+                            ?>
+                            <h4 class="form-section">Gestion société</h4>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Société par défaut
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <div class="radio-list" data-error-container="#company_error">
+                                        <?php
+                                        $companiesList = explode(", ", $user->getCompanyName());
+                                        foreach ($companies as $company) {
 
-                                    $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH); 
-                                    $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
-                                ?>
-                                        <label class="checkbox-inline">
-                                <?php
-                                        echo'<input type="checkbox" name="societe[]" value="'.$company->getIdCompany().'"';
-                                        if(in_array($company->getName(),$companiesList)){ echo "checked=\"checked\""; }
-                                        echo' />';
-                                ?>
-                                            <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
-                                        </label>
-                                <?php
-                                    }
-                                ?>
+                                            $path_image = parse_url(URLHOST . "images/societe/" . $company->getNameData(), PHP_URL_PATH);
+                                            $image = glob($_SERVER['DOCUMENT_ROOT'] . $path_image . ".*");
+                                            ?>
+                                            <label class="radio-inline">
+                                                <?php
+                                                echo '<input type="radio" name="defautcompany" value="' . $company->getIdCompany() . '"';
+                                                if (in_array($company->getName(), $companiesList)) {
+                                                    echo "checked=\"checked\"";
+                                                }
+                                                echo ' />';
+                                                ?>
+                                                <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>"
+                                                     alt="<?php echo $company->getName(); ?>" class="logo-default"
+                                                     style="max-height: 20px;"/></a>
+                                            </label>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                    <span class="help-block"> Choissisez la société que vous souhaitez avoir par défaut au  login </span>
+                                    <div id="company_error"></div>
                                 </div>
-                                <span class="help-block"> Cocher la ou les société(s) affiliée(s) à l'utilisateur </span>
-                                <div id="company_error"> </div>
                             </div>
-                        </div>
+                            <?php
+                        }
+                        ?>
                     </div>
                     <div class="form-actions">
                         <div class="row">
