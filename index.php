@@ -93,18 +93,19 @@ if($_GET['section']=="connexion" || $_GET['cat']=="connexion"){
             <!-- BEGIN CONTENT -->
             <div class="page-content-wrapper">
                 <!-- BEGIN CONTENT BODY -->
-                <?php if($retour == "errormodif") { ?>
-                    <div class="alert alert-danger">
-                        <button class="close" data-close="alert"></button> Une erreur est survenue, les préférences n'ont donc pas pu être modifiées !</div>
-                <?php }elseif($retour == "successmodif") { ?>
-                    <div class="alert alert-success">
-                        <button class="close" data-close="alert"></button>
-                        Les préférences utilisateurs ont bien été modifiées !
-                    </div>
-                    <?php
-                }
-                ?>
+
                 <div class="page-content" style="padding-top: 0px !important;">
+                    <?php if($retour == "errormodif") { ?>
+                        <div class="alert alert-danger">
+                            <button class="close" data-close="alert"></button> Une erreur est survenue, les préférences n'ont donc pas pu être modifiées !</div>
+                    <?php }elseif($retour == "successmodif") { ?>
+                        <div class="alert alert-success">
+                            <button class="close" data-close="alert"></button>
+                            Les préférences utilisateurs ont bien été modifiées !
+                        </div>
+                        <?php
+                    }
+                    ?>
                     <!-- BEGIN PAGE HEAD-->
                     <?php include '_ressources/breadcrump.php'; ?>
                     <!-- BEGIN PAGE BASE CONTENT -->
