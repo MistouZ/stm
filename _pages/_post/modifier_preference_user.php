@@ -17,6 +17,7 @@ if(isset($_POST['valider'])) {
     $firstname = $_POST['firstname'];
     $email = $_POST['email'];
     $phone = $_POST['phone_number'];
+    $defaultCompany = $_POST["defaultCompany"];
 
     
     if(isset($_POST['password']) && !empty($_POST['password'])){
@@ -25,14 +26,14 @@ if(isset($_POST['valider'])) {
             'emailAddress' => $email,
             'password' => $password,
             'phoneNumber' => $phone,
-            'defaultCompany' => $_POST["societe"][0],
+            'defaultCompany' => $defaultCompany,
         );
     }else{
         $array = array(
             'username' => $username,
             'emailAddress' => $email,
             'phoneNumber' => $phone,
-            'defaultCompany' => $_POST["societe"][0],
+            'defaultCompany' => $defaultCompany,
         );
     }
 
