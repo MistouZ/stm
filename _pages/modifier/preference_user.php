@@ -84,7 +84,7 @@ $companies = $companies->getList();
                             </div>
                         </div>
                         <?php
-                        if((count($companiesList)>1)) {
+                        //if((count($companiesList)>1)) {
                             ?>
                             <h4 class="form-section">Gestion société</h4>
                             <div class="form-group">
@@ -121,7 +121,7 @@ $companies = $companies->getList();
                                 </div>
                             </div>
                             <?php
-                        }
+                      //  }
                         ?>
                     </div>
                     <div class="form-actions">
