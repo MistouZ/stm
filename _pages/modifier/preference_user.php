@@ -113,7 +113,6 @@ $companies = $companies->getList();
                                 <div id="company_error"> </div>
                             </div>
                         </div>
-                        <input type="hidden" name="oldUsername" value="<?php echo $user->getUsername(); ?>" />
                     </div>
                     <div class="form-actions">
                         <div class="row">
