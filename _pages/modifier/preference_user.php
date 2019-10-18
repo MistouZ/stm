@@ -116,7 +116,7 @@ $companies = $companies->getList();
                                         }
                                         ?>
                                     </div>
-                                    <span class="help-block"> Choissisez la société que vous souhaitez avoir par défaut au  login </span>
+                                    <span class="help-block"> Choissisez la société que vous souhaitez avoir par défaut à votre connexion </span>
                                     <div id="company_error"></div>
                                 </div>
                             </div>
