@@ -84,7 +84,7 @@ $companies = $companies->getList();
                             </div>
                         </div>
                         <?php
-                        if((count($companiesList)>1) || || ($_COOKIE["credential"] == "A")) {
+                        if((count($companiesList)>1) || ($_COOKIE["credential"] == "A")) {
                             ?>
                             <h4 class="form-section">Gestion société</h4>
                             <div class="form-group">
