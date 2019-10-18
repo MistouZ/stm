@@ -88,11 +88,17 @@ if(count($companymanager)>1 || ($_COOKIE["credential"] == "A")){
                     <!-- DOC: Do not remove below empty space(&nbsp;) as its purposely used -->
                     <i style="font-size: 35px;" class="fas fa-user-circle img-circle"></i> </a>
                 <ul class="dropdown-menu dropdown-menu-default">
-                    <li>
-                        <!--<a href="page_user_profile_1.html">
-                            <i class="icon-user"></i> Profil </a>
-                    </li>
-                    <li class="divider"> </li>-->
+                    <?php
+                    if($_COOKIE["credential"] == "A") {
+                        ?>
+                        <li>
+                            <a href="<?php echo URLHOST . $_COOKIE['company'] . '/user/modifier/preference/'.$_COOKIE["username"]; ?>">
+                                <i class="icon-user"></i> Profil </a>
+                        </li>
+                        <li class="divider"></li>
+                        <?php
+                    }
+                    ?>
                     <li>
                         <a href="<?php echo URLHOST; ?>_pages/_post/deconnexion.php">
                             <i class="icon-logout"></i> Déconnexion </a>
