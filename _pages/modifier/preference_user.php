@@ -83,13 +83,13 @@ $companies = $companies->getList();
                                 <input name="phone_number" id="phone_number" type="number" class="form-control" value="<?php echo $user->getPhoneNumber(); ?>" />
                             </div>
                         </div>
-                        <h4 class="form-section">Droits d'accès</h4>
+                        <h4 class="form-section">Gestion société</h4>
                         <div class="form-group">
                             <label class="control-label col-md-3">Société par défaut
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
-                                <div class="checkbox-list" data-error-container="#company_error">
+                                <div class="radio-list" data-error-container="#company_error">
                                 <?php
                                     $companiesList = explode(", ",$user->getCompanyName());
                                     foreach ($companies as $company){
