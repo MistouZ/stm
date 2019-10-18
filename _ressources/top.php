@@ -92,7 +92,7 @@ if(count($companymanager)>1 || ($_COOKIE["credential"] == "A")){
                     if($_COOKIE["credential"] == "A") {
                         ?>
                         <li>
-                            <a href="<?php echo URLHOST . $_COOKIE['company'] . '/user/modifier/preference/'.$_COOKIE["username"]; ?>">
+                            <a href="<?php echo URLHOST . $_COOKIE['company'] . '/user/modifier/preferences/'.$_COOKIE["username"]; ?>">
                                 <i class="icon-user"></i> Profil </a>
                         </li>
                         <li class="divider"></li>
