@@ -109,6 +109,17 @@ if($_GET['section']=="connexion" || $_GET['cat']=="connexion"){
                         ?>
                     <!-- END PAGE BASE CONTENT -->
                 </div>
+                <?php if($retour == "errormodif") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, les préférences n'ont donc pas pu être modifiées !</div>
+                    <?php }elseif($retour == "successmodif") { ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button>
+                        Les préférences utilisateurs ont bien été modifiées !
+                    </div>
+                    <?php
+                        }
+                ?>
                 <!-- END CONTENT BODY -->
             </div>
             <!-- END CONTENT -->
