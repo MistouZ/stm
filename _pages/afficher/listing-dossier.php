@@ -141,6 +141,3 @@ else{
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-<?php
-
-?>
