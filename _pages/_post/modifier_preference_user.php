@@ -19,7 +19,8 @@ if(isset($_POST['valider'])) {
     $phone = $_POST['phone_number'];
     $defaultCompany = $_POST["defaultCompany"];
 
-    
+
+
     if(isset($_POST['password']) && !empty($_POST['password'])){
         $array = array(
             'username' => $username,
