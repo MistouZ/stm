@@ -2,7 +2,6 @@
 $nom = $_COOKIE['nom'];
 $prenom = $_COOKIE['prenom'];
 $username = $_COOKIE['username'];
-echo URLHOST;
 
 $arraylog = array();
 $userlogged = new Users($arraylog);
