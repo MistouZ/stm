@@ -162,8 +162,6 @@ class QuotationManager
     {
         try{
             $quotations = [];
-            $query="SELECT * FROM quotation WHERE companyId='.$companyid.' AND type ='D' ";
-            echo $query;
             $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='D' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
@@ -186,7 +184,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='S' ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid' AND type ='S' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -208,7 +206,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='P' ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='P' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -230,7 +228,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='F' ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='F' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -252,7 +250,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='A' ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='A' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
