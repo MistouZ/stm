@@ -16,7 +16,6 @@ $companymanager = new CompaniesManager($bdd);
 $companies = $companymanager->getList();
 
 ?>
-<html>
 <div class="row">
     <div class="col-md-12">
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
@@ -141,4 +140,3 @@ $companies = $companymanager->getList();
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-</html>
