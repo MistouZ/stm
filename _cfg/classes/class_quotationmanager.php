@@ -182,15 +182,20 @@ class QuotationManager
      */
     public function getListShatteredQuotation($companyid)
     {
-        $quotations = [];
+        try{
+            $quotations = [];
 
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='S' ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='S' ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
         }
-
-        return $quotations;
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
@@ -199,15 +204,20 @@ class QuotationManager
      */
     public function getListProforma($companyid)
     {
-        $quotations = [];
+        try{
+            $quotations = [];
 
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='P' ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='P' ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
         }
-
-        return $quotations;
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
@@ -216,15 +226,20 @@ class QuotationManager
      */
     public function getListInvoice($companyid)
     {
-        $quotations = [];
+        try{
+            $quotations = [];
 
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='F' ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='F' ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
         }
-
-        return $quotations;
+        catch(Exception $e){
+            return null;
+        }
     }
     
     /**
@@ -233,15 +248,20 @@ class QuotationManager
      */
     public function getListAsset($companyid)
     {
-        $quotations = [];
+        try{
+            $quotations = [];
 
-        $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='A' ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $quotations[] = new Quotation($donnees);
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='A' ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
         }
-
-        return $quotations;
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
