@@ -10,7 +10,7 @@
 <a href="<?php echo URLHOST;?>dossier/afficher/111">Afficher Dossier Détail</a><br />-->
 </div>
 <?php 
- $str = "I Tech";
+$str = "I Tech";
 
 //echo "test : ".$str." => ".strtolower(preg_replace('/[^a-zA-Z0-9-_\.]/','', $str));
 ?>
