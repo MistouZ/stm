@@ -1,8 +1,9 @@
 <?php
 
-/*$host = $_SERVER['HTTP_HOST']﻿;
-echo $host;*/
-define('URLHOST','http://exotic.bitwin.nc/');
+
+$host = explode('.', $_SERVER['HTTP_HOST']);
+
+define('URLHOST','http://'.$host[0].'bitwin.nc/');
 
 include 'classes/class_db.php';
 include 'classes/class_features.php';
