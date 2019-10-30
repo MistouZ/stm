@@ -115,15 +115,20 @@ class FoldersManager
      */
     public function getList($companyid)
     {
-        $folders = [];
+        try{
+            $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid' ORDER BY folderNumber DESC");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $folders[] = new Folder($donnees);
+            $q=$this->_db->query("SELECT * FROM folder WHERE companyId='$companyid' ORDER BY folderNumber DESC");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $folders[] = new Folder($donnees);
+            }
+
+            return $folders;
         }
-
-        return $folders;
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
@@ -132,15 +137,20 @@ class FoldersManager
      */
     public function getListActive($companyid)
     {
-        $folders = [];
+        try{
+            $folders = [];
 
-        $q=$this->_db->query("SELECT * FROM folder WHERE companyId=$companyid AND isActive ='1' ORDER BY folderNumber DESC ");
-        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
-        {
-            $folders[] = new Folder($donnees);
+            $q=$this->_db->query("SELECT * FROM folder WHERE companyId=$companyid AND isActive ='1' ORDER BY folderNumber DESC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $folders[] = new Folder($donnees);
+            }
+
+            return $folders;
         }
-
-        return $folders;
+        catch(Exception $e){
+            return null;
+        }
     }
 
     /**
