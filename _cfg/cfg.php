@@ -1,4 +1,5 @@
 <?php
+echo $_SERVER['HTTP_HOST'];
 define('URLHOST','http://exotic.bitwin.nc/');
 
 include 'classes/class_db.php';
