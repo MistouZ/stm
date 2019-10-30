@@ -28,9 +28,15 @@ $userlogged = $usermanagerlog->get($username);
 $company = array();
 $company = new Company ($company);
 $companymanager = new CompaniesManager($bdd);
-$companymanager = $companymanager->getCompanies($_COOKIE['username']);
+if($_COOKIE["credential"] != "A")
+{
+    $companymanager = $companymanager->getCompanies($_COOKIE['username']);
+}
+else{
+    $companymanager = $companymanager->getListAllCompanies();
+}
 
-if(count($companymanager)>1 || ($_COOKIE["credential"] == "A")){
+if(count($companymanager)>1){
 ?>
 <div class="page-actions">
     <div class="btn-group">
