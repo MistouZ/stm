@@ -162,7 +162,7 @@ class QuotationManager
     {
         try{
             $quotations = [];
-            $query="SELECT * FROM quotation WHERE companyId='$companyid' AND type ='D' ";
+            $query="SELECT * FROM quotation WHERE companyId='.$companyid.' AND type ='D' ";
             echo $query;
             $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='D' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
