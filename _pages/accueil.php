@@ -1,4 +1,4 @@
-<html>Accueil<br />
+<html><!--Accueil<br />-->
 <div class="clearfix"></div>
 <!-- END DASHBOARD STATS 1-->
 <div class="row">
