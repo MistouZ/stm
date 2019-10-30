@@ -163,7 +163,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId=$companyid AND type ='D' ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='.$companyid.' AND type ='D' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
