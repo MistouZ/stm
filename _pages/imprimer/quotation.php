@@ -310,7 +310,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 1000); // 300 pour NC sur serveur MLS
+        }, 2000); // 300 pour NC sur serveur MLS
     }
 
     function ExportPdf(){
