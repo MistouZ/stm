@@ -193,9 +193,12 @@ $retour = $_GET['soussoussouscat'];
     </div>
 </div>
 <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-    <div class="modal-dialog"><div class="modal-header">
+    <div class="modal-dialog">
+        <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
             <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span style="font-style: italic; font-weight: 800;">en proforma</span></h4>
+        </div>
+        <div class="modal-body form">
         </div>
 
     </div>
