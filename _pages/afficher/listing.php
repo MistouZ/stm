@@ -142,8 +142,6 @@ $retour = $_GET['soussoussouscat'];
                         </thead>
                         <tbody>
                             <?php
-                            if (count($quotations)> 0) {
-                                echo "je suis là";
                                 foreach ($quotations as $quotation) {
                                     //initialisation au format date pour organiser le tableau
                                     $date = date('d/m/Y', strtotime(str_replace('/', '-', "" . $quotation->getDay() . '/' . $quotation->getMonth() . '/' . $quotation->getYear() . "")));
@@ -184,7 +182,6 @@ $retour = $_GET['soussoussouscat'];
                                     </tr>
                                     <?php
                                 }
-                            }
                             ?>
                         </tbody>
                     </table>
