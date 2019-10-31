@@ -33,7 +33,7 @@ if($credential == "A"){
 else{
     $foldermanager = $foldermanager->getListActive($company->getIdcompany());
 }
-print_r($foldermanager);
+
 ?>
 <div class="row">
     <div class="col-md-12">
