@@ -162,7 +162,7 @@ $retour = $_GET['soussoussouscat'];
                         ?>
                         </tbody>
                     </table>
-                    <!--<input type="hidden" name="date" id="date" />-->
+                    <input type="hidden" name="date" id="date" />
                 </form>
             </div>
         </div>
