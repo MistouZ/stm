@@ -193,7 +193,8 @@ $retour = $_GET['soussoussouscat'];
     </div>
 </div>
 <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
-
+    <div class="modal-dialog">
+    </div>
 </div>
 <script language="JavaScript">
     $('#select-all').click(function(){
