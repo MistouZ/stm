@@ -142,7 +142,7 @@ $retour = $_GET['soussoussouscat'];
                         </thead>
                         <tbody>
                             <?php
-                               /* foreach ($quotations as $quotation) {
+                               foreach ($quotations as $quotation) {
                                     //initialisation au format date pour organiser le tableau
                                     $date = date('d/m/Y', strtotime(str_replace('/', '-', "" . $quotation->getDay() . '/' . $quotation->getMonth() . '/' . $quotation->getYear() . "")));
                                     $customer = $customermanager->getById($quotation->getCustomerId());
@@ -181,7 +181,7 @@ $retour = $_GET['soussoussouscat'];
                                                         class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                                     </tr>
                                     <?php
-                                }*/
+                                }
                             ?>
                         </tbody>
                     </table>
