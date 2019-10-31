@@ -142,7 +142,7 @@ $retour = $_GET['soussoussouscat'];
                         </thead>
                         <tbody>
                             <?php
-                                foreach ($quotations as $quotation) {
+                               /* foreach ($quotations as $quotation) {
                                     //initialisation au format date pour organiser le tableau
                                     $date = date('d/m/Y', strtotime(str_replace('/', '-', "" . $quotation->getDay() . '/' . $quotation->getMonth() . '/' . $quotation->getYear() . "")));
                                     $customer = $customermanager->getById($quotation->getCustomerId());
@@ -181,7 +181,7 @@ $retour = $_GET['soussoussouscat'];
                                                         class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                                     </tr>
                                     <?php
-                                }
+                                }*/
                             ?>
                         </tbody>
                     </table>
@@ -192,6 +192,7 @@ $retour = $_GET['soussoussouscat'];
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+<!--
 <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -387,4 +388,4 @@ function submitDate(selected){
     $('#multiSelection').submit();
 }
 
-</script>
+</script>-->
