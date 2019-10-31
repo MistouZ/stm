@@ -150,7 +150,7 @@ $retour = $_GET['soussoussouscat'];
                                 $descriptions = new Description($array);
                                 $descriptionmanager = new DescriptionManager($bdd);
                                 $montant = 0;
-                                if($quotations != null) {
+                                if($quotation != null) {
                                     $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                     foreach ($descriptions as $description) {
                                         $montant = calculMontantTotalTTC($description, $montant);
