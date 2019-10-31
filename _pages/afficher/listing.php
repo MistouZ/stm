@@ -191,7 +191,7 @@ $retour = $_GET['soussoussouscat'];
     </div>
 </div>
 <?php
- //if(count($quotations)>0) {
+    if(count($quotations)>0) {
      ?>
      <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
          <div class="modal-dialog">
@@ -354,7 +354,7 @@ $retour = $_GET['soussoussouscat'];
          </div>
      </div>
      <?php
- //}
+ }
 ?>
 <script language="JavaScript">
     $('#select-all').click(function(){
