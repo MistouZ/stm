@@ -127,7 +127,7 @@ $retour = $_GET['soussoussouscat'];
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                             <tr>
-                                <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
+                                <!--<th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>-->
                                 <th class="all">Date</th>
                                 <th class="min-phone-l">Numéro de devis</th>
                                 <th class="min-tablet">Client</th>
@@ -155,7 +155,7 @@ $retour = $_GET['soussoussouscat'];
                                 }
                             ?>
                             <tr>
-                                <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
+                                <!--<td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>-->
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
