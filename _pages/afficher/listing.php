@@ -200,6 +200,11 @@ $retour = $_GET['soussoussouscat'];
         </div>
         <div class="modal-body form">
             <form action="" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Date
+                        <span class="required"> * </span>
+                    </label>
+                </div>
             </form>
 
         </div>
