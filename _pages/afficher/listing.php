@@ -32,7 +32,6 @@ switch($type){
     case "devis":
         if($type2=="cours"){
             $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
-            print_r($quotations);
             $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm" title="Passer la sélection en proforma">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
@@ -78,6 +77,8 @@ switch($type){
 }
 
 $retour = $_GET['soussoussouscat'];
+print_r($type);
+print_r($type2);
 
 ?>
 <div class="row">
