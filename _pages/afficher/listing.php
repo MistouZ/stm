@@ -205,6 +205,14 @@ $retour = $_GET['soussoussouscat'];
                         <span class="required"> * </span>
                     </label>
                     <div class="col-md-8">
+                        <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
+                            <input type="text" name="date_proforma" id="date_proforma" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                            <span class="input-group-btn">
+                                    <button class="btn default" type="button">
+                                        <i class="fas fa-calendar-alt"></i>
+                                    </button>
+                                </span>
+                        </div>
                     </div>
                 </div>
             </form>
