@@ -80,37 +80,6 @@ $retour = $_GET['soussoussouscat'];
 ?>
 <div class="row">
     <div class="col-md-12">
-        <?php if($retour == "errorsuppr") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être supprimé !</div>
-        <?php }elseif($retour == "successsuppr"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Le devis a bien été supprimé !</div>
-        <?php }elseif($retour == "errorProforma") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Erreur lors du passage en proforma !</div>
-        <?php }elseif($retour == "successProforma"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Passage en proforma effectué avec succès !</div>
-        <?php }elseif($retour == "errorDate") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Une erreur est survenue, la date n'a donc pas pu être mise à jour !</div>
-        <?php }elseif($retour == "successDate"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> La date a bien été modifiée !</div>
-        <?php }elseif($retour == "errorFacture") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Erreur lors du passage en facture !</div>
-        <?php }elseif($retour == "successFacture"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Passage en facture effectué avec succès !</div>
-        <?php }elseif($retour == "errorDevis") { ?>
-            <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Erreur lors du passage en devis !</div>
-        <?php }elseif($retour == "successDevis"){ ?>
-            <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
-        <?php } ?>
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet box green">
             <div class="portlet-title">
@@ -123,6 +92,37 @@ $retour = $_GET['soussoussouscat'];
                 </div>
             </div>
             <div class="portlet-body">
+                <?php if($retour == "errorsuppr") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être supprimé !</div>
+                <?php }elseif($retour == "successsuppr"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Le devis a bien été supprimé !</div>
+                <?php }elseif($retour == "errorProforma") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Erreur lors du passage en proforma !</div>
+                <?php }elseif($retour == "successProforma"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Passage en proforma effectué avec succès !</div>
+                <?php }elseif($retour == "errorDate") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Une erreur est survenue, la date n'a donc pas pu être mise à jour !</div>
+                <?php }elseif($retour == "successDate"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> La date a bien été modifiée !</div>
+                <?php }elseif($retour == "errorFacture") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Erreur lors du passage en facture !</div>
+                <?php }elseif($retour == "successFacture"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Passage en facture effectué avec succès !</div>
+                <?php }elseif($retour == "errorDevis") { ?>
+                    <div class="alert alert-danger">
+                        <button class="close" data-close="alert"></button> Erreur lors du passage en devis !</div>
+                <?php }elseif($retour == "successDevis"){ ?>
+                    <div class="alert alert-success">
+                        <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
+                <?php } ?>
                 <form id="multiSelection" method="post">
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
