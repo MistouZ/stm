@@ -77,8 +77,6 @@ switch($type){
 }
 
 $retour = $_GET['soussoussouscat'];
-print_r($type);
-print_r($type2);
 
 ?>
 <div class="row">
@@ -151,11 +149,14 @@ print_r($type2);
                                 $folder = $foldermanager->get($quotation->getFolderId());
                                 $descriptions = new Description($array);
                                 $descriptionmanager = new DescriptionManager($bdd);
-                                $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                 $montant = 0;
-                                foreach ($descriptions as $description) {
-                                    $montant = calculMontantTotalTTC($description, $montant);
+                                if(count($quotations)>1) {
+                                    $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                                    foreach ($descriptions as $description) {
+                                        $montant = calculMontantTotalTTC($description, $montant);
+                                    }
                                 }
+
                             ?>
                             <tr>
                                 <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
