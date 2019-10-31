@@ -41,6 +41,12 @@ switch($type){
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                     </div>';
         }
+        elseif($type2=="valides"){
+            $quotations = $quotationmanager->getListValidatedQuotation($company->getIdcompany());
+            $buttons = '<div id="actions" style="display:none;">
+                        
+                    </div>';
+        }
         break;
     case "proforma":
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
@@ -304,7 +310,6 @@ if(count($quotations)>0) {
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
@@ -349,7 +354,6 @@ if(count($quotations)>0) {
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
