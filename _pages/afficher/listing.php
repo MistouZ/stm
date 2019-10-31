@@ -216,7 +216,7 @@ $retour = $_GET['soussoussouscat'];
                         <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
                     </div>
                 </div>
-                <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo //$quotation->getQuotationNumber(); ?>">
+                <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php //echo $quotation->getQuotationNumber(); ?>">
                 <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
             </form>
         </div>
