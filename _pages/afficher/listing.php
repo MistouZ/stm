@@ -330,7 +330,7 @@ $retour = $_GET['soussoussouscat'];
         </div>
     </div>
 </div>
-<script language="JavaScript">
+<!--<script language="JavaScript">
 $('#select-all').click(function(){
     if($('#select-all').attr("checked")){
         $('#select-all').removeAttr('checked');
@@ -374,4 +374,4 @@ function submitDate(selected){
     $('#multiSelection').submit();
 }
 
-</script>
+</script>-->
