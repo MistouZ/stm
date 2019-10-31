@@ -192,7 +192,7 @@ $retour = $_GET['soussoussouscat'];
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-<div id="to_proforma" data-keyboard="false">
+<div id="to_proforma" data-keyboard="false" data-backdrop="static">
 
 </div>
 <script language="JavaScript">
