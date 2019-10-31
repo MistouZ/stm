@@ -156,8 +156,7 @@ $retour = $_GET['soussoussouscat'];
                                     }
                                     ?>
                                     <tr>
-                                        <td><input class="selection" type="checkbox" name="selection[]"
-                                                   value="<?php echo $quotation->getQuotationNumber(); ?>"/></td>
+                                        <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>"/></td>
                                         <td><?php echo $date; ?></td>
                                         <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                         <td><?php echo $customer->getName(); ?></td>
