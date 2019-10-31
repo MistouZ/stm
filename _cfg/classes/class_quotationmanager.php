@@ -286,6 +286,29 @@ class QuotationManager
     }
 
     /**
+     * Get all the invoice in the BDD for the selected company
+     * @return array
+     */
+    public function getListArchivedQuotation($companyid)
+    {
+        try{
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='AR'");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+
+    /**
      * Update quotation information
      * @param quotation $quotation
      */
