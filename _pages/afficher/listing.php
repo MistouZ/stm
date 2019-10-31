@@ -41,6 +41,15 @@ switch($type){
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                     </div>';
         }
+        if($type2=="archives"){
+            $quotations = $quotationmanager->getListArchivedQuotation($company->getIdcompany());
+            $buttons = '<div id="actions" style="display:none;">
+                        <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm" title="Passer la sélection en proforma">
+                            <i class="fas fa-file-alt"></i> => Proforma </a>
+                        <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm" title="Passer la sélection en facture">
+                            <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
+                    </div>';
+        }
         elseif($type2=="valides"){
             $quotations = $quotationmanager->getListValidatedQuotation($company->getIdcompany());
             $buttons = '<div id="actions" style="display:none;">
