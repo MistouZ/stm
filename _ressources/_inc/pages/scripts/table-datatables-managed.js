@@ -101,11 +101,11 @@ var TableDatatablesManaged = function () {
                 },
                 "emptyTable": "Aucune données à afficher",
                 "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
-                "infoEmpty": "Aucune données trouveés",
+                "infoEmpty": "Aucune données trouvées",
                 "infoFiltered": "(filtrées sur un total de _MAX_)",
                 "lengthMenu": "Affichage _MENU_",
                 "search": "Recherche:",
-                "zeroRecords": "Aucune données trouveés",
+                "zeroRecords": "Aucune données trouvées",
                 "paginate": {
                     "previous":"Préc",
                     "next": "Suiv",
