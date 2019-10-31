@@ -204,11 +204,11 @@ $retour = $_GET['soussoussouscat'];
                     <label class="control-label col-md-4">Date
                         <span class="required"> * </span>
                     </label>
+                    <div class="col-md-8">
+                    </div>
                 </div>
             </form>
-
         </div>
-
     </div>
 </div>
 <script language="JavaScript">
