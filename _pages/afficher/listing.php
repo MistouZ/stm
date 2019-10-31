@@ -213,6 +213,7 @@ $retour = $_GET['soussoussouscat'];
                                     </button>
                                 </span>
                         </div>
+                        <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
                     </div>
                 </div>
             </form>
