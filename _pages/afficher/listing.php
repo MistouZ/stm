@@ -192,3 +192,48 @@ $retour = $_GET['soussoussouscat'];
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+<script language="JavaScript">
+    $('#select-all').click(function(){
+        if($('#select-all').attr("checked")){
+            $('#select-all').removeAttr('checked');
+            $('.selection').each(function() {
+                $(this).removeAttr('checked').uniform('refresh');
+            });
+            $.uniform.update();
+        }else{
+            $('#select-all').attr('checked','checked');
+            $('.selection').each(function() {
+                $(this).prop('checked',true);
+                $(this).parent('span').addClass('checked');
+            });
+        }
+    });
+
+    $('#multiSelection :checkbox').change(function() {
+        //$.uniform.update();
+        var nb = $('#multiSelection :checkbox:checked').length;
+        var nbTotal = $('#multiSelection :checkbox').length;
+        if (nb>0) {
+            if(nb==1){
+                if($('#select-all').attr("checked")){
+                    $('#select-all').removeAttr('checked').uniform('refresh');
+                }else{
+                    $("#actions").css("display","");
+                    $("#actions").css("display","inline");
+                }
+            }
+        } else {
+            $("#actions").css("display","");
+            $("#actions").css("display","none");
+            $('#select-all').removeAttr('checked');
+        }
+    });
+
+    function submitDate(selected){
+        var inputSelected = $('#date_'+selected).val();
+        $("#date").val(inputSelected);
+        $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
+        $('#multiSelection').submit();
+    }
+
+</script>
