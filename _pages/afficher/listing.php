@@ -27,6 +27,7 @@ $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 
 /*récupération des objets en base*/
+/*
 switch($type){
     case "devis":
         if($type2=="cours"){
@@ -74,7 +75,7 @@ switch($type){
                     </div>';
         break;
 }
-
+*/
 $retour = $_GET['soussoussouscat'];
 
 ?>
