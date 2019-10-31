@@ -193,7 +193,6 @@ $retour = $_GET['soussoussouscat'];
     </div>
 </div>
 <?php
-echo count($quotations);
  if (count($quotations)>0) {
      ?>
      <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog"
