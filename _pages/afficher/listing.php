@@ -192,7 +192,9 @@ $retour = $_GET['soussoussouscat'];
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
+<div>
 
+</div>
 <script language="JavaScript">
     $('#select-all').click(function(){
         if($('#select-all').attr("checked")){
