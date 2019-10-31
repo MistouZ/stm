@@ -123,7 +123,7 @@ $retour = $_GET['soussoussouscat'];
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
                 <?php } ?>
-                <form id="multiSelection" method="post">
+               <!-- <form id="multiSelection" method="post">-->
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -172,7 +172,7 @@ $retour = $_GET['soussoussouscat'];
                         </tbody>
                     </table>
                     <!--<input type="hidden" name="date" id="date" />-->
-                </form>
+               <!-- </form>-->
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
