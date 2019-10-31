@@ -150,6 +150,7 @@ $retour = $_GET['soussoussouscat'];
                                 $descriptions = new Description($array);
                                 $descriptionmanager = new DescriptionManager($bdd);
                                 $montant = 0;
+                                echo count($quotations);
                                 if(count($quotations)>1) {
                                     $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                                     foreach ($descriptions as $description) {
