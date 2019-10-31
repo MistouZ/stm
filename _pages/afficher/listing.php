@@ -199,6 +199,9 @@ $retour = $_GET['soussoussouscat'];
             <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span style="font-style: italic; font-weight: 800;">en proforma</span></h4>
         </div>
         <div class="modal-body form">
+            <form action="" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
+            </form>
+
         </div>
 
     </div>
