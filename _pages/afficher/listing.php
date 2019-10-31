@@ -178,7 +178,7 @@ $retour = $_GET['soussoussouscat'];
         <!-- END EXAMPLE TABLE PORTLET-->
     </div>
 </div>
-<div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+<!--<div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -328,7 +328,7 @@ $retour = $_GET['soussoussouscat'];
 
         </div>
     </div>
-</div>
+</div>-->
 <script language="JavaScript">
 $('#select-all').click(function(){
     if($('#select-all').attr("checked")){
