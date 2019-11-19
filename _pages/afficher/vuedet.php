@@ -262,7 +262,7 @@ if(isset($_GET['cat5'])){
                                                 <?php
                                             }
                                             ?>
-                                            <td class="col-md-7"><?php echo nl2br($description->getDescription()); ?></td>
+                                            <td class="col-md-8"><?php echo nl2br($description->getDescription()); ?></td>
                                             <td class="col-md-2"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
                                             <td><?php echo $description->getTax()*100; ?> %</td>
