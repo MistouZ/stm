@@ -211,69 +211,71 @@ if(isset($_GET['cat5'])){
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered table-striped">
-                                <thead>
-                                    <tr>
-                                        <?php
-                                        if($type == "devis"){
-                                        ?>
-                                            <th style="text-align: center !important;" class="desktop"></th>
-                                        <?php
-                                        }
-                                        ?>
-                                        <th> Description </th>
-                                        <th> Prix à l'unité </th>
-                                        <th> QT. </th>
-                                        <th> Taxe </th>
-                                        <th> Remise </th>
-                                        <th> Prix total HT </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                        $montant = 0;
-                                        $totalTaxe = 0;
-                                        $montantHT = 0;
-                                        $arrayTaxesKey =  array();
-                                        foreach($descriptions as $description){
-                                            $montantLigne = $description->getQuantity()*$description->getPrice();
-                                            $remise = $montantLigne*($description->getDiscount()/100);
-                                            $montantLigne = $montantLigne-$remise;
-                                            $taxe = $montantLigne*$description->getTax();
-                                            $tax = $taxmanager->getByPercent($description->getTax()*100);
-
-                                            //Calcul du détail des taxes pour l'affichage par tranche détaillée
-                                            if(isset($arrayTaxesKey[$description->getTax()])){
-                                                $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
-                                            }else{
-                                                $arrayTaxesKey[$description->getTax()]['Taxe']=$tax->getName();
-                                                $arrayTaxesKey[$description->getTax()]['Montant']=$taxe;
-                                            }
-
-                                            $totalTaxe = $totalTaxe+$taxe;
-                                            $montantHT = $montantHT+$montantLigne;
-                                            $montant = $montant+$montantLigne+$taxe;
-                                        ?>
+                            <form id="multiSelection" method="post">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <thead>
                                         <tr>
                                             <?php
-                                            if($type == "devis") {
-                                                ?>
-                                                <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $description->getIdDescription(); ?>"/></td>
-                                                <?php
+                                            if($type == "devis"){
+                                            ?>
+                                                <th style="text-align: center !important;" class="desktop"></th>
+                                            <?php
                                             }
                                             ?>
-                                            <td class="col-md-7"><?php echo nl2br($description->getDescription()); ?></td>
-                                            <td class="col-md-1"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
-                                            <td><?php echo $description->getQuantity(); ?></td>
-                                            <td><?php echo $description->getTax()*100; ?> %</td>
-                                            <td><?php echo $description->getDiscount(); ?> %</td>
-                                            <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
+                                            <th> Description </th>
+                                            <th> Prix à l'unité </th>
+                                            <th> QT. </th>
+                                            <th> Taxe </th>
+                                            <th> Remise </th>
+                                            <th> Prix total HT </th>
                                         </tr>
+                                    </thead>
+                                    <tbody>
                                         <?php
-                                        }
-                                    ?>
-                                </tbody>
-                            </table>
+                                            $montant = 0;
+                                            $totalTaxe = 0;
+                                            $montantHT = 0;
+                                            $arrayTaxesKey =  array();
+                                            foreach($descriptions as $description){
+                                                $montantLigne = $description->getQuantity()*$description->getPrice();
+                                                $remise = $montantLigne*($description->getDiscount()/100);
+                                                $montantLigne = $montantLigne-$remise;
+                                                $taxe = $montantLigne*$description->getTax();
+                                                $tax = $taxmanager->getByPercent($description->getTax()*100);
+
+                                                //Calcul du détail des taxes pour l'affichage par tranche détaillée
+                                                if(isset($arrayTaxesKey[$description->getTax()])){
+                                                    $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
+                                                }else{
+                                                    $arrayTaxesKey[$description->getTax()]['Taxe']=$tax->getName();
+                                                    $arrayTaxesKey[$description->getTax()]['Montant']=$taxe;
+                                                }
+
+                                                $totalTaxe = $totalTaxe+$taxe;
+                                                $montantHT = $montantHT+$montantLigne;
+                                                $montant = $montant+$montantLigne+$taxe;
+                                            ?>
+                                            <tr>
+                                                <?php
+                                                if($type == "devis") {
+                                                    ?>
+                                                    <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $description->getIdDescription(); ?>"/></td>
+                                                    <?php
+                                                }
+                                                ?>
+                                                <td class="col-md-7"><?php echo nl2br($description->getDescription()); ?></td>
+                                                <td class="col-md-1"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
+                                                <td><?php echo $description->getQuantity(); ?></td>
+                                                <td><?php echo $description->getTax()*100; ?> %</td>
+                                                <td><?php echo $description->getDiscount(); ?> %</td>
+                                                <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
+                                            </tr>
+                                            <?php
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -530,60 +532,6 @@ if(isset($_GET['cat5'])){
         </div>
     </div>
 </div>
-<?php
-    if(count($descriptions)>0) {
-    ?>
-    <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog"
-         aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span
-                                style="font-style: italic; font-weight: 800;">en proforma</span></h4>
-                </div>
-                <div class="modal-body form">
-                    <form action="" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
-                        <div class="form-group">
-                            <label class="control-label col-md-4">Date
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-8">
-                                <div class="input-group input-medium date date-picker" data-date-lang="FR-fr"
-                                     type="text">
-                                    <input type="text" name="date_proforma" id="date_proforma" class="form-control"
-                                           value="<?php echo $dateToProforma; ?>">
-                                    <span class="input-group-btn">
-                                    <button class="btn default" type="button">
-                                        <i class="fas fa-calendar-alt"></i>
-                                    </button>
-                                </span>
-                                </div>
-                                <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
-                            </div>
-                        </div>
-                        <input type="hidden" id="quotationNumber" name="quotationNumber"
-                               value="<?php echo $quotation->getQuotationNumber(); ?>">
-                        <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                        <div class="modal-footer">
-                            <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
-                            </button>
-                            <button type="button" class="btn green" id="validerProforma" name="validerProforma"
-                                    value="proforma" onclick="submitDate('proforma');">
-                                <i class="fa fa-check"></i> Valider
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-<?php
-}
-?>
-
-
-
 <script language="JavaScript">
        $('#multiSelection :checkbox').change(function() {
         //$.uniform.update();
