@@ -263,11 +263,11 @@ if(isset($_GET['cat5'])){
                                             }
                                             ?>
                                             <td class="col-md-7"><?php echo nl2br($description->getDescription()); ?></td>
-                                            <td class="col-md-1"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
+                                            <td class="col-md-2"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
                                             <td><?php echo $description->getTax()*100; ?> %</td>
                                             <td><?php echo $description->getDiscount(); ?> %</td>
-                                            <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
+                                            <td class="col-md-2"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
                                         </tr>
                                         <?php
                                         }
