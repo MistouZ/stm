@@ -214,6 +214,7 @@ if(isset($_GET['cat5'])){
                             <table class="table table-hover table-bordered table-striped">
                                 <thead>
                                     <tr>
+                                        <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
                                         <th> Description </th>
                                         <th> Prix à l'unité </th>
                                         <th> QT. </th>
@@ -248,6 +249,7 @@ if(isset($_GET['cat5'])){
                                             $montant = $montant+$montantLigne+$taxe;
                                         ?>
                                         <tr>
+                                            <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $description->getIdDescription(); ?>" /></td>
                                             <td><?php echo nl2br($description->getDescription()); ?></td>
                                             <td><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
@@ -516,4 +518,39 @@ if(isset($_GET['cat5'])){
         </div>
     </div>
 </div>
-
+<script language="JavaScript">
+    $('#select-all').click(function(){
+        if($('#select-all').attr("checked")){
+            $('#select-all').removeAttr('checked');
+            $('.selection').each(function() {
+                $(this).removeAttr('checked').uniform('refresh');
+            });
+            $.uniform.update();
+        }else{
+            $('#select-all').attr('checked','checked');
+            $('.selection').each(function() {
+                $(this).prop('checked',true);
+                $(this).parent('span').addClass('checked');
+            });
+        }
+    });
+    $('#multiSelection :checkbox').change(function() {
+        //$.uniform.update();
+        var nb = $('#multiSelection :checkbox:checked').length;
+        var nbTotal = $('#multiSelection :checkbox').length;
+        if (nb>0) {
+            if(nb==1){
+                if($('#select-all').attr("checked")){
+                    $('#select-all').removeAttr('checked').uniform('refresh');
+                }else{
+                    $("#actions").css("display","");
+                    $("#actions").css("display","inline");
+                }
+            }
+        } else {
+            $("#actions").css("display","");
+            $("#actions").css("display","none");
+            $('#select-all').removeAttr('checked');
+        }
+    });
+</script>
