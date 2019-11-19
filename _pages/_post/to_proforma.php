@@ -22,6 +22,12 @@ $year = $dateTab[2];
 $month = $dateTab[1];
 $day = $dateTab[0];
 
+print_r($_POST['selection']);
+foreach($_POST['selection'] as $postSelection) {
+    $idQuotation = $postSelection;
+}
+
+/*
 if($_POST["shattered"] == "full" || $percent == 100)
 {
     $data = array(
@@ -193,5 +199,5 @@ if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || i
 }else{
     header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
 }
-
+*/
 ?>
