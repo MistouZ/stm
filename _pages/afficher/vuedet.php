@@ -533,6 +533,21 @@ if(isset($_GET['cat5'])){
     </div>
 </div>
 <script language="JavaScript">
+    $('#select-all').click(function(){
+        if($('#select-all').attr("checked")){
+            $('#select-all').removeAttr('checked');
+            $('.selection').each(function() {
+                $(this).removeAttr('checked').uniform('refresh');
+            });
+            $.uniform.update();
+        }else{
+            $('#select-all').attr('checked','checked');
+            $('.selection').each(function() {
+                $(this).prop('checked',true);
+                $(this).parent('span').addClass('checked');
+            });
+        }
+    });
        $('#multiSelection :checkbox').change(function() {
         //$.uniform.update();
         var nb = $('#multiSelection :checkbox:checked').length;
