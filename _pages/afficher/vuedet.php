@@ -214,7 +214,13 @@ if(isset($_GET['cat5'])){
                             <table class="table table-hover table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th style="text-align: center !important;" class="desktop"></th>
+                                        <?php
+                                        if($type == "devis"){
+                                        ?>
+                                            <th style="text-align: center !important;" class="desktop"></th>
+                                        <?php
+                                        }
+                                        ?>
                                         <th> Description </th>
                                         <th> Prix à l'unité </th>
                                         <th> QT. </th>
@@ -249,7 +255,13 @@ if(isset($_GET['cat5'])){
                                             $montant = $montant+$montantLigne+$taxe;
                                         ?>
                                         <tr>
+                                            <?php
+                                            if($type == "devis"){
+                                            ?>
                                             <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $description->getIdDescription(); ?>" /></td>
+                                                <?php
+                                            }
+                                            ?>
                                             <td><?php echo nl2br($description->getDescription()); ?></td>
                                             <td><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
