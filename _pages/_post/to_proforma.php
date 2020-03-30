@@ -22,6 +22,7 @@ $year = $dateTab[2];
 $month = $dateTab[1];
 $day = $dateTab[0];
 
+print_r($_POST["selection"]);
 
 if($_POST["shattered"] == "full" || $percent == 100)
 {
