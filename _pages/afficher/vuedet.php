@@ -568,9 +568,12 @@ if(isset($_GET['cat5'])){
             $('#select-all').removeAttr('checked');
         }
     });
-    $("input[name=shattered]").on( "change", function() {
-        var test = $(this).val();
-        $(".desc").hide();
-        $("#"+test).show();
-    } );
+
+    $(document).ready(function(){
+        $("input[name$='shattered']").click(function() {
+            var test = $(this).val();
+            $("#"+test).show();
+        });
+    });
+
 </script>
