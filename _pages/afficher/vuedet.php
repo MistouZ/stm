@@ -572,7 +572,7 @@ if(isset($_GET['cat5'])){
     $(document).ready(function(){
         $("input[name$='shattered']").click(function() {
             var test = $(this).val();
-            $("#"+test).show();
+            alert(test);
         });
     });
 
