@@ -12,7 +12,7 @@ $user = $usermanager->get($username);
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
 $companies = new CompaniesManager($bdd);
-$companies = $companies->getList();
+$companiesList = $companies->getList();
 
 ?>
 
