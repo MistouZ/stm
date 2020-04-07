@@ -359,7 +359,7 @@ if(isset($_GET['cat5'])){
                                     <div id="credential_error"> </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="partial">
                                 <label class="control-label col-md-3">Pourcentage à facturer
                                     <span class="required"> * </span>
                                 </label>
@@ -378,6 +378,7 @@ if(isset($_GET['cat5'])){
 
                 </div>
             </div>
+
         </div>
         <div id="to_facture" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -567,4 +568,9 @@ if(isset($_GET['cat5'])){
             $('#select-all').removeAttr('checked');
         }
     });
+    $("input[name=shattered]").on( "change", function() {
+        var test = $(this).val();
+        $(".desc").hide();
+        $("#"+test).show();
+    } );
 </script>
