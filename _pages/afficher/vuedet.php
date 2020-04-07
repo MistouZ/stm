@@ -359,7 +359,7 @@ if(isset($_GET['cat5'])){
                                     <div id="credential_error"> </div>
                                 </div>
                             </div>
-                            <div class="form-group" id="partial">
+                            <div class="form-group" id="partial" style="display: none">
                                 <label class="control-label col-md-3">Pourcentage à facturer
                                     <span class="required"> * </span>
                                 </label>
