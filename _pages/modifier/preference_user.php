@@ -12,7 +12,7 @@ $user = $usermanager->get($username);
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
 $companies = new CompaniesManager($bdd);
-$companiesList = $companies->getList();
+$companies = $companies->getList();
 
 ?>
 
@@ -85,7 +85,7 @@ $companiesList = $companies->getList();
                             </div>
                         </div>
                         <?php
-                        if((count($companiesList)>1) || ($_COOKIE["credential"] == "A")) {
+                        if((count($companies)>1) || ($_COOKIE["credential"] == "A")) {
                             ?>
                             <h4 class="form-section">Gestion société</h4>
                             <div class="form-group">
@@ -96,7 +96,7 @@ $companiesList = $companies->getList();
                                     <div class="radio-list" data-error-container="#company_error">
                                         <?php
                                         $companiesList = explode(", ", $user->getCompanyName());
-                                        foreach ($companiesList as $company) {
+                                        foreach ($companies as $company) {
 
                                             $path_image = parse_url(URLHOST . "images/societe/" . $company->getNameData(), PHP_URL_PATH);
                                             $image = glob($_SERVER['DOCUMENT_ROOT'] . $path_image . ".*");
