@@ -349,7 +349,7 @@ if(isset($_GET['cat5'])){
                                             }
                                             else{
                                             ?>
-                                                <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" />Non</label>
+                                                <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" checked/>Non</label>
                                             <?php
                                             }
                                             ?>
