@@ -96,7 +96,7 @@ $companiesList = $companies->getList();
                                     <div class="radio-list" data-error-container="#company_error">
                                         <?php
                                         $companiesList = explode(", ", $user->getCompanyName());
-                                        foreach ($companies as $company) {
+                                        foreach ($companiesList as $company) {
 
                                             $path_image = parse_url(URLHOST . "images/societe/" . $company->getNameData(), PHP_URL_PATH);
                                             $image = glob($_SERVER['DOCUMENT_ROOT'] . $path_image . ".*");
