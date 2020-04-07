@@ -7,7 +7,7 @@ $array = array();
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $user = $usermanager->get($username);
-print_r($username);
+
 //Liste des sociétés
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
