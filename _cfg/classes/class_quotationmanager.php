@@ -195,7 +195,7 @@ class QuotationManager
                 }
             }
 
-
+            print_r($quotations);
             return $quotations;
         }
         catch(Exception $e){
