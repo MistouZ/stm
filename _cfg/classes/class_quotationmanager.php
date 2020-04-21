@@ -182,6 +182,7 @@ class QuotationManager
     public function getListQuotationByUser($folders)
     {
         try{
+            echo "je suis là";
             $folder = new Folder();
             print_r($folders);
 
