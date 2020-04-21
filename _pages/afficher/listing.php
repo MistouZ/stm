@@ -24,12 +24,11 @@ $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 
 $foldermanager = $foldermanager->getListActiveByUser($username);
-print_r($foldermanager);
 
 switch($type){
     case "devis":
         if($type2=="cours"){
-            $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
+            $quotations = $quotationmanager->getListQuotationByUser($foldermanager);
             $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm" title="Passer la sélection en proforma">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
