@@ -13,7 +13,7 @@
         if($_GET['souscat']=="afficher" AND ctype_digit($_GET['soussoussouscat'])){
             include __DIR__.'/'.$_GET['souscat'].'/vuedet.php';
         }elseif($_GET['souscat']=="afficher" AND !ctype_digit($_GET['soussoussouscat'])){
-            include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['soussoussouscat'].'/listing.php';
+            include __DIR__.'/'.$_GET['souscat'].'/listing.php';
         }
         elseif($_GET['souscat']=="imprimer" AND ctype_digit($_GET['soussoussouscat'])){
             include __DIR__.'/'.$_GET['souscat'].'/quotation.php';
