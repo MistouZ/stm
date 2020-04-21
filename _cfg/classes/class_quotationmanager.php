@@ -179,20 +179,17 @@ class QuotationManager
      * Get all the quotation in the BDD for the selected user
      * @return array
      */
-    public function getListQuotationByUser($folders)
+    public function getListQuotationByUser($folders, $folder)
     {
         try{
-            print_r($folders);
-            $folder = new Folder();
-            echo "dossier check";
 
             $quotations = [];
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
                 echo $folderId;
-                /*$query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='D' ORDER BY quotationNumber DESC";
-                echo $query;
+                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='D' ORDER BY quotationNumber DESC";
+                echo $query;/*
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
