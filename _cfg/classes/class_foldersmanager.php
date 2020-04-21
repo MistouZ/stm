@@ -154,6 +154,28 @@ class FoldersManager
     }
 
     /**
+     * Get all the active folder in the BDD for the user
+     * @return array
+     */
+    public function getListActiveByUser($username)
+    {
+        try{
+            $folders = [];
+
+            $q=$this->_db->query("SELECT * FROM folder WHERE seller='".$username."' AND isActive ='1' ORDER BY folderNumber DESC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $folders[] = new Folder($donnees);
+            }
+
+            return $folders;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
      * Update folders information
      * @param folder $folder
      */

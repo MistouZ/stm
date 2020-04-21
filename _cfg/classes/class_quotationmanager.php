@@ -176,6 +176,35 @@ class QuotationManager
     }
 
     /**
+     * Get all the quotation in the BDD for the selected user
+     * @return array
+     */
+    public function getListQuotationByUser($folders)
+    {
+        try{
+            $folder = new Folder();
+
+            $quotations = [];
+            foreach ($folders as $folder)
+            {
+                $query = "SELECT * FROM quotation WHERE folderId='$folder->getIdFolder()' AND type ='D' ORDER BY quotationNumber DESC";
+                echo $query;
+                $q=$this->_db->query($query);
+                while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+                {
+                    $quotations[] = new Quotation($donnees);
+                }
+            }
+
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
      * Get all the quotation in the BDD for the selected company
      * @return array
      */
