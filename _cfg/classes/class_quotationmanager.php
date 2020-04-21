@@ -184,7 +184,7 @@ class QuotationManager
         try{
             print_r($folders);
             $folder = new Folder();
-
+            echo "dossier check";
 
             $quotations = [];
             foreach ($folders as $folder)
