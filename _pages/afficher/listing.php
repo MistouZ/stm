@@ -9,6 +9,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
+$username = $_COOKIE['username'];
 $dateToProforma = date('d/m/Y');
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -21,6 +22,7 @@ $customermanager = new CustomersManager($bdd);
 $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
+
 switch($type){
     case "devis":
         if($type2=="cours"){
