@@ -10,6 +10,7 @@ $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
 $username = $_COOKIE['username'];
+echo $username;
 $dateToProforma = date('d/m/Y');
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
