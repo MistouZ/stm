@@ -28,7 +28,7 @@ $foldermanager = $foldermanager->getListActiveByUser($username);
 switch($type){
     case "devis":
         if($type2=="cours"){
-            $quotations = $quotationmanager->getListQuotationByUser($foldermanager);
+            $quotations = $quotationmanager->getListQuotationByUser($foldermanager, $folder);
             $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm" title="Passer la sélection en proforma">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
