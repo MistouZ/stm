@@ -176,7 +176,7 @@ class QuotationManager
     }
 
     /**
-     * Get all the quotation in the BDD for the selected user
+     * Get all the quotation in the BDD from the Filtered Folders
      * @return array
      */
     public function getListQuotationByFilteredFolders($folders, $folder)
