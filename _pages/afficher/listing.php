@@ -147,7 +147,7 @@ switch($type){
                     <?php echo $buttons; ?>
                 </div>
                 <div class="actions">
-                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm yellow-soft">
+                    <a data-toggle="modal" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm yellow-soft">
                         <i class="far fa-list-alt""></i> Voir mes devis</a>
                 </div>
 
