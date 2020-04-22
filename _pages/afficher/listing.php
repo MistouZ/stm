@@ -148,8 +148,7 @@ switch($type){
                 </div>
                 <div class="actions">
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm yellow-soft">
-                        <i class="fa-list-alt"></i> Voir uniquement mes devis</a>
-                    <?php echo $buttons; ?>
+                        <i class="fa list-alt"></i> Voir uniquement mes devis</a>
                 </div>
 
             </div>
