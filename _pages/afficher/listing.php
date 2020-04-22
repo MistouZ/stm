@@ -156,6 +156,7 @@ $retour = $_GET['soussoussouscat'];
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
+                            print_r($quotation);
                             $folder = $foldermanager->get($quotation->getFolderId());
                             print_r($folder);
                             $descriptions = new Description($array);
