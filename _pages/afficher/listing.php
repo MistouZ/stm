@@ -151,8 +151,9 @@ $retour = $_GET['soussoussouscat'];
                         </thead>
                         <tbody>
                         <?php
-                        print_r($quotations);
+
                         foreach($quotations as $quotation){
+                            print_r($quotation);
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
