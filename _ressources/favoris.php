@@ -20,7 +20,7 @@ $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 
-$foldermanager = $foldermanager->getListActiveByUser($username, $company->getIdcompany());
+$foldermanager = $foldermanager->getListByUser($username, $company->getIdcompany());
 $quotations = $quotationmanager->getListQuotationByFilteredFolders($foldermanager, $folder);
 
 ?>
