@@ -7,7 +7,7 @@ include '../_cfg/cfg.php';
 $array = array();
 $companyNameData = $_GET["section"];
 $username = $_COOKIE['username'];
-/*
+
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $user = new Users($array);
@@ -17,15 +17,12 @@ $customermanager = new CustomersManager($bdd);
 $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
-*/
-echo $username;
-echo $companyNameData;
-/*
-print_r($company);
 
+print_r($company);
+/*
 $foldermanager = $foldermanager->getListActiveByUser($username, $company->getIdcompany());
 $quotations = $quotationmanager->getListQuotationByUser($foldermanager, $folder);
-*/
+
 ?>
 
 
