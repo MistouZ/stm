@@ -166,7 +166,7 @@ class CostManager
     }
 
     /**
-     * Get all the quotation in the BDD from the Filtered Folders
+     * Get all the cost in the BDD from the Filtered Folders
      * @return array
      */
     public function getCostByFilteredFolders($folders, $folder)
