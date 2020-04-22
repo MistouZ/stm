@@ -193,8 +193,6 @@ class QuotationManager
                     $quotations[] = new Quotation($donnees);
                 }
             }
-
-            print_r($quotations);
             return $quotations;
         }
         catch(Exception $e){
