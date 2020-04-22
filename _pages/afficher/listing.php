@@ -157,11 +157,9 @@ $retour = $_GET['soussoussouscat'];
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             $folder = $foldermanager->get($quotation->getFolderId());
-                            print_r($folder);
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-                            print_r($descriptions);
                             $montant = 0;
                             foreach ($descriptions as $description) {
                                 $montant = calculMontantTotalTTC($description, $montant);
