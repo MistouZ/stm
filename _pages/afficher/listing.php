@@ -23,12 +23,27 @@ $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 
-//$foldermanager = $foldermanager->getListActiveByUser($username);
+$verif= $_GET['soussoussouscat'];
+
+if($verif != $username){
+    $retour = $verif;
+}
+else{
+    $folder2 = new Folder($array);
+    $foldermanager2 = new FoldersManager($bdd);
+}
 
 switch($type){
     case "devis":
         if($type2=="cours"){
-            $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
+            if($verif == $username){
+
+                $foldermanager2 = $foldermanager2->getListActiveByUser($username, $company->getIdcompany());
+                $quotations = $quotationmanager->getListQuotation($foldermanager2, $folder2);
+            }
+            else{
+                $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
+            }
             $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm" title="Passer la sélection en proforma">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
@@ -86,7 +101,8 @@ switch($type){
                     </div>';
         break;
 }
-$retour = $_GET['soussoussouscat'];
+
+
 ?>
 <div class="row">
     <div class="col-md-12">
