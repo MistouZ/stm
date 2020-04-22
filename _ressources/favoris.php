@@ -82,7 +82,7 @@ $quotations = $quotationmanager->getListQuotationByUser($foldermanager, $folder)
             <div class="number">
                 <i class="fas fa-search"></i></span>
             </div>
-            <div class="desc"> Voir les <?php echo count($quotations);?> devis</div>
+            <div class="desc"> Voir mes <?php echo count($quotations);?> devis en cours</div>
         </div>
         <a class="more" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>"> Afficher mes devis en cours
             <i class="m-icon-swapright m-icon-white"></i>
