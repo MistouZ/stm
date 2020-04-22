@@ -175,6 +175,39 @@ class FoldersManager
         }
     }
 
+
+    /**
+     * Get all the active folder in the BDD between
+     * @return array
+     */
+    public function getListByDate($companyid, $datefrom, $dateto)
+    {
+        try{
+            $dateTab = explode("/",$datefrom);
+            $yearfrom = $dateTab[2];
+            $monthfrom = $dateTab[1];
+            $dayfrom = $dateTab[0];
+
+            $dateTab2 = explode("/",$dateto);
+            $yearto = $dateTab2[2];
+            $monthto = $dateTab2[1];
+            $dayto = $dateTab2[0];
+
+            $folders = [];
+
+            $q=$this->_db->query("SELECT * FROM folder WHERE companyId=$companyid AND isActive ='1' ORDER BY folderNumber DESC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $folders[] = new Folder($donnees);
+            }
+
+            return $folders;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
     /**
      * Update folders information
      * @param folder $folder
