@@ -103,16 +103,16 @@ class CostManager
      */
     public function getByQuotationNumber($quotationNumber)
     {
-        $cost = array();
+        $costs = array();
         try{
             $quotationNumber = (string) $quotationNumber;
             $q = $this->_db->query("SELECT * FROM cost WHERE quotationNumber = '$quotationNumber'");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
-                $cost[] =new Cost($donnees);
+                $costs[] =new Cost($donnees);
             }
 
-            return $cost;
+            return $costs;
         }
         catch(Exception $e){
             return null;
@@ -127,16 +127,16 @@ class CostManager
      */
     public function getByFolderId($folderId)
     {
-        $cost = array();
+        $costs = array();
         try{
             $folderId = (string) $folderId;
             $q = $this->_db->query("SELECT * FROM `cost` WHERE folderId = '$folderId'");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
-                $cost[] = new Cost($donnees);
+                $costs[] = new Cost($donnees);
             }
 
-            return $cost;
+            return $costs;
         }
         catch(Exception $e){
             return null;
@@ -149,22 +149,46 @@ class CostManager
      */
     public function getBySupplierId($supplierId)
     {
-        $cost = array();
+        $costs = array();
         try{
             $supplierId = (string) $supplierId;
             $q = $this->_db->query("SELECT * FROM `cost` WHERE supplierId = '$supplierId'");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
-                $cost[] = new Cost($donnees);
+                $costs[] = new Cost($donnees);
             }
 
-            return $cost;
+            return $costs;
         }
         catch(Exception $e){
             return null;
         }
     }
 
+    /**
+     * Get all the quotation in the BDD from the Filtered Folders
+     * @return array
+     */
+    public function getCostByFilteredFolders($folders, $folder)
+    {
+        try{
+            $costs = [];
+            foreach ($folders as $folder)
+            {
+                $folderId = $folder->getIdFolder();
+                $query = "SELECT * FROM `cost` WHERE folderId='$folderId'  ORDER BY quotationNumber DESC";
+                $q=$this->_db->query($query);
+                while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+                {
+                    $costs[] = new Cost($donnees);
+                }
+            }
+            return $costs;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
 
 
     /**
