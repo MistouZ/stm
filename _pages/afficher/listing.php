@@ -39,6 +39,7 @@ switch($type){
             if($verif == $username){
                 $foldermanager2 = $foldermanager2->getListActiveByUser($username, $company->getIdcompany());
                 $quotations = $quotationmanager->getListQuotationByUser($foldermanager2, $folder2);
+                echo count($quotations)." Devis";
             }
             else{
                 $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
