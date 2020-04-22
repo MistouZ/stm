@@ -39,6 +39,7 @@ switch($type){
             if($verif == $username){
 
                 $foldermanager2 = $foldermanager2->getListActiveByUser($username, $company->getIdcompany());
+                print_r($foldermanager2);
                 $quotations = $quotationmanager->getListQuotation($foldermanager2, $folder2);
                 print_r($quotations);
             }
