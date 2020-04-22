@@ -179,7 +179,7 @@ class QuotationManager
      * Get all the quotation in the BDD for the selected user
      * @return array
      */
-    public function getListQuotationByUser($folders, $folder)
+    public function getListQuotationByFilteredFolders($folders, $folder)
     {
         try{
             $quotations = [];

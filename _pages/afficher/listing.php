@@ -38,7 +38,7 @@ switch($type){
         if($type2=="cours"){
             if($verif == $username){
                 $foldermanager2 = $foldermanager2->getListActiveByUser($username, $company->getIdcompany());
-                $quotations = $quotationmanager->getListQuotationByUser($foldermanager2, $folder2);
+                $quotations = $quotationmanager->getListQuotationByFilteredFolders($foldermanager2, $folder2);
             }
             else{
                 $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
