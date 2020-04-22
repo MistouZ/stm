@@ -157,8 +157,8 @@ $retour = $_GET['soussoussouscat'];
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             print_r($quotation);
-                            $folder = $foldermanager->get($quotation->getFolderId());
-                            print_r($folder);
+                           // $folder = $foldermanager->get($quotation->getFolderId());
+                           // print_r($folder);
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
@@ -173,8 +173,8 @@ $retour = $_GET['soussoussouscat'];
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
-                                <td><?php echo $folder->getFolderNumber(); ?></td>
-                                <td><?php echo $folder->getLabel(); ?></td>
+                                <td><?php /*echo $folder->getFolderNumber();*/ ?></td>
+                                <td><?php /*echo $folder->getLabel();*/ ?></td>
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                                 <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
