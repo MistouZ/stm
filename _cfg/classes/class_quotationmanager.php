@@ -187,6 +187,7 @@ class QuotationManager
             {
                 $folderId = $folder->getIdFolder();
                 $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='D' ORDER BY quotationNumber DESC";
+                echo $query;
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
