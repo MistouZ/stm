@@ -183,6 +183,7 @@ class QuotationManager
     {
         try{
             $quotations = [];
+            print_r($folders);
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
