@@ -27,10 +27,8 @@ $verif= $_GET['soussoussouscat'];
 
 if($verif != $username){
     $retour = $verif;
-    echo "pas username";
 }
 else{
-    echo "username : ".$username;
     $folder2 = new Folder($array);
     $foldermanager2 = new FoldersManager($bdd);
 }
