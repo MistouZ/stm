@@ -18,6 +18,11 @@ $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 
+echo $username;
+echo $companyNameData;
+
+print_r($company);
+
 $foldermanager = $foldermanager->getListActiveByUser($username, $company->getIdcompany());
 $quotations = $quotationmanager->getListQuotationByUser($foldermanager, $folder);
 
