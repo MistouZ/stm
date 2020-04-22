@@ -153,7 +153,6 @@ $retour = $_GET['soussoussouscat'];
                         <?php
 
                         foreach($quotations as $quotation){
-                            print_r($quotation);
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
@@ -161,6 +160,7 @@ $retour = $_GET['soussoussouscat'];
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                            print_r($descriptions)
                             $montant = 0;
                             foreach ($descriptions as $description) {
                                 $montant = calculMontantTotalTTC($description, $montant);
