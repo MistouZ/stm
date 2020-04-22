@@ -142,15 +142,12 @@ switch($type){
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
                 <div class="actions">
+                    <a data-toggle="modal" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm yellow-soft">
+                        <i class="far fa-list-alt""></i> Voir mes devis</a>
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer un devis</a>
                     <?php echo $buttons; ?>
                 </div>
-                <div class="actions">
-                    <a data-toggle="modal" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm yellow-soft">
-                        <i class="far fa-list-alt""></i> Voir mes devis</a>
-                </div>
-
             </div>
             <div class="portlet-body">
                 <form id="multiSelection" method="post">
