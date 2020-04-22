@@ -143,8 +143,11 @@ switch($type){
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
                 <div class="actions">
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm grey-mint">
-                        <i class="fa fa-plus"></i> Voir mes devis</a>
+                        <i class="fa fa-plus"></i> Voir uniquement mes devis</a>
                     <?php echo $buttons; ?>
+                </div>
+                <div>
+
                 </div>
                 <div class="actions">
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
