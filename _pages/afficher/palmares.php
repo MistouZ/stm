@@ -81,7 +81,7 @@ if(isset($_POST['valider'])) {
                         </thead>
                         <tbody>
                         <?php
-
+                        print_r($quotations);
                         foreach($quotations as $quotation){
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
