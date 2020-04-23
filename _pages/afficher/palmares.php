@@ -91,12 +91,10 @@ if(isset($_POST['valider'])) {
 
                             $customer = $customermanager->getById($quotation->getCustomerId());
 
-                            $folder2 = new Folder($array);
-                            $foldermanager2 = new FoldersManager($bdd);
+                            $folderQuotation = new Folder($array);
+                            $foldermanagerQuotation = new FoldersManager($bdd);
 
-                            $folder2 = $foldermanager2->get($quotation->getFolderId());
-
-                            print_r($folder2);
+                            $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
 
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
@@ -113,8 +111,8 @@ if(isset($_POST['valider'])) {
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
-                                <td><?php echo $folder->getFolderNumber(); ?></td>
-                                <td><?php echo $folder->getLabel(); ?></td>
+                                <td><?php echo $folderQuotation->getFolderNumber(); ?></td>
+                                <td><?php echo $folderQuotation->getLabel(); ?></td>
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/cours/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             </tr>
