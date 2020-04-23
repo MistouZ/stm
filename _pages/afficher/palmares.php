@@ -73,10 +73,10 @@ if(isset($_POST['valider'])) {
                         <thead>
                         <tr>
                             <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro de <?php echo $type; ?></th>
-                            <th class="min-tablet">Client</th>
                             <th class="desktop">Dossier</th>
                             <th class="desktop">Libellé</th>
+                            <th class="min-phone-l">Numéro de <?php echo $type; ?></th>
+                            <th class="min-tablet">Client</th>
                             <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
                         </tr>
@@ -107,10 +107,10 @@ if(isset($_POST['valider'])) {
                             ?>
                             <tr>
                                 <td><?php echo $date; ?></td>
-                                <td><?php echo $quotation->getQuotationNumber(); ?></td>
-                                <td><?php echo $customer->getName(); ?></td>
                                 <td><?php echo $folderQuotation->getFolderNumber(); ?></td>
                                 <td><?php echo $folderQuotation->getLabel(); ?></td>
+                                <td><?php echo $quotation->getQuotationNumber(); ?></td>
+                                <td><?php echo $customer->getName(); ?></td>
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/cours/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             </tr>
