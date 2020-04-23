@@ -77,7 +77,7 @@ if(isset($_POST['valider'])) {
                             <th class="min-tablet">Client</th>
                             <th class="desktop">Dossier</th>
                             <th class="desktop">Libellé</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
                         </tr>
                         </thead>
