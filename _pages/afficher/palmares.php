@@ -94,8 +94,6 @@ if(isset($_POST['valider'])) {
                             $folder2 = new Folder($array);
                             $foldermanager2 = new FoldersManager($bdd);
 
-                            echo $quotation->getFolderId();
-
                             $folder2 = $foldermanager2->get($quotation->getFolderId());
 
                             print_r($folder2);
