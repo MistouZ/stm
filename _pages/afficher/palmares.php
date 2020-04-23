@@ -25,7 +25,7 @@ if(isset($_POST['valider'])) {
     $user = new Users($array);
     $usermanager = new UsersManager($bdd);
 
-
+    echo $dateto;
 
     if (issset($_POST["seller"])) {
         $seller = $_POST["seller"];
