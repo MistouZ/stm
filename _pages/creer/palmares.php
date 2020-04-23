@@ -4,12 +4,15 @@
  * @copyright 2019
  */
 
-
+$array = array();
 $companyNameData = $_GET["section"];
-$user = new Users($array);
-$usermanager = new UsersManager($bdd);
+
+/*initilisation des objets */
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
+
+$user = new Users($array);
+$usermanager = new UsersManager($bdd);
 
 echo "all loaded";
 /*
