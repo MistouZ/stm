@@ -195,7 +195,7 @@ class FoldersManager
 
             if($dayfrom == $dayto)
             {
-                $monthto = $monthto + 1;
+                $monthto = $monthto - 1;
                 $dayto = 31;
             }
 
