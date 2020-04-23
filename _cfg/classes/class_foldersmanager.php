@@ -193,7 +193,7 @@ class FoldersManager
             $monthto = $dateTab2[1];
             $dayto = $dateTab2[0];
 
-            if($dayfrom == $dayto)
+            if($dayfrom == $dayto AND $monthto > $monthfrom)
             {
                 $monthto = $monthto - 1;
                 $dayto = 31;
