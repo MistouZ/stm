@@ -108,3 +108,53 @@ $type = $_GET["souscat"]
         <!-- END VALIDATION STATES-->
     </div>
 </div>
+
+<script language="JavaScript">
+    $('#select-all').click(function(){
+        if($('#select-all').attr("checked")){
+            $('#select-all').removeAttr('checked');
+            $('.selection').each(function() {
+                $(this).removeAttr('checked').uniform('refresh');
+            });
+            $.uniform.update();
+        }else{
+            $('#select-all').attr('checked','checked');
+            $('.selection').each(function() {
+                $(this).prop('checked',true);
+                $(this).parent('span').addClass('checked');
+            });
+        }
+    });
+    $('#multiSelection :checkbox').change(function() {
+        //$.uniform.update();
+        var nb = $('#multiSelection :checkbox:checked').length;
+        var nbTotal = $('#multiSelection :checkbox').length;
+        if (nb>0) {
+            if(nb==1){
+                if($('#select-all').attr("checked")){
+                    $('#select-all').removeAttr('checked').uniform('refresh');
+                }else{
+                    $("#actions").css("display","");
+                    $("#actions").css("display","inline");
+                }
+            }
+        } else {
+            $("#actions").css("display","");
+            $("#actions").css("display","none");
+            $('#select-all').removeAttr('checked');
+        }
+    });
+
+    $(document).ready(function(){
+        $("input[name$='shattered']").click(function() {
+            var test = $(this).val();
+            if(test == "full"){
+                $("#partial").hide();
+            }
+            else{
+                $("#partial").show();
+            }
+        });
+    });
+
+</script>
