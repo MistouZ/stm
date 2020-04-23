@@ -85,10 +85,10 @@ if(isset($_POST['valider'])) {
 
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
-                            echo $date;
+
                             $customer = $customermanager->getById($quotation->getCustomerId());
 
-                            print_r($quotation);
+                            print_r($customer);
 
                             $folder2 = new Folder($array);
                             $foldermanager2 = new FoldersManager($bdd);
