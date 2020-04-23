@@ -52,7 +52,7 @@ if(isset($_POST['valider'])) {
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
     }
 
-    print_r($quotations);
+
 }
 
 ?>
