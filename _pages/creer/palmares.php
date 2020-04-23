@@ -22,6 +22,8 @@ $Today = date('d/m/Y');
 
 $type = $_GET["souscat"];
 
+echo $type;
+
 ?>
 
 <div class="row">
