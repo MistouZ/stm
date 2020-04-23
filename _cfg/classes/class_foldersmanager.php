@@ -195,7 +195,8 @@ class FoldersManager
 
             if($dayfrom == $dayto)
             {
-                $query = "SELECT * FROM folder WHERE companyId=$companyid AND `year` >= $yearfrom AND `month` >= $monthfrom AND `day` >= $dayfrom AND `year` <= $yearto AND `month` <= $monthto  AND isActive ='1' ORDER BY folderNumber ASC";
+                $dayto = $dayto + 1;
+                $query = "SELECT * FROM folder WHERE companyId=$companyid AND `year` >= $yearfrom AND `month` >= $monthfrom AND `day` >= $dayfrom AND `year` <= $yearto AND `month` <= $monthto AND `day` <= $dayto  AND isActive ='1' ORDER BY folderNumber ASC";
             }
             else{
                 $query = "SELECT * FROM folder WHERE companyId=$companyid AND `year` >= $yearfrom AND `month` >= $monthfrom AND `day` >= $dayfrom AND `year` <= $yearto AND `month` <= $monthto AND `day` <= $dayto AND isActive ='1' ORDER BY folderNumber ASC";
