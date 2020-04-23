@@ -18,7 +18,7 @@ $usermanager = new UsersManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
 
-$dateToday = date('d/m/Y');
+$Today = date('d/m/Y');
 
 
 ?>
@@ -47,7 +47,7 @@ $dateToday = date('d/m/Y');
                             </label>
                             <div class="col-md-8">
                                 <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                    <input type="text" name="date_from" class="form-control" value="<?php echo $dateToday; ?>" >
+                                    <input type="text" name="date_from" class="form-control" value="<?php echo $Today; ?>" >
                                     <span class="input-group-btn">
                                             <button class="btn default" type="button">
                                                 <i class="fas fa-calendar-alt"></i>
@@ -63,7 +63,7 @@ $dateToday = date('d/m/Y');
                             </label>
                             <div class="col-md-8">
                                 <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                    <input type="text" name="date_to" class="form-control" value="<?php echo $dateToday; ?>" >
+                                    <input type="text" name="date_to" class="form-control" value="<?php echo $Today; ?>" >
                                     <span class="input-group-btn">
                                             <button class="btn default" type="button">
                                                 <i class="fas fa-calendar-alt"></i>
