@@ -20,10 +20,6 @@ $idCompany = $company->getIdcompany();
 
 $Today = date('d/m/Y');
 
-$type = $_GET["souscat"];
-
-echo $type;
-
 ?>
 
 <div class="row">
@@ -33,7 +29,7 @@ echo $type;
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings"></i>
-                    <span class="caption-subject sbold uppercase">Création d'un palmares sur <?php $type; ?></span>
+                    <span class="caption-subject sbold uppercase">Création d'un palmares sur <?php echo $type; ?></span>
                 </div>
             </div>
             <div class="portlet-body form">
