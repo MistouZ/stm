@@ -78,7 +78,7 @@ $type = $_GET["souscat"]
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-2">
-                                <select id="users" class="username form-control" name="users">
+                                <select id="users" class="username form-control" name="seller">
                                     <option value="">Sélectionnez ...</option>
                                     <?php
                                     $usermanager = $usermanager->getSellerByCompany($idCompany);

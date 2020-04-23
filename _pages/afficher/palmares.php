@@ -11,6 +11,7 @@ $companyNameData = $_GET["section"];
 if(isset($_POST['valider'])) {
 
     $type = $_POST['type'];
+    $seller = $_POST["seller"];
     $array = array();
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
