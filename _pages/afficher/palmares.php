@@ -11,7 +11,12 @@ if(isset($_POST['valider'])) {
 
     $type = $_POST['type'];
     echo $type;
+    $datefrom = $_POST["date_from"];
+    $dateto = $_POST["date_to"];
 
+    echo $dateto;
+    echo $datefrom;
+    echo $companyNameData;
 
     $array = array();
     $company = new Company($array);
@@ -21,17 +26,14 @@ if(isset($_POST['valider'])) {
     $quotation = new Quotation($array);
     $quotationmanager = new QuotationManager($bdd);
 
-    $datefrom = $_POST["date_from"];
-    $dateto = $_POST["date_to"];
+
 
     if (issset($_POST["seller"])) {
         $seller = $_POST["seller"];
         echo $seller;
     }
 
-    echo $dateto;
-    echo $datefrom;
-    echo $companyNameData;
+
 }
 
    /* $company = $companymanager->getByNameData($companyNameData);
