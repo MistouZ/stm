@@ -10,7 +10,7 @@ if (isset($_GET['souscat']) AND (empty($_GET['soussouscat']) || !ctype_digit($_G
 
 } elseif (isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) ) {
 
-    include __DIR__.'/'.$_GET['soussouscat'].'/'.$_GET['cat'].'.php';
+    include __DIR__.'/'.$_GET['souscat'].'/'.$_GET['cat'].'.php';
 
 }
 ?>
