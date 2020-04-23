@@ -5,14 +5,17 @@ include("../../_cfg/cfg.php");
  * @copyright 2019
  */
 
-echo "je suis là";
-/*
+
 $companyNameData = $_GET["section"];
+echo $companyNameData;
+
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 
+echo "all loaded";
+/*
 $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
 
