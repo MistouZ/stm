@@ -84,15 +84,9 @@ if(isset($_POST['valider'])) {
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
-                            $folderQuotation = new Folder($array);
-                            $foldermanagerQuotation = new FoldersManager($bdd);
-                            $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
-
-                            print_r($folderQuotation);
-
+                            $folder = $foldermanager->get($quotation->getFolderId());
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
-
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
                             $montant = 0;
                             foreach ($descriptions as $description) {
