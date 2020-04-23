@@ -18,7 +18,7 @@ $usermanager = new UsersManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
 
-$Today = date('d/m/Y');
+$today = date('d/m/Y');
 
 $type = $_GET["souscat"]
 ?>
@@ -42,19 +42,19 @@ $type = $_GET["souscat"]
                         <div class="alert alert-success display-hide">
                             <button class="close" data-close="alert"></button> Le palmares a bien été créé </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Date de début du palmares
+                            <label class="control-label col-md-4">Date du début du palmares
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-8">
                                 <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                    <input type="text" name="date_from" class="form-control" value="<?php echo $Today; ?>" >
+                                    <input type="text" name="date_from" class="form-control" value="<?php echo $today; ?>" >
                                     <span class="input-group-btn">
                                             <button class="btn default" type="button">
                                                 <i class="fas fa-calendar-alt"></i>
                                             </button>
                                         </span>
                                 </div>
-                                <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
+                                <span class="help-block">Cliquez sur la date pour la modifier</span>
                             </div>
                         </div>
                         <div class="form-group">
@@ -63,14 +63,14 @@ $type = $_GET["souscat"]
                             </label>
                             <div class="col-md-8">
                                 <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                    <input type="text" name="date_to" class="form-control" value="<?php echo $Today; ?>" >
+                                    <input type="text" name="date_to" class="form-control" value="<?php echo $today; ?>" >
                                     <span class="input-group-btn">
                                             <button class="btn default" type="button">
                                                 <i class="fas fa-calendar-alt"></i>
                                             </button>
                                         </span>
                                 </div>
-                                <span class="help-block">Si aucune date n'est sélectionnée, la date par défaut sera celle du jour</span>
+                                <span class="help-block">Cliquez sur la date pour la modifier</span>
                             </div>
                         </div>
                         <div class="form-group">
