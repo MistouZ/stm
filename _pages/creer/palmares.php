@@ -42,12 +42,12 @@ $type = $_GET["souscat"]
                         <div class="alert alert-success display-hide">
                             <button class="close" data-close="alert"></button> Le palmares a bien été créé </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Date du début du palmares
+                            <label class="control-label col-md-4">Date de début du palmares
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-8">
                                 <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                    <input type="text" name="date_from" class="form-control" value="<?php echo $today; ?>" >
+                                    <input type="text" name="date_from" class="form-control" value="" >
                                     <span class="input-group-btn">
                                             <button class="btn default" type="button">
                                                 <i class="fas fa-calendar-alt"></i>
@@ -58,7 +58,7 @@ $type = $_GET["souscat"]
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Date de fin du palmares
+                            <label class="control-label col-md-4">Date de la fin du palmares
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-8">
