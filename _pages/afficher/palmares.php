@@ -112,7 +112,7 @@ if(isset($_POST['valider'])) {
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
-                                <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/cours/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                                <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/valides/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             </tr>
                             <?php
                         }
