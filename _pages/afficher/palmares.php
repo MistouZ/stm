@@ -77,7 +77,7 @@ if(isset($_POST['valider'])) {
                             <th class="desktop">Libellé</th>
                             <th class="min-phone-l">Numéro de <?php echo $type; ?></th>
                             <th class="min-tablet">Client</th>
-                            <th class="desktop">Montant total</th>
+                            <th class="min-phone-l">Montant total</th>
                             <th class="desktop">Détail</th>
                         </tr>
                         </thead>
