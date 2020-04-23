@@ -4,7 +4,6 @@
  * @author Nicolas
  * @copyright 2019
  */
-include("../../_cfg/cfg.php");
 
 $companyNameData = $_GET["section"];
 
