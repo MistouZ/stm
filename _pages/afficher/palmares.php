@@ -5,10 +5,15 @@
  * @copyright 2019
  */
 include("../../_cfg/cfg.php");
+
+$companyNameData = $_GET["section"];
+
 if(isset($_POST['valider'])) {
 
     $type = $_POST['type'];
     $array = array();
+    $company = new Company($array);
+    $companymanager = new CompaniesManager($bdd);
     $folder = new Folder($array);
     $foldermanager = new FoldersManager($bdd);
     $quotation = new Quotation($array);
@@ -16,6 +21,27 @@ if(isset($_POST['valider'])) {
 
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
+
+    $company = $companymanager->getByNameData($companyNameData);
+    $idCompany = $company->getIdcompany();
+
+    $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
+
+    if($type == "devis"){
+        $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
+    }
+    elseif ($type == "proformas")
+    {
+        $quotations = $quotationmanager->getListProforma($filteredFolder,$folder);
+    }
+    elseif ($type == "factures")
+    {
+        $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder,$folder);
+    }
+    elseif ($type == "avoirs")
+    {
+
+    }
 }
 
 ?>
