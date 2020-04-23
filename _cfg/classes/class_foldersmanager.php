@@ -197,6 +197,7 @@ class FoldersManager
             {
                 echo "je suis là";
                 $dayto = NULL;
+                print_r($dayto);
             }
 
             $folders = [];
