@@ -83,10 +83,9 @@ if(isset($_POST['valider'])) {
                         <?php
                         foreach($quotations as $quotation){
 
-                            echo "je suis là";
-
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                            echo $date;
                             $customer = $customermanager->getById($quotation->getCustomerId());
 
                             print_r($quotation);
