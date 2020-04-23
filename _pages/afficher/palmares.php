@@ -28,8 +28,6 @@ if(isset($_POST['valider'])) {
     $quotation = new Quotation($array);
     $quotationmanager = new QuotationManager($bdd);
 
-    echo $datefrom;
-    echo $dateto;
 
 
     if (issset($_POST["seller"])) {
@@ -39,6 +37,8 @@ if(isset($_POST['valider'])) {
 
     $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
+
+    echo $idCompany;
 
     $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
 
