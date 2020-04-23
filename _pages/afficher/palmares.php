@@ -85,6 +85,7 @@ if(isset($_POST['valider'])) {
 
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                            print_r($quotation);
 
                             $customer = $customermanager->getById($quotation->getCustomerId());
 
