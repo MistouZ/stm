@@ -5,6 +5,8 @@ include("../../_cfg/cfg.php");
  * @copyright 2019
  */
 
+echo "je suis là";
+/*
 $companyNameData = $_GET["section"];
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
