@@ -25,6 +25,12 @@ if(isset($_POST['valider'])) {
     $user = new Users($array);
     $usermanager = new UsersManager($bdd);
 
+    $folder = new Folder($array);
+    $foldermanager = new FoldersManager($bdd);
+
+    $quotation = new Quotation($array);
+    $quotationmanager = new QuotationManager($bdd);
+
     echo $dateto;
 
     if (issset($_POST["seller"])) {
