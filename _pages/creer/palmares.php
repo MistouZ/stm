@@ -3,6 +3,7 @@
  * @author Amaury
  * @copyright 2019
  */
+include("../../_cfg/cfg.php");
 
 $companyNameData = $_GET["section"];
 $user = new Users($array);
