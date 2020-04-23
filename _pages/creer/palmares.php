@@ -74,18 +74,22 @@ $dateToday = date('d/m/Y');
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-4">Utilisateurs</label>
-                            <select id="users" class="username form-control" name="users">
-                                <option value="">Sélectionnez ...</option>
-                                <?php
-                                $usermanager = $usermanager->getSellerByCompany($idCompany);
-                                foreach ($usermanager as $user){
-                                   ?>
-                                    <option value="<?php echo $user->getUsername(); ?>"><?php echo $user->getFirstName()." ".$user->getName(); ?></option>
+                            <label class="control-label col-md-4">Utilisateurs
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-8">
+                                <select id="users" class="username form-control" name="users">
+                                    <option value="">Sélectionnez ...</option>
                                     <?php
-                                }
-                                ?>
-                            </select>
+                                    $usermanager = $usermanager->getSellerByCompany($idCompany);
+                                    foreach ($usermanager as $user){
+                                       ?>
+                                        <option value="<?php echo $user->getUsername(); ?>"><?php echo $user->getFirstName()." ".$user->getName(); ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                         </div>
                     </div>
                     <div class="form-actions">
