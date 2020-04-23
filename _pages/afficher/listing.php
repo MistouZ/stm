@@ -156,7 +156,7 @@ switch($type){
                         <tr>
                             <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
                             <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro de <?php echo $type; ?>></th>
+                            <th class="min-phone-l">Numéro de <?php echo $type; ?></th>
                             <th class="min-tablet">Client</th>
                             <th class="desktop">Dossier</th>
                             <th class="desktop">Libellé</th>
