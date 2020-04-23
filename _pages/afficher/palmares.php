@@ -32,7 +32,7 @@ if(isset($_POST['valider'])) {
     }
     elseif ($type == "proformas")
     {
-        $quotations = $quotationmanager->getListProforma($filteredFolder,$folder);
+        $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder,$folder);
     }
     elseif ($type == "factures")
     {
@@ -40,7 +40,7 @@ if(isset($_POST['valider'])) {
     }
     elseif ($type == "avoirs")
     {
-
+        $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
     }
 }
 
