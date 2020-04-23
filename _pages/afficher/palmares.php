@@ -28,13 +28,6 @@ if(isset($_POST['valider'])) {
     $quotation = new Quotation($array);
     $quotationmanager = new QuotationManager($bdd);
 
-
-
-    if (issset($_POST["seller"])) {
-        $seller = $_POST["seller"];
-        echo $seller;
-    }
-
     $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
