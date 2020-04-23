@@ -30,7 +30,7 @@ $dateToday = date('d/m/Y');
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings"></i>
-                    <span class="caption-subject sbold uppercase">Création d'une taxe</span>
+                    <span class="caption-subject sbold uppercase">Création d'un palmares sur <?php $type; ?></span>
                 </div>
             </div>
             <div class="portlet-body form">
@@ -63,7 +63,7 @@ $dateToday = date('d/m/Y');
                             </label>
                             <div class="col-md-8">
                                 <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                    <input type="text" name="date_to" class="form-control" value="<?php echo $dateToProforma; ?>" >
+                                    <input type="text" name="date_to" class="form-control" value="<?php echo $dateToday; ?>" >
                                     <span class="input-group-btn">
                                             <button class="btn default" type="button">
                                                 <i class="fas fa-calendar-alt"></i>
