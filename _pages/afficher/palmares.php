@@ -12,8 +12,8 @@ if(isset($_POST['valider'])) {
 
     $type = $_POST['type'];
     echo $type;
-    $seller = $_POST["seller"];
-    echo $seller;
+
+
     $array = array();
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
@@ -25,7 +25,17 @@ if(isset($_POST['valider'])) {
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
 
-    $company = $companymanager->getByNameData($companyNameData);
+    if (issset($_POST["seller"])) {
+        $seller = $_POST["seller"];
+        echo $seller;
+    }
+
+    echo $dateto;
+    echo $datefrom;
+    echo $companyNameData;
+}
+
+   /* $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
     $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
