@@ -14,9 +14,6 @@ if(isset($_POST['valider'])) {
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
 
-    echo $dateto;
-    echo $datefrom;
-    echo $companyNameData;
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
@@ -31,7 +28,7 @@ if(isset($_POST['valider'])) {
     $quotation = new Quotation($array);
     $quotationmanager = new QuotationManager($bdd);
 
-    echo $dateto;
+
 
     if (issset($_POST["seller"])) {
         $seller = $_POST["seller"];
