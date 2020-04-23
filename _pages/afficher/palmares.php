@@ -17,14 +17,13 @@ if(isset($_POST['valider'])) {
     echo $dateto;
     echo $datefrom;
     echo $companyNameData;
-
     $array = array();
+    /*initilisation des objets */
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
-    $folder = new Folder($array);
-    $foldermanager = new FoldersManager($bdd);
-    $quotation = new Quotation($array);
-    $quotationmanager = new QuotationManager($bdd);
+
+    $user = new Users($array);
+    $usermanager = new UsersManager($bdd);
 
 
 
