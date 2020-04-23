@@ -10,7 +10,7 @@ $companyNameData = $_GET["section"];
 if(isset($_POST['valider'])) {
 
     $type = $_POST['type'];
-    echo $type;
+
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
 
@@ -43,18 +43,22 @@ if(isset($_POST['valider'])) {
     $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
 
     if($type == "devis"){
+        echo $type;
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
     }
     elseif ($type == "proformas")
     {
+        echo $type;
         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder,$folder);
     }
     elseif ($type == "factures")
     {
+        echo $type;
         $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder,$folder);
     }
     elseif ($type == "avoirs")
     {
+        echo $type;
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
     }
 }
