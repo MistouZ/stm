@@ -94,15 +94,13 @@ if(isset($_POST['valider'])) {
                             $folder2 = new Folder($array);
                             $foldermanager2 = new FoldersManager($bdd);
 
-                            print_r($quotation);
-
                             $folder2 = $foldermanager2->get($quotation->getFolderId());
-
-                            print_r($quotation);
 
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
+
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
                             $montant = 0;
                             foreach ($descriptions as $description) {
                                 $montant = calculMontantTotalTTC($description, $montant);
