@@ -166,24 +166,24 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/afficher'; ?>" class="nav-link "
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/creer'; ?>" class="nav-link "
                        target="_blank">
                         <span class="title"><i class="fas fa-chart-pie"></i> Devis</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/afficher'; ?>" class="nav-link ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/creer'; ?>" class="nav-link ">
                         <span class="title"><i class="fas fa-chart-area"></i> Proformas</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/afficher'; ?>" class="nav-link "
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/creer'; ?>" class="nav-link "
                        target="_blank">
                         <span class="title"><i class="fas fa-chart-line"></i> Factures</span>
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/afficher'; ?>" class="nav-link "
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/creer'; ?>" class="nav-link "
                        target="_blank">
                         <span class="title"><i class="fas fa-chart-bar"></i> Avoirs</span>
                     </a>
