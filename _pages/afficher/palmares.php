@@ -87,6 +87,9 @@ if(isset($_POST['valider'])) {
                             $folderQuotation = new Folder($array);
                             $foldermanagerQuotation = new FoldersManager($bdd);
                             $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
+
+                            print_r($folderQuotation);
+
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
 
