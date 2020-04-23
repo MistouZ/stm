@@ -7,7 +7,7 @@
 include("../../_cfg/cfg.php");
 
 $companyNameData = $_GET["section"];
-
+print_r($_POST);/*
 if(isset($_POST['valider'])) {
 
     $type = $_POST['type'];
