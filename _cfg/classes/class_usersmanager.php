@@ -210,15 +210,38 @@ class UsersManager
     }
 
     /**
-     * Get all the users in the BDD
-     * @return array
-     */
+ * Get all the users in the BDD
+ * @return array
+ */
     public function getListByCompany($idcompany)
     {
         try{
             $idcompany = (integer) $idcompany;
             $users = [];
             $q=$this->_db->query("SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM users u INNER JOIN  link_company_users lk ON u.username =  lk.users_username INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='$idcompany' AND u.isActive='1' AND c.isActive='1' GROUP BY u.username");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $users[] = new Users($donnees);
+            }
+
+            return $users;
+        }
+        catch(Exception $e){
+            return null;
+        }
+
+    }
+
+    /**
+     * Get all the seller By Company
+     * @return array
+     */
+    public function getSellerByCompany($idcompany)
+    {
+        try{
+            $idcompany = (integer) $idcompany;
+            $users = [];
+            $q=$this->_db->query("SELECT u.*, GROUP_CONCAT(c.name SEPARATOR ', ') AS companyName FROM users u INNER JOIN  link_company_users lk ON u.username =  lk.users_username INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='$idcompany' AND u.isActive='1' AND c.isActive='1' AND u.isSeller='1' GROUP BY u.username");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $users[] = new Users($donnees);
