@@ -74,7 +74,7 @@ $dateToday = date('d/m/Y');
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label">Utilisateurs</label>
+                            <label class="control-label col-md-4">Utilisateurs</label>
                             <select id="users" class="username form-control" name="users">
                                 <option value="">Sélectionnez ...</option>
                                 <?php
