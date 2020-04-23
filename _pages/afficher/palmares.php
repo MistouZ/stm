@@ -36,20 +36,24 @@ if(isset($_POST['valider'])) {
     if($type == "devis"){
         echo $type;
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
+        print_r($quotations);
     }
     elseif ($type == "proformas")
     {
         echo $type;
         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder,$folder);
+        print_r($quotations);
     }
     elseif ($type == "factures")
     {
         $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder,$folder);
+        print_r($quotations);
     }
     elseif ($type == "avoirs")
     {
         echo $type;
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
+        print_r($quotations);
     }
 
     print_r($quotations);
