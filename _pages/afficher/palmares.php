@@ -31,9 +31,8 @@ if(isset($_POST['valider'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
-    echo $idCompany;
-
     $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
+    print_r($filteredFolder);
 
     if($type == "devis"){
         echo $type;
