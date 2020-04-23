@@ -38,10 +38,7 @@ if(isset($_POST['valider'])) {
         echo $seller;
     }
 
-
-}
-
-   /* $company = $companymanager->getByNameData($companyNameData);
+    $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
     $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
