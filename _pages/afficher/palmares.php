@@ -9,7 +9,7 @@ include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
 
 if(isset($_POST['valider'])) {
-echo "je suis passé";
+echo $type;
     $type = $_POST['type'];
     $seller = $_POST["seller"];
     $array = array();
