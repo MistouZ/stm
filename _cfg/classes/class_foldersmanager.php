@@ -195,6 +195,7 @@ class FoldersManager
 
             if($dayfrom == $dayto)
             {
+                echo "je suis là";
                 $dayto = NULL;
             }
 
