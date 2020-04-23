@@ -35,7 +35,7 @@ $type = $_GET["souscat"]
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/creer_palmares.php"; ?>" method="post" id="palmares" name="palmares" class="form-horizontal">
+                <form action="<?php echo URLHOST.$_COOKIE['company'].'/palmares/'.$type.'/afficher'; ?>" method="post" id="palmares" name="palmares" class="form-horizontal">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
