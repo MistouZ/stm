@@ -9,9 +9,11 @@ include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
 
 if(isset($_POST['valider'])) {
-echo $type;
+
     $type = $_POST['type'];
+    echo $type;
     $seller = $_POST["seller"];
+    echo $seller;
     $array = array();
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
