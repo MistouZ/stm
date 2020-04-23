@@ -201,6 +201,9 @@ class FoldersManager
             }
 
             $folders = [];
+            $query = "SELECT * FROM folder WHERE companyId=$companyid AND `year` >= $yearfrom AND `month` >= $monthfrom AND `day` >= $dayfrom AND `year` <= $yearto AND `month` <= $monthto AND `day` <= $dayto AND isActive ='1' ORDER BY folderNumber ASC";
+
+            echo $query;
 
             $q=$this->_db->query("SELECT * FROM folder WHERE companyId=$companyid AND `year` >= $yearfrom AND `month` >= $monthfrom AND `day` >= $dayfrom AND `year` <= $yearto AND `month` <= $monthto AND `day` <= $dayto AND isActive ='1' ORDER BY folderNumber ASC");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
