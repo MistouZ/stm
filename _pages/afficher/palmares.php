@@ -45,7 +45,6 @@ if(isset($_POST['valider'])) {
     elseif ($type == "factures")
     {
         $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder,$folder);
-        print_r($quotations);
     }
     elseif ($type == "avoirs")
     {
