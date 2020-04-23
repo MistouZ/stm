@@ -70,7 +70,7 @@ if(isset($_POST['valider'])) {
                         <tr>
                             <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
                             <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro de devis</th>
+                            <th class="min-phone-l">Numéro de <?php echo $type; ?>></th>
                             <th class="min-tablet">Client</th>
                             <th class="desktop">Dossier</th>
                             <th class="desktop">Libellé</th>
@@ -85,6 +85,7 @@ if(isset($_POST['valider'])) {
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
+                            $folderQuotation = new Folder($array);
                             $folder = $foldermanager->get($quotation->getFolderId());
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
