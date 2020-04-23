@@ -28,6 +28,8 @@ if(isset($_POST['valider'])) {
     $quotation = new Quotation($array);
     $quotationmanager = new QuotationManager($bdd);
 
+    echo $datefrom;
+    echo $dateto;
 
 
     if (issset($_POST["seller"])) {
