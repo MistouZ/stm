@@ -92,6 +92,7 @@ $type = $_GET["souscat"]
                             </div>
                         </div>
                     </div>
+                    <input type="hidden" name="type" id="type" value="<? echo $type; ?>"/>
                     <div class="form-actions">
                         <div class="row">
                             <div class="col-md-offset-3 col-md-9">
