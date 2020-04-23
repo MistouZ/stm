@@ -20,7 +20,7 @@ $idCompany = $company->getIdcompany();
 
 $Today = date('d/m/Y');
 
-$type = $_GET["soussouscat"];
+$type = $_GET['souscat'];
 
 ?>
 
