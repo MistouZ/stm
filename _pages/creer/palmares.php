@@ -4,10 +4,7 @@
  * @copyright 2019
  */
 
-include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
-echo $companyNameData;
-
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $company = new Company($array);
