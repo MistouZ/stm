@@ -1,11 +1,10 @@
 <?php
-include("../../_cfg/cfg.php");
 /**
  * @author Amaury
  * @copyright 2019
  */
 
-
+include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
 echo $companyNameData;
 
