@@ -1,6 +1,5 @@
 <?php
 
-echo "je suis inclus";
 $host = explode('.', $_SERVER['HTTP_HOST']);
 
 define('URLHOST','http://'.$host[0].'.bitwin.nc/');
