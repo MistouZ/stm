@@ -85,10 +85,17 @@ if(isset($_POST['valider'])) {
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
 
+                            print_r($quotation);
+
                             $folder2 = new Folder($array);
                             $foldermanager2 = new FoldersManager($bdd);
 
+                            print_r($quotation);
+
                             $folder2 = $foldermanager2->get($quotation->getFolderId());
+
+                            print_r($quotation);
+
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
