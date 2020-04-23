@@ -14,8 +14,7 @@ $companymanager = new CompaniesManager($bdd);
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 
-echo "all loaded";
-/*
+
 $company = $companymanager->getByNameData($companyNameData);
 $idCompany = $company->getIdcompany();
 
