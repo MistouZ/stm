@@ -172,7 +172,7 @@ switch($type){
                         foreach($quotations as $quotation){
                             //initialisation au format date pour organiser le tableau
                             $date = $quotation->getDate();
-                            echo date('d/m/y', strtotime($date));
+                            $date = date('d/m/y', strtotime($date));
                             //$date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             $folder = $foldermanager->get($quotation->getFolderId());
