@@ -15,7 +15,7 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier"){ ?>    
+<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier" || $_GET["soussouscat"] == "creer"){ ?>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
