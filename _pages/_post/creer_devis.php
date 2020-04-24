@@ -54,6 +54,7 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
+print_r($quotation);
 
 $quotationNumber = $quotationmanager->add($quotation);
 
