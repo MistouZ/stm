@@ -40,11 +40,7 @@ if(!empty($_POST['comment'])){
     $comment = "";
 }
 
-$dateTab = explode("/",$_POST['date']);
-
-$year = $dateTab[2];
-$month = $dateTab[1];
-$day = $dateTab[0];
+$date = date("Y-m-d", strtotime($_POST['date']));
 
 $status = "En cours";
 $type = "D";
@@ -53,9 +49,7 @@ $data = array(
     'idQuotation' => $quotationGet->getIdQuotation(),
     'status' => $status,
     'label' => $label,
-    'year' => $year,
-    'month' => $month,
-    'day' => $day,
+    'date' => $date,
     'type' => $type,
     'comment' => $comment,
     'folderId' => $folderId,
