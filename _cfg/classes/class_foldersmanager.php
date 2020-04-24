@@ -47,6 +47,8 @@ class FoldersManager
     {
         $folderNumber = $this->count($folder->getCompanyId());
         $folderNumber = $folderNumber + 1;
+
+        echo $folder->getDate();
         
         try{
             $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, date, isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :date, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
