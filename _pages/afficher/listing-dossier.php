@@ -130,7 +130,7 @@ else{
                             <td><?php echo $user->getName().' '.$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getFirstname()." ".$contact->getName(); ?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $actif;?></span></td>
-                            <td><?php echo $folder->getDay()."/".$folder->getMonth()."/".$folder->getYear();?></td>
+                            <td><?php echo  $date = date('d/m/y', strtotime( $folder->getDate()));;?></td>
                         </tr>
                     <?php
                     }
