@@ -171,8 +171,7 @@ switch($type){
 
                         foreach($quotations as $quotation){
                             //initialisation au format date pour organiser le tableau
-                            $date = $quotation->getDate();
-                            $date = date('d/m/y', strtotime($date));
+                            $date = date('d/m/y', strtotime($quotation->getDate()));
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             $folder = $foldermanager->get($quotation->getFolderId());
                             $descriptions = new Description($array);
