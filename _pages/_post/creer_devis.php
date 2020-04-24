@@ -62,6 +62,8 @@ echo "j'ai créé le devis : ".$quotationNumber;
 //Ajout des lignes du devis
 $descriptions= array();
 
+print_r($_POST["descriptionDevis"]);
+
 $i=1;
 while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
