@@ -37,6 +37,8 @@ if(empty($_POST['comment'])){
 
 $date = date("Y-m-d");
 $type = "D";
+echo $date;
+
 
 $data = array(
     'status' => $status,
