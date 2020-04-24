@@ -54,8 +54,6 @@ class FoldersManager
             $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, date, isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :date, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
             $q->bindValue(':folderNumber', $folderNumber, PDO::PARAM_STR);
             $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
-            $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
             $q->bindValue(':date', $folder->getDate(), PDO::PARAM_STR );
             $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
             $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
