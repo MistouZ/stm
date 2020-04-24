@@ -9,7 +9,6 @@ include("../../_cfg/cfg.php");
 include "../../_cfg/fonctions.php";
 
 $quotationNumber = $_POST['quotationNumber'];
-$dateTab = explode("/",$_POST['date']);
 $type2 = $_POST['type'];
 $percent = $_POST["shattered_percent"];
 
@@ -18,9 +17,7 @@ $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
 
-$year = $dateTab[2];
-$month = $dateTab[1];
-$day = $dateTab[0];
+$date = date("Y-m-d", strtotime($_POST['date']));
 
 print_r($_POST["selection"]);
 
@@ -29,9 +26,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
         'status' => 'En cours',
-        'year' => $year,
-        'month' => $month,
-        'day' => $day,
+        'date' => $date,
         'type' => 'P'
     );
 
