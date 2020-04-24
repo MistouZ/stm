@@ -49,12 +49,12 @@ class FoldersManager
         $folderNumber = $folderNumber + 1;
         
         try{
-            $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, year,month,day,isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :year, :month, :day, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
+            $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, date, isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :date, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
             $q->bindValue(':folderNumber', $folderNumber, PDO::PARAM_STR);
             $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
             $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
             $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $folder->getDate(), PDO::PARAM_STR );
             $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
             $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
             $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
@@ -183,23 +183,9 @@ class FoldersManager
     public function getListByDate($companyid, $datefrom, $dateto)
     {
         try{
-            $dateTab = explode("/",$datefrom);
-            $yearfrom = $dateTab[2];
-            $monthfrom = $dateTab[1];
-            $dayfrom = $dateTab[0];
 
-            $dateTab2 = explode("/",$dateto);
-            $yearto = $dateTab2[2];
-            $monthto = $dateTab2[1];
-            $dayto = $dateTab2[0];
 
-            if($dayfrom == $dayto AND $monthto != $monthfrom)
-            {
-                $monthto = $monthto - 1;
-                $dayto = 31;
-            }
-
-            $query = "SELECT * FROM folder WHERE companyId=$companyid AND `year` >= $yearfrom AND `month` >= $monthfrom AND `day` >= $dayfrom AND `year` <= $yearto AND `month` <= $monthto AND `day` <= $dayto AND isActive ='1' ORDER BY folderNumber ASC";
+            $query = "SELECT * FROM folder WHERE date BETWEEN '".$datefrom." AND '".$dateto."' AND 'companyId=$companyid AND  isActive ='1' ORDER BY folderNumber ASC";
             $folders = [];
 
             echo $query;
