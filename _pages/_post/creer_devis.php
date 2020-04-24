@@ -36,9 +36,8 @@ if(empty($_POST['comment'])){
 
 
 $date = date("Y-m-d");
+$status = "En cours";
 $type = "D";
-echo $date;
-
 
 $data = array(
     'status' => $status,
@@ -55,7 +54,6 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-print_r($quotation);
 
 $quotationNumber = $quotationmanager->add($quotation);
 
