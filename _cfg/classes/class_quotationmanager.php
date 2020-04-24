@@ -48,10 +48,9 @@ class QuotationManager
         $lastId = $this->count();
         $quotationNumber = date("Ym",strtotime($quotation->getDate())).($lastId + 1);
         $quotation->setQuotationNumber($quotationNumber);
-        print_r($quotation);
         try{
             $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, label, date, type, comment, companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :label, :date, :type, :comment, :companyId, :folderId, :customerId, :contactId)');
-            $q->bindValue(':quotationNumber', intval($quotation->getQuotationNumber()), PDO::PARAM_INT);
+            $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_INT);
             $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
