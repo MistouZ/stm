@@ -35,18 +35,13 @@ if(empty($_POST['comment'])){
 }
 
 
-$year = date("Y");
-$month = date("m");
-$day = date("d");
-$status = "En cours";
+$date = date("Y-m-d");
 $type = "D";
 
 $data = array(
     'status' => $status,
     'label' => $label,
-    'year' => $year,
-    'month' => $month,
-    'day' => $day,
+    'date' => $date,
     'type' => $type,
     'comment' => $comment,
     'folderId' => $folderId,
