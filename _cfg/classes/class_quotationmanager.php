@@ -50,13 +50,11 @@ class QuotationManager
         $quotation->setQuotationNumber($quotationNumber);
         //print_r($quotation);
         try{
-            $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, label, year,month,day, type, comment, companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :label, :year, :month, :day, :type, :comment, :companyId, :folderId, :customerId, :contactId)');
+            $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, label, date, type, comment, companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :label, :date, :type, :comment, :companyId, :folderId, :customerId, :contactId)');
             $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_INT);
             $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
             $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
             $q->bindValue(':companyId', $quotation->getCompanyId(), PDO::PARAM_INT);
@@ -415,13 +413,11 @@ class QuotationManager
     public function update(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET status = :status, label = :label, year = :year, month = :month, day = :day, type = :type, comment = :comment, companyId = :companyId, folderId = :folderId, customerId = :customerId, contactId = :contactId WHERE idQuotation= :idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET status = :status, label = :label, date=: date, type = :type, comment = :comment, companyId = :companyId, folderId = :folderId, customerId = :customerId, contactId = :contactId WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
             $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
             $q->bindValue(':companyId', $quotation->getCompanyId(), PDO::PARAM_INT);
@@ -440,12 +436,10 @@ class QuotationManager
     public function changeType(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET type = :type, status = :status, year = :year, month = :month, day = :day WHERE idQuotation= :idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET type = :type, status = :status, date = :date WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
             $q->execute();
             return "ok";
@@ -458,11 +452,9 @@ class QuotationManager
     public function toInvoice(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET type = \'F\', year = :year,month = :month,day = :day,comment = :comment WHERE $idQuotation= :$idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET type = \'F\', date = :date, comment = :comment WHERE $idQuotation= :$idQuotation');
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
             $q->execute();
             return "ok";
@@ -476,11 +468,9 @@ class QuotationManager
     public function toAsset(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET type = \'A\', year = :year,month = :month,day = :day,comment = :comment WHERE $idQuotation= :$idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET type = \'A\', date = :date,comment = :comment WHERE $idQuotation= :$idQuotation');
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
             $q->execute();
             return "ok";
@@ -494,11 +484,9 @@ class QuotationManager
     public function changeDate(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET year = :year, month = :month, day = :day WHERE idQuotation= :idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET date = :date  WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
-            $q->bindValue(':year', $quotation->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $quotation->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $quotation->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->execute();
             return "ok";
         }
