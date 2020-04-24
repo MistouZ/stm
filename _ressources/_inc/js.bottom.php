@@ -41,7 +41,7 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/scripts/app.min.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier"){ ?>
+<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier" || $_GET["soussouscat"] == "creer"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/table-datatables-responsive.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-samples.min.js" type="text/javascript"></script>
