@@ -61,8 +61,6 @@ echo "j'ai créé le devis : ".$quotationNumber;
 //Ajout des lignes du devis
 $descriptions= array();
 
-print_r($_POST["descriptionDevis"]);
-
 $i=1;
 while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
@@ -97,6 +95,7 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
 
+echo "j'ai réussi";
 
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
