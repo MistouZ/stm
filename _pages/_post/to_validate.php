@@ -17,7 +17,7 @@ $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
-    'status' => 'Valide',
+    'status' => 'Validated',
 );
 
 $type2 = "valides";
