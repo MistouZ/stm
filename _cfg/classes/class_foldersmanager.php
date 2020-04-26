@@ -183,8 +183,8 @@ class FoldersManager
     public function getListByDate($companyid, $datefrom, $dateto)
     {
         try{
-            $datefrom = date('Y-m-d',strtotime($datefrom));
-            $dateto = date('Y-m-d',strtotime($dateto));
+            $datefrom = date('Y-d-m',strtotime($datefrom));
+            $dateto = date('Y-d-m',strtotime($dateto));
 
             $query = "SELECT * FROM folder WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId=$companyid AND  isActive ='1' ORDER BY folderNumber ASC";
             $folders = [];
