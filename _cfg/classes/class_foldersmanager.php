@@ -184,8 +184,8 @@ class FoldersManager
     {
         try{
 
-            $datefrom = date('d/m/Y',strtotime($datefrom));
-            $dateto = date('d/m/Y',strtotime($dateto));
+            $datefrom = date('Y-m-d',strtotime($datefrom));
+            $dateto = date('Y-m-d',strtotime($dateto));
 
 
             $query = "SELECT * FROM folder WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='".$companyid."' AND  isActive ='1' ORDER BY folderNumber ASC";
