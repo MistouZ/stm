@@ -184,6 +184,9 @@ class FoldersManager
     {
         try{
 
+            $datefrom = str_replace('/','-',$datefrom);
+            $dateto = str_replace('/','-',$dateto);
+
             $datefrom = date('Y-m-d',strtotime($datefrom));
             $dateto = date('Y-m-d',strtotime($dateto));
 
