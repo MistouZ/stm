@@ -60,7 +60,7 @@ echo "j'ai créé le devis : ".$quotationNumber;
 
 //Ajout des lignes du devis
 $descriptions= array();
-/*
+
 $i=1;
 while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
@@ -95,76 +95,77 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
 
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
 
-*/
-if(!empty(current($_POST["descriptionOption"]))){
-    echo "pas vide";
+if(empty(current($_POST["descriptionOption"]))){
+    $test2 = 1;
+}
+else {
+    $i = 1;
+    while (($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE) {
+
+        $j = key($_POST["descriptionOption"]);
+        if (strlen(trim($postDescriptionOption)) > 0) {
+            if (empty($_POST["remiseOption"][$j])) {
+                $remise = 0;
+            } else {
+                $remise = $_POST["remiseOption"][$j];
+            }
+            if (empty($_POST["quantiteOption"][$j])) {
+                $qt = 1;
+            } else {
+                $qt = $_POST["quantiteOption"][$j];
+            }
+            $price = $_POST["prixOption"][$j];
+            $tax = $_POST["taxeOption"][$j];
+            $dataDescriptionOption = array(
+                'description' => $postDescriptionOption,
+                'quantity' => $qt,
+                'discount' => $remise,
+                'price' => $price,
+                'tax' => $tax
+            );
+
+            $descriptionOption = new Description($dataDescriptionOption);
+            $descriptionsOption[$i] = $descriptionOption;
+        }
+        $i++;
+        next($_POST["descriptionOption"]);
+    }
+
+    $quotationNumberOption = $quotationNumber . '_option';
+    $test2 = $descriptionmanager->add($descriptionsOption, $quotationNumberOption);
+}
+
+if(empty(current($_POST["descriptionCout"]))){
+    $test3 = 1;
 }
 else{
-    echo "vide";
-}
-print_r(current($_POST["descriptionOption"]));/*
-$i=1;
-while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
+    $i=1;
+    while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
-    $j = key($_POST["descriptionOption"]);
-    if(strlen(trim($postDescriptionOption))>0){
-        if(empty($_POST["remiseOption"][$j])){
-            $remise = 0;
-        }else{
-            $remise = $_POST["remiseOption"][$j];
+        $j = key($_POST["descriptionCout"]);
+        if(strlen(trim($postDescriptionCout))>0){
+
+            $price = $_POST["prixCout"][$j];
+            $supplier = $_POST["fournisseur"][$j];
+            $dataDescriptionCout= array(
+                'description' => $postDescriptionCout,
+                'value' => $price,
+                'folderId' => $folderId,
+                'supplierId' => $supplier
+            );
+
+            $descriptionCout = new Cost($dataDescriptionCout);
+            $descriptionsCout[$i] = $descriptionCout;
         }
-        if(empty($_POST["quantiteOption"][$j])){
-            $qt = 1;
-        }else{
-            $qt = $_POST["quantiteOption"][$j];
-        }
-        $price = $_POST["prixOption"][$j];
-        $tax = $_POST["taxeOption"][$j];
-        $dataDescriptionOption= array(
-            'description' => $postDescriptionOption,
-            'quantity' => $qt,
-            'discount' => $remise,
-            'price' => $price,
-            'tax' => $tax
-        );
-
-        $descriptionOption = new Description($dataDescriptionOption);
-        $descriptionsOption[$i] = $descriptionOption;
+        $i++;
+        next($_POST["descriptionCout"]);
     }
-    $i++;
-    next($_POST["descriptionOption"]);
+
+
+    $test3 = $costmanager->add($descriptionsCout,$quotationNumber);
+    echo "j'ai réussi 3";
 }
 
-$quotationNumberOption = $quotationNumber.'_option';
-$test2 = $descriptionmanager->add($descriptionsOption,$quotationNumberOption);
-
-echo "j'ai réussi 2";
-
-$i=1;
-while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
-
-    $j = key($_POST["descriptionCout"]);
-    if(strlen(trim($postDescriptionCout))>0){
-
-        $price = $_POST["prixCout"][$j];
-        $supplier = $_POST["fournisseur"][$j];
-        $dataDescriptionCout= array(
-            'description' => $postDescriptionCout,
-            'value' => $price,
-            'folderId' => $folderId,
-            'supplierId' => $supplier
-        );
-
-        $descriptionCout = new Cost($dataDescriptionCout);
-        $descriptionsCout[$i] = $descriptionCout;
-    }
-    $i++;
-    next($_POST["descriptionCout"]);
-}
-
-
-$test3 = $costmanager->add($descriptionsCout,$quotationNumber);
-echo "j'ai réussi 3";
 
 if(is_null($test) || is_null($test2) || is_null($test3))
 {
