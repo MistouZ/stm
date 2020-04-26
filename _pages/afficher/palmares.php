@@ -105,10 +105,11 @@ if(isset($_POST['valider'])) {
                             foreach ($descriptions as $description) {
                                 $montant = calculMontantTotalTTC($description, $montant);
                             }
-                            if($quotation->getStatus == "En cours"){
+
+                            if($quotation->getStatus() == "En cours"){
                                 $status = "cours";
                             }
-                            elseif($quotation->getStatus == "Validé"){
+                            elseif($quotation->getStatus() == "Validé"){
                                 $status = "valides";
                             }
 
