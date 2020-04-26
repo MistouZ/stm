@@ -141,7 +141,7 @@
             </li>
             <li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/facture/afficher/valides'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-list-alt"></i> Validés</span>
+                    <span class="title"><i class="far fa-list-alt"></i> Validées</span>
                 </a>
             </li>
         </ul>
