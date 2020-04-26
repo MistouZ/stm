@@ -14,6 +14,10 @@ if(isset($_POST['valider'])) {
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
 
+    echo $datefrom;
+    echo $dateto;
+
+
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
