@@ -17,8 +17,7 @@ if(isset($_POST['valider'])) {
     echo $datefrom;
     echo $dateto;
 
-    $datefrom = date('y-m-d', strtotime($datefrom));
-    $dateto = date('y-m-d', strtotime($dateto));
+    str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."");
 
     $array = array();
     /*initilisation des objets */
