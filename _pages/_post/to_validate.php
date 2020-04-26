@@ -20,6 +20,7 @@ $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'status' => 'Validated',
 );
+print_r($data);
 /*
 $type2 = "valides";
 
