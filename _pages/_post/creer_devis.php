@@ -99,6 +99,9 @@ $test = $descriptionmanager->add($descriptions,$quotationNumber);
 if(!empty(current($_POST["descriptionOption"]))){
     echo "pas vide";
 }
+else{
+    echo "vide";
+}
 print_r(current($_POST["descriptionOption"]));/*
 $i=1;
 while(($postDescriptionOption = current($_POST["descriptionOption"])) !== FALSE ){
