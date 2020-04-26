@@ -28,6 +28,8 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeStatus($quotation);
+
+
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{

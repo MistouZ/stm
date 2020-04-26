@@ -451,7 +451,7 @@ class QuotationManager
     public function changeStatus(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET status = :status,  WHERE idQuotation= :idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET status = :status  WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->execute();
