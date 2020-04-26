@@ -184,19 +184,12 @@ class FoldersManager
     {
         try{
 
-            $datefrom = str_replace('/','-',$datefrom);
-            $dateto = str_replace('/','-',$dateto);
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
 
-            $datefrom = date('Y-m-d',strtotime($datefrom));
-            $dateto = date('Y-m-d',strtotime($dateto));
-
-
-            $query = "SELECT * FROM folder WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='".$companyid."' AND  isActive ='1' ORDER BY folderNumber ASC";
             $folders = [];
 
-            echo $query;
-
-            $q=$this->_db->query($query);
+            $q=$this->_db->query("SELECT * FROM folder WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='".$companyid."' AND  isActive ='1' ORDER BY folderNumber ASC");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $folders[] = new Folder($donnees);
