@@ -308,6 +308,15 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
+            <?php if($type =="facture")
+                {?>
+                    <div class="modal-footer">
+                        <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                        <button type="submit" class="btn green" name="valider">
+                            <i class="fa fa-check"></i> Valider</button>
+                    </div>
+            <?php
+                }?>
         </div>
         <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
