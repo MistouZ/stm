@@ -37,7 +37,7 @@ switch($type){
     case "devis":
         if($type2=="cours"){
             if($verif == $username){
-                $foldermanager2 = $foldermanager2->getListActiveByUser($username, $company->getIdcompany());
+                $foldermanager2 = $foldermanager2->getListByUser($username, $company->getIdcompany());
                 $quotations = $quotationmanager->getListQuotationByFilteredFolders($foldermanager2, $folder2);
             }
             else{
