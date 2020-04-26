@@ -8,7 +8,8 @@ ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
 include("../../_cfg/cfg.php");
 
 $idQuotation = $_POST['quotationNumber'];
-$type2 = $_POST['type'];
+
+echo $idQuotation;
 
 $array = array();
 $quotationNumber = new Quotation($array);
@@ -19,7 +20,7 @@ $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'status' => 'Validated',
 );
-
+/*
 $type2 = "valides";
 
 $quotation = new Quotation($data);
