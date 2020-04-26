@@ -109,7 +109,7 @@ if(isset($_POST['valider'])) {
                             if($quotation->getStatus() == "En cours"){
                                 $status = "cours";
                             }
-                            elseif($quotation->getStatus() == "Validé"){
+                            elseif($quotation->getStatus() == "Valide"){
                                 $status = "valides";
                             }
 
