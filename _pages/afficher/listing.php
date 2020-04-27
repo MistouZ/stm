@@ -405,7 +405,7 @@ if(count($quotations)>0) {
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
                             </button>
                             <button type="button" class="btn green" id="validerFacture" name="validerFacture" value="factures"
-                                    onclick="submitDate('validate');">
+                                    onclick="submitInvoice('validate');">
                                 <i class="fa fa-check"></i> Valider
                             </button>
                         </div>
