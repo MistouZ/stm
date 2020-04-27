@@ -14,9 +14,10 @@ spl_autoload_register(function ($className) {
 });
 
 
-/*
+
 include 'classes/class_db.php';
 include 'classes/class_features.php';
+/*
 include 'classes/class_company.php';
 include 'classes/class_companiesmanager.php';
 include 'classes/class_customers.php';
