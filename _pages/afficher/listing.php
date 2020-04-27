@@ -395,7 +395,7 @@ if(count($quotations)>0) {
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span style="font-style: italic; font-weight: 800;"></span></h4>
+                    <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?>s <span style="font-style: italic; font-weight: 800;"></span></h4>
                 </div>
                 <div class="modal-body form">
                     <form action="" method="post" id="to_validate" class="form-horizontal form-row-seperated">
