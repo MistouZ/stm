@@ -141,7 +141,13 @@ if(isset($_POST['valider'])) {
                     $TotalCost = $TotalCost + $cost;
                 }*/
                 $TotalMarge = $TotalPalmares - $TotalCost;
-                $PercentMarge = ($TotalPalmares/$TotalCost)*100;
+                if($TotalCost != 0){
+                    $PercentMarge = ($TotalPalmares/$TotalCost)*100;
+                }
+                else{
+                    $PercentMarge = 100;
+                }
+
 
                 ?>
             </div>
