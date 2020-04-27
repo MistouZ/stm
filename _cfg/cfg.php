@@ -29,6 +29,8 @@ include 'classes/class_costmanager.php';
 include 'classes/class_shatteredquotation.php';
 include 'classes/class_shatteredquotationmanager.php';
 
+spl_autoload_register('my_autoloader');
+
 
 global $bdd;
 $bdd = new DB();
