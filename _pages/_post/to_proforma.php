@@ -68,18 +68,15 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $label = $quotationGet->getLabel();
     $type3 = $quotationGet->getType();
 
-    $year = date("Y");
-    $month = date("m");
-    $day = date("d");
+    $date = date("Y-m-d");
     $status = "En cours";
     $type = "S"; // shattered quotation
 
     $data = array(
         'status' => $status,
         'label' => $label,
-        'year' => $year,
-        'month' => $month,
-        'day' => $day,
+        'date' => $date,
+        'validatedDate' => $today,
         'type' => $type,
         'comment' => $comment,
         'folderId' => $folderId,
@@ -177,9 +174,8 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
         'status' => 'En cours',
-        'year' => $year,
-        'month' => $month,
-        'day' => $day,
+        'date' => $date,
+        'validatedDate' => $today,
         'type' => 'P'
     );
     $quotation = new Quotation($data);
