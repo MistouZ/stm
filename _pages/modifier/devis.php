@@ -53,7 +53,7 @@ $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
-$date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+$date = date('d/m/Y',strtotime($quotation->getDate()));
 
 ?>
 <div class="row">
