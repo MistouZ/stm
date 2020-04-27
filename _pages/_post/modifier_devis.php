@@ -40,13 +40,11 @@ if(!empty($_POST['comment'])){
     $comment = "";
 }
 
-echo $_POST['date'];
 
 $date = date("Y-m-d", strtotime(str_replace('/','-',$_POST['date'])));
 
-echo $date;
 
-/*
+
 $status = "En cours";
 $type = "D";
 
