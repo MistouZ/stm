@@ -142,6 +142,32 @@ class CostManager
             return null;
         }
     }
+
+
+    /**
+     * Find all Costs from Filtered Folders
+     * @param $folders
+     * @param $folder
+     * @return costs
+     */
+    public function getListByFilteredFolder($folders, $folder)
+    {
+        $costs = array();
+        try{
+            foreach ($folders as $folder) {
+                $folderId = $folder->getIdFolder();
+                $q = $this->_db->query("SELECT * FROM `cost` WHERE folderId = '$folderId'");
+                while ($donnees = $q->fetch(PDO::FETCH_ASSOC)) {
+                    $costs[] = new Cost($donnees);
+                }
+            }
+            return $costs;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
     /**
      * Find a Cost by his iD
      * @param $supplierId

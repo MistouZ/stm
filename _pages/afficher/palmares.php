@@ -57,6 +57,9 @@ if(isset($_POST['valider'])) {
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
     }
 
+    //récupération des coûts liés au dossier.
+
+    $costs = $costmanager->getByFolderId()
 
 
 }
