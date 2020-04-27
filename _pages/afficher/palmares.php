@@ -37,7 +37,6 @@ if(isset($_POST['valider'])) {
     $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
 
     if($type == "devis"){
-        echo $type;
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
     }
     elseif ($type == "proformas")
