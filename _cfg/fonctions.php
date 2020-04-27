@@ -7,6 +7,7 @@ function autoloadClass($className) {
       }
 }
 
+spl_autoload_register('autoloadClass');
 
 function getContactFormFolder($idFolder){
 
