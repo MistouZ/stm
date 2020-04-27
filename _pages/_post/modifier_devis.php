@@ -60,6 +60,7 @@ $data = array(
 print_r($data);
 $quotation = new Quotation($data);
 $test = $quotationmanager->update($quotation);
+echo $test;
 $descriptions= array();
 
 $i=1;
