@@ -140,6 +140,8 @@ if(isset($_POST['valider'])) {
                     $cost = 0;
                     $TotalCost = $TotalCost + $cost;
                 }*/
+                $TotalMarge = $TotalPalmares - $TotalCost;
+                $PercentMarge = ($TotalPalmares/$TotalCost)*100;
 
                 ?>
             </div>
@@ -167,7 +169,7 @@ if(isset($_POST['valider'])) {
         <div class="well">
             <div class="row static-info align-reverse">
                 <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Marge TTC : </div>
-                <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
+                <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($TotalMarge,0,","," "); ?> XPF</div>
             </div>
         </div>
     </div>
@@ -176,7 +178,7 @@ if(isset($_POST['valider'])) {
         <div class="well">
             <div class="row static-info align-reverse">
                 <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Pourcentage de marge : </div>
-                <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
+                <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($PercentMarge,0,","," "); ?> %</div>
             </div>
         </div>
     </div>
