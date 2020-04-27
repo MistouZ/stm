@@ -159,11 +159,9 @@ if(isset($_POST['valider'])) {
     </div>
     <div class="col-md-6"> </div>
     <div class="col-md-6">
-        <div class="well">
-            <div class="row static-info align-reverse">
-                <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Total Cout : </div>
-                <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($TotalCost,0,","," "); ?> XPF</div>
-            </div>
+        <div class="row static-info align-reverse">
+            <div class="col-md-8 name"> Total Coûts : </div>
+            <div class="col-md-3 value"> <?php echo number_format($TotalCost,0,","," "); ?> XPF</div>
         </div>
     </div>
 </div>
