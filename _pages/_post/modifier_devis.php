@@ -57,7 +57,7 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
-
+print_r($data);
 $quotation = new Quotation($data);
 $test = $quotationmanager->update($quotation);
 $descriptions= array();
