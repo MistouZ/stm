@@ -19,6 +19,8 @@ $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
 
 $date = date("Y-m-d", strtotime($_POST['date']));
 
+$today = date("Y-m-d");
+
 print_r($_POST["selection"]);
 
 if($_POST["shattered"] == "full" || $percent == 100)
@@ -27,7 +29,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
         'idQuotation' => $quotationGet->getIdQuotation(),
         'status' => 'En cours',
         'date' => $date,
-        'type' => 'P'
+        'validatedDate' => $today,
     );
 
     $quotation = new Quotation($data);

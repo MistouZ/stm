@@ -19,11 +19,14 @@ $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 
 $date = date("Y-m-d", strtotime($_POST['date']));
 
+$today = date("Y-m-d");
+
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'status' => 'En cours',
     'label' => $label,
     'date' => $date,
+    'validatedDate' => $today,
     'type' => 'P'
 );
 
