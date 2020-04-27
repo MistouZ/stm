@@ -60,7 +60,7 @@ $data = array(
 print_r($data);
 $quotation = new Quotation($data);
 $test = $quotationmanager->update($quotation);
-print_r($test);
+
 $descriptions= array();
 
 $i=1;
@@ -165,9 +165,7 @@ else{
     $test4 = $costmanager->update($descriptionsCout,$quotationNumber);
 }
 
-echo $test." ".$test2." ".$test3." ".$test4;
 
-/*
 if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4))
 {
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
