@@ -1,5 +1,5 @@
 <?php
-function __autoload($className) {
+function autoloadClass($className) {
       if (file_exists('./classes/class_'.strtolower($className) . '.php')) { 
           require_once './classes/class_'.strtolower($className) . '.php';
       }else{

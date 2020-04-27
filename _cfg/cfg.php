@@ -1,9 +1,10 @@
 <?php
-
+include("fonctions.php");
+spl_autoload_register("autoloadClass");
 $host = explode('.', $_SERVER['HTTP_HOST']);
 
 define('URLHOST','http://'.$host[0].'.bitwin.nc/');
-
+/*
 include 'classes/class_db.php';
 include 'classes/class_features.php';
 include 'classes/class_company.php';
@@ -27,7 +28,7 @@ include 'classes/class_descriptionmanager.php';
 include 'classes/class_cost.php';
 include 'classes/class_costmanager.php';
 include 'classes/class_shatteredquotation.php';
-include 'classes/class_shatteredquotationmanager.php';
+include 'classes/class_shatteredquotationmanager.php';*/
 
 
 global $bdd;
