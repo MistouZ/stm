@@ -87,11 +87,6 @@ switch($type){
     case "facture":
     if($type2=="cours"){
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
-    }
-    elseif($type2=="valides"){
-        $quotations = $quotationmanager->getListValidatedInvoice($company->getIdcompany());
-    }
-
         $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
@@ -101,6 +96,18 @@ switch($type){
                             <i class="fa fa-check"></i> => Valider </a>
                     </div>';
         break;
+    }
+    elseif($type2=="valides"){
+        $quotations = $quotationmanager->getListValidatedInvoice($company->getIdcompany());
+        $buttons = '<div id="actions" style="display:none;">
+                        <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
+                            <i class="fas fa-file-prescription"></i> => Avoir </a>
+                        <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
+                            <i class="fas fa-file-invoice"></i> => Devis </a>
+                    </div>';
+        break;
+    }
+
     case "avoir":
         $quotations = $quotationmanager->getListAsset($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
