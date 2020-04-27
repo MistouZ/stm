@@ -31,6 +31,9 @@ if(isset($_POST['valider'])) {
     $customer = new Customers($array);
     $customermanager = new CustomersManager($bdd);
 
+    $cost = new Cost($array);
+    $costmanager = new CostManager($bdd);
+
     $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
