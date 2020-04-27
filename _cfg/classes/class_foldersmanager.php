@@ -203,6 +203,32 @@ class FoldersManager
     }
 
     /**
+     * Get all the active folder in the BDD between date and for a user
+     * @return array
+     */
+    public function getListByDateAndUser($companyid, $username, $datefrom, $dateto)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $folders = [];
+
+            $q=$this->_db->query("SELECT * FROM folder WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='".$companyid."' AND seller='".$username."' AND  isActive ='1' ORDER BY folderNumber ASC");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $folders[] = new Folder($donnees);
+            }
+
+            return $folders;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
      * Update folders information
      * @param folder $folder
      */
