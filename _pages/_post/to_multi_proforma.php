@@ -17,7 +17,7 @@ $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 
-$date = date("Y-m-d", strtotime($_POST['date']));
+$date = $_POST['date'];
 
 $today = date("Y-m-d");
 
