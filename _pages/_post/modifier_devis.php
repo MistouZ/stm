@@ -171,6 +171,6 @@ if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4))
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
-  header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$idQuotation."/success");
+  header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/".$type2."/".$quotationNumber."/success");
 }
 ?>
