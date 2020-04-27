@@ -1,5 +1,5 @@
 <?php
-function my_autoloader($className) {
+function __autoload($className) {
       if (file_exists('./classes/class_'.strtolower($className) . '.php')) { 
           require_once './classes/class_'.strtolower($className) . '.php';
       }else{
@@ -7,7 +7,6 @@ function my_autoloader($className) {
       }
 }
 
-spl_autoload_register('my_autoloader');
 
 function getContactFormFolder($idFolder){
 
