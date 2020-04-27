@@ -91,6 +91,12 @@ function calculCoutTotal(Cost $cost, $cout){
     return $cout;
 }
 
+function calculMarge($TotalMontant, $TotalMarge)
+{
+    $marge = ($TotalMarge/$TotalMontant)*100;
+    return $marge;
+}
+
 function getPercentOfNumber($number, $percent){
     return ($percent / 100) * $number;
 }
