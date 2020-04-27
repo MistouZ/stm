@@ -459,6 +459,7 @@ class QuotationManager
     public function changeType(Quotation $quotation)
     {
         try{
+            $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
             $q = $this->_db->prepare('UPDATE quotation SET type = :type, status = :status, date = :date, validatedDate =:validatedDate WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
@@ -491,6 +492,7 @@ class QuotationManager
     public function toInvoice(Quotation $quotation)
     {
         try{
+            $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
             $q = $this->_db->prepare('UPDATE quotation SET type = \'F\', date = :date, comment = :comment, validatedDate =:validatedDate WHERE $idQuotation= :$idQuotation');
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
@@ -508,6 +510,7 @@ class QuotationManager
     public function toAsset(Quotation $quotation)
     {
         try{
+            $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
             $q = $this->_db->prepare('UPDATE quotation SET type = \'A\', date = :date,comment = :comment WHERE $idQuotation= :$idQuotation');
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
@@ -524,6 +527,7 @@ class QuotationManager
     public function changeDate(Quotation $quotation)
     {
         try{
+            $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
             $q = $this->_db->prepare('UPDATE quotation SET date = :date  WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
