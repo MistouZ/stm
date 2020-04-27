@@ -100,6 +100,7 @@ if(isset($_POST['valider'])) {
                             <th class="min-phone-l">Numéro de <?php echo $type; ?></th>
                             <th class="min-tablet">Client</th>
                             <th class="min-phone-l">Montant total</th>
+                            <th class="min-tablet">Marge</th>
                             <th class="desktop">Détail</th>
                         </tr>
                         </thead>
@@ -139,6 +140,15 @@ if(isset($_POST['valider'])) {
                             $TotalPalmares = $TotalPalmares + $montant;
 
 
+                            $TotalCost = 0;
+                            foreach ($costs as $cost) {
+                                $TotalCost = calculCoutTotal($cost, $TotalCost);
+                            }
+                            $TotalMarge = $TotalPalmares - $TotalCost;
+
+                            $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
+
+
                             ?>
                             <tr>
                                 <td><?php echo $date; ?></td>
@@ -147,6 +157,7 @@ if(isset($_POST['valider'])) {
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
+                                <td><?php echo $PercentMarge;  ?> %</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             </tr>
                             <?php
@@ -154,19 +165,6 @@ if(isset($_POST['valider'])) {
                         ?>
                         </tbody>
                     </table>
-            </div>
-            <div>
-                <?php
-                $TotalCost = 0;
-                foreach($costs as $cost){
-                    $TotalCost =  calculCoutTotal($cost,$TotalCost);
-                }
-                $TotalMarge = $TotalPalmares - $TotalCost;
-
-                $PercentMarge =calculMarge($TotalPalmares,$TotalMarge);
-
-
-                ?>
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
