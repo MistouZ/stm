@@ -39,7 +39,10 @@ if(isset($_POST['valider'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
-    if(empty($seller))
+    if(empty($seller) && empty($datefrom)){
+        $filteredFolder = $foldermanager->getList($idCompany);
+    }
+    elseif(empty($seller))
     {
         $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
     }
