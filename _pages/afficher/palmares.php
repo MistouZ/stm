@@ -84,6 +84,8 @@ if(isset($_POST['valider'])) {
                         </thead>
                         <tbody>
                         <?php
+                        $TotalPalmares = 0;
+
                         foreach($quotations as $quotation){
 
                             //initialisation au format date pour organiser le tableau
@@ -113,6 +115,9 @@ if(isset($_POST['valider'])) {
                                 $status = "valides";
                             }
 
+                            $TotalPalmares = $TotalPalmares + $montant;
+
+
                             ?>
                             <tr>
                                 <td><?php echo $date; ?></td>
@@ -129,7 +134,36 @@ if(isset($_POST['valider'])) {
                         </tbody>
                     </table>
             </div>
+            <div>
+                <?php
+                $TotalCost = 0;
+                /*foreach($quotations as $quotation){
+                    $cost = 0;
+                    $TotalCost = $TotalCost + $cost;
+                }*/
+
+                ?>
+            </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6"> </div>
+    <div class="col-md-6">
+        <div class="well">
+            <div class="row static-info align-reverse">
+                <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
+                <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="well">
+            <div class="row static-info align-reverse">
+                <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Total Cout : </div>
+                <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($TotalCost,0,","," "); ?> XPF</div>
+            </div>
+        </div>
     </div>
 </div>
