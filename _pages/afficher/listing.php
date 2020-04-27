@@ -390,6 +390,30 @@ if(count($quotations)>0) {
             </div>
         </div>
     </div>
+    <div id="to_validate" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?> <span style="font-style: italic; font-weight: 800;"></span></h4>
+                </div>
+                <div class="modal-body form">
+                    <form action="" method="post" id="to_validate" class="form-horizontal form-row-seperated">
+                        <input type="hidden" id="quotationNumber" name="quotationNumber"
+                               value="<?php echo $quotation->getQuotationNumber(); ?>">
+                        <div class="modal-footer">
+                            <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
+                            </button>
+                            <button type="button" class="btn green" id="validerFacture" name="validerFacture" value="factures"
+                                    onclick="submitDate('validate');">
+                                <i class="fa fa-check"></i> Valider
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
 }
 ?>
@@ -431,6 +455,11 @@ if(count($quotations)>0) {
     function submitDate(selected){
         var inputSelected = $('#date_'+selected).val();
         $("#date").val(inputSelected);
+        $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
+        $('#multiSelection').submit();
+    }
+
+    function submitInvoice(selected){
         $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
         $('#multiSelection').submit();
     }
