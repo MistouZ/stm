@@ -85,7 +85,13 @@ switch($type){
                     </div>';
         break;
     case "facture":
+    if($type2=="cours"){
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
+    }
+    elseif($type2=="valides"){
+        $quotations = $quotationmanager->getListValidatedInvoice($company->getIdcompany());
+    }
+
         $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
