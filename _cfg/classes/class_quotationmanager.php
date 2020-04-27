@@ -456,11 +456,12 @@ class QuotationManager
     public function changeType(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET type = :type, status = :status, date = :date WHERE idQuotation= :idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET type = :type, status = :status, date = :date, validatedDate =:validatedDate WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
+            $q->bindValue(':validatedDate', $quotation->getValidatedDate(), PDO::PARAM_STR);
             $q->execute();
             return "ok";
         }
@@ -472,9 +473,10 @@ class QuotationManager
     public function changeStatus(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET status = :status  WHERE idQuotation= :idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET status = :status, validatedDate =:validatedDate  WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
+            $q->bindValue(':validatedDate', $quotation->getValidatedDate(), PDO::PARAM_STR);
             $q->execute();
             return "ok";
         }
@@ -486,10 +488,11 @@ class QuotationManager
     public function toInvoice(Quotation $quotation)
     {
         try{
-            $q = $this->_db->prepare('UPDATE quotation SET type = \'F\', date = :date, comment = :comment WHERE $idQuotation= :$idQuotation');
+            $q = $this->_db->prepare('UPDATE quotation SET type = \'F\', date = :date, comment = :comment, validatedDate =:validatedDate WHERE $idQuotation= :$idQuotation');
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
+            $q->bindValue(':validatedDate', $quotation->getValidatedDate(), PDO::PARAM_STR);
             $q->execute();
             return "ok";
         }
