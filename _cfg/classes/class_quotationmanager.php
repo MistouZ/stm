@@ -49,8 +49,7 @@ class QuotationManager
         $quotationNumber = date("Ym",strtotime($quotation->getDate())).($lastId + 1);
         $quotation->setQuotationNumber($quotationNumber);
 
-        $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
-        $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+        $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
 
         try{
             $q = $this->_db->prepare('INSERT INTO quotation (quotationNumber, status, label, date, type, comment, companyId,folderId,customerId, contactId) VALUES (:quotationNumber, :status, :label, :date, :type, :comment, :companyId, :folderId, :customerId, :contactId)');
