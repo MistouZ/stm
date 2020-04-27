@@ -28,6 +28,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
         'status' => 'En cours',
         'date' => $date,
         'validatedDate' => $today,
+        'type' => 'P'
     );
 
     $quotation = new Quotation($data);
