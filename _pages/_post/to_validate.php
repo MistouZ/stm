@@ -11,6 +11,8 @@ $idQuotation = $_POST['quotationNumber'];
 
 echo $idQuotation;
 
+$today = date("Y-m-d");
+
 $array = array();
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
@@ -19,6 +21,7 @@ $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'status' => 'Validated',
+    'validatedDate' => $today,
 );
 
 $type2 = "valides";
