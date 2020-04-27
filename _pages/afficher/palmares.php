@@ -197,7 +197,7 @@ if(isset($_POST['valider'])) {
     <div class="col-md-6">
         <div class="well">
             <div class="row static-info align-reverse">
-                <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Pourcentage de marge : </div>
+                <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Marge : </div>
                 <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($PercentMarge,0,","," "); ?> %</div>
             </div>
         </div>
