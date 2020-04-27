@@ -19,6 +19,7 @@ class Quotation extends Features
     private $customerId;
     private $contactId;
     private $comment;
+    private $validatedDate;
 
     /**
      * Quotation constructor.
@@ -203,5 +204,23 @@ class Quotation extends Features
     {
         $this->contactId = $contactId;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getValidatedDate()
+    {
+        return $this->validatedDate;
+    }
+
+    /**
+     * @param mixed $validatedDate
+     */
+    public function setValidatedDate($validatedDate): void
+    {
+        $this->validatedDate = $validatedDate;
+    }
+
+
 
 }
