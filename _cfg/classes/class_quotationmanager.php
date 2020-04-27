@@ -439,8 +439,8 @@ class QuotationManager
             print_r($quotation);
             $q = $this->_db->prepare('UPDATE quotation SET status = :status, label = :label, date=: date, type = :type, comment = :comment, companyId = :companyId, folderId = :folderId, customerId = :customerId, contactId = :contactId WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
-            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':label', $quotation->getLabel(), PDO::PARAM_STR);
+            $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
             $q->bindValue(':comment', $quotation->getComment(), PDO::PARAM_STR);
@@ -450,8 +450,6 @@ class QuotationManager
             $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
     
             $q->execute();
-            $str = $q->last_query();
-            print_r($str);
 
             return "ok";
         }
