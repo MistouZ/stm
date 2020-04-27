@@ -150,7 +150,7 @@ class CostManager
      * @param $folder
      * @return costs
      */
-    public function getListByFilteredFolder($folders, $folder)
+    public function getCostByFilteredFolder($folders, $folder)
     {
         $costs = array();
         try{
