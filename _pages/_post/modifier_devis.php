@@ -42,7 +42,7 @@ if(!empty($_POST['comment'])){
 
 echo $_POST['date'];
 
-$date = date("Y-m-d", strtotime($_POST['date']));
+$date = date("Y-m-d", strtotime(str_replace('/','-',$_POST['date'])));
 
 echo $date;
 
