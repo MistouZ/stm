@@ -1,12 +1,12 @@
 <?php
-function __autoload($className) {
+/*function __autoload($className) {
       if (file_exists('./classes/class_'.strtolower($className) . '.php')) { 
           require_once './classes/class_'.strtolower($className) . '.php';
       }else{
         echo 'classes/class_'.$className . '.php - Not Found';
       }
 }
-
+*/
 
 function getContactFormFolder($idFolder){
 
