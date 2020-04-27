@@ -22,7 +22,7 @@ $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'status' => 'Validated',
-    'validatedDate' => $today,
+    'validatedDate' => $today
 );
 
 $quotation = new Quotation($data);

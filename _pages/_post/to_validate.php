@@ -21,7 +21,7 @@ $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'status' => 'Validated',
-    'validatedDate' => $today,
+    'validatedDate' => $today
 );
 
 $type2 = "valides";
