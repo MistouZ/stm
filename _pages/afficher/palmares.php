@@ -15,7 +15,6 @@ if(isset($_POST['valider'])) {
     $dateto = $_POST["date_to"];
 
     $seller = $_POST["seller"];
-    print_r($seller);
 
     $array = array();
     /*initilisation des objets */
