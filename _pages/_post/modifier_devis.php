@@ -40,6 +40,8 @@ if(!empty($_POST['comment'])){
     $comment = "";
 }
 
+echo $_POST['date'];
+
 $date = date("Y-m-d", strtotime($_POST['date']));
 
 echo $date;
