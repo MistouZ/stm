@@ -308,7 +308,7 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
-            <?php if($type =="facture")
+            <?php if($type =="facture" && $type2 !="valides")
                 {?>
                     <form action="<?php echo URLHOST."_pages/_post/to_validate.php"; ?>" method="post" id="to_validate" class="form-horizontal form-row-seperated">
                         <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
