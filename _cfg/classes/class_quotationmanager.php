@@ -449,7 +449,8 @@ class QuotationManager
             $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
     
             $q->execute();
-            echo $this->db->last_query();
+            $str = $q->last_query();
+            print_r($str);
 
             return "ok";
         }
