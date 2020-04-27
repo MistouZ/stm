@@ -14,6 +14,8 @@ if(isset($_POST['valider'])) {
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
 
+    $seller = $_POST["seller"];
+
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
@@ -37,7 +39,18 @@ if(isset($_POST['valider'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
-    $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
+    if(is_null($seller))
+    {
+        $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
+    }
+    elseif(!is_null($seller) && empty($datefrom))
+    {
+        $filteredFolder = $foldermanager->getListByUser($idCompany,$seller);
+    }
+    elseif (!is_null($seller) && !empty($datefrom))
+    {
+        $filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
+    }
 
     if($type == "devis"){
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
