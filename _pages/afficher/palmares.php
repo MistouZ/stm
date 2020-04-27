@@ -154,7 +154,7 @@ if(isset($_POST['valider'])) {
     <div class="col-md-6">
         <div class="row static-info align-reverse">
             <div class="col-md-8 name"> Total TTC : </div>
-            <div class="col-md-3 value"> <?php echo number_format($TotalCost,0,","," "); ?> XPF</div>
+            <div class="col-md-3 value"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
         </div>
     </div>
     <div class="col-md-6"> </div>
