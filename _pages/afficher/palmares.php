@@ -59,7 +59,7 @@ if(isset($_POST['valider'])) {
 
     //récupération des coûts liés au dossier.
 
-    $costs = $costmanager->getByFolderId()
+    $costs = $costmanager->getCostByFilteredFolder($filteredFolder,$folder);
 
 
 }
@@ -142,10 +142,9 @@ if(isset($_POST['valider'])) {
             <div>
                 <?php
                 $TotalCost = 0;
-                /*foreach($quotations as $quotation){
-                    $cost = 0;
-                    $TotalCost = $TotalCost + $cost;
-                }*/
+                foreach($costs as $cost){
+                    $TotalCost =  calculCoutTotal($cost,$TotalCost);
+                }
                 $TotalMarge = $TotalPalmares - $TotalCost;
                 if($TotalCost != 0){
                     $PercentMarge = ($TotalPalmares/$TotalCost)*100;
