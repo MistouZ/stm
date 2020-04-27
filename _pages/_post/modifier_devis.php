@@ -42,6 +42,9 @@ if(!empty($_POST['comment'])){
 
 $date = date("Y-m-d", strtotime($_POST['date']));
 
+echo $date;
+
+/*
 $status = "En cours";
 $type = "D";
 
