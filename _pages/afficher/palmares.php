@@ -42,17 +42,14 @@ if(isset($_POST['valider'])) {
 
     if(empty($seller))
     {
-        echo "pas de vendeur";
         $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
     }
     elseif(!empty($seller) && empty($datefrom))
     {
-        echo "juste un vendeur";
         $filteredFolder = $foldermanager->getListByUser($idCompany, $seller);
     }
     elseif (!empty($seller) && !empty($datefrom))
     {
-        echo "vendeur + date";
         $filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
     }
 
