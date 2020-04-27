@@ -6,10 +6,10 @@ define('URLHOST','http://'.$host[0].'.bitwin.nc/');
 
 spl_autoload_register(function ($className) {
     echo strtolower($className);
-    if (file_exists('classes/class_'.strtolower($className) . '.php')) {
-        require_once 'classes/class_'.strtolower($className) . '.php';
+    if (file_exists('./classes/class_'.strtolower($className) . '.php')) {
+        require_once './classes/class_'.strtolower($className) . '.php';
     }else{
-        echo 'classes/class_'.strtolower($className) . '.php - Not Found';
+        echo './classes/class_'.strtolower($className) . '.php - Not Found';
     }
 });
 
