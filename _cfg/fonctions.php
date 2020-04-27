@@ -1,14 +1,4 @@
 <?php
-/*function autoloadClass($className) {
-      if (file_exists('./classes/class_'.strtolower($className) . '.php')) { 
-          require_once './classes/class_'.strtolower($className) . '.php';
-      }else{
-        echo 'classes/class_'.$className . '.php - Not Found';
-      }
-}
-
-spl_autoload_register('autoloadClass');*/
-
 spl_autoload_register(function($className){
     if (file_exists('./classes/class_'.strtolower($className) . '.php')) {
         require_once './classes/class_'.strtolower($className) . '.php';
