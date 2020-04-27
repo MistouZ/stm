@@ -91,6 +91,8 @@ switch($type){
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
                         <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-invoice"></i> => Devis </a>
+                        <a data-toggle="modal" href="#to_validate" class="btn green btn-sm">
+                            <i class="fas fa-file-invoice"></i> => Valider </a>
                     </div>';
         break;
     case "avoir":
