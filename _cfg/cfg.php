@@ -4,19 +4,8 @@ $host = explode('.', $_SERVER['HTTP_HOST']);
 
 define('URLHOST','http://'.$host[0].'.bitwin.nc/');
 
-spl_autoload_register(function ($className) {
-    if (file_exists('./classes/class_'.strtolower($className) . '.php')) {
-        require_once './classes/class_'.strtolower($className) . '.php';
-    }else{
-        echo './classes/class_'.strtolower($className) . '.php - Not Found';
-    }
-});
-
-
-
 include 'classes/class_db.php';
 include 'classes/class_features.php';
-/*
 include 'classes/class_company.php';
 include 'classes/class_companiesmanager.php';
 include 'classes/class_customers.php';
@@ -40,8 +29,6 @@ include 'classes/class_costmanager.php';
 include 'classes/class_shatteredquotation.php';
 include 'classes/class_shatteredquotationmanager.php';
 
-spl_autoload_register('my_autoloader');
-*/
 
 global $bdd;
 $bdd = new DB();
