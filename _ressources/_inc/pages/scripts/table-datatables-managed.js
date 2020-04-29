@@ -209,7 +209,7 @@ var TableDatatablesManaged = function () {
             ] // set first column as a default sort by asc
         });
 
-        var tableWrapper = jQuery('#sample_3_wrapper');
+        var tableWrapper = jQuery('.table_wrapper');
 
         table.find('.group-checkable').change(function () {
             var set = jQuery(this).attr("data-set");
