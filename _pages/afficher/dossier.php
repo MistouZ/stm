@@ -39,7 +39,7 @@ $contact = $contactmanager->getById($folder->getContactId());
 $quotations = $quotationmanager->getByFolderId($folderId);
 $costs = $costManager->getByFolderId($folderId);
 
-$date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDay().'/'.$folder->getMonth().'/'.$folder->getYear()."")));
+$date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDate()."")));
 
 if(isset($_GET['cat5'])){
     $retour = $_GET['cat5'];
