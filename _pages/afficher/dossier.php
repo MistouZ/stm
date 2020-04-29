@@ -243,7 +243,7 @@ switch($type){
                                     $type2 = "cours";
                                 }
                             //initialisation au format date pour organiser le tableau
-                            $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                            $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
@@ -312,7 +312,7 @@ switch($type){
                                     $type2 = "cours";
                                 }
                             //initialisation au format date pour organiser le tableau
-                            $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                            $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
@@ -381,7 +381,7 @@ switch($type){
                                     $type2 = "cours";
                                 }
                                 //initialisation au format date pour organiser le tableau
-                                $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                                $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
                                 $descriptions = new Description($array);
                                 $descriptionmanager = new DescriptionManager($bdd);
                                 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
