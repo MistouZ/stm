@@ -152,7 +152,7 @@ switch($type){
                     <a href="" class="expand" data-original-title="" title=""> </a>
                 </div>
             </div>
-            <div class="portlet-body" style="display: none;">
+            <!--<div class="portlet-body" style="display: none;">
                 <form id="multiSelection" method="post">
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
@@ -211,7 +211,7 @@ switch($type){
                     <input type="hidden" name="date" id="date" />
                 </form>
             </div>
-        </div>
+        </div>-->
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
