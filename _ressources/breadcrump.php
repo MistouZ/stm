@@ -6,7 +6,7 @@
             if (isset($_GET['souscat']) AND (!isset($_GET['soussouscat'])) AND (!isset($_GET['soussoussouscat']))) {
                 print strtoupper($_GET['cat']); 
             }elseif(isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND (!isset($_GET['soussoussouscat']))){
-                print strtoupper($_GET['cat']) && print strtoupper($_GET["souscat"]);
+                print strtoupper($_GET['cat']);
             }elseif(isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND (isset($_GET['soussoussouscat']) AND ($_GET['soussoussouscat']!="contact"))){
                 print strtoupper($_GET['cat']);
             }elseif($_GET['soussoussouscat']=="contact"){
@@ -26,6 +26,9 @@
         ?>
         <i class="fa fa-circle" style="color: #aa134f;"></i>
         
+    </li>
+    <li>
+        <span class="active" style="color: #523a5f;"><?php print ucwords($_GET['cat']); ?></span>
     </li>
     <li>
         <span class="active" style="color: #523a5f; font-weight: 800;"><?php print ucwords($_GET['souscat']); ?></span>
