@@ -91,7 +91,7 @@ if(isset($_POST['valider'])) {
             </div>
             <div class="portlet-body">
 
-                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th class="all">Date</th>
