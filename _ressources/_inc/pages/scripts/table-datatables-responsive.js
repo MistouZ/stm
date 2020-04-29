@@ -134,11 +134,11 @@ var TableDatatablesResponsive = function () {
                 },
                 "emptyTable": "Aucune données disponible",
                 "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
-                "infoEmpty": "Aucune données trouveés",
+                "infoEmpty": "Aucune données trouvées",
                 "infoFiltered": "(filtrées sur un total de _MAX_)",
                 "lengthMenu": "_MENU_ entrées",
                 "search": "Recherche:",
-                "zeroRecords": "Aucune données trouveés"
+                "zeroRecords": "Aucune données trouvées"
             },
 
             // Or you can use remote translation file
