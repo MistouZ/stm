@@ -153,7 +153,6 @@ switch($type){
                 </div>
             </div>
             <div class="portlet-body" style="display: none;">
-
                     <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                         <tr>
@@ -208,7 +207,7 @@ switch($type){
                         ?>
                         </tbody>
                     </table>
-                    <input type="hidden" name="date" id="date" />
+                 <input type="hidden" name="date" id="date" />
             </div>
         </div>
         <div class="portlet box green">
