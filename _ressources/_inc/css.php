@@ -12,7 +12,7 @@
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/icheck/skins/all.css" rel="stylesheet" type="text/css" />
-<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier"){ 
+<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier" || $_GET["soussouscat"] == "creer" || $_GET["soussouscat"] == "afficher"){
         if($_GET['cat']=="societe"){ ?>
 <link href="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css" rel="stylesheet" type="text/css" />
         <?php } ?>
@@ -59,7 +59,7 @@
        -webkit-background-size: cover; /* pour Chrome et Safari */
        -moz-background-size: cover; /* pour Firefox */
        -o-background-size: cover; /* pour Opera */
-       background-size: cover; /* version standardisée */
+       background-size: cover; /* version standardisï¿½e */
     }
     
 </style>
