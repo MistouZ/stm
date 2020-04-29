@@ -264,7 +264,7 @@ switch($type){
                                            href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
-                                           data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
+                                           data-title="Supprimer la proforma n° <?php echo $quotation->getQuotationNumber(); ?> ?"
                                            data-content="ATTENTION ! La suppression est irréversible !"
                                            data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
                                            data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
@@ -333,7 +333,7 @@ switch($type){
                                            href="<?php echo URLHOST . $_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'. $quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
-                                           data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
+                                           data-title="Supprimer la facture n° <?php echo $quotation->getQuotationNumber(); ?> ?"
                                            data-content="ATTENTION ! La suppression est irréversible !"
                                            data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
                                            data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
@@ -402,7 +402,7 @@ switch($type){
                                            href="<?php echo URLHOST . $_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'. $quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
-                                           data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?"
+                                           data-title="Supprimer l'avoir' n° <?php echo $quotation->getQuotationNumber(); ?> ?"
                                            data-content="ATTENTION ! La suppression est irréversible !"
                                            data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success"
                                            data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger"
