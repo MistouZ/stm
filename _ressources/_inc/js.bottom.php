@@ -15,7 +15,7 @@
 <!-- BEGIN PAGE LEVEL PLUGINS -->
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-daterangepicker/moment.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/bootstrap-daterangepicker/daterangepicker.js" type="text/javascript"></script>
-<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier" || $_GET["soussouscat"] == "creer"){ ?>
+<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier" || $_GET["soussouscat"] == "creer" || $_GET["soussouscat"] == "afficher" ){ ?>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/jquery.validate.js" type="text/javascript"></script>
         <script src="<?php echo URLHOST;?>_ressources/_inc/global/plugins/jquery-validation/js/additional-methods.min.js" type="text/javascript"></script>
@@ -41,7 +41,7 @@
 <script src="<?php echo URLHOST;?>_ressources/_inc/global/scripts/app.min.js" type="text/javascript"></script>
 <!-- END THEME GLOBAL SCRIPTS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
-<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier" || $_GET["soussouscat"] == "creer" ){ ?>
+<?php if($_GET['souscat']=="afficher" || $_GET['souscat']=="creer" || $_GET['souscat']=="modifier" || $_GET["soussouscat"] == "creer" || $_GET["soussouscat"] == "afficher"){ ?>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/ui-modals.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/table-datatables-responsive.min.js" type="text/javascript"></script>
 <script src="<?php echo URLHOST;?>_ressources/_inc/pages/scripts/form-samples.min.js" type="text/javascript"></script>
