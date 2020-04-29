@@ -132,7 +132,7 @@ var TableDatatablesResponsive = function () {
                     "sortAscending": ": ascendant",
                     "sortDescending": ": descendant"
                 },
-                "emptyTable": "Aucune données disponible",
+                "emptyTable": "Aucune données disponibles",
                 "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
                 "infoEmpty": "Aucune données trouvées",
                 "infoFiltered": "(filtrées sur un total de _MAX_)",
