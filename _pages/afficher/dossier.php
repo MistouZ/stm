@@ -207,7 +207,6 @@ switch($type){
                         ?>
                         </tbody>
                     </table>
-                 <input type="hidden" name="date" id="date" />
             </div>
         </div>
         <div class="portlet box green">
@@ -274,7 +273,6 @@ switch($type){
                         ?>
                         </tbody>
                     </table>
-                    <input type="hidden" name="date" id="date" />
             </div>
         </div>
         <div class="portlet box green">
@@ -341,7 +339,6 @@ switch($type){
                         ?>
                         </tbody>
                     </table>
-                    <input type="hidden" name="date" id="date" />
             </div>
         </div>
         <div class="portlet box green">
@@ -408,7 +405,6 @@ switch($type){
                         ?>
                         </tbody>
                     </table>
-                    <input type="hidden" name="date" id="date" />
             </div>
         </div>
         <div class="portlet box red-flamingo">
@@ -461,7 +457,6 @@ switch($type){
                         ?>
                         </tbody>
                     </table>
-                    <input type="hidden" name="date" id="date" />
                 </form>
             </div>
         </div>
