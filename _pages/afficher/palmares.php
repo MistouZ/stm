@@ -97,11 +97,11 @@ if(isset($_POST['valider'])) {
                             <th class="all">Date</th>
                             <th class="desktop">Dossier</th>
                             <th class="desktop">Libellé</th>
-                            <th class="min-phone-l">Numéro de <?php echo $type; ?></th>
+                            <th class="none">Numéro de <?php echo $type; ?></th>
                             <th class="min-tablet">Client</th>
                             <th class="min-phone-l">Montant total</th>
                             <th class="min-tablet">Marge</th>
-                            <th class="desktop">Détail</th>
+                            <th class="none">Détail</th>
                         </tr>
                         </thead>
                         <tbody>
