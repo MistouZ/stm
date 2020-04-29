@@ -219,7 +219,7 @@ switch($type){
                 </div>
             </div>
             <div class="portlet-body" style="display: none;">
-                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_1" cellspacing="0" width="100%">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th class="all">Date</th>
@@ -285,7 +285,7 @@ switch($type){
                 </div>
             </div>
             <div class="portlet-body" style="display: none;">
-                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_2" cellspacing="0" width="100%">
+                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th class="all">Date</th>
@@ -457,6 +457,7 @@ switch($type){
                         ?>
                         </tbody>
                     </table>
+                    <input type="hidden" name="date" id="date" />
                 </form>
             </div>
         </div>
