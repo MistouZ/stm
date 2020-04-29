@@ -6,7 +6,7 @@
             if (isset($_GET['souscat']) AND (!isset($_GET['soussouscat'])) AND (!isset($_GET['soussoussouscat']))) {
                 print strtoupper($_GET['cat']); 
             }elseif(isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND (!isset($_GET['soussoussouscat']))){
-                print strtoupper($_GET['cat']);
+                print strtoupper($_GET['cat']) && print strtoupper($_GET["souscat"]);
             }elseif(isset($_GET['souscat']) AND (isset($_GET['soussouscat'])) AND (isset($_GET['soussoussouscat']) AND ($_GET['soussoussouscat']!="contact"))){
                 print strtoupper($_GET['cat']);
             }elseif($_GET['soussoussouscat']=="contact"){
