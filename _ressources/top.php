@@ -32,7 +32,7 @@ if($_COOKIE["credential"] != "A")
     $companymanager = $companymanager->getCompanies($_COOKIE['username']);
 }
 else{
-    $companymanager = $companymanager->getListAllCompanies();
+    $companymanager = $companymanager->getList();
 }
 
 if(count($companymanager)>1){
