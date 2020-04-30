@@ -219,7 +219,7 @@ switch($type){
                 </div>
             </div>
             <div class="portlet-body" style="display: none;">
-                    <table class="table table-striped table-bordered table-hover dt-responsive; sample_3" width="100%" cellspacing="0" width="100%">
+                    <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th class="all">Date</th>
