@@ -212,14 +212,13 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fas fa-file-alt"></i>Liste des Proformas
-                </div>
+                    <i class="fas fa-file-alt"></i>Liste des Proformas  </div>
                 <div class="tools">
                     <a href="" class="expand" data-original-title="" title=""> </a>
                 </div>
             </div>
             <div class="portlet-body" style="display: none;">
-                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_5" cellspacing="0" width="100%">
+                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_5" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th class="all">Date</th>
