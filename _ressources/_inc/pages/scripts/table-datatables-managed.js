@@ -158,7 +158,7 @@ var TableDatatablesManaged = function () {
 
     var initTable3 = function () {
 
-        var table = $('#sample_3');
+        var table = $('.sample_3');
 
         // begin: third table
         table.dataTable({
