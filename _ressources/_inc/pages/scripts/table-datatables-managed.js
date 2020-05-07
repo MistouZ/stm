@@ -284,7 +284,7 @@ var TableDatatablesManaged = function () {
 
     var initTable5 = function () {
 
-        var table = $('.sample_5');
+        var table = $('#sample_5');
 
         // begin: third table
         table.dataTable({
@@ -363,6 +363,7 @@ var TableDatatablesManaged = function () {
             initTable2();
             initTable3();
             initTable4();
+            initTable5();
         }
 
     };
