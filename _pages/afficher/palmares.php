@@ -178,10 +178,10 @@ if(isset($_POST['valider'])) {
                                 <td><?php echo $folderQuotation->getLabel(); ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
-                                <td><?php echo number_format($TotalCoutDossier[$folderQuotation->getIdFolder()],0,","," "); ?> XPF</td>
-                                <td><?php echo number_format($PercentDossier[$folderQuotation->getIdFolder()],0,","," "); ?> %</td>
-                                <!--<td><?php echo number_format($montant,0,","," "); ?> XPF</td>
-                                <td><?php echo number_format($PercentMarge,0,","," "); ?> %</td>-->
+                                <!--<td><?php echo number_format($TotalCoutDossier[$folderQuotation->getIdFolder()],0,","," "); ?> XPF</td>
+                                <td><?php echo number_format($PercentDossier[$folderQuotation->getIdFolder()],0,","," "); ?> %</td>-->
+                                <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
+                                <td><?php echo number_format($PercentMarge,0,","," "); ?> %</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             </tr>
                             <?php
