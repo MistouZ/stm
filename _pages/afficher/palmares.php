@@ -176,7 +176,7 @@ if(isset($_POST['valider'])) {
 
 
                         }
-                            foreach($InvoiceFolderList as $folder){
+                            foreach($folderQuotation as $folder){
 
                             ?>
                         <tr>
