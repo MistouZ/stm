@@ -123,7 +123,7 @@ var TableDatatablesResponsive = function () {
     }
 
     var initTable3 = function () {
-        var table = $('#sample_3');
+        var table = $('.sample_3');
 
         var oTable = table.dataTable({
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
