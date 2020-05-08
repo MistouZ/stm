@@ -107,6 +107,7 @@ if(isset($_POST['valider'])) {
                         <?php
                         $TotalPalmares = 0;
                         $i = $quotations[0]->getFolderId();
+                        $InvoiceFolderList[0] = $quotations[0]->getQuotationNumber();
                         $TotalPalmaresDossier[$i] = 0;
                         $TotalCoutDossier[$i] = 0;
                         foreach($quotations as $quotation){
@@ -155,10 +156,13 @@ if(isset($_POST['valider'])) {
                                 $TotalCost = calculCoutTotal($cost, $TotalCost);
                                 if($i == $j){
                                     $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
+                                    $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
                                 }
                                 else{
                                     $TotalCoutDossier[$j] = 0;
                                     $TotalCoutDossier[$j] = $TotalCost;
+                                    $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
+
                                 }
 
                             }
@@ -176,7 +180,8 @@ if(isset($_POST['valider'])) {
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $folderQuotation->getFolderNumber(); ?></td>
                                 <td><?php echo $folderQuotation->getLabel(); ?></td>
-                                <td><?php echo $quotation->getQuotationNumber(); ?></td>
+                                <td><?php echo $InvoiceFolderList[$folderQuotation->getIdFolder()]; ?></td>
+                                <!--<td><?php echo $quotation->getQuotationNumber(); ?></td>-->
                                 <td><?php echo $customer->getName(); ?></td>
                                 <!--<td><?php echo number_format($TotalCoutDossier[$folderQuotation->getIdFolder()],0,","," "); ?> XPF</td>
                                 <td><?php echo number_format($PercentDossier[$folderQuotation->getIdFolder()],0,","," "); ?> %</td>-->
