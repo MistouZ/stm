@@ -13,7 +13,7 @@ var TableDatatablesAjax = function () {
         var grid = new Datatable();
 
         grid.init({
-            src: $(".datatable_ajax"),
+            src: $("#datatable_ajax"),
             onSuccess: function (grid, response) {
                 // grid:        grid object
                 // response:    json object of server side ajax response
