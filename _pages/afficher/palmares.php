@@ -181,7 +181,7 @@ if(isset($_POST['valider'])) {
 
 
                         }
-                            foreach($folderQuotation as $folder){
+                            foreach($folderList as $folder){
 
                             ?>
                         <tr>
