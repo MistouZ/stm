@@ -176,7 +176,7 @@ if(isset($_POST['valider'])) {
 
 
                         }
-                            foreach($filteredFolder as $folder){
+                            foreach($InvoiceFolderList as $folder){
 
                             ?>
                         <tr>
