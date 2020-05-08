@@ -106,11 +106,10 @@ if(isset($_POST['valider'])) {
                         <tbody>
                         <?php
                         $TotalPalmares = 0;
-                        $TotalPalmaresDossier[] = 0;
-                        $k = $quotations[0]->getFolderId();
-                        echo $k;
+                        $i = $quotations[0]->getFolderId();
+                        $TotalPalmaresDossier[$i] = 0;
                         foreach($quotations as $quotation){
-                           // $k = $quotation->getFolderId();
+                           $j = $quotation->getFolderId();
 
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime($quotation->getDate()));
@@ -130,6 +129,14 @@ if(isset($_POST['valider'])) {
                             $montant = 0;
                             foreach ($descriptions as $description) {
                                 $montant = calculMontantTotalTTC($description, $montant);
+                                if($i == $j){
+                                    $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
+                                }
+                                else{
+                                    $TotalPalmaresDossier[$j] = 0;
+                                    $TotalPalmaresDossier[$j] = $montant;
+                                }
+                                $i = $j;
                             }
 
                             if($quotation->getStatus() == "En cours"){
