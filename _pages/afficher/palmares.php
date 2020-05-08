@@ -108,6 +108,7 @@ if(isset($_POST['valider'])) {
                         $TotalPalmares = 0;
                         $i = $quotations[0]->getFolderId();
                         $TotalPalmaresDossier[$i] = 0;
+                        $TotalCoutDossier[$i] = 0;
                         foreach($quotations as $quotation){
                            $j = $quotation->getFolderId();
 
@@ -136,7 +137,7 @@ if(isset($_POST['valider'])) {
                                     $TotalPalmaresDossier[$j] = 0;
                                     $TotalPalmaresDossier[$j] = $montant;
                                 }
-                                $i = $j;
+
                             }
 
                             if($quotation->getStatus() == "En cours"){
@@ -152,6 +153,14 @@ if(isset($_POST['valider'])) {
                             $TotalCost = 0;
                             foreach ($costs as $cost) {
                                 $TotalCost = calculCoutTotal($cost, $TotalCost);
+                                if($i == $j){
+                                    $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
+                                }
+                                else{
+                                    $TotalCoutDossier[$j] = 0;
+                                    $TotalCoutDossier[$j] = $TotalCost;
+                                }
+                                $i = $j;
                             }
                             $TotalMarge = $TotalPalmares - $TotalCost;
 
