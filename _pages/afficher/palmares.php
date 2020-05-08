@@ -178,7 +178,7 @@ if(isset($_POST['valider'])) {
                         }
                             foreach($filteredFolder as $folder){
 
-                            }?>
+                            ?>
                         <tr>
                             <td><?php echo $date; ?></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
