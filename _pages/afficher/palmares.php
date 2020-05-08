@@ -123,7 +123,10 @@ if(isset($_POST['valider'])) {
                             $foldermanagerQuotation = new FoldersManager($bdd);
 
                             $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
-                            $folderList[$k] = $folderQuotation;
+                            if($k == 0)
+                            {
+                                $folderList[$k] = $folderQuotation;
+                            }
 
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
