@@ -172,7 +172,7 @@ if(isset($_POST['valider'])) {
 
                             }
                             $TotalMarge = $TotalPalmares - $TotalCost;
-                            echo $i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
+                            echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
                             $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                             $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
                             $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
