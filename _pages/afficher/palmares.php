@@ -106,8 +106,11 @@ if(isset($_POST['valider'])) {
                         <tbody>
                         <?php
                         $TotalPalmares = 0;
-
+                        $TotalPalmaresDossier[] = 0;
+                        $k = $quotations[0]->getFolderId();
+                        echo $k;
                         foreach($quotations as $quotation){
+                           // $k = $quotation->getFolderId();
 
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime($quotation->getDate()));
