@@ -105,6 +105,7 @@ if(isset($_POST['valider'])) {
                         </thead>
                         <tbody>
                         <?php
+                        $k = 0;
                         $TotalPalmares = 0;
                         $i = $quotations[0]->getFolderId();
                         $InvoiceFolderList[0] = $quotations[0]->getQuotationNumber();
@@ -123,6 +124,7 @@ if(isset($_POST['valider'])) {
 
                             $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
 
+
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
 
@@ -133,10 +135,13 @@ if(isset($_POST['valider'])) {
                                 $montant = calculMontantTotalTTC($description, $montant);
                                 if($i == $j){
                                     $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
+                                    $k++;
                                 }
                                 else{
                                     $TotalPalmaresDossier[$j] = 0;
                                     $TotalPalmaresDossier[$j] = $montant;
+                                    $folderList[$k] = $folderQuotation;
+                                    $k++;
                                 }
 
                             }
