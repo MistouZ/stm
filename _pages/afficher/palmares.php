@@ -175,9 +175,7 @@ if(isset($_POST['valider'])) {
                             $i = $j;
 
 
-                            ?>
                         }
-                        <?php
 print_r($filteredFolder);
 /*
 ?>
