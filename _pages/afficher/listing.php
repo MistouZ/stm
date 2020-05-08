@@ -166,7 +166,7 @@ switch($type){
             </div>
             <div class="portlet-body">
                 <form id="multiSelection" method="post">
-                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                    <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
