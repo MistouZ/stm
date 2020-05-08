@@ -52,7 +52,7 @@ $companymanager = $companymanager->getListAllCompanies();
                 <div class="alert alert-success">
                     <button class="close" data-close="alert"></button> La société a bien été réactivée !</div>
                 <?php } ?>
-                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                     <tr>
                         <th class="all">Nom de société</th>

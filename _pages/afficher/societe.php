@@ -65,7 +65,7 @@ $contactmanager = $contactmanager->getList($customerId);
                             <a data-toggle="modal" href="#creer_contact" class="btn btn-default btn-sm grey-mint">
                                 <i class="fas fa-plus"></i> Nouv. Contact </a>
                         </div>
-                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                        <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" cellspacing="0" width="100%">
                             <thead>
                                 <tr>
                                     <th class="all">Nom</th>
