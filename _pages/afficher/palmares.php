@@ -109,6 +109,7 @@ if(isset($_POST['valider'])) {
                         $TotalPalmares = 0;
                         $i = $quotations[0]->getFolderId();
                         $InvoiceFolderList[0] = $quotations[0]->getQuotationNumber();
+                        $folderList[$k] = $quotation[0]->getFolderId();
                         $TotalPalmaresDossier[$i] = 0;
                         $TotalCoutDossier[$i] = 0;
                         foreach($quotations as $quotation){
