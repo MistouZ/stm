@@ -75,8 +75,7 @@ if(isset($_POST['valider'])) {
     //récupération des coûts liés au dossier.
 
     $costs = $costmanager->getCostByFilteredFolder($filteredFolder,$folder);
-
-
+    print_r($costs);
 }
 
 ?>
