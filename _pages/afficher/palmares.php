@@ -160,18 +160,25 @@ if(isset($_POST['valider'])) {
                         $TotalCost = 0;
                         foreach ($costs as $cost) {
                             $TotalCost = calculCoutTotal($cost, $TotalCost);
-                            if($i == $j){
-                                $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
-                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
-                            }
-                            else{
-                                $TotalCoutDossier[$j] = 0;
-                                $TotalCoutDossier[$j] = $TotalCost;
-                                $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
+                        }
 
-                            }
+                        $costFolder = new Cost($array);
+                        $costsFolder = new CostManager($bdd);
+
+                        $costsFolder = $costsFolder->getByFolderId($i);
+
+                        if($i == $j){
+                            $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
+                            $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
+                        }
+                        else{
+                            $TotalCoutDossier[$j] = 0;
+                            $TotalCoutDossier[$j] = $TotalCost;
+                            $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
 
                         }
+
+
                         $TotalMarge = $TotalPalmares - $TotalCost;
                         echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
                         $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
@@ -194,7 +201,7 @@ if(isset($_POST['valider'])) {
                             <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
                             <!--<td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                             <td><?php echo number_format($PercentMarge,0,","," "); ?> %</td>-->
-                            <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                            <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                         </tr>
                         <?php
                     }
