@@ -122,7 +122,10 @@ if(isset($_POST['valider'])) {
                         $foldermanagerQuotation = new FoldersManager($bdd);
 
                         $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
-
+                        if($k == 0)
+                        {
+                            $folderList[$k] = $folderQuotation;
+                        }
 
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
@@ -171,7 +174,7 @@ if(isset($_POST['valider'])) {
 
                         }
                         $TotalMarge = $TotalPalmares - $TotalCost;
-                        echo $i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
+                        echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
                         $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                         $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
