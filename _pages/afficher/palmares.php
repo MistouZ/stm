@@ -38,8 +38,6 @@ if(isset($_POST['valider'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
-
-
     if(empty($seller) && empty($datefrom)){
         $filteredFolder = $foldermanager->getList($idCompany);
     }
@@ -61,6 +59,7 @@ if(isset($_POST['valider'])) {
     }
     elseif ($type == "proforma")
     {
+        echo $type;
         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder,$folder);
     }
     elseif ($type == "facture")
@@ -69,10 +68,10 @@ if(isset($_POST['valider'])) {
     }
     elseif ($type == "avoir")
     {
+        echo $type;
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
     }
 
-        ;
     //récupération des coûts liés au dossier.
 
     $costs = $costmanager->getCostByFilteredFolder($filteredFolder,$folder);
@@ -123,7 +122,7 @@ if(isset($_POST['valider'])) {
                         $foldermanagerQuotation = new FoldersManager($bdd);
 
                         $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
-                        $folderList[$k] = $folderQuotation;
+
 
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
@@ -172,7 +171,7 @@ if(isset($_POST['valider'])) {
 
                         }
                         $TotalMarge = $TotalPalmares - $TotalCost;
-                        echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
+                        echo $i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
                         $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                         $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
