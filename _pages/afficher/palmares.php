@@ -56,8 +56,6 @@ if(isset($_POST['valider'])) {
         $filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
     }
 
-    print_r($filteredFolder);
-
     if($type == "devis"){
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
     }
