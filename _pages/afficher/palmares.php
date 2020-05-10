@@ -201,7 +201,7 @@ if(isset($_POST['valider'])) {
                             <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
                             <!--<td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                             <td><?php echo number_format($PercentMarge,0,","," "); ?> %</td>-->
-                            <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
+                            <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.$folder->getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                         </tr>
                         <?php
                     }
