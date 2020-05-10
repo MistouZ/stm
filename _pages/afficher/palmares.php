@@ -38,6 +38,8 @@ if(isset($_POST['valider'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $idCompany = $company->getIdcompany();
 
+
+
     if(empty($seller) && empty($datefrom)){
         $filteredFolder = $foldermanager->getList($idCompany);
     }
@@ -54,12 +56,13 @@ if(isset($_POST['valider'])) {
         $filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
     }
 
+    print_r($filteredFolder);
+
     if($type == "devis"){
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
     }
     elseif ($type == "proforma")
     {
-        echo $type;
         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder,$folder);
     }
     elseif ($type == "facture")
@@ -68,10 +71,9 @@ if(isset($_POST['valider'])) {
     }
     elseif ($type == "avoir")
     {
-        echo $type;
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
     }
-    print_r($quotations)
+
         ;
     //récupération des coûts liés au dossier.
 
