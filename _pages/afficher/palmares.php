@@ -1,38 +1,3 @@
-Skip to content
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
-
-@MistouZ
-Learn Git and GitHub without any code!
-Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
-
-
-MistouZ
-/
-stm
-0
-00
-Code
-Issues 0
-Pull requests 0 Actions
-Projects 0
-Wiki
-Security 0
-Insights
-Settings
-stm/_pages/afficher/palmares.php /
-BITWINNC Folder palmares
-629cb3d 3 days ago
-241 lines (205 sloc)  10.1 KB
-
-Code navigation is available!
-Navigate your code with ease. Click on function and method calls to jump to their definitions or references in the same repository. Learn more
-
-
 <?php
 /**
  * @author Amaury
