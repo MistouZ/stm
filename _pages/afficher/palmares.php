@@ -1,3 +1,37 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+
+@MistouZ
+Learn Git and GitHub without any code!
+Using the Hello World guide, you’ll start a branch, write comments, and open a pull request.
+
+
+MistouZ
+/
+stm
+0
+00
+Code
+Issues 0
+Pull requests 0 Actions
+Projects 0
+Wiki
+Security 0
+Insights
+Settings
+stm/_pages/afficher/palmares.php /
+BITWINNC Folder palmares
+629cb3d 3 days ago
+241 lines (205 sloc)  10.1 KB
+
+Code navigation is available!
+Navigate your code with ease. Click on function and method calls to jump to their definitions or references in the same repository. Learn more
+
 
 <?php
 /**
@@ -91,100 +125,97 @@ if(isset($_POST['valider'])) {
             </div>
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" cellspacing="0" width="100%">
-                        <thead>
-                        <tr>
-                            <th class="all">Date</th>
-                            <th class="desktop">Dossier</th>
-                            <th class="desktop">Libellé</th>
-                            <th class="none">Numéro de <?php echo $type; ?></th>
-                            <th class="min-tablet">Client</th>
-                            <th class="min-phone-l">Montant total</th>
-                            <th class="min-tablet">Marge</th>
-                            <th class="none">Détail</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $k = 0;
-                        $TotalPalmares = 0;
-                        $i = $quotations[0]->getFolderId();
-                        $InvoiceFolderList[0] = $quotations[0]->getQuotationNumber();
-                        $TotalPalmaresDossier[$i] = 0;
-                        $TotalCoutDossier[$i] = 0;
-                        foreach($quotations as $quotation){
-                           $j = $quotation->getFolderId();
+                    <thead>
+                    <tr>
+                        <th class="all">Date</th>
+                        <th class="desktop">Dossier</th>
+                        <th class="desktop">Libellé</th>
+                        <th class="none">Numéro de <?php echo $type; ?></th>
+                        <th class="min-tablet">Client</th>
+                        <th class="min-phone-l">Montant total</th>
+                        <th class="min-tablet">Marge</th>
+                        <th class="none">Détail</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $k = 0;
+                    $TotalPalmares = 0;
+                    $i = $quotations[0]->getFolderId();
+                    $InvoiceFolderList[0] = $quotations[0]->getQuotationNumber();
+                    $TotalPalmaresDossier[$i] = 0;
+                    $TotalCoutDossier[$i] = 0;
+                    foreach($quotations as $quotation){
+                        $j = $quotation->getFolderId();
 
-                            //initialisation au format date pour organiser le tableau
-                            $date = date('d/m/y', strtotime($quotation->getDate()));
+                        //initialisation au format date pour organiser le tableau
+                        $date = date('d/m/y', strtotime($quotation->getDate()));
 
-                            $customer = $customermanager->getById($quotation->getCustomerId());
+                        $customer = $customermanager->getById($quotation->getCustomerId());
 
-                            $folderQuotation = new Folder($array);
-                            $foldermanagerQuotation = new FoldersManager($bdd);
+                        $folderQuotation = new Folder($array);
+                        $foldermanagerQuotation = new FoldersManager($bdd);
 
-                            $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
-                            if($k == 0)
-                            {
+                        $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
+                        $folderList[$k] = $folderQuotation;
+
+                        $descriptions = new Description($array);
+                        $descriptionmanager = new DescriptionManager($bdd);
+
+                        $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
+                        $montant = 0;
+                        foreach ($descriptions as $description) {
+                            $montant = calculMontantTotalTTC($description, $montant);
+                            if($i == $j){
+                                $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
+                                $k++;
+                            }
+                            else{
+                                $TotalPalmaresDossier[$j] = 0;
+                                $TotalPalmaresDossier[$j] = $montant;
                                 $folderList[$k] = $folderQuotation;
+                                $k++;
                             }
-
-                            $descriptions = new Description($array);
-                            $descriptionmanager = new DescriptionManager($bdd);
-
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-
-                            $montant = 0;
-                            foreach ($descriptions as $description) {
-                                $montant = calculMontantTotalTTC($description, $montant);
-                                if($i == $j){
-                                    $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
-                                    $k++;
-                                }
-                                else{
-                                    $TotalPalmaresDossier[$j] = 0;
-                                    $TotalPalmaresDossier[$j] = $montant;
-                                    $folderList[$k] = $folderQuotation;
-                                    $k++;
-                                }
-
-                            }
-
-                            if($quotation->getStatus() == "En cours"){
-                                $status = "cours";
-                            }
-                            elseif($quotation->getStatus() == "Validated"){
-                                $status = "valides";
-                            }
-
-                            $TotalPalmares = $TotalPalmares + $montant;
-
-
-                            $TotalCost = 0;
-                            foreach ($costs as $cost) {
-                                $TotalCost = calculCoutTotal($cost, $TotalCost);
-                                if($i == $j){
-                                    $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
-                                    $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
-                                }
-                                else{
-                                    $TotalCoutDossier[$j] = 0;
-                                    $TotalCoutDossier[$j] = $TotalCost;
-                                    $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
-
-                                }
-
-                            }
-                            $TotalMarge = $TotalPalmares - $TotalCost;
-                            echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
-                            $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
-                            $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
-                            $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
-                            $i = $j;
 
                         }
-                            foreach($folderList as $folder){
 
-                            ?>
+                        if($quotation->getStatus() == "En cours"){
+                            $status = "cours";
+                        }
+                        elseif($quotation->getStatus() == "Validated"){
+                            $status = "valides";
+                        }
+
+                        $TotalPalmares = $TotalPalmares + $montant;
+
+
+                        $TotalCost = 0;
+                        foreach ($costs as $cost) {
+                            $TotalCost = calculCoutTotal($cost, $TotalCost);
+                            if($i == $j){
+                                $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
+                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
+                            }
+                            else{
+                                $TotalCoutDossier[$j] = 0;
+                                $TotalCoutDossier[$j] = $TotalCost;
+                                $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
+
+                            }
+
+                        }
+                        $TotalMarge = $TotalPalmares - $TotalCost;
+                        echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
+                        $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
+                        $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
+                        $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
+                        $i = $j;
+
+                    }
+                    foreach($folderList as $folder){
+
+                        ?>
                         <tr>
                             <td><?php echo $date; ?></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
@@ -199,10 +230,10 @@ if(isset($_POST['valider'])) {
                             <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                         </tr>
                         <?php
-                        }
-                        ?>
-                        </tbody>
-                    </table>
+                    }
+                    ?>
+                    </tbody>
+                </table>
             </div>
         </div>
         <!-- END EXAMPLE TABLE PORTLET-->
