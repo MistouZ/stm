@@ -97,8 +97,8 @@ if(isset($_POST['valider'])) {
                         <th class="none">Numéro de <?php echo $type; ?></th>
                         <th class="min-tablet">Client</th>
                         <th class="min-phone-l">Montant total</th>
-                        <th class="none">Coûts</th>
                         <th class="min-tablet">Marge</th>
+                        <th class="none">Coûts</th>
                         <th class="none">Détail</th>
                     </tr>
                     </thead>
