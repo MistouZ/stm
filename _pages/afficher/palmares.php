@@ -173,6 +173,7 @@ if(isset($_POST['valider'])) {
                         $costsFolder = new CostManager($bdd);
 
                         $costsFolder = $costsFolder->getByFolderId($i);
+                        print_r($costsFolder);
                         $TotalCostFolder = 0;
                         /*récupérer les cout sur le dossier */
                         foreach ($costsFolder as $costFolder) {
@@ -191,7 +192,7 @@ if(isset($_POST['valider'])) {
 
 
                         $TotalMarge = $TotalPalmares - $TotalCost;
-                        echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
+                        //echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
                         $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                         $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
