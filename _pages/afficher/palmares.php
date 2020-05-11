@@ -174,7 +174,7 @@ if(isset($_POST['valider'])) {
                         $costFolder = new Cost($array);
                         $costsFolder = new CostManager($bdd);
 
-                        $costsFolder = $costsFolder->getByFolderId($i);
+                        $costsFolder = $costsFolder->getByFolderId($j);
                         print_r($costsFolder);
                         echo "<br />";
                         $TotalCostFolder = 0;
