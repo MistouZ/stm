@@ -75,7 +75,6 @@ if(isset($_POST['valider'])) {
     //récupération des coûts liés au dossier.
 
     $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
-    print_r($costs);
 }
 
 ?>
@@ -197,7 +196,7 @@ if(isset($_POST['valider'])) {
                             <td><?php echo $InvoiceFolderList[$folder->getIdFolder()]; ?></td>
                             <!--<td><?php echo $quotation->getQuotationNumber(); ?></td>-->
                             <td><?php echo $customer->getName(); ?></td>
-                            <td><?php echo number_format($TotalCoutDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
+                            <td><?php echo number_format($TotalPalmaresDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
                             <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
                             <!--<td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                             <td><?php echo number_format($PercentMarge,0,","," "); ?> %</td>-->
