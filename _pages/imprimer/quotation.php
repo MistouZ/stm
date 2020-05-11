@@ -314,7 +314,7 @@ echo "je suis".$type2."statut".$type;
         position: absolute;
         left: 20px;
         right: 20px;
-        font-size: 60%;
+        font-size: 2%;
     }
     .page-template .header {
         top: 20px;
