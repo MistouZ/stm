@@ -181,17 +181,17 @@ if(isset($_POST['valider'])) {
                             $TotalCostFolder = calculCoutTotal($costFolder, $TotalCostFolder);
                         }
                         if($i == $j && $k == 0){
-                            echo "k=0 / i et j =";
                             $TotalCoutDossier[$i] = $TotalCostFolder;
+                            echo "k=0 / i et j = Cout : ".$TotalCoutDossier[$i];
                         }
                         elseif($i == $j && $k != 0 ){
-                            echo "k!0 / i et j =";
                             $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCostFolder;
+                            echo "k!0 / i et j = Cout : ".$TotalCoutDossier[$i];
                         }
                         else{
-                            echo "autre cas";
                             $TotalCoutDossier[$j] = 0;
                             $TotalCoutDossier[$j] = $TotalCostFolder;
+                            echo "autre cas Cout : ".$TotalCoutDossier[$j];
                         }
 
 
