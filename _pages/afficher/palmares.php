@@ -126,6 +126,18 @@ if(isset($_POST['valider'])) {
 
                         $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
+                        /*préparation de la liste des factures par dossier pour regrouper les numéros*/
+                        $InvoiceFolderList[$i] = "";
+                        if($k == 0)
+                        {
+                            $InvoiceFolderList[$i] = $quotation->getQuotationNumber();
+                            $k++;
+                        }
+                        else{
+                            $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
+                            $k++;
+                        }
+
                         //Calcul du montant des devis / factures et cumul pour le Palmares
                         $montant = 0;
                         foreach ($descriptions as $description) {
@@ -133,13 +145,8 @@ if(isset($_POST['valider'])) {
                             //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
                             if($i == $j || $k == 0){
                                 $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
-                                if($k == 0)
-                                {
-                                    $InvoiceFolderList[$i] = $quotation->getQuotationNumber();
-                                }
-                                else{
-                                    $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
-                                }
+
+
                             }
                             else{
                                 $TotalPalmaresDossier[$j] = 0;
