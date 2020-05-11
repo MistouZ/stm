@@ -131,7 +131,8 @@ if(isset($_POST['valider'])) {
 
                         if($k == 0)
                         {
-                            $InvoiceFolderList[$i] = $folderQuotation->getQuotationNumber();
+                            echo $quotation->getQuotationNumber();
+                            $InvoiceFolderList[$i] = $quotation->getQuotationNumber();
                             $k++;
                         }
                         else{
