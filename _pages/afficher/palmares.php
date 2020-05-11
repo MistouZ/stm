@@ -127,6 +127,13 @@ if(isset($_POST['valider'])) {
                             $folderList[$k] = $folderQuotation;
                         }
 
+                        if($quotation->getStatus() == "En cours"){
+                            $status = "cours";
+                        }
+                        elseif($quotation->getStatus() == "Validated"){
+                            $status = "valides";
+                        }
+
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
 
@@ -139,27 +146,21 @@ if(isset($_POST['valider'])) {
                             //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
                             if($i == $j && $k == 0 ){
                                 $TotalPalmaresDossier[$i] = $montant;
-                                $InvoiceFolderList[$i] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">"'. $quotation->getQuotationNumber().'" </>';
+                                $InvoiceFolderList[$i] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().' </>';
                             }
                             elseif($i == $j && $k != 0 ){
                                 $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
-                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".'<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">"'. $quotation->getQuotationNumber().'" </>';
+                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".'<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().' </>';
                             }
                             else{
                                 $TotalPalmaresDossier[$j] = 0;
                                 $TotalPalmaresDossier[$j] = $montant;
                                 $folderList[$k] = $folderQuotation;
-                                $InvoiceFolderList[$j] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">"'. $quotation->getQuotationNumber().'" </>';
+                                $InvoiceFolderList[$j] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().'</>';
                             }
 
                         }
 
-                        if($quotation->getStatus() == "En cours"){
-                            $status = "cours";
-                        }
-                        elseif($quotation->getStatus() == "Validated"){
-                            $status = "valides";
-                        }
 
                         $TotalPalmares = $TotalPalmares + $montant;
                         $TotalCost = 0;
