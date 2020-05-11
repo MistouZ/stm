@@ -175,6 +175,7 @@ if(isset($_POST['valider'])) {
                         $costsFolder = new CostManager($bdd);
 
                         $costsFolder = $costsFolder->getByFolderId($i);
+                        print_r($costsFolder);
                         $TotalCostFolder = 0;
                         /*récupérer les cout sur le dossier */
                         foreach ($costsFolder as $costFolder) {
