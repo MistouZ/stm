@@ -113,6 +113,7 @@ if(isset($_POST['valider'])) {
 
                     foreach($quotations as $quotation){
                         $j = $quotation->getFolderId();
+                        echo "folder en cours ".$j;
 
                         //initialisation au format date pour organiser le tableau
                         $date = date('d/m/y', strtotime($quotation->getDate()));
@@ -192,7 +193,7 @@ if(isset($_POST['valider'])) {
 
 
                         $TotalMarge = $TotalPalmares - $TotalCost;
-                        echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
+                        //echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
                         $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                         $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
