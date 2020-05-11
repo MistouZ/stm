@@ -111,7 +111,6 @@ if(isset($_POST['valider'])) {
                     $TotalPalmaresDossier[$k] = 0;
                     $TotalCoutDossier[$k] = 0;
                     $InvoiceFolderList[$k] = "";
-                    $TotalCost = 0;
                     foreach($quotations as $quotation){
                         $j = $quotation->getFolderId();
 
@@ -164,6 +163,7 @@ if(isset($_POST['valider'])) {
                         }
 
                         $TotalPalmares = $TotalPalmares + $montant;
+                        $TotalCost = 0;
 
                         foreach ($costs as $cost) {
                             $TotalCost = calculCoutTotal($cost, $TotalCost);
