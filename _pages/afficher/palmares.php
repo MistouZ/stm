@@ -130,9 +130,11 @@ if(isset($_POST['valider'])) {
 
                         $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
+                        //Calcul du montant des devis / factures et cumul pour le Palmares
                         $montant = 0;
                         foreach ($descriptions as $description) {
                             $montant = calculMontantTotalTTC($description, $montant);
+                            //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
                             if($i == $j){
                                 $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
                                 $k++;
@@ -168,7 +170,9 @@ if(isset($_POST['valider'])) {
 
                         if($i == $j){
                             $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
-                            $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
+                            if($k != 0){
+                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
+                            }
                         }
                         else{
                             $TotalCoutDossier[$j] = 0;
