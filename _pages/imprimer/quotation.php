@@ -5,7 +5,6 @@
  * @copyright 2019
  */
 include("../../_cfg/cfg.php");
-print_r($_GET);
 $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
