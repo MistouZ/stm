@@ -203,6 +203,7 @@ class CostManager
             {
                 $quotationNumber = $quotation->getQuotationNumber();
                 $query = "SELECT * FROM `cost` WHERE quotationNumber='.$quotationNumber.'  ORDER BY quotationNumber DESC";
+                echo $query;
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
