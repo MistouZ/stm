@@ -102,10 +102,11 @@ if(isset($_POST['valider'])) {
                     </thead>
                     <tbody>
                     <?php
+                    //Initialisation des valueurs pour le premier dossier
                     $k = 0;
                     $TotalPalmares = 0;
-                    $i = $quotations[0]->getFolderId();
-                    $InvoiceFolderList[0] = $quotations[0]->getQuotationNumber();
+                    $i = $quotations[$k]->getFolderId();
+                    $InvoiceFolderList[$k] = $quotations[$k]->getQuotationNumber();
                     $TotalPalmaresDossier[$i] = 0;
                     $TotalCoutDossier[$i] = 0;
                     foreach($quotations as $quotation){
