@@ -106,9 +106,10 @@ if(isset($_POST['valider'])) {
                     $k = 0;
                     $TotalPalmares = 0;
                     $i = $quotations[$k]->getFolderId();
-                    $InvoiceFolderList[$k] = $quotations[$k]->getQuotationNumber();
-                    $TotalPalmaresDossier[$i] = 0;
-                    $TotalCoutDossier[$i] = 0;
+                    $TotalPalmaresDossier[$k] = 0;
+                    $TotalCoutDossier[$k] = 0;
+                    $InvoiceFolderList[$k] = "";
+
                     foreach($quotations as $quotation){
                         $j = $quotation->getFolderId();
 
@@ -136,15 +137,19 @@ if(isset($_POST['valider'])) {
                         foreach ($descriptions as $description) {
                             $montant = calculMontantTotalTTC($description, $montant);
                             //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
-                            if($i == $j){
+                            if($i == $j && $k == 0 ){
+                                $TotalPalmaresDossier[$i] = $montant;
+                                $InvoiceFolderList[$i] = $quotation->getQuotationNumber();
+                            }
+                            elseif($i == $j && $k != 0 ){
                                 $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
-                                $k++;
+                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
                             }
                             else{
                                 $TotalPalmaresDossier[$j] = 0;
                                 $TotalPalmaresDossier[$j] = $montant;
                                 $folderList[$k] = $folderQuotation;
-                                $k++;
+                                $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
                             }
 
                         }
@@ -168,18 +173,20 @@ if(isset($_POST['valider'])) {
                         $costsFolder = new CostManager($bdd);
 
                         $costsFolder = $costsFolder->getByFolderId($i);
-
-                        if($i == $j){
-                            $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
-                            if($k != 0){
-                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
-                            }
+                        $TotalCostFolder = 0;
+                        /*récupérer les cout sur le dossier */
+                        foreach ($costsFolder as $costFolder) {
+                            $TotalCostFolder = calculCoutTotal($costFolder, $TotalCostFolder);
+                        }
+                        if($i == $j && $k == 0){
+                            $TotalCoutDossier[$i] = $TotalCostFolder;
+                        }
+                        elseif($i == $j && $k != 0 ){
+                            $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCostFolder;
                         }
                         else{
                             $TotalCoutDossier[$j] = 0;
-                            $TotalCoutDossier[$j] = $TotalCost;
-                            $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
-
+                            $TotalCoutDossier[$j] = $TotalCostFolder;
                         }
 
 
@@ -189,6 +196,7 @@ if(isset($_POST['valider'])) {
                         $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
                         $i = $j;
+                        $k++;
 
                     }
                     foreach($folderList as $folder){
