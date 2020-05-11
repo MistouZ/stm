@@ -294,7 +294,7 @@ echo "je suis".$type2."statut".$type;
                     paperSize: "A4",
                     multiPage : true,
                     margin: { top: "3cm", bottom: "2cm", right: "1cm", left: "1cm" },
-                    scale: 0.75,
+                    scale: 0.60,
                     height: 500,
                     template: $("#page-template").html(),
                     keepTogether: ".prevent-split"
