@@ -11,6 +11,7 @@ $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
 $idQuotation = $_GET['soussoussouscat'];
+echo $idQuotation;
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -28,8 +29,6 @@ $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
-
-$dateToProforma = date('d/m/Y');
 
 switch($type){
     case "devis":
