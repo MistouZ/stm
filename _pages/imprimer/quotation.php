@@ -100,7 +100,7 @@ if($quotation->getType() == "S")
     $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->getQuotationNumber());
 }
 
-$date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+$date = date('d/m/Y',strtotime($quotation->getDate()));
 
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
