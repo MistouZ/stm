@@ -139,17 +139,17 @@ if(isset($_POST['valider'])) {
                             //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
                             if($i == $j && $k == 0 ){
                                 $TotalPalmaresDossier[$i] = $montant;
-                                $InvoiceFolderList[$i] = $quotation->getQuotationNumber();
+                                $InvoiceFolderList[$i] = '<a class="btn green-meadow" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">"'. $quotation->getQuotationNumber().'" </>';
                             }
                             elseif($i == $j && $k != 0 ){
                                 $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
-                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
+                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".'<a class="btn green-meadow" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">"'. $quotation->getQuotationNumber().'" </>';
                             }
                             else{
                                 $TotalPalmaresDossier[$j] = 0;
                                 $TotalPalmaresDossier[$j] = $montant;
                                 $folderList[$k] = $folderQuotation;
-                                $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
+                                $InvoiceFolderList[$j] = '<a class="btn green-meadow" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">"'. $quotation->getQuotationNumber().'" </>';
                             }
 
                         }
@@ -206,13 +206,11 @@ if(isset($_POST['valider'])) {
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel(); ?></td>
                             <td><?php echo $InvoiceFolderList[$folder->getIdFolder()]; ?></td>
-                            <!--<td><?php echo $quotation->getQuotationNumber(); ?></td>-->
                             <td><?php echo $customer->getName(); ?></td>
                             <td><?php echo number_format($TotalPalmaresDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
                             <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
                             <td><?php echo number_format($TotalCoutDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
-                            <!--<td><?php echo number_format($montant,0,","," "); ?> XPF</td>
-                            <td><?php echo number_format($PercentMarge,0,","," "); ?> %</td>-->
+
                             <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.$folder->getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                         </tr>
                         <?php
