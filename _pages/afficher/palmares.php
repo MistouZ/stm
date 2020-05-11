@@ -189,8 +189,9 @@ if(isset($_POST['valider'])) {
                             echo "k!0 / i et j = Cout : ".$TotalCoutDossier[$i];
                         }
                         else{
-                            $TotalCoutDossier[$j] = 0;
-                            $TotalCoutDossier[$j] = $TotalCostFolder;
+                            $i = $j;
+                            $TotalCoutDossier[$i] = 0;
+                            $TotalCoutDossier[$i] = $TotalCostFolder;
                             echo "autre cas Cout : ".$TotalCoutDossier[$j];
                         }
 
