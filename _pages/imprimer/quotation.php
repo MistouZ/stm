@@ -11,7 +11,7 @@ $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
 $idQuotation = $_GET['soussoussouscat'];
-echo $idQuotation;
+print_r($_GET);
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
