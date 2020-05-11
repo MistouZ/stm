@@ -105,8 +105,8 @@ if(isset($_POST['valider'])) {
                     //Initialisation des valueurs pour le premier dossier
                     $k = 0;
                     $TotalPalmares = 0;
-                    $i = $quotations[0]->getFolderId();
-                    $InvoiceFolderList[$i] = "";
+                    $i = $quotations[$k]->getFolderId();
+                    $InvoiceFolderList[$k] = $quotations[$k]->getQuotationNumber();
                     $TotalPalmaresDossier[$i] = 0;
                     $TotalCoutDossier[$i] = 0;
                     foreach($quotations as $quotation){
@@ -121,38 +121,30 @@ if(isset($_POST['valider'])) {
                         $foldermanagerQuotation = new FoldersManager($bdd);
 
                         $folderQuotation = $foldermanagerQuotation->get($quotation->getFolderId());
+                        if($k == 0)
+                        {
+                            $folderList[$k] = $folderQuotation;
+                        }
 
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
 
                         $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
-                        /*préparation de la liste des factures par dossier pour regrouper les numéros*/
-
-                        if($k == 0)
-                        {
-                            echo $quotation->getQuotationNumber();
-                            $InvoiceFolderList[$i] = $quotation->getQuotationNumber();
-                            $k++;
-                        }
-                        else{
-                            $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
-                            $k++;
-                        }
-
                         //Calcul du montant des devis / factures et cumul pour le Palmares
                         $montant = 0;
                         foreach ($descriptions as $description) {
                             $montant = calculMontantTotalTTC($description, $montant);
                             //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
-                            if($i == $j || $k == 0){
+                            if($i == $j){
                                 $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
-                                $folderList[$k] = $folderQuotation;
+                                $k++;
                             }
                             else{
                                 $TotalPalmaresDossier[$j] = 0;
                                 $TotalPalmaresDossier[$j] = $montant;
                                 $folderList[$k] = $folderQuotation;
+                                $k++;
                             }
 
                         }
@@ -179,6 +171,9 @@ if(isset($_POST['valider'])) {
 
                         if($i == $j){
                             $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCost;
+                            if($k != 0){
+                                $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".$quotation->getQuotationNumber();
+                            }
                         }
                         else{
                             $TotalCoutDossier[$j] = 0;
@@ -186,6 +181,7 @@ if(isset($_POST['valider'])) {
                             $InvoiceFolderList[$j] = $quotation->getQuotationNumber();
 
                         }
+
 
                         $TotalMarge = $TotalPalmares - $TotalCost;
                         echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
