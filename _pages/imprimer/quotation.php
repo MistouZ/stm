@@ -1,10 +1,11 @@
 <?php
 
 /**
- * @author Nicolas
+ * @author Amaury
  * @copyright 2019
  */
-include("../../_cfg/cfg.php");
+
+/include("../../_cfg/cfg.php");
 
 $array = array();
 $companyNameData = $_GET["section"];
@@ -39,7 +40,7 @@ switch($type){
         $buttons = '<div class="actions">
                         <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-edit"></i> Modifier </a>
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                        <a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
@@ -56,7 +57,7 @@ switch($type){
         $entete = "de la proforma";
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
         $buttons = '<div class="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                        <a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
                             <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
@@ -69,7 +70,7 @@ switch($type){
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         $buttons = '<div class="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                        <a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
@@ -82,7 +83,7 @@ switch($type){
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
         $buttons = '<div class="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                        <a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                     </div>';
         break;
@@ -101,6 +102,10 @@ if($quotation->getType() == "S")
 }
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
+
+if(isset($_GET['cat5'])){
+    $retour = $_GET['cat5'];
+}
 echo "je suis".$type2."statut".$type;
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
