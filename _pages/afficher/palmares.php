@@ -176,6 +176,7 @@ if(isset($_POST['valider'])) {
 
                         $costsFolder = $costsFolder->getByFolderId($i);
                         print_r($costsFolder);
+                        echo "<br />";
                         $TotalCostFolder = 0;
                         /*récupérer les cout sur le dossier */
                         foreach ($costsFolder as $costFolder) {
