@@ -195,14 +195,14 @@ class CostManager
      * Get all the cost in the BDD from the Filtered Folders
      * @return array
      */
-    public function getCostByFilteredFolders($folders, $folder)
+    public function getCostByFilteredQuotation($quotations, $quotation)
     {
         try{
             $costs = [];
-            foreach ($folders as $folder)
+            foreach ($quotations as $quotation)
             {
-                $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM `cost` WHERE folderId='$folderId'  ORDER BY quotationNumber DESC";
+                $quotationNumber = $quotation->getQuotationNumber();
+                $query = "SELECT * FROM `cost` WHERE quotationNumber='.$quotationNumber.'  ORDER BY quotationNumber DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
