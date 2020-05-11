@@ -33,7 +33,7 @@ $test = $quotationmanager->changeType($quotation);
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorAvoir');
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company'].'/avoir/afficher/'.$type2.'/'.$idQuotation.'/successAvoir');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/avoir/afficher/cours/'.$idQuotation.'/successAvoir');
 }
 
 ?>
