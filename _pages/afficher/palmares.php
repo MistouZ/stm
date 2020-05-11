@@ -106,6 +106,7 @@ if(isset($_POST['valider'])) {
                     $k = 0;
                     $TotalPalmares = 0;
                     $i = $quotations[0]->getFolderId();
+                    $InvoiceFolderList[$i] = "";
                     $TotalPalmaresDossier[$i] = 0;
                     $TotalCoutDossier[$i] = 0;
                     foreach($quotations as $quotation){
@@ -127,10 +128,10 @@ if(isset($_POST['valider'])) {
                         $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
 
                         /*préparation de la liste des factures par dossier pour regrouper les numéros*/
-                        $InvoiceFolderList[$i] = "";
+
                         if($k == 0)
                         {
-                            $InvoiceFolderList[$i] = $quotation->getQuotationNumber();
+                            $InvoiceFolderList[$i] = $folderQuotation->getQuotationNumber();
                             $k++;
                         }
                         else{
