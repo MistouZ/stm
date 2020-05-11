@@ -113,7 +113,6 @@ if(isset($_POST['valider'])) {
                     $TotalCost = 0;
                     foreach($quotations as $quotation){
                         $j = $quotation->getFolderId();
-                        echo "folder en cours ".$j;
 
                         //initialisation au format date pour organiser le tableau
                         $date = date('d/m/y', strtotime($quotation->getDate()));
@@ -173,8 +172,6 @@ if(isset($_POST['valider'])) {
                         $costsFolder = new CostManager($bdd);
 
                         $costsFolder = $costsFolder->getByFolderId($j);
-                        print_r($costsFolder);
-                        echo "<br />";
                         $TotalCostFolder = 0;
                         /*récupérer les cout sur le dossier */
                         foreach ($costsFolder as $costFolder) {
