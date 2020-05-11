@@ -145,8 +145,6 @@ if(isset($_POST['valider'])) {
                             //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
                             if($i == $j || $k == 0){
                                 $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
-
-
                             }
                             else{
                                 $TotalPalmaresDossier[$j] = 0;
