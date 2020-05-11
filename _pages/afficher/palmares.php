@@ -110,7 +110,7 @@ if(isset($_POST['valider'])) {
                     $TotalPalmaresDossier[$k] = 0;
                     $TotalCoutDossier[$k] = 0;
                     $InvoiceFolderList[$k] = "";
-
+                    $TotalCost = 0;
                     foreach($quotations as $quotation){
                         $j = $quotation->getFolderId();
                         echo "folder en cours ".$j;
@@ -165,8 +165,6 @@ if(isset($_POST['valider'])) {
 
                         $TotalPalmares = $TotalPalmares + $montant;
 
-
-                        $TotalCost = 0;
                         foreach ($costs as $cost) {
                             $TotalCost = calculCoutTotal($cost, $TotalCost);
                         }
@@ -184,22 +182,18 @@ if(isset($_POST['valider'])) {
                         }
                         if($i == $j && $k == 0){
                             $TotalCoutDossier[$i] = $TotalCostFolder;
-                            echo "k=0 / i et j = Cout : ".$TotalCoutDossier[$i];
                         }
                         elseif($i == $j && $k != 0 ){
                             $TotalCoutDossier[$i] = $TotalCoutDossier[$i] + $TotalCostFolder;
-                            echo "k!0 / i et j = Cout : ".$TotalCoutDossier[$i];
                         }
                         else{
                             $i = $j;
                             $TotalCoutDossier[$i] = 0;
                             $TotalCoutDossier[$i] = $TotalCostFolder;
-                            echo "autre cas Cout : ".$TotalCoutDossier[$j];
                         }
 
 
                         $TotalMarge = $TotalPalmares - $TotalCost;
-                        //echo "FolderId :".$i." ".$TotalPalmaresDossier[$i].' - '.$TotalCoutDossier[$i];
                         $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                         $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
