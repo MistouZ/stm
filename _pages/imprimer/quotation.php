@@ -5,7 +5,6 @@
  * @copyright 2019
  */
 
-
 include("../../_cfg/cfg.php");
 $array = array();
 $companyNameData = $_GET["section"];
@@ -72,7 +71,6 @@ if($quotation->getType() == "S")
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
-echo "je suis".$type2."statut".$type;
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
     <div id="myCanvas">
