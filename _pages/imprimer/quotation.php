@@ -56,6 +56,7 @@ switch($type){
         echo "je suis là";
         break;
 }
+
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
