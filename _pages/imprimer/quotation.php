@@ -1,4 +1,5 @@
 <?php
+echo "je charge la page";
 
 /**
  * @author Nicolas
