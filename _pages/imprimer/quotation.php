@@ -12,7 +12,7 @@ $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
 $idQuotation = $_GET['soussoussouscat'];
-/*
+
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $folder = new Folder($array);
@@ -29,33 +29,33 @@ $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
-*/
+
 switch($type){
     case "devis":
-       // $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
         break;
 
     case "proforma":
-        //$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de la proforma";
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
         break;
 
     case "facture":
-        //$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         break;
 
     case "avoir":
-        //$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
         echo "je suis là";
         break;
-}/*
+}
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
