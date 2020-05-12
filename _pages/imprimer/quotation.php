@@ -32,25 +32,25 @@ $shatteredManager = new ShatteredQuotationManager($bdd);
 */
 switch($type){
     case "devis":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+       // $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
         break;
 
     case "proforma":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        //$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de la proforma";
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
         break;
 
     case "facture":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        //$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         break;
 
     case "avoir":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        //$quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
         echo "je suis là";
