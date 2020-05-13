@@ -4,7 +4,6 @@ session_start();
 include '_cfg/cfg.php';
 include '_cfg/fonctions.php';
 $retour = $_GET['souscat'];
-$test;
 
 ?>
 <!DOCTYPE html>
