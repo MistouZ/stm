@@ -1,40 +1,41 @@
 <?php
-
+ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
 /**
  * @author Nicolas
  * @copyright 2019
  */
+ 
 include("../../_cfg/cfg.php");
 
-echo "Multi devis : ";
-print_r($_POST['selection']);
+$idQuotation = $_POST['quotationNumber'];
 
-foreach($_POST['selection'] as $postSelection){
-$idQuotation = $postSelection;
+echo $idQuotation;
+
+$today = date("Y-m-d");
 
 $array = array();
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 
-$date = $_POST['date'];
-
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
-    'status' => 'En cours',
-    'label' => $label,
-    'date' => $date,
-    'type' => 'D'
+    'status' => 'Validated',
+    'validatedDate' => $today
 );
+
+$type2 = "valides";
 
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-$test = $quotationmanager->changeType($quotation);
-}
+$test = $quotationmanager->changeStatus($quotation);
+
+
 if(is_null($test)){
-    header('Location: '.$_SERVER['HTTP_REFERER'].'/errorDevis');
+    header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company'].'/devis/afficher/cours/successDevis');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/facture/afficher/'.$type2.'/'.$idQuotation.'/successFacture');
 }
+
 ?>

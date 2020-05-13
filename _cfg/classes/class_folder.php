@@ -12,9 +12,7 @@ class Folder extends Features
     private $folderNumber;
     private $label;
     private $isActive;
-    private $year;
-    private $month;
-    private $day;
+    private $date;
     private $description;
     private $companyId;
     private $customerId;
@@ -93,54 +91,20 @@ class Folder extends Features
         $this->isActive = $isActive;
     }
 
-
-
     /**
      * @return mixed
      */
-    public function getYear()
+    public function getDate()
     {
-        return $this->year;
+        return $this->date;
     }
 
     /**
-     * @param mixed $year
+     * @param mixed $date
      */
-    public function setYear($year)
+    public function setDate($date): void
     {
-        $this->year = $year;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMonth()
-    {
-        return $this->month;
-    }
-
-    /**
-     * @param mixed $month
-     */
-    public function setMonth($month)
-    {
-        $this->month = $month;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDay()
-    {
-        return $this->day;
-    }
-
-    /**
-     * @param mixed $day
-     */
-    public function setDay($day)
-    {
-        $this->day = $day;
+        $this->date = $date;
     }
 
     /**

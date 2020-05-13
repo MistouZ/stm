@@ -1,12 +1,21 @@
 <?php
-function __autoload($className) {
-      if (file_exists('./classes/class_'.strtolower($className) . '.php')) { 
+
+
+/*function __autoload($className) {
+      if (file_exists('./classes/class_'.strtolower($className) . '.php')) {
           require_once './classes/class_'.strtolower($className) . '.php';
       }else{
         echo 'classes/class_'.$className . '.php - Not Found';
       }
-}
-
+}*/
+//autolaod depreciated replaced byt spl_autoload_register
+spl_autoload_register(function($className){
+    if (file_exists('./classes/class_'.strtolower($className) . '.php')) {
+        require_once './classes/class_'.strtolower($className) . '.php';
+    }else{
+        echo 'classes/class_'.$className . '.php - Not Found';
+    }
+});
 
 function getContactFormFolder($idFolder){
 
@@ -80,6 +89,12 @@ function calculCoutTotal(Cost $cost, $cout){
     $cout = $cout+$coutLigne;
 
     return $cout;
+}
+
+function calculMarge($TotalMontant, $TotalMarge)
+{
+    $marge = ($TotalMarge/$TotalMontant)*100;
+    return $marge;
 }
 
 function getPercentOfNumber($number, $percent){

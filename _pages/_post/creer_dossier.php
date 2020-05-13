@@ -13,9 +13,7 @@ if(isset($_POST['valider'])){
     $label = $_POST["label"];
     $description = $_POST["description"];
     $seller = $_POST["seller-select"];
-    $year = date("Y");
-    $month = date("m");
-    $day = date("d");
+    $date = date("Y-m-d");
     $customerId = $_POST["customer-select"];
     $contactId = $_POST["contact-select"];
     $companyId = $_POST["idcompany"];
@@ -24,9 +22,7 @@ if(isset($_POST['valider'])){
 
     $array = array(
         'label' => $label,
-        'year' => $year,
-        'month' => $month,
-        'day' => $day,
+        'date' => $date,
         'isActive' => $isActive,
         'description' => $description,
         'seller' => $seller,

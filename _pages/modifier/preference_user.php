@@ -7,7 +7,7 @@ $array = array();
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $user = $usermanager->get($username);
-print_r($username);
+
 //Liste des sociétés
 $arrayCompanies = array();
 $company = new Company($arrayCompanies);
@@ -85,7 +85,7 @@ $companies = $companies->getList();
                             </div>
                         </div>
                         <?php
-                        if((count($companiesList)>1) || ($_COOKIE["credential"] == "A")) {
+                        if((count($companies)>1) || ($_COOKIE["credential"] == "A")) {
                             ?>
                             <h4 class="form-section">Gestion société</h4>
                             <div class="form-group">

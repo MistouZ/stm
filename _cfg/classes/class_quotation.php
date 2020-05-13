@@ -12,15 +12,14 @@ class Quotation extends Features
     private $quotationNumber;
     private $status;
     private $label;
-    private $year;
-    private $month;
-    private $day;
+    private $date;
     private $type;
     private $companyId;
     private $folderId;
     private $customerId;
     private $contactId;
     private $comment;
+    private $validatedDate;
 
     /**
      * Quotation constructor.
@@ -94,53 +93,20 @@ class Quotation extends Features
         $this->label = $label;
     }
 
-
-    /**
+     /**
      * @return mixed
      */
-    public function getYear()
+    public function getDate()
     {
-        return $this->year;
+        return $this->date;
     }
 
     /**
-     * @param mixed $year
+     * @param mixed $date
      */
-    public function setYear($year)
+    public function setDate($date): void
     {
-        $this->year = $year;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getMonth()
-    {
-        return $this->month;
-    }
-
-    /**
-     * @param mixed $month
-     */
-    public function setMonth($month)
-    {
-        $this->month = $month;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getDay()
-    {
-        return $this->day;
-    }
-
-    /**
-     * @param mixed $day
-     */
-    public function setDay($day)
-    {
-        $this->day = $day;
+        $this->date = $date;
     }
 
     /**
@@ -238,5 +204,23 @@ class Quotation extends Features
     {
         $this->contactId = $contactId;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getValidatedDate()
+    {
+        return $this->validatedDate;
+    }
+
+    /**
+     * @param mixed $validatedDate
+     */
+    public function setValidatedDate($validatedDate): void
+    {
+        $this->validatedDate = $validatedDate;
+    }
+
+
 
 }

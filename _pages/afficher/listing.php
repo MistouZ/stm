@@ -9,6 +9,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
+$username = $_COOKIE['username'];
 $dateToProforma = date('d/m/Y');
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -21,10 +22,27 @@ $customermanager = new CustomersManager($bdd);
 $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
+
+$verif= $_GET['soussoussouscat'];
+
+if($verif != $username){
+    $retour = $verif;
+}
+else{
+    $folder2 = new Folder($array);
+    $foldermanager2 = new FoldersManager($bdd);
+}
+
 switch($type){
     case "devis":
         if($type2=="cours"){
-            $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
+            if($verif == $username){
+                $foldermanager2 = $foldermanager2->getListByUser($username, $company->getIdcompany());
+                $quotations = $quotationmanager->getListQuotationByFilteredFolders($foldermanager2, $folder2);
+            }
+            else{
+                $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
+            }
             $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_proforma" class="btn grey-mint btn-sm" title="Passer la sélection en proforma">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
@@ -67,7 +85,20 @@ switch($type){
                     </div>';
         break;
     case "facture":
+    if($type2=="cours"){
         $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
+        $buttons = '<div id="actions" style="display:none;">
+                        <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
+                            <i class="fas fa-file-prescription"></i> => Avoir </a>
+                        <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
+                            <i class="fas fa-file-invoice"></i> => Devis </a>
+                        <a data-toggle="modal" href="#to_validate" class="btn grey-mint btn-sm">
+                            <i class="fa fa-check"></i> => Valider </a>
+                    </div>';
+        break;
+    }
+    elseif($type2=="valides"){
+        $quotations = $quotationmanager->getListValidatedInvoice($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
                             <i class="fas fa-file-prescription"></i> => Avoir </a>
@@ -75,6 +106,8 @@ switch($type){
                             <i class="fas fa-file-invoice"></i> => Devis </a>
                     </div>';
         break;
+    }
+
     case "avoir":
         $quotations = $quotationmanager->getListAsset($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
@@ -82,7 +115,8 @@ switch($type){
                     </div>';
         break;
 }
-$retour = $_GET['soussoussouscat'];
+
+
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -123,6 +157,8 @@ $retour = $_GET['soussoussouscat'];
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
                 <div class="actions">
+                    <a data-toggle="modal" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm grey-salsa">
+                        <i class="far fa-list-alt""></i> Voir mes devis</a>
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer un devis</a>
                     <?php echo $buttons; ?>
@@ -130,12 +166,12 @@ $retour = $_GET['soussoussouscat'];
             </div>
             <div class="portlet-body">
                 <form id="multiSelection" method="post">
-                    <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                    <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
                             <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro de devis</th>
+                            <th class="min-phone-l">Numéro de <?php echo $type; ?></th>
                             <th class="min-tablet">Client</th>
                             <th class="desktop">Dossier</th>
                             <th class="desktop">Libellé</th>
@@ -147,9 +183,10 @@ $retour = $_GET['soussoussouscat'];
                         </thead>
                         <tbody>
                         <?php
+
                         foreach($quotations as $quotation){
                             //initialisation au format date pour organiser le tableau
-                            $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+                            $date = date('d/m/y', strtotime($quotation->getDate()));
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             $folder = $foldermanager->get($quotation->getFolderId());
                             $descriptions = new Description($array);
@@ -366,6 +403,30 @@ if(count($quotations)>0) {
             </div>
         </div>
     </div>
+    <div id="to_validate" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Validation multiple des <?php print ucwords($_GET['cat']); ?>s <span style="font-style: italic; font-weight: 800;"></span></h4>
+                </div>
+                <div class="modal-body form">
+                    <form action="" method="post" id="to_validate" class="form-horizontal form-row-seperated">
+                        <input type="hidden" id="quotationNumber" name="quotationNumber"
+                               value="<?php echo $quotation->getQuotationNumber(); ?>">
+                        <div class="modal-footer">
+                            <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
+                            </button>
+                            <button type="button" class="btn green" id="validerFacture" name="validerFacture" value="factures"
+                                    onclick="submitInvoice('validate');">
+                                <i class="fa fa-check"></i> Valider
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     <?php
 }
 ?>
@@ -407,6 +468,11 @@ if(count($quotations)>0) {
     function submitDate(selected){
         var inputSelected = $('#date_'+selected).val();
         $("#date").val(inputSelected);
+        $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
+        $('#multiSelection').submit();
+    }
+
+    function submitInvoice(selected){
         $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
         $('#multiSelection').submit();
     }

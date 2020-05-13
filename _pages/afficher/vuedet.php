@@ -100,7 +100,7 @@ if($quotation->getType() == "S")
     $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->getQuotationNumber());
 }
 
-$date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+$date = date('d/m/Y',strtotime($quotation->getDate()));
 
 if(isset($_GET['cat5'])){
     $retour = $_GET['cat5'];
@@ -308,6 +308,18 @@ if(isset($_GET['cat5'])){
                     </div>
                 </div>
             </div>
+            <?php if($type =="facture" && $type2 !="valides")
+                {?>
+                    <form action="<?php echo URLHOST."_pages/_post/to_validate.php"; ?>" method="post" id="to_validate" class="form-horizontal form-row-seperated">
+                        <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
+                        <div class="modal-footer">
+                            <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                            <button type="submit" class="btn green" name="valider">
+                                <i class="fa fa-check"></i> Valider</button>
+                        </div>
+                    </form>
+            <?php
+                }?>
         </div>
         <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -349,7 +361,7 @@ if(isset($_GET['cat5'])){
                                             }
                                             else{
                                             ?>
-                                                <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" />Non</label>
+                                                <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" checked/>Non</label>
                                             <?php
                                             }
                                             ?>
@@ -359,7 +371,7 @@ if(isset($_GET['cat5'])){
                                     <div id="credential_error"> </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" id="partial" style="display: none">
                                 <label class="control-label col-md-3">Pourcentage à facturer
                                     <span class="required"> * </span>
                                 </label>
@@ -378,6 +390,7 @@ if(isset($_GET['cat5'])){
 
                 </div>
             </div>
+
         </div>
         <div id="to_facture" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
@@ -567,4 +580,17 @@ if(isset($_GET['cat5'])){
             $('#select-all').removeAttr('checked');
         }
     });
+
+    $(document).ready(function(){
+        $("input[name$='shattered']").click(function() {
+            var test = $(this).val();
+            if(test == "full"){
+                $("#partial").hide();
+            }
+            else{
+                $("#partial").show();
+            }
+        });
+    });
+
 </script>

@@ -47,14 +47,14 @@ class FoldersManager
     {
         $folderNumber = $this->count($folder->getCompanyId());
         $folderNumber = $folderNumber + 1;
+
+        echo $folder->getDate();
         
         try{
-            $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, year,month,day,isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :year, :month, :day, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
+            $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, date, isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :date, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
             $q->bindValue(':folderNumber', $folderNumber, PDO::PARAM_STR);
             $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
-            $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $folder->getDate(), PDO::PARAM_STR );
             $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
             $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
             $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
@@ -154,18 +154,91 @@ class FoldersManager
     }
 
     /**
+     * Get all the active folder in the BDD for the user
+     * @return array
+     */
+    public function getListByUser($companyid, $username)
+    {
+        try{
+            $folders = [];
+
+            $q=$this->_db->query("SELECT * FROM folder WHERE seller='".$username."' AND companyId=$companyid AND isActive ='1' ORDER BY folderNumber DESC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $folders[] = new Folder($donnees);
+            }
+
+            return $folders;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+
+    /**
+     * Get all the active folder in the BDD between
+     * @return array
+     */
+    public function getListByDate($companyid, $datefrom, $dateto)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $folders = [];
+
+            $q=$this->_db->query("SELECT * FROM folder WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='".$companyid."' AND  isActive ='1' ORDER BY folderNumber ASC");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $folders[] = new Folder($donnees);
+            }
+
+            return $folders;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the active folder in the BDD between date and for a user
+     * @return array
+     */
+    public function getListByDateAndUser($companyid, $username, $datefrom, $dateto)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $folders = [];
+
+            $q=$this->_db->query("SELECT * FROM folder WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='".$companyid."' AND seller='".$username."' AND  isActive ='1' ORDER BY folderNumber ASC");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $folders[] = new Folder($donnees);
+            }
+
+            return $folders;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
      * Update folders information
      * @param folder $folder
      */
     public function update(Folder $folder)
     {
         try{
-            $q = $this->_db->prepare('UPDATE folder SET label = :label, year = :year,month = :month,day = :day,isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE idFolder= :idFolder');
+            $q = $this->_db->prepare('UPDATE folder SET label = :label, date = :date, isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE idFolder= :idFolder');
             $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
             $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
-            $q->bindValue(':year', $folder->getYear(), PDO::PARAM_INT);
-            $q->bindValue(':month', $folder->getMonth(), PDO::PARAM_INT);
-            $q->bindValue(':day', $folder->getDay(), PDO::PARAM_INT );
+            $q->bindValue(':date', $folder->getDate(), PDO::PARAM_STR);
             $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
             $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
             $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);

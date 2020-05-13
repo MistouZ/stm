@@ -123,7 +123,7 @@ var TableDatatablesResponsive = function () {
     }
 
     var initTable3 = function () {
-        var table = $('#sample_3');
+        var table = $('.sample_3');
 
         var oTable = table.dataTable({
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
@@ -132,13 +132,13 @@ var TableDatatablesResponsive = function () {
                     "sortAscending": ": ascendant",
                     "sortDescending": ": descendant"
                 },
-                "emptyTable": "Aucune données disponible",
+                "emptyTable": "Aucune données disponibles",
                 "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
-                "infoEmpty": "Aucune données trouveés",
+                "infoEmpty": "Aucune données trouvées",
                 "infoFiltered": "(filtrées sur un total de _MAX_)",
                 "lengthMenu": "_MENU_ entrées",
                 "search": "Recherche:",
-                "zeroRecords": "Aucune données trouveés"
+                "zeroRecords": "Aucune données trouvées"
             },
 
             // Or you can use remote translation file
@@ -237,7 +237,7 @@ var TableDatatablesResponsive = function () {
             //"dom": "<'row' <'col-md-12'T>><'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
         });
     }
-    
+
 
     return {
 

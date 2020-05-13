@@ -4,8 +4,8 @@
  * @author Nicolas
  * @copyright 2019
  */
-include("../../_cfg/cfg.php");
 
+include("../../_cfg/cfg.php");
 $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
@@ -29,64 +29,33 @@ $taxmanager = new TaxManager($bdd);
 $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
 
-$dateToProforma = date('d/m/Y');
-
 switch($type){
     case "devis":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
-        $buttons = '<div class="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-edit"></i> Modifier </a>
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i> Imprimer </a>
-                        <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
-                            <i class="fas fa-file-alt"></i> => Proforma </a>
-                        <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
-                            <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
-                        <!--<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/dupliquer/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-edit"></i> Dupliquer </a>-->
-                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-edit"></i> Dupliquer </a>
-                    </div>';
         break;
+
     case "proforma":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de la proforma";
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
-        $buttons = '<div class="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i> Imprimer </a>
-                        <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
-                            <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
-                        <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
-                            <i class="fas fa-file-invoice"></i> => Devis </a>
-                    </div>';
         break;
+
     case "facture":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
-        $buttons = '<div class="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i> Imprimer </a>
-                        <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
-                            <i class="fas fa-file-prescription"></i> => Avoir </a>
-                        <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
-                            <i class="fas fa-file-invoice"></i> => Devis </a>
-                    </div>';
         break;
+
     case "avoir":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
-        $buttons = '<div class="actions">
-                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
-                            <i class="fas fa-print"></i> Imprimer </a>
-                    </div>';
+        echo "je suis là";
         break;
 }
+
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
@@ -100,7 +69,7 @@ if($quotation->getType() == "S")
     $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->getQuotationNumber());
 }
 
-$date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$quotation->getMonth().'/'.$quotation->getYear()."")));
+$date = date('d/m/Y',strtotime($quotation->getDate()));
 
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
@@ -242,8 +211,8 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                         <div class="col-md-6 name"> Total taxes : </div>
                         <div class="col-md-6 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
                     </div>
-                    <?php 
-                        foreach($arrayTaxesKey as $key => $value){ 
+                    <?php
+                        foreach($arrayTaxesKey as $key => $value){
                             if($arrayTaxesKey[$key]["Montant"]>0){
                     ?>
                     <div class="row static-info align-reverse">
@@ -315,7 +284,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 2000); // 300 pour NC sur serveur MLS
+        }, 3000); // 300 pour NC sur serveur MLS
     }
 
     function ExportPdf(){
@@ -326,7 +295,7 @@ $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDay().'/'.$
                     paperSize: "A4",
                     multiPage : true,
                     margin: { top: "3cm", bottom: "2cm", right: "1cm", left: "1cm" },
-                    scale: 0.75,
+                    scale: 0.65,
                     height: 500,
                     template: $("#page-template").html(),
                     keepTogether: ".prevent-split"

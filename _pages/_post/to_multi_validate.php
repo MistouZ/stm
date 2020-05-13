@@ -6,38 +6,33 @@
  */
 include("../../_cfg/cfg.php");
 
-echo "Multi proforma : ";
+echo "Multi Validation Facture : ";
 print_r($_POST['selection']);
 
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
+
+$today = date("Y-m-d");
 
 $array = array();
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 
-$date = $_POST['date'];
-
-$today = date("Y-m-d");
-
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
-    'status' => 'En cours',
-    'label' => $label,
-    'date' => $date,
-    'validatedDate' => $today,
-    'type' => 'P'
+    'status' => 'Validated',
+    'validatedDate' => $today
 );
 
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-$test = $quotationmanager->changeType($quotation);
+$test = $quotationmanager->changeStatus($quotation);
 }
 if(is_null($test)){
-    header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
+    header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/cours/successProforma');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/facture/afficher/valides/successFacture');
 }
 ?>

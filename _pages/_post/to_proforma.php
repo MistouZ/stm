@@ -9,7 +9,6 @@ include("../../_cfg/cfg.php");
 include "../../_cfg/fonctions.php";
 
 $quotationNumber = $_POST['quotationNumber'];
-$dateTab = explode("/",$_POST['date']);
 $type2 = $_POST['type'];
 $percent = $_POST["shattered_percent"];
 
@@ -18,19 +17,17 @@ $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
 
-$year = $dateTab[2];
-$month = $dateTab[1];
-$day = $dateTab[0];
+$date = $_POST['date'];
 
+$today = date("Y-m-d");
 
 if($_POST["shattered"] == "full" || $percent == 100)
 {
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
         'status' => 'En cours',
-        'year' => $year,
-        'month' => $month,
-        'day' => $day,
+        'date' => $date,
+        'validatedDate' => $today,
         'type' => 'P'
     );
 
@@ -71,18 +68,15 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $label = $quotationGet->getLabel();
     $type3 = $quotationGet->getType();
 
-    $year = date("Y");
-    $month = date("m");
-    $day = date("d");
+    $date = date("Y-m-d");
     $status = "En cours";
     $type = "S"; // shattered quotation
 
     $data = array(
         'status' => $status,
         'label' => $label,
-        'year' => $year,
-        'month' => $month,
-        'day' => $day,
+        'date' => $date,
+        'validatedDate' => $today,
         'type' => $type,
         'comment' => $comment,
         'folderId' => $folderId,
@@ -180,9 +174,8 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
         'status' => 'En cours',
-        'year' => $year,
-        'month' => $month,
-        'day' => $day,
+        'date' => $date,
+        'validatedDate' => $today,
         'type' => 'P'
     );
     $quotation = new Quotation($data);

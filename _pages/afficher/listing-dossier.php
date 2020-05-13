@@ -73,7 +73,7 @@ else{
                     <div class="alert alert-success">
                         <button class="close" data-close="alert"></button> Le dossier a bien été créé !</div>
                 <?php } ?>
-                <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" id="sample_3" cellspacing="0" width="100%">
+                <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>
                             <th class="all">Numéro de Dossier</th>
@@ -130,7 +130,7 @@ else{
                             <td><?php echo $user->getName().' '.$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getFirstname()." ".$contact->getName(); ?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $actif;?></span></td>
-                            <td><?php echo $folder->getDay()."/".$folder->getMonth()."/".$folder->getYear();?></td>
+                            <td><?php echo  $date = date('d/m/y', strtotime( $folder->getDate()));;?></td>
                         </tr>
                     <?php
                     }

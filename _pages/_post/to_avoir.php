@@ -16,17 +16,13 @@ $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
 
-$year = $dateTab[2];
-$month = $dateTab[1];
-$day = $dateTab[0];
+$date = $_POST['date'];
 
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'status' => 'En cours',
     'label' => $label,
-    'year' => $year,
-    'month' => $month,
-    'day' => $day,
+    'date' => $date,
     'type' => 'A'
 );
 
@@ -37,7 +33,7 @@ $test = $quotationmanager->changeType($quotation);
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorAvoir');
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company'].'/avoir/afficher/'.$type2.'/'.$idQuotation.'/successAvoir');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/avoir/afficher/cours/'.$idQuotation.'/successAvoir');
 }
 
 ?>
