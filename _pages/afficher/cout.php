@@ -76,9 +76,9 @@ if(isset($_POST['valider'])) {
                     <tr>
                         <th class="all">Date</th>
                         <th class="desktop">Dossier</th>
+                        <th class="min-tablet">Client</th>
                         <th class="desktop">Libellé</th>
                         <th class="none">Numéro de <?php echo $type; ?></th>
-                        <th class="min-tablet">Client</th>
                         <th class="min-phone-l">Montant total</th>
                         <th class="min-tablet">Coûts</th>
                         <th class="none">Marge</th>
@@ -189,9 +189,9 @@ if(isset($_POST['valider'])) {
                         <tr>
                             <td><?php echo $date; ?></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
+                            <td><?php echo $customer->getName(); ?></td>
                             <td><?php echo $folder->getLabel(); ?></td>
                             <td><?php echo $InvoiceFolderList[$folder->getIdFolder()]; ?></td>
-                            <td><?php echo $customer->getName(); ?></td>
                             <td><?php echo number_format($TotalPalmaresDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
                             <td><?php echo number_format($TotalCoutDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
                             <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
