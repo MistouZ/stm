@@ -189,7 +189,7 @@
             </ul>
         </li>
         <li class="nav-item  ">
-            <a href="javascript:;" class="nav-link nav-toggle">
+            <a href="<?php echo URLHOST . $_COOKIE['company'] . '/cout/creer'; ?>" class="nav-link nav-toggle">
                 <i class="fas fa-chart-bar"></i>
                 <span class="title">Analyse des coûts</span>
             </a>
