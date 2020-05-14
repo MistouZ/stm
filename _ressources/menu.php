@@ -166,8 +166,7 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/devis/creer'; ?>" class="nav-link "
-                       target="_blank">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/devis/creer'; ?>" class="nav-link">
                         <span class="title"><i class="fas fa-chart-pie"></i> Devis</span>
                     </a>
                 </li>
@@ -177,8 +176,7 @@
                     </a>
                 </li>
                 <li class="nav-item  ">
-                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/facture/creer'; ?>" class="nav-link "
-                       target="_blank">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/palmares/facture/creer'; ?>" class="nav-link ">
                         <span class="title"><i class="fas fa-chart-line"></i> Factures</span>
                     </a>
                 </li>
