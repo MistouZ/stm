@@ -100,8 +100,6 @@ if(isset($_POST['valider'])) {
                         //initialisation au format date pour organiser le tableau
                         $date = date('d/m/y', strtotime($quotation->getDate()));
 
-                        $customer = $customermanager->getById($quotation->getCustomerId());
-
                         $folderQuotation = new Folder($array);
                         $foldermanagerQuotation = new FoldersManager($bdd);
 
@@ -184,7 +182,7 @@ if(isset($_POST['valider'])) {
 
                     }
                     foreach($folderList as $folder){
-
+                        $customer = $customermanager->getById($folder->getCustomerId());
                         ?>
                         <tr>
                             <td><?php echo $date; ?></td>
