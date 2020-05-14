@@ -8,7 +8,7 @@ $companyNameData = $_GET["section"];
 
 if(isset($_POST['valider'])) {
 
-    $type = $_POST['type'];
+    $type = "devis";
 
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
