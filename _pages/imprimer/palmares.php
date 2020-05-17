@@ -8,14 +8,12 @@
 include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
 
-if(isset($_POST['valider'])) {
-
 $type = $_POST['type'];
 
-$datefrom = $_POST["date_from"];
-$dateto = $_POST["date_to"];
+$datefrom = $_GET["date_from"];
+$dateto = $_GET["date_to"];
 
-$seller = $_POST["seller"];
+$seller = $_GET["seller"];
 
 $array = array();
 /*initilisation des objets */
@@ -77,7 +75,6 @@ $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,
 //récupération des coûts liés au dossier.
 
 $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
-}
 
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
