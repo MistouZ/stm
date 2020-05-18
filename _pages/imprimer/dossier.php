@@ -111,12 +111,13 @@ if(isset($_POST['imprimer'])) {
                         <div class="caption">
                             <i class="fa fa-globe"></i>Observation sur le dossier</div>
                     </div>
-                    <div style="height: 300px; background-color : snow">
+                    <div style="height: 500px; background-color : snow">
 
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <input type="hidden" id="filename" name="filename" value="Dossier<?php echo $folder->getFolderNumber(); ?>">
     <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
