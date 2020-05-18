@@ -188,7 +188,7 @@ if(isset($_POST['imprimer'])) {
 
                                 ?>
                                 <tr>
-                                    <td><?php echo $folder->getDate(); ?></td>
+                                    <td><?php echo $date; ?></td>
                                     <td><?php echo $folder->getFolderNumber(); ?></td>
                                     <td><?php echo $folder->getLabel(); ?></td>
                                     <td><?php echo $customer->getName(); ?></td>
