@@ -259,6 +259,14 @@ if(isset($_POST['valider'])) {
             </div>
         </div>
     </div>
+    <form action="<?php echo URLHOST."_pages/_post/to_validate.php"; ?>" method="post" id="to_validate" class="form-horizontal form-row-seperated">
+        <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php //echo $quotation->getQuotationNumber(); ?>">
+        <div class="modal-footer">
+            <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+            <button type="submit" class="btn green" name="valider">
+                <i class="fa fa-check"></i> Valider</button>
+        </div>
+    </form>
     <div class="col-md-6"> </div>
     <div class="col-md-6">
         <form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" method="post" class="form-horizontal form-row-seperated">
