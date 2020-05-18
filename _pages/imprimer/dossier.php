@@ -212,10 +212,6 @@ if(isset($_POST['imprimer'])) {
         text-align: center;
     }
 
-    .k-i-user{
-        content : "\e801";
-    }
-
     /*
         Use the DejaVu Sans font for display and embedding in the PDF file.
         The standard PDF fonts have no support for Unicode characters.
