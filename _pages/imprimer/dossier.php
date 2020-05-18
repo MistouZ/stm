@@ -10,9 +10,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 
 if(isset($_POST['imprimer'])) {
-    echo "je suis là";
     $folderId = $_GET['soussouscat'];
-    echo $folderId;
 
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
@@ -32,8 +30,6 @@ if(isset($_POST['imprimer'])) {
     $user = $usermanager->get($folder->getSeller());
     $customer = $customermanager->getById($folder->getCustomerId());
     $contact = $contactmanager->getById($folder->getContactId());
-    $quotations = $quotationmanager->getByFolderId($folderId);
-    $costs = $costManager->getByFolderId($folderId);
 
     $date = date('d/m/Y', strtotime(str_replace('/', '-', "" . $folder->getDate() . "")));
 
