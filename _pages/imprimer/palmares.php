@@ -213,42 +213,35 @@ echo $type;
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6"> </div>
-            <div class="col-md-6">
-                <div class="row static-info align-reverse">
-                    <div class="col-md-8 name"> Total TTC : </div>
-                    <div class="col-md-3 value"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
-                </div>
-            </div>
-            <div class="col-md-6"> </div>
-            <div class="col-md-6">
-                <div class="row static-info align-reverse">
-                    <div class="col-md-8 name"> Total Coûts : </div>
-                    <div class="col-md-3 value"> <?php echo number_format($TotalCost,0,","," "); ?> XPF</div>
-                </div>
-            </div>
-            <div class="col-md-6"> </div>
-            <div class="col-md-6">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
                 <div class="well">
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Marge TTC : </div>
-                        <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($TotalMarge,0,","," "); ?> XPF</div>
+                        <div class="col-md-6 name"> Total TTC :  </div>
+                        <div class="col-md-6 value"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6"> </div>
-            <div class="col-md-6">
-                <div class="well">
                     <div class="row static-info align-reverse">
-                        <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Marge : </div>
-                        <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($PercentMarge,0,","," "); ?> %</div>
+                        <div class="col-md-6 name"> Total Coûts : </div>
+                        <div class="col-md-6 value"> <?php echo number_format($TotalCost,0,","," "); ?> XPF</div>
+                    </div>
+                    <div class="row static-info align-reverse">
+                        <div class="col-md-6 name"> Marge TTC : </div>
+                        <div class="col-md-6 value"> <?php echo number_format($TotalMarge,0,","," "); ?> XPF</div>
+                    </div>
+                    <div class="row static-info align-reverse">
+                        <div class="col-md-6 name"> Marge : </div>
+                        <div class="col-md-6 value"> <?php echo number_format($PercentMarge,0,","," "); ?> %</div>
+                    </div>
+                    <div class="row static-info align-reverse">
+                        <div class="col-md-6 name"> Marge : </div>
+                        <div class="col-md-6 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
                     </div>
                 </div>
             </div>
         </div>
-        <input type="hidden" id="filename" name="filename" value="<?php echo "palmares - ".$companyNameData. "-".$datefrom."-".$dateto; ?>">
-        <button id="Exporter" onclick="ExportPdf()">Exporter</button>
     </div>
+    <input type="hidden" id="filename" name="filename" value="<?php echo "palmares - ".$companyNameData. "-".$datefrom."-".$dateto; ?>">
+    <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
 
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
