@@ -217,7 +217,7 @@ if(isset($_POST['imprimer'])) {
         The standard PDF fonts have no support for Unicode characters.
     */
     #myCanvas {
-        font-family: FontAwesome, "DejaVu Sans", "Arial", sans-serif;
+        font-family: "DejaVu Sans", "Arial", sans-serif;
     }
 
 </style>
