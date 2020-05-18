@@ -216,8 +216,8 @@ if(isset($_POST['imprimer'])) {
         Use the DejaVu Sans font for display and embedding in the PDF file.
         The standard PDF fonts have no support for Unicode characters.
     */
-    #myCanvas {
-        font-family: "DejaVu Sans", "Arial", sans-serif;
-    }
+   /* #myCanvas {
+        /*font-family: "DejaVu Sans", "Arial", sans-serif;
+    }*/
 
 </style>
