@@ -211,7 +211,7 @@ if(isset($_POST['imprimer'])) {
     }
 
     .k-icon{
-        font-size: 40px;
+        font-size: 80px;
     }
 
     /*
