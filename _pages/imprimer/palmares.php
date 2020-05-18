@@ -50,12 +50,10 @@ if(isset($_POST['imprimer'])) {
     if ($type == "devis") {
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
     } elseif ($type == "proforma") {
-        echo $type;
         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
     } elseif ($type == "facture") {
         $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
     } elseif ($type == "avoir") {
-        echo $type;
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
     }
 
