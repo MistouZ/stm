@@ -209,8 +209,8 @@ if(isset($_POST['imprimer'])) {
         text-align: center;
     }
 
-    .k-icon{
-        font-family: WebComponentsIcons;
+    .k-i-user{
+        content : "\e801";
     }
 
     /*
