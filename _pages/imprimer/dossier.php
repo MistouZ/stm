@@ -111,7 +111,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="caption">
                             <i class="fa fa-globe"></i>Observation sur le dossier</div>
                     </div>
-                    <div style="height: 300px">
+                    <div style="height: 300px; background-color : snow">
 
                     </div>
                 </div>
