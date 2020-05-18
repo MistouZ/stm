@@ -264,7 +264,7 @@ if(isset($_POST['valider'])) {
         <div class="modal-footer">
             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
             <button type="submit" class="btn green" name="valider">
-                <i class="fa fa-check"></i> Valider</button>
+                <i class="fas fa-check"></i> Imprimer</button>
         </div>
     </form>
     <div class="col-md-6"> </div>
