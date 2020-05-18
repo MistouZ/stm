@@ -75,7 +75,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="portlet blue-hoki box">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="k-icon fa-user-tie"></i>Informations client </div>
+                                    <i class="fas fa-user-tie"></i>Informations client </div>
                             </div>
                             <div class="portlet-body">
                                 <div class="row static-info">
@@ -205,10 +205,6 @@ if(isset($_POST['imprimer'])) {
         bottom: 20px;
         border-top: 1px solid #000;
         text-align: center;
-    }
-    .fa-user-tie{
-        content: '\f508';
-        font-family: FontAwesome;
     }
 
     /*
