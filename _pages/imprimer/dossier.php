@@ -45,7 +45,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="portlet yellow-crusta box">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fas fa-info"></i>Informations</div>
+                                    <i class="k-icon .k-i-information"></i>Informations</div>
                             </div>
                             <div class="portlet-body">
                                 <div class="row static-info">
