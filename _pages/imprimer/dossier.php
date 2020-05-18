@@ -19,16 +19,9 @@ $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$quotation = new Quotation($array);
-$quotationmanager = new QuotationManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
-$tax = new Tax($array);
-$taxmanager = new TaxManager($bdd);
-$cost = new Cost($array);
-$costManager = new CostManager($bdd);
-$supplier = new Suppliers($array);
-$suppliermanager = new SuppliersManager($bdd);
+
 
 $folder = $foldermanager->get($folderId);
 
