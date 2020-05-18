@@ -34,7 +34,6 @@ if(isset($_POST['imprimer'])) {
 
     $date = date('d/m/Y', strtotime(str_replace('/', '-', "" . $folder->getDate() . "")));
 
-    $folder = $foldermanager->get($quotation->getFolderId());
     $company = $companymanager->getByNameData($companyNameData);
 }
 ?>
