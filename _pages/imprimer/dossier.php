@@ -141,8 +141,6 @@ if(isset($_POST['imprimer'])) {
 
         "DejaVu Sans|Italic":
             "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
-        "FontAwesome":
-            "https://use.fontawesome.com/releases/v5.7.2/font/fontawesome-webfont.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
