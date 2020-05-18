@@ -124,8 +124,8 @@ if(isset($_POST['imprimer'])) {
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jszip.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-material.min.css"></script>
-<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.material.min.css"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-boostrap.min.css"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.boostrap.min.css"></script>
 <script>
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
