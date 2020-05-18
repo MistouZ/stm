@@ -25,6 +25,7 @@ if(isset($_POST['imprimer'])) {
 
 
     $folder = $foldermanager->get($folderId);
+    print_r($folder);
 
     $company = $companymanager->getByNameData($companyNameData);
     $user = $usermanager->get($folder->getSeller());
