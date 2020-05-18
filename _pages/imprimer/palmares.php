@@ -7,7 +7,8 @@
 
 include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
-if(isset($_POST['valider'])) {
+
+if(isset($_POST['imprimer'])) {
     $type = $_GET["souscat"];
 
     $datefrom = $_POST["date_from"];
