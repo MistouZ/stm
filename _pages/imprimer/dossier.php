@@ -45,7 +45,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="portlet yellow-crusta box">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fas fa-info"></i>Informations</div>
+                                    <i class="k-icon k-i-info"</i>Informations</div>
                             </div>
                             <div class="portlet-body">
                                 <div class="row static-info">
@@ -75,7 +75,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="portlet blue-hoki box">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fas fa-user-tie"></i>Informations client </div>
+                                    <i class="k-icon k-i-user"></i>Informations client </div>
                             </div>
                             <div class="portlet-body">
                                 <div class="row static-info">
@@ -109,7 +109,7 @@ if(isset($_POST['imprimer'])) {
                 <div class="portlet box green">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-globe"></i>Observation sur le dossier</div>
+                            <i class="k-icon k-i-folder-open"></i>Observation sur le dossier</div>
                     </div>
                     <div style="height: 700px; background-color : white">
                     </div>
