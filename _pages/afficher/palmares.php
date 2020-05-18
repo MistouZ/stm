@@ -113,10 +113,7 @@ if(isset($_POST['valider'])) {
                     foreach($quotations as $quotation){
                         $j = $quotation->getFolderId();
 
-                        //initialisation au format date pour organiser le tableau
-                        $date = date('d/m/y', strtotime($quotation->getDate()));
-
-                       // $customer = $customermanager->getById($quotation->getCustomerId());
+                        // $customer = $customermanager->getById($quotation->getCustomerId());
 
                         $folderQuotation = new Folder($array);
                         $foldermanagerQuotation = new FoldersManager($bdd);
@@ -202,6 +199,7 @@ if(isset($_POST['valider'])) {
                     }
                     foreach($folderList as $folder){
                         $customer = $customermanager->getById($folder->getCustomerId());
+                        //initialisation au format date pour organiser le tableau
                         $date = date('d/m/y', strtotime($folder->getDate()));
 
                         ?>
