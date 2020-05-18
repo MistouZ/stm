@@ -206,6 +206,10 @@ if(isset($_POST['imprimer'])) {
         border-top: 1px solid #000;
         text-align: center;
     }
+    .fas fa-user-tie{
+        content: '\f508'
+        font-family: FontAwesome;
+    }
 
     /*
         Use the DejaVu Sans font for display and embedding in the PDF file.
