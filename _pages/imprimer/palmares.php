@@ -8,7 +8,7 @@
 include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
 if(isset($_POST['valider'])) {
-    $type = $_POST['type'];
+    $type = $_GET["souscat"];
 
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
