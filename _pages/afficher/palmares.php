@@ -259,6 +259,7 @@ if(isset($_POST['valider'])) {
             </div>
         </div>
     </div>
+    <div class="col-md-6"> </div>
     <form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" method="post" class="form-horizontal form-row-seperated">
         <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
         <input type="hidden" id="date_to" name="date_to" value="<?php echo $dateto; ?>">
