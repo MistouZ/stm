@@ -205,7 +205,7 @@ if(isset($_POST['valider'])) {
 
                         ?>
                         <tr>
-                            <td><?php echo $date; ?></td>
+                            <td><?php echo $folder->getDate(); ?></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel(); ?></td>
                             <td><?php echo $InvoiceFolderList[$folder->getIdFolder()]; ?></td>
