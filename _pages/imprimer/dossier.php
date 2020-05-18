@@ -142,10 +142,7 @@ if(isset($_POST['imprimer'])) {
             "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
-
-        "FontAwesome":
-            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/fonts/fontawesome-webfont.ttf"
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
