@@ -14,9 +14,6 @@ if(isset($_POST['imprimer'])) {
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
 
-    $seller = $_POST["seller"];
-print_r($_POST);
-echo $type;
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
