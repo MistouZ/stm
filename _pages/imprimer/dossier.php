@@ -33,7 +33,6 @@ if(isset($_POST['imprimer'])) {
     $contact = $contactmanager->getById($folder->getContactId());
 
     $date = date('d/m/Y', strtotime(str_replace('/', '-', "" . $folder->getDate() . "")));
-    print_r($folder);
     $company = $companymanager->getByNameData($companyNameData);
 }
 ?>
