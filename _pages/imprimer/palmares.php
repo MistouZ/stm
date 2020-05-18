@@ -81,8 +81,8 @@ if(isset($_POST['imprimer'])) {
                                 <th >Libellé</th>
                                 <th >Client</th>
                                 <th class="col-md-2">Montant total</th>
-                                <th >Marge</th>
-                                <th class="col-md-2">Coûts</th>
+                                <th class="col-md-1">Marge</th>
+                                <th >Coûts</th>
                             </tr>
                             </thead>
                             <tbody>
