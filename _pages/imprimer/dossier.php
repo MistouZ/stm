@@ -149,7 +149,7 @@ if(isset($_POST['imprimer'])) {
             "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
 
         "FontAwesome":
-            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/fonts/fontawesome-webfont.ttf"
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/fonts/fontawesome-webfont.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
