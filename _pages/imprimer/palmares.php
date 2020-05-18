@@ -280,7 +280,7 @@ if(isset($_POST['imprimer'])) {
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 3000); // 300 pour NC sur serveur MLS
+        }, 6000); // 300 pour NC sur serveur MLS
     }
 
     function ExportPdf(){
