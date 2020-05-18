@@ -8,7 +8,7 @@ $companyNameData = $_GET["section"];
 
 if(isset($_POST['valider'])) {
 
-    $type = $_GET["souscat"];
+    $type = $_POST['type'];
 
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
@@ -103,7 +103,7 @@ if(isset($_POST['valider'])) {
                     </thead>
                     <tbody>
                     <?php
-                    //Initialisation des valeurs pour le premier dossier
+                    //Initialisation des valueurs pour le premier dossier
                     $k = 0;
                     $TotalPalmares = 0;
                     $i = $quotations[$k]->getFolderId();
@@ -260,14 +260,3 @@ if(isset($_POST['valider'])) {
         </div>
     </div>
 </div>
-<form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" method="post" id="to_proforma" class="form-horizontal form-row-seperated">
-    <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
-    <input type="hidden" id="date_to" name="date_to" value="<?php echo $dateto; ?>">
-    <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
-
-    <div class="modal-footer">
-        <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-        <button type="submit" class="btn green" name="imprimer">
-            <i class="fas fa-print"></i> Imprimer</button>
-    </div>
-</form>
