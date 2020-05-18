@@ -120,7 +120,7 @@ if(isset($_POST['imprimer'])) {
     <input type="hidden" id="filename" name="filename" value="Dossier<?php echo $folder->getFolderNumber(); ?>">
     <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css">
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jszip.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
