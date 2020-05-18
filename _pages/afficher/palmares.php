@@ -262,6 +262,7 @@ if(isset($_POST['valider'])) {
     <form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" method="post" id="to_validate" class="form-horizontal form-row-seperated">
         <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
         <input type="hidden" id="date_to" name="date_to" value="<?php echo $dateto; ?>">
+        <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
         <div class="modal-footer">
             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
             <button type="submit" class="btn green" name="valider">
@@ -273,7 +274,7 @@ if(isset($_POST['valider'])) {
         <form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" method="post" class="form-horizontal form-row-seperated">
             <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
             <input type="hidden" id="date_to" name="date_to" value="<?php echo $dateto; ?>">
-            <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>"
+            <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
             <div class="modal-footer">
                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                 <button type="submit" class="btn green" name="imprimer">
