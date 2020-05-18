@@ -207,7 +207,7 @@ if(isset($_POST['imprimer'])) {
         text-align: center;
     }
     .fas fa-user-tie{
-        content: 'f508';
+        content: '\f508';
         font-family: FontAwesome;
     }
 
