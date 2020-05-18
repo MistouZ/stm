@@ -289,6 +289,7 @@ if(isset($_POST['imprimer'])) {
             .drawDOM("#myCanvas",
                 {
                     paperSize: "A4",
+                    landscape: true,
                     multiPage : true,
                     margin: { top: "3cm", bottom: "2cm", right: "1cm", left: "1cm" },
                     scale: 0.65,
