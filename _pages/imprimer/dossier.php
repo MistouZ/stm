@@ -10,6 +10,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 
 if(isset($_POST['imprimer'])) {
+    echo "je suis là";
     $folderId = $_GET['soussouscat'];
 
     $company = new Company($array);
