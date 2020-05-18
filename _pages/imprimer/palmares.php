@@ -10,10 +10,10 @@ $companyNameData = $_GET["section"];
 
 $type = $_POST['type'];
 
-$datefrom = $_GET["date_from"];
-$dateto = $_GET["date_to"];
+$datefrom = $_POST["date_from"];
+$dateto = $_POST["date_to"];
 
-$seller = $_GET["seller"];
+$seller = $_POST["seller"];
 
 $array = array();
 /*initilisation des objets */
