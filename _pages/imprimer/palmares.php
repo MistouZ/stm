@@ -76,13 +76,13 @@ if(isset($_POST['imprimer'])) {
                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" cellspacing="0" >
                             <thead>
                             <tr>
-                                <th class="all" >Date</th>
-                                <th class="desktop">Dossier</th>
-                                <th class="desktop">Libellé</th>
-                                <th class="min-tablet">Client</th>
-                                <th class="min-phone-l">Montant total</th>
-                                <th class="min-tablet">Marge</th>
-                                <th class="none">Coûts</th>
+                                <th >Date</th>
+                                <th >Dossier</th>
+                                <th class="col-md-5">Libellé</th>
+                                <th class="col-md-3">Client</th>
+                                <th class="col-md-2">Montant total</th>
+                                <th >Marge</th>
+                                <th class="col-md-2">Coûts</th>
                             </tr>
                             </thead>
                             <tbody>
