@@ -76,7 +76,7 @@ if(isset($_POST['imprimer'])) {
                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" cellspacing="0" >
                             <thead>
                             <tr>
-                                <th >Date</th>
+                                <th class="col-md-1">Date</th>
                                 <th >Dossier</th>
                                 <th >Libellé</th>
                                 <th >Client</th>
