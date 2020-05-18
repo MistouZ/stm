@@ -7,75 +7,63 @@
 
 include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
+if(isset($_POST['valider'])) {
+    $type = $_POST['type'];
 
-$type = $_POST['type'];
+    $datefrom = $_POST["date_from"];
+    $dateto = $_POST["date_to"];
 
-$datefrom = $_POST["date_from"];
-$dateto = $_POST["date_to"];
+    $seller = $_POST["seller"];
 
-$seller = $_POST["seller"];
+    $array = array();
+    /*initilisation des objets */
+    $company = new Company($array);
+    $companymanager = new CompaniesManager($bdd);
 
-$array = array();
-/*initilisation des objets */
-$company = new Company($array);
-$companymanager = new CompaniesManager($bdd);
+    $user = new Users($array);
+    $usermanager = new UsersManager($bdd);
 
-$user = new Users($array);
-$usermanager = new UsersManager($bdd);
+    $folder = new Folder($array);
+    $foldermanager = new FoldersManager($bdd);
 
-$folder = new Folder($array);
-$foldermanager = new FoldersManager($bdd);
+    $quotation = new Quotation($array);
+    $quotationmanager = new QuotationManager($bdd);
 
-$quotation = new Quotation($array);
-$quotationmanager = new QuotationManager($bdd);
+    $customer = new Customers($array);
+    $customermanager = new CustomersManager($bdd);
 
-$customer = new Customers($array);
-$customermanager = new CustomersManager($bdd);
+    $cost = new Cost($array);
+    $costmanager = new CostManager($bdd);
 
-$cost = new Cost($array);
-$costmanager = new CostManager($bdd);
+    $company = $companymanager->getByNameData($companyNameData);
+    $idCompany = $company->getIdcompany();
 
-$company = $companymanager->getByNameData($companyNameData);
-$idCompany = $company->getIdcompany();
+    if (empty($seller) && empty($datefrom)) {
+        $filteredFolder = $foldermanager->getList($idCompany);
+    } elseif (empty($seller)) {
+        $filteredFolder = $foldermanager->getListByDate($idCompany, $datefrom, $dateto);
+    } elseif (!empty($seller) && empty($datefrom)) {
+        $filteredFolder = $foldermanager->getListByUser($idCompany, $seller);
+    } elseif (!empty($seller) && !empty($datefrom)) {
+        $filteredFolder = $foldermanager->getListByDateAndUser($idCompany, $seller, $datefrom, $dateto);
+    }
 
-if(empty($seller) && empty($datefrom)){
-$filteredFolder = $foldermanager->getList($idCompany);
-}
-elseif(empty($seller))
-{
-$filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
-}
-elseif(!empty($seller) && empty($datefrom))
-{
-$filteredFolder = $foldermanager->getListByUser($idCompany, $seller);
-}
-elseif (!empty($seller) && !empty($datefrom))
-{
-$filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
-}
-
-if($type == "devis"){
-$quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
-}
-elseif ($type == "proforma")
-{
-echo $type;
-$quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder,$folder);
-}
-elseif ($type == "facture")
-{
-$quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder,$folder);
-}
-elseif ($type == "avoir")
-{
-echo $type;
-$quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
-}
+    if ($type == "devis") {
+        $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
+    } elseif ($type == "proforma") {
+        echo $type;
+        $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+    } elseif ($type == "facture") {
+        $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+    } elseif ($type == "avoir") {
+        echo $type;
+        $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+    }
 
 //récupération des coûts liés au dossier.
 
-$costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
-
+    $costs = $costmanager->getCostByFilteredQuotation($quotations, $quotation);
+}
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
     <div id="myCanvas">
