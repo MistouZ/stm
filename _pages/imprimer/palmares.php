@@ -188,13 +188,13 @@ if(isset($_POST['imprimer'])) {
 
                                 ?>
                                 <tr>
-                                    <td><?php echo $date; ?></td>
-                                    <td><?php echo $folder->getFolderNumber(); ?></td>
+                                    <td class="col-md-1"><?php echo $date; ?></td>
+                                    <td class="col-md-1"><?php echo $folder->getFolderNumber(); ?></td>
                                     <td><?php echo $folder->getLabel(); ?></td>
                                     <td><?php echo $customer->getName(); ?></td>
                                     <td><?php echo number_format($TotalPalmaresDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
                                     <td><?php echo number_format($TotalCoutDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
-                                    <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
+                                    <td class="col-md-1"><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
                                 </tr>
                                 <?php
                             }
