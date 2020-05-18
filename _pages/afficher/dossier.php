@@ -465,7 +465,7 @@ switch($type){
         <div class="modal-footer">
             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
             <button type="submit" class="btn green" name="imprimer">
-                <i class="fas fa-print"></i> Imprimer</button>
+                <i class="fas fa-print"></i> Imprimer page de garde</button>
         </div>
     </form>
 </div>
