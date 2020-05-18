@@ -217,7 +217,7 @@ if(isset($_POST['imprimer'])) {
     }
 
     .fa-user-tie{
-        content:"\f508";
+        font-family: FontAwesome;
     }
 
     /*
