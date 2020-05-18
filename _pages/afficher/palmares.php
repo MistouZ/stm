@@ -93,10 +93,12 @@ if(isset($_POST['valider'])) {
                         <th class="all">Date</th>
                         <th class="desktop">Dossier</th>
                         <th class="desktop">Libellé</th>
+                        <th class="none">Numéro de <?php echo $type; ?></th>
                         <th class="min-tablet">Client</th>
                         <th class="min-phone-l">Montant total</th>
                         <th class="min-tablet">Marge</th>
                         <th class="none">Coûts</th>
+                        <th class="none">Détail</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -206,10 +208,13 @@ if(isset($_POST['valider'])) {
                             <td><?php echo $date; ?></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel(); ?></td>
+                            <td><?php echo $InvoiceFolderList[$folder->getIdFolder()]; ?></td>
                             <td><?php echo $customer->getName(); ?></td>
                             <td><?php echo number_format($TotalPalmaresDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
                             <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
                             <td><?php echo number_format($TotalCoutDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
+
+                            <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.$folder->getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                         </tr>
                         <?php
                     }
@@ -258,7 +263,7 @@ if(isset($_POST['valider'])) {
 <form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" method="post" class="form-horizontal form-row-seperated">
     <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
     <input type="hidden" id="date_to" name="date_to" value="<?php echo $dateto; ?>">
-    <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
+    <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>"
     <div class="modal-footer">
         <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
         <button type="submit" class="btn green" name="imprimer">
