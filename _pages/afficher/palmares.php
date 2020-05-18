@@ -103,7 +103,7 @@ if(isset($_POST['valider'])) {
                     </thead>
                     <tbody>
                     <?php
-                    //Initialisation des valueurs pour le premier dossier
+                    //Initialisation des valeurs pour le premier dossier
                     $k = 0;
                     $TotalPalmares = 0;
                     $i = $quotations[$k]->getFolderId();
@@ -266,6 +266,6 @@ if(isset($_POST['valider'])) {
 <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
 <div class="modal-footer">
     <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-    <button type="submit" class="btn green" name="valider">
+    <button type="submit" class="btn green" name="Imprimer">
         <i class="fas fa-print"></i> Imprimer</button>
 </div>
