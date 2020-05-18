@@ -78,7 +78,7 @@ if(isset($_POST['imprimer'])) {
                             <tr>
                                 <th class="col-md-1">Date</th>
                                 <th class="col-md-1">Dossier</th>
-                                <th class="col-md-5">Libellé</th>
+                                <th class="col-md-3">Libellé</th>
                                 <th >Client</th>
                                 <th class="col-md-2">Montant total</th>
                                 <th >Coûts</th>
