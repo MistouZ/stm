@@ -146,10 +146,7 @@ if(isset($_POST['imprimer'])) {
             "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "WebComponentsIcons"      :
-            "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
-
-        "FontAwesome":
-            "https://use.fontawesome.com/releases/v5.13.0/css/all.css"
+            "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
