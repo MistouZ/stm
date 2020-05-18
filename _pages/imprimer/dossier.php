@@ -1,8 +1,8 @@
 <?php
 
 /**
- * @author Nicolas
- * @copyright 2019
+ * @author Amaury
+ * @copyright 2020
  */
 
 include("../../_cfg/cfg.php");
