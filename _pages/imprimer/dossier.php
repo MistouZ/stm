@@ -132,6 +132,9 @@ if(isset($_POST['imprimer'])) {
 <script>
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
+        "FontAwesome":
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf",
+
         "DejaVu Sans":
             "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans.ttf",
 
