@@ -265,7 +265,7 @@ if(isset($_POST['valider'])) {
         <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
         <div class="modal-footer">
             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
-            <button type="submit" class="btn green" name="valider">
+            <button type="submit" class="btn green" name="imprimer">
                 <i class="fas fa-print"></i> Imprimer</button>
         </div>
     </form>
