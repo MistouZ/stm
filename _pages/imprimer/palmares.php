@@ -81,8 +81,8 @@ if(isset($_POST['imprimer'])) {
                                 <th >Libellé</th>
                                 <th >Client</th>
                                 <th >Montant total</th>
-                                <th class="col-md-1">Marge</th>
                                 <th >Coûts</th>
+                                <th class="col-md-1">Marge</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -194,8 +194,8 @@ if(isset($_POST['imprimer'])) {
                                     <td><?php echo $folder->getLabel(); ?></td>
                                     <td><?php echo $customer->getName(); ?></td>
                                     <td><?php echo number_format($TotalPalmaresDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
-                                    <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
                                     <td><?php echo number_format($TotalCoutDossier[$folder->getIdFolder()],0,","," "); ?> XPF</td>
+                                    <td><?php echo number_format($PercentDossier[$folder->getIdFolder()],0,","," "); ?> %</td>
                                 </tr>
                                 <?php
                             }
