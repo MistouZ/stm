@@ -260,7 +260,7 @@ if(isset($_POST['valider'])) {
         </div>
     </div>
     <form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" method="post" id="to_validate" class="form-horizontal form-row-seperated">
-        <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php //echo $quotation->getQuotationNumber(); ?>">
+        <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
         <div class="modal-footer">
             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
             <button type="submit" class="btn green" name="valider">
