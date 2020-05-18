@@ -249,7 +249,7 @@ if(isset($_POST['valider'])) {
                 </div>
             </div>
         </div>
-        <input type="hidden" id="filename" name="filename" value="<?php echo "palmares - ".$idQuotation; ?>">
+        <input type="hidden" id="filename" name="filename" value="<?php echo "palmares - ".$companyNameData. "-".$datefrom."-".$dateto; ?>">
         <button id="Exporter" onclick="ExportPdf()">Exporter</button>
     </div>
 </div>
