@@ -54,7 +54,7 @@ if(isset($_POST['imprimer'])) {
                                 </div>
                                 <div class="row static-info">
                                     <div class="col-md-5 name"> Date: </div>
-                                    <div class="col-md-7 value"> <?php echo $date; ?> <a data-toggle="modal" href="#modif_date" ><i class="fas fa-edit"></i></a></div>
+                                    <div class="col-md-7 value"> <?php echo $date; ?> <a data-toggle="modal" href="#modif_date" ><i class="fas fa-info"></i></a></div>
                                 </div>
                                 <div class="row static-info">
                                     <div class="col-md-5 name"> Libellé : </div>
