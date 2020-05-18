@@ -9,34 +9,35 @@ include("../../_cfg/cfg.php");
 $array = array();
 $companyNameData = $_GET["section"];
 
-$folderId = $_GET['soussouscat'];
+if(isset($_POST['imprimer'])) {
+    $folderId = $_GET['soussouscat'];
 
-$company = new Company($array);
-$companymanager = new CompaniesManager($bdd);
-$folder = new Folder($array);
-$foldermanager = new FoldersManager($bdd);
-$user = new Users($array);
-$usermanager = new UsersManager($bdd);
-$customer = new Customers($array);
-$customermanager = new CustomersManager($bdd);
-$contact = new Contact($array);
-$contactmanager = new ContactManager($bdd);
+    $company = new Company($array);
+    $companymanager = new CompaniesManager($bdd);
+    $folder = new Folder($array);
+    $foldermanager = new FoldersManager($bdd);
+    $user = new Users($array);
+    $usermanager = new UsersManager($bdd);
+    $customer = new Customers($array);
+    $customermanager = new CustomersManager($bdd);
+    $contact = new Contact($array);
+    $contactmanager = new ContactManager($bdd);
 
 
-$folder = $foldermanager->get($folderId);
+    $folder = $foldermanager->get($folderId);
 
-$company = $companymanager->getByNameData($companyNameData);
-$user = $usermanager->get($folder->getSeller());
-$customer = $customermanager->getById($folder->getCustomerId());
-$contact = $contactmanager->getById($folder->getContactId());
-$quotations = $quotationmanager->getByFolderId($folderId);
-$costs = $costManager->getByFolderId($folderId);
+    $company = $companymanager->getByNameData($companyNameData);
+    $user = $usermanager->get($folder->getSeller());
+    $customer = $customermanager->getById($folder->getCustomerId());
+    $contact = $contactmanager->getById($folder->getContactId());
+    $quotations = $quotationmanager->getByFolderId($folderId);
+    $costs = $costManager->getByFolderId($folderId);
 
-$date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDate()."")));
+    $date = date('d/m/Y', strtotime(str_replace('/', '-', "" . $folder->getDate() . "")));
 
-$folder = $foldermanager->get($quotation->getFolderId());
-$company = $companymanager->getByNameData($companyNameData);
-
+    $folder = $foldermanager->get($quotation->getFolderId());
+    $company = $companymanager->getByNameData($companyNameData);
+}
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
     <div id="myCanvas">
