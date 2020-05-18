@@ -36,6 +36,9 @@ if(isset($_POST['imprimer'])) {
     $company = $companymanager->getByNameData($companyNameData);
 }
 ?>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-boostrap.min.css"></script>
+<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.boostrap.min.css"></script>
+
 <div class="row" xmlns="http://www.w3.org/1999/html">
     <div id="myCanvas">
         <div class="row">
@@ -124,9 +127,8 @@ if(isset($_POST['imprimer'])) {
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/jszip.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-boostrap.min.css"></script>
-<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.boostrap.min.css"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
 <script>
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
