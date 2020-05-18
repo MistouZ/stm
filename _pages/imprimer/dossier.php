@@ -41,47 +41,8 @@ $costs = $costManager->getByFolderId($folderId);
 
 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$folder->getDate()."")));
 
-switch($type){
-    case "devis":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
-        $entete = "du devis";
-        $enteteIcon = '<i class="fas fa-file-invoice"></i>';
-        break;
-
-    case "proforma":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
-        $entete = "de la proforma";
-        $enteteIcon = '<i class="fas fa-file-alt"></i>';
-        break;
-
-    case "facture":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
-        $entete = "de la facture";
-        $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
-        break;
-
-    case "avoir":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
-        $entete = "de l'avoir";
-        $enteteIcon = '<i class="fas fa-file-prescription"></i>';
-        echo "je suis là";
-        break;
-}
-
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
-$descriptions = new Description($array);
-$descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-$contact = $contactmanager->getById($folder->getContactId());
-$user = $usermanager->get($folder->getSeller());
-$customer = $customermanager->getById($quotation->getCustomerId());
-if($quotation->getType() == "S")
-{
-    $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->getQuotationNumber());
-}
-
-$date = date('d/m/Y',strtotime($quotation->getDate()));
 
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
