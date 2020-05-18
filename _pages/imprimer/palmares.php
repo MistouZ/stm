@@ -73,10 +73,10 @@ if(isset($_POST['imprimer'])) {
                             <i class="fa fa-globe"></i>Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
                     </div>
                     <div class="portlet-body">
-                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" cellspacing="0" width="100%">
+                        <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" cellspacing="0" >
                             <thead>
                             <tr>
-                                <th class="all">Date</th>
+                                <th class="all" >Date</th>
                                 <th class="desktop">Dossier</th>
                                 <th class="desktop">Libellé</th>
                                 <th class="min-tablet">Client</th>
