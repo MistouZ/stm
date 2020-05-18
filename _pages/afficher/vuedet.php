@@ -206,7 +206,7 @@ if(isset($_GET['cat5'])){
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
+                            <?php echo $enteteIcon; ?> Détail <?php echo $entete; if($type != "devis"){echo "s";} ?></div>
                             <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
