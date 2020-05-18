@@ -112,7 +112,6 @@ if(isset($_POST['imprimer'])) {
                             <i class="fa fa-globe"></i>Observation sur le dossier</div>
                     </div>
                     <div style="height: 700px; background-color : white">
-
                     </div>
                 </div>
             </div>
@@ -163,7 +162,7 @@ if(isset($_POST['imprimer'])) {
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 3000); // 300 pour NC sur serveur MLS
+        }, 4000); // 300 pour NC sur serveur MLS
     }
 
     function ExportPdf(){
