@@ -79,7 +79,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <div class="portlet yellow-crusta box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fas fa-info"></i>Informations</div>
+                            <i class="k-icon k-i-info"></i>Informations</div>
                     </div>
                     <div class="portlet-body">
                         <div class="row static-info">
@@ -105,7 +105,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <div class="portlet blue-hoki box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fas fa-user-tie"></i>Informations client </div>
+                            <i class="k-icon k-i-user"></i>Informations client </div>
                     </div>
                     <div class="portlet-body">
                         <div class="row static-info">
@@ -243,25 +243,29 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
     <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
 
-<script src="https://kendo.cdn.telerik.com/2019.2.619/js/jquery.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2019.2.619/js/jszip.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-boostrap.min.css"></script>
-<script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.boostrap.min.css"></script>
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css"/>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2020.2.513/js/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.common-boostrap.min.css"></script>
+<script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.boostrap.min.css"></script>
 <script>
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
         "DejaVu Sans":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans.ttf",
+            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans.ttf",
 
         "DejaVu Sans|Bold":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
 
         "DejaVu Sans|Bold|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
+            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+
+        "WebComponentsIcons"      :
+            "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
