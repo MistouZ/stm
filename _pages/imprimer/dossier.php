@@ -45,7 +45,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="portlet yellow-crusta box">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fa-info"></i>Informations</div>
+                                    <i class="fas fa-info"></i>Informations</div>
                             </div>
                             <div class="portlet-body">
                                 <div class="row static-info">
@@ -126,7 +126,6 @@ if(isset($_POST['imprimer'])) {
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-boostrap.min.css"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.boostrap.min.css"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.css">
 
 <script>
     // Import DejaVu Sans font for embedding
@@ -141,9 +140,7 @@ if(isset($_POST['imprimer'])) {
             "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
-        "FontAwesome":
-            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf"
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
@@ -215,7 +212,7 @@ if(isset($_POST['imprimer'])) {
         The standard PDF fonts have no support for Unicode characters.
     */
     #myCanvas {
-        font-family: "DejaVu Sans", "Arial", sans-serif, FontAwesome;
+        font-family: "DejaVu Sans", "Arial", sans-serif;
     }
 
 </style>
