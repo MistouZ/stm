@@ -142,7 +142,10 @@ if(isset($_POST['imprimer'])) {
             "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+
+        "FontAwesome":
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
@@ -214,7 +217,7 @@ if(isset($_POST['imprimer'])) {
         The standard PDF fonts have no support for Unicode characters.
     */
     #myCanvas {
-        font-family: "DejaVu Sans", "Arial", sans-serif;
+        font-family: FontAwesome, "DejaVu Sans", "Arial", sans-serif;
     }
 
 </style>
