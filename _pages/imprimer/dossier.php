@@ -54,7 +54,7 @@ if(isset($_POST['imprimer'])) {
                                 </div>
                                 <div class="row static-info">
                                     <div class="col-md-5 name"> Date: </div>
-                                    <div class="col-md-7 value"> <?php echo $date; ?> </div>
+                                    <div class="col-md-7 value"> <?php echo $date; ?> <a data-toggle="modal" href="#modif_date" ></div>
                                 </div>
                                 <div class="row static-info">
                                     <div class="col-md-5 name"> Libellé : </div>
@@ -75,7 +75,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="portlet blue-hoki box">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fas fa-user-tie"></i>Informations client </div>
+                                    <i class="k-icon k-i-user"></i>Informations client </div>
                             </div>
                             <div class="portlet-body">
                                 <div class="row static-info">
@@ -126,9 +126,6 @@ if(isset($_POST['imprimer'])) {
 <script src="https://kendo.cdn.telerik.com/2019.2.619/js/kendo.all.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.common-boostrap.min.css"></script>
 <script src="https://kendo.cdn.telerik.com/2019.2.619/styles/kendo.boostrap.min.css"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/fontawesome.min.css">
-
-
 <script>
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
@@ -142,7 +139,7 @@ if(isset($_POST['imprimer'])) {
             "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
     });
 </script>
 <script type="x/kendo-template" id="page-template">
