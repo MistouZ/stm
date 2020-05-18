@@ -259,7 +259,7 @@ if(isset($_POST['valider'])) {
             </div>
         </div>
     </div>
-    <form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" method="post" id="to_validate" class="form-horizontal form-row-seperated">
+    <form action="<?php echo URLHOST.$_COOKIE['company']."/palmares/".$type."/imprimer"; ?>" target="_blank" method="post" class="form-horizontal form-row-seperated">
         <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
         <input type="hidden" id="date_to" name="date_to" value="<?php echo $dateto; ?>">
         <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
