@@ -202,10 +202,11 @@ if(isset($_POST['valider'])) {
                     }
                     foreach($folderList as $folder){
                         $customer = $customermanager->getById($folder->getCustomerId());
+                        $date = date('d/m/y', strtotime($folder->getDate()));
 
                         ?>
                         <tr>
-                            <td><?php echo $folder->getDate(); ?></td>
+                            <td><?php echo $date; ?></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel(); ?></td>
                             <td><?php echo $InvoiceFolderList[$folder->getIdFolder()]; ?></td>
