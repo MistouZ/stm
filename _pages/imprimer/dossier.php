@@ -125,6 +125,8 @@ if(isset($_POST['imprimer'])) {
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/font-awesome.css" />
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css"/>
+
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/js/jszip.min.js"></script>
@@ -146,7 +148,9 @@ if(isset($_POST['imprimer'])) {
             "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "WebComponentsIcons"      :
-            "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf"
+            "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
+
+
     });
 </script>
 <script type="x/kendo-template" id="page-template">
