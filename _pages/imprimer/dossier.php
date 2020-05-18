@@ -12,6 +12,7 @@ $companyNameData = $_GET["section"];
 if(isset($_POST['imprimer'])) {
     echo "je suis là";
     $folderId = $_GET['soussouscat'];
+    echo $folderId;
 
     $company = new Company($array);
     $companymanager = new CompaniesManager($bdd);
