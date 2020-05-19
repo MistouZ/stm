@@ -109,7 +109,7 @@ if(isset($_POST['imprimer'])) {
                 <div class="portlet box green">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fas fa-folder-open"></i>Observation sur le dossier</div>
+                            <i class="fas fa-folder-open"></i> Observation sur le dossier</div>
                     </div>
                     <div style="height: 700px; background-color : white">
                     </div>
