@@ -75,7 +75,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="portlet blue-hoki box">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="k-icon k-i-user"></i>Informations client </div>
+                                    <i class="fas fa-user-tie"></i>Informations client </div>
                             </div>
                             <div class="portlet-body">
                                 <div class="row static-info">
