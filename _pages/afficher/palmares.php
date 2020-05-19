@@ -70,7 +70,7 @@ if(isset($_POST['valider'])) {
 
     //print_r($quotations);
     foreach ($quotations as $quotation){
-        echo $quotation->getQuotationNumber();
+        echo $quotation->getQuotationNumber()." ".$quotation->getFolderId();
         echo "<br />";
     }
     //récupération des coûts liés au dossier.
