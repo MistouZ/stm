@@ -191,7 +191,6 @@ if(isset($_POST['imprimer'])) {
                                 $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
                                 $i = $j;
                                 $k++;
-                                //print_r($folderList);
 
                             }
                             foreach($folderList as $folder){

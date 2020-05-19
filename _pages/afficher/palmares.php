@@ -198,7 +198,6 @@ if(isset($_POST['valider'])) {
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
                         $i = $j;
                         $k++;
-                        //print_r($folderList);
 
                     }
                     foreach($folderList as $folder){
