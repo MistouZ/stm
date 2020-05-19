@@ -69,6 +69,9 @@ if(isset($_POST['valider'])) {
     }
 
     print_r($quotations);
+    foreach ($quotations as $quotation){
+        echo $quotation->getQuotationNumber();
+    }
     //récupération des coûts liés au dossier.
 
     $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
