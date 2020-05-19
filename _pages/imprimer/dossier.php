@@ -218,8 +218,7 @@ src="
     }
     .fas{
         font-family : FontAwesome;
-        white-space: pre;
-
+        margin-right: 5px;
     }
     /*
         Use the DejaVu Sans font for display and embedding in the PDF file.
