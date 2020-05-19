@@ -256,7 +256,10 @@ if(isset($_POST['imprimer'])) {
             "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf"
+            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+
+        "FontAwesome":
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/webfonts/fa-solid-900.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
@@ -322,6 +325,11 @@ if(isset($_POST['imprimer'])) {
         bottom: 20px;
         border-top: 1px solid #000;
         text-align: center;
+    }
+
+    /* utiliastion du FontAwesome pour l'impression des icones */
+    .fas{
+        font-family : FontAwesome;
     }
 
     /*
