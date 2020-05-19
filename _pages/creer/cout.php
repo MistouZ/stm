@@ -20,7 +20,7 @@ $idCompany = $company->getIdcompany();
 
 $today = date('d/m/Y');
 
-$type = $_GET["souscat"]
+$type = "devis";
 ?>
 
 <div class="row">
