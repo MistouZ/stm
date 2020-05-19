@@ -75,7 +75,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="portlet blue-hoki box">
                             <div class="portlet-title">
                                 <div class="caption">
-                                    <i class="fas fa-user-tie"></i>Informations client </div>
+                                    <i class="k-icon k-i-user"></i>Informations client </div>
                             </div>
                             <div class="portlet-body">
                                 <div class="row static-info">
@@ -147,8 +147,8 @@ src="
         "WebComponentsIcons"      :
             "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
 
-        "FontAwesome" :
-         "/_ressources/_inc/print/font/fontawesome/fa-regular.ttf"
+        "FontAwesome":
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf"
 
 
     });

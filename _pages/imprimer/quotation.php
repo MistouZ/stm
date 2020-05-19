@@ -243,9 +243,6 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
     <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.2/css/font-awesome.css" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" ></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
