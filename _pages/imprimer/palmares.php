@@ -61,6 +61,8 @@ if(isset($_POST['imprimer'])) {
         $enteteIcon = '<i class="fas fa-chart-bar"></i>';
     }
 
+    print_r($quotations);
+
 //récupération des coûts liés au dossier.
 
     $costs = $costmanager->getCostByFilteredQuotation($quotations, $quotation);
