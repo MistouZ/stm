@@ -217,8 +217,8 @@ src="
         text-align: center;
     }
 
-    .fa-user-tie {
-        content:"\f508";
+    .fas {
+        font-family:"FontAwesome";
     }
 
     /*
