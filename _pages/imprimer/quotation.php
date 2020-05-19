@@ -105,7 +105,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <div class="portlet blue-hoki box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="k-icon k-i-user"></i>Informations client </div>
+                            <i class="fas fa-user-tie"></i>Informations client </div>
                     </div>
                     <div class="portlet-body">
                         <div class="row static-info">
@@ -268,7 +268,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
 
         "FontAwesome":
-            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf"
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/webfonts/fa-solid-900.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
