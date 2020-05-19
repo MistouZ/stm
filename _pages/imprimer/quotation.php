@@ -79,7 +79,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <div class="portlet yellow-crusta box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="k-icon k-i-info"></i>Informations</div>
+                            <i class="fas fa-info"></i>Informations</div>
                     </div>
                     <div class="portlet-body">
                         <div class="row static-info">
@@ -244,7 +244,6 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
 </div>
 
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" ></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/js/jszip.min.js"></script>
@@ -266,7 +265,10 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "WebComponentsIcons"      :
-            "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf"
+            "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
+
+        "FontAwesome":
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf"
     });
 </script>
 <script type="x/kendo-template" id="page-template">
@@ -331,6 +333,10 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         bottom: 20px;
         border-top: 1px solid #000;
         text-align: center;
+    }
+
+    .fas{
+        font-family : FontAwesome;
     }
 
     /*
