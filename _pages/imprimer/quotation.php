@@ -141,7 +141,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
+                            <?php echo $enteteIcon; ?> <span style="margin-left: 5px"> Détail <?php echo $entete; ?> </span></div>
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
