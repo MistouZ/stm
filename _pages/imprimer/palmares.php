@@ -72,7 +72,7 @@ if(isset($_POST['imprimer'])) {
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet  blue-hoki box">
+                <div class="portlet green box">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo $enteteIcon; ?> Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
