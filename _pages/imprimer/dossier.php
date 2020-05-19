@@ -170,11 +170,11 @@ src="
         document.getElementById('Exporter').click();
     }
 
-    /*function closeWindow() {
+    function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 4000); // 300 pour NC sur serveur MLS
-    }*/
+        }, 3000); // 300 pour NC sur serveur MLS
+    }
 
     function ExportPdf(){
         var filename = document.getElementById("filename").value;
