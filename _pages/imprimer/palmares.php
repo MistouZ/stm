@@ -49,12 +49,16 @@ if(isset($_POST['imprimer'])) {
 
     if ($type == "devis") {
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-chart-pie"></i>';
     } elseif ($type == "proforma") {
         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-chart-area"></i>';
     } elseif ($type == "facture") {
         $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-chart-line"></i>';
     } elseif ($type == "avoir") {
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-chart-bar"></i>';
     }
 
 //récupération des coûts liés au dossier.
@@ -67,10 +71,10 @@ if(isset($_POST['imprimer'])) {
         <div class="row">
             <div class="col-md-12">
                 <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                <div class="portlet box green">
+                <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fas fa-globe"></i> Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
+                            <?php echo $enteteIcon; ?> Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
                     </div>
                     <div class="portlet-body">
                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" cellspacing="0" >

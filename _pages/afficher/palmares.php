@@ -54,22 +54,18 @@ if(isset($_POST['valider'])) {
         $filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
     }
 
-    if($type == "devis"){
-        $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
-    }
-    elseif ($type == "proforma")
-    {
-        echo $type;
-        $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder,$folder);
-    }
-    elseif ($type == "facture")
-    {
-        $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder,$folder);
-    }
-    elseif ($type == "avoir")
-    {
-        echo $type;
-        $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder,$folder);
+    if ($type == "devis") {
+        $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+    } elseif ($type == "proforma") {
+        $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-chart-area"></i>';
+    } elseif ($type == "facture") {
+        $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-chart-line"></i>';
+    } elseif ($type == "avoir") {
+        $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-chart-bar"></i>';
     }
 
     //récupération des coûts liés au dossier.
@@ -84,7 +80,7 @@ if(isset($_POST['valider'])) {
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
+                    <?php echo $enteteIcon; ?> Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
             </div>
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" cellspacing="0" width="100%">
