@@ -67,7 +67,7 @@ if(isset($_POST['imprimer'])) {
     $costs = $costmanager->getCostByFilteredQuotation($quotations, $quotation);
 }
 ?>
-<div class="row" xmlns="http://www.w3.org/1999/html">
+<div class="row" xmlns="http://www.w3.org/1999/html" style="display: none">
     <div id="myCanvas">
         <div class="row">
             <div class="col-md-12">
