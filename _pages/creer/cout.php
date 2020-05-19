@@ -30,7 +30,7 @@ $type = $_GET["souscat"]
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings"></i>
-                    <span class="caption-subject sbold uppercase">Création d'un palmares sur <?php echo $type; ?></span>
+                    <span class="caption-subject sbold uppercase">Création d'une analyse des coûts sur <?php echo $type; ?></span>
                 </div>
             </div>
             <div class="portlet-body form">
