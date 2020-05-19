@@ -120,12 +120,25 @@ if(isset($_POST['valider'])) {
                             $folderList[$k] = $folderQuotation;
                         }
 
+
                         if($quotation->getStatus() == "En cours"){
                             $status = "cours";
                         }
                         elseif($quotation->getStatus() == "Validated"){
                             $status = "valides";
                         }
+
+                        if($i == $j && $k == 0 ){
+                            $InvoiceFolderList[$i] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().' </>';
+                        }
+                        elseif($i == $j && $k != 0 ){
+                            $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".'<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().' </>';
+                        }
+                        else{
+                            $folderList[$k] = $folderQuotation;
+                            $InvoiceFolderList[$j] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().'</>';
+                        }
+
 
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
@@ -177,18 +190,6 @@ if(isset($_POST['valider'])) {
                             $i = $j;
                             $TotalCoutDossier[$i] = 0;
                             $TotalCoutDossier[$i] = $TotalCostFolder;
-                        }
-
-
-                        if($i == $j && $k == 0 ){
-                            $InvoiceFolderList[$i] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().' </>';
-                        }
-                        elseif($i == $j && $k != 0 ){
-                            $InvoiceFolderList[$i] = $InvoiceFolderList[$i]." / ".'<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().' </>';
-                        }
-                        else{
-                            $folderList[$k] = $folderQuotation;
-                            $InvoiceFolderList[$j] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().'</>';
                         }
 
                         $TotalMarge = $TotalPalmares - $TotalCost;
