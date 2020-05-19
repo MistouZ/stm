@@ -68,7 +68,7 @@ if(isset($_POST['valider'])) {
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Analyse des Coûts </div>
+                    <i class="fas fa-chart-bar"></i>Analyse des Coûts </div>
             </div>
             <div class="portlet-body">
                 <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" cellspacing="0" width="100%">
