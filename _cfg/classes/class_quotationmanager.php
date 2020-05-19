@@ -186,7 +186,7 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='D' AND STATUS ='En cours' ORDER BY quotationNumber DESC";
+                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='D' AND STATUS ='En cours' GROUP BY quotationNumber ORDER BY quotationNumber DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
