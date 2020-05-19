@@ -68,7 +68,7 @@ if(isset($_POST['valider'])) {
         $enteteIcon = '<i class="fas fa-chart-bar"></i>';
     }
 
-    print_r($quotations);
+    //print_r($quotations);
     foreach ($quotations as $quotation){
         echo $quotation->getQuotationNumber();
     }
