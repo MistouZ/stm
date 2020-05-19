@@ -152,11 +152,11 @@ if(isset($_POST['valider'])) {
                             //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
                             if($i == $j && $k == 0 ){
                                 $TotalPalmaresDossier[$i] = $montant;
-                                echo "montant premier passage : ".$montant;
+                                echo "montant premier passage : ".$TotalPalmaresDossier[$i];
                             }
                             elseif($i == $j && $k != 0 ){
                                 $TotalPalmaresDossier[$i] = $TotalPalmaresDossier[$i] + $montant;
-                                echo "montant premier passage : ".$TotalPalmaresDossier[$i];
+                                echo "montant Xeme passage : ".$TotalPalmaresDossier[$i];
                             }
                             else{
                                 $TotalPalmaresDossier[$j] = 0;
