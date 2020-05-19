@@ -186,7 +186,6 @@ src="
                     margin: { top: "4cm", bottom: "2cm", right: "1cm", left: "1cm" },
                     scale: 0.65,
                     height: 500,
-                    spacing : 10,
                     template: $("#page-template").html(),
                     keepTogether: ".prevent-split"
                 })
