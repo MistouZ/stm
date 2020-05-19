@@ -328,7 +328,8 @@ if(isset($_POST['imprimer'])) {
     }
 
     /* utiliastion du FontAwesome pour l'impression des icones */
-    .fas{
+
+    .fa{
         font-family : FontAwesome;
     }
 
