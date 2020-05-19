@@ -122,7 +122,6 @@ if(isset($_POST['imprimer'])) {
 </div>
 
 <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css"/>
-<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/js/jszip.min.js"></script>
