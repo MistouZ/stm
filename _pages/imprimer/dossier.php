@@ -217,6 +217,10 @@ src="
         text-align: center;
     }
 
+    .fas{
+        font-family: FontAwesome;
+    }
+
     /*
         Use the DejaVu Sans font for display and embedding in the PDF file.
         The standard PDF fonts have no support for Unicode characters.
