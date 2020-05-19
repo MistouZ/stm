@@ -148,7 +148,7 @@ src="
             "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
 
         "FontAwesome":
-            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/fonts/fontawesome-webfont.ttf"
+            "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/webfonts/fa-regular-400.ttf"
 
 
     });
