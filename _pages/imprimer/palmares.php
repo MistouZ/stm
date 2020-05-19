@@ -70,7 +70,7 @@ if(isset($_POST['imprimer'])) {
                 <div class="portlet box green">
                     <div class="portlet-title">
                         <div class="caption">
-                            <i class="fa fa-globe"></i> &nbsp; Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
+                            <i class="fas fa-globe"></i> Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
                     </div>
                     <div class="portlet-body">
                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" cellspacing="0" >
@@ -329,7 +329,7 @@ if(isset($_POST['imprimer'])) {
 
     /* utiliastion du FontAwesome pour l'impression des icones */
 
-    .fa{
+    .fas{
         font-family : FontAwesome;
     }
 
