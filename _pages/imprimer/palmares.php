@@ -75,7 +75,7 @@ if(isset($_POST['imprimer'])) {
                 <div class="portlet green box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo $enteteIcon; ?> <span style="margin-left: 5px">Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?></span>  </div>
+                            <?php echo $enteteIcon; ?> <span style="margin-left: 15px">Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?></span>  </div>
                     </div>
                     <div class="portlet-body">
                         <table class="table table-striped table-bordered table-hover dt-responsive" width="100%" cellspacing="0" >
