@@ -71,6 +71,7 @@ if(isset($_POST['valider'])) {
     //print_r($quotations);
     foreach ($quotations as $quotation){
         echo $quotation->getQuotationNumber();
+        echo "<br />";
     }
     //récupération des coûts liés au dossier.
 
