@@ -9,10 +9,13 @@ include("../../_cfg/cfg.php");
 $companyNameData = $_GET["section"];
 
 if(isset($_POST['imprimer'])) {
-    $type = $_GET["souscat"];
+
+    $type = "devis";
 
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
+
+    $seller = $_POST["seller"];
 
     $array = array();
     /*initilisation des objets */
