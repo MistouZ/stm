@@ -249,7 +249,7 @@ if(isset($_POST['imprimer'])) {
             </div>
         </div>
     </div>
-    <input type="hidden" id="filename" name="filename" value="<?php echo "palmares - ".$companyNameData. "-".$datefrom."-".$dateto; ?>">
+    <input type="hidden" id="filename" name="filename" value="<?php echo "analyse des couts - ".$companyNameData. "-".$datefrom."-".$dateto; ?>">
     <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
 
