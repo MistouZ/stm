@@ -326,7 +326,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
     }
     .page-template .header {
         top: 20px;
-        border-bottom: 1px solid #000;
+        /*border-bottom: 1px solid #000;*/
         text-align: center;
     }
     .page-template .footer {
