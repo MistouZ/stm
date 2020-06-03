@@ -4,6 +4,8 @@ var TableDatatablesResponsive = function () {
         var table = $('#sample_1');
 
         var oTable = table.dataTable({
+            "processing": true,
+            "serverSide": true,
             // Internationalisation. For more info refer to http://datatables.net/manual/i18n
             "language": {
                 "aria": {
