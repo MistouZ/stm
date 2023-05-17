@@ -97,6 +97,12 @@ function calculMarge($TotalMontant, $TotalMarge)
     return $marge;
 }
 
+/**
+ * Summary of getPercentOfNumber
+ * @param mixed $number
+ * @param mixed $percent
+ * @return float
+ */
 function getPercentOfNumber($number, $percent){
     return ($percent / 100) * $number;
 }
