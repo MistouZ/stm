@@ -315,14 +315,14 @@ $taxmanager = new TaxManager($bdd);
                                                         <select id="fournisseur1" class="form-control" name="fournisseur[1]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            if(!empty($company->getIdcompany())){
+                                                            /*if(!empty($company->getIdcompany())){
                                                                 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
                                                                 foreach ($suppliermanager as $supplier){
                                                                 ?>
                                                                     <option value="<?php echo $supplier->getIdSupplier(); ?>"><?php echo $supplier->getName(); ?></option>
                                                                     <?php
                                                                 }
-                                                            }
+                                                            }*/
                                                             ?>
                                                         </select>
                                                     </div>
