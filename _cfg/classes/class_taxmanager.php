@@ -38,6 +38,7 @@ class TaxManager
      */
     public function add(Tax $tax)
     {
+
         try{
             $q = $this->_db->prepare('INSERT INTO tax (percent, name, value,isActive, isDefault) VALUES (:percent, :name, :value,:isActive, :isDefault)');
             $q->bindValue(':percent', $tax->getPercent(), PDO::PARAM_STR);
@@ -96,7 +97,6 @@ class TaxManager
         $taxName = (string) $taxName;
         $q = $this->_db->query('SELECT * FROM tax WHERE name ="'.$taxName.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
         return new Tax($donnees);
     }
     /**
@@ -109,7 +109,14 @@ class TaxManager
         try{
             $q = $this->_db->query('SELECT * FROM tax WHERE percent LIKE "'.$taxPercent.'"');
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
-            return new Tax($donnees);
+            if($donnees)
+            {
+                return new Tax($donnees);
+            }
+            else
+            {
+                return null;
+            }
         }
 
         catch(Exception $e){
@@ -129,7 +136,7 @@ class TaxManager
         $taxes = [];
 
 
-       $q=$this->_db->query("SELECT * FROM tax WHERE isActive='1' ORDER BY name ASC");
+       $q=$this->_db->query("SELECT * FROM tax WHERE isActive='1' ORDER BY value ASC");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $taxes[] = new Tax($donnees);
@@ -147,7 +154,7 @@ class TaxManager
         $taxes = [];
 
 
-        $q=$this->_db->query("SELECT * FROM tax  ORDER BY name ASC");
+        $q=$this->_db->query("SELECT * FROM tax  ORDER BY value ASC");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $taxes[] = new Tax($donnees);
