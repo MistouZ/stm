@@ -183,12 +183,14 @@ $taxmanager = new TaxManager($bdd);
                                                         <select id="taxeDevis1" class="taxe form-control" name="taxeDevis[1]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
-                                                            foreach ($taxmanager as $tax){
+                                                            /*if( !empty($folder->getCustomerId())){
+                                                                $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                                foreach ($taxmanager as $tax){
                                                                ?>
                                                                 <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
                                                                 <?php
-                                                            }
+                                                                }
+                                                            }*/
                                                             ?>
                                                         </select>
                                                     </div>
@@ -256,11 +258,13 @@ $taxmanager = new TaxManager($bdd);
                                                         <select id="taxeOption1" class="taxe form-control" name="taxeOption[1]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
-                                                            foreach ($taxmanager as $tax){
+                                                            /*if( !empty($folder->getCustomerId())){
+                                                                $taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                                foreach ($taxmanager as $tax){
                                                                ?>
                                                                 <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
                                                                 <?php
+                                                                }
                                                             }*/
                                                             ?>
                                                         </select>
@@ -311,11 +315,13 @@ $taxmanager = new TaxManager($bdd);
                                                         <select id="fournisseur1" class="form-control" name="fournisseur[1]">
                                                             <option value="">Sélectionnez ...</option>
                                                             <?php
-                                                            $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
-                                                            foreach ($suppliermanager as $supplier){
-                                                               ?>
-                                                                <option value="<?php echo $supplier->getIdSupplier(); ?>"><?php echo $supplier->getName(); ?></option>
-                                                                <?php
+                                                            if(!empty($company->getIdcompany())){
+                                                                $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
+                                                                foreach ($suppliermanager as $supplier){
+                                                                ?>
+                                                                    <option value="<?php echo $supplier->getIdSupplier(); ?>"><?php echo $supplier->getName(); ?></option>
+                                                                    <?php
+                                                                }
                                                             }
                                                             ?>
                                                         </select>
