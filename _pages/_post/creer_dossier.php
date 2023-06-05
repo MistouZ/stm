@@ -39,6 +39,22 @@ if(isset($_POST['valider'])){
 if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/error");
 }else{
+
+    $date = date('Y-m-d H:i:s');
+    $arraylogs = array(
+        'username' => $_COOKIE["username"],
+        'company' => $companyId,
+        'type' => "folder",
+        'action' => "creation",
+        'id' => $test,
+        'date' => $date
+    );
+
+    print_r($arraylogs);
+
+    $log = new Logs($arraylogs);
+    $logsmgmt = new LogsManager($bdd);
+    $logsmgmt = $logsmgmt->add($log);
     header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/success");
 }
     
