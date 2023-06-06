@@ -30,6 +30,9 @@ include 'classes/class_shatteredquotation.php';
 include 'classes/class_shatteredquotationmanager.php';
 include 'classes/class_logs.php';
 include 'classes/class_logsmanager.php';
+include 'classes/class_counter.php';
+include 'classes/class_countermanager.php';
+
 
 
 global $bdd;
