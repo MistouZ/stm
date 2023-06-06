@@ -19,7 +19,7 @@ $test = $foldermanager->delete($folder->getIdFolder());
 if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/errorsuppr");
 }else{
-    //Ajout d'un objet logs pour tracer l'action sur le dossier (id et pas folderNumber)
+    //Ajout d'un objet logs pour tracer l'action sur le dossier id et pas folderNumber
     $date = date('Y-m-d H:i:s');
     $arraylogs = array(
         'username' => $_COOKIE["username"],

@@ -9,6 +9,7 @@
 include("../../_cfg/cfg.php");
 $idQuotation = $_GET["idQuotation"];
 $quotationNumber = $_GET['quotationNumber'];
+$type = $_GET["type"];
 
 $array = array();
 $descriptions = new Description($array);
@@ -44,7 +45,7 @@ if(is_null($test)){
         $log = new Logs($arraylogs);
         $logsmgmt = new LogsManager($bdd);
         $logsmgmt = $logsmgmt->add($log);
-        header('Location: '.$_SERVER['HTTP_REFERER']."/successsuppr");
+        header('Location: '.$_SERVER['HTTP_REFERER']."/successsuppr".$type);
   }
 }
 

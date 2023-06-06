@@ -123,9 +123,15 @@ switch($type){
         <?php if($retour == "errorsuppr") { ?>
             <div class="alert alert-danger">
                 <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être supprimé !</div>
-        <?php }elseif($retour == "successsuppr"){ ?>
+        <?php }elseif($retour == "successsupprdevis"){ ?>
             <div class="alert alert-success">
                 <button class="close" data-close="alert"></button> Le devis a bien été supprimé !</div>
+        <?php }elseif($retour == "successsupprproforma"){ ?>
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button> La proforma a bien été supprimée !</div>
+        <?php }elseif($retour == "successsupprfacture"){ ?>
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button> La facture a bien été supprimée !</div>
         <?php }elseif($retour == "errorProforma") { ?>
             <div class="alert alert-danger">
                 <button class="close" data-close="alert"></button> Erreur lors du passage en proforma !</div>
@@ -207,7 +213,7 @@ switch($type){
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                                 <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                                <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le devis n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                                <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer <?php echo $type; ?> n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber().'&type='.$type; ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             </tr>
                             <?php
                         }

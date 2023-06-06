@@ -52,7 +52,6 @@ switch($type){
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
-        echo "je suis là";
         break;
 }
 
@@ -61,7 +60,7 @@ $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-$contact = $contactmanager->getById($folder->getContactId());
+$contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
 if($quotation->getType() == "S")
@@ -170,11 +169,12 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                             $tax = $taxmanager->getByPercent($description->getTax()*100);
 
                                             //Calcul du détail des taxes pour l'affichage par tranche détaillée
-                                            if(isset($arrayTaxesKey[$description->getTax()])){
-                                                $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
-                                            }else{
-                                                $arrayTaxesKey[$description->getTax()]['Taxe']=$tax->getName();
-                                                $arrayTaxesKey[$description->getTax()]['Montant']=$taxe;
+                                            if(isset($arrayTaxesKey[$tax->getName()]['Taxe'])){
+                                                $arrayTaxesKey[$tax->getName()]["Montant"] = $arrayTaxesKey[$tax->getName()]["Montant"]+$taxe;
+                                            }
+                                            else{                                                   
+                                                $arrayTaxesKey[$tax->getName()]['Taxe']=$tax->getName();
+                                                $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
                                             }
 
                                             $totalTaxe = $totalTaxe+$taxe;

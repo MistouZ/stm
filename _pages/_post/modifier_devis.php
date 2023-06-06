@@ -20,11 +20,11 @@ $costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
-$customerId = $folder->getCustomerId();
-$contactId = $folder->getContactId();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
+$customerId = $quotationGet->getCustomerId();
+$contactId = $quotationGet->getContactId();
 
 if(empty($_POST["label"]))
 {
@@ -174,6 +174,7 @@ if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4))
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
+
     //Ajout d'un objet logs pour tracer l'action sur le devis
     $date = date('Y-m-d H:i:s');
     $arraylogs = array(
