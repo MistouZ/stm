@@ -1,8 +1,8 @@
 <?php
 ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
 /**
- * @author Nicolas
- * @copyright 2019
+ * @author Amaury
+ * @copyright 2023
  */
  
 include("../../_cfg/cfg.php");
