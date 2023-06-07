@@ -1,8 +1,8 @@
 <?php
 ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
 /**
- * @author Nicolas
- * @copyright 2019
+ * @author Amaury
+ * @copyright 2023
  */
  
 include("../../_cfg/cfg.php");
@@ -25,6 +25,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
 {
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
+        'quotationNumber' => $quotationNumber,
         'status' => 'En cours',
         'date' => $date,
         'validatedDate' => $today,
@@ -68,11 +69,21 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $label = $quotationGet->getLabel();
     $type3 = $quotationGet->getType();
 
+    //Récupération du nombre de devis pour créer le nouveau QuotationNumber
+    $arraycounter = array();
+    $counter = new Counter($arraycounter);
+    $countermanager = new CounterManager($bdd);
+    $counter = $countermanager->getCount($companyId);
+    
+
+    $counterQuotation = $counter->getQuotation();
+    
     $date = date("Y-m-d");
     $status = "En cours";
     $type = "S"; // shattered quotation
 
     $data = array(
+        'quotationNumber' => $counterQuotation,
         'status' => $status,
         'label' => $label,
         'date' => $date,
@@ -85,24 +96,34 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         'contactId' => $contactId
     );
 
+    
     $duplicate = new Quotation($data);
     $newquotationNumber = $quotationmanager->add($duplicate);
-
-    //si le devis est déjà partiel, je récupère les données initiales
+    //ici j'ai créé mon nouveau devis dans la table pour quotation.
+    $counterQuotation = $counterQuotation + 1;
+    $counter->setQuotation($counterQuotation);
+    $countermanager->updateCounter($counter);
+    
+    
     if($type3 == "S")
-    {
+    {   
+        //si le devis est déjà partiel, je récupère les données initiales
         $shatteredQuotationInit = new ShatteredQuotation($array);
         $shatteredQuotationInit = $shatteredQuotationManager->getByQuotationNumberChild($quotationNumber);
-        $quotationNumber = $shatteredQuotationInit->getQuotationNumberInit();
+        $quotationNumberInit = $shatteredQuotationInit->getQuotationNumberInit();
         $quotationNumberChild = $shatteredQuotationInit->getQuotationNumberChild();
-        $quotationInit = $quotationNumber."_init";
+        $quotationInit = $quotationNumberInit."_init";
         $getDescription = $descriptionmanager->getByQuotationNumber($quotationInit);
         $rest = $shatteredQuotationInit->getPercent();
         $rest = $rest - $percent;
         $idShatteredQuotation = $shatteredQuotationInit->getIdShatteredQuotation();
+        $test = "ok";
+
     }
     else
     {
+        //fonctionne bien lors du premier partiel
+        $quotationNumberInit = $quotationNumber;
         $getDescription = $descriptionmanager->getByQuotationNumber($quotationNumber);
         $quotationInit = $quotationGet->getQuotationNumber()."_init";
         $rest = 100 - $percent;
@@ -116,18 +137,34 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         }
         // Duplication des descriptions pour garder l'original
         $test = $descriptionmanager->add($descriptions,$quotationInit);
+
     }
 
+    echo $newquotationNumber;
     $dataShattered = array(
-        'quotationNumberInit' => $quotationNumber,
+        'quotationNumberInit' => $quotationNumberInit,
         'quotationNumberChild' => $newquotationNumber,
         'percent' => $rest
     );
+
     $shatteredQuotation = new ShatteredQuotation($dataShattered);
-    $test2 = $shatteredQuotationManager->add($shatteredQuotation);
+   
+    //si on a un devis partiel, je mets à jour le Child et je conserve le devis initial et je mets à jour l'enfant
+    if($type3 == "S")
+    {
+        $shatteredQuotation->setIdShatteredQuotation($idShatteredQuotation);
+        $test2 = $shatteredQuotationManager->update($shatteredQuotation);
+
+    }
+    else
+    {
+        $test2 = $shatteredQuotationManager->add($shatteredQuotation);
+    }
+    
+    
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage restant à facturer
-
+    
     $j = 0;
     $descriptionsReduced= array();
     $descriptionReduced = new Description($array);
@@ -145,6 +182,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     else{
         $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber);
     }
+   
 
     if($rest != 0)
     {   //il reste à facturer alors je stocke les données restantes
@@ -171,8 +209,10 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     }
 
 
+
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
+        'quotationNumber' => $quotationNumber,
         'status' => 'En cours',
         'date' => $date,
         'validatedDate' => $today,
@@ -180,12 +220,30 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
     $quotation = new Quotation($data);
     $test5 = $quotationmanager->changeType($quotation);
+    
 }
 
 if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5)){
-    header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
+  //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
-    header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
+
+    //Ajout d'un objet logs pour tracer l'action de passage du devis en proforma
+    $date = date('Y-m-d H:i:s');
+    $arraylogs = array(
+        'username' => $_COOKIE["username"],
+        'company' => $quotationGet->getCompanyId(),
+        'type' => "quotation",
+        'action' => "to_proforma",
+        'id' => $quotationNumber,
+        'date' => $date
+    );
+
+    print_r($arraylogs);
+
+    $log = new Logs($arraylogs);
+    $logsmgmt = new LogsManager($bdd);
+    $logsmgmt = $logsmgmt->add($log);
+   header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
 }
 
 ?>

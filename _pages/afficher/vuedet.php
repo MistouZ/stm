@@ -87,14 +87,18 @@ switch($type){
                     </div>';
         break;
 }
+
+
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
-$contact = $contactmanager->getById($folder->getContactId());
+$contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
+
+
 if($quotation->getType() == "S")
 {
     $shatteredQuotation = $shatteredManager->getByQuotationNumberChild($quotation->getQuotationNumber());
@@ -138,6 +142,12 @@ if(isset($_GET['cat5'])){
         <?php }elseif($retour == "successDevis"){ ?>
             <div class="alert alert-success">
                 <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
+        <?php }elseif($retour == "errorAvoir") { ?>
+            <div class="alert alert-danger">
+                <button class="close" data-close="alert"></button> Erreur lors du passage en avoir !</div>
+        <?php }elseif($retour == "successAvoir"){ ?>
+            <div class="alert alert-success">
+                <button class="close" data-close="alert"></button> Passage en avoir effectué avec succès !</div>
         <?php } ?>
         <div class="row">
             <div class="col-md-6 col-sm-12">
@@ -148,15 +158,15 @@ if(isset($_GET['cat5'])){
                     </div>
                     <div class="portlet-body">
                         <div class="row static-info">
-                            <div class="col-md-5 name"> <?php echo ucwords($type); ?>: </div>
+                            <div class="col-md-5 name"> <?php echo ucwords($type); ?> : </div>
                             <div class="col-md-7 value"> <?php echo $quotation->getQuotationNumber(); ?></div>
                         </div>
                         <div class="row static-info">
-                            <div class="col-md-5 name"> Date: </div>
+                            <div class="col-md-5 name"> Date : </div>
                             <div class="col-md-7 value"> <?php echo $date; ?> <a data-toggle="modal" href="#modif_date" ><i class="fas fa-edit"></i></a></div>
                         </div>
                         <div class="row static-info">
-                            <div class="col-md-5 name"> Dossier N°: </div>
+                            <div class="col-md-5 name"> Dossier N° : </div>
                             <div class="col-md-7 value"><?php echo $folder->getFolderNumber(); ?></div>
                         </div>
                         <div class="row static-info">
@@ -244,11 +254,12 @@ if(isset($_GET['cat5'])){
                                                 $tax = $taxmanager->getByPercent($description->getTax()*100);
 
                                                 //Calcul du détail des taxes pour l'affichage par tranche détaillée
-                                                if(isset($arrayTaxesKey[$description->getTax()])){
-                                                    $arrayTaxesKey[$description->getTax()]["Montant"] = $arrayTaxesKey[$description->getTax()]["Montant"]+$taxe;
-                                                }else{
-                                                    $arrayTaxesKey[$description->getTax()]['Taxe']=$tax->getName();
-                                                    $arrayTaxesKey[$description->getTax()]['Montant']=$taxe;
+                                                if(isset($arrayTaxesKey[$tax->getName()]['Taxe'])){
+                                                    $arrayTaxesKey[$tax->getName()]["Montant"] = $arrayTaxesKey[$tax->getName()]["Montant"]+$taxe;
+                                                }
+                                                else{                                                   
+                                                    $arrayTaxesKey[$tax->getName()]['Taxe']=$tax->getName();
+                                                    $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
                                                 }
 
                                                 $totalTaxe = $totalTaxe+$taxe;
@@ -355,8 +366,8 @@ if(isset($_GET['cat5'])){
                                         <?php if($quotation->getType() == "S")
                                             {
                                             ?>
-                                                <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" /><?php echo $shatteredQuotation->getPercent(); ?>
-                                                    ?></label>
+                                                <label class="radio-inline"><input name="shattered" id="shattered1" type="radio" value="full" class="form-control" /><?php echo $shatteredQuotation->getPercent(); ?> % 
+                                                </label>
                                             <?php
                                             }
                                             else{
@@ -368,7 +379,15 @@ if(isset($_GET['cat5'])){
 
                                         <label class="radio-inline"><input name="shattered" id="shattered2" type="radio" value="partial" class="form-control" />Partiel</label>
                                     </div>
-                                    <div id="credential_error"> </div>
+                                    <div id="credential_error">
+                                        <?php if($quotation->getType() == "S")
+                                                {
+                                                    ?>
+                                                    <span class="help-block">restant de la facture initiale</span>
+                                              <?php
+                                                }
+                                        ?> 
+                                    </div>
                                 </div>
                             </div>
                             <div class="form-group" id="partial" style="display: none">

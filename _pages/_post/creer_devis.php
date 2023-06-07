@@ -12,13 +12,20 @@ echo "Résultats : ";
 $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
-$descriptionmanager = new DescriptionManager($bdd);
-$costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
-$customerId = $folder->getCustomerId();
-$contactId = $folder->getContactId();
+$customerId = $_POST["customer-select"];
+$contactId = $_POST["contact-select"];
+
+$arraycounter = array();
+$counter = new Counter($arraycounter);
+$countermanager = new CounterManager($bdd);
+$counter = $countermanager->getCount($companyId);
+
+$counterQuotation = $counter->getQuotation();
+
+
 
 if(empty($_POST["label"]))
 {
@@ -40,6 +47,7 @@ $status = "En cours";
 $type = "D";
 
 $data = array(
+    'quotationNumber' => $counterQuotation,
     'status' => $status,
     'label' => $label,
     'date' => $date,
@@ -85,7 +93,7 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
             'price' => $price,
             'tax' => $tax
         );
-
+       
         $description = new Description($dataDescription);
         $descriptions[$i] = $description;
     }
@@ -93,6 +101,9 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
     next($_POST["descriptionDevis"]);
 }
 
+print_r($descriptions);
+
+$descriptionmanager = new DescriptionManager($bdd);
 $test = $descriptionmanager->add($descriptions,$quotationNumber);
 
 if(empty(current($_POST["descriptionOption"]))){
@@ -131,14 +142,16 @@ else {
         next($_POST["descriptionOption"]);
     }
 
+    $descriptionmanager2 = new DescriptionManager($bdd);
     $quotationNumberOption = $quotationNumber . '_option';
-    $test2 = $descriptionmanager->add($descriptionsOption, $quotationNumberOption);
+    $test2 = $descriptionmanager2->add($descriptionsOption, $quotationNumberOption);
 }
 
 if(empty(current($_POST["descriptionCout"]))){
     $test3 = 1;
 }
 else{
+    echo "je passe ici".$test3;
     $i=1;
     while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
@@ -161,17 +174,44 @@ else{
         next($_POST["descriptionCout"]);
     }
 
-
+    $costmanager = new $costmanager($bdd);
     $test3 = $costmanager->add($descriptionsCout,$quotationNumber);
     echo "j'ai réussi 3";
 }
 
 
-if(is_null($test) || is_null($test2) || is_null($test3))
+if(is_null($test) || is_null($test2) || is_null($test3) )
 {
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
+
+    //Ajout d'un objet logs pour tracer l'action de création du devis
+    $date = date('Y-m-d H:i:s');
+    $arraylogs = array(
+        'username' => $_COOKIE["username"],
+        'company' => $companyId,
+        'type' => "quotation",
+        'action' => "creation",
+        'id' => $quotationNumber,
+        'date' => $date
+    );
+
+    print_r($arraylogs);
+
+    $log = new Logs($arraylogs);
+    $logsmgmt = new LogsManager($bdd);
+    $logsmgmt = $logsmgmt->add($log);
+
+    //incrémentation du nombre de devis créé pour la société
+    $counterQuotation = $counterQuotation + 1;
+    echo $counterQuotation;
+    $counter->setQuotation($counterQuotation);
+    print_r($counter);
+    $countermanager->updateCounter($counter);
+
+
+
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/cours/".$quotationNumber);
 }
 ?>

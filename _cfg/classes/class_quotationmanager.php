@@ -45,8 +45,8 @@ class QuotationManager
      */
     public function add(Quotation $quotation)
     {
-        $lastId = $this->count();
-        $quotationNumber = date("Ym",strtotime($quotation->getDate())).($lastId + 1);
+        $quotationCounter = $quotation->getQuotationNumber();
+        $quotationNumber = date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1);
         $quotation->setQuotationNumber($quotationNumber);
 
         $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
@@ -458,18 +458,32 @@ class QuotationManager
         }
     }
 
+    /*
+    * Modification du type de quotation en proforma, devis, facture ou avoir
+    *
+    */
+
     public function changeType(Quotation $quotation)
     {
         try{
             $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
-            $q = $this->_db->prepare('UPDATE quotation SET type = :type, status = :status, date = :date, validatedDate =:validatedDate WHERE idQuotation= :idQuotation');
+            //on change le quotation number si facture ou avoir
+            if ($quotation->getType() == "A" || $quotation->getType() == "F")
+            {
+                $quotationCounter = $quotation->getQuotationNumber();
+                $quotationNumber = date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1);
+                $quotation->setQuotationNumber($quotationNumber);
+            }
+            
+            $q = $this->_db->prepare('UPDATE quotation SET quotationNumber = :quotationNumber, type = :type, status = :status, date = :date, validatedDate =:validatedDate WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
+            $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
             $q->bindValue(':status', $quotation->getStatus(), PDO::PARAM_STR);
             $q->bindValue(':date', $quotation->getDate(), PDO::PARAM_STR);
             $q->bindValue(':type', $quotation->getType(), PDO::PARAM_STR);
             $q->bindValue(':validatedDate', $quotation->getValidatedDate(), PDO::PARAM_STR);
             $q->execute();
-            return "ok";
+            return $quotation->getQuotationNumber();
         }
         catch(Exception $e){
             return null;

@@ -9,6 +9,7 @@
 include("../../_cfg/cfg.php");
 $idQuotation = $_GET["idQuotation"];
 $quotationNumber = $_GET['quotationNumber'];
+$type = $_GET["type"];
 
 $array = array();
 $descriptions = new Description($array);
@@ -28,7 +29,23 @@ if(is_null($test)){
     if(is_null($test)){
         header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr2");
     }else{
-        header('Location: '.$_SERVER['HTTP_REFERER']."/successsuppr");
+        //Ajout d'un objet logs pour tracer l'action sur le devis
+        $date = date('Y-m-d H:i:s');
+        $arraylogs = array(
+            'username' => $_COOKIE["username"],
+            'company' => $companyId,
+            'type' => "quotation",
+            'action' => "deleted",
+            'id' => $quotationNumber,
+            'date' => $date
+        );
+
+        print_r($arraylogs);
+
+        $log = new Logs($arraylogs);
+        $logsmgmt = new LogsManager($bdd);
+        $logsmgmt = $logsmgmt->add($log);
+        header('Location: '.$_SERVER['HTTP_REFERER']."/successsuppr".$type);
   }
 }
 

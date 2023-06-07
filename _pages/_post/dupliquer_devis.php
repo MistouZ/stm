@@ -24,6 +24,13 @@ $contactId = $quotation->getContactId();
 $comment = $quotation->getComment();
 $label = $quotation->getLabel();
 
+$arraycounter = array();
+$counter = new Counter($arraycounter);
+$countermanager = new CounterManager($bdd);
+$counter = $countermanager->getCount($companyId);
+
+$counterQuotation = $counter->getQuotation();
+
 $year = date("Y");
 $month = date("m");
 $day = date("d");
@@ -31,6 +38,7 @@ $status = "En cours";
 $type = "D";
 
 $data = array(
+    'quotationNumber' => $counterQuotation,
     'status' => $status,
     'label' => $label,
     'year' => $year,
@@ -87,6 +95,30 @@ if(is_null($test) || is_null($test2))
     header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
+
+    //Ajout d'un objet logs pour tracer l'action de création du devis
+    $date = date('Y-m-d H:i:s');
+    $arraylogs = array(
+        'username' => $_COOKIE["username"],
+        'company' => $companyId,
+        'type' => "quotation",
+        'action' => "duplication",
+        'id' => $quotationNumber,
+        'date' => $date
+    );
+
+    print_r($arraylogs);
+
+    $log = new Logs($arraylogs);
+    $logsmgmt = new LogsManager($bdd);
+    $logsmgmt = $logsmgmt->add($log);
+
+    //incrémentation du nombre de devis créé pour la société
+    $counterQuotation = $counterQuotation + 1;
+    echo $counterQuotation;
+    $counter->setQuotation($counterQuotation);
+    print_r($counter);
+    $countermanager->updateCounter($counter);
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/cours/".$quotationNumber);
 }
 
