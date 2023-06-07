@@ -47,6 +47,12 @@ if(isset($_POST['valider'])) {
     $usermanager = new UsersManager($bdd);
     echo "OK2 ";
     $test = $usermanager->updatePreference($user);
+    
+    $company = new Company($array);
+    $companymanager = new CompaniesManager($bdd);
+    $company = $companymanager->getById($defaultCompany);
+
+    setcookie('company', $company->getNameData() , time() + 365*24*3600, '/');
 
 
 }
