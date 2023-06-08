@@ -299,101 +299,14 @@ if(isset($_GET['cat5'])){
             </div>
         </div>
         <?php
-            if(!empty($costs)){
-        ?>
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
-                <div class="portlet grey-cascade box">
-                    <div class="portlet-title">
-                        <div class="caption">
-                            <?php echo $enteteIconOption; ?> Option <?php echo $entete; ?> </div>
-                            <?php echo $buttons; ?>
-                    </div>
-                    <div class="portlet-body">
-                        <div class="table-responsive">
-                            <form id="multiSelection" method="post">
-                                <table class="table table-hover table-bordered table-striped">
-                                    <thead>
-                                        <tr>
-                                            <?php
-                                            if($type == "devis"){
-                                            ?>
-                                                <th style="text-align: center !important;" class="desktop"></th>
-                                            <?php
-                                            }
-                                            ?>
-                                            <th> Description </th>
-                                            <th> Prix à l'unité </th>
-                                            <th> QT. </th>
-                                            <th> Taxe </th>
-                                            <th> Remise </th>
-                                            <th> Prix total HT </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <?php
-                                            $montant = 0;
-                                            $totalTaxe = 0;
-                                            $montantHT = 0;
-                                            $arrayTaxesKey =  array();
-                                            foreach($costs as $cost){
-                                                $montantLigne = $cost->getQuantity()*$cost->getPrice();
-                                                $remise = $montantLigne*($cost->getDiscount()/100);
-                                                $montantLigne = $montantLigne-$remise;
-                                                $taxe = $montantLigne*$cost->getTax();
-                                                $tax = $taxmanager->getByPercent($cost->getTax()*100);
-
-                                                //Calcul du détail des taxes pour l'affichage par tranche détaillée
-                                                if(isset($arrayTaxesKey[$tax->getName()]['Taxe'])){
-                                                    $arrayTaxesKey[$tax->getName()]["Montant"] = $arrayTaxesKey[$tax->getName()]["Montant"]+$taxe;
-                                                }
-                                                else{                                                   
-                                                    $arrayTaxesKey[$tax->getName()]['Taxe']=$tax->getName();
-                                                    $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
-                                                }
-
-                                                $totalTaxe = $totalTaxe+$taxe;
-                                                $montantHT = $montantHT+$montantLigne;
-                                                $montant = $montant+$montantLigne+$taxe;
-                                            ?>
-                                            <tr>
-                                                <?php
-                                                if($type == "devis") {
-                                                    ?>
-                                                    <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $cost->getIdDescription(); ?>"/></td>
-                                                    <?php
-                                                }
-                                                ?>
-                                                <td class="col-md-7"><?php echo nl2br($cost->getDescription()); ?></td>
-                                                <td class="col-md-1"><?php echo number_format($cost->getPrice(),0,","," "); ?> XPF</td>
-                                                <td><?php echo $cost->getQuantity(); ?></td>
-                                                <td><?php echo $cost->getTax()*100; ?> %</td>
-                                                <td><?php echo $cost->getDiscount(); ?> %</td>
-                                                <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
-                                            </tr>
-                                            <?php
-                                            }
-                                        ?>
-                                    </tbody>
-                                </table>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <?php
-            }
-        ?>
-        <?php
-            if(!empty($descriptionsCout)){
+            if(!empty($descriptionOption)){
         ?>
         <div class="row">
             <div class="col-md-12 col-sm-12">
                 <div class="portlet red-flamingo box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo $enteteIconCout; ?> Coûts <?php echo $entete; ?> </div>
+                            <?php echo $enteteIconOption; ?> Coûts <?php echo $entete; ?> </div>
                             <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
@@ -471,7 +384,92 @@ if(isset($_GET['cat5'])){
         </div>
         <?php
             }
+            if(!empty($costs)){
         ?>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet grey-cascade box">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <?php echo $enteteIconCout; ?> Option <?php echo $entete; ?> </div>
+                            <?php echo $buttons; ?>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            <form id="multiSelection" method="post">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <?php
+                                            if($type == "devis"){
+                                            ?>
+                                                <th style="text-align: center !important;" class="desktop"></th>
+                                            <?php
+                                            }
+                                            ?>
+                                            <th> Description </th>
+                                            <th> Prix à l'unité </th>
+                                            <th> QT. </th>
+                                            <th> Taxe </th>
+                                            <th> Remise </th>
+                                            <th> Prix total HT </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $montant = 0;
+                                            $totalTaxe = 0;
+                                            $montantHT = 0;
+                                            $arrayTaxesKey =  array();
+                                            foreach($costs as $cost){
+                                                $montantLigne = $cost->getQuantity()*$cost->getPrice();
+                                                $remise = $montantLigne*($cost->getDiscount()/100);
+                                                $montantLigne = $montantLigne-$remise;
+                                                $taxe = $montantLigne*$cost->getTax();
+                                                $tax = $taxmanager->getByPercent($cost->getTax()*100);
+
+                                                //Calcul du détail des taxes pour l'affichage par tranche détaillée
+                                                if(isset($arrayTaxesKey[$tax->getName()]['Taxe'])){
+                                                    $arrayTaxesKey[$tax->getName()]["Montant"] = $arrayTaxesKey[$tax->getName()]["Montant"]+$taxe;
+                                                }
+                                                else{                                                   
+                                                    $arrayTaxesKey[$tax->getName()]['Taxe']=$tax->getName();
+                                                    $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
+                                                }
+
+                                                $totalTaxe = $totalTaxe+$taxe;
+                                                $montantHT = $montantHT+$montantLigne;
+                                                $montant = $montant+$montantLigne+$taxe;
+                                            ?>
+                                            <tr>
+                                                <?php
+                                                if($type == "devis") {
+                                                    ?>
+                                                    <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $cost->getIdDescription(); ?>"/></td>
+                                                    <?php
+                                                }
+                                                ?>
+                                                <td class="col-md-7"><?php echo nl2br($cost->getDescription()); ?></td>
+                                                <td class="col-md-1"><?php echo number_format($cost->getPrice(),0,","," "); ?> XPF</td>
+                                                <td><?php echo $cost->getQuantity(); ?></td>
+                                                <td><?php echo $cost->getTax()*100; ?> %</td>
+                                                <td><?php echo $cost->getDiscount(); ?> %</td>
+                                                <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
+                                            </tr>
+                                            <?php
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+            }
+        ?>    
         <div class="row">
             <div class="col-md-6"> </div>
             <div class="col-md-6">
@@ -510,7 +508,8 @@ if(isset($_GET['cat5'])){
                         </div>
                     </form>
             <?php
-                }?>
+                }
+            ?>
         </div>
         <div id="to_proforma" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
