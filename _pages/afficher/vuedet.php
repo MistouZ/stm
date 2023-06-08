@@ -373,7 +373,7 @@ if(isset($_GET['cat5'])){
                                                 <td><?php echo $descriptionOption->getQuantity(); ?></td>
                                                 <td><?php echo $descriptionOption->getTax()*100; ?> %</td>
                                                 <td><?php echo $descriptionOption->getDiscount(); ?> %</td>
-                                                <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
+                                                <td class="col-md-1"><?php echo number_format($montantOptionLigne,0,","," "); ?> XPF</td>
                                             </tr>
                                             <?php
                                             }
