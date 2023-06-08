@@ -49,6 +49,8 @@ class QuotationManager
         $quotationNumber = date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1);
         $quotation->setQuotationNumber($quotationNumber);
 
+        echo $quotationNumber;
+
         $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
 
         try{
