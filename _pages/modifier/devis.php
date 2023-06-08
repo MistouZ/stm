@@ -737,6 +737,8 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         if(nbDiv>1){
             selectedDiv.remove();
         }else{
+            var selectedDescription = $("textarea[id='descriptionCout"+selected"])");
+            selectedDescription.value = "";
             selectedDiv.find('div[id="divsupprDevis'+selected+'"]').css('display','' ).end();
             selectedDiv.find('div[id="divsupprDevis'+selected+'"]').css('display','none' ).end();
             alert("Il n'est pas possible de supprimer la dernière ligne du devis !");
