@@ -367,12 +367,12 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                             <select id="taxeOption<?php echo $j; ?>" class="taxe form-control" name="taxeOption[<?php echo $j; ?>]">
                                                                 <option value="">Sélectionnez ...</option>
                                                                 <?php
-                                                                /*$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
+                                                                //$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
                                                                 foreach ($taxmanager as $tax){
                                                                    ?>
                                                                     <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
                                                                     <?php
-                                                                }*/
+                                                                }
                                                                 ?>
                                                             </select>
                                                         </div>
