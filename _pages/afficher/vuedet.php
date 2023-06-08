@@ -28,7 +28,7 @@ $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
-$cost = new Cost($array);
+$costs = new Cost($array);
 $costmanager = new CostManager($bdd);
 
 $dateToProforma = date('d/m/Y');
