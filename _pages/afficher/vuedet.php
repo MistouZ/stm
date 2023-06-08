@@ -94,6 +94,7 @@ $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
@@ -213,7 +214,7 @@ if(isset($_GET['cat5'])){
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <div class="portlet grey-cascade box">
+                <div class="portlet blue-dark box">
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo $enteteIcon; ?> Détail <?php echo $entete; ?> </div>
@@ -292,6 +293,93 @@ if(isset($_GET['cat5'])){
                 </div>
             </div>
         </div>
+        <?php
+            if(!empty($descriptionsOption)){
+        ?>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <div class="portlet grey-cascade box">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <?php echo $enteteIcon; ?> Option <?php echo $entete; ?> </div>
+                            <?php echo $buttons; ?>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="table-responsive">
+                            <form id="multiSelection" method="post">
+                                <table class="table table-hover table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <?php
+                                            if($type == "devis"){
+                                            ?>
+                                                <th style="text-align: center !important;" class="desktop"></th>
+                                            <?php
+                                            }
+                                            ?>
+                                            <th> Description </th>
+                                            <th> Prix à l'unité </th>
+                                            <th> QT. </th>
+                                            <th> Taxe </th>
+                                            <th> Remise </th>
+                                            <th> Prix total HT </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            $montant = 0;
+                                            $totalTaxe = 0;
+                                            $montantHT = 0;
+                                            $arrayTaxesKey =  array();
+                                            foreach($descriptionsOption as $descriptionOption){
+                                                $montantLigne = $descriptionOption->getQuantity()*$descriptionOption->getPrice();
+                                                $remise = $montantLigne*($descriptionOption->getDiscount()/100);
+                                                $montantLigne = $montantLigne-$remise;
+                                                $taxe = $montantLigne*$descriptionOption->getTax();
+                                                $tax = $taxmanager->getByPercent($descriptionOption->getTax()*100);
+
+                                                //Calcul du détail des taxes pour l'affichage par tranche détaillée
+                                                if(isset($arrayTaxesKey[$tax->getName()]['Taxe'])){
+                                                    $arrayTaxesKey[$tax->getName()]["Montant"] = $arrayTaxesKey[$tax->getName()]["Montant"]+$taxe;
+                                                }
+                                                else{                                                   
+                                                    $arrayTaxesKey[$tax->getName()]['Taxe']=$tax->getName();
+                                                    $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
+                                                }
+
+                                                $totalTaxe = $totalTaxe+$taxe;
+                                                $montantHT = $montantHT+$montantLigne;
+                                                $montant = $montant+$montantLigne+$taxe;
+                                            ?>
+                                            <tr>
+                                                <?php
+                                                if($type == "devis") {
+                                                    ?>
+                                                    <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $descriptionOption->getIdDescription(); ?>"/></td>
+                                                    <?php
+                                                }
+                                                ?>
+                                                <td class="col-md-7"><?php echo nl2br($descriptionOption->getDescription()); ?></td>
+                                                <td class="col-md-1"><?php echo number_format($descriptionOption->getPrice(),0,","," "); ?> XPF</td>
+                                                <td><?php echo $descriptionOption->getQuantity(); ?></td>
+                                                <td><?php echo $descriptionOption->getTax()*100; ?> %</td>
+                                                <td><?php echo $descriptionOption->getDiscount(); ?> %</td>
+                                                <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
+                                            </tr>
+                                            <?php
+                                            }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+            }
+        ?>
         <div class="row">
             <div class="col-md-6"> </div>
             <div class="col-md-6">
