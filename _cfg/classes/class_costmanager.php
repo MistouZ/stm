@@ -148,7 +148,7 @@ class CostManager
      * Find all Costs from Filtered Folders
      * @param $folders
      * @param $folder
-     * @return costs
+     * @return Cost
      */
     public function getCostByFilteredFolder($folders, $folder)
     {

@@ -336,29 +336,29 @@ if(isset($_GET['cat5'])){
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $montant = 0;
-                                            $totalTaxe = 0;
-                                            $montantHT = 0;
-                                            $arrayTaxesKey =  array();
+                                            $montantOption = 0;
+                                            $totalTaxeOption = 0;
+                                            $montantOptionHT = 0;
+                                            $arrayTaxesOptionKey =  array();
                                             foreach($descriptionsOption as $descriptionOption){
-                                                $montantLigne = $descriptionOption->getQuantity()*$descriptionOption->getPrice();
-                                                $remise = $montantLigne*($descriptionOption->getDiscount()/100);
-                                                $montantLigne = $montantLigne-$remise;
-                                                $taxe = $montantLigne*$descriptionOption->getTax();
+                                                $montantOptionLigne = $descriptionOption->getQuantity()*$descriptionOption->getPrice();
+                                                $remise = $montantOptionLigne*($descriptionOption->getDiscount()/100);
+                                                $montantOptionLigne = $montantOptionLigne-$remise;
+                                                $taxeOption = $montantOptionLigne*$descriptionOption->getTax();
                                                 $tax = $taxmanager->getByPercent($descriptionOption->getTax()*100);
 
                                                 //Calcul du détail des taxes pour l'affichage par tranche détaillée
-                                                if(isset($arrayTaxesKey[$tax->getName()]['Taxe'])){
-                                                    $arrayTaxesKey[$tax->getName()]["Montant"] = $arrayTaxesKey[$tax->getName()]["Montant"]+$taxe;
+                                                if(isset($arrayTaxesOptionKey[$tax->getName()]['Taxe'])){
+                                                    $arrayTaxesOptionKey[$tax->getName()]["Montant"] = $arrayTaxesOptionKey[$tax->getName()]["Montant"]+$taxeOption;
                                                 }
                                                 else{                                                   
-                                                    $arrayTaxesKey[$tax->getName()]['Taxe']=$tax->getName();
-                                                    $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
+                                                    $arrayTaxesOptionKey[$tax->getName()]['Taxe']=$tax->getName();
+                                                    $arrayTaxesOptionKey[$tax->getName()]['Montant']=$taxeOption;                                                    
                                                 }
 
-                                                $totalTaxe = $totalTaxe+$taxe;
-                                                $montantHT = $montantHT+$montantLigne;
-                                                $montant = $montant+$montantLigne+$taxe;
+                                                $totalTaxeOption = $totalTaxeOption+$taxeOption;
+                                                $montantOptionHT = $montantOptionHT+$montantOptionLigne;
+                                                $montantOption = $montantOption+$montantOptionLigne+$taxeOption;
                                             ?>
                                             <tr>
                                                 <?php
@@ -421,29 +421,18 @@ if(isset($_GET['cat5'])){
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $montant = 0;
-                                            $totalTaxe = 0;
-                                            $montantHT = 0;
-                                            $arrayTaxesKey =  array();
+                                            $montantCout = 0;
+                                            $montantCoutHT = 0;
+
                                             foreach($costs as $cost){
-                                                $montantLigne = $cost->getQuantity()*$cost->getPrice();
-                                                $remise = $montantLigne*($cost->getDiscount()/100);
-                                                $montantLigne = $montantLigne-$remise;
-                                                $taxe = $montantLigne*$cost->getTax();
+                                                $montantCoutLigne = $cost->getQuantity()*$cost->getPrice();
+                                                $remise = $montantCoutLigne*($cost->getDiscount()/100);
+                                                $montantCoutLigne = $montantCoutLigne-$remise;
+                                                $taxe = $montantCoutLigne*$cost->getTax();
                                                 $tax = $taxmanager->getByPercent($cost->getTax()*100);
 
-                                                //Calcul du détail des taxes pour l'affichage par tranche détaillée
-                                                if(isset($arrayTaxesKey[$tax->getName()]['Taxe'])){
-                                                    $arrayTaxesKey[$tax->getName()]["Montant"] = $arrayTaxesKey[$tax->getName()]["Montant"]+$taxe;
-                                                }
-                                                else{                                                   
-                                                    $arrayTaxesKey[$tax->getName()]['Taxe']=$tax->getName();
-                                                    $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
-                                                }
-
-                                                $totalTaxe = $totalTaxe+$taxe;
-                                                $montantHT = $montantHT+$montantLigne;
-                                                $montant = $montant+$montantLigne+$taxe;
+                                                $montantCoutHT = $montantCoutHT+$montantCoutLigne;
+                                                $montantCout = $montantCout+$montantCoutLigne+$taxe;
                                             ?>
                                             <tr>
                                                 <?php
