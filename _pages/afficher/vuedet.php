@@ -424,7 +424,7 @@ if(isset($_GET['cat5'])){
                                             $montantCout = 0;
                                             $montantCoutHT = 0;
 
-                                            foreach($costs as $cost){
+                                            /*foreach($costs as $cost){
                                                 $montantCoutLigne = $cost->getQuantity()*$cost->getPrice();
                                                 $remise = $montantCoutLigne*($cost->getDiscount()/100);
                                                 $montantCoutLigne = $montantCoutLigne-$remise;
@@ -450,7 +450,7 @@ if(isset($_GET['cat5'])){
                                                 <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
                                             </tr>
                                             <?php
-                                            }
+                                            }*/
                                         ?>
                                     </tbody>
                                 </table>
