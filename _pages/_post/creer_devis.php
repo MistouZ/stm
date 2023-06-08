@@ -25,6 +25,8 @@ $counter = $countermanager->getCount($companyId);
 
 $counterQuotation = $counter->getQuotation();
 
+echo $counterQuotation;
+
 
 
 if(empty($_POST["label"]))
