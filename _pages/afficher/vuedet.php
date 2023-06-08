@@ -28,6 +28,8 @@ $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
+$supplier = new Suppliers($array);
+$suppliermanager = new SuppliersManager($bdd);
 
 $dateToProforma = date('d/m/Y');
 
@@ -411,12 +413,9 @@ if(isset($_GET['cat5'])){
                                             <?php
                                             }
                                             ?>
+                                            <th> Fournisseur </th>
                                             <th> Description </th>
-                                            <th> Prix à l'unité </th>
-                                            <th> QT. </th>
-                                            <th> Taxe </th>
-                                            <th> Remise </th>
-                                            <th> Prix total HT </th>
+                                            <th> Prix HT </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -424,7 +423,7 @@ if(isset($_GET['cat5'])){
                                             $montantCout = 0;
                                             $montantCoutHT = 0;
 
-                                            /*foreach($costs as $cost){
+                                            foreach($costs as $cost){
                                                 $montantCoutLigne = $cost->getQuantity()*$cost->getPrice();
                                                 $remise = $montantCoutLigne*($cost->getDiscount()/100);
                                                 $montantCoutLigne = $montantCoutLigne-$remise;
@@ -442,15 +441,12 @@ if(isset($_GET['cat5'])){
                                                     <?php
                                                 }
                                                 ?>
-                                                <td class="col-md-7"><?php echo nl2br($cost->getDescription()); ?></td>
-                                                <td class="col-md-1"><?php echo number_format($cost->getPrice(),0,","," "); ?> XPF</td>
-                                                <td><?php echo $cost->getQuantity(); ?></td>
-                                                <td><?php echo $cost->getTax()*100; ?> %</td>
-                                                <td><?php echo $cost->getDiscount(); ?> %</td>
-                                                <td class="col-md-1"><?php echo number_format($montantLigne,0,","," "); ?> XPF</td>
+                                                <td class="col-md-4"><?php echo $suppliermanager->getByID($cost->getSupplierId()); ?></td>
+                                                <td class="col-md-6"><?php echo nl2br($cost->getDescription()); ?></td>
+                                                <td class="col-md-2"><?php echo number_format($cost->getValue(),0,","," "); ?> XPF</td>
                                             </tr>
                                             <?php
-                                            }*/
+                                            }
                                         ?>
                                     </tbody>
                                 </table>
