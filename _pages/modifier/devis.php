@@ -370,7 +370,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                                 //$taxmanager = $taxmanager->getListByCustomer($folder->getCustomerId());
                                                                 foreach ($taxmanager as $tax){
                                                                    ?>
-                                                                    <option value="<?php echo $tax->getValue(); ?>"><?php echo $tax->getPercent()." %"; ?></option>
+                                                                    <option value="<?php echo $tax->getValue(); ?>" <?php if($description->getTax()==$tax->getValue()){echo "selected=\"selected\""; } ?> ><?php echo $tax->getName(); ?></option>
                                                                     <?php
                                                                 }
                                                                 ?>
