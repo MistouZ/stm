@@ -429,7 +429,7 @@ if(isset($_GET['cat5'])){
                                             ?>
                                             <tr>
                                                 <?php
-                                                if($type == "devis") {
+                                               /* if($type == "devis") {
                                                     ?>
                                                     <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $cost->getIdDescription(); ?>"/></td>
                                                     <?php
@@ -441,7 +441,7 @@ if(isset($_GET['cat5'])){
                                                 <td class="col-md-2"><?php echo number_format($cost->getValue(),0,","," "); ?> XPF</td>
                                             </tr>
                                             <?php
-                                            }
+                                            */}
                                         ?>
                                     </tbody>
                                 </table>
@@ -475,6 +475,14 @@ if(isset($_GET['cat5'])){
                         <div class="col-md-3 value" style="font-size: 11px; font-style: italic;"> <?php echo number_format($arrayTaxesKey[$key]["Montant"],0,","," "); ?> XPF</div>
                     </div>
                     <?php }} ?>
+                    <div class="row static-info align-reverse">
+                        <div class="col-md-8 name" style="font-weight: 800; font-size: 13px; font-style: italic;"> Total Options : </div>
+                        <div class="col-md-3 value" style="font-weight: 800; font-size: 13px; font-style: italic;"> <?php echo number_format($montantOption,0,","," "); ?> XPF</div>
+                    </div>
+                    <div class="row static-info align-reverse">
+                        <div class="col-md-8 name" style="font-weight: 800; font-size: 13px; font-style: italic;"> Total Coûts : </div>
+                        <div class="col-md-3 value" style="font-weight: 800; font-size: 13px; font-style: italic;"> <?php echo number_format($montantCout,0,","," "); ?> XPF</div>
+                    </div>
                     <div class="row static-info align-reverse">
                         <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
                         <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
