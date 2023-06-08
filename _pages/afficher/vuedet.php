@@ -303,10 +303,10 @@ if(isset($_GET['cat5'])){
         ?>
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <div class="portlet red-flamingo box">
+                <div class="portlet grey-cascade box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo $enteteIconOption; ?> Coûts <?php echo $entete; ?> </div>
+                            <?php echo $enteteIconOption; ?> Options <?php echo $entete; ?> </div>
                             <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
@@ -388,10 +388,10 @@ if(isset($_GET['cat5'])){
         ?>
         <div class="row">
             <div class="col-md-12 col-sm-12">
-                <div class="portlet grey-cascade box">
+                <div class="portlet red-flamingo box">
                     <div class="portlet-title">
                         <div class="caption">
-                            <?php echo $enteteIconCout; ?> Option <?php echo $entete; ?> </div>
+                            <?php echo $enteteIconCout; ?> Coûts <?php echo $entete; ?> </div>
                             <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
