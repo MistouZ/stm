@@ -424,14 +424,8 @@ if(isset($_GET['cat5'])){
                                             $montantCoutHT = 0;
 
                                             foreach($costs as $cost){
-                                                $montantCoutLigne = $cost->getQuantity()*$cost->getPrice();
-                                                $remise = $montantCoutLigne*($cost->getDiscount()/100);
-                                                $montantCoutLigne = $montantCoutLigne-$remise;
-                                                $taxe = $montantCoutLigne*$cost->getTax();
-                                                $tax = $taxmanager->getByPercent($cost->getTax()*100);
-
-                                                $montantCoutHT = $montantCoutHT+$montantCoutLigne;
-                                                $montantCout = $montantCout+$montantCoutLigne+$taxe;
+                                                $montantCoutLigne = $cost->getValue();
+                                                $montantCout = $montantCout+$montantCoutLigne;
                                             ?>
                                             <tr>
                                                 <?php
