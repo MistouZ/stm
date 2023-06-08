@@ -759,9 +759,9 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         if(nbDiv>1){
             selectedDiv.remove();
         }else{
-            var selectedDescription = $("textarea[id='descriptionCout"+selected"])");
+            //var selectedDescription = $("textarea[id='descriptionCout"+selected"])");
             document.getElementById("descriptionCout"+selected).value = "";
-            selectedDescription.value = "";
+            //selectedDescription.value = "";
             selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','' ).end();
             selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','none' ).end();
             alert("Il n'est pas possible de supprimer la dernière ligne des coûts !");
