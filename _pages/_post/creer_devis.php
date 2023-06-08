@@ -16,8 +16,8 @@ $folder = $foldermanager->get($_POST["folder"]);
 print_r($folder);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
-$customerId = $_POST["customer-select"];
-$contactId = $_POST["contact-select"];
+$customerId = $folder->getCustomerId();
+$contactId = $folder->getContactId();
 
 $arraycounter = array();
 $counter = new Counter($arraycounter);
@@ -185,7 +185,7 @@ else{
 
 if(is_null($test) || is_null($test2) || is_null($test3) )
 {
-    //header('Location: '.$_SERVER['HTTP_REFERER']."/error");
+    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
 else{
 
