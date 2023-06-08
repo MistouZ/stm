@@ -45,7 +45,6 @@ class QuotationManager
      */
     public function add(Quotation $quotation)
     {
-        print_r($quotation);
         $quotationCounter = $quotation->getQuotationNumber();
         $quotationNumber = date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1);
         $quotation->setQuotationNumber($quotationNumber);
@@ -64,7 +63,6 @@ class QuotationManager
             $q->bindValue(':folderId', $quotation->getFolderId(), PDO::PARAM_INT);
             $q->bindValue(':customerId', $quotation->getCustomerId(), PDO::PARAM_INT);
             $q->bindValue(':contactId', $quotation->getContactId(), PDO::PARAM_INT);
-            print_r($quotation);
     
             $q->execute();
             

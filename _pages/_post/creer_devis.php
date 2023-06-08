@@ -13,6 +13,7 @@ $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
+print_r($folder);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
 $customerId = $_POST["customer-select"];
