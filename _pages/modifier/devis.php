@@ -760,6 +760,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             selectedDiv.remove();
         }else{
             var selectedDescription = $("textarea[id='descriptionCout"+selected"])");
+            document.getElementById("descriptionCout"+selected).value = "";
             selectedDescription.value = "";
             selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','' ).end();
             selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','none' ).end();
