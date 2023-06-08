@@ -161,6 +161,8 @@ else{
 
             $descriptionCout = new Cost($dataDescriptionCout);
             $descriptionsCout[$i] = $descriptionCout;
+        }else{
+            $costmanager->delete($_POST["idCout"][$j]);
         }
         $i++;
         next($_POST["descriptionCout"]);

@@ -28,8 +28,6 @@ $tax = new Tax($array);
 $taxmanager = new TaxManager($bdd);
 $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
-$costs = new Cost($array);
-$costmanager = new CostManager($bdd);
 
 $dateToProforma = date('d/m/Y');
 
@@ -95,11 +93,17 @@ switch($type){
 
 $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
+
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
+
+$costs = new Cost($array);
+$costmanager = new CostManager($bdd);
 $costs = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
+
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());

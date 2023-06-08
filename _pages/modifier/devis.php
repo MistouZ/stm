@@ -438,6 +438,12 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                                 </select>
                                                             </div>
                                                         </div>
+                                                        <div class="col-md-6" style="display: none;">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">ID Coût</label>
+                                                                <input type="digits" id="idCout<?php echo $k; ?>" name="idCout[<?php echo $k; ?>]" value="<?php echo $cost->getIdCost(); ?>" class="form-control" placeholder="HT">
+                                                            </div>
+                                                        </div>
                                                         <div class="col-md-6">
                                                             <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                                 <label class="control-label">Description</label>
