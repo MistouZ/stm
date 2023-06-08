@@ -25,7 +25,7 @@ $counter = $countermanager->getCount($companyId);
 
 $counterQuotation = $counter->getQuotation();
 
-echo $counterQuotation;
+echo "counter".$counterQuotation;
 
 
 
