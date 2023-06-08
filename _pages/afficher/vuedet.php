@@ -313,7 +313,6 @@ if(isset($_GET['cat5'])){
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo $enteteIconOption; ?> Options <?php echo $entete; ?> </div>
-                            <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
@@ -398,7 +397,6 @@ if(isset($_GET['cat5'])){
                     <div class="portlet-title">
                         <div class="caption">
                             <?php echo $enteteIconCout; ?> Coûts <?php echo $entete; ?> </div>
-                            <?php echo $buttons; ?>
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
