@@ -431,7 +431,7 @@ if(isset($_GET['cat5'])){
                                                 <?php
                                                if($type == "devis") {
                                                     ?>
-                                                    <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $cost->getIdDescription(); ?>"/></td>
+                                                    <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $cost->getIdCost(); ?>"/></td>
                                                     <?php
                                                 }
                                                 //$supplier = $suppliermanager->getByID($cost->getSupplierId());
