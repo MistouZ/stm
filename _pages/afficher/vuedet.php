@@ -434,11 +434,11 @@ if(isset($_GET['cat5'])){
                                                     <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $cost->getIdCost(); ?>"/></td>
                                                     <?php
                                                 }
-                                                //$supplier = $suppliermanager->getByID($cost->getSupplierId());
+                                                $supplier = $suppliermanager->getByID($cost->getSupplierId());
                                                 ?>
-                                                <td class="col-md-4"><?php //echo $supplier->getName(); ?></td>
-                                                <td class="col-md-6"><?php //echo nl2br($cost->getDescription()); ?></td>
-                                                <td class="col-md-2"><?php //echo number_format($cost->getValue(),0,","," "); ?> XPF</td>
+                                                <td class="col-md-4"><?php echo $supplier->getName(); ?></td>
+                                                <td class="col-md-6"><?php echo nl2br($cost->getDescription()); ?></td>
+                                                <td class="col-md-2"><?php echo number_format($cost->getValue(),0,","," "); ?> XPF</td>
                                             </tr>
                                             <?php
                                             }
