@@ -236,14 +236,12 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             ?>
         <div class="row">
             <div class="col-md-5">
-                <div class="col-md-5">
                     <div class="row">
                         <div class="col-md-6">Le client</div>
                     </div>
                     <div class="row">  
                         <div class="col-md-6" style="font-style: italic;">"Bon pour accord"</div>
                     </div>
-                </div>
             </div>
             <div class="col-md-7" style="font-size: 10px; font-style: italic;">
                 <?php echo $quotation->getComment(); ?>
