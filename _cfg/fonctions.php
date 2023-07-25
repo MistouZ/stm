@@ -76,9 +76,18 @@ if(isset($_POST['functionCalled']) && !empty($_POST['functionCalled'])) {
 function calculMontantTotalTTC(Description $description, $montant){
     $montantLigne = $description->getQuantity()*$description->getPrice();
     $remise = $montantLigne*($description->getDiscount()/100);
-    $taxe = $montantLigne*$description->getTax();
     $montantLigne = $montantLigne-$remise;
+    $taxe = $montantLigne*$description->getTax();
     $montantLigne = $montantLigne+$taxe;
+    $montant = $montant+$montantLigne;
+    
+    return $montant;
+}
+
+function calculMontantTotalHT(Description $description, $montant){
+    $montantLigne = $description->getQuantity()*$description->getPrice();
+    $remise = $montantLigne*($description->getDiscount()/100);
+    $montantLigne = $montantLigne-$remise;
     $montant = $montant+$montantLigne;
     
     return $montant;
