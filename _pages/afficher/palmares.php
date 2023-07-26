@@ -99,6 +99,7 @@ if(isset($_POST['valider'])) {
                     </thead>
                     <tbody>
                     <?php
+                    if(count($quotations)>0){
                     //Initialisation des valueurs pour le premier dossier
                     $k = 0;
                     $TotalPalmares = 0;
@@ -221,6 +222,7 @@ if(isset($_POST['valider'])) {
                         </tr>
                         <?php
                     }
+                }
                     ?>
                     </tbody>
                 </table>
