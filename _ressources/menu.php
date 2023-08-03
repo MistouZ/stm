@@ -94,11 +94,11 @@
                     <span class="title"><i class="far fa-list-alt"></i> En cours</span>
                 </a>
             </li>
-            <li class="nav-item  ">
+            <!--<li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/eclates'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Eclatés</span>
                 </a>
-            </li>
+            </li>-->
             <li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/partiels'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Partiels</span>
