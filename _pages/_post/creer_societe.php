@@ -45,10 +45,10 @@ if(isset($_POST['valider'])) {
                 header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/error");
             }else{
                 header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/success");
-            }
+            }*/
             
         }
-        else {
+        /*else {
             echo $uploadedFile.'<br />';
             echo $_FILES['nameData']['tmp_name'].'<br />';
             echo sys_get_temp_dir();
