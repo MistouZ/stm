@@ -63,8 +63,8 @@ class FoldersManager
             $q->bindValue(':contactId', $folder->getContactId(), PDO::PARAM_INT);
     
             $q->execute();
-            
-            return "ok";
+
+            return $folderNumber;
         }
         catch(Exception $e){
             return null;
