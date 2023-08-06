@@ -18,10 +18,18 @@ if(isset($_POST['valider'])){
     $contactId = $_POST["contact-select"];
     $companyId = $_POST["idcompany"];
 
+    $arraycounter = array();
+    $counter = new Counter($arraycounter);
+    $countermanager = new CounterManager($bdd);
+    $counter = $countermanager->getCount($companyId);
+
+    $folderNumber = $counter->getFolder();
+
     $isActive = 1;
 
     $array = array(
         'label' => $label,
+        'folderNumber' => $folderNumber,
         'date' => $date,
         'isActive' => $isActive,
         'description' => $description,
@@ -55,6 +63,14 @@ if(is_null($test)){
     $log = new Logs($arraylogs);
     $logsmgmt = new LogsManager($bdd);
     $logsmgmt = $logsmgmt->add($log);
+
+    //incrémentation du nombre de dossier créer pour la société
+    $counterFolder = $folderNumber + 1;
+    echo $counterFolder;
+    $counter->setFolder($counterFolder);
+    print_r($counter);
+    $countermanager->updateCounter($counter);
+
     header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/success");
 }
     
