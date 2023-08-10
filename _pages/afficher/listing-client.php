@@ -28,10 +28,16 @@ else{
             <div class="portlet-title">
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
+                    <?php
+                        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
+                     ?>
                 <div class="actions">
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/client/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer </a>
                 </div>
+                <?php
+                        }
+                ?>
             </div>
             <div class="portlet-body">
                 <?php if($retour == "error") { ?>
