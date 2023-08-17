@@ -13,13 +13,7 @@ if(isset($_POST['valider'])){
     else{
       $invoice_address=$_POST['invoice_address'];
     }
-    if(isset($_POST["is_supplier"]))
-    {
-      $supplier = 1;
-    }
-    else{
-      $supplier = 0;
-    }
+
 
     $is_active =1;
 
@@ -35,12 +29,6 @@ if(isset($_POST['valider'])){
     $customermanager = new CustomersManager($bdd);
     $test = $customermanager->update($customer, $_POST["case"], $_POST["account"],$_POST["subaccount"], $_POST["taxes"]);
 
-    if($supplier == 1)
-    {
-      $supplier = new Suppliers($array);
-      $suppliermanager = new SuppliersManager($bdd);
-      $suppliermanager->update($supplier,$_POST["case"]);
-    }
 
 }
 if(is_null($test)){

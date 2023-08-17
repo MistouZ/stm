@@ -75,18 +75,6 @@ $taxmanager = $taxmanager->getList();
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Fournisseur
-                            </label>
-                            <div class="col-md-4">
-                                <div class="checkbox-list">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="is_supplier" name="is_supplier" id="is_supplier" /></label>
-                                </div>
-                                <span class="help-block"> Cocher si ce client est aussi un fournisseur </span>
-                                <div id="form_2_services_error"> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="control-label col-md-3">Société
                                 <span class="required"> * </span>
                             </label>
