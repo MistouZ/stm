@@ -12,8 +12,8 @@ $companymanager = new CompaniesManager($bdd);
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 
-if($credential == "A"){
-    $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
+if($credential == "A" || $credential == "C"){
+    $suppliermanager = $suppliermanager->getList();
 }
 else{
     $suppliermanager = $suppliermanager->getListByCompany($company->getIdcompany());
