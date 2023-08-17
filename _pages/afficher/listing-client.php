@@ -12,8 +12,8 @@ $companymanager = new CompaniesManager($bdd);
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
 
-if($credential == "A"){
-    $customermanager = $customermanager->getListAllByCompany($company->getIdcompany());
+if($credential == "A" || $credential == "C"){
+    $customermanager = $customermanager->getList();
 }
 else{
     $customermanager = $customermanager->getListByCompany($company->getIdcompany());
@@ -29,7 +29,7 @@ else{
                 <div class="caption">
                     <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); ?>  </div>
                     <?php
-                        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
+                        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C") {
                      ?>
                 <div class="actions">
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/client/creer'; ?>" class="btn btn-sm grey-mint">
