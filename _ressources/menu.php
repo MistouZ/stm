@@ -25,7 +25,7 @@
         </a>
         <ul class="sub-menu">
         <?php
-            if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
+            if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C") {
         ?>
            <li class="nav-item  ">
                     <a href="<?php echo URLHOST . $_COOKIE['company'] . '/client/creer'; ?>" class="nav-link ">
