@@ -183,7 +183,7 @@ $taxmanager = $taxmanager->getList();
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="email" name="emailAddress" /> </div>
+                                        <input type="email" data-required="0" class="form-control" name="emailAddress" /> </div>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -192,7 +192,7 @@ $taxmanager = $taxmanager->getList();
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
-                                        <input type="text" name="phoneNumber" /></div>
+                                        <input type="text" data-required="0" class="form-control" name="phoneNumber" /></div>
                                 </div>
                             </div>
                             <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
