@@ -40,6 +40,8 @@ $data = array(
     'type' => 'F'
 );
 
+print_r($data);
+
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
