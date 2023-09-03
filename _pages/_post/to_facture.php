@@ -51,8 +51,6 @@ $test2 = $descriptionmanager->update($descriptions,$test);
 echo "test";
 print_r($test);
 
-echo "test2";
-print_r($test2);
 
 /*if(is_null($test) || is_null($test2)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
