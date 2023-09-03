@@ -474,6 +474,8 @@ class QuotationManager
                 $quotation->setQuotationNumber($quotationNumber);
             }
             
+            print_r($quotation);
+
             $q = $this->_db->prepare('UPDATE quotation SET quotationNumber = :quotationNumber, type = :type, status = :status, date = :date, validatedDate =:validatedDate WHERE idQuotation= :idQuotation');
             $q->bindValue(':idQuotation', $quotation->getIdQuotation(), PDO::PARAM_INT);
             $q->bindValue(':quotationNumber', $quotation->getQuotationNumber(), PDO::PARAM_STR);
