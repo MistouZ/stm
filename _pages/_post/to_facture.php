@@ -47,9 +47,6 @@ $quotationmanager = new QuotationManager($bdd);
 $test = $quotationmanager->changeType($quotation);
 $test2 = $descriptionmanager->update($descriptions,$test);
 
-/*
-
-
 if(is_null($test) || is_null($test2)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
@@ -76,6 +73,6 @@ if(is_null($test) || is_null($test2)){
     $countermanager->updateCounter($counter);
 
     header('Location: '.URLHOST.$_COOKIE['company'].'/facture/afficher/'.$type2.'/'.$test.'/successFacture');
-}*/
+}
 
 ?>
