@@ -43,16 +43,14 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
-print_r($quotation);
 
 $test = $quotationmanager->changeType($quotation);
 $test2 = $descriptionmanager->update($descriptions,$test);
 
-echo "test";
-print_r($test);
 
 
-/*if(is_null($test) || is_null($test2)){
+
+if(is_null($test) || is_null($test2)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
     
@@ -78,6 +76,6 @@ print_r($test);
     $countermanager->updateCounter($counter);
 
     header('Location: '.URLHOST.$_COOKIE['company'].'/facture/afficher/'.$type2.'/'.$test.'/successFacture');
-}*/
+}
 
 ?>
