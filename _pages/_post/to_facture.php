@@ -43,10 +43,15 @@ $data = array(
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
+print_r($quotation);
+
 $test = $quotationmanager->changeType($quotation);
 $test2 = $descriptionmanager->update($descriptions,$test);
 
+echo "test";
 print_r($test);
+
+echo "test2";
 print_r($test2);
 
 /*if(is_null($test) || is_null($test2)){
