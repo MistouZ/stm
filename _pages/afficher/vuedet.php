@@ -98,7 +98,7 @@ $company = $companymanager->getByNameData($companyNameData);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
 
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 
