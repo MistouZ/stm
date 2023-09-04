@@ -9,11 +9,12 @@ include("../../_cfg/cfg.php");
 
 $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
+$currentType = $_POST['currentType'];
 
 $array = array();
 $quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
+$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
