@@ -197,7 +197,7 @@ switch($type){
                             $folder = $foldermanager->get($quotation->getFolderId());
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
                             $montant = 0;
                             foreach ($descriptions as $description) {
                                 $montant = calculMontantTotalTTC($description, $montant);

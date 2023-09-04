@@ -17,7 +17,7 @@ $quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber);
+$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber, $quotation->getType());
 
 $arraycounter = array();
 $counter = new Counter($arraycounter);
@@ -45,7 +45,7 @@ $quotationmanager = new QuotationManager($bdd);
 
 
 $test = $quotationmanager->changeType($quotation);
-$test2 = $descriptionmanager->update($descriptions,$test);
+$test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
 
 if(is_null($test) || is_null($test2)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
