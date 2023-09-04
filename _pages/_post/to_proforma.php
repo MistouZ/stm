@@ -47,7 +47,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
         $test3 = $shatteredQuotationManager->delete($quotationInit);
     }
     else{
-        $test2 = "ok";
+        $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
         $test3 = "ok";
     }
     $test4a = "ok";
@@ -180,7 +180,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumberChild,"S");
     }
     else{
-        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"P");
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"S");
     }
    
 
@@ -198,7 +198,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
             $k++;
         }
         //insertion du reste à payer
-        $test4a = $descriptionmanager->add($descriptions,$newquotationNumber,"P");
+        $test4a = $descriptionmanager->add($descriptions,$newquotationNumber,"S");
         $test4b = "ok";
     }
     else
@@ -220,6 +220,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
     $quotation = new Quotation($data);
     $test5 = $quotationmanager->changeType($quotation);
+    $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
     
 }
 

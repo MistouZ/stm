@@ -85,6 +85,21 @@ class DescriptionManager
         }
     }
 
+    /*
+    * Modification du type de quotation en proforma, devis, facture ou avoir sur la description
+    *
+    */
+
+    public function changeQuotationType($quotationNumber,$quotationType)
+    {
+        $q = $this->_db->prepare('UPDATE description SET quotationType = :quotationType WHERE quotationNumber= :quotationNumber');
+            
+            $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
+            $q->bindValue(':quotationType', $quotationType, PDO::PARAM_STR);
+            $q->execute();
+            return $quotationNumber;
+
+    }
 
     /**
      * @param $quotationNumber
