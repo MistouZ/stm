@@ -607,7 +607,6 @@ if(isset($_GET['cat5'])){
                             </div>
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                             <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
-                            <input type="hidden" id="currentType" name="currentType" value="<?php echo $$quotation->gettype(); ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
