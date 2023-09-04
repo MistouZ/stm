@@ -116,11 +116,11 @@ class QuotationManager
      * @param $quotationNumber
      * @return quotation
      */
-    public function getByQuotationNumber($quotationNumber)
+    public function getByQuotationNumber($quotationNumber, $type)
     {
         try{
             $quotationNumber = (integer) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber'");
+            $q = $this->_db->query("SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber' AND type ='$type'");
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
             return new Quotation($donnees);
