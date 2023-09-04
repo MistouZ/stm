@@ -36,16 +36,16 @@ class DescriptionManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function add(array $descriptions, $quotationNumber,$type)
+    public function add(array $descriptions, $quotationNumber,$quotationType)
     {
         try{
             $array = array();
             $description = new Description($array);
            foreach ($descriptions as $description)
             {
-                $q = $this->_db->prepare('INSERT INTO description (quotationNumber, type, description,quantity,discount,price,tax) VALUES (:quotationNumber, :type,  :description, :quantity, :discount, :price, :tax)');
+                $q = $this->_db->prepare('INSERT INTO description (quotationNumber, quotationType, description,quantity,discount,price,tax) VALUES (:quotationNumber, :quotationType,  :description, :quantity, :discount, :price, :tax)');
                 $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
-                $q->bindValue(':type', $type, PDO::PARAM_STR);
+                $q->bindValue(':quotationType', $quotationType, PDO::PARAM_STR);
                 $q->bindValue(':description', $description->getDescription(), PDO::PARAM_STR);
                 $q->bindValue(':quantity', $description->getQuantity(),PDO::PARAM_INT);
                 $q->bindValue(':discount',  $description->getDiscount(),PDO::PARAM_INT);
@@ -67,13 +67,13 @@ class DescriptionManager
      * @param $quotationNumber
      * @return quotation
      */
-    public function getByQuotationNumber($quotationNumber, $type)
+    public function getByQuotationNumber($quotationNumber, $quotationType)
     {
-        echo $type;
+        echo $quotationType;
         $description = array();
         try{
             $quotationNumber = (string) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM description WHERE quotationNumber = '$quotationNumber' and type = '$type' ");
+            $q = $this->_db->query("SELECT * FROM description WHERE quotationNumber = '$quotationNumber' and quotationType = '$quotationType' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $description[] =new Description($donnees);
@@ -113,11 +113,11 @@ class DescriptionManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function delete($quotationNumber, $type)
+    public function delete($quotationNumber, $quotationType)
     {
         try{
 
-            $delete=$this->_db->query("DELETE FROM `description` WHERE quotationNumber ='$quotationNumber' and type = '".$type."'");
+            $delete=$this->_db->query("DELETE FROM `description` WHERE quotationNumber ='$quotationNumber' and quotationType = '".$quotationType."'");
             $delete->execute();
             return "ok";
         }
@@ -131,15 +131,15 @@ class DescriptionManager
      * @param $quotationNumber
      * @return array|null
      */
-    public function update(array $description, $quotationNumber, $type)
+    public function update(array $description, $quotationNumber, $quotationType)
     {
         try{
-            $test = $this->delete($quotationNumber, $type);
+            $test = $this->delete($quotationNumber, $quotationType);
             if(!is_null($test))
             {
                 //echo "suppresion réussie ".$quotationNumber;
             }
-            $test2 =$this->add($description,$quotationNumber);
+            $test2 =$this->add($description,$quotationNumber,$quotationType);
             if(!is_null($test2))
             {
                 //echo "Ajout réussie ".$quotationNumber;
