@@ -69,6 +69,7 @@ class DescriptionManager
      */
     public function getByQuotationNumber($quotationNumber, $type)
     {
+        echo $type;
         $description = array();
         try{
             $quotationNumber = (string) $quotationNumber;
