@@ -32,8 +32,6 @@ if(isset($_POST['valider'])) {
             $companiesmanager = new CompaniesManager($bdd);
             $test = $companiesmanager->add($company);
 
-            echo $test;
-
             $arraycounter = array();
             $counter = new Counter($arraycounter);
             $countermanager = new CounterManager($bdd);
@@ -60,5 +58,3 @@ if(isset($_POST['valider'])) {
 }
 
 ?>
-
-<a href="saisie_company.php"> revenir à la création de Société </a>

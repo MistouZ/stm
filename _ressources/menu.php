@@ -208,12 +208,23 @@
         </li>
         <?php
     }
-    if($_COOKIE["credential"] == "A") {
+    if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C"){
 
         ?>
         <li class="heading">
             <h3 class="uppercase"><i class="fas fa-toolbox"></i> Administration</h3>
         </li>
+        <li class="nav-item  ">
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/compteur/réinitiliaser'; ?>" class="nav-link "
+                       target="_blank">
+                        <span class="title"><i class="fas fa-chart-bar"></i> Réinitilisation</span>
+                    </a>
+        </li>
+        <?php
+    }
+    if($_COOKIE["credential"] == "A"){
+
+        ?>
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
                 <i class="fas fa-user-shield"></i>
