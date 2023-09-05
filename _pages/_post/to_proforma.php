@@ -15,7 +15,7 @@ $percent = $_POST["shattered_percent"];
 $array = array();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
+$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D");
 
 $date = $_POST['date'];
 
