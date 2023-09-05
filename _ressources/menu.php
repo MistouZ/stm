@@ -217,7 +217,7 @@
         <li class="nav-item  ">
                     <a href="<?php echo URLHOST . $_COOKIE['company'] . '/compteur/réinitiliaser'; ?>" class="nav-link "
                        target="_blank">
-                        <span class="title"><i class="rotate-right"></i> Réinitilisation</span>
+                        <span class="title"><i class="fa-sharp fa-solid fa-rotate-right"></i> Réinitilisation</span>
                     </a>
         </li>
         <?php
