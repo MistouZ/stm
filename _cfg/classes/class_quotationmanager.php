@@ -470,7 +470,7 @@ class QuotationManager
             if ($quotation->getType() == "A" || $quotation->getType() == "F")
             {
                 $quotationCounter = $quotation->getQuotationNumber();
-                $quotationNumber = date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1);
+                $quotationNumber = date("Y",strtotime($quotation->getDate()))."00".($quotationCounter + 1);
                 $quotation->setQuotationNumber($quotationNumber);
             }
             
