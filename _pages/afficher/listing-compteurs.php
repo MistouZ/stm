@@ -56,7 +56,7 @@ $companies = $companies->getCompanies($_COOKIE["username"]);
                             <td><?php echo $counter->getQuotation();?></td>
                             <td><?php echo $counter->getInvoice();?></td>
                             <td><?php echo $counter->getAsset();?></td>
-                            <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/compteurs/creer/'.$counter->getCompany(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                            <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/compteurs/creer/'.$counter->getCompany(); ?>"><i class="fas fa-undo" alt="Editer"></i> Réinitiliaser</a></td>
                         </tr>
                         <?php
                     }
