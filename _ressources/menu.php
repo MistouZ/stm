@@ -216,7 +216,7 @@
         </li>
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="fas fa-sort-numeric-up"></i>
+                    <i class="fas fa-sort-numeric-down"></i>
                     <span class="title">Compteurs</span>
                     <span class="arrow"></span>
             </a>
