@@ -227,6 +227,11 @@
                         <span class="title"><i class="fas fa-undo-alt"></i> Réinitilisation</span>
                     </a>
                 </li>
+                <li class="nav-item  ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/compteurs/afficher'; ?>" class="nav-link ">
+                    <span class="title"><i class="far fa-list-alt"></i> Listing</span>
+                </a>
+            </li>
             </ul>
         </li>
         <?php
