@@ -31,9 +31,7 @@ $counter = $countermanager->getCount($companyId);
 
 $counterQuotation = $counter->getQuotation();
 
-$year = date("Y");
-$month = date("m");
-$day = date("d");
+$date = date("Y-m-d");
 $status = "En cours";
 $type = "D";
 
@@ -41,9 +39,7 @@ $data = array(
     'quotationNumber' => $counterQuotation,
     'status' => $status,
     'label' => $label,
-    'year' => $year,
-    'month' => $month,
-    'day' => $day,
+    'date' => $date,
     'type' => $type,
     'comment' => $comment,
     'folderId' => $folderId,
@@ -63,7 +59,7 @@ else{
 }
 
 //récupération des descriptions du devis en cours
-$getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D");
 
 $i = 0;
 $descriptions= array();
@@ -74,7 +70,7 @@ foreach ($getDescription as $description)
     $i++;
 }
 
-$test = $descriptionmanager->add($descriptions,$quotationNumber);
+$test = $descriptionmanager->add($descriptions,$quotationNumber,"D");
 
 //récupération des couts associés au devis
 
