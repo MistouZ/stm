@@ -34,41 +34,6 @@ $counters = $counters->getList();
                         <div class="alert alert-success display-hide">
                             <button class="close" data-close="alert"></button> Le client a bien été créé </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3">Nom du client
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-4">
-                                <input type="text" name="name" data-required="1" class="form-control" /> </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Adresse physique
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-4">
-                                <input name="physical_address" id="physical_address" type="text" class="form-control" /> </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Adresse de facturation
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-4">
-                                <input name="invoice_address" id="invoice_address" type="text" class="form-control" />
-                                <span class="help-block"> Si différente de l'adresse physique </span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Fournisseur
-                            </label>
-                            <div class="col-md-9">
-                                <div class="checkbox-list">
-                                    <label class="checkbox-inline">
-                                        <input type="checkbox" value="is_supplier" name="is_supplier" id="is_supplier" /></label>
-                                </div>
-                                <span class="help-block"> Cocher si ce client est aussi un fournisseur </span>
-                                <div id="form_2_services_error"> </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label class="control-label col-md-3">Société
                                 <span class="required"> * </span>
                             </label>
@@ -90,35 +55,11 @@ $counters = $counters->getList();
                                     }
                                 ?>
                                 </div>
-                                <span class="help-block"> Cocher la ou les société(s) affiliée(s) au client </span>
+                                <span class="help-block"> Cocher la ou les société(s) à réinitialiser </span>
                                 <div id="company_error"> </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="control-label col-md-3">Compte associé au client
-                                <span class="required"> * </span>
-                            </label>
-                            <div class="col-md-4">
-                                <input name="account" id="account" type="text" class="form-control" />
-                            </div>
-                        </div>
-                        <div class="form-group" id="hidden_fields">
-                            <label class="control-label col-md-3">Sous-compte associé au client
-                                <span class="required"> * </span>
-                            </label>
-                            <?php
-                            foreach ($companies as $company)
-                            {
-                                ?>
-                                <div class="form-row col-md-1" id="subaccount[<?php echo $company->getIdCompany(); ?>]">
-                                    <?php
-                                    echo '<input type="text" class="form-control" placeholder="'.$company->getNameData().'"  name="subaccount['.$company->getIdCompany().']">';
-                                    ?>
-                                </div>
-                                <?php
-                            }
-                            ?>
-                        </div>
+                        
                         <div class="form-group">
                             <label class="control-label col-md-3">Taxes
                                 <span class="required"> * </span>
@@ -126,19 +67,16 @@ $counters = $counters->getList();
                             <div class="col-md-9">
                                 <div class="checkbox-list" data-error-container="#tax_error">
                                     <?php
-                                    foreach ($taxes as $tax)
+                                    foreach ($counters as $counter)
                                     {
                                         ?>
                                         <label class="checkbox-inline">
-
-                                            <input type="checkbox" id="taxes[]" name="taxes[]" value="<?php echo $tax->getIdTax(); ?>"  <?php if($tax->getIsDefault()==1){ echo "checked=\"checked\"";} ?> />
-                                            <?php echo $tax->getName(); ?>
+                                            <input type="text" id="counters[]" name="counters[]" value="<?php echo $counter->getQuotation()." ".$counter->getInvoice();?> />
                                         </label>
                                         <?php
                                     }
                                     ?>
                                 </div>
-                                <span class="help-block"> Cocher la ou les taxe(s) affiliée(s) au client </span>
                                 <div id="company_error"> </div>
                             </div>
                         </div>
