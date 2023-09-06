@@ -32,7 +32,7 @@ $counters = $counters->getList();
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Le client a bien été créé </div>
+                            <button class="close" data-close="alert"></button> La réintilisation des compteurs a bien été réalisée </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Société
                                 <span class="required"> * </span>
