@@ -56,7 +56,7 @@ $companies = $companies->getCompanies($_COOKIE["username"]);
                             <td><?php echo $counter->getQuotation();?></td>
                             <td><?php echo $counter->getInvoice();?></td>
                             <td><?php echo $counter->getAsset();?></td>
-                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Réinitialiser le compteur de la société <?php echo $company->getName(); ?> data-content="ATTENTION ! La réinitialisation est irréversible !" data-btn-ok-label="Réinitiliaser" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/reinitilaiser_compteur.php?idCompany='.$counter->getCompany(); ?>"><i class="fas fa-undo" alt="Supprimer"></i> Réinitiliaser</a></td>
+                            <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Réinitialiser le compteur de la société <?php echo $company->getName(); ?>" data-content="ATTENTION ! La réinitialisation est irréversible !" data-btn-ok-label="Réinitiliaser" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/reinitilaiser_compteur.php?idCompany='.$counter->getCompany(); ?>"><i class="fas fa-undo" alt="Supprimer"></i> Réinitiliaser</a></td>
                         </tr>
                         <?php
                     }
