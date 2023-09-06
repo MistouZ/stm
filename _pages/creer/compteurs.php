@@ -55,7 +55,7 @@ $counters = $counters->getList();
                                     }
                                 ?>
                                 </div>
-                                <span class="help-block"> Cocher la ou les société(s) à réinitialiser </span>
+                                <span class="help-block"> Cocher la ou les société(s) à réinitialiser (devis / factures / avoirs) </span>
                                 <div id="company_error"> </div>
                             </div>
                         </div>
