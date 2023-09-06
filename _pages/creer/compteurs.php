@@ -8,7 +8,7 @@
 $array = array();
 $company = new Company($array);
 $companies = new CompaniesManager($bdd);
-$companies = $companies->getList();
+$companies = $companies->getCompanies($_COOKIE["username"]);
 $counter = new Counter($array);
 $counters = new CounterManager($bdd);
 $counters = $counters->getList();
