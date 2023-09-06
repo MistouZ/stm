@@ -61,7 +61,7 @@ $counters = $counters->getList();
                         </div>
                         
                         <div class="form-group">
-                            <label class="control-label col-md-3">Taxes
+                            <label class="control-label col-md-3">Compteurs
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
@@ -71,7 +71,7 @@ $counters = $counters->getList();
                                     {
                                         ?>
                                         <label class="checkbox-inline">
-                                            <input type="text" id="counters[]" name="counters[]" value="<?php echo $counter->getQuotation()." ".$counter->getInvoice();?> />
+                                            <input type="text" id="counters[]" name="counters[]" value="<?php echo $counter->getQuotation()." ".$counter->getInvoice();?>" />
                                         </label>
                                         <?php
                                     }
