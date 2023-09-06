@@ -35,11 +35,11 @@ $companies = $companies->getCompanies($_COOKIE["username"]);
                     <thead>
                         <tr>
                             <th class="all">Nom de la société</th>
-                            <th class="none">Dossier</th>
-                            <th class="none">Devis</th>
-                            <th class="none">Factures</th>
-                            <th class="none">Avoirs</th>
-                            <th class="min-tablet">Réinitialiser</th>
+                            <th class="all">Dossier</th>
+                            <th class="all">Devis</th>
+                            <th class="all">Factures</th>
+                            <th class="all">Avoirs</th>
+                            <th class="all">Réinitialiser</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -52,7 +52,7 @@ $companies = $companies->getCompanies($_COOKIE["username"]);
                         ?>
                         <tr>
                             <td><?php echo $company->getName(); ?></td>
-                            <td><?php echo $counter->getFolder(); ?>%</td>
+                            <td><?php echo $counter->getFolder(); ?></td>
                             <td><?php echo $counter->getQuotation();?></td>
                             <td><?php echo $counter->getInvoice();?></td>
                             <td><?php echo $counter->getAsset();?></td>
