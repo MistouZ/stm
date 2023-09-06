@@ -216,16 +216,16 @@
         </li>
         <li class="nav-item  ">
             <a href="javascript:;" class="nav-link nav-toggle">
-                    <i class="fas fa-table"></i>
+                    <i class="fas fa-sort-numeric-up"></i>
                     <span class="title">Compteurs</span>
                     <span class="arrow"></span>
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                            <a href="<?php echo URLHOST . $_COOKIE['company'] . '/compteur/réinitiliaser'; ?>" class="nav-link "
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/compteur/reinitiliaser'; ?>" class="nav-link "
                             target="_blank">
-                                <span class="title"><i class="fas fa-undo-alt"></i> Réinitilisation</span>
-                            </a>
+                        <span class="title"><i class="fas fa-undo-alt"></i> Réinitilisation</span>
+                    </a>
                 </li>
             </ul>
         </li>
