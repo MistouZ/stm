@@ -214,19 +214,21 @@
         <li class="heading">
             <h3 class="uppercase"><i class="fas fa-toolbox"></i> Administration</h3>
         </li>
-        <a href="javascript:;" class="nav-link nav-toggle">
-                <<i class="fas fa-table"></i>
-                <span class="title">Compteurs</span>
-                <span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-            <li class="nav-item  ">
-                        <a href="<?php echo URLHOST . $_COOKIE['company'] . '/compteur/réinitiliaser'; ?>" class="nav-link "
-                        target="_blank">
-                            <span class="title"><i class="fas fa-undo-alt"></i> Réinitilisation</span>
-                        </a>
-            </li>
-        </ul>
+        <li class="nav-item  ">
+            <a href="javascript:;" class="nav-link nav-toggle">
+                    <i class="fas fa-table"></i>
+                    <span class="title">Compteurs</span>
+                    <span class="arrow"></span>
+            </a>
+            <ul class="sub-menu">
+                <li class="nav-item  ">
+                            <a href="<?php echo URLHOST . $_COOKIE['company'] . '/compteur/réinitiliaser'; ?>" class="nav-link "
+                            target="_blank">
+                                <span class="title"><i class="fas fa-undo-alt"></i> Réinitilisation</span>
+                            </a>
+                </li>
+            </ul>
+        </li>
         <?php
     }
     if($_COOKIE["credential"] == "A"){
