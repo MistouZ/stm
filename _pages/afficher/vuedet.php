@@ -491,6 +491,7 @@ if(isset($_GET['cat5'])){
                 {?>
                     <form action="<?php echo URLHOST."_pages/_post/to_validate.php"; ?>" method="post" id="to_validate" class="form-horizontal form-row-seperated">
                         <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
+                        <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                             <button type="submit" class="btn green" name="valider">
@@ -646,6 +647,7 @@ if(isset($_GET['cat5'])){
                             </div>
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                             <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
+                            <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">

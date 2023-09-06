@@ -9,15 +9,16 @@ include("../../_cfg/cfg.php");
 
 $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
+$currentType = $_POST['currentType'];
 
 $array = array();
 $quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber);
+$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber);
+$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,$currentType);
 
 $date = $_POST['date'];
 
@@ -34,7 +35,7 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
-$test2 = $descriptionmanager->update($descriptions,$test);
+$test2 = $descriptionmanager->update($descriptions,$test,"D");
 
 
 if(is_null($test) || is_null($test2)){
