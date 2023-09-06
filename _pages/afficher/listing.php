@@ -183,7 +183,12 @@ switch($type){
                             <th class="desktop">Libellé</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Détail</th>
+                            <?php if($_GET['cat'] != "Facture"){
+                                ?>
                             <th class="desktop">Modifier</th>
+                            <?php
+                            }
+                            ?>
                             <th class="desktop">Supprimer</th>
                         </tr>
                         </thead>
