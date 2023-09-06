@@ -222,7 +222,7 @@
             </a>
             <ul class="sub-menu">
                 <li class="nav-item  ">
-                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/compteur/reinitiliaser'; ?>" class="nav-link "
+                    <a href="<?php echo URLHOST . $_COOKIE['company'] . '/compteurs/creer'; ?>" class="nav-link "
                             target="_blank">
                         <span class="title"><i class="fas fa-undo-alt"></i> Réinitilisation</span>
                     </a>

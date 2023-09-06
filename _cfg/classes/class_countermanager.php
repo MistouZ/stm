@@ -92,5 +92,23 @@ class CounterManager
         }
 
     }
+
+    /**
+     * Get all the counter in the BDD
+     * @return array
+     */
+    public function getList()
+    {
+        $counters = [];
+
+
+       $q=$this->_db->query("SELECT * FROM company_counting ORDER BY company ASC");
+        while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+        {
+            $counters[] = new Counter($donnees);
+        }
+
+        return $counters;
+    }
     
 }
