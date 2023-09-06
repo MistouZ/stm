@@ -34,7 +34,7 @@ $companymanager = new CompaniesManager($bdd);
                     <thead>
                         <tr>
                             <th class="all">Nom de la société</th>
-                            <th class="min-phone-l">Dossier</th>
+                            <th class="none">Dossier</th>
                             <th class="none">Devis</th>
                             <th class="none">Factures</th>
                             <th class="none">Avoirs</th>
