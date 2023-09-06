@@ -8,7 +8,8 @@
 $retour = $_GET['soussouscat'];
 $array = array();
 $company = new Company($array);
-$companymanager = new CompaniesManager($bdd);
+$companies = new CompaniesManager($bdd);
+$companies = $companies->getCompanies($_COOKIE["username"]);
 
 ?>
 <div class="row">
@@ -43,7 +44,7 @@ $companymanager = new CompaniesManager($bdd);
                     </thead>
                     <tbody>
                     <?php
-                    foreach($companymanager as $company) {
+                    foreach($companies as $company) {
                         $counter = new Counter($array);
                         $countermanager = new CounterManager($bdd);
                         $counter = $countermanager->getCount($company->getIdcompany());
