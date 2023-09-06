@@ -31,27 +31,31 @@ $shatteredManager = new ShatteredQuotationManager($bdd);
 
 switch($type){
     case "devis":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D");
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+        $typeQuotation = "D";
         break;
 
     case "proforma":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P");
         $entete = "de la proforma";
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
+        $typeQuotation = "P";
         break;
 
     case "facture":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"F");
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
+        $typeQuotation = "F";
         break;
 
     case "avoir":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation);
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"A");
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
+        $typeQuotation = "A";
         break;
 }
 
@@ -59,7 +63,7 @@ $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$typeQuotation);
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
