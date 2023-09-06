@@ -6,6 +6,19 @@ if(isset($_POST['valider'])){
 
     print_r($_POST["case"]);
 
+    for ($i=0;$i<count($_POST["case"]);$i++)
+    {
+        $array = array(
+            'quotation' => 0,
+            'invoice' => 0,
+            'asset' => 0,
+            'company' => $_POST["case"][$i]
+        );
+    
+        $counter = new Counter($array);
+        print_r($counter);
+    }
+
     /*
     foreach($_POST["case"])
     {
