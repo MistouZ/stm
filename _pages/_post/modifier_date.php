@@ -10,21 +10,18 @@ include("../../_cfg/cfg.php");
 $idQuotation = $_POST['quotationNumber'];
 $dateTab = explode("/",$_POST['date']);
 $type2 = $_POST['type'];
+$currentType = $_POST['currentType'];
 
 $array = array();
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
+$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,$currentType);
 
-$year = $dateTab[2];
-$month = $dateTab[1];
-$day = $dateTab[0];
+$date = $_POST['date'];
 
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
-    'year' => $year,
-    'month' => $month,
-    'day' => $day,
+    'date' => $date,
 );
 
 $quotation = new Quotation($data);
