@@ -166,24 +166,17 @@ switch($type){
                         </thead>
                         <tbody>
                         <?php
-                        echo 'Test 1';
                         foreach($quotations as $quotation){
-                            echo 'Test 1-2';
                             if($quotation->getType() == "D") {
                                 $type = "devis";
-                                echo 'Test 2';
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
                                 }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime( $quotation->getDate()));
-                            echo 'Test 3';
                             $descriptions = new Description($array);
-                            echo 'Test 4';
                             $descriptionmanager = new DescriptionManager($bdd);
-                            echo 'Test 5';
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
-                            echo 'Test 6';
                             $montant = 0;
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description, $montant);
