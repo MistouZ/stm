@@ -177,14 +177,18 @@ switch($type){
                                 }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime( $quotation->getDate()));
+                            echo 'Test 3';
                             $descriptions = new Description($array);
+                            echo 'Test 4';
                             $descriptionmanager = new DescriptionManager($bdd);
+                            echo 'Test 5';
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                            echo 'Test 6';
                             $montant = 0;
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description, $montant);
                             }
-
+                            echo 'Test 7';
                             ?>
                             <tr>
                                 <td><?php echo $date; ?></td>
