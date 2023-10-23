@@ -166,9 +166,12 @@ switch($type){
                         </thead>
                         <tbody>
                         <?php
+                        echo 'Test 1';
                         foreach($quotations as $quotation){
+                            echo 'Test 1-2';
                             if($quotation->getType() == "D") {
                                 $type = "devis";
+                                echo 'Test 2';
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
                                 }
