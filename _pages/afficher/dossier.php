@@ -182,7 +182,7 @@ switch($type){
                             echo 'Test 4';
                             $descriptionmanager = new DescriptionManager($bdd);
                             echo 'Test 5';
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
                             echo 'Test 6';
                             $montant = 0;
                             foreach($descriptions as $description){
