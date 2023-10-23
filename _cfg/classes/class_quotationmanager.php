@@ -140,7 +140,7 @@ class QuotationManager
         try{
             $folderId = (string) $folderId;
             $q = $this->_db->query("SELECT * FROM `quotation` WHERE folderId = '$folderId'");
-            echo 'SELECT * FROM `quotation` WHERE folderId = '.$folderId;
+            echo 'Test 1 '.$folderId;
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
