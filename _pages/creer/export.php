@@ -27,7 +27,7 @@ $taxes = $taxes->getList();
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/afficher/listing-export.php"; ?>" method="post" id="export" name="export" class="form-horizontal">
+                <form action="<?php echo URLHOST.$_COOKIE['company'].'/export/'.$type.'/afficher'; ?>" method="post" id="export" name="export" class="form-horizontal">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
