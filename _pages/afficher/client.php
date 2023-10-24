@@ -198,7 +198,6 @@ $taxmanager = $taxmanager->getList();
                                 </div>
                             </div>
                             <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
-                            <input type="hidden" id="categorie" name="categorie" value="<?php echo $_GET['cat']; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
