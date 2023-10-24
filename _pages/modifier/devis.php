@@ -524,7 +524,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
                                 <button type="submit" class="btn green"><i class="fas fa-save"></i> Enregistrer</button>
-                                <button type="button" class="btn default"><i class="fas fa-ban"></i> Annuler</button>
+                                <button type="button" class="btn default" onclick="history.back()"><i class="fas fa-ban"></i> Annuler</button>
                             </div>
                         </div>
                     </div>
