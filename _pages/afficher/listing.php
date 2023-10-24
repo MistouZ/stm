@@ -40,7 +40,7 @@ switch($type){
             if($verif == $username){
                 $foldermanager2 = $foldermanager2->getListByUser($company->getIdcompany(),$username);
                 $quotations = $quotationmanager->getListQuotationByFilteredFolders($foldermanager2, $folder2);
-                print "coucou2";
+                print "Folder : ".$foldermanager2;
             }
             else{
                 $quotations = $quotationmanager->getListQuotation($company->getIdcompany());
