@@ -45,16 +45,17 @@ if(isset($_POST['valider'])){
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
+    print_r($contact2);
+
     if($contact2->getIdContact()== 0)
     {
         if($testCat == 'client'){
             $contactmanager->addToCustomers($contact, $customerId);
-            print_r($contact);
-            echo "test 1";
+            
             //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
         }else{
             $contactmanager->addToSuppliers($contact, $customerId);
-            echo "test 2";
+        
             //header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$customerId."/ajout");
         }
     }
