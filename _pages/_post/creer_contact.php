@@ -45,8 +45,6 @@ if(isset($_POST['valider'])){
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
-    print_r($contact2);
-
     if($contact2->getIdContact()== 0)
     {
         if($testCat == 'client'){
