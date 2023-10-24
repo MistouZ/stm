@@ -35,6 +35,7 @@ else{
 
 switch($type){
     case "devis":
+        $fa = "fas fa-file-invoice";
         if($type2=="cours"){
             if($verif == $username){
                 $foldermanager2 = $foldermanager2->getListByUser($username, $company->getIdcompany());
@@ -76,6 +77,7 @@ switch($type){
         }
         break;
     case "proforma":
+        $fa = "fas fa-file-alt";
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
                         <a data-toggle="modal" href="#to_facture" class="btn grey-mint btn-sm">
@@ -85,30 +87,32 @@ switch($type){
                     </div>';
         break;
     case "facture":
-    if($type2=="cours"){
-        $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
-        $buttons = '<div id="actions" style="display:none;">
-                        <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
-                            <i class="fas fa-file-prescription"></i> => Avoir </a>
-                        <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
-                            <i class="fas fa-file-invoice"></i> => Devis </a>
-                        <a data-toggle="modal" href="#to_validate" class="btn grey-mint btn-sm">
-                            <i class="fa fa-check"></i> => Valider </a>
-                    </div>';
-        break;
-    }
-    elseif($type2=="valides"){
-        $quotations = $quotationmanager->getListValidatedInvoice($company->getIdcompany());
-        $buttons = '<div id="actions" style="display:none;">
-                        <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
-                            <i class="fas fa-file-prescription"></i> => Avoir </a>
-                        <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
-                            <i class="fas fa-file-invoice"></i> => Devis </a>
-                    </div>';
-        break;
-    }
+        $fa = "fas fa-file-invoice-dollar";
+        if($type2=="cours"){
+            $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
+            $buttons = '<div id="actions" style="display:none;">
+                            <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
+                                <i class="fas fa-file-prescription"></i> => Avoir </a>
+                            <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
+                                <i class="fas fa-file-invoice"></i> => Devis </a>
+                            <a data-toggle="modal" href="#to_validate" class="btn grey-mint btn-sm">
+                                <i class="fa fa-check"></i> => Valider </a>
+                        </div>';
+            break;
+        }
+        elseif($type2=="valides"){
+            $quotations = $quotationmanager->getListValidatedInvoice($company->getIdcompany());
+            $buttons = '<div id="actions" style="display:none;">
+                            <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
+                                <i class="fas fa-file-prescription"></i> => Avoir </a>
+                            <a data-toggle="modal" href="#to_devis" class="btn grey-mint btn-sm">
+                                <i class="fas fa-file-invoice"></i> => Devis </a>
+                        </div>';
+            break;
+        }
 
     case "avoir":
+        $fa = "fas fa-file-prescription";
         $quotations = $quotationmanager->getListAsset($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
                         
@@ -161,7 +165,7 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fa fa-globe"></i>Liste des <?php print ucwords($_GET['cat']); if($_GET['cat'] != "devis"){echo "s";}?>  </div>
+                    <i class="<?php print $fa; ?>"></i>Liste des <?php print ucwords($_GET['cat']); if($_GET['cat'] != "devis"){echo "s";}?>  </div>
                 <div class="actions">
                     <a data-toggle="modal" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm grey-salsa">
                         <i class="far fa-list-alt""></i> Voir mes devis</a>
