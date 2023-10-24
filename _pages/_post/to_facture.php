@@ -50,11 +50,11 @@ print $test;
 $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
 print_r($test2);
 
-if(empty($test) || empty($test2)){
+if(empty($test) /*|| empty($test2)*/){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
-    
-    //Ajout d'un objet logs pour tracer l'action de passage en facture de la proforma
+    print "coucou";
+   /* //Ajout d'un objet logs pour tracer l'action de passage en facture de la proforma
     $date = date('Y-m-d H:i:s');
     $arraylogs = array(
         'username' => $_COOKIE["username"],
@@ -75,7 +75,7 @@ if(empty($test) || empty($test2)){
     print_r($counter);
     $countermanager->updateCounter($counter);
 
-    header('Location: '.URLHOST.$_COOKIE['company'].'/facture/afficher/'.$type2.'/'.$test.'/successFacture');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/facture/afficher/'.$type2.'/'.$test.'/successFacture');*/
 }
 
 ?>
