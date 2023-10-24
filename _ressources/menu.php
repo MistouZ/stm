@@ -206,6 +206,12 @@
                 <span class="title">Analyse des coûts</span>
             </a>
         </li>
+        <li class="nav-item  ">
+            <a href="<?php echo URLHOST . $_COOKIE['company'] . '/export/creer'; ?>" class="nav-link nav-toggle">
+                <i class="fas fa-file-export"></i>
+                <span class="title">Exports</span>
+            </a>
+        </li>
         <?php
     }
     if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C"){
