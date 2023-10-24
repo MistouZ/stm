@@ -36,7 +36,7 @@ $costmanager = new CostManager($bdd);
 
 echo 'coucou';
 
-$quotation = $quotationmanager->getByQuotationNumber($quotationNumber);
+$quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D");
 echo 'coucou1-2';
 $company = $companymanager->getByNameData($companyNameData);
 echo 'coucou2-2';
@@ -54,12 +54,12 @@ echo 'coucou4';
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D");
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
-$costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D");
 
 echo 'coucou5';
 
