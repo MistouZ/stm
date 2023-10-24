@@ -753,11 +753,11 @@ if(isset($_GET['cat5'])){
                             <div class="form-group">
                                 <div class="col-md-6">
                                     <a target="_blank" href="<?php print URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'/noheader'; ?>" class="btn btn-default btn-sm">
-                                    <i class="fa-regular fa-file"></i> Sans logo (papier entête) </a>
+                                    <i class="fas fa-file"></i> Sans logo (papier entête) </a>
                                 </div>
                                 <div class="col-md-6">
                                     <a target="_blank" href="<?php print URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'/header'; ?>" class="btn btn-default btn-sm">
-                                    <i class="fa-solid fa-file-invoice"></i> Avec logo (PDF) </a>
+                                    <i class="fas fa-file-invoice"></i> Avec logo (PDF) </a>
                                 </div>
                             </div>
                             <input type="hidden" id="quotationId" name="quotationId" value="<?php echo $quotation->getQuotationNumber(); ?>">
