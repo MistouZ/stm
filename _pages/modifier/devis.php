@@ -37,7 +37,9 @@ $costmanager = new CostManager($bdd);
 echo 'coucou';
 
 $quotation = $quotationmanager->getByQuotationNumber($quotationNumber);
+echo 'coucou1-2';
 $company = $companymanager->getByNameData($companyNameData);
+echo 'coucou2-2';
 $idCompany = $company->getIdcompany();
 
 echo 'coucou2';
