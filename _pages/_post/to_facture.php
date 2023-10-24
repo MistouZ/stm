@@ -50,9 +50,9 @@ print $test;
 $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
 print_r($test2);
 
-if( !(array)$test /*|| empty($test2)*/){
+if( isset($test) /*|| empty($test2)*/){
     //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
-    print'No Way';
+    print'No Way2';
 }else{
     print "coucou";
    /* //Ajout d'un objet logs pour tracer l'action de passage en facture de la proforma
