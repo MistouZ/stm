@@ -38,7 +38,7 @@ switch($type){
         $fa = "fas fa-file-invoice";
         if($type2=="cours"){
             if($verif == $username){
-                $foldermanager2 = $foldermanager2->getListByUser($company->getIdcompany(),$username);
+                $foldermanager2 = $foldermanager2->getListActive($company->getIdcompany());
                 $quotations = $quotationmanager->getListQuotationByFilteredFolders($foldermanager2, $folder2);
                 print "company : ".$company->getIdcompany(); 
                 print_r($foldermanager2);
