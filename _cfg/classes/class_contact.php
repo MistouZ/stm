@@ -7,7 +7,6 @@
     private $emailAddress;
     private $phoneNumber;
     private $isActive;
-    private $companyName;
 
 
       /**
