@@ -27,7 +27,7 @@ $taxes = $taxes->getList();
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
-                <form action="<?php echo URLHOST."_pages/_post/creer_export.php"; ?>" method="post" id="export" name="export" class="form-horizontal">
+                <form action="<?php echo URLHOST.$_COOKIE['company'].'/export/afficher'; ?>" method="post" id="export" name="export" class="form-horizontal">
                     <div class="form-body">
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
@@ -38,7 +38,7 @@ $taxes = $taxes->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                <input type="text" name="date_deb" class="form-control" value="">
+                                <input type="text" name="date_from" class="form-control" value="">
                                 <span class="input-group-btn">
                                     <button class="btn default" type="button">
                                         <i class="fas fa-calendar-alt"></i>
@@ -51,7 +51,7 @@ $taxes = $taxes->getList();
                                 <span class="required"> * </span>
                             </label>
                             <div class="input-group input-medium date date-picker"  data-date-lang="FR-fr" type="text">
-                                <input type="text" name="date_fin" class="form-control" value="">
+                                <input type="text" name="date_to" class="form-control" value="">
                                 <span class="input-group-btn">
                                     <button class="btn default" type="button">
                                         <i class="fas fa-calendar-alt"></i>

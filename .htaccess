@@ -8,7 +8,12 @@ Require valid-user
 Options -Multiviews
 
 RewriteEngine On
-RewriteCond %{HTTPS} on
+#RewriteCond %{HTTPS} !on [OR]
+#RewriteCond %{HTTP_HOST} ^www\. [NC]
+#RewriteRule ^ https://dev.bitwin.nc%{REQUEST_URI} [R=301,L]
+#RewriteCond %{HTTPS} on
+RewriteCond %{HTTPS} !on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 RewriteBase /
 

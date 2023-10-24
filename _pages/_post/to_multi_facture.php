@@ -15,7 +15,7 @@ $idQuotation = $postSelection;
 $array = array();
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
+$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'D');
 
 $date = $_POST['date'];
 
