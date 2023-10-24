@@ -34,23 +34,13 @@ $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
-echo 'coucou';
-
 $quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D");
-echo 'coucou1-2';
 $company = $companymanager->getByNameData($companyNameData);
-echo 'coucou2-2';
 $idCompany = $company->getIdcompany();
-
-echo 'coucou2';
 
 $foldermanager = $foldermanager->getListActive($idCompany);
 
-echo 'coucou3';
-
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
-
-echo 'coucou4';
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
@@ -61,11 +51,7 @@ $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D");
 
-echo 'coucou5';
-
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
-
-echo 'coucou6';
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
