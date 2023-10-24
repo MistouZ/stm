@@ -50,7 +50,7 @@ if(isset($_POST['valider'])){
     {
         if($testCat == 'client'){
             $contactmanager->addToCustomers($contact, $customerId);
-            echo "customer : ".$customerId;
+            print_r($contact);
             echo "test 1";
             //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
         }else{
