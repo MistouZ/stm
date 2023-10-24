@@ -144,7 +144,7 @@ if(isset($_POST['valider'])) {
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
 
-                        $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                        $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(), $quotation->getType());
 
                         //Calcul du montant des devis / factures et cumul pour le Palmares
                         $montant = 0;
