@@ -50,7 +50,7 @@ print $test;
 $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
 print_r($test2);
 
-if(is_null($test) || empty($test2)){
+if(empty($test) || empty($test2)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
     
