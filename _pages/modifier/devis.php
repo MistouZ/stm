@@ -55,6 +55,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
+echo 'test 1';
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -98,6 +99,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                             </label>
                                             <div class="col-md-10">
                                                 <select class="form-control" id="folder" name="folder">
+                                                    <?php echo 'test 2'; ?>
                                                     <option value="">Choisissez un dossier...</option>
                                                     <?php
                                                     foreach ($foldermanager as $folder){
