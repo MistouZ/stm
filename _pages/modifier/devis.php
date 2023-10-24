@@ -6,6 +6,8 @@
 
 include("../../_cfg/cfg.php");
 
+echo 'coucou';
+
 $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
