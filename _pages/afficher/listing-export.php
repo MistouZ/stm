@@ -55,22 +55,10 @@
          $filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
      }
  
-     if ($type == "devis") {
-         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
-         $enteteIcon = '<i class="fas fa-chart-pie"></i>';
-     } elseif ($type == "proforma") {
-         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
-         $enteteIcon = '<i class="fas fa-chart-area"></i>';
-     } elseif ($type == "facture") {
-         $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
-         $enteteIcon = '<i class="fas fa-chart-line"></i>';
-     } elseif ($type == "avoir") {
-         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
-         $enteteIcon = '<i class="fas fa-chart-bar"></i>';
-     } elseif ($type == "export") {
+     if ($type == "export") {
         //$quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
         $enteteIcon = '<i class="fas fa-file-export"></i>';
-    }
+     }
  
      //récupération des coûts liés au dossier.
  
