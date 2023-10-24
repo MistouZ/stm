@@ -11,6 +11,7 @@ $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
 $idQuotation = $_GET['soussoussouscat'];
+$printType = $_GET['cat5'];
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -289,9 +290,15 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
 </script>
 <script type="x/kendo-template" id="page-template">
     <div class="page-template">
-        <div class="header" >
-            <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php if($type != "facture"){echo $companyNameData;} ?>" class="logo-default" style="max-height: 60px;" />
-        </div>
+        <?php if($printType=='header'){ ?>
+            <div class="header" >
+                <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php if($type != "facture"){echo $companyNameData;} ?>" class="logo-default" style="max-height: 60px;" />
+            </div>
+        <?php }else{ ?>
+            <div class="header" >
+                <div style="height : 60px;"></div>
+            </div>
+        <?php } ?>
         <div class="footer">
             <h5> #:pageNum# / #:totalPages# </h5>  
             <img src="<?php echo URLHOST; ?>images/societe/footers/<?php echo $companyNameData; ?>.jpg" alt="<?php if($type != "facture"){echo $companyNameData;} ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />        

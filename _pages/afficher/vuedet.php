@@ -43,7 +43,9 @@ switch($type){
         $buttons = '<div class="actions">
                         <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                             <i class="fas fa-edit"></i> Modifier </a>
-                        <a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                        <!--<a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-print"></i> Imprimer </a>-->
+                            <a target="_blank" href="#select_print" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
                             <i class="fas fa-file-alt"></i> => Proforma </a>
@@ -734,6 +736,37 @@ if(isset($_GET['cat5'])){
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="select_print" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
+            <!--<a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-print"></i> Imprimer </a>-->
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Sélection du type d'impression</h4>
+                    </div>
+                    <div class="modal-body form">
+                        <form action="" method="" id="" class="form-horizontal form-row-seperated">
+                            <div class="form-group">
+                                <div class="col-md-6">
+                                    <a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'/noheader" class="btn btn-default btn-sm">
+                                    <i class="fa-regular fa-file"></i> Sans logo (papier entête) </a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a target="_blank" href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/imprimer/'.$type2.'/'.$quotation->getQuotationNumber().'/header" class="btn btn-default btn-sm">
+                                    <i class="fa-solid fa-file-invoice"></i> Avec logo (PDF) </a>
+                                </div>
+                            </div>
+                            <input type="hidden" id="quotationId" name="quotationId" value="<?php echo $quotation->getQuotationNumber(); ?>">
+                            <div class="modal-footer">
+                                <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </form>
+                    </div>
+
                 </div>
             </div>
         </div>
