@@ -67,7 +67,10 @@
      } elseif ($type == "avoir") {
          $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
          $enteteIcon = '<i class="fas fa-chart-bar"></i>';
-     }
+     } elseif ($type == "export") {
+        //$quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+        $enteteIcon = '<i class="fas fa-file-export"></i>';
+    }
  
      //récupération des coûts liés au dossier.
  
@@ -81,7 +84,7 @@
          <div class="portlet box green">
              <div class="portlet-title">
                  <div class="caption">
-                     <?php echo $enteteIcon; ?> Palmares des  <?php print ucwords($type); if($type != "devis"){echo "s";}?>  </div>
+                     <?php echo $enteteIcon; ?> Liste des factures pour l'export</div>
              </div>
              <div class="portlet-body">
                  <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" cellspacing="0" width="100%">
