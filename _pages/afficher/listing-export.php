@@ -47,7 +47,7 @@
         $quotations = $quotationmanager->getListInvoiceByDate($idCompany,$datefrom,$dateto);
         $enteteIcon = '<i class="fas fa-file-export"></i>';
      }
- 
+ echo "id comp : ".$idCompany." / deb :".$datefrom." / fin : ".$dateto;
      //récupération des coûts liés au dossier.
  
      $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
