@@ -17,8 +17,6 @@
  
      $datefrom = $_POST["date_from"];
      $dateto = $_POST["date_to"];
- 
-     echo "company : ".$companyNameData." / type : ".$type." / début : ".$datefrom." / fin : ".$dateto;
 
      $array = array();
      /*initilisation des objets */
@@ -53,6 +51,7 @@
      //récupération des coûts liés au dossier.
  
      $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
+     print_r($quotations);
  }
  
  ?>
