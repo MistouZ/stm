@@ -14,6 +14,8 @@
      $datefrom = $_POST["date_from"];
      $dateto = $_POST["date_to"];
  
+     echo "company : ".$companyNameData." / type : ".$type." / début : ".$datefrom." / fin : ".$dateto;
+
      $array = array();
      /*initilisation des objets */
      $company = new Company($array);
