@@ -179,6 +179,8 @@ $taxmanager = $taxmanager->getList();
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-4">Email
+                                </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
@@ -186,6 +188,8 @@ $taxmanager = $taxmanager->getList();
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="control-label col-md-4">Téléphone
+                                </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
