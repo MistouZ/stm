@@ -89,6 +89,76 @@ var FormValidation = function () {
     }
 
     // validation using icons
+    var handleValidationCon = function() {
+        // for more info visit the official plugin documentation: 
+            // http://docs.jquery.com/Plugins/Validation
+
+            var formCon = $('#form_contact');
+            var errorCon = $('.alert-danger', formCon);
+            var successCon = $('.alert-success', formCon);
+
+            formCon.validate({
+                errorElement: 'span', //default input error message container
+                errorClass: 'help-block help-block-error', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",  // validate all fields including form hidden input
+                rules: {
+                    name: {
+                        minlength: 2,
+                        required: true
+                    },
+                    firstname: {
+                        minlength: 2,
+                        required: true
+                    },
+                    emailAddress: {
+                        required: false,
+                        email: true
+                    },
+                    phoneNumber: {
+                        required: false,
+                        digits: true
+                    },
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit              
+                    successCon.hide();
+                    errorCon.show();
+                    App.scrollTo(errorCon, -200);
+                },
+
+                errorPlacement: function (error, element) { // render error placement for each input type
+                    var icon = $(element).parent('.input-icon').children('i');
+                    icon.removeClass('fa-check').addClass("fa-exclamation-triangle");
+                    icon.attr("data-original-title", error.text()).tooltip({'container': 'body'});
+                },
+
+                highlight: function (element) { // hightlight error inputs
+                    $(element)
+                        .closest('.form-group').removeClass("has-success").addClass('has-error'); // set error class to the control group   
+                },
+
+                unhighlight: function (element) { // revert the change done by hightlight
+                    
+                },
+
+                success: function (label, element) {
+                    var icon = $(element).parent('.input-icon').children('i');
+                    $(element).closest('.form-group').removeClass('has-error').addClass('has-success'); // set success class to the control group
+                    icon.removeClass("fa-exclamation-triangle").addClass("fa-check");
+                },
+
+                submitHandler: function (form) {
+                    successCon.show();
+                    errorCon.hide();
+                    form[0].submit(); // submit the form
+                }
+            });
+
+
+    }
+
+    // validation using icons
     var handleValidation2 = function() {
         // for more info visit the official plugin documentation: 
             // http://docs.jquery.com/Plugins/Validation
@@ -112,7 +182,7 @@ var FormValidation = function () {
                         required: true
                     },
                     emailAddress: {
-                        required: true,
+                        required: false,
                         email: true
                     },
                     phoneNumber: {
@@ -1108,6 +1178,7 @@ var FormValidation = function () {
 
             handleWysihtml5();
             handleValidation1();
+            handleValidationCon();
             handleValidation2();
             handleValidation3();
             handleValidation4();

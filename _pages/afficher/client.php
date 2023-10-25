@@ -156,7 +156,8 @@ $taxmanager = $taxmanager->getList();
                         <h4 class="modal-title">Création d'un contact</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/creer_contact.php"; ?>" method="post" id="form_sample_2" class="form-horizontal form-row-seperated">
+                        <!-- Form validation depuis el fichier : _ressources/_inc/pages/scripts/form-validation handleValidationCon(); -->
+                        <form action="<?php echo URLHOST."_pages/_post/creer_contact.php"; ?>" method="post" id="form_contact" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Nom
                                     <span class="required"> * </span>
@@ -178,9 +179,6 @@ $taxmanager = $taxmanager->getList();
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-4">Email
-                                    <span class="required"> * </span>
-                                </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
@@ -188,9 +186,6 @@ $taxmanager = $taxmanager->getList();
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="control-label col-md-4">Téléphone
-                                    <span class="required"> * </span>
-                                </label>
                                 <div class="col-md-8">
                                     <div class="input-icon right">
                                         <i class="fas"></i>
