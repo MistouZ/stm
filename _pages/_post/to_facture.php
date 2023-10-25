@@ -52,6 +52,7 @@ print_r($test2);*/
 
 if( !empty($data)){
     echo "Test : / test 2 : ";
+    print_r($data);
     //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
     
