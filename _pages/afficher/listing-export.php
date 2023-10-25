@@ -7,7 +7,12 @@
  
  if(isset($_POST['valider'])) {
  
-     $companyNameData = $_POST["societe"];
+    if(isset($_POST["societe"])){
+        $companyNameData = $_POST["societe"];
+    }else{
+        $companyNameData = $_GET['cat'];
+    }
+    
      $type = $_POST['type'];
  
      $datefrom = $_POST["date_from"];

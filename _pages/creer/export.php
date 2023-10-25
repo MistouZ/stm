@@ -61,7 +61,6 @@ $taxes = $taxes->getList();
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Société
-                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-9">
                                 <div class="radio-list" data-error-container="#company_error">
