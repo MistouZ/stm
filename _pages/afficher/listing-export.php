@@ -44,7 +44,7 @@
      $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
  
      if ($type == "export") {
-        $quotations = $quotationmanager->getListInvoiceByDate($filteredFolder,$datefrom,$dateto);
+        $quotations = $quotationmanager->getListInvoiceByDate($idCompany,$datefrom,$dateto);
         $enteteIcon = '<i class="fas fa-file-export"></i>';
      }
  
