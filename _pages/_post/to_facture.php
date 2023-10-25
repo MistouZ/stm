@@ -45,16 +45,19 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 
-$test = $quotationmanager->changeType($quotation);
+/*$test = $quotationmanager->changeType($quotation);
 print $test;
 $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
-print_r($test2);
+print_r($test2);*/
 
-if( isset($test) || !empty($test2)){
-    echo "Test : ".$test." / test 2 : ";
-    print_r($test2);
+if( isset($data)){
+    echo "Test : / test 2 : ";
     //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
+    
+    $test = $quotationmanager->changeType($quotation);
+    $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
+
     print('Merde mais pourquoi je suis là ?!');
    //Ajout d'un objet logs pour tracer l'action de passage en facture de la proforma
     $date = date('Y-m-d H:i:s');
