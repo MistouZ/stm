@@ -66,7 +66,7 @@ $taxes = $taxes->getList();
                             <div class="col-md-9">
                                 <div class="radio-list" data-error-container="#company_error">
                                 <?php
-                                    /*foreach ($companies as $company)
+                                    foreach ($companies as $company)
                                     {
                                         $path_image = parse_url(URLHOST."images/societe/".$company->getNameData(), PHP_URL_PATH);
                                         $image = glob($_SERVER['DOCUMENT_ROOT'].$path_image.".*");
@@ -78,7 +78,7 @@ $taxes = $taxes->getList();
                                             <img src="<?php echo URLHOST; ?>images/societe/<?php echo basename($image[0]); ?>" alt="<?php echo $company->getName(); ?>" class="logo-default" style="max-height: 20px;"/></a>
                                         </label>
                                 <?php
-                                    }*/
+                                    }
                                 ?>
                                 </div>
                                 <span class="help-block"> Cocher la société souhaitée</span>
