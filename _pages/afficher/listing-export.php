@@ -40,7 +40,7 @@
      $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
  
      if ($type == "export") {
-        //$quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+        $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
         $enteteIcon = '<i class="fas fa-file-export"></i>';
      }
  
