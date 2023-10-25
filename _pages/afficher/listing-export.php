@@ -10,7 +10,7 @@
     if(isset($_POST["societe"])){
         $companyNameData = $_POST["societe"];
     }else{
-        $companyNameData = $_GET['cat'];
+        $companyNameData = $_GET['section'];
     }
     
      $type = $_POST['type'];
