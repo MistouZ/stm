@@ -128,7 +128,7 @@ switch($type){
     <div class="col-md-12">
         <?php if($retour == "errorsuppr") { ?>
             <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être supprimé !</div>
+                <button class="close" onclick="window.location.href='<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/'.$type2.'/'.$quotationNumber; ?>'" data-close="alert"></button> Une erreur est survenue, le devis n'a donc pas pu être être supprimé !</div>
         <?php }elseif($retour == "successsupprdevis"){ ?>
             <div class="alert alert-success">
                 <button class="close" data-close="alert"></button> Le devis a bien été supprimé !</div>
@@ -152,7 +152,7 @@ switch($type){
                 <button class="close" data-close="alert"></button> La date a bien été modifiée !</div>
         <?php }elseif($retour == "errorFacture") { ?>
             <div class="alert alert-danger">
-                <button class="close" data-close="alert"></button> Erreur lors du passage en facture !</div>
+            <button class="close" onclick="window.location.href='<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/'.$type2.'/'.$quotationNumber; ?>'" data-close="alert"></button> Erreur lors du passage en facture !</div>
         <?php }elseif($retour == "successFacture"){ ?>
             <div class="alert alert-success">
                 <button class="close" data-close="alert"></button> Passage en facture effectué avec succès !</div>
