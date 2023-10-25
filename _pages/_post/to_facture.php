@@ -50,7 +50,7 @@ print $test;
 $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
 print_r($test2);
 
-if( isset($test) || $test2){
+if( isset($test) || !empty($test2)){
     echo "Test : ".$test." / test 2 : ";
     print_r($test2);
     //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
