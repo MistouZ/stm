@@ -45,18 +45,16 @@ if(isset($_POST['valider'])){
     $contactmanager = new ContactManager($bdd);
     $contact2 = $contactmanager->getByName($contact->getName(),$contact->getFirstname());
 
+    print_r($contact2);
 
     if($contact2->getIdContact()== 0)
     {
         if($testCat == 'client'){
             $contactmanager->addToCustomers($contact, $customerId);
-            print_r($contact);
-            echo "test 1";
-            //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+            header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
         }else{
             $contactmanager->addToSuppliers($contact, $customerId);
-            echo "test 2";
-            //header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$customerId."/ajout");
+            header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$customerId."/ajout");
         }
     }
     elseif($contact2->getName() == "Contact" && $contact2->getFirstname() == "Supprimé" )
@@ -64,13 +62,11 @@ if(isset($_POST['valider'])){
         if($testCat == 'client'){
             $contactmanager->reactivate($contact2);
             $contactmanager->addToCustomers($contact2, $customerId);
-            echo "test 3";
-            //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+            header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
         }else{
             $contactmanager->reactivate($contact2);
             $contactmanager->addToSuppliers($contact2, $customerId);
-            echo "test 4";
-            //header('Location: '.URLHOST.$_COOKIE['company']."/fourniseur/afficher/".$customerId."/ajout");
+            header('Location: '.URLHOST.$_COOKIE['company']."/fourniseur/afficher/".$customerId."/ajout");
         }
 
     }
@@ -79,22 +75,18 @@ if(isset($_POST['valider'])){
         if($testCat == 'client'){
             $test = $contactmanager->addToCustomers($contact2, $customerId);
             if(!is_null($test)){
-                echo "test 5";
-                //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
+                header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/ajout");
             }
             else {
-                echo "test 6";
-                //header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
+                header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
             }
         }else{
             $test = $contactmanager->addToSuppliers($contact2, $customerId);
             if(!is_null($test)){
-                echo "test 7";
-                //header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$customerId."/ajout");
+                header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$customerId."/ajout");
             }
             else {
-                echo "test 8";
-                //header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$customerId."/existe");
+                header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$customerId."/existe");
             }
         }
 
