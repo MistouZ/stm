@@ -55,6 +55,7 @@ if( isset($test) || !$test2){
     print_r($test2);
     //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
+    print('Merde mais pourquoi je suis là ?!');
    //Ajout d'un objet logs pour tracer l'action de passage en facture de la proforma
     $date = date('Y-m-d H:i:s');
     $arraylogs = array(
