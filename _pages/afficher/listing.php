@@ -161,7 +161,7 @@ switch($type){
                 <button class="close" data-close="alert"></button> Erreur lors du passage en devis !</div>
         <?php }elseif($retour == "successDevis"){ ?>
             <div class="alert alert-success">
-                <button class="close" data-close="alert"></button> Passage en devis effectué avec succès !</div>
+            <button class="close" onclick="window.location.href='<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/'.$type2.'/'.$quotationNumber; ?>'" data-close="alert"></button> Passage en devis effectué avec succès !</div>
         <?php } ?>
         <!-- BEGIN EXAMPLE TABLE PORTLET-->
         <div class="portlet box green">
