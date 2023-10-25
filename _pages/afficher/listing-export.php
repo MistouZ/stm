@@ -14,8 +14,6 @@
      $datefrom = $_POST["date_from"];
      $dateto = $_POST["date_to"];
  
-     $seller = $_POST["seller"];
- 
      $array = array();
      /*initilisation des objets */
      $company = new Company($array);
@@ -39,21 +37,7 @@
      $company = $companymanager->getByNameData($companyNameData);
      $idCompany = $company->getIdcompany();
  
-     if(empty($seller) && empty($datefrom)){
-         $filteredFolder = $foldermanager->getList($idCompany);
-     }
-     elseif(empty($seller))
-     {
-         $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
-     }
-     elseif(!empty($seller) && empty($datefrom))
-     {
-         $filteredFolder = $foldermanager->getListByUser($idCompany, $seller);
-     }
-     elseif (!empty($seller) && !empty($datefrom))
-     {
-         $filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
-     }
+     $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
  
      if ($type == "export") {
         //$quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
