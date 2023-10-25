@@ -51,7 +51,9 @@ $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
 print_r($test2);
 
 if( isset($test) || !$test2){
-    header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
+    echo "Test : ".$test." / test 2 : ";
+    print_r($test2);
+    //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
    //Ajout d'un objet logs pour tracer l'action de passage en facture de la proforma
     $date = date('Y-m-d H:i:s');
