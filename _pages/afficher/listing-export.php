@@ -5,10 +5,9 @@
  * @copyright 2019
  */
  
- $companyNameData = $_GET["section"];
- 
  if(isset($_POST['valider'])) {
  
+     $companyNameData = $_POST["societe"];
      $type = $_POST['type'];
  
      $datefrom = $_POST["date_from"];
