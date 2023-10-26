@@ -39,17 +39,23 @@
      $costmanager = new CostManager($bdd);
  
      $company = $companymanager->getByNameData($companyNameData);
+     echo "company ok";
+
      $idCompany = $company->getIdcompany();
- 
+     echo "idcompany ok";
+
      $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
- 
+     echo "folder ok";
+
      if ($type == "export") {
         $quotations = $quotationmanager->getListInvoiceByDate($idCompany,$datefrom,$dateto);
+        echo "quotations ok";
         $enteteIcon = '<i class="fas fa-file-export"></i>';
      }
      //récupération des coûts liés au dossier.
  
      $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
+     echo "costs ok";
  }
  
  ?>
