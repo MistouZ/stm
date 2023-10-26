@@ -9,7 +9,8 @@
  echo "test valider ok";
     if(isset($_POST["societe"])){
         $companyNameData = $_POST["societe"];
-        echo "societe ok";
+        echo "POST : ".$_POST["societe"];
+        echo " companyNameData : ".$companyNameData;
     }else{
         $companyNameData = $_GET['section'];
         echo "section ok";
