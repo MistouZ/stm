@@ -15,12 +15,9 @@
     }
     
      $type = $_POST['type'];
-     echo "type ok";
 
      $datefrom = $_POST["date_from"];
-     echo "début";
      $dateto = $_POST["date_to"];
-     echo "fin";
 
      $array = array();
      /*initilisation des objets */
@@ -43,17 +40,14 @@
      $costmanager = new CostManager($bdd);
 
      $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
-     echo "folder ok";
 
      if ($type == "export") {
         $quotations = $quotationmanager->getListInvoiceByDate($idCompany,$datefrom,$dateto);
-        echo "quotations ok";
         $enteteIcon = '<i class="fas fa-file-export"></i>';
      }
      //récupération des coûts liés au dossier.
  
      $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
-     echo "costs ok";
  }
  
  ?>
