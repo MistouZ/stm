@@ -5,6 +5,9 @@
  * @copyright 2019
  */
  
+ $company = new Company($array);
+ $companymanager = new CompaniesManager($bdd);
+
  if(isset($_POST['valider'])) {
     if(isset($_POST["societe"])){
         $idCompany = $_POST["societe"];
@@ -24,8 +27,6 @@
 
      $array = array();
      /*initilisation des objets */
-     $company = new Company($array);
-     $companymanager = new CompaniesManager($bdd);
  
      $user = new Users($array);
      $usermanager = new UsersManager($bdd);
