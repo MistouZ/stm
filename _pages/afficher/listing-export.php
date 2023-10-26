@@ -42,7 +42,7 @@
  
      $cost = new Cost($array);
      $costmanager = new CostManager($bdd);
- 
+     echo "companyNameData".$companyNameData;
      $company = $companymanager->getByNameData($companyNameData);
      echo "company ok";
 
