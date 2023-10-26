@@ -9,14 +9,19 @@
  echo "test valider ok";
     if(isset($_POST["societe"])){
         $companyNameData = $_POST["societe"];
+        echo "societe ok";
     }else{
         $companyNameData = $_GET['section'];
+        echo "section ok";
     }
     
      $type = $_POST['type'];
- 
+     echo "type ok";
+
      $datefrom = $_POST["date_from"];
+     echo "début";
      $dateto = $_POST["date_to"];
+     echo "fin";
 
      $array = array();
      /*initilisation des objets */
