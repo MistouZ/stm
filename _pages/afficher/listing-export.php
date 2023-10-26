@@ -12,20 +12,17 @@ $array = array();
  if(isset($_POST['valider'])) {
     if(isset($_POST["societe"])){
         $idCompany = $_POST["societe"];
-        echo "societe ";
     }else{
-        echo "section / ";
         $companyNameData = $_GET['section'];
         $company = $companymanager->getByNameData($companyNameData);
         $idCompany = $company->getIdcompany();
-        echo $companyNameData;
     }
     
      $type = $_POST['type'];
 
      $datefrom = $_POST["date_from"];
      $dateto = $_POST["date_to"];
-     
+
      /*initilisation des objets */
  
      $user = new Users($array);
