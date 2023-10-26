@@ -10,7 +10,8 @@
         $idCompany = $_POST["societe"];
     }else{
         $companyNameData = $_GET['section'];
-        echo "section ok";
+        $company = $companymanager->getByNameData($companyNameData);
+        $idCompany = $company->getIdcompany();
     }
     
      $type = $_POST['type'];
@@ -40,12 +41,6 @@
  
      $cost = new Cost($array);
      $costmanager = new CostManager($bdd);
-     echo "companyNameData".$companyNameData;
-     $company = $companymanager->getByNameData($companyNameData);
-     echo "company ok";
-
-     $idCompany = $company->getIdcompany();
-     echo "idcompany ok";
 
      $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
      echo "folder ok";
