@@ -4,7 +4,8 @@
  * @author Nicolas
  * @copyright 2019
  */
- 
+$array = array();
+
  $company = new Company($array);
  $companymanager = new CompaniesManager($bdd);
 
@@ -24,8 +25,7 @@
 
      $datefrom = $_POST["date_from"];
      $dateto = $_POST["date_to"];
-
-     $array = array();
+     
      /*initilisation des objets */
  
      $user = new Users($array);
