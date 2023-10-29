@@ -13,7 +13,31 @@ $tax = new Tax($array);
 $taxes = new TaxManager($bdd);
 $taxes = $taxes->getList();
 
- ?>
+
+/**
+ * Génération du fichier txt MVTECO
+ */
+
+$data = "coucou !";
+
+$jour = date('d');
+$mois = date('m');
+$annee = date('Y');
+
+$date2 = $annee."".$mois."".$jour;
+
+$fichier = "./export/MVTECO".$date2.".txt";
+
+if(file_exists($fichier)){
+	unlink($fichier) ;
+}
+
+$fp = fopen ("./export/MVTECO".$date2.".txt", "w+");
+fseek ($fp, 0);
+fputs ($fp, $data);
+fclose ($fp);
+
+?>
 
 <div class="row">
     <div class="col-md-12">
