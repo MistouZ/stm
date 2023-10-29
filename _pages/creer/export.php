@@ -19,7 +19,7 @@ $taxes = $taxes->getList();
  */
 
 $data = "coucou !";
-
+echo $data;
 $jour = date('d');
 $mois = date('m');
 $annee = date('Y');
