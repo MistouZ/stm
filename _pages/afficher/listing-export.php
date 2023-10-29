@@ -75,7 +75,7 @@ echo " / ".$fichier;
 
  echo " test 4 ---";
 
- $fp = fopen ("./_pages/afficher/export/MVTECO".$date2.".txt", "w+");
+ $fp = fopen ("_pages/afficher/export/MVTECO".$date2.".txt", "w+");
  fseek ($fp, 0);
  fputs ($fp, $data);
  fclose ($fp);
