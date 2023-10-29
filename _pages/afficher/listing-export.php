@@ -80,7 +80,7 @@ echo " / ".$fichier;
  fputs ($fp, $data);
  fclose ($fp);
 
- echo $current_dir = getcwd();
+ echo $_SERVER['PHP_SELF'];
 
  ?>
  <div class="row">
