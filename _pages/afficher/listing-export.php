@@ -58,13 +58,14 @@ $array = array();
  $data = "coucou !";
  echo $data;
  
- /*$jour = date('d');
+ $jour = date('d');
  $mois = date('m');
  $annee = date('Y');
  
  $date2 = $annee."".$mois."".$jour;
- echo = " / ".$date2;
- $fichier = "./export/MVTECO".$date2.".txt";
+ echo " / ".$date2;
+
+ /*$fichier = "./export/MVTECO".$date2.".txt";
  
 echo " / ".$fichier;
 
