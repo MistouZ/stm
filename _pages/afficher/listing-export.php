@@ -51,6 +51,29 @@ $array = array();
      $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
  }
  
+/**
+ * Génération du fichier txt MVTECO
+ */
+
+ $data = "coucou !";
+ echo $data;
+ $jour = date('d');
+ $mois = date('m');
+ $annee = date('Y');
+ 
+ $date2 = $annee."".$mois."".$jour;
+ 
+ $fichier = "./export/MVTECO".$date2.".txt";
+ 
+ if(file_exists($fichier)){
+     unlink($fichier) ;
+ }
+ 
+ $fp = fopen ("./export/MVTECO".$date2.".txt", "w+");
+ fseek ($fp, 0);
+ fputs ($fp, $data);
+ fclose ($fp);
+
  ?>
  <div class="row">
      <div class="col-md-12">
