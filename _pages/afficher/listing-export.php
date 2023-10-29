@@ -55,7 +55,7 @@ $array = array();
  * Génération du fichier txt MVTECO
  */
 
- $data = "coucou !";
+ /*$data = "coucou !";
  echo $data;
  $jour = date('d');
  $mois = date('m');
@@ -76,7 +76,7 @@ echo " / ".$fichier;
  $fp = fopen ("./export/MVTECO".$date2.".txt", "w+");
  fseek ($fp, 0);
  fputs ($fp, $data);
- fclose ($fp);
+ fclose ($fp);*/
 
  ?>
  <div class="row">
