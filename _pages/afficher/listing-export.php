@@ -80,7 +80,7 @@ echo " / ".$fichier;
  fputs ($fp, $data);
  fclose ($fp);
 
- print_r($_SERVER);
+ echo $current_dir = getcwd();
 
  ?>
  <div class="row">
