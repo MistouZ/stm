@@ -63,7 +63,7 @@ $array = array();
  
  $date2 = $annee."".$mois."".$jour;
  echo = " / ".$date2;
- $fichier = "./export/MVTECO".$date2.".txt";
+ /*$fichier = "./export/MVTECO".$date2.".txt";
  
 echo " / ".$fichier;
 
@@ -76,7 +76,7 @@ echo " / ".$fichier;
  $fp = fopen ("./export/MVTECO".$date2.".txt", "w+");
  fseek ($fp, 0);
  fputs ($fp, $data);
- fclose ($fp);
+ fclose ($fp);*/
 
  ?>
  <div class="row">
