@@ -80,8 +80,6 @@ echo " / ".$fichier;
  fputs ($fp, $data);
  fclose ($fp);
 
- echo $_SERVER['PHP_SELF'];
-
  ?>
  <div class="row">
      <div class="col-md-12">
