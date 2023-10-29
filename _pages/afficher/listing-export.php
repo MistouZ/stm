@@ -65,7 +65,7 @@ $array = array();
  $date2 = $annee."".$mois."".$jour;
  echo " / ".$date2;
 
- $fichier = "./export/MVTECO".$date2.".txt";
+ $fichier = "MVTECO".$date2.".txt";
  
 echo " / ".$fichier;
 
