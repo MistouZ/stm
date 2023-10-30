@@ -96,6 +96,9 @@ $array = array();
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime($quotation->getDate()));
                             
+                            echo "date : ".$date;
+                            echo " date str : ".date('Y', $date);
+
                             $data .= "CO\t70\t".date('Y', $date)."".date('m', $date)."\t".$piece."\t";
 
 
