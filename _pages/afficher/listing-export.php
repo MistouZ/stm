@@ -169,7 +169,7 @@ $array = array();
  <div class="row">
      <?php
 
-         $data = "coucou !";
+         //$data = "coucou !";
  
          $jour = date('d');
          $mois = date('m');
