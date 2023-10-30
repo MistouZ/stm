@@ -173,6 +173,28 @@ $taxmanager = $taxmanager->getList();
                                 <div id="company_error"> </div>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-3">Taxes
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-9">
+                                <div class="radio-list" data-error-container="#modalite_error">
+                                    <label class="radio-inline">
+                                        <?php
+                                        echo'<input type="radio" id="modalite" name="modalite" value="30JF" ';
+                                        if($customer->getModalite() == "30JF"){ echo "checked=\"checked\""; }
+                                        echo '/> 30 jours fin de mois';
+
+                                        echo'<input type="radio" id="modalite" name="modalite" value="IMME" ';
+                                        if($customer->getModalite() == "IMME"){ echo "checked=\"checked\""; }
+                                        echo '/> Comptant immédiat';
+                                        ?>
+                                    </label>
+                                </div>
+                                <span class="help-block">Cocher la modalité du client </span>
+                                <div id="modalite_error"> </div>
+                            </div>
+                        </div>
                         <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">
                         <div class="form-actions">
                             <div class="row">
