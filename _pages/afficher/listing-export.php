@@ -97,15 +97,16 @@ $array = array();
                             $date = date('d/m/y', strtotime($quotation->getDate()));
                             $customer = $customermanager->getById($quotation->getCustomerId());
 
-                            $customer = STR_replace("é","E",$customer);
-                            $customer = STR_replace("è","E",$customer);
-                            $customer = STR_replace("ê","E",$customer);
-                            $customer = STR_replace("à","A",$customer);
-                            $customer = STR_replace("â","A",$customer);
-                            $customer = STR_replace("ù","U",$customer);
-                            $customer = STR_replace("û","U",$customer);
-                            $customer = STR_replace("ô","O",$customer);
-                            $customer = STRTOUPPER($customer);
+                            $clt = $customer->getName();
+                            $client = STR_replace("é","E",$clt);
+                            $client = STR_replace("è","E",$client);
+                            $client = STR_replace("ê","E",$client);
+                            $client = STR_replace("à","A",$client);
+                            $client = STR_replace("â","A",$client);
+                            $client = STR_replace("ù","U",$client);
+                            $client = STR_replace("û","U",$client);
+                            $client = STR_replace("ô","O",$client);
+                            $client2 = STRTOUPPER($client);
 
                             $folder = $foldermanager->get($quotation->getFolderId());
                             $descriptions = new Description($array);
