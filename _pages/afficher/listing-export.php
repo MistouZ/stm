@@ -132,6 +132,14 @@ $array = array();
                                 $montant = calculMontantTotalTTC($description, $montant);
                             }
                             $data .= date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t".Round($montant,0)."\t0\t".$client2." F ".$quotation->getQuotationNumber()." D ";
+                            $data .= $folder->getFolderNumber()."\t";
+
+                            if ($customer->getModalite() == '30JF'){
+                                $date = date("dmY" , mktime(0,0,0,date('m', strtotime($quotation->getDate())),date('d', strtotime($quotation->getDate()))+30,date('Y', strtotime($quotation->getDate()))));
+                            } else {
+                                $date = date("dmY" , strtotime($quotation->getDate()));
+                            }
+                            $data .= "FC\t".$customer->getModalite()."\t".$date."\r\n";
                             ?>
                             <tr>
                                 <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
