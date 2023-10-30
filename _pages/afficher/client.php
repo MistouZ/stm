@@ -415,11 +415,11 @@ $taxmanager = $taxmanager->getList();
                                     <div class="radio-list" data-error-container="#modalite_error">
                                         <label class="radio-inline">
                                             <?php
-                                            echo'<input type="radio" id="modalite" name="modalite" value="30JF" ';
+                                            echo'<input type="radio" name="modalite" value="30JF" ';
                                             if($customer->getModalite() == "30JF"){ echo "checked=\"checked\""; }
                                             echo '/> 30 jours fin de mois';
 
-                                            echo'<input type="radio" id="modalite" name="modalite" value="IMME" ';
+                                            echo'<input type="radio" name="modalite" value="IMME" ';
                                             if($customer->getModalite() == "IMME"){ echo "checked=\"checked\""; }
                                             echo '/> Comptant immédiat';
                                             ?>
