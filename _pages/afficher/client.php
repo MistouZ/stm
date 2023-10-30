@@ -144,7 +144,15 @@ $taxmanager = $taxmanager->getList();
                                 </div>
                                 <div class="row static-info">
                                     <div class="col-md-5 name"> Modalité de facturation: </div>
-                                    <div class="col-md-7 value"> <?php echo $customer->getModalite(); ?> </div>
+                                    <div class="col-md-7 value"> 
+                                        <?php 
+                                            if($customer->getModalite() == "30JF") {
+                                                echo "30 jours fin de mois";
+                                            }else {
+                                                echo "Comptant immédiat";
+                                            }
+                                        ?>
+                                    </div>
                                 </div>
                             </div>
                         </div>
