@@ -74,12 +74,6 @@ $array = array();
                             <th class="desktop">Libellé</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Détail</th>
-                            <?php if($_GET['cat'] != "facture"){
-                                ?>
-                            <th class="desktop">Modifier</th>
-                            <?php
-                            }
-                            ?>
                             <th class="desktop">Supprimer</th>
                         </tr>
                         </thead>
@@ -147,13 +141,7 @@ $array = array();
                                 <td><?php echo $folder->getFolderNumber(); ?></td>
                                 <td><?php echo $folder->getLabel(); ?></td>
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
-                                <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
-                                <?php if($_GET['cat'] != "facture"){
-                                ?>
-                                <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
-                                <?php
-                                }
-                                ?>
+                                <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/facture/afficher/'.$quotation->getType().'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                                 <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer <?php echo $type; ?> n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber().'&type='.$type; ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             </tr>
                             <?php
