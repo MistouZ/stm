@@ -12,6 +12,7 @@ class Cost extends Features
     private $description;
     private $value;
     private $quotationNumber;
+    private $type;
     private $folderId;
     private $supplierId;
 
@@ -93,6 +94,22 @@ class Cost extends Features
         $this->quotationNumber = $quotationNumber;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type): void
+    {
+        $this->type = $type;
+    }
+
 
     /**
      * @return mixed
@@ -125,5 +142,7 @@ class Cost extends Features
     {
         $this->supplierId = $supplierId;
     }
+
+    
 
 }
