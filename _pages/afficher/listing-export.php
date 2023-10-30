@@ -90,6 +90,7 @@ $array = array();
                         <?php
 
                         foreach($quotations as $quotation){
+                           
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime($quotation->getDate()));
                             $customer = $customermanager->getById($quotation->getCustomerId());
@@ -99,6 +100,24 @@ $array = array();
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
                             $montant = 0;
                             foreach ($descriptions as $description) {
+                                $montantLigne = $description->getQuantity()*$description->getPrice();
+                                $remise = $montantLigne*($description->getDiscount()/100);
+                                $montantLigne = $montantLigne-$remise;
+                                $taxe = $montantLigne*$description->getTax();
+                                $tax = $taxmanager->getByPercent($description->getTax()*100);
+
+                                //Calcul du détail des taxes pour l'affichage par tranche détaillée
+                                if(isset($arrayTaxesKey[$tax->getName()]['Taxe'])){
+                                    $arrayTaxesKey[$tax->getName()]["Montant"] = $arrayTaxesKey[$tax->getName()]["Montant"]+$taxe;
+                                }
+                                else{                                                   
+                                    $arrayTaxesKey[$tax->getName()]['Taxe']=$tax->getName();
+                                    $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
+                                }
+
+                                $totalTaxe = $totalTaxe+$taxe;
+                                $montantHT = $montantHT+$montantLigne;
+                                $montant = $montant+$montantLigne+$taxe;
                                 $montant = calculMontantTotalTTC($description, $montant);
                             }
                             ?>
