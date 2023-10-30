@@ -240,4 +240,26 @@ class CostManager
         }
     }
 
+    /**
+     * Find Update Cost type while quotation type change
+     * @param $quotationNumber
+     * @return cost
+     */
+    public function UpdateCostType($quotationNumber, $type)
+    {
+        try{
+            $q = $this->_db->prepare('UPDATE cost SET type = :type WHERE quotationNumber = :quotationNumber');
+            $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_INT);
+            $q->bindValue(':type', $type, PDO::PARAM_STR);   
+            $q->execute();
+
+            
+            return "Ok";
+        }
+        
+        catch(Exception $e){
+            return null;
+        }
+    }
+
 }
