@@ -99,6 +99,7 @@ $array = array();
                             $descriptionmanager = new DescriptionManager($bdd);
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
                             $montant = 0;
+                            $arrayTaxesKey =  array();
                             foreach ($descriptions as $description) {
                                 $montantLigne = $description->getQuantity()*$description->getPrice();
                                 $remise = $montantLigne*($description->getDiscount()/100);
