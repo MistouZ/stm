@@ -128,7 +128,7 @@ $taxmanager = $taxmanager->getList();
                                                 foreach ($companies as $company)
                                                 {
                                                     ?>
-                                                    <div class="row static-info">
+                                                    <div class="row static-info" style="border-bottom: 1px solid grey;">
                                                         <div class="col-md-5 name"><?php echo strtoupper($company->getNameData()); ?> : </div>
                                                         <div class="col-md-7 value">
                                                             <?php
