@@ -128,7 +128,7 @@ $array = array();
 
                                 $totalTaxe = $totalTaxe+$taxe;
                                 $montantHT = $montantHT+$montantLigne;
-                                $montant = $montant+$montantLigne+$taxe;
+                                //$montant = $montant+$montantLigne+$taxe;
                                 $montant = calculMontantTotalTTC($description, $montant);
                             }
                             $data .= date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t".Round($montant,0)."\t0\t".$client2." F ".$quotation->getQuotationNumber()." D ";
