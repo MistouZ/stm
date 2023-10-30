@@ -177,7 +177,7 @@ else{
     }
 
     $costmanager = new $costmanager($bdd);
-    $test3 = $costmanager->add($descriptionsCout,$quotationNumber, "D");
+    $test3 = $costmanager->add($descriptionsCout,$quotationNumber, $type);
     echo "j'ai réussi 3";
 }
 

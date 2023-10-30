@@ -167,7 +167,7 @@ else{
         $i++;
         next($_POST["descriptionCout"]);
     }
-    $test4 = $costmanager->update($descriptionsCout,$quotationNumber);
+    $test4 = $costmanager->update($descriptionsCout,$quotationNumber, $type);
 }
 
 
