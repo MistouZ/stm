@@ -101,6 +101,46 @@ $taxmanager = $taxmanager->getList();
                                     ?>
                                     </div>
                                 </div>
+                                <div class="row static-info">
+                                    <div class="col-md-5 name">Compte associé au client </div>
+                                    <div class="col-md-7 value">
+                                        <input name="account" id="account" type="text" class="form-control" value="<?php echo $customer->getAccount(); ?>" />
+                                    </div>
+                                </div>
+                                <div class="row static-info">
+                                    <div class="col-md-5 name">Sous-compte associé au client </div>
+                                    <div class="col-md-7 value">
+                                        <?php
+                                            /*récupération des sous comptes du client par société */
+                                            $subaccountsList = explode(", ",$customer->getSubaccount());
+                                            $i = 0;
+                                            $subaccounts = array();
+                                            while ($i < count($subaccountsList))
+                                            {
+                                                $subaccountsList2 = explode("_",$subaccountsList[$i] );
+                                                $j = $subaccountsList2[0];
+                                                $k = $subaccountsList2[1];
+                                                $subaccounts[$j] = $k;
+                                                $i++;
+                                            }
+
+                                            foreach ($companies as $company)
+                                            {
+                                                ?>
+                                                <div class="form-row col-md-2" id="subaccount[<?php echo $company->getIdCompany(); ?>]">
+                                                    <?php
+                                                    echo '<input type="text" class="form-control" placeholder="'.$company->getNameData().'"  name="subaccount['.$company->getIdCompany().']" value="'.$subaccounts[$company->getIdCompany()].'">';
+                                                    ?>
+                                                </div>
+                                                <?php
+                                            }
+                                        ?>
+                                    </div>
+                                </div>
+                                <div class="row static-info">
+                                    <div class="col-md-5 name"> Modalité de facturation: </div>
+                                    <div class="col-md-7 value"> <?php echo $customer->getModalite(); ?> </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -359,7 +399,29 @@ $taxmanager = $taxmanager->getList();
                                         ?>
                                     </div>
                                     <span class="help-block">Cocher la ou les taxe(s) affiliée(s) au client </span>
-                                    <div id="company_error"> </div>
+                                    <div id="tax_error"> </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Taxes
+                                    <span class="required"> * </span>
+                                </label>
+                                <div class="col-md-9">
+                                    <div class="radio-list" data-error-container="#modalite_error">
+                                        <label class="radio-inline">
+                                            <?php
+                                            echo'<input type="radio" id="modalite" name="modalite" value="30JF" ';
+                                            if($customer->getModalite() == "30JF"){ echo "checked=\"checked\""; }
+                                            echo '/> 30 jours fin de mois';
+
+                                            echo'<input type="radio" id="modalite" name="modalite" value="IMME" ';
+                                            if($customer->getModalite() == "IMME"){ echo "checked=\"checked\""; }
+                                            echo '/> Comptant immédiat';
+                                            ?>
+                                        </label>
+                                    </div>
+                                    <span class="help-block">Cocher la modalité du client </span>
+                                    <div id="modalite_error"> </div>
                                 </div>
                             </div>
                             <input type="hidden" id="customerId" name="customerId" value="<?php echo $customerId; ?>">

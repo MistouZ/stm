@@ -12,6 +12,7 @@ if(isset($_POST['valider'])){
     else{
       $invoice_address=$_POST['invoice_address'];
     }
+    $modalite = $_POST['modalite'];
     if(isset($_POST["is_supplier"]))
     {
       $supplier = 1;
@@ -26,6 +27,7 @@ if(isset($_POST['valider'])){
         'name' => $name,
         'physicalAddress' => $physical_address,
         'invoiceAddress' => $invoice_address,
+        'modalite' => $modalite,
         'isActive' => $is_active
     );
 
