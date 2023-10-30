@@ -9,6 +9,7 @@ include("../../_cfg/cfg.php");
 
 $quotationNumber = $_POST['quotationNumber'];
 $folderId = $_POST['folderId'];
+$type = $_POST["quotationType)"];
 
 $costmanager = new CostManager($bdd);
 $i=1;
@@ -34,7 +35,7 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 }
 
 
-$test3 = $costmanager->update($descriptionsCout,$quotationNumber);
+$test3 = $costmanager->update($descriptionsCout,$quotationNumber, $type);
 //print_r($test3);
 
 
