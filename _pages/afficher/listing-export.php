@@ -140,6 +140,82 @@ $array = array();
                                 $date = date("dmY" , strtotime($quotation->getDate()));
                             }
                             $data .= "FC\t".$customer->getModalite()."\t".$date."\r\n";
+                            // fin de la 1ere ligne
+
+                            switch($company){
+                                Case "concept":
+                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
+                                    $remisec[$i] = ($donnees['remise'.$i]/100);
+                                    $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
+                                    $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
+                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
+                                    $total_tgc6_HT = $total_tgc6_HT + $prix_total[$i];
+                                    $total_tgc6 = $total_tgc6 + ($donnees['tss'.$i]*$prix_total[$i]);
+                                    $test_tgc = true;
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t445716\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc6,0)."\t".$client2." F ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()."\t FC\t\t\t\r\n";
+                                    break;
+                                Case "itech":
+                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
+                                    $remisec[$i] = ($donnees['remise'.$i]/100);
+                                      $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
+                                     $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
+                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
+                                    $total_tgc6_HT = $total_tgc6_HT + $prix_total[$i];
+                                    $total_tgc6 = $total_tgc6 + ($donnees['tss'.$i]*$prix_total[$i]);
+                                    $test_tgc = true;
+                                    break;
+                                Case "concerto":
+                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
+                                    $remisec[$i] = ($donnees['remise'.$i]/100);
+                                      $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
+                                     $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
+                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
+                                    $total_tgc11_HT = $total_tgc11_HT + $prix_total[$i];
+                                    $total_tgc11 = $total_tgc11 + ($donnees['tss'.$i]*$prix_total[$i]);
+                                    $test_tgc = true;
+                                    break;
+                                Case "bitwin":
+                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
+                                    $remisec[$i] = ($donnees['remise'.$i]/100);
+                                      $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
+                                     $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
+                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
+                                    $total_tgc22_HT = $total_tgc22_HT + $prix_total[$i];
+                                    $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
+                                    $test_tgc = true;
+                                    break;
+                                Case "cmg":
+                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
+                                    $remisec[$i] = ($donnees['remise'.$i]/100);
+                                      $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
+                                     $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
+                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
+                                    $total_tgc22_HT = $total_tgc22_HT + $prix_total[$i];
+                                    $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
+                                    $test_tgc = true;
+                                    break;
+                                Case "i-scope":
+                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
+                                    $remisec[$i] = ($donnees['remise'.$i]/100);
+                                      $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
+                                     $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
+                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
+                                    $total_tgc22_HT = $total_tgc22_HT + $prix_total[$i];
+                                    $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
+                                    $test_tgc = true;
+                                    break;
+                                Case "stm":
+                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
+                                    $remisec[$i] = ($donnees['remise'.$i]/100);
+                                      $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
+                                     $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
+                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
+                                    $total_tgc22_HT = $total_tgc22_HT + $prix_total[$i];
+                                    $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
+                                    $test_tgc = true;
+                                    break;
+                              }
+
                             ?>
                             <tr>
                                 <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
