@@ -33,6 +33,9 @@ $array = array();
  
      $quotation = new Quotation($array);
      $quotationmanager = new QuotationManager($bdd);
+
+     $tax = new Tax($array);
+     $taxmanager = new TaxManager($bdd);
  
      $customer = new Customers($array);
      $customermanager = new CustomersManager($bdd);
