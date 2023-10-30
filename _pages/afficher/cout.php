@@ -9,7 +9,7 @@ $companyNameData = $_GET["section"];
 if(isset($_POST['valider'])) {
 
     $type = "devis";
-    $typeQuotation = "D";
+    $costType = "D";
 
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
@@ -59,7 +59,7 @@ if(isset($_POST['valider'])) {
 
     //récupération des coûts liés au dossier.
 
-    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation, $typeQuotation);
+    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation, $costType);
 }
 
 ?>
@@ -132,7 +132,7 @@ if(isset($_POST['valider'])) {
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
 
-                        $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                        $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$costType);
 
                         //Calcul du montant des devis / factures et cumul pour le Palmares
                         $montant = 0;
