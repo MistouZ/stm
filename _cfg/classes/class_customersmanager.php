@@ -38,10 +38,11 @@ class CustomersManager
     public function add(Customers $customer, array $companies, $account, array $subaccount, array $taxes)
     {
         try{
-            $q = $this->_db->prepare('INSERT INTO customers (name, physicalAddress,invoiceAddress,isActive) VALUES (:name, :physicalAddress, :invoiceAddress,:isActive)');
+            $q = $this->_db->prepare('INSERT INTO customers (name, physicalAddress,invoiceAddress,modalite,isActive) VALUES (:name, :physicalAddress, :invoiceAddress, :modalite, :isActive)');
             $q->bindValue(':name', $customer->getName(), PDO::PARAM_STR);
             $q->bindValue(':physicalAddress', $customer->getPhysicalAddress(), PDO::PARAM_STR);
             $q->bindValue(':invoiceAddress', $customer->getInvoiceAddress(), PDO::PARAM_STR );
+            $q->bindValue(':modalite', $customer->getModalite(), PDO::PARAM_STR );
             $q->bindValue(':isActive', $customer->getIsActive(), PDO::PARAM_INT);
     
             $q->execute();
@@ -188,11 +189,12 @@ class CustomersManager
     public function update(customers $customer, array $companies, $account, array $subaccount, array $taxes)
     {
         try{
-            $q = $this->_db->prepare('UPDATE customers SET name = :name, physicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, isActive = :isActive  WHERE idcustomer = :idcustomers');
+            $q = $this->_db->prepare('UPDATE customers SET name = :name, physicalAddress = :physicalAddress, invoiceAddress = :invoiceAddress, modalite = :modalite, isActive = :isActive  WHERE idcustomer = :idcustomers');
             $q->bindValue(':idcustomers', $customer->getIdCustomer(), PDO::PARAM_INT);
             $q->bindValue(':name', $customer->getName(), PDO::PARAM_STR);
             $q->bindValue(':physicalAddress', $customer->getPhysicalAddress(), PDO::PARAM_STR);
             $q->bindValue(':invoiceAddress', $customer->getInvoiceAddress(), PDO::PARAM_STR );
+            $q->bindValue(':modalite', $customer->getModalite(), PDO::PARAM_STR );
             $q->bindValue(':isActive', $customer->getIsActive(), PDO::PARAM_INT);
     
             $q->execute();

@@ -8,6 +8,7 @@
     private $companyName;
     private $account;
     private $subaccount;
+    private $modalite;
 
       /**
        * Customer constructor.
@@ -114,6 +115,22 @@
       public function getCompanyName()
       {
           return $this->companyName;
+      }
+
+      /**
+       * @param mixed $modalite
+       */
+      public function setModalite($modalite)
+      {
+          $this->modalite = $modalite;
+      }
+
+      /**
+       * @return mixed
+       */
+      public function getModalite()
+      {
+          return $this->modalite;
       }
 
       /**
