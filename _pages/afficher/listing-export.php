@@ -95,8 +95,11 @@ $array = array();
                            
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime($quotation->getDate()));
-                            $customer = $customermanager->getById($quotation->getCustomerId());
+                            
+                            $data .= "CO\t70\t".date('Y', $date)."".date('m', $date)."\t".$piece."\t";
 
+
+                            $customer = $customermanager->getById($quotation->getCustomerId());
                             $clt = $customer->getName();
                             $client = STR_replace("é","E",$clt);
                             $client = STR_replace("è","E",$client);
