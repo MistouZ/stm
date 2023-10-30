@@ -97,9 +97,9 @@ $array = array();
                             $date = date('d/m/y', strtotime($quotation->getDate()));
                             
                             echo "date : ".$date;
-                            echo " date str : ".date('Y', $date);
+                            echo " date str : ".date('Y', strtotime($quotation->getDate()));
 
-                            $data .= "CO\t70\t".date('Y', $date)."".date('m', $date)."\t".$piece."\t";
+                            $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t";
 
 
                             $customer = $customermanager->getById($quotation->getCustomerId());
