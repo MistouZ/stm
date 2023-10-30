@@ -128,14 +128,12 @@ $taxmanager = $taxmanager->getList();
                                                 foreach ($companies as $company)
                                                 {
                                                     ?>
-                                                    <div class="form-row col-md-2" id="subaccount[<?php echo $company->getIdCompany(); ?>]">
                                                         <div class="col-md-5 name"><?php echo strtoupper($company->getNameData()); ?></div>
                                                         <div class="col-md-7 value">
                                                             <?php
                                                                 echo $subaccounts[$company->getIdCompany()];
                                                             ?>
                                                         </div>
-                                                    </div>
                                                     <?php
                                                 }
                                             ?>
