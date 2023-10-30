@@ -150,6 +150,8 @@ $taxes = $taxes->getList();
                                 <div class="radio-list" data-error-container="#modalite_error">
                                     <label class="radio-inline">
                                         <input type="radio" id="modalite" name="modalite" value="IMME"/> Comptant immédiat
+                                    </label>
+                                    <label class="radio-inline">
                                         <input type="radio" id="modalite" name="modalite" value="30JF"/> 30 jour fin de mois
                                     </label>
                                 </div>
