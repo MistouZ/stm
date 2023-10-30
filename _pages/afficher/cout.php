@@ -9,6 +9,7 @@ $companyNameData = $_GET["section"];
 if(isset($_POST['valider'])) {
 
     $type = "devis";
+    $typeQuotation = "D";
 
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
@@ -58,7 +59,7 @@ if(isset($_POST['valider'])) {
 
     //récupération des coûts liés au dossier.
 
-    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
+    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation, $typeQuotation);
 }
 
 ?>
