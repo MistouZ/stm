@@ -37,7 +37,7 @@ class CostManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function add(array $costs, $quotationNumber)
+    public function add(array $costs, $quotationNumber, $type)
     {
 
         try{
@@ -45,8 +45,9 @@ class CostManager
             $cost = new Cost($array);
             foreach ($costs as $cost)
             {
-                $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, folderId,supplierId) VALUES (:description, :value, :quotationNumber, :folderId, :supplierId)');
+                $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, type, folderId,supplierId) VALUES (:description, :value, :quotationNumber, :type, :folderId, :supplierId)');
                 $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_INT);
+                $q->bindValue(':type', $type, PDO::PARAM_STR);
                 $q->bindValue(':description', $cost->getDescription(), PDO::PARAM_STR);
                 $q->bindValue(':value', $cost->getValue(), PDO::PARAM_INT);
                 $q->bindValue(':folderId', $cost->getFolderId(), PDO::PARAM_INT);
@@ -66,10 +67,10 @@ class CostManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function deleteByQuotationNumber($quotationNumber)
+    public function deleteByQuotationNumber($quotationNumber, $type)
     {
         try{
-            $q = $this->_db->query("DELETE FROM cost WHERE quotationNumber='$quotationNumber'");
+            $q = $this->_db->query("DELETE FROM cost WHERE quotationNumber='$quotationNumber' AND type='$type'");
             $q->execute();
 
            return "ok";
@@ -101,12 +102,12 @@ class CostManager
      * @param $quotationNumber
      * @return cost
      */
-    public function getByQuotationNumber($quotationNumber)
+    public function getByQuotationNumber($quotationNumber, $type)
     {
         $costs = array();
         try{
             $quotationNumber = (string) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM cost WHERE quotationNumber = '$quotationNumber'");
+            $q = $this->_db->query("SELECT * FROM cost WHERE quotationNumber = '$quotationNumber' AND type='$type' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $costs[] =new Cost($donnees);
@@ -222,16 +223,16 @@ class CostManager
      * @param $quotationNumber
      * @return array|null
      */
-    public function update(array $cost, $quotationNumber)
+    public function update(array $cost, $quotationNumber, $type)
     {
         try{
             //print_r($cost);
-            $test = $this->deleteByQuotationNumber($quotationNumber);
+            $test = $this->deleteByQuotationNumber($quotationNumber, $type);
             if(!is_null($test))
             {
                 echo "suppresion réussie ".$quotationNumber;
             }
-            $this->add($cost,$quotationNumber);
+            $this->add($cost,$quotationNumber, $type);
             return $cost;
         }
         catch(Exception $e){
