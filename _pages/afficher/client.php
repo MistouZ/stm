@@ -104,37 +104,42 @@ $taxmanager = $taxmanager->getList();
                                 <div class="row static-info">
                                     <div class="col-md-5 name">Compte associé au client </div>
                                     <div class="col-md-7 value">
-                                        <input name="account" id="account" type="text" class="form-control" value="<?php echo $customer->getAccount(); ?>" />
+                                        <?php echo $customer->getAccount(); ?>
                                     </div>
                                 </div>
                                 <div class="row static-info">
                                     <div class="col-md-5 name">Sous-compte associé au client </div>
                                     <div class="col-md-7 value">
-                                        <?php
-                                            /*récupération des sous comptes du client par société */
-                                            $subaccountsList = explode(", ",$customer->getSubaccount());
-                                            $i = 0;
-                                            $subaccounts = array();
-                                            while ($i < count($subaccountsList))
-                                            {
-                                                $subaccountsList2 = explode("_",$subaccountsList[$i] );
-                                                $j = $subaccountsList2[0];
-                                                $k = $subaccountsList2[1];
-                                                $subaccounts[$j] = $k;
-                                                $i++;
-                                            }
+                                        <div class="col-md-12">
+                                            <?php
+                                                /*récupération des sous comptes du client par société */
+                                                $subaccountsList = explode(", ",$customer->getSubaccount());
+                                                $i = 0;
+                                                $subaccounts = array();
+                                                while ($i < count($subaccountsList))
+                                                {
+                                                    $subaccountsList2 = explode("_",$subaccountsList[$i] );
+                                                    $j = $subaccountsList2[0];
+                                                    $k = $subaccountsList2[1];
+                                                    $subaccounts[$j] = $k;
+                                                    $i++;
+                                                }
 
-                                            foreach ($companies as $company)
-                                            {
-                                                ?>
-                                                <div class="form-row col-md-2" id="subaccount[<?php echo $company->getIdCompany(); ?>]">
-                                                    <?php
-                                                    echo '<input type="text" class="form-control" placeholder="'.$company->getNameData().'"  name="subaccount['.$company->getIdCompany().']" value="'.$subaccounts[$company->getIdCompany()].'">';
+                                                foreach ($companies as $company)
+                                                {
                                                     ?>
-                                                </div>
-                                                <?php
-                                            }
-                                        ?>
+                                                    <div class="form-row col-md-2" id="subaccount[<?php echo $company->getIdCompany(); ?>]">
+                                                        <div class="col-md-5 name"><?php strtoupper($company->getNameData()); ?></div>
+                                                        <div class="col-md-7 value">
+                                                            <?php
+                                                                echo $subaccounts[$company->getIdCompany()];
+                                                            ?>
+                                                        </div>
+                                                    </div>
+                                                    <?php
+                                                }
+                                            ?>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row static-info">
