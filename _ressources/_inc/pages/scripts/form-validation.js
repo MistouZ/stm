@@ -781,7 +781,7 @@ var FormValidation = function () {
                         required: true
                     },
                     invoice_address: {
-                        required: true
+                        required: false
                     },
                     'case[]': {
                         required: true,

@@ -49,7 +49,6 @@ $taxes = $taxes->getList();
                         </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Adresse de facturation
-                                <span class="required"> * </span>
                             </label>
                             <div class="col-md-4">
                                 <input name="invoice_address" id="invoice_address" type="text" class="form-control" />
