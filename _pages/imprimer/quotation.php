@@ -290,7 +290,10 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
 </script>
 <script type="x/kendo-template" id="page-template">
     <div class="page-template">
-        <?php if($printType=='header'){ ?>
+        <div class="header" >
+                <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 60px;" />
+            </div>
+        <?php /*if($printType=='header'){ ?>
             <div class="header" >
                 <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 60px;" />
             </div>
@@ -306,7 +309,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             <h5> #:pageNum# / #:totalPages# </h5>  
                 <div style="height : 30px;"></div> 
             </div>
-        <?php } ?>
+        <?php }*/ ?>
         
     </div>
 </script>
