@@ -20,13 +20,15 @@ $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,$currentType);
 
+$costGet = new Cost($array);
+$costmanager = new CostManager($bdd);
+
 $date = $_POST['date'];
 
 $data = array(
     'idQuotation' => $quotation->getIdQuotation(),
     'quotationNumber' => $quotation->getQuotationNumber(),
     'status' => 'En cours',
-    'label' => $label,
     'date' => $date,
     'type' => 'D'
 );
