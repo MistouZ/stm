@@ -264,7 +264,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/js/jszip.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.common-boostrap.min.css"></script>
+<script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.common-bootstrap.min.css"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.boostrap.min.css"></script>
 <script>
     // Import DejaVu Sans font for embedding
