@@ -270,16 +270,16 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
         "DejaVu Sans":
-            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans.ttf",
+            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans.ttf",
 
         "DejaVu Sans|Bold":
-            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
 
         "DejaVu Sans|Bold|Italic":
-            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "WebComponentsIcons"      :
             "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
@@ -295,19 +295,18 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 60px;" />
             </div>
             <div class="footer">
-            <h5> #:pageNum# / #:totalPages# </h5>  
-            <img src="<?php echo URLHOST; ?>images/societe/footers/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />        
-        </div>
+                <h5> #:pageNum# / #:totalPages# </h5>  
+                <img src="<?php echo URLHOST; ?>images/societe/footers/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />        
+            </div>
         <?php }else{ ?>
             <div class="header" >
                 <div style="height : 60px;"></div>
             </div>
             <div class="footer">
-            <h5> #:pageNum# / #:totalPages# </h5>  
+                <h5> #:pageNum# / #:totalPages# </h5>  
                 <div style="height : 30px;"></div> 
             </div>
         <?php } ?>
-        
     </div>
 </script>
 <script type="text/javascript" language="javascript">
@@ -316,11 +315,11 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         document.getElementById('Exporter').click();
     }
 
-    /*function closeWindow() {
+    function closeWindow() {
         setTimeout(function() {
             window.close();
         }, 3000); // 300 pour NC sur serveur MLS
-    }*/
+    }
 
     function ExportPdf(){
         var filename = document.getElementById("filename").value;
@@ -338,7 +337,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
             });
-       //window.onload = closeWindow();
+       window.onload = closeWindow();
     }
 </script>
 <style>
