@@ -160,7 +160,6 @@ src="
         </div>
         <div class="footer">
             <h5> #:pageNum# / #:totalPages# </h5>
-            <img src="<?php echo URLHOST; ?>images/footer/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
         </div>
     </div>
 </script>
