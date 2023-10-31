@@ -47,7 +47,6 @@ if(isset($_GET['cat5'])){
 
 switch($type){
     case "devis":
-
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
         break;

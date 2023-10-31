@@ -36,6 +36,7 @@ $dateToProforma = date('d/m/Y');
 switch($type){
     case "devis":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D");
+        $costType = "D";
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
         $enteteIconOption = '<i class="fas fa-sliders-h"></i>';
@@ -59,6 +60,7 @@ switch($type){
         break;
     case "proforma":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P");
+        $costType = "P";
         $entete = "de la proforma";
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
         $buttons = '<div class="actions">
@@ -72,6 +74,7 @@ switch($type){
         break;
     case "facture":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"F");
+        $costType = "F";
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         $buttons = '<div class="actions">
@@ -85,6 +88,7 @@ switch($type){
         break;
     case "avoir":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"A");
+        $costType = "A";
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
         $buttons = '<div class="actions">
@@ -106,7 +110,7 @@ $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNum
 
 $costs = new Cost($array);
 $costmanager = new CostManager($bdd);
-$costs = $costmanager->getByQuotationNumber($quotation->getQuotationNumber());
+$costs = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(), $costType);
 
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());

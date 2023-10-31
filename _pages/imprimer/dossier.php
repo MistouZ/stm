@@ -160,7 +160,6 @@ src="
         </div>
         <div class="footer">
             <h5> #:pageNum# / #:totalPages# </h5>
-            <img src="<?php echo URLHOST; ?>images/footer/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height: 40px;" />
         </div>
     </div>
 </script>
@@ -173,7 +172,7 @@ src="
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 400); // 300 pour NC sur serveur MLS
+        }, 3000); // 300 pour NC sur serveur MLS
     }
 
     function ExportPdf(){

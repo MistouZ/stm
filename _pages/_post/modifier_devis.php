@@ -22,7 +22,7 @@ $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber);
+$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D");
 $customerId = $quotationGet->getCustomerId();
 $contactId = $quotationGet->getContactId();
 
@@ -167,7 +167,7 @@ else{
         $i++;
         next($_POST["descriptionCout"]);
     }
-    $test4 = $costmanager->update($descriptionsCout,$quotationNumber);
+    $test4 = $costmanager->update($descriptionsCout,$quotationNumber, $type);
 }
 
 

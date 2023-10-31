@@ -52,22 +52,26 @@ if(isset($_POST['imprimer'])) {
 
     if ($type == "devis") {
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
+        $costType = "D";
         $enteteIcon = '<i class="fas fa-chart-pie"></i>';
     } elseif ($type == "proforma") {
         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+        $costType = "P";
         $enteteIcon = '<i class="fas fa-chart-area"></i>';
     } elseif ($type == "facture") {
         $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+        $costType = "F";
         $enteteIcon = '<i class="fas fa-chart-line"></i>';
     } elseif ($type == "avoir") {
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+        $costType = "A";
         $enteteIcon = '<i class="fas fa-chart-bar"></i>';
     }
 
 
 //récupération des coûts liés au dossier.
 
-    $costs = $costmanager->getCostByFilteredQuotation($quotations, $quotation);
+    $costs = $costmanager->getCostByFilteredQuotation($quotations, $quotation, $costType);
 }
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">

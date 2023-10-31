@@ -51,7 +51,7 @@ $array = array();
      }
      //récupération des coûts liés au dossier.
  
-     $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
+     $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation,"F");
  }
  ?>
  <div class="row">

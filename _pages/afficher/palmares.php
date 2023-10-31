@@ -56,21 +56,25 @@ if(isset($_POST['valider'])) {
 
     if ($type == "devis") {
         $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
+        $typeCost = "D";
         $enteteIcon = '<i class="fas fa-chart-pie"></i>';
     } elseif ($type == "proforma") {
         $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+        $typeCost = "P";
         $enteteIcon = '<i class="fas fa-chart-area"></i>';
     } elseif ($type == "facture") {
         $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+        $typeCost = "F";
         $enteteIcon = '<i class="fas fa-chart-line"></i>';
     } elseif ($type == "avoir") {
         $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+        $typeCost = "A";
         $enteteIcon = '<i class="fas fa-chart-bar"></i>';
     }
 
     //récupération des coûts liés au dossier.
 
-    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation);
+    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation, $typeCost);
 }
 
 ?>

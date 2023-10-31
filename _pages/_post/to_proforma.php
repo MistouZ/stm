@@ -16,6 +16,10 @@ $array = array();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D");
+$costGet = new Cost($array);
+$costmanager = new CostManager($bdd);
+//$costGet = $costmanager->getByQuotationNumber($quotationNumber, $currentType);
+
 
 $date = $_POST['date'];
 
@@ -35,6 +39,8 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $quotation = new Quotation($data);
 
     $test = $quotationmanager->changeType($quotation);
+    $test6 = $costmanager->UpdateCostType($quotationNumber,$quotationNumber,"P");
+
     if($type2 == "partiels")
     {
         $descriptionmanager = new DescriptionManager($bdd);
@@ -47,6 +53,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
         $test3 = $shatteredQuotationManager->delete($quotationInit);
     }
     else{
+        $descriptionmanager = new DescriptionManager($bdd);
         $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
         $test3 = "ok";
     }
@@ -224,7 +231,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     
 }
 
-if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5)){
+if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5) || is_null($test6)){
   header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
 
