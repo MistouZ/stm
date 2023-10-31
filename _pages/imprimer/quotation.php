@@ -316,11 +316,11 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         document.getElementById('Exporter').click();
     }
 
-    function closeWindow() {
+    /*function closeWindow() {
         setTimeout(function() {
             window.close();
         }, 3000); // 300 pour NC sur serveur MLS
-    }
+    }*/
 
     function ExportPdf(){
         var filename = document.getElementById("filename").value;
@@ -338,7 +338,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
             });
-       window.onload = closeWindow();
+       //window.onload = closeWindow();
     }
 </script>
 <style>
