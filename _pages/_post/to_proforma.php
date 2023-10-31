@@ -18,6 +18,7 @@ $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D");
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
+//$costGet = $costmanager->getByQuotationNumber($quotationNumber, $currentType);
 
 
 $date = $_POST['date'];
@@ -38,7 +39,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $quotation = new Quotation($data);
 
     $test = $quotationmanager->changeType($quotation);
-    $test6 = $costmanager->UpdateCostType($quotationNumber,"P");
+    $test6 = $costmanager->UpdateCostType($quotationNumber,$quotationNumber,"P");
 
     if($type2 == "partiels")
     {

@@ -245,10 +245,11 @@ class CostManager
      * @param $quotationNumber
      * @return cost
      */
-    public function UpdateCostType($quotationNumber, $type)
+    public function UpdateCostType($quotatioNumberEdited, $quotationNumber, $type)
     {
         try{
-            $q = $this->_db->prepare('UPDATE cost SET type = :type WHERE quotationNumber = :quotationNumber');
+            $q = $this->_db->prepare('UPDATE cost SET quotationNumber = :quotationNumberEdited, type = :type WHERE quotationNumber = :quotationNumber');
+            $q->bindValue(':quotationNumberEdited', $quotatioNumberEdited, PDO::PARAM_INT);
             $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_INT);
             $q->bindValue(':type', $type, PDO::PARAM_STR);   
             $q->execute();

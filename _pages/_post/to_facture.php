@@ -15,6 +15,9 @@ $array = array();
 $quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType);
+$costGet = new Cost($array);
+$costmanager = new CostManager($bdd);
+//$costGet = $costmanager->getByQuotationNumber($quotationNumber, $currentType);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
@@ -50,6 +53,7 @@ if( count($data) == 0){
     
     $test = $quotationmanager->changeType($quotation);
     $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
+    $test3 = $costmanager->UpdateCostType($test,$quotationNumber,"F");
 
     print('Merde mais pourquoi je suis là ?!');
    //Ajout d'un objet logs pour tracer l'action de passage en facture de la proforma
