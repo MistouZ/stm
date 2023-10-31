@@ -36,9 +36,10 @@ $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
 $test2 = $descriptionmanager->update($descriptions,$test,"D");
+$test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D");
 
 
-if(is_null($test) || is_null($test2)){
+if(is_null($test) || is_null($test2) || is_null($test3)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorDevis');
 }else{
 

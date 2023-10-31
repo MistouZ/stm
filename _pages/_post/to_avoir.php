@@ -51,7 +51,7 @@ $test = $quotationmanager->changeType($quotation);
 $test2 = $descriptionmanager->update($descriptions,$test,"A");
 $test3 = $costmanager->UpdateCostType($test,$quotationNumber,"A");
 
-if(is_null($test) || is_null($test2)){
+if(is_null($test) || is_null($test2) || is_null($test3)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
 }else{
     
