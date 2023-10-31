@@ -17,7 +17,7 @@ $quotationmanagerNumber = new QuotationManager($bdd);
 $quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType);
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
-//$costGet = $costmanager->getByQuotationNumber($quotationNumber, $currentType);
+
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
