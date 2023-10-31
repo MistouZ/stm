@@ -263,16 +263,16 @@ if(isset($_POST['imprimer'])) {
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
         "DejaVu Sans":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans.ttf",
+            "https://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans.ttf",
 
         "DejaVu Sans|Bold":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+            "https://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
 
         "DejaVu Sans|Bold|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "https://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "https://cdn.kendostatic.com/2019.2.619/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "FontAwesome":
             "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.0/webfonts/fa-solid-900.ttf"

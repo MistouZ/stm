@@ -133,16 +133,16 @@ src="
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
         "DejaVu Sans":
-            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans.ttf",
+            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans.ttf",
 
         "DejaVu Sans|Bold":
-            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
 
         "DejaVu Sans|Bold|Italic":
-            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "http://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "WebComponentsIcons"      :
             "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
