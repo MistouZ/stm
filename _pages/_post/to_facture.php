@@ -77,7 +77,7 @@ if( count($data) == 0){
     print_r($counter);
     $countermanager->updateCounter($counter);
 
-    header('Location: '.URLHOST.$_COOKIE['company'].'/facture/afficher/'.$type2.'/'.$quotationNumber.'/successFacture');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/facture/afficher/'.$type2.'/'.$test.'/successFacture');
 }
 
 ?>
