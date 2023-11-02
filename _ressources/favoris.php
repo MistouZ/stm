@@ -21,7 +21,7 @@ $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 
 $foldermanager = $foldermanager->getListByUser($username, $company->getIdcompany());
-$quotations = $quotationmanager->getListQuotation($foldermanager);
+$quotations = $quotationmanager->getListQuotationByFilteredFolders($foldermanager, $folder);
 
 ?>
 
