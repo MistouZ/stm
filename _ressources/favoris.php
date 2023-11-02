@@ -8,7 +8,6 @@ $array = array();
 $companyNameData = $_GET["section"];
 $username = $_COOKIE['username'];
 
-print_r($username);
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $folder = new Folder($array);
@@ -20,6 +19,8 @@ $customermanager = new CustomersManager($bdd);
 $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
+
+echo  $company->getIdcompany();
 
 $foldermanager = $foldermanager->getListByUser($username, $company->getIdcompany());
 print_r($foldermanager);
