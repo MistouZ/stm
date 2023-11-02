@@ -143,7 +143,7 @@ if(isset($_POST['imprimer'])) {
                                 $descriptions = new Description($array);
                                 $descriptionmanager = new DescriptionManager($bdd);
 
-                                $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber());
+                                $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(), $quotation->getType());
 
                                 //Calcul du montant des devis / factures et cumul pour le Palmares
                                 $montant = 0;
@@ -306,7 +306,7 @@ src="
     function closeWindow() {
         setTimeout(function() {
             window.close();
-        }, 2000); // 300 pour NC sur serveur MLS
+        }, 300); // 300 pour NC sur serveur MLS
     }
 
     function ExportPdf(){
