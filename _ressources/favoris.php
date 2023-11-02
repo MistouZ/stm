@@ -8,6 +8,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 $username = $_COOKIE['username'];
 
+print_r($username);
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $folder = new Folder($array);
