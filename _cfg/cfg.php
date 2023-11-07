@@ -2,7 +2,7 @@
 
 $host = explode('.', $_SERVER['HTTP_HOST']);
 
-define('URLHOST','https://'.$host[0].'.'.$host[1].'.nc/');
+define('URLHOST','https://'.$host[0].'.stm-compta.nc/');
 
 include 'classes/class_db.php';
 include 'classes/class_features.php';
