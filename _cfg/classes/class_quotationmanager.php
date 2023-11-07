@@ -490,6 +490,9 @@ class QuotationManager
 
     public function changeType(Quotation $quotation)
     {
+     
+     
+     
         try{
             $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
             //on change le quotation number si facture ou avoir

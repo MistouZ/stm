@@ -157,7 +157,7 @@ class FoldersManager
      * Get all the active folder in the BDD for the user
      * @return array
      */
-    public function getListByUser($companyid, $username)
+    public function getListByUser($username, $companyid)
     {
         try{
             $folders = [];

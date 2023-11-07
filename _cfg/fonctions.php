@@ -1,14 +1,5 @@
 <?php
 
-
-/*function __autoload($className) {
-      if (file_exists('./classes/class_'.strtolower($className) . '.php')) {
-          require_once './classes/class_'.strtolower($className) . '.php';
-      }else{
-        echo 'classes/class_'.$className . '.php - Not Found';
-      }
-}*/
-//autolaod depreciated replaced byt spl_autoload_register
 spl_autoload_register(function($className){
     if (file_exists('./classes/class_'.strtolower($className) . '.php')) {
         require_once './classes/class_'.strtolower($className) . '.php';
