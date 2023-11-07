@@ -891,17 +891,10 @@ var FormValidation = function () {
                         minlength: 2,
                         required: true
                     },
-                    description: {
-                        minlength: 2,
-                        required: true
-                    },
                     'seller-select': {
                         required: true
                     },
                     'customer-select': {
-                        required: true
-                    },
-                    'contact-select': {
                         required: true
                     }
                 },

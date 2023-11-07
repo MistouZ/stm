@@ -91,9 +91,7 @@ foreach ($customermanager as $customer) {
                                 <input type="text" name="label" id="label" data-required="1" class="form-control" /> </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3" for="description">Description
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3" for="description">Description</label>
                             <div class="col-md-4">
                                 <input name="description" id="description" type="text" class="form-control" /> </div>
                         </div>
@@ -133,9 +131,7 @@ foreach ($customermanager as $customer) {
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-md-3" for="contact-select">Contact
-                                <span class="required"> * </span>
-                            </label>
+                            <label class="control-label col-md-3" for="contact-select">Contact</label>
                             <div class="col-md-4">
                                 <select id="contact-select" name="contact-select" class="form-control">
                                     <option value="">--Choississez le contact--</option>
