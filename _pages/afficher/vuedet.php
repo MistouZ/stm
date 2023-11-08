@@ -36,8 +36,6 @@ echo " - test3 - ";
 
 $dateToProforma = date('d/m/Y');
 
-$folder = $foldermanager->get($quotation->getFolderId());
-
 $company = $companymanager->getByNameData($companyNameData);
 print_r($company);
 $companyId = $company->getIdcompany();
@@ -116,6 +114,8 @@ $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNum
 $costs = new Cost($array);
 $costmanager = new CostManager($bdd);
 $costs = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(), $costType,$companyId);
+
+$folder = $foldermanager->get($quotation->getFolderId());
 
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());
