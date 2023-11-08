@@ -37,7 +37,7 @@ $folder = $foldermanager->get($quotation->getFolderId());
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
-
+echo $companyId;
 switch($type){
     case "devis":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
