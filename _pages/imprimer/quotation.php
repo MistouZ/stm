@@ -318,11 +318,11 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         document.getElementById('Exporter').click();
     }
 
-    function closeWindow() {
+   /* function closeWindow() {
         setTimeout(function() {
             window.close();
         }, 300); // 300 pour NC sur serveur MLS
-    }
+    }*/
 
     function ExportPdf(){
         var filename = document.getElementById("filename").value;
