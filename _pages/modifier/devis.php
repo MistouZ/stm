@@ -50,7 +50,7 @@ echo "test5 - ".$quotation->getContactId()." getSeller() ".$quotation->getSeller
 if($quotation->getContactId() != 0){
     $contact = $contactmanager->getById($quotation->getContactId());
 }
-$user = $usermanager->get($quotation->getSeller());
+//$user = $usermanager->get($quotation->getSeller());
 echo "test6 - ";
 $customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
