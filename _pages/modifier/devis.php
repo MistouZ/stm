@@ -37,27 +37,27 @@ $costmanager = new CostManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 $quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
-echo "test - ";
+
 $foldermanager = $foldermanager->getListActive($companyId);
-echo "test2 - ";
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
-echo "test3 - ";
+
+
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
-echo "test5 - ".$quotation->getContactId()." getSeller() ";
+
 if($quotation->getContactId() != 0){
     $contact = $contactmanager->getById($quotation->getContactId());
 }
 //$user = $usermanager->get($quotation->getSeller());
-echo "test6 - ";
+
 $customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
-echo "test7 - ";
+
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
-echo "test8 - ";
+
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
 ?>
