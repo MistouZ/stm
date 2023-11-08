@@ -33,15 +33,15 @@ $supplier = new Suppliers($array);
 $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
-echo "test - ";
-$quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
-echo "test2 - ";
+$quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+
 $foldermanager = $foldermanager->getListActive($companyId);
-echo "test3 - ";
+
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
-echo "test4 - ";
+
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
