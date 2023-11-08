@@ -46,13 +46,15 @@ $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
+echo "test5 - ";
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($quotation->getSeller());
+echo "test6 - ";
 $customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
-echo "test4 - ";
+echo "test7 - ";
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
-echo "test5 - ";
+echo "test8 - ";
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
 ?>
