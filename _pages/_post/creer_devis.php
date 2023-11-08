@@ -104,6 +104,7 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
     next($_POST["descriptionDevis"]);
 }
 
+echo"TESTTTTTTT ------";
 print_r($descriptions);
 
 $descriptionmanager = new DescriptionManager($bdd);
