@@ -120,7 +120,7 @@ class QuotationManager
     {
         try{
             $quotationNumber = (integer) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber' AND type ='$type' AND company = '$companyId' ");
+            $q = $this->_db->query("SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber' AND type ='$type' AND companyId = '$companyId' ");
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
             return new Quotation($donnees);

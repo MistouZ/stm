@@ -102,12 +102,12 @@ class CostManager
      * @param $quotationNumber
      * @return cost
      */
-    public function getByQuotationNumber($quotationNumber, $type, $companyId)
+    public function getByQuotationNumber($quotationNumber, $type,$companyId)
     {
         $costs = array();
         try{
             $quotationNumber = (string) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM cost WHERE quotationNumber = '$quotationNumber' AND type='$type' AND company = '$companyId' ");
+            $q = $this->_db->query("SELECT * FROM cost WHERE quotationNumber = '$quotationNumber' AND type='$type' AND companyId = '$companyId' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $costs[] =new Cost($donnees);
