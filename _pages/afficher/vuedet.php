@@ -5,14 +5,12 @@
  * @copyright 2019
  */
 include("../../_cfg/cfg.php");
-echo "test";
 
 $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
 $idQuotation = $_GET['soussoussouscat'];
-echo " - test2 - ".$companyNameData;
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -32,14 +30,12 @@ $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
 $supplier = new Suppliers($array);
 $suppliermanager = new SuppliersManager($bdd);
-echo " - test3 - ";
 
 $dateToProforma = date('d/m/Y');
 
 $company = $companymanager->getByNameData($companyNameData);
-print_r($company);
 $companyId = $company->getIdcompany();
-echo " - test4";
+
 switch($type){
     case "devis":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
