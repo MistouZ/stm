@@ -46,15 +46,8 @@ class QuotationManager
     public function add(Quotation $quotation)
     {
         $quotationCounter = $quotation->getQuotationNumber();
-        echo' Quotation Counter : '. $quotationCounter .'';
         $quotationNumber = date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1);
-        echo' Date : '.date("Ym",strtotime($quotation->getDate())).' ';
-        echo' Quotation Counter +1 : '. $quotationCounter + 1 .' ';
-        echo ' - '.date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1).' ';
-        echo ' quotationNumber : '.$quotationNumber.'';
         $quotation->setQuotationNumber($quotationNumber);
-
-        echo ' quotation number : '.$quotation->getQuotationNumber().'';
 
         $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
 
