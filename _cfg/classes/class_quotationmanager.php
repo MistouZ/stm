@@ -54,6 +54,8 @@ class QuotationManager
         echo ' quotationNumber : '.$quotationNumber.'';
         $quotation->setQuotationNumber($quotationNumber);
 
+        echo ' quotation number : '.$quotation->getQuotationNumber().'';
+
         $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
 
         try{
