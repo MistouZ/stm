@@ -39,7 +39,7 @@ $dateToProforma = date('d/m/Y');
 $folder = $foldermanager->get($quotation->getFolderId());
 
 $company = $companymanager->getByNameData($companyNameData);
-echo $company;
+print_r($company);
 $companyId = $company->getIdcompany();
 echo " - test4";
 switch($type){
