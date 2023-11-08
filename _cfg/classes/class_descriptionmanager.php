@@ -67,12 +67,12 @@ class DescriptionManager
      * @param $quotationNumber
      * @return quotation
      */
-    public function getByQuotationNumber($quotationNumber, $quotationType)
+    public function getByQuotationNumber($quotationNumber, $quotationType,$companyId)
     {
         $description = array();
         try{
             $quotationNumber = (string) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM description WHERE quotationNumber = '$quotationNumber' and quotationType = '$quotationType' ");
+            $q = $this->_db->query("SELECT * FROM description WHERE quotationNumber = '$quotationNumber' and quotationType = '$quotationType' AND company='$companyId' ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $description[] =new Description($donnees);

@@ -34,22 +34,22 @@ $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
-$quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D");
+$quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
 $company = $companymanager->getByNameData($companyNameData);
-$idCompany = $company->getIdcompany();
+$companyId = $company->getIdcompany();
 
-$foldermanager = $foldermanager->getListActive($idCompany);
+$foldermanager = $foldermanager->getListActive($companyId);
 
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D");
+$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($quotation->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
-$costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D");
+$costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 

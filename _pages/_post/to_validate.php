@@ -14,9 +14,15 @@ echo $idQuotation;
 $today = date("Y-m-d");
 
 $array = array();
+$company = new Company($array);
+$companymanager = new CompaniesManager($bdd);
+$companyNameData = $_GET["section"];
+$company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();
+
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
+$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'F',$companyId);
 
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),

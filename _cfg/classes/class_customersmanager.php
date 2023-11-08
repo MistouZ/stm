@@ -152,11 +152,11 @@ class CustomersManager
      * Get all the active customers in the BDD filtered by Company
      * @return array
      */
-    public function getListByCompany($idcompany)
+    public function getListByCompany($companyId)
     {
-        $idcompany = (integer) $idcompany;
+        $companyId = (integer) $companyId;
         $customers = array();
-        $q=$this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND cu.isActive=\'1\' AND c.isActive=\'1\' GROUP BY cu.name');
+        $q=$this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$companyId.' AND cu.isActive=\'1\' AND c.isActive=\'1\' GROUP BY cu.name');
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $customers[] = new Customers($donnees);
@@ -169,11 +169,11 @@ class CustomersManager
      * Get all the customers in the BDD filtered by Company
      * @return array
      */
-    public function getListAllByCompany($idcompany)
+    public function getListAllByCompany($companyId)
     {
-        $idcompany = (integer) $idcompany;
+        $companyId = (integer) $companyId;
         $customers = array();
-        $q=$this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND c.isActive=\'1\' GROUP BY cu.name');
+        $q=$this->_db->query('SELECT cu.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM customers cu INNER JOIN  link_company_customers lk ON cu.idcustomer =  lk.customers_idcustomer INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$companyId.' AND c.isActive=\'1\' GROUP BY cu.name');
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $customers[] = new Customers($donnees);

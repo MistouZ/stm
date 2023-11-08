@@ -54,9 +54,9 @@ class CompaniesManager extends Features
             $q->bindValue(':isActive', $company->getIsActive(), PDO::PARAM_INT);
     
             $q->execute();
-            $idcompany = $this->_db->lastInsertId();
+            $companyId = $this->_db->lastInsertId();
             
-            return $idcompany;
+            return $companyId;
         }
         catch(Exception $e){
             return null;
@@ -83,13 +83,13 @@ class CompaniesManager extends Features
 
     /**
      * Find a company by his ID
-     * @param $idcompany
+     * @param $companyId
      * @return company
      */
-    public function getById($idcompany)
+    public function getById($companyId)
     {
-        $idcompany = (integer) $idcompany;
-        $q = $this->_db->query('SELECT * FROM `company` WHERE `idcompany` ='.$idcompany);
+        $companyId = (integer) $companyId;
+        $q = $this->_db->query('SELECT * FROM `company` WHERE `idcompany` ='.$companyId);
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
         return new Company($donnees);

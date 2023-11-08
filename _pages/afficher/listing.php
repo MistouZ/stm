@@ -22,6 +22,7 @@ $customermanager = new CustomersManager($bdd);
 $quotations = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();
 
 $verif= $_GET['soussoussouscat'];
 
@@ -208,7 +209,7 @@ switch($type){
                             $folder = $foldermanager->get($quotation->getFolderId());
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
                             $montant = 0;
                             foreach ($descriptions as $description) {
                                 $montant = calculMontantTotalTTC($description, $montant);

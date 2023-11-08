@@ -33,9 +33,14 @@ $suppliermanager = new SuppliersManager($bdd);
 
 $dateToProforma = date('d/m/Y');
 
+$folder = $foldermanager->get($quotation->getFolderId());
+
+$company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();
+
 switch($type){
     case "devis":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D");
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
         $costType = "D";
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
@@ -59,7 +64,7 @@ switch($type){
                     </div>';
         break;
     case "proforma":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P");
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P",$companyId);
         $costType = "P";
         $entete = "de la proforma";
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
@@ -73,7 +78,7 @@ switch($type){
                     </div>';
         break;
     case "facture":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"F");
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"F",$companyId);
         $costType = "F";
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
@@ -87,7 +92,7 @@ switch($type){
                     </div>';
         break;
     case "avoir":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"A");
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"A",$companyId);
         $costType = "A";
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
@@ -98,19 +103,15 @@ switch($type){
         break;
 }
 
-
-$folder = $foldermanager->get($quotation->getFolderId());
-$company = $companymanager->getByNameData($companyNameData);
-
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
+$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
 
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 
 $costs = new Cost($array);
 $costmanager = new CostManager($bdd);
-$costs = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(), $costType);
+$costs = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(), $costType,$companyId);
 
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());

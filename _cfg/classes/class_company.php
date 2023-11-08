@@ -1,7 +1,7 @@
 <?php
 
   class Company extends Features{
-    private $idcompany;
+    private $companyId;
     private $name;
     private $nameData;
     private $address;
@@ -28,12 +28,12 @@
       }
 
       /**
-       * @param mixed $idcompany
+       * @param mixed $companyId
        */
-      public function setIdcompany($idcompany): void
+      public function setIdcompany($companyId): void
       {
-          $idcompany = (int) $idcompany;
-          $this->idcompany = $idcompany;
+          $companyId = (int) $companyId;
+          $this->idcompany = $companyId;
       }
 
       /**

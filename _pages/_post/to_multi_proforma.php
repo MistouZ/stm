@@ -13,9 +13,15 @@ foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
 
 $array = array();
+$company = new Company($array);
+$companymanager = new CompaniesManager($bdd);
+$companyNameData = $_GET["section"];
+$company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();
+
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation);
+$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'D',$companyId);
 
 $date = $_POST['date'];
 

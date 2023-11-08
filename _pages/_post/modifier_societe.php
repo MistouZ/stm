@@ -11,7 +11,7 @@ if(isset($_POST['valider'])) {
     $name=$_POST['name'];
     $address=$_POST['address'];
     $isActive = 1;
-    $idCompany = $_POST['idCompany'];
+    $companyId = $_POST['idCompany'];
    
     if (!empty($_FILES['nameData']["name"])) {
         //supression de l'ancien logo
@@ -33,7 +33,7 @@ if(isset($_POST['valider'])) {
     }
     
     $array = array(
-        'idcompany' => $idCompany,
+        'idcompany' => $companyId,
         'name' => $name,
         'address' => $address,
         'isActive' => $isActive

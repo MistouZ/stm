@@ -37,22 +37,22 @@ if(isset($_POST['valider'])) {
     $costmanager = new CostManager($bdd);
 
     $company = $companymanager->getByNameData($companyNameData);
-    $idCompany = $company->getIdcompany();
+    $companyId = $company->getIdcompany();
 
     if(empty($seller) && empty($datefrom)){
-        $filteredFolder = $foldermanager->getList($idCompany);
+        $filteredFolder = $foldermanager->getList($companyId);
     }
     elseif(empty($seller))
     {
-        $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
+        $filteredFolder = $foldermanager->getListByDate($companyId,$datefrom,$dateto);
     }
     elseif(!empty($seller) && empty($datefrom))
     {
-        $filteredFolder = $foldermanager->getListByUser($idCompany, $seller);
+        $filteredFolder = $foldermanager->getListByUser($companyId, $seller);
     }
     elseif (!empty($seller) && !empty($datefrom))
     {
-        $filteredFolder = $foldermanager->getListByDateAndUser($idCompany,$seller,$datefrom,$dateto);
+        $filteredFolder = $foldermanager->getListByDateAndUser($companyId,$seller,$datefrom,$dateto);
     }
 
     $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
@@ -132,7 +132,7 @@ if(isset($_POST['valider'])) {
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
 
-                        $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$costType);
+                        $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$costType,$companyId);
 
                         //Calcul du montant des devis / factures et cumul pour le Palmares
                         $montant = 0;

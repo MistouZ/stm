@@ -30,30 +30,33 @@ $taxmanager = new TaxManager($bdd);
 $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
 
+$company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();
+
 switch($type){
     case "devis":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D");
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
         $entete = "du devis";
         $enteteIcon = '<i class="fas fa-file-invoice"></i>';
         $typeQuotation = "D";
         break;
 
     case "proforma":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P");
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P",$companyId);
         $entete = "de la proforma";
         $enteteIcon = '<i class="fas fa-file-alt"></i>';
         $typeQuotation = "P";
         break;
 
     case "facture":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"F");
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"F",$companyId);
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         $typeQuotation = "F";
         break;
 
     case "avoir":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"A");
+        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"A",$companyId);
         $entete = "de l'avoir";
         $enteteIcon = '<i class="fas fa-file-prescription"></i>';
         $typeQuotation = "A";
@@ -64,7 +67,7 @@ $folder = $foldermanager->get($quotation->getFolderId());
 $company = $companymanager->getByNameData($companyNameData);
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$typeQuotation);
+$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$typeQuotation,$companyId);
 $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());

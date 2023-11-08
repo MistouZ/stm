@@ -7,12 +7,12 @@
  */
 
 include("../../_cfg/cfg.php");
-$idCompany = $_GET["idCompany"];
+$companyId = $_GET["idCompany"];
 
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-$company->setIdcompany($idCompany);
+$company->setIdcompany($companyId);
 $test = $companymanager->reactivate($company);
 if(is_null($test)){
     header('Location: '.URLHOST.$_COOKIE['company']."/societe/afficher/erroractivate");

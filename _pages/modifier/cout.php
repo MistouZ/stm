@@ -34,9 +34,9 @@ $costmanager = new CostManager($bdd);
 
 
 $company = $companymanager->getByNameData($companyNameData);
-$idCompany = $company->getIdcompany();
+$companyId = $company->getIdcompany();
 
-$foldermanager = $foldermanager->getListActive($idCompany);
+$foldermanager = $foldermanager->getListActive($companyId);
 
 $folderRecup = $foldermanagerRecup->get($folderId);
 

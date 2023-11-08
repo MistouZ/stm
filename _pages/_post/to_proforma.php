@@ -13,9 +13,15 @@ $type2 = $_POST['type'];
 $percent = $_POST["shattered_percent"];
 
 $array = array();
+$company = new Company($array);
+$companymanager = new CompaniesManager($bdd);
+$companyNameData = $_GET["section"];
+$company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();
+
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D");
+$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
 //$costGet = $costmanager->getByQuotationNumber($quotationNumber, $currentType);
@@ -120,7 +126,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $quotationNumberInit = $shatteredQuotationInit->getQuotationNumberInit();
         $quotationNumberChild = $shatteredQuotationInit->getQuotationNumberChild();
         $quotationInit = $quotationNumberInit."_init";
-        $getDescription = $descriptionmanager->getByQuotationNumber($quotationInit,"S");
+        $getDescription = $descriptionmanager->getByQuotationNumber($quotationInit,"S",$companyId);
         $rest = $shatteredQuotationInit->getPercent();
         $rest = $rest - $percent;
         $idShatteredQuotation = $shatteredQuotationInit->getIdShatteredQuotation();
@@ -131,7 +137,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     {
         //fonctionne bien lors du premier partiel
         $quotationNumberInit = $quotationNumber;
-        $getDescription = $descriptionmanager->getByQuotationNumber($quotationNumber,"D");
+        $getDescription = $descriptionmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
         $quotationInit = $quotationGet->getQuotationNumber()."_init";
         $rest = 100 - $percent;
         $i = 0;
@@ -193,7 +199,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
 
     if($rest != 0)
     {   //il reste à facturer alors je stocke les données restantes
-        $getDescriptionInit = $descriptionmanager->getByQuotationNumber($quotationInit,"S");
+        $getDescriptionInit = $descriptionmanager->getByQuotationNumber($quotationInit,"S",$companyId);
         $descriptionRest = new Description($array);
         $k = 0;
         foreach ($getDescriptionInit as $descriptionRest)

@@ -33,6 +33,7 @@ $suppliermanager = new SuppliersManager($bdd);
 $folder = $foldermanager->get($folderId);
 
 $company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();
 $user = $usermanager->get($folder->getSeller());
 $customer = $customermanager->getById($folder->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
@@ -175,7 +176,7 @@ switch($type){
                             $date = date('d/m/y', strtotime( $quotation->getDate()));
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
                             $montant = 0;
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description, $montant);
@@ -239,7 +240,7 @@ switch($type){
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
                             $montant = 0;
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description, $montant);
@@ -305,7 +306,7 @@ switch($type){
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
                             $montant = 0;
                             foreach($descriptions as $description){
                                 $montant = calculMontantTotalTTC($description, $montant);
@@ -371,7 +372,7 @@ switch($type){
                                 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
                                 $descriptions = new Description($array);
                                 $descriptionmanager = new DescriptionManager($bdd);
-                                $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
+                                $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
                                 $montant = 0;
                                 foreach($descriptions as $description){
                                     $montant = calculMontantTotalTTC($description, $montant);

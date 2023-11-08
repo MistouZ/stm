@@ -12,16 +12,22 @@ $type2 = $_POST['type'];
 $currentType = $_POST['currentType'];
 
 $array = array();
+$company = new Company($array);
+$companymanager = new CompaniesManager($bdd);
+$companyNameData = $_GET["section"];
+$company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();
+
 $quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType);
+$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType, $companyId);
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
 
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber, $quotation->getType());
+$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber, $quotation->getType(), $companyId);
 
 $arraycounter = array();
 $counter = new Counter($arraycounter);

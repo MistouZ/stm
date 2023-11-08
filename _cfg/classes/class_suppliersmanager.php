@@ -143,11 +143,11 @@ class SuppliersManager
      * Get all the active suppliers in the BDD filtered by Company
      * @return array
      */
-    public function getListByCompany($idcompany)
+    public function getListByCompany($companyId)
     {
-        $idcompany = (integer) $idcompany;
+        $companyId = (integer) $companyId;
         $suppliers = array();
-        $q=$this->_db->query('SELECT su.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND su.isActive=\'1\' AND c.isActive=\'1\' GROUP BY su.name');
+        $q=$this->_db->query('SELECT su.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$companyId.' AND su.isActive=\'1\' AND c.isActive=\'1\' GROUP BY su.name');
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $suppliers[] = new Suppliers($donnees);
@@ -160,11 +160,11 @@ class SuppliersManager
      * Get all the suppliers in the BDD filtered by Company
      * @return array
      */
-    public function getListAllByCompany($idcompany)
+    public function getListAllByCompany($companyId)
     {
-        $idcompany = (integer) $idcompany;
+        $companyId = (integer) $companyId;
         $suppliers = array();
-        $q=$this->_db->query('SELECT su.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$idcompany.' AND c.isActive=\'1\' GROUP BY su.name');
+        $q=$this->_db->query('SELECT su.*, GROUP_CONCAT(c.name SEPARATOR \', \') AS companyName FROM suppliers su INNER JOIN  link_company_suppliers lk ON su.idsupplier =  lk.suppliers_idsupplier INNER JOIN company c ON lk.company_idcompany = c.idcompany WHERE c.idcompany='.$companyId.' AND c.isActive=\'1\' GROUP BY su.name');
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $suppliers[] = new Suppliers($donnees);

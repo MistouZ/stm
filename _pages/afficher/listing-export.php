@@ -11,11 +11,11 @@ $array = array();
 
  if(isset($_POST['valider'])) {
     if(isset($_POST["societe"])){
-        $idCompany = $_POST["societe"];
+        $companyId = $_POST["societe"];
     }else{
         $companyNameData = $_GET['section'];
         $company = $companymanager->getByNameData($companyNameData);
-        $idCompany = $company->getIdcompany();
+        $companyId = $company->getIdcompany();
     }
     
      $type = $_POST['type'];
@@ -43,10 +43,10 @@ $array = array();
      $cost = new Cost($array);
      $costmanager = new CostManager($bdd);
 
-     $filteredFolder = $foldermanager->getListByDate($idCompany,$datefrom,$dateto);
+     $filteredFolder = $foldermanager->getListByDate($companyId,$datefrom,$dateto);
 
      if ($type == "export") {
-        $quotations = $quotationmanager->getListInvoiceByDate($idCompany,$datefrom,$dateto);
+        $quotations = $quotationmanager->getListInvoiceByDate($companyId,$datefrom,$dateto);
         $enteteIcon = '<i class="fas fa-file-export"></i>';
      }
      //récupération des coûts liés au dossier.
@@ -107,7 +107,7 @@ $array = array();
                             $folder = $foldermanager->get($quotation->getFolderId());
                             $descriptions = new Description($array);
                             $descriptionmanager = new DescriptionManager($bdd);
-                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType());
+                            $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
                             $montant = 0;
                             $arrayTaxesKey =  array();
                             foreach ($descriptions as $description) {

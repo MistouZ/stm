@@ -16,7 +16,7 @@ $usermanager = new UsersManager($bdd);
 
 
 $company = $companymanager->getByNameData($companyNameData);
-$idCompany = $company->getIdcompany();
+$companyId = $company->getIdcompany();
 
 $today = date('d/m/Y');
 
@@ -81,7 +81,7 @@ $type = "devis";
                                 <select id="users" class="username form-control" name="seller">
                                     <option value="">Sélectionnez ...</option>
                                     <?php
-                                    $usermanager = $usermanager->getSellerByCompany($idCompany);
+                                    $usermanager = $usermanager->getSellerByCompany($companyId);
                                     foreach ($usermanager as $user){
                                        ?>
                                         <option value="<?php echo $user->getUsername(); ?>"><?php echo $user->getFirstName()." ".$user->getName(); ?></option>
