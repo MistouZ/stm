@@ -46,7 +46,7 @@ $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
-echo "test5 - ".$quotation->getContactId();
+echo "test5 - ".$quotation->getContactId()." getSeller() ".$quotation->getSeller();
 if($quotation->getContactId() != 0){
     $contact = $contactmanager->getById($quotation->getContactId());
 }
