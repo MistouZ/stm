@@ -37,11 +37,11 @@ $costmanager = new CostManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 $quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
-
+echo "test - ";
 $foldermanager = $foldermanager->getListActive($companyId);
-
+echo "test2 - ";
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
-
+echo "test3 - ";
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
@@ -50,9 +50,9 @@ $contact = $contactmanager->getById($quotation->getContactId());
 $user = $usermanager->get($quotation->getSeller());
 $customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
-
+echo "test4 - ";
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
-
+echo "test5 - ";
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
 ?>
