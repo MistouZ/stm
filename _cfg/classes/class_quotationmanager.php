@@ -48,6 +48,8 @@ class QuotationManager
         $quotationCounter = $quotation->getQuotationNumber();
         echo' Quotation Counter : '. $quotationCounter .'';
         $quotationNumber = date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1);
+        echo' Date : '. $quotation->getDate() .'';
+        echo' Quotation Counter : '. $$quotationCounter + 1 .'';
         $quotation->setQuotationNumber($quotationNumber);
 
         $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
