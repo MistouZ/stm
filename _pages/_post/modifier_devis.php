@@ -98,7 +98,7 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
     next($_POST["descriptionDevis"]);
 }
 
-$test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type);
+$test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type,$companyId);
 
 echo "modif insérée";
 
@@ -138,7 +138,7 @@ else{
         next($_POST["descriptionOption"]);
     }
     $quotationNumberOption = $quotationNumber.'_option';
-    $test3 = $descriptionmanager->update($descriptionsOption,$quotationNumberOption,$type);
+    $test3 = $descriptionmanager->update($descriptionsOption,$quotationNumberOption,$type,$companyId);
 }
 
 if(empty(current($_POST["descriptionCout"]))){
