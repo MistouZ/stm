@@ -32,13 +32,14 @@ $shatteredQuotation = new ShatteredQuotation($array);
 $shatteredManager = new ShatteredQuotationManager($bdd);
 $supplier = new Suppliers($array);
 $suppliermanager = new SuppliersManager($bdd);
-echo " - test3";
+echo " - test3 - ";
 
 $dateToProforma = date('d/m/Y');
 
 $folder = $foldermanager->get($quotation->getFolderId());
 
 $company = $companymanager->getByNameData($companyNameData);
+echo $company;
 $companyId = $company->getIdcompany();
 echo " - test4";
 switch($type){
