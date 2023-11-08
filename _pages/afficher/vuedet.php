@@ -12,7 +12,7 @@ $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $type2 = $_GET['soussouscat'];
 $idQuotation = $_GET['soussoussouscat'];
-echo " - test2";
+echo " - test2 - ".$companyNameData;
 
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
