@@ -183,6 +183,7 @@ else{
     echo "j'ai réussi 3";
 }
 
+echo " ------- Test 1 : ".$test." - Test 2 : ".$test2." - Test 3 : ".$test3;
 
 if(is_null($test) || is_null($test2) || is_null($test3) )
 {
