@@ -5,6 +5,7 @@
  * @copyright 2019
  */
 include("../../_cfg/cfg.php");
+echo "test";
 
 $array = array();
 $companyNameData = $_GET["section"];
@@ -37,7 +38,7 @@ $folder = $foldermanager->get($quotation->getFolderId());
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
-echo $companyId;
+
 switch($type){
     case "devis":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
