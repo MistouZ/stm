@@ -50,7 +50,7 @@ class QuotationManager
         $quotationNumber = date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1);
         echo' Date : '.date("Ym",strtotime($quotation->getDate())).'';
         echo' Quotation Counter +1 : '. $quotationCounter + 1 .'';
-        echo ''.date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1).'';
+        echo ' - '.date("Ym",strtotime($quotation->getDate())).($quotationCounter + 1).'';
         $quotation->setQuotationNumber($quotationNumber);
 
         $quotation->setDate(date('Y-m-d',strtotime(str_replace('/','-',$quotation->getDate()))));
