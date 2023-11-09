@@ -416,7 +416,10 @@ $(document).ready(function() {
                       for(var i in response['taxes']){
                         opt = document.createElement("option");
                         opt.value = response.taxes[i].valeur;
-                        opt.innerHTML = response.taxes[i].nom; 
+                        opt.innerHTML = response.taxes[i].nom;
+                        if(response.taxes[i].valeur == 0.06){
+                            opt.setAttribute("selected", "selected");
+                        }
                         monSelectB[k].appendChild(opt);
                       }
                   }
