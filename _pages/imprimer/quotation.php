@@ -141,7 +141,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         </div>
         <div class="row static-info">
             <div class="col-md-2 name"> Libellé : </div>
-            <div class="col-md-10 value"><strong> <?php echo $folder->getLabel(); ?></strong> </div>
+            <div class="col-md-10 value"><strong> <?php echo $quotation->getLabel(); ?></strong> </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12">

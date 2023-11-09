@@ -191,7 +191,7 @@ if(isset($_GET['cat5'])){
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Libellé : </div>
-                            <div class="col-md-7 value"> <?php echo $folder->getLabel(); ?> </div>
+                            <div class="col-md-7 value"> <?php echo $quotation->getLabel(); ?> </div>
                         </div>
                         <div class="row static-info">
                             <div class="col-md-5 name"> Commercial : </div>
