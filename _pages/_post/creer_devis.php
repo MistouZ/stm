@@ -27,14 +27,12 @@ $counterQuotation = $counter->getQuotation();
 
 echo "counter".$counterQuotation;
 
-
-
-if(empty($_POST["label"]))
+if(empty($_POST["libelle"]))
 {
     $label = $folder->getLabel();
 }
 else{
-    $label = $_POST["label"];
+    $label = $_POST["libelle"];
 }
 
 if(empty($_POST['comment'])){
@@ -212,8 +210,6 @@ else{
     $counter->setQuotation($counterQuotation);
     print_r($counter);
     $countermanager->updateCounter($counter);
-
-
 
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/cours/".$quotationNumber);
 }

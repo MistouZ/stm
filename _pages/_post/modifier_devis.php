@@ -26,12 +26,12 @@ $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D", $c
 $customerId = $quotationGet->getCustomerId();
 $contactId = $quotationGet->getContactId();
 
-if(empty($_POST["label"]))
+if(empty($_POST["libelle"]))
 {
     $label = $folder->getLabel();
 }
 else{
-    $label = $_POST["label"];
+    $label = $_POST["libelle"];
 }
 
 if(!empty($_POST['comment'])){
