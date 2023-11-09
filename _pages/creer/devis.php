@@ -389,7 +389,7 @@ $(document).ready(function() {
     	  {
                  console.log(response);
                  $("#spanCompany").text(response.company);
-                 $("#spanSeller").text(response.seller);
+                 $("#spanSeller").text(decodeURIComponent(response.seller));
                  $("#spanCustomer").text(response.customer);
                  $("#spanContact").text(response.contact);
                  $("#libelle").attr("placeholder",response.label);
