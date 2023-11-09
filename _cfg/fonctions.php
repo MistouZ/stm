@@ -47,7 +47,7 @@ function getContactFormFolder($idFolder){
         array_push($tabTaxe,array('nom'=>$taxe->getName(),'valeur'=>$taxe->getValue()));
     }
     
-    $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>$user->getName()." ".$user->getFirstName(),'taxes'=>$tabTaxe,'label'=>$folder->getLabel());
+    $tabReponse = array('contact'=>$contact->getFirstname().' '.$contact->getName(),'customer'=>$customer->getName(),'company'=>$company->getName(),'seller'=>htmlentities($user->getName(),ENT_QUOTES, "UTF-8")." ".htmlentities($user->getFirstName(),ENT_QUOTES, "UTF-8"),'taxes'=>$tabTaxe,'label'=>$folder->getLabel());
     
     $reponse = json_encode($tabReponse);
     echo $reponse;
