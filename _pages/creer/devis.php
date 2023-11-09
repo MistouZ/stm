@@ -145,7 +145,7 @@ $taxmanager = new TaxManager($bdd);
                                             <label class="col-md-2 control-label">Libellé du devis
                                             </label>
                                             <div class="col-md-6">
-                                                <input type="text" id="libelle" name="libelle" class="form-control" placeholder="Libellé spécifique du devis">
+                                                <input type="text" id="libelle" name="label" class="form-control" placeholder="Libellé spécifique du devis">
                                                 <span class="help-block">Si le libellé n'est pas rempli, le devis récupérera le libellé du dossier</span>
                                             </div>
                                         </div>
