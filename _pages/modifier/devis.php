@@ -586,6 +586,9 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                             opt = document.createElement("option");
                             opt.value = response.taxes[i].valeur;
                             opt.innerHTML = response.taxes[i].nom;
+                            if(response.taxes[i].valeur == 0.06){
+                                opt.setAttribute("selected", "selected");
+                            }
                             monSelectB[k].appendChild(opt);
                         }
                     }
@@ -606,6 +609,9 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                             opt = document.createElement("option");
                             opt.value = response.taxes[i].valeur;
                             opt.innerHTML = response.taxes[i].nom;
+                            if(response.taxes[i].valeur == 0.06){
+                                opt.setAttribute("selected", "selected");
+                            }
                             monSelectC[k].appendChild(opt);
                         }
                     }
