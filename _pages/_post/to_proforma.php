@@ -45,7 +45,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $quotation = new Quotation($data);
 
     $test = $quotationmanager->changeType($quotation);
-    $test6 = $costmanager->UpdateCostType($quotationNumber,$quotationNumber,"P");
+    $test6 = $costmanager->UpdateCostType($quotationNumber,$quotationNumber,"P",$companyId);
 
     if($type2 == "partiels")
     {

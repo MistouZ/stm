@@ -10,14 +10,15 @@ include("../../_cfg/cfg.php");
 $idQuotation = $_GET["idQuotation"];
 $quotationNumber = $_GET['quotationNumber'];
 $type = $_GET["type"];
+$companyId = $_GET["compId"];
 
 $array = array();
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
-$test = $descriptionmanager->delete($quotationNumber);
-$test2 = $costmanager->deleteByQuotationNumber($quotationNumber);
+$test = $descriptionmanager->delete($quotationNumber, $type, $companyId);
+$test2 = $costmanager->deleteByQuotationNumber($quotationNumber, $type, $companyId);
 
 if(is_null($test)){
     header('Location: '.$_SERVER['HTTP_REFERER']."/errorsuppr");

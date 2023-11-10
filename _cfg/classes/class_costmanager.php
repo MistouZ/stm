@@ -37,7 +37,7 @@ class CostManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function add(array $costs, $quotationNumber, $type)
+    public function add(array $costs, $quotationNumber, $type, $companyId)
     {
 
         try{
@@ -45,13 +45,14 @@ class CostManager
             $cost = new Cost($array);
             foreach ($costs as $cost)
             {
-                $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, type, folderId,supplierId) VALUES (:description, :value, :quotationNumber, :type, :folderId, :supplierId)');
+                $q = $this->_db->prepare('INSERT INTO cost (description, value, quotationNumber, type, folderId,supplierId,companyId) VALUES (:description, :value, :quotationNumber, :type, :folderId, :supplierId, :companyId)');
                 $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_INT);
                 $q->bindValue(':type', $type, PDO::PARAM_STR);
                 $q->bindValue(':description', $cost->getDescription(), PDO::PARAM_STR);
                 $q->bindValue(':value', $cost->getValue(), PDO::PARAM_INT);
                 $q->bindValue(':folderId', $cost->getFolderId(), PDO::PARAM_INT);
                 $q->bindValue(':supplierId', $cost->getSupplierId(), PDO::PARAM_INT);
+                $q->bindValue(':companyId', $companyId, PDO::PARAM_INT);
 
                 $q->execute();
             }
@@ -67,10 +68,10 @@ class CostManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function deleteByQuotationNumber($quotationNumber, $type)
+    public function deleteByQuotationNumber($quotationNumber, $type, $companyId)
     {
         try{
-            $q = $this->_db->query("DELETE FROM cost WHERE quotationNumber='$quotationNumber' AND type='$type'");
+            $q = $this->_db->query("DELETE FROM cost WHERE quotationNumber='$quotationNumber' AND type='$type' AND companyId='$companyId'");
             $q->execute();
 
            return "ok";
@@ -223,16 +224,16 @@ class CostManager
      * @param $quotationNumber
      * @return array|null
      */
-    public function update(array $cost, $quotationNumber, $type)
+    public function update(array $cost, $quotationNumber, $type, $companyId)
     {
         try{
             //print_r($cost);
-            $test = $this->deleteByQuotationNumber($quotationNumber, $type);
+            $test = $this->deleteByQuotationNumber($quotationNumber, $type, $companyId);
             if(!is_null($test))
             {
                 echo "suppresion réussie ".$quotationNumber;
             }
-            $this->add($cost,$quotationNumber, $type);
+            $this->add($cost,$quotationNumber, $type,$companyId);
             return $cost;
         }
         catch(Exception $e){
@@ -245,10 +246,10 @@ class CostManager
      * @param $quotationNumber
      * @return cost
      */
-    public function UpdateCostType($quotatioNumberEdited, $quotationNumber, $type)
+    public function UpdateCostType($quotatioNumberEdited, $quotationNumber, $type,$companyId)
     {
         try{
-            $q = $this->_db->prepare('UPDATE cost SET quotationNumber = :quotationNumberEdited, type = :type WHERE quotationNumber = :quotationNumber');
+            $q = $this->_db->prepare("UPDATE cost SET quotationNumber = :quotationNumberEdited, type = :type WHERE quotationNumber = :quotationNumber AND companyId ='$companyId'");
             $q->bindValue(':quotationNumberEdited', $quotatioNumberEdited, PDO::PARAM_INT);
             $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_INT);
             $q->bindValue(':type', $type, PDO::PARAM_STR);   

@@ -58,8 +58,8 @@ if( count($data) == 0){
 }else{
     
     $test = $quotationmanager->changeType($quotation);
-    $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType());
-    $test3 = $costmanager->UpdateCostType($test,$quotationNumber,"F");
+    $test2 = $descriptionmanager->update($descriptions,$test,$quotation->getType(),$companyId);
+    $test3 = $costmanager->UpdateCostType($test,$quotationNumber,"F",$companyId);
     if(is_null($test) || is_null($test2) || is_null($test3)){
         header('Location: '.$_SERVER['HTTP_REFERER'].'/errorFacture');
     }

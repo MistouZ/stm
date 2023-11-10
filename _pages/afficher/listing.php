@@ -36,6 +36,7 @@ else{
 
 switch($type){
     case "devis":
+        $typeMini = 'D';
         $fa = "fas fa-file-invoice";
         if($type2=="cours"){
             if($verif == $username){
@@ -80,6 +81,7 @@ switch($type){
         }
         break;
     case "proforma":
+        $typeMini = 'P';
         $fa = "fas fa-file-alt";
         $quotations = $quotationmanager->getListProforma($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
@@ -92,6 +94,7 @@ switch($type){
     case "facture":
         $fa = "fas fa-file-invoice-dollar";
         if($type2=="cours"){
+            $typeMini = 'F';
             $quotations = $quotationmanager->getListInvoice($company->getIdcompany());
             $buttons = '<div id="actions" style="display:none;">
                             <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
@@ -104,6 +107,7 @@ switch($type){
             break;
         }
         elseif($type2=="valides"){
+            $typeMini = 'V';
             $quotations = $quotationmanager->getListValidatedInvoice($company->getIdcompany());
             $buttons = '<div id="actions" style="display:none;">
                             <a data-toggle="modal" href="#to_avoir" class="btn grey-mint btn-sm">
@@ -115,6 +119,7 @@ switch($type){
         }
 
     case "avoir":
+        $typeMini = 'A';
         $fa = "fas fa-file-prescription";
         $quotations = $quotationmanager->getListAsset($company->getIdcompany());
         $buttons = '<div id="actions" style="display:none;">
@@ -230,7 +235,7 @@ switch($type){
                                 <?php
                                 }
                                 ?>
-                                <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer <?php echo $type; ?> n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber().'&type='.$type; ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
+                                <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer <?php echo $type; ?> n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber().'&type='.$typeMini.'&compId='.$folder->getCompanyId(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             </tr>
                             <?php
                         }
