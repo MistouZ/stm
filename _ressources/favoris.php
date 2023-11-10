@@ -84,7 +84,7 @@ $quotations = $quotationmanager->getListQuotationByFilteredFolders($foldermanage
             </div>
             <div class="desc"> Voir mes <?php echo count($quotations);?> devis en cours</div>
         </div>
-        <a class="more" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>"> Afficher mes devis en cours
+        <a class="more" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours'; ?>"> Afficher mes devis en cours
             <i class="m-icon-swapright m-icon-white"></i>
         </a>
     </div>
