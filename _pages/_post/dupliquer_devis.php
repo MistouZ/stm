@@ -15,6 +15,8 @@ $descriptionmanager = new DescriptionManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
+$companyId = $_GET['compId'];
+
 Echo "Mon quotation : ".$_GET["quotationNumber"];
 //récupération des données du devis initial à dupliquer
 $quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"], 'D', $companyId);
