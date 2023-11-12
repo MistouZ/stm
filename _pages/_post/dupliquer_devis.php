@@ -70,7 +70,7 @@ foreach ($getDescription as $description)
     $i++;
 }
 
-$test = $descriptionmanager->add($descriptions,$quotationNumber,"D");
+$test = $descriptionmanager->add($descriptions,$quotationNumber,"D",$companyId);
 
 //récupération des couts associés au devis
 
