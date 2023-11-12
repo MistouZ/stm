@@ -95,7 +95,7 @@ foreach ($getCost as $cost)
     $costs[$j] = $cost;
     $j++;
 }
-$test2 = $costmanager->add($costs,$quotationNumber,'D'; $companyId);
+$test2 = $costmanager->add($costs,$quotationNumber,'D', $companyId);
 
 if(is_null($test) || is_null($test2))
 {
