@@ -69,6 +69,8 @@ else{
 
 //récupération des descriptions du devis en cours
 $getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D", $companyId);
+Echo ' --- Print R de getDescription : ';
+print_r($getDescription);
 
 $i = 0;
 $descriptions= array();
