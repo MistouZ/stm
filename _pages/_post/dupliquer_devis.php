@@ -80,9 +80,9 @@ foreach ($getDescription as $description)
     $descriptions[$i] = $description;
     $i++;
 }
-
+echo "------ Avant test ";
 $test = $descriptionmanager->add($descriptions,$quotationNumber,"D",$companyId);
-
+echo " ------ test : ".$test;
 //récupération des couts associés au devis
 
 $getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(), 'D', $companyId);
@@ -95,7 +95,7 @@ foreach ($getCost as $cost)
     $costs[$j] = $cost;
     $j++;
 }
-$test2 = $costmanager->add($costs,$quotationNumber);
+$test2 = $costmanager->add($costs,$quotationNumber,'D'; $companyId);
 
 if(is_null($test) || is_null($test2))
 {
