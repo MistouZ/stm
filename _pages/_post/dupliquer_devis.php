@@ -15,14 +15,21 @@ $descriptionmanager = new DescriptionManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
+Echo "Mon quotation : ".$_GET["quotationNumber"];
 //récupération des données du devis initial à dupliquer
 $quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"], 'D', $companyId);
 $folderId = $quotation->getFolderId();
+Echo " folderId : ".$folderId;
 $companyId = $quotation->getCompanyId();
+Echo " companyId : ".$companyId;
 $customerId = $quotation->getCustomerId();
+Echo " customerId : ".$customerId;
 $contactId = $quotation->getContactId();
+Echo " contactId : ".$contactId;
 $comment = $quotation->getComment();
+Echo " comment : ".$comment;
 $label = $quotation->getLabel();
+Echo " label : ".$label;
 
 $arraycounter = array();
 $counter = new Counter($arraycounter);
