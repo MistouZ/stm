@@ -16,13 +16,13 @@ $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
 //récupération des données du devis initial à dupliquer
+$quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"], 'D', $companyId);
 $folderId = $quotation->getFolderId();
 $companyId = $quotation->getCompanyId();
 $customerId = $quotation->getCustomerId();
 $contactId = $quotation->getContactId();
 $comment = $quotation->getComment();
 $label = $quotation->getLabel();
-$quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"], 'D', $companyId);
 
 $arraycounter = array();
 $counter = new Counter($arraycounter);
