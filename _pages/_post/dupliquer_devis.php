@@ -15,14 +15,23 @@ $descriptionmanager = new DescriptionManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
+$companyId = $_GET['compId'];
+
+Echo "Mon quotation : ".$_GET["quotationNumber"];
 //récupération des données du devis initial à dupliquer
-$folderId = $quotation->getFolderId();
-$companyId = $quotation->getCompanyId();
-$customerId = $quotation->getCustomerId();
-$contactId = $quotation->getContactId();
-$comment = $quotation->getComment();
-$label = $quotation->getLabel();
 $quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"], 'D', $companyId);
+$folderId = $quotation->getFolderId();
+Echo " folderId : ".$folderId;
+$companyId = $quotation->getCompanyId();
+Echo " companyId : ".$companyId;
+$customerId = $quotation->getCustomerId();
+Echo " customerId : ".$customerId;
+$contactId = $quotation->getContactId();
+Echo " contactId : ".$contactId;
+$comment = $quotation->getComment();
+Echo " comment : ".$comment;
+$label = $quotation->getLabel();
+Echo " label : ".$label;
 
 $arraycounter = array();
 $counter = new Counter($arraycounter);
@@ -60,6 +69,8 @@ else{
 
 //récupération des descriptions du devis en cours
 $getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D", $companyId);
+Echo ' --- Print R de getDescription : ';
+print_r($getDescription);
 
 $i = 0;
 $descriptions= array();
@@ -69,9 +80,9 @@ foreach ($getDescription as $description)
     $descriptions[$i] = $description;
     $i++;
 }
-
-$test = $descriptionmanager->add($descriptions,$quotationNumber,"D");
-
+echo "------ Avant test ";
+$test = $descriptionmanager->add($descriptions,$quotationNumber,"D",$companyId);
+echo " ------ test : ".$test;
 //récupération des couts associés au devis
 
 $getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(), 'D', $companyId);
@@ -84,7 +95,7 @@ foreach ($getCost as $cost)
     $costs[$j] = $cost;
     $j++;
 }
-$test2 = $costmanager->add($costs,$quotationNumber);
+$test2 = $costmanager->add($costs,$quotationNumber,'D', $companyId);
 
 if(is_null($test) || is_null($test2))
 {
