@@ -136,7 +136,7 @@ var TableDatatablesManaged = function () {
                 "targets": [0]
             }],
             "order": [
-                [1, "asc"]
+                [0, "asc"]
             ] // set first column as a default sort by asc
         });
 
@@ -198,7 +198,7 @@ var TableDatatablesManaged = function () {
             // set the initial value
             "pageLength": 6,
             "columnDefs": [{  // set default column settings
-                'orderable': true,
+                'orderable': false,
                 'targets': [0]
             }, {
                 "searchable": false,
