@@ -89,7 +89,7 @@ foreach ($customermanager as $customer) {
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Le dossier a bien été créé </div>
+                            <button class="close" data-close="alert"></button> Le dossier a bien été modifié </div>
                         <div class="form-group">
                             <label class="control-label col-md-3" for="label">Intitulé du dossier
                                 <span class="required"> * </span>
