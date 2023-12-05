@@ -165,7 +165,7 @@
         </a>
     </li>
     <?php
-        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
+        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F" || $_COOKIE["credential"] == "C") {
     ?>
         <li class="heading">
             <h3 class="uppercase"><i class="fas fa-calculator"></i> Analyses</h3>
