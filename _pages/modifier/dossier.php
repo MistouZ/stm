@@ -147,7 +147,7 @@ foreach ($customermanager as $customer) {
                             <label class="control-label col-md-3" for="contact-select">Contact</label>
                             <div class="col-md-4">
                                 <select id="contact-select" name="contact-select" class="form-control">
-                                    <option value="">--Choississez le contact--</option>
+                                    <option value="0">--Choississez le contact--</option>
                                     <?php
                                         foreach($contactByCustomers as $contacts){
                                             if($contacts->getIdContact() == $folder->getContactId()){
