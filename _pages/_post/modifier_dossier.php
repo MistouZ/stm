@@ -40,7 +40,7 @@ if(isset($_POST['valider'])){
     $test = $foldermanager->update($folder);
 
 if(is_null($test)){
-    header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/errormodif");
+    //header('Location: '.URLHOST.$_COOKIE['company']."/dossier/afficher/errormodif");
 }else{
     
     //Ajout d'un objet logs pour tracer l'action sur le dossier

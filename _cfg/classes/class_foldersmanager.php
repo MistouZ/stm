@@ -237,15 +237,19 @@ class FoldersManager
         try{
             $q = $this->_db->prepare('UPDATE folder SET label = :label, date = :date, isActive = :isActive,description = :description,seller = :seller, companyId = :companyId, customerId = :customerId, contactId = :contactId WHERE idFolder= :idFolder');
             $q->bindValue(':idFolder', $folder->getIdFolder(), PDO::PARAM_INT);
+            echo "id : ".$folder->getIdFolder()." ";
             $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
+            echo "label : ".$folder->getLabel()." ";
             $q->bindValue(':date', $folder->getDate(), PDO::PARAM_STR);
             $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
             $q->bindValue(':description', $folder->getDescription(), PDO::PARAM_STR);
+            echo "descr : ".$folder->getDescription()." ";
             $q->bindValue(':seller', $folder->getSeller(), PDO::PARAM_STR);
+            echo "seller : ".$folder->getSeller()." ";
             $q->bindValue(':companyId', $folder->getCompanyId(), PDO::PARAM_INT);
             $q->bindValue(':customerId', $folder->getCustomerId(), PDO::PARAM_INT);
             $q->bindValue(':contactId', $folder->getContactId(), PDO::PARAM_INT);
-    
+            echo "seller : ".$folder->getContactId()." ";
             $q->execute();
             return "ok";
         }
