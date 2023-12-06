@@ -2,7 +2,7 @@ Header set Access-Control-Allow-Origin "*"
 AuthName "Reserve aux utilisateurs de StM-Compta"
 AuthType Basic
 
-AuthUserFile "/var/www/vhosts/bitwin.nc/dev.bitwin.nc/.htpasswd"
+AuthUserFile "/var/www/vhosts/clineo.nc/stm-compta.nc/.htpasswd"
 Require valid-user
 #Options +FollowSymlinks
 Options -Multiviews
