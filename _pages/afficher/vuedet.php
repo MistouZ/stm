@@ -679,7 +679,7 @@ if(isset($_GET['cat5'])){
                         <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en devis</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_devis.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
+                        <form action="<?php echo URLHOST."_pages/_post/to_devis.php"; ?>" method="post" id="to_devis" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Date
                                     <span class="required"> * </span>
