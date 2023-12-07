@@ -13,7 +13,6 @@ $currentType = $_POST['currentType'];
 
 $array = array();
 $company = new Company($array);
-print_r($bdd);
 $companymanager = new CompaniesManager($bdd);
 $companyNameData = $_POST["section"];
 $company = $companymanager->getByNameData($companyNameData);
