@@ -631,6 +631,9 @@ if(isset($_GET['cat5'])){
                 </div>
             </div>
         </div>
+        <?php
+            if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C"){
+        ?>
         <div id="to_avoir" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -671,6 +674,9 @@ if(isset($_GET['cat5'])){
                 </div>
             </div>
         </div>
+        <?
+            }
+        ?>
         <div id="to_devis" data-keyboard="false" data-backdrop="static" class="modal fade" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
