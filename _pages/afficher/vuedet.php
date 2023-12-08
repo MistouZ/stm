@@ -80,7 +80,8 @@ switch($type){
         $costType = "F";
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
-        $buttons = '<div class="actions">
+        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C"){
+            $buttons = '<div class="actions">
                         <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
@@ -88,6 +89,18 @@ switch($type){
                         <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
                             <i class="fas fa-file-invoice"></i> => Devis </a>
                     </div>';
+
+        }
+        else{
+            $buttons = '<div class="actions">
+            <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
+                <i class="fas fa-print"></i> Imprimer </a>
+            <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
+                <i class="fas fa-file-invoice"></i> => Devis </a>
+            </div>';
+        }
+
+        
         break;
     case "avoir":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"A",$companyId);
