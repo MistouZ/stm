@@ -121,11 +121,11 @@
                     <span class="title"><i class="far fa-list-alt"></i> Validés</span>
                 </a>
             </li>
-            <li class="nav-item  ">
+            <!--<li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/archives'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Archivés</span>
                 </a>
-            </li>
+            </li>-->
         </ul>
     </li>
     <li class="nav-item  ">
