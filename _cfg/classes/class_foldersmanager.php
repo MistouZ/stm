@@ -52,7 +52,7 @@ class FoldersManager
         
         try{
             $q = $this->_db->prepare('INSERT INTO folder (folderNumber, label, date, isActive,description,seller, companyId, customerId, contactId) VALUES (:folderNumber, :label, :date, :isActive, :description, :seller, :companyId,:customerId,:contactId)');
-            $q->bindValue(':folderNumber', $folderNumber, PDO::PARAM_STR);
+            $q->bindValue(':folderNumber', $folderNumber, PDO::PARAM_INT);
             $q->bindValue(':label', $folder->getLabel(), PDO::PARAM_STR);
             $q->bindValue(':date', $folder->getDate(), PDO::PARAM_STR );
             $q->bindValue(':isActive', $folder->getIsActive(), PDO::PARAM_INT);
