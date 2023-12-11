@@ -155,6 +155,7 @@ class CustomersManager
     public function getListByCompany($companyId)
     {
         $companyId = (integer) $companyId;
+        echo $companyId;
         $accounts = array();
         $q=$this->_db->query("SELECT * FROM link_company_customers WHERE company_idcompany = ".$companyId." ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
