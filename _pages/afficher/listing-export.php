@@ -87,12 +87,13 @@ $array = array();
                         foreach($quotations as $quotation){
                            
                             //initialisation au format date pour organiser le tableau
-                            $date = date('d/m/y', strtotime($quotation->getDate()));
+                            
 
                             $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t";
 
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             $clt = $customer->getName();
+                            $data .= $customer->getAccount()."\t".$customer->getSubaccount()."\t";
                             $client = STR_replace("é","E",$clt);
                             $client = STR_replace("è","E",$client);
                             $client = STR_replace("ê","E",$client);
@@ -214,6 +215,8 @@ $array = array();
                                     $test_tgc = true;
                                     break;
                               }
+                              
+                              $date = date('d/m/y', strtotime($quotation->getDate()));
 
                             ?>
                             <tr>
@@ -227,6 +230,7 @@ $array = array();
                                 <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer <?php echo $type; ?> n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber().'&type='.$type; ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             </tr>
                             <?php
+                            $piece++;
                         }
                         ?>
                         </tbody>
