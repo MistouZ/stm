@@ -152,11 +152,11 @@ class CustomersManager
      * Get all the active customers in the BDD filtered by Company
      * @return array
      */
-    public function getListByCompany($idcustomer,$companyId)
+    public function getListByCompany($companyId)
     {
         $companyId = (integer) $companyId;
         $accounts = array();
-        $q=$this->_db->query("SELECT * FROM link_company_customers WHERE customers_idcustomer = ".$idcustomer." AND company_idcompany = ".$companyId." ");
+        $q=$this->_db->query("SELECT * FROM link_company_customers WHERE company_idcompany = ".$companyId." ");
         while($donnees = $q->fetch(PDO::FETCH_ASSOC))
         {
             $accounts[] = $donnees;
