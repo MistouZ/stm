@@ -66,9 +66,8 @@ $array = array();
              <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" id="sample_3" cellspacing="0" width="100%">
                         <thead>
                         <tr>
-                            <th style="text-align: center !important;" class="desktop"><input id="select-all" type="checkbox" title="Sélectionner / Désélectionner tout" /></th>
                             <th class="all">Date</th>
-                            <th class="min-phone-l">Numéro de <?php echo $type; ?></th>
+                            <th class="min-phone-l">Numéro de facture</th>
                             <th class="min-tablet">Client</th>
                             <th class="desktop">Dossier</th>
                             <th class="desktop">Libellé</th>
@@ -218,7 +217,6 @@ $array = array();
 
                             ?>
                             <tr>
-                                <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
                                 <td><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
