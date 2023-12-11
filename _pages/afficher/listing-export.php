@@ -141,7 +141,7 @@ $array = array();
                             $data .= "FC\t".$customer->getModalite()."\t".$date."\r\n";
                             // fin de la 1ere ligne
 
-                            /*switch($company){
+                            switch($company){
                                 Case "concept":
                                     $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
                                     $remisec[$i] = ($donnees['remise'.$i]/100);
@@ -213,7 +213,7 @@ $array = array();
                                     $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
                                     $test_tgc = true;
                                     break;
-                              }*/ 
+                              }
 
                             ?>
                             <tr>
