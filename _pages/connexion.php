@@ -43,7 +43,7 @@
                 </div>
                 <div class="forget-password">
                     <h4>Mot de passe oublié ?</h4>
-                    <p> Pas de soucis
+                    <p> Pas de souci
                         <a href="javascript:;" id="forget-password"> ICI </a> pour réinitialiser votre mot de passe. </p>
                 </div>
             </form>

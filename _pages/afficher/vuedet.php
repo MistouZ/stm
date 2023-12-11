@@ -80,7 +80,8 @@ switch($type){
         $costType = "F";
         $entete = "de la facture";
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
-        $buttons = '<div class="actions">
+        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C"){
+            $buttons = '<div class="actions">
                         <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
@@ -88,6 +89,18 @@ switch($type){
                         <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
                             <i class="fas fa-file-invoice"></i> => Devis </a>
                     </div>';
+
+        }
+        else{
+            $buttons = '<div class="actions">
+            <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
+                <i class="fas fa-print"></i> Imprimer </a>
+            <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
+                <i class="fas fa-file-invoice"></i> => Devis </a>
+            </div>';
+        }
+
+        
         break;
     case "avoir":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"A",$companyId);
@@ -500,6 +513,7 @@ if(isset($_GET['cat5'])){
                     <form action="<?php echo URLHOST."_pages/_post/to_validate.php"; ?>" method="post" id="to_validate" class="form-horizontal form-row-seperated">
                         <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                         <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                        <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                             <button type="submit" class="btn green" name="valider">
@@ -577,6 +591,7 @@ if(isset($_GET['cat5'])){
                             </div>
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                             <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
+                            <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
@@ -617,6 +632,7 @@ if(isset($_GET['cat5'])){
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                             <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                             <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                            <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
@@ -656,6 +672,7 @@ if(isset($_GET['cat5'])){
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                             <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                             <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                            <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
@@ -675,7 +692,7 @@ if(isset($_GET['cat5'])){
                         <h4 class="modal-title">Passage <?php echo $entete; ?> <span style="font-style: italic; font-weight: 800;"><?php echo $quotation->getQuotationNumber(); ?></span> en devis</h4>
                     </div>
                     <div class="modal-body form">
-                        <form action="<?php echo URLHOST."_pages/_post/to_devis.php"; ?>" method="post" id="to_avoir" class="form-horizontal form-row-seperated">
+                        <form action="<?php echo URLHOST."_pages/_post/to_devis.php"; ?>" method="post" id="to_devis" class="form-horizontal form-row-seperated">
                             <div class="form-group">
                                 <label class="control-label col-md-4">Date
                                     <span class="required"> * </span>
@@ -695,6 +712,7 @@ if(isset($_GET['cat5'])){
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                             <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                             <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                            <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">
@@ -734,6 +752,7 @@ if(isset($_GET['cat5'])){
                             <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotation->getQuotationNumber(); ?>">
                             <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                             <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                            <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                             <div class="modal-footer">
                                 <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
                                 <button type="submit" class="btn green" name="valider">

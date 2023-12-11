@@ -153,7 +153,7 @@ if(isset($_POST['valider'])) {
                         //Calcul du montant des devis / factures et cumul pour le Palmares
                         $montant = 0;
                         foreach ($descriptions as $description) {
-                            $montant = calculMontantTotalTTC($description, $montant);
+                            $montant = calculMontantTotalHT($description, $montant);
                         }
 
                         //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
@@ -239,7 +239,7 @@ if(isset($_POST['valider'])) {
     <div class="col-md-6"> </div>
     <div class="col-md-6">
         <div class="row static-info align-reverse">
-            <div class="col-md-8 name"> Total TTC : </div>
+            <div class="col-md-8 name"> Total HT : </div>
             <div class="col-md-3 value"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
         </div>
     </div>
@@ -254,7 +254,7 @@ if(isset($_POST['valider'])) {
     <div class="col-md-6">
         <div class="well">
             <div class="row static-info align-reverse">
-                <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Marge TTC : </div>
+                <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Marge HT : </div>
                 <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($TotalMarge,0,","," "); ?> XPF</div>
             </div>
         </div>

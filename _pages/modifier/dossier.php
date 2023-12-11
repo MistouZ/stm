@@ -89,7 +89,7 @@ foreach ($customermanager as $customer) {
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Le dossier a bien été créé </div>
+                            <button class="close" data-close="alert"></button> Le dossier a bien été modifié </div>
                         <div class="form-group">
                             <label class="control-label col-md-3" for="label">Intitulé du dossier
                                 <span class="required"> * </span>
@@ -147,7 +147,7 @@ foreach ($customermanager as $customer) {
                             <label class="control-label col-md-3" for="contact-select">Contact</label>
                             <div class="col-md-4">
                                 <select id="contact-select" name="contact-select" class="form-control">
-                                    <option value="">--Choississez le contact--</option>
+                                    <option value="0">--Choississez le contact--</option>
                                     <?php
                                         foreach($contactByCustomers as $contacts){
                                             if($contacts->getIdContact() == $folder->getContactId()){

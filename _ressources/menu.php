@@ -121,11 +121,11 @@
                     <span class="title"><i class="far fa-list-alt"></i> Validés</span>
                 </a>
             </li>
-            <li class="nav-item  ">
+            <!--<li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/archives'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Archivés</span>
                 </a>
-            </li>
+            </li>-->
         </ul>
     </li>
     <li class="nav-item  ">
@@ -165,7 +165,7 @@
         </a>
     </li>
     <?php
-        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F") {
+        if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "F" || $_COOKIE["credential"] == "C") {
     ?>
         <li class="heading">
             <h3 class="uppercase"><i class="fas fa-calculator"></i> Analyses</h3>

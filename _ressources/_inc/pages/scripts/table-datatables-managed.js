@@ -129,10 +129,10 @@ var TableDatatablesManaged = function () {
             // set the initial value
             "pageLength": 5,
             "columnDefs": [{  // set default column settings
-                'orderable': false,
+                'orderable': true,
                 'targets': [0]
             }, {
-                "searchable": false,
+                "searchable": true,
                 "targets": [0]
             }],
             "order": [
