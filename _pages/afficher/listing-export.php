@@ -93,7 +93,8 @@ $array = array();
 
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             $clt = $customer->getName();
-                            $data .= $customer->getAccount()."\t".$customer->getSubaccount()."\t";
+                            $accounts = $customermanager->getListByCompany($quotation->getCustomerId(),$companyId);
+                            $data .= $accounts[2]."\t".$accounts[3]."\t";
                             $client = STR_replace("é","E",$clt);
                             $client = STR_replace("è","E",$client);
                             $client = STR_replace("ê","E",$client);
