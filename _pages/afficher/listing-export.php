@@ -93,9 +93,21 @@ $array = array();
 
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             $clt = $customer->getName();
-                            $accounts = $customermanager->getListByCompany($quotation->getCustomerId(),$companyId);
-                            //print_r($accounts);
-                            $data .= $accounts[2]."\t".$accounts[3]."\t";
+                            
+                            //On sépare les différents subaccounts
+                            $subaccountsList = explode(", ",$customer->getSubaccount());
+                            $i = 0;
+                            $subaccounts = array();
+                            while ($i < count($subaccountsList))
+                            {
+                                $subaccountsList2 = explode("_",$subaccountsList[$i] );
+                                $j = $subaccountsList2[0];
+                                $k = $subaccountsList2[1];
+                                $subaccounts[$j] = $k;
+                                $i++;
+                            }
+
+                            $data .= $customer->getAccount()."\t".$subaccounts[$companyId]."\t";
                             $client = STR_replace("é","E",$clt);
                             $client = STR_replace("è","E",$client);
                             $client = STR_replace("ê","E",$client);
