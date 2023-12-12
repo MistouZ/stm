@@ -19,7 +19,7 @@ $companies = $companies->getList();
             <div class="portlet-title">
                 <div class="caption">
                     <i class="icon-settings"></i>
-                    <span class="caption-subject sbold uppercase">Création d'un client</span>
+                    <span class="caption-subject sbold uppercase">Création d'un fournisseur</span>
                 </div>
             </div>
             <div class="portlet-body form">
@@ -29,7 +29,7 @@ $companies = $companies->getList();
                         <div class="alert alert-danger display-hide">
                             <button class="close" data-close="alert"></button> Une erreur s'est produite, merci de renseigner les champs requis. </div>
                         <div class="alert alert-success display-hide">
-                            <button class="close" data-close="alert"></button> Le client a bien été créé </div>
+                            <button class="close" data-close="alert"></button> Le fournisseur a bien été créé </div>
                         <div class="form-group">
                             <label class="control-label col-md-3">Nom du Fournisseur
                                 <span class="required"> * </span>
