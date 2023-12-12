@@ -39,7 +39,7 @@ if(isset($_POST['valider'])){
     {
       $supplier = new Suppliers($array);
       $suppliermanager = new SuppliersManager($bdd);
-      $suppliermanager->add($supplier,$_POST["case"]);
+      $suppliermanager->add($supplier,$_POST["case"],$_POST["account"],$_POST["subaccount"]);
     }
     
     if(is_null($test)){
