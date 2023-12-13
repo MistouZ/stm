@@ -341,8 +341,8 @@ $array = array();
          <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
          <div class="modal-footer">
              <button type="button" class="btn grey-salsa btn-outline" onclick="history.go(-1)">Fermer</button>
-             <button type="submit" class="btn green" name="telecharger" onclick="window.location.href='<?php echo URLHOST."_pages/_post/dl_export.php"; ?>';">
-                 <i class="fas fa-file-arrow-down"></i> Télécharger MVTECO</button>
+             <button type="submit" class="btn green" name="telecharger" onclick="window.location.href='<?php echo URLHOST."_pages/_post/dl_export.php?path=".__DIR__."/export/MVTECO".$date2.".txt"; ?>';">
+                <i class="fas fa-file-export"></i> Télécharger MVTECO</button>
          </div>
      </form>
  </div>
