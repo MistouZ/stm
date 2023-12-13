@@ -87,6 +87,23 @@ $array = array();
                         foreach($quotations as $quotation){
                            
                             /**
+                             * 
+                             * Initialisation des TGC et HT
+                             * 
+                             */
+                             $test_tgc = false;
+
+                             $total_tgc3 = 0;
+                             $total_tgc6 = 0;
+                             $total_tgc11 = 0;
+                             $total_tgc22 = 0;
+                             $total_tgc3_HT = 0;
+                             $total_tgc6_HT = 0;
+                             $total_tgc11_HT = 0;
+                             $total_tgc22_HT = 0;
+                             $total_sans_taxe = 0;
+
+                            /**
                              *Début de la 1ère ligne
                              * 
                              * Ajout de l'année et du mois de la facture avec le n° de pièce qui recommence à 1 à chaque génération de fichier
@@ -157,6 +174,10 @@ $array = array();
                                 **/
 
                                 switch($description->getTax()){
+                                    Case 0:
+                                        $total_sans_taxe = $total_sans_taxe + $montantLigne;
+                                        $test_tgc = true;
+                                        break;
                                     Case 0.03:
                                         $total_tgc3_HT = $total_tgc3_HT + $montantLigne;
                                         $total_tgc3 = $total_tgc3 + $taxe;
@@ -257,86 +278,15 @@ $array = array();
                              * Dernière ligne sur les descriptions hors taxe (pas de TGC appliquée)
                              * 
                              */
-
-                            if(($ste == 'itech') || ($ste =='concerto')){
-                                $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704006\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_tss,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
-                            }else{
-                                $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t707000\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_tss,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
+                            if($total_sans_taxe != 0){
+                                if(($ste == 'itech') || ($ste =='concerto')){
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704006\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_taxe,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
+                                }else{
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t707000\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_taxe,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
+                                }
                             }
 
-                            switch($company){
-                                Case "concept":
-                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
-                                    $remisec[$i] = ($donnees['remise'.$i]/100);
-                                    $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
-                                    $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
-                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
-                                    $total_tgc6_HT = $total_tgc6_HT + $prix_total[$i];
-                                    $total_tgc6 = $total_tgc6 + ($donnees['tss'.$i]*$prix_total[$i]);
-                                    $test_tgc = true;
-                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t445716\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc6,0)."\t".$client2." F ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()."\t FC\t\t\t\r\n";
-                                    break;
-                                Case "itech":
-                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
-                                    $remisec[$i] = ($donnees['remise'.$i]/100);
-                                    $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
-                                    $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
-                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
-                                    $total_tgc6_HT = $total_tgc6_HT + $prix_total[$i];
-                                    $total_tgc6 = $total_tgc6 + ($donnees['tss'.$i]*$prix_total[$i]);
-                                    $test_tgc = true;
-                                    break;
-                                Case "concerto":
-                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
-                                    $remisec[$i] = ($donnees['remise'.$i]/100);
-                                    $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
-                                    $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
-                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
-                                    $total_tgc11_HT = $total_tgc11_HT + $prix_total[$i];
-                                    $total_tgc11 = $total_tgc11 + ($donnees['tss'.$i]*$prix_total[$i]);
-                                    $test_tgc = true;
-                                    break;
-                                Case "bitwin":
-                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
-                                    $remisec[$i] = ($donnees['remise'.$i]/100);
-                                    $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
-                                    $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
-                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
-                                    $total_tgc22_HT = $total_tgc22_HT + $prix_total[$i];
-                                    $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
-                                    $test_tgc = true;
-                                    break;
-                                Case "cmg":
-                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
-                                    $remisec[$i] = ($donnees['remise'.$i]/100);
-                                    $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
-                                    $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
-                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
-                                    $total_tgc22_HT = $total_tgc22_HT + $prix_total[$i];
-                                    $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
-                                    $test_tgc = true;
-                                    break;
-                                Case "i-scope":
-                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
-                                    $remisec[$i] = ($donnees['remise'.$i]/100);
-                                    $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
-                                    $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
-                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
-                                    $total_tgc22_HT = $total_tgc22_HT + $prix_total[$i];
-                                    $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
-                                    $test_tgc = true;
-                                    break;
-                                Case "stm":
-                                    $prix_total[$i] = ($donnees['quantite'.$i]*$donnees['prix'.$i]);
-                                    $remisec[$i] = ($donnees['remise'.$i]/100);
-                                    $total_remise[$i] = ($prix_total[$i]*$remisec[$i]);
-                                    $prix_total[$i] =  $prix_total[$i]-$total_remise[$i];
-                                    $total_fact_HT = $total_fact_HT + $prix_total[$i];
-                                    $total_tgc22_HT = $total_tgc22_HT + $prix_total[$i];
-                                    $total_tgc22 = $total_tgc22 + ($donnees['tss'.$i]*$prix_total[$i]);
-                                    $test_tgc = true;
-                                    break;
-                              }
+                            
                               
                               $date = date('d/m/y', strtotime($quotation->getDate()));
 
