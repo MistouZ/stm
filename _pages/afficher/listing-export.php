@@ -270,7 +270,7 @@ $array = array();
                                         }
                                     }
                             }else{
-                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704000\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($ligne_total_HT,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\t\r\n";
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704000\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($montantHT,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\t\r\n";
                             }
 
                             /**
