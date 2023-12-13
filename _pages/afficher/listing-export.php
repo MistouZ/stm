@@ -86,9 +86,12 @@ $array = array();
 
                         foreach($quotations as $quotation){
                            
-                            //initialisation au format date pour organiser le tableau
-                            
-
+                            /**
+                             *Début de la 1ère ligne
+                             * 
+                             * Ajout de l'année et du mois de la facture avec le n° de pièce qui recommence à 1 à chaque génération de fichier
+                             * Le CO 70 est une constante d'XL COMPTA
+                            **/                           
                             $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t";
 
                             $customer = $customermanager->getById($quotation->getCustomerId());
@@ -106,8 +109,14 @@ $array = array();
                                 $subaccounts[$j] = $k;
                                 $i++;
                             }
-
+                            
+                            /**
+                             * 1ère ligne
+                             * 
+                             * Ajout des comptes clients et sous-comptes
+                            **/
                             $data .= $customer->getAccount()."\t".$subaccounts[$companyId]."\t";
+
                             $client = STR_replace("é","E",$clt);
                             $client = STR_replace("è","E",$client);
                             $client = STR_replace("ê","E",$client);
@@ -124,6 +133,7 @@ $array = array();
                             $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
                             $montant = 0;
                             $arrayTaxesKey =  array();
+
                             foreach ($descriptions as $description) {
                                 $montantLigne = $description->getQuantity()*$description->getPrice();
                                 $remise = $montantLigne*($description->getDiscount()/100);
@@ -140,23 +150,119 @@ $array = array();
                                     $arrayTaxesKey[$tax->getName()]['Montant']=$taxe;                                                    
                                 }
 
-                                //switch à mettre ici
+                                /**
+                                 * Préparation de la 2ème ligne
+                                 * 
+                                 * Calcul des montants des taxes et montant avant l'application des taxes
+                                **/
+
+                                switch($description->getTax()){
+                                    Case 0.03:
+                                        $total_tgc3_HT = $total_tgc3_HT + $montantLigne;
+                                        $total_tgc3 = $total_tgc3 + $taxe;
+                                        $test_tgc = true;
+                                        break;
+                                    Case 0.06:
+                                        $total_tgc6_HT = $total_tgc6_HT + $montantLigne;
+                                        $total_tgc6 = $total_tgc6 + $taxe;
+                                        $test_tgc = true;
+                                        break;
+                                    Case 0.11:
+                                        $total_tgc11_HT = $total_tgc11_HT + $montantLigne;
+                                        $total_tgc11 = $total_tgc11 + $taxe;
+                                        $test_tgc = true;
+                                        break;
+                                    Case 0.22:
+                                        $total_tgc22_HT = $total_tgc22_HT + $montantLigne;
+                                        $total_tgc22 = $total_tgc22 + $taxe;
+                                        $test_tgc = true;
+                                        break;
+                                  }
 
                                 $totalTaxe = $totalTaxe+$taxe;
                                 $montantHT = $montantHT+$montantLigne;
                                 //$montant = $montant+$montantLigne+$taxe;
                                 $montant = calculMontantTotalTTC($description, $montant);
                             }
-                            $data .= date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t".Round($montant,0)."\t0\t".$client2." F ".$quotation->getQuotationNumber()." D ";
-                            $data .= $folder->getFolderNumber()."\t";
+
+                            /**
+                             * 1ère ligne
+                             * 
+                             * Ajout de la date, du montant total, du client, du numéro de facture et du numéro de dossier
+                            **/
+                            $data .= date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t".Round($montant,0)."\t0\t".$client2." F ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()."\t";
 
                             if ($customer->getModalite() == '30JF'){
                                 $date = date("dmY" , mktime(0,0,0,date('m', strtotime($quotation->getDate())),date('d', strtotime($quotation->getDate()))+30,date('Y', strtotime($quotation->getDate()))));
                             } else {
                                 $date = date("dmY" , strtotime($quotation->getDate()));
                             }
+
+                            /**
+                             * 1ère ligne
+                             * 
+                             * Ajout des modalités de paiement et de la date de la facture
+                             * 
+                            **/
                             $data .= "FC\t".$customer->getModalite()."\t".$date."\r\n";
-                            // fin de la 1ere ligne
+                            
+                            /**
+                             * 
+                             * Fin de la 1ère ligne
+                             * 
+                            **/
+                            
+                            /**
+                             * 
+                             * 2ème ligne à 4ème ligne max -> cumul TGC par tranche
+                             * 
+                             */
+
+                            for($ligne=1;$ligne<=4;$ligne++){
+                                if($total_tgc3!=0 && $ligne == 1){
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t445714\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc3,0)."\t".$client2." F ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()."\t FC\t\t\t\r\n";
+                                }elseif($total_tgc6!=0 && $ligne == 2){
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t445715\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc6,0)."\t".$client2." F ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()."\t FC\t\t\t\r\n";
+                                }elseif($total_tgc11!=0 && $ligne == 3){
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t445716\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc11,0)."\t".$client2." F ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()."\t FC\t\t\t\r\n";
+                                }elseif($total_tgc22!=0 && $ligne == 4){
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t445717\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc22,0)."\t".$client2." F ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()."\t FC\t\t\t\r\n";
+                                }
+                            }
+
+                            /**
+                             * 
+                             * Dernières ou avant dernières lignes -> cumul des montants HT ayant une TGC par tranche
+                             * 
+                             */
+
+                            if($ste == 'itech' || $ste == 'concerto'){
+                                    for($ligne=1;$ligne<=4;$ligne++){
+                                        if($total_tgc3!=0 && $ligne == 1){
+                                            $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704001\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc3_HT,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\t\r\n";
+                                        }elseif($total_tgc6!=0 && $ligne == 2){
+                                            $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704002\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc6_HT,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\t\r\n";
+                                        }elseif($total_tgc11!=0 && $ligne == 3){
+                                            $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704003\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc11_HT,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\t\r\n";
+                                        }elseif($total_tgc22!=0 && $ligne == 4){
+                                            $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704004\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc22_HT,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\t\r\n";
+                                        }
+                                    }
+                            }else{
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704000\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($ligne_total_HT,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\t\r\n";
+                            }
+
+                            /**
+                             * 
+                             * Dernière ligne sur les descriptions hors taxe (pas de TGC appliquée)
+                             * 
+                             */
+
+                            if(($ste == 'itech') || ($ste =='concerto')){
+                                $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704006\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_tss,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
+                            }else{
+                                $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t707000\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_tss,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
+                            }
 
                             switch($company){
                                 Case "concept":
