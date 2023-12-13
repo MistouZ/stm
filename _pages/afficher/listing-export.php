@@ -93,6 +93,7 @@ $array = array();
                              */
                              $test_tgc = false;
 
+                             $montantHT = 0;
                              $total_tgc3 = 0;
                              $total_tgc6 = 0;
                              $total_tgc11 = 0;
@@ -102,7 +103,7 @@ $array = array();
                              $total_tgc11_HT = 0;
                              $total_tgc22_HT = 0;
                              $total_sans_taxe = 0;
-
+                             
                             /**
                              *Début de la 1ère ligne
                              * 
