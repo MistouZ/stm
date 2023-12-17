@@ -76,6 +76,7 @@ else{
                 <table class="table table-striped table-bordered table-hover dt-responsive sample_3" width="100%" id="sample_3" cellspacing="0" width="100%">
                     <thead>
                         <tr>
+                            <th class="all"></th>
                             <th class="all">Numéro de Dossier</th>
                             <th class="min-phone-l">Intitulé du dossier</th>
                             <th class="min-tablet">Client</th>
@@ -112,6 +113,7 @@ else{
                         }
                         ?>
                         <tr>
+                            <td></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
                             <td><?php echo $customer->getName(); ?></td>
