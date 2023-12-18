@@ -36,10 +36,16 @@ $taxmanager = $taxmanager->getList();
             <a href="javascript:;" class="collapse"> </a>
             <a href="javascript:;" class="reload"> </a>
         </div>
+        <?php
+         if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C") {
+        ?>
         <div class="actions">
             <a data-toggle="modal" href="#modifier_client" class="btn btn-sm grey-mint">
                 <i class="fas fa-pencil-alt"></i> Modifier le client </a>
         </div>
+        <?php
+         }
+         ?>
     </div>
     <div class="portlet-body">
        <div class="row">
