@@ -295,7 +295,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
     <div class="page-template">
         <?php if($printType=='header'){ ?>
             <div class="header" >
-                <img src="<?php echo URLHOST; ?>images/societe/header/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; margin-bottom : 10px" />
+                <img src="<?php echo URLHOST; ?>images/societe/header/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; margin-bottom : auto; width: 100%" />
             </div>
             <div class="footer">
                 <h5> #:pageNum# / #:totalPages# </h5>  
