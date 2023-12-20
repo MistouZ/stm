@@ -318,7 +318,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 }
                 else{
                 ?>
-                    <div style="height : 30px;"></div>
+                    <div style="height : 10px;"></div>
                 <?php
                 }
                 ?>  
