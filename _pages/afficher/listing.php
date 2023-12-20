@@ -222,7 +222,7 @@ switch($type){
                             ?>
                             <tr>
                                 <td><input class="selection" type="checkbox" name="selection[]" value="<?php echo $quotation->getQuotationNumber(); ?>" /></td>
-                                <td><?php echo $date; ?></td>
+                                <td data-sort='YYYYMMDD'><?php echo $date; ?></td>
                                 <td><?php echo $quotation->getQuotationNumber(); ?></td>
                                 <td><?php echo $customer->getName(); ?></td>
                                 <td><?php echo $folder->getFolderNumber(); ?></td>
