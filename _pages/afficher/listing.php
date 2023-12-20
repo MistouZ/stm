@@ -195,7 +195,7 @@ switch($type){
                             <th class="desktop">Libellé</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Détail</th>
-                            <?php if($_GET['cat'] != "facture"){
+                            <?php if($_GET['cat'] != "facture" && $_GET['cat'] != "proforma"){
                                 ?>
                             <th class="desktop">Modifier</th>
                             <?php
@@ -229,7 +229,7 @@ switch($type){
                                 <td><?php echo $quotation->getLabel(); ?></td>
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
-                                <?php if($_GET['cat'] != "facture"){
+                                <?php if($_GET['cat'] != "facture" && $_GET['cat'] != "proforma"){
                                 ?>
                                 <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                 <?php
