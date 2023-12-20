@@ -109,10 +109,6 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                             ?>
                                                             N° <?php echo $folder->getFolderNumber()." ".$folder->getLabel()." (".strtoupper($customer->getName()).")"; ?>
                                                             <?php
-                                                        }else{
-                                                            ?>
-                                                            ""
-                                                            <?php
                                                         }
                                                     }
                                                     ?>
