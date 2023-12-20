@@ -98,9 +98,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                            <label class="col-md-2 control-label">Dossier
-                                                <span class="required" aria-required="true"> * </span>
-                                            </label>
+                                            <label class="col-md-2 control-label">Dossier</label>
                                             <div class="col-md-10">
                                                     <?php
                                                     foreach ($foldermanager as $folder){
