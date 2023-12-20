@@ -297,7 +297,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             <div class="header" >
                 <?php if($type =="facture")
                 {
-                    ?>
+                ?>
                     <img src="<?php echo URLHOST; ?>images/societe/header/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; max-height : 100px"  />
                 <?php
                 }
@@ -309,8 +309,19 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 ?>                
             </div>
             <div class="footer">
-                <h5> #:pageNum# / #:totalPages# </h5>  
+                <h5> #:pageNum# / #:totalPages# </h5>
+                <?php if($type =="facture")
+                {
+                ?>  
                 <img src="<?php echo URLHOST; ?>images/societe/footers/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />        
+                <?php
+                }
+                else{
+                ?>
+                    <div style="height : 30px;"></div>
+                <?php
+                }
+                ?>  
             </div>
         <?php }else{ ?>
             <div class="header" >
