@@ -22,7 +22,7 @@ $folderId = $_POST["folder"];
 $companyId = $folder->getCompanyId();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D", $companyId);
+$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"F", $companyId);
 $customerId = $quotationGet->getCustomerId();
 $contactId = $quotationGet->getContactId();
 
