@@ -313,7 +313,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <?php if($type =="facture")
                 {
                 ?>  
-                <img src="<?php echo URLHOST; ?>images/societe/footers/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />        
+                <img src="<?php echo URLHOST; ?>images/societe/footer/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />        
                 <?php
                 }
                 else{
