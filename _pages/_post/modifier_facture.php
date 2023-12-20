@@ -60,6 +60,7 @@ while(($postDescription = current($_POST["descriptionFacture"])) !== FALSE ){
 
     $j = key($_POST["descriptionFacture"]);
     if(strlen(trim($postDescription))>0){
+        echo " passe 4-".$j;
         if(empty($_POST["remiseFacture"][$j])){
             $remise = 0;
         }else{
