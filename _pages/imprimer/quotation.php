@@ -303,7 +303,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 }
                 else{
                     ?>
-                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height : 60px;">"  />
+                    <img src="<?php echo URLHOST; ?>images/societe/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="max-height : 60px;">
                 <?php
                 }
                 ?>                
