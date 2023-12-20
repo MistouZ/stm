@@ -267,6 +267,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                         </div>
                     </div>
                     <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
+                    <input type="hidden" id="folder" name="folder" value="<?php echo $folder->getCustomerId(); ?>">
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
