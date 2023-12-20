@@ -162,11 +162,11 @@ var TableDatatablesResponsive = function () {
 
             "columnDefs": [{ 
                 "type": 'date-eu', 
-                "targets": [1] 
+                "targets": [0] 
             }],
 
             "order": [
-                [1, 'asc']
+                [0, 'asc']
             ],
             
             "lengthMenu": [
