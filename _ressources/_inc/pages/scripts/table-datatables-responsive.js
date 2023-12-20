@@ -164,9 +164,9 @@ var TableDatatablesResponsive = function () {
                 "type": 'date-eu', 
                 "targets": [1] 
             }],
-            
+
             "order": [
-                [0, 'asc']
+                [1, 'asc']
             ],
             
             "lengthMenu": [
