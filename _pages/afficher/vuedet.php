@@ -82,6 +82,8 @@ switch($type){
         $enteteIcon = '<i class="fas fa-file-invoice-dollar"></i>';
         if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C"){
             $buttons = '<div class="actions">
+                        <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                            <i class="fas fa-edit"></i> Modifier </a>
                         <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
                         <a data-toggle="modal" href="#to_avoir" class="btn btn-default btn-sm">
