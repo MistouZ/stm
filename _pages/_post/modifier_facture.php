@@ -26,11 +26,14 @@ $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D", $c
 $customerId = $quotationGet->getCustomerId();
 $contactId = $quotationGet->getContactId();
 
+echo " passe 1 ";
 
 $date = date("Y-m-d", strtotime(str_replace('/','-',$_POST['date'])));
 
 $status = "En cours";
 $type = "F";
+
+echo " passe 2 ";
 
 $data = array(
     'idQuotation' => $quotationGet->getIdQuotation(),
@@ -44,6 +47,7 @@ $data = array(
     'customerId' => $customerId,
     'contactId' => $contactId
 );
+echo " passe 3 ";
 print_r($data);
 $quotation = new Quotation($data);
 $test = $quotationmanager->update($quotation);
