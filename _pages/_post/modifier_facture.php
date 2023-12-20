@@ -52,6 +52,7 @@ print_r($data);
 $quotation = new Quotation($data);
 $test = $quotationmanager->update($quotation);
 
+echo " passe 4 ";
 $descriptions= array();
 
 $i=1;
@@ -85,7 +86,7 @@ while(($postDescription = current($_POST["descriptionFacture"])) !== FALSE ){
     $i++;
     next($_POST["descriptionFacture"]);
 }
-
+echo " passe 5 ";
 $test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type,$companyId);
 
 echo "modif insérée";
