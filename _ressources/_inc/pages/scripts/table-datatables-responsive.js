@@ -160,11 +160,6 @@ var TableDatatablesResponsive = function () {
                 }
             },
 
-            "columnDefs": [{ 
-                "type": 'date-eu', 
-                "targets": [0] 
-            }],
-
             "order": [
                 [0, 'asc']
             ],
