@@ -235,24 +235,12 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                             <input type="digits" id="prixFacture<?php echo $i; ?>" name="prixFacture[<?php echo $i; ?>]" value="<?php echo $description->getPrice(); ?>" class="form-control" placeholder="HT">
                                                         </div>
                                                     </div>
-                                                    <div id="divsupprFacture<?php echo $i; ?>" style="text-align: right;" class="col-md-1">
-                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
-                                                            <button type="button" title="Supprimer la ligne" id="suppr<?php echo $i; ?>" class="btn red" onclick="supprLigneFacture(<?php echo $i; ?>);"><i class="fas fa-minus-square"></i></button>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                             </div>
                                             <?php
                                             $i++;
                                         }
                                         ?>
-                                        <div class="form-actions fluid">
-                                            <div class="row">
-                                                <div class="col-md-12" style="text-align: center;">
-                                                    <button type="button" id="ajout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
