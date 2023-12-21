@@ -203,7 +203,10 @@ var TableDatatablesManaged = function () {
             }, {
                 "searchable": false,
                 "targets": [0]
-            }],
+            }/*, { 
+                "type": 'date-eu', 
+                "targets": [1] 
+            }*/],
             "order": [
                 [1, "asc"]
             ] // set first column as a default sort by asc
