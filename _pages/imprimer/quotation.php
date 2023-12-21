@@ -295,7 +295,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
     <div class="page-template">
         <?php if($printType=='header'){ ?>
             <div class="header" >
-                <?php if($type =="facture")
+                <?php if($type !="facture")
                 {
                 ?>
                     <img src="<?php echo URLHOST; ?>images/societe/header/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default"   />
