@@ -298,7 +298,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <?php if($type !="facture")
                 {
                 ?>
-                    <img src="<?php echo URLHOST; ?>images/societe/header/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default"   />
+                    <img src="<?php echo URLHOST; ?>images/societe/header/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;   max-height : 100px"  />
                 <?php
                 }
                 else{
