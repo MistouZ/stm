@@ -31,6 +31,7 @@ $data = array(
     'validatedDate' => $today
 );
 
+
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
