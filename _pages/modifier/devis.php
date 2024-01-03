@@ -56,8 +56,6 @@ if($quotation->getContactId() != 0){
 $customer = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
 
-print_r($customer);
-
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
@@ -153,6 +151,10 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                         </div>
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
+                                                    <?php 
+
+                                                    print_r($customer);
+                                                    ?>
                                                         <h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customer->getName(); ?></span></h5>
                                                         <h5 style="font-weight: 800;">Contact : <span id="spanContact"><?php echo $contact->getFirstname()." ".$contact->getName(); ?></span></h5>
                                                     </div>
