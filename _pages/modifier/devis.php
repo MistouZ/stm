@@ -150,11 +150,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                             <a href="" class="collapse" data-original-title="" title=""> </a>
                                                         </div>
                                                     </div>
-                                                    <div class="portlet-body" style="display: block;">
-                                                    <?php 
-
-                                                    //print_r($customer);
-                                                    ?>
+                                                    <div class="portlet-body" style="display: block;">                                                    
                                                         <h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customerQuotation->getName(); ?></span></h5>
                                                         <h5 style="font-weight: 800;">Contact : <span id="spanContact"><?php echo $contact->getFirstname()." ".$contact->getName(); ?></span></h5>
                                                     </div>
