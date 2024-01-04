@@ -6,8 +6,8 @@
  */
 include("../../_cfg/cfg.php");
 
-/*echo "Multi Validation Facture : ";
-print_r($_POST['selection']);*/
+echo "Multi Validation Facture : ";
+print_r($_POST['selection']);
 
 echo $companyNameData = $_POST["company"];
 
