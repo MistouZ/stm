@@ -9,6 +9,8 @@ include("../../_cfg/cfg.php");
 /*echo "Multi Validation Facture : ";
 print_r($_POST['selection']);*/
 
+echo $companyNameData = $_POST["company"];
+
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
 
@@ -31,6 +33,7 @@ $data = array(
     'validatedDate' => $today
 );
 
+echo "je suis là";
 
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
