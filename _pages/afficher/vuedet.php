@@ -63,7 +63,6 @@ switch($type){
                         </div>';
             }
             elseif($type2=="valides"){
-                echo "je suis ici";
                 $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P",$companyId);;
                 $costType = "P";
                 $entete = "du devis";
