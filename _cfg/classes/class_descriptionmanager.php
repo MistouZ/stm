@@ -154,12 +154,12 @@ class DescriptionManager
             {
                 echo "suppresion réussie ".$quotationNumber;
             }
-            $test2 =$this->add($description,$quotationNumber,$quotationType, $companyId);
+            /*$test2 =$this->add($description,$quotationNumber,$quotationType, $companyId);
             if(!is_null($test2))
             {
                 echo "Ajout réussie ".$quotationNumber;
             }
-            return $description;
+            return $description;*/
         }
         catch(Exception $e){
             return null;
