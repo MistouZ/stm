@@ -55,7 +55,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
         $shatteredQuotationInit = $shatteredQuotationManager->getByQuotationNumberChild($quotationNumber);
         $quotationNumberInit = $shatteredQuotationInit->getQuotationNumberInit();
         $quotationInit = $quotationNumberInit."_init";
-        $test2 = $descriptionmanager->delete($quotationInit,"D");
+        $test2 = $descriptionmanager->delete($quotationInit,"D", $companyId);
         $test3 = $shatteredQuotationManager->delete($quotationInit);
     }
     else{
