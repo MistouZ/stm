@@ -11,8 +11,6 @@ $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
 $currentType = $_POST['currentType'];
 
-//print_r($_POST);
-
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
@@ -20,15 +18,9 @@ $companyNameData = $_POST["company"];
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 
-echo $quotationNumber;
-echo $currentType;
-echo $companyId;
-
 $quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType, $companyId);
-
-print_r($quotation);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
