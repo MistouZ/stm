@@ -43,7 +43,11 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
-$test2 = $descriptionmanager->update($descriptions,$test,"D",$companyId);
+print_r($descriptions);
+print_r($test);
+print_r($companyId);
+
+/*$test2 = $descriptionmanager->update($descriptions,$test,"D",$companyId);
 $test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D",$companyId);
 
 
@@ -69,5 +73,5 @@ if(is_null($test) || is_null($test2) || is_null($test3)){
     $logsmgmt = $logsmgmt->add($log);
     header('Location: '.URLHOST.$_COOKIE['company'].'/devis/afficher/'.$type2.'/'.$quotationNumber.'/successDevis');
 }
-
+*/
 ?>
