@@ -39,7 +39,7 @@ switch($type){
             $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P",$companyId);
             $entete = "du devis";
             $enteteIcon = '<i class="fas fa-file-invoice"></i>';
-            $typeQuotation = "D";
+            $typeQuotation = "P";
         }
         else{
             $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
