@@ -5,7 +5,7 @@
  * @copyright 2019
  */
 include("../../_cfg/cfg.php");
-print_r($_POST["company"]);
+print_r($_POST);
 
 echo "Multi Validation Facture : ";
 print_r($_POST['selection']);
