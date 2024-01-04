@@ -71,6 +71,8 @@ switch($type){
                 $enteteIconOption = '<i class="fas fa-sliders-h"></i>';
                 $enteteIconCout = '<i class="fas fa-hand-holding-usd"></i>';
                 $buttons = '<div class="actions">
+                            <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
+                                <i class="fas fa-print"></i> Imprimer </a>
                             <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&compId='.$companyId.'" class="btn btn-default btn-sm">
                             <i class="fas fa-edit"></i> Dupliquer </a>
                         </div>';
