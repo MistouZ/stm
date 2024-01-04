@@ -51,8 +51,8 @@ switch($type){
                             <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&compId='.$companyId.'" class="btn btn-default btn-sm">
                             <i class="fas fa-edit"></i> Dupliquer </a>
                         </div>';
-            }
-            else{
+        }
+        else{
                 $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
                 $costType = "D";
                 $entete = "du devis";
@@ -76,7 +76,7 @@ switch($type){
                                 <i class="fas fa-edit"></i> Dupliquer </a>
                         </div>';
             
-            }
+        }
         break;
     case "proforma":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P",$companyId);
