@@ -119,8 +119,12 @@ class QuotationManager
     public function getByQuotationNumber($quotationNumber, $type, $companyId)
     {
         try{
+            echo $quotationNumber;
+            echo $type;
+            echo $companyId;
             $quotationNumber = (integer) $quotationNumber;
-            $q = $this->_db->query("SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber' AND type ='$type' AND companyId = '$companyId' ");
+            $request = "SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber' AND type ='$type' AND companyId = '$companyId' ";
+            $q = $this->_db->query($request);
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
             return new Quotation($donnees);
