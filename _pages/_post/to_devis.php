@@ -44,6 +44,8 @@ $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
 
+print_r($descriptions);
+
 $test2 = $descriptionmanager->update($descriptions,$test,$currentType,"D",$companyId);
 //$test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D",$companyId);
 
