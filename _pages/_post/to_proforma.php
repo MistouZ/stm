@@ -191,10 +191,10 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $j++;
     }
     if($type3 == "S"){
-        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumberChild,"S");
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumberChild,"S", "P", $companyId);
     }
     else{
-        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"S");
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"S","P", $companyId);
     }
    
 
@@ -218,7 +218,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     else
     {
         //il ne reste rien à facturer alors je supprime les données partielles
-        $test4a = $descriptionmanager->delete($quotationInit,"S");
+        $test4a = $descriptionmanager->delete($quotationInit,"S",$companyId);
         $test4b = $shatteredQuotationManager->delete($quotationInit);
     }
 

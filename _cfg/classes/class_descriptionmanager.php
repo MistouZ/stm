@@ -128,11 +128,11 @@ class DescriptionManager
      * @param $quotationNumber
      * @return string|null
      */
-    public function delete($quotationNumber, $companyId)
+    public function delete($quotationNumber, $quotationType, $companyId)
     {
         try{
 
-            $delete=$this->_db->query("DELETE FROM `description` WHERE quotationNumber ='$quotationNumber' AND companyId = '$companyId'");
+            $delete=$this->_db->query("DELETE FROM `description` WHERE quotationNumber ='$quotationNumber' and quotationType = '".$quotationType."' AND companyId = '$companyId'");
             $delete->execute();
             return "ok";
         }
@@ -146,15 +146,15 @@ class DescriptionManager
      * @param $quotationNumber
      * @return array|null
      */
-    public function update(array $description, $quotationNumber, $quotationType, $companyId)
+    public function update(array $description, $quotationNumber, $quotationType, $quotationNewType, $companyId)
     {
         try{
-            $test = $this->delete($quotationNumber, $companyId);
+            $test = $this->delete($quotationNumber, $quotationType, $companyId);
             if(!is_null($test))
             {
                 echo "suppresion réussie ".$quotationNumber;
             }
-            /*$test2 =$this->add($description,$quotationNumber,$quotationType, $companyId);
+            /*$test2 =$this->add($description,$quotationNumber,$quotationNewType, $companyId);
             if(!is_null($test2))
             {
                 echo "Ajout réussie ".$quotationNumber;
