@@ -60,6 +60,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
     }
     else{
         $descriptionmanager = new DescriptionManager($bdd);
+        print_r($quotation);
         $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
         $test3 = "ok";
     }
@@ -236,7 +237,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
     
 }
-
+/*
 if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5) || is_null($test6)){
   header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
@@ -259,5 +260,5 @@ if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || i
     $logsmgmt = $logsmgmt->add($log);
    header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
 }
-
+*/
 ?>
