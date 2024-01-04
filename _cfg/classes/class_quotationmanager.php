@@ -389,7 +389,7 @@ class QuotationManager
     }
 
     /**
-     * Get all the invoice in the BDD for the selected company
+     * Get all the Proformas in the BDD for the selected company
      * @return array
      */
     public function getListValidatedQuotation($companyid)
