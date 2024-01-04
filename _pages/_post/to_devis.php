@@ -24,6 +24,8 @@ $quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType, $companyId);
 
+print_r($quotation);
+
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
 $descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,$currentType, $companyId);
