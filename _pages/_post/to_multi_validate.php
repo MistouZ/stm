@@ -5,12 +5,10 @@
  * @copyright 2019
  */
 include("../../_cfg/cfg.php");
-print_r($_POST);
 
 echo "Multi Validation Facture : ";
 print_r($_POST['selection']);
-
-
+print_r($_GET);
 
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
@@ -20,7 +18,7 @@ $today = date("Y-m-d");
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-$companyNameData = $_POST["company"];
+$companyNameData = $_GET["section"];
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 
@@ -34,7 +32,6 @@ $data = array(
     'validatedDate' => $today
 );
 
-echo "je suis là";
 
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
