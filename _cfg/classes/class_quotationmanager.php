@@ -124,6 +124,7 @@ class QuotationManager
             echo $companyId;
             $quotationNumber = (integer) $quotationNumber;
             $request = "SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber' AND type ='$type' AND companyId = '$companyId' ";
+            echo $request;
             $q = $this->_db->query($request);
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
