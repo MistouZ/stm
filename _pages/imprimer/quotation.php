@@ -35,10 +35,12 @@ $companyId = $company->getIdcompany();
 
 switch($type){
     case "devis":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
-        $entete = "du devis";
-        $enteteIcon = '<i class="fas fa-file-invoice"></i>';
-        $typeQuotation = "D";
+        if($type2=="cours"){
+            $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
+            $entete = "du devis";
+            $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+            $typeQuotation = "D";
+        }
         break;
 
     case "proforma":
