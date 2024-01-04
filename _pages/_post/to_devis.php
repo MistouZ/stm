@@ -11,6 +11,8 @@ $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
 $currentType = $_POST['currentType'];
 
+print_r($_POST);
+
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
