@@ -47,9 +47,9 @@ $test = $quotationmanager->changeType($quotation);
 print_r($descriptions);
 
 $test2 = $descriptionmanager->update($descriptions,$test,$currentType,"D",$companyId);
-//$test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D",$companyId);
+$test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D",$companyId);
 
-/*
+
 if(is_null($test) || is_null($test2) || is_null($test3)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorDevis');
 }else{
@@ -72,5 +72,5 @@ if(is_null($test) || is_null($test2) || is_null($test3)){
     $logsmgmt = $logsmgmt->add($log);
     header('Location: '.URLHOST.$_COOKIE['company'].'/devis/afficher/'.$type2.'/'.$quotationNumber.'/successDevis');
 }
-*/
+
 ?>
