@@ -63,7 +63,8 @@ switch($type){
                         </div>';
             }
             elseif($type2=="valides"){
-                $quotation = $quotationmanager->getListValidatedQuotation($company->getIdcompany());
+                echo "je suis ici";
+                $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P",$companyId);;
                 $costType = "P";
                 $entete = "du devis";
                 $enteteIcon = '<i class="fas fa-file-invoice"></i>';
