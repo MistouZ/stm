@@ -5,11 +5,12 @@
  * @copyright 2019
  */
 include("../../_cfg/cfg.php");
+print_r($_POST["company"]);
 
 echo "Multi Validation Facture : ";
 print_r($_POST['selection']);
-$companyNameData = $_POST["company"];
-echo $companyNameData;
+
+
 
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
