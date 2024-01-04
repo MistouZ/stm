@@ -8,8 +8,8 @@ include("../../_cfg/cfg.php");
 
 echo "Multi Validation Facture : ";
 print_r($_POST['selection']);
-
-echo $companyNameData = $_POST["company"];
+$companyNameData = $_POST["company"];
+echo $companyNameData;
 
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
