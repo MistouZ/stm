@@ -89,7 +89,7 @@ while(($postDescription = current($_POST["descriptionFacture"])) !== FALSE ){
     next($_POST["descriptionFacture"]);
 }
 echo " passe 5 ";
-$test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type,$companyId);
+$test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type,$type,$companyId);
 
 echo "modif insérée";
 
