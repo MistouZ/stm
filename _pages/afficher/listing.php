@@ -175,10 +175,16 @@ switch($type){
                 <div class="caption">
                     <i class="<?php print $fa; ?>"></i>Liste des <?php print ucwords($_GET['cat']); if($_GET['cat'] != "devis"){echo "s";}?>  </div>
                 <div class="actions">
+                    <?php
+                        if($_GET['cat'] == "devis"){
+                    ?>
                     <a data-toggle="modal" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm grey-salsa">
                         <i class="far fa-list-alt"></i> Voir mes devis</a>
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer un devis</a>
+                    <?php
+                        }
+                    ?>
                     <?php echo $buttons; ?>
                 </div>
             </div>
