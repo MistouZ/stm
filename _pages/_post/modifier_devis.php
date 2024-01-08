@@ -144,7 +144,11 @@ else{
 }
 
 if(empty(current($_POST["descriptionCout"]))){
-    $test4 = 1;
+    $test4 = $costmanager->deleteByQuotationNumber($quotationNumber, $type,$companyId);
+    if($test4 == NULL)
+    {
+        $test4 = 1;
+    }
 }
 else{
     $i=1;
