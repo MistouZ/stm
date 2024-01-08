@@ -144,10 +144,14 @@ else{
 }
 
 if(empty(current($_POST["descriptionCout"]))){
-    $test4 = $costmanager->deleteByQuotationNumber($quotationNumber, $type,$companyId);
-    if($test4 == NULL)
+    $testRecup = $costmanager->getByQuotationNumber($quotationNumber, $type,$companyId);
+    //En cas de suppression de coût sur un devis.
+    if($testRecup == NULL)
     {
         $test4 = 1;
+    }
+    else{
+        $test4 = $costmanager->deleteByQuotationNumber($quotationNumber, $type,$companyId);
     }
 }
 else{
