@@ -442,6 +442,33 @@ class QuotationManager
         }
     }
 
+
+    /**
+     * Get all the invoice in the BDD for the selected company
+     * @return array
+     */
+    public function getListAssetsByDate($companyid, $datefrom, $dateto)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='F' ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
     /**
      * Get all the Proformas in the BDD for the selected company
      * @return array
