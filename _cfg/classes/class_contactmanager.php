@@ -52,6 +52,17 @@ class ContactManager
             }
             $contact = $this->getByName($contact->getName(), $contact->getFirstname());
         }
+        $this->linkToCustomer($contact,$customers);
+    }
+
+    /**
+     * @param Contact $contact
+     * @param Customer $idCustomer
+     * Ajouter le contact au client 
+     */
+
+     public function linkToCustomer(Contact $contact, $customers)
+    {
         try
         {
             $q2 = $this->_db->prepare('INSERT INTO link_customers_contact (customers_idcustomers, contact_idcontact) VALUES (:idcustomer, :idcontact)');
@@ -63,6 +74,7 @@ class ContactManager
             return null;
         }
     }
+
     /**
      * @param Contact $contact
      * Insertion contact in the DB
@@ -303,4 +315,7 @@ class ContactManager
             $q->execute();
         }
     }
+
+
+
 }
