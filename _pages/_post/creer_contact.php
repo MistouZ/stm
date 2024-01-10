@@ -81,7 +81,7 @@ if(isset($_POST['valider'])){
                 header('Location: '.URLHOST.$_COOKIE['company']."/client/afficher/".$customerId."/existe");
             }
         }else{
-            $test = $contactmanager->addToSuppliers($contact2, $customerId);
+            $test = $contactmanager->linkToSupplier($contact2, $customerId);
             if(!is_null($test)){
                 header('Location: '.URLHOST.$_COOKIE['company']."/fournisseur/afficher/".$customerId."/ajout");
             }

@@ -99,6 +99,18 @@ class ContactManager
             }
             $contact = $this->getByName($contact->getName(), $contact->getFirstname());
         }
+        
+        $this->linkToSupplier($contact,$suppliers);
+    }
+
+    /**
+     * @param Contact $contact
+     * @param Customer $idCustomer
+     * Ajouter le contact au client 
+     */
+
+     public function linkToSupplier(Contact $contact,$suppliers)
+    {
         try
         {
             $q2 = $this->_db->prepare('INSERT INTO link_suppliers_contact (suppliers_idsupplier, contact_idcontact) VALUES (:idsupplier, :idcontact)');
@@ -110,6 +122,8 @@ class ContactManager
             return null;
         }
     }
+
+
 
     /**
      * Find a contact by his idContact
