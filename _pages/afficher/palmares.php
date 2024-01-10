@@ -81,7 +81,6 @@ if(isset($_POST['valider'])) {
             $typeCost = "A";
             $enteteIcon = '<i class="fas fa-chart-bar"></i>';
         }
-        print_r($quotations);
     }   
     elseif (!empty($seller) && !empty($datefrom))
     {
