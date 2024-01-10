@@ -106,7 +106,7 @@ if(isset($_POST['valider'])) {
 
     }
 
-    
+    print_r($quotations);
 
     //récupération des coûts liés au dossier.
 
