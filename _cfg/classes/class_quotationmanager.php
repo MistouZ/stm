@@ -466,7 +466,6 @@ class QuotationManager
             {
                 $folderId = $folder->getIdFolder();
                 $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='F' ORDER BY quotationNumber DESC";
-                echo $query;
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
