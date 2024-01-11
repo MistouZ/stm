@@ -85,21 +85,20 @@ if(isset($_POST['valider'])) {
     elseif (!empty($seller) && !empty($datefrom))
     {
         $filteredFolder = $foldermanager->getListByUser($companyId,$seller);
-        $quotationFiltered = new Quotation($array);
         if ($type == "devis") {
-            $quotationFiltered = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
+            $quotations = $quotationmanager->getListQuotationByFilteredFoldersAndDate($filteredFolder,$folder,$datefrom,$dateto);
             $typeCost = "D";
             $enteteIcon = '<i class="fas fa-chart-pie"></i>';
         } elseif ($type == "proforma") {
-            $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+            $quotations = $quotationmanager->getListProformaByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
             $typeCost = "P";
             $enteteIcon = '<i class="fas fa-chart-area"></i>';
         } elseif ($type == "facture") {
-            $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+            $quotations = $quotationmanager->getListInvoiceByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
             $typeCost = "F";
             $enteteIcon = '<i class="fas fa-chart-line"></i>';
         } elseif ($type == "avoir") {
-            $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+            $quotations = $quotationmanager->getListAssetsByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
             $typeCost = "A";
             $enteteIcon = '<i class="fas fa-chart-bar"></i>';
         }
