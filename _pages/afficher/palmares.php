@@ -41,6 +41,7 @@ if(isset($_POST['valider'])) {
     $companyId = $company->getIdcompany();
 
     if(empty($seller) && empty($datefrom)){
+        echo "j n'ai pas de seller ni de date";
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotation($companyId);
             $typeCost = "D";
@@ -62,6 +63,7 @@ if(isset($_POST['valider'])) {
     }
     elseif(!empty($seller) && empty($datefrom))
     {
+        echo "j'ai de seller mais pas de date";
         $filteredFolder = $foldermanager->getListByUser($companyId, $seller);
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
@@ -84,6 +86,7 @@ if(isset($_POST['valider'])) {
     }
     elseif(empty($seller))
     {
+        echo "je n'ai de seller";
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotationByDate($companyId,$datefrom,$dateto);
             $typeCost = "D";
@@ -104,6 +107,7 @@ if(isset($_POST['valider'])) {
     }   
     elseif (!empty($seller) && !empty($datefrom))
     {
+        echo "j'ai un seller et une date";
         $filteredFolder = $foldermanager->getListByUser($companyId,$seller);
         print_r($filteredFolder);
         if ($type == "devis") {
