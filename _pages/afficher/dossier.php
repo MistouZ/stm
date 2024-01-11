@@ -158,7 +158,7 @@ switch($type){
                         <tr>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro de devis</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
