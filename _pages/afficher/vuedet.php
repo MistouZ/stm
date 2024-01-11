@@ -525,7 +525,7 @@ if(isset($_GET['cat5'])){
                     </div>
                     <div class="row static-info align-reverse">
                         <div class="col-md-8 name" style="font-weight: 800; font-size: 13px; font-style: italic;"> Marge % : </div>
-                        <div class="col-md-3 value" style="font-weight: 800; font-size: 13px; font-style: italic;"> <?php echo number_format($PercentMarge,0,","," "); ?> XPF</div>
+                        <div class="col-md-3 value" style="font-weight: 800; font-size: 13px; font-style: italic;"> <?php echo number_format($PercentMarge,0,","," "); ?> %</div>
                     </div>
                     <div class="row static-info align-reverse">
                         <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
