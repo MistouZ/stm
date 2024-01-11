@@ -108,7 +108,7 @@ if(isset($_POST['valider'])) {
     elseif (!empty($seller) && !empty($datefrom))
     {
         echo "j'ai un seller et une date";
-        $filteredFolder = $foldermanager->getListByUser($companyId,$seller);
+        $filteredFolder = $foldermanager->getListByUser($seller, $companyId);
         print_r($filteredFolder);
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotationByFilteredFoldersAndDate($filteredFolder,$folder,$datefrom,$dateto);
