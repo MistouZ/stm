@@ -85,6 +85,7 @@ if(isset($_POST['valider'])) {
     elseif (!empty($seller) && !empty($datefrom))
     {
         $filteredFolder = $foldermanager->getListByUser($companyId,$seller);
+        print_r($filteredFolder)
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotationByFilteredFoldersAndDate($filteredFolder,$folder,$datefrom,$dateto);
             $typeCost = "D";
