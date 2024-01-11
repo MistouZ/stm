@@ -15,6 +15,8 @@ if(isset($_POST['valider'])) {
 
     $seller = $_POST["seller"];
 
+    print_r($_POST);
+
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
@@ -61,6 +63,24 @@ if(isset($_POST['valider'])) {
     elseif(!empty($seller) && empty($datefrom))
     {
         $filteredFolder = $foldermanager->getListByUser($companyId, $seller);
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
+
     }
     elseif(empty($seller))
     {
