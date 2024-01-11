@@ -15,8 +15,6 @@ if(isset($_POST['valider'])) {
 
     $seller = $_POST["seller"];
 
-    print_r($_POST);
-
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
