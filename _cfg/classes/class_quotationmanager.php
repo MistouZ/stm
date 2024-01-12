@@ -162,7 +162,7 @@ class QuotationManager
     {
         try{
             $quotations = [];
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='D' ORDER BY quotationNumber DESC");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='D' ORDER BY folderId DESC");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -188,7 +188,7 @@ class QuotationManager
 
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='D' ORDER BY folderId ASC ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='D' ORDER BY folderId DESC ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -240,7 +240,7 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='D' AND STATUS ='En cours' ORDER BY folderId ASC";
+                $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='D' AND STATUS ='En cours' ORDER BY folderId DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
@@ -287,7 +287,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='P' ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='P' ORDER BY folderId DESC");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -337,7 +337,7 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='P' ORDER BY quotationNumber DESC";
+                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='P' ORDER BY folderId DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
@@ -391,7 +391,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='F' AND status!='Validated'");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='F' AND status!='Validated' ORDER BY folderId DESC");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -441,7 +441,7 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='F' ORDER BY quotationNumber DESC";
+                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='F' ORDER BY folderId DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
@@ -542,7 +542,7 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='A' ORDER BY quotationNumber DESC";
+                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='A' ORDER BY folderId DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
@@ -570,7 +570,7 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='F' ORDER BY quotationNumber DESC";
+                $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='F' ORDER BY folderId DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
