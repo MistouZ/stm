@@ -232,9 +232,9 @@ if(isset($_POST['valider'])) {
                         $costFolder = new Cost($array);
                         $costsFolder = new CostManager($bdd);
 
-                        $costsFolder = $costsFolder->getByFolderId($j);
+                        $costsFolder = $costsFolder->getByQuotationNumber($quotation->getQuotationNumber(), $quotation->getType(),$companyId);
                         $TotalCostFolder = 0;
-                        /*récupérer les cout sur le dossier */
+                        /*récupérer les cout sur le dossier pour les devis */
                         foreach ($costsFolder as $costFolder) {
                             $TotalCostFolder = calculCoutTotal($costFolder, $TotalCostFolder);
                         }
