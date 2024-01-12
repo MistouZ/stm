@@ -167,6 +167,8 @@ if(isset($_POST['valider'])) {
                     foreach($quotations as $quotation){
                         $j = $quotation->getFolderId();
 
+                        echo "i:".$i." j:".$j."<br />";
+
                         // $customer = $customermanager->getById($quotation->getCustomerId());
 
                         $folderQuotation = new Folder($array);
