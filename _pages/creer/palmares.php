@@ -104,11 +104,11 @@ $type = $_GET["souscat"]
                                     $customermanager = $customerManager->getListByCompany($companyId);
 
                                     print_r($customermanager);
-                                    foreach ($customermanager as $customer){
+                                    /*foreach ($customermanager as $customer){
                                        ?>
                                         <option value="<?php echo $customer->getIdCustomer(); ?>"><?php echo $customer->getName(); ?></option>
                                         <?php
-                                    }
+                                    }*/
                                     ?>
                                 </select>
                             </div>
