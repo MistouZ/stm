@@ -20,6 +20,8 @@ $customermanager = new CustomersManager($bdd);
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 
+echo $companyId;
+
 $today = date('d/m/Y');
 
 $type = $_GET["souscat"]
@@ -83,7 +85,7 @@ $type = $_GET["souscat"]
                                 <select id="users" class="username form-control" name="seller">
                                     <option value="">Sélectionnez ...</option>
                                     <?php
-                                    echo $companyId;
+                                    
                                     $usermanager = $usermanager->getSellerByCompany($companyId);
                                     foreach ($usermanager as $user){
                                        ?>
