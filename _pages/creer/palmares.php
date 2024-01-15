@@ -17,7 +17,7 @@ $usermanager = new UsersManager($bdd);
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 
-print_r($customermanager)^;
+print_r($customermanager);
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
