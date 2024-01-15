@@ -131,15 +131,15 @@ if(isset($_POST['valider'])) {
             $typeCost = "D";
             $enteteIcon = '<i class="fas fa-chart-pie"></i>';
         } elseif ($type == "proforma") {
-            $quotations = $quotationmanager->getListProformaByDate($companyId,$datefrom,$dateto,$customerSelected);
+            $quotations = $quotationmanager->getListProformaByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
             $typeCost = "P";
             $enteteIcon = '<i class="fas fa-chart-area"></i>';
         } elseif ($type == "facture") {
-            $quotations = $quotationmanager->getListInvoiceByDate($companyId,$datefrom,$dateto,$customerSelected);
+            $quotations = $quotationmanager->getListInvoiceByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
             $typeCost = "F";
             $enteteIcon = '<i class="fas fa-chart-line"></i>';
         } elseif ($type == "avoir") {
-            $quotations = $quotationmanager->getListAssetsByDate($companyId,$datefrom,$datetor,$customerSelected);
+            $quotations = $quotationmanager->getListAssetsByDateAndCustomer($companyId,$datefrom,$datetor,$customerSelected);
             $typeCost = "A";
             $enteteIcon = '<i class="fas fa-chart-bar"></i>';
         }
