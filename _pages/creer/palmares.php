@@ -83,6 +83,7 @@ $type = $_GET["souscat"]
                                 <select id="users" class="username form-control" name="seller">
                                     <option value="">Sélectionnez ...</option>
                                     <?php
+                                    echo $companyId;
                                     $usermanager = $usermanager->getSellerByCompany($companyId);
                                     foreach ($usermanager as $user){
                                        ?>
