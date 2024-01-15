@@ -15,6 +15,8 @@ if(isset($_POST['valider'])) {
 
     $seller = $_POST["seller"];
 
+    $customerSelected = $_POST["customer"];
+
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
@@ -38,7 +40,7 @@ if(isset($_POST['valider'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $companyId = $company->getIdcompany();
 
-    if(empty($seller) && empty($datefrom)){
+    if(empty($seller) && empty($datefrom) && empty($customerSelected)){
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotation($companyId);
             $typeCost = "D";

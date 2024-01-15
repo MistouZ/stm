@@ -94,6 +94,9 @@ $type = $_GET["souscat"]
                                 </select>
                             </div>
                         </div>
+                        <div>
+                            OU
+                        </div>
                         <div class="form-group">
                             <label class="control-label col-md-4">Clients
                                 <span class="required"> * </span>
