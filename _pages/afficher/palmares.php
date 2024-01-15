@@ -82,7 +82,7 @@ if(isset($_POST['valider'])) {
         }
 
     }
-    elseif(empty($seller))
+    elseif(empty($seller) && !empty($datefrom) && empty($customerSelected))
     {
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotationByDate($companyId,$datefrom,$dateto);
@@ -123,6 +123,26 @@ if(isset($_POST['valider'])) {
             $enteteIcon = '<i class="fas fa-chart-bar"></i>';
         }
 
+    }
+    elseif(empty($seller) && !empty($datefrom) && !empty($customerSelected))
+    {
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByDate($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByDate($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByDate($companyId,$datefrom,$datetor,$customerSelected);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
     }
 
     //print_r($quotations);
