@@ -17,8 +17,6 @@ $usermanager = new UsersManager($bdd);
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
 
-print_r($customermanager);
-
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 
@@ -105,7 +103,7 @@ $type = $_GET["souscat"]
                                     <option value="">Sélectionnez ...</option>
                                     <?php
 
-                                    $customermanager = $customerManager->getListByCompany($companyId);
+                                    $customermanager = $customermanager->getListByCompany($companyId);
 
                                     print_r($customermanager);
                                     foreach ($customermanager as $customer){
