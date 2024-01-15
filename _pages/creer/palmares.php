@@ -103,15 +103,14 @@ $type = $_GET["souscat"]
                                 <select id="customers" class="customer form-control" name="customer">
                                     <option value="">Sélectionnez ...</option>
                                     <?php
-                                    echo $company->getIdcompany();
-                                   /* $customermanager = $customerManager->getListByCompany($company->getIdcompany());
+                                    $customermanager = $customerManager->getListByCompany($company->getIdcompany());
 
                                     print_r($customermanager);
                                     foreach ($customermanager as $customer){
                                        ?>
                                         <option value="<?php echo $customer->getIdCustomer(); ?>"><?php echo $customer->getName(); ?></option>
                                         <?php
-                                    }*/
+                                    }
                                     ?>
                                 </select>
                             </div>
