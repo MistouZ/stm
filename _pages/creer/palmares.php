@@ -100,7 +100,7 @@ $type = $_GET["souscat"]
                                 <span class="required"> * </span>
                             </label>
                             <div class="col-md-2">
-                                <select id="users" class="username form-control" name="seller">
+                                <select id="customers" class="customer form-control" name="customer">
                                     <option value="">Sélectionnez ...</option>
                                     <?php
                                     echo $company->getIdcompany();
