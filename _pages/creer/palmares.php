@@ -14,6 +14,8 @@ $companymanager = new CompaniesManager($bdd);
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 
+$customer = new Customers($array);
+$customermanager = new CustomersManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
@@ -85,6 +87,24 @@ $type = $_GET["souscat"]
                                     foreach ($usermanager as $user){
                                        ?>
                                         <option value="<?php echo $user->getUsername(); ?>"><?php echo $user->getFirstName()." ".$user->getName(); ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Clients
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-2">
+                                <select id="users" class="username form-control" name="seller">
+                                    <option value="">Sélectionnez ...</option>
+                                    <?php
+                                    $customermanager = $customerManager->getListByCompany($companyId);
+                                    foreach ($customermanager as $customer){
+                                       ?>
+                                        <option value="<?php echo $customer->getIdCustomer(); ?>"><?php echo $customer->getName(); ?></option>
                                         <?php
                                     }
                                     ?>
