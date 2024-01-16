@@ -150,7 +150,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
             $i++;
         }
         // Duplication des descriptions pour garder l'original
-        $test = $descriptionmanager->add($descriptions,$quotationInit,"S");
+        $test = $descriptionmanager->add($descriptions,$quotationInit,"S",$companyId);
 
     }
 
@@ -212,7 +212,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
             $k++;
         }
         //insertion du reste à payer
-        $test4a = $descriptionmanager->add($descriptions,$newquotationNumber,"S");
+        $test4a = $descriptionmanager->add($descriptions,$newquotationNumber,"S",$companyId);
         $test4b = "ok";
     }
     else
