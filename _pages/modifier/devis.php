@@ -36,7 +36,15 @@ $costmanager = new CostManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
-$quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+if($type2 == "partiels")
+{
+    $quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"S",$companyId);
+}
+else
+{
+    $quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+}
+
 
 $foldermanager = $foldermanager->getListActive($companyId);
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
@@ -44,8 +52,15 @@ $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
+if($type2 == "partiels")
+{
+    $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"S",$companyId);
+}
+else
+{
+    $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
+}
 
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 
 if($quotation->getContactId() != 0){
@@ -54,7 +69,15 @@ if($quotation->getContactId() != 0){
 //$user = $usermanager->get($quotation->getSeller());
 
 $customerQuotation = $customermanager->getById($quotation->getCustomerId());
-$costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
+if($type2 == "partiels")
+{
+    $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"S",$companyId);
+}
+else
+{
+    $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
+}
+
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
