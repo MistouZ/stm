@@ -163,7 +163,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         'percent' => $rest
     );
 
-    //$shatteredQuotation = new ShatteredQuotation($dataShattered);
+    $shatteredQuotation = new ShatteredQuotation($dataShattered);
    
     //si on a un devis partiel, je mets à jour le Child et je conserve le devis initial et je mets à jour l'enfant
     if($type3 == "S")
