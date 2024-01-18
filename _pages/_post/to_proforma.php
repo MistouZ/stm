@@ -142,7 +142,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $quotationInit = $quotationGet->getQuotationNumber()."_init";
 
         echo $quotationInit;
-
+    }
         /*$rest = 100 - $percent;
         $i = 0;
         $descriptions= array();
