@@ -248,7 +248,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 </div>
             </div>
         </div>
-        <?php //if ($type == "devis"){
+        <?php if ($type == "devis"){
             ?>
         <div class="row">
             <div class="col-md-5">
@@ -264,7 +264,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             </div>
         </div>
         <?php
-       // }
+        }
         ?>
     </div>
     <input type="hidden" id="filename" name="filename" value="<?php echo $type."-".$idQuotation; ?>">
