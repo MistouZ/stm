@@ -169,7 +169,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     if($type3 == "S")
     {
         $shatteredQuotation->setIdShatteredQuotation($idShatteredQuotation);
-        //$test2 = $shatteredQuotationManager->update($shatteredQuotation);
+        $test2 = $shatteredQuotationManager->update($shatteredQuotation);
 
     }
     else
@@ -181,7 +181,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage restant à facturer
     
-    /*$j = 0;
+    $j = 0;
     $descriptionsReduced= array();
     $descriptionReduced = new Description($array);
 
@@ -196,10 +196,9 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumberChild,"S", "P", $companyId);
     }
     else{
-        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"S","P", $companyId);
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"D","P", $companyId);
     }
-    */
-    /*
+   
     if($rest != 0)
     {   //il reste à facturer alors je stocke les données restantes
         $getDescriptionInit = $descriptionmanager->getByQuotationNumber($quotationInit,"S",$companyId);
@@ -224,8 +223,6 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $test4b = $shatteredQuotationManager->delete($quotationInit);
     }
 
-    */
-    /*
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
         'quotationNumber' => $quotationNumber,
@@ -236,16 +233,16 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
     $quotation = new Quotation($data);
     $test5 = $quotationmanager->changeType($quotation);
-    $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());*/
+    $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
     
 }
 
 if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5) || is_null($test6)){
-  //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
+  header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
 
     //Ajout d'un objet logs pour tracer l'action de passage du devis en proforma
-    /*$date = date('Y-m-d H:i:s');
+    $date = date('Y-m-d H:i:s');
     $arraylogs = array(
         'username' => $_COOKIE["username"],
         'company' => $quotationGet->getCompanyId(),
@@ -260,7 +257,7 @@ if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || i
     $log = new Logs($arraylogs);
     $logsmgmt = new LogsManager($bdd);
     $logsmgmt = $logsmgmt->add($log);
-   header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');*/
+   header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
 }
 
 ?>
