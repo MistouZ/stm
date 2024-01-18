@@ -12,6 +12,15 @@ $type2 = $_POST['type'];
 
 echo $quotationNumber;
 
+if($type2 == "partiels")
+{
+    $type = "S";
+}
+else
+{
+    $type = "D";
+}
+
 $array = array();
 $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
@@ -24,7 +33,7 @@ $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D", $companyId);
+$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type, $companyId);
 /*$customerId = $quotationGet->getCustomerId();
 $contactId = $quotationGet->getContactId();*/
 
@@ -45,10 +54,7 @@ if(!empty($_POST['comment'])){
 
 $date = date("Y-m-d", strtotime(str_replace('/','-',$_POST['date'])));
 
-
-
 $status = "En cours";
-$type = "D";
 
 $data = array(
     'idQuotation' => $quotationGet->getIdQuotation(),
@@ -100,7 +106,16 @@ while(($postDescription = current($_POST["descriptionDevis"])) !== FALSE ){
     next($_POST["descriptionDevis"]);
 }
 
-$test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type,"D",$companyId);
+
+if($type2 == "partiels")
+{
+    $test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type,"S",$companyId);
+}
+else
+{
+    $test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type,"D",$companyId);
+}
+
 
 echo "modif insérée";
 
@@ -140,7 +155,16 @@ else{
         next($_POST["descriptionOption"]);
     }
     $quotationNumberOption = $quotationNumber.'_option';
-    $test3 = $descriptionmanager->update($descriptionsOption,$quotationNumberOption,$type,"D",$companyId);
+    
+    if($type2 == "partiels")
+    {
+        $test3 = $descriptionmanager->update($descriptionsOption,$quotationNumberOption,$type,"S",$companyId);
+    }
+    else
+    {
+        $test3 = $descriptionmanager->update($descriptionsOption,$quotationNumberOption,$type,"D",$companyId);
+    }
+    
 }
 
 if(empty(current($_POST["descriptionCout"]))){
