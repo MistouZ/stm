@@ -221,8 +221,8 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 </div>
         </div>
         <div class="row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6">
+            <div class="col-md-5"></div>
+            <div class="col-md-7">
                 <div class="well">
                     <div class="row static-info align-reverse">
                         <div class="col-md-6 name"> Sous-total: </div>
