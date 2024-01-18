@@ -111,14 +111,14 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
 
     
-    $duplicate = new Quotation($data);
+    /*$duplicate = new Quotation($data);
     $newquotationNumber = $quotationmanager->add($duplicate);
     //ici j'ai créé mon nouveau devis dans la table pour quotation.
     $counterQuotation = $counterQuotation + 1;
     $counter->setQuotation($counterQuotation);
     $countermanager->updateCounter($counter);
-    
-    
+    */
+
     if($type3 == "S")
     {   
         //si le devis est déjà partiel, je récupère les données initiales
@@ -140,7 +140,9 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $quotationNumberInit = $quotationNumber;
         $getDescription = $descriptionmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
         $quotationInit = $quotationGet->getQuotationNumber()."_init";
-        $rest = 100 - $percent;
+
+        echo $quotationInit;
+        /*$rest = 100 - $percent;
         $i = 0;
         $descriptions= array();
         foreach ($getDescription as $description)
@@ -150,7 +152,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
             $i++;
         }
         // Duplication des descriptions pour garder l'original
-        $test = $descriptionmanager->add($descriptions,$quotationInit,"S",$companyId);
+        $test = $descriptionmanager->add($descriptions,$quotationInit,"S",$companyId);*/
 
     }
 
@@ -161,25 +163,25 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         'percent' => $rest
     );
 
-    $shatteredQuotation = new ShatteredQuotation($dataShattered);
+    //$shatteredQuotation = new ShatteredQuotation($dataShattered);
    
     //si on a un devis partiel, je mets à jour le Child et je conserve le devis initial et je mets à jour l'enfant
     if($type3 == "S")
     {
         $shatteredQuotation->setIdShatteredQuotation($idShatteredQuotation);
-        $test2 = $shatteredQuotationManager->update($shatteredQuotation);
+        //$test2 = $shatteredQuotationManager->update($shatteredQuotation);
 
     }
     else
     {
-        $test2 = $shatteredQuotationManager->add($shatteredQuotation);
+       // $test2 = $shatteredQuotationManager->add($shatteredQuotation);
     }
     
     
 
     //Copie effectuée sur la description, on a créé l'object devis partiel et on a stocké le pourcentage restant à facturer
     
-    $j = 0;
+    /*$j = 0;
     $descriptionsReduced= array();
     $descriptionReduced = new Description($array);
 
@@ -196,8 +198,8 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     else{
         $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"S","P", $companyId);
     }
-   
-
+    */
+    /*
     if($rest != 0)
     {   //il reste à facturer alors je stocke les données restantes
         $getDescriptionInit = $descriptionmanager->getByQuotationNumber($quotationInit,"S",$companyId);
@@ -222,8 +224,8 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $test4b = $shatteredQuotationManager->delete($quotationInit);
     }
 
-
-
+    */
+    /*
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),
         'quotationNumber' => $quotationNumber,
@@ -234,16 +236,16 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
     $quotation = new Quotation($data);
     $test5 = $quotationmanager->changeType($quotation);
-    $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
+    $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());*/
     
 }
 
 if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5) || is_null($test6)){
-  header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
+  //header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
 
     //Ajout d'un objet logs pour tracer l'action de passage du devis en proforma
-    $date = date('Y-m-d H:i:s');
+    /*$date = date('Y-m-d H:i:s');
     $arraylogs = array(
         'username' => $_COOKIE["username"],
         'company' => $quotationGet->getCompanyId(),
@@ -258,7 +260,7 @@ if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || i
     $log = new Logs($arraylogs);
     $logsmgmt = new LogsManager($bdd);
     $logsmgmt = $logsmgmt->add($log);
-   header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');
+   header('Location: '.URLHOST.$_COOKIE['company'].'/proforma/afficher/'.$type2.'/'.$quotationNumber.'/successProforma');*/
 }
 
 ?>
