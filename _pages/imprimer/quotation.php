@@ -223,7 +223,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         <div class="row">
             <div class="col-md-5"></div>
             <div class="col-md-7">
-                <div class="well">
+                <div class="well" style="display: inline-block;">
                     <div class="row static-info align-reverse">
                         <div class="col-md-6 name"> Sous-total: </div>
                         <div class="col-md-6 value"> <?php echo number_format($montantHT,0,","," "); ?> XPF</div>
