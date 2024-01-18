@@ -174,7 +174,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     }
     else
     {
-       // $test2 = $shatteredQuotationManager->add($shatteredQuotation);
+       $test2 = $shatteredQuotationManager->add($shatteredQuotation);
     }
     
     
