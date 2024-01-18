@@ -221,29 +221,29 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 </div>
         </div>
         <div class="row">
-            <div class="col-md-5"></div>
-            <div class="col-md-7">
+            <div class="col-md-6"></div>
+            <div class="col-md-6">
                 <div class="well">
                     <div class="row static-info align-reverse">
-                        <div class="col-md-6 name"> Sous-total: </div>
-                        <div class="col-md-6 value"> <?php echo number_format($montantHT,0,","," "); ?> XPF</div>
+                        <div class="col-md-8 name"> Sous-total: </div>
+                        <div class="col-md-3 value"> <?php echo number_format($montantHT,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-6 name"> Total taxes : </div>
-                        <div class="col-md-6 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
+                        <div class="col-md-8 name"> Total taxes : </div>
+                        <div class="col-md-3 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
                     </div>
                     <?php
                         foreach($arrayTaxesKey as $key => $value){
                             if($arrayTaxesKey[$key]["Montant"]>0){
                     ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-6 name" style="font-size: 11px; font-style: italic;"> <?php echo $arrayTaxesKey[$key]["Taxe"]; ?> : </div>
-                        <div class="col-md-6 value" style="font-size: 11px; font-style: italic;"> <?php echo number_format($arrayTaxesKey[$key]["Montant"],0,","," "); ?> XPF</div>
+                        <div class="col-md-8 name" style="font-size: 11px; font-style: italic;"> <?php echo $arrayTaxesKey[$key]["Taxe"]; ?> : </div>
+                        <div class="col-md-3 value" style="font-size: 11px; font-style: italic;"> <?php echo number_format($arrayTaxesKey[$key]["Montant"],0,","," "); ?> XPF</div>
                     </div>
                     <?php }} ?>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-6 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
-                        <div class="col-md-6 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
+                        <div class="col-md-8 name" style="font-weight: 800; font-size: 16px;"> Total TTC : </div>
+                        <div class="col-md-3 value" style="font-weight: 800; font-size: 16px;"> <?php echo number_format($montant,0,","," "); ?> XPF</div>
                     </div>
                 </div>
             </div>
