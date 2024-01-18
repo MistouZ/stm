@@ -52,8 +52,9 @@ switch($type){
                             <i class="fas fa-edit"></i> Dupliquer </a>
                         </div>';
         }
-        else{
-                $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
+        elseif($type2=="partiels")
+        {
+                $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"S",$companyId);
                 $costType = "D";
                 $entete = "du devis";
                 $enteteIcon = '<i class="fas fa-file-invoice"></i>';
