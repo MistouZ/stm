@@ -201,7 +201,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $j++;
     }
     if($type3 == "S"){
-        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumberChild,"S", "P",$companyId);
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"S", "P",$companyId);
     }
     else{
         $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"D","P", $companyId);
