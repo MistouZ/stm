@@ -21,7 +21,15 @@ $companyId = $company->getIdcompany();
 
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+if($type2 == "partiels")
+{
+    $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"S",$companyId);
+}
+else
+{
+    $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+}
+
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
 //$costGet = $costmanager->getByQuotationNumber($quotationNumber, $currentType);
