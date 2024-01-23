@@ -29,7 +29,6 @@ $costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
-$companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);

@@ -11,6 +11,10 @@ $quotationNumber = $_POST['quotationNumber'];
 $folderId = $_POST['folderId'];
 $type = $_POST["quotationType)"];
 
+$folder = $foldermanager->get($_POST["folder"]);
+$folderId = $folder->getIdFolder();
+$ = $folder->getCompanyId();
+
 $costmanager = new CostManager($bdd);
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
