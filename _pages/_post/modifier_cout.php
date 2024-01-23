@@ -9,7 +9,7 @@ include("../../_cfg/cfg.php");
 
 $quotationNumber = $_POST['quotationNumber'];
 $folderId = $_POST['folderId'];
-$type = $_POST["quotationType)"];
+$type = $_POST["quotationType"];
 
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
