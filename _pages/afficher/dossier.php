@@ -288,7 +288,7 @@ switch($type){
                         <tr>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro de facture</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
@@ -354,7 +354,7 @@ switch($type){
                         <tr>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro d'avoir</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
@@ -421,7 +421,7 @@ switch($type){
                         <tr>
                             <th class="all">Fournisseur</th>
                             <th class="none">Description</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
                         </tr>
