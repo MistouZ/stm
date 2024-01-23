@@ -13,6 +13,7 @@ $type = $_POST["quotationType"];
 
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
+print_r($folder);
 $companyId = $folder->getCompanyId();
 
 $costmanager = new CostManager($bdd);
@@ -38,7 +39,6 @@ while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
     next($_POST["descriptionCout"]);
 }
 
-echo $companyId;
 
 /*$test3 = $costmanager->update($descriptionsCout,$quotationNumber,$type,$companyId);
 print_r($test3);
