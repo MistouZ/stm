@@ -103,6 +103,25 @@ class CostManager
      * @param $quotationNumber
      * @return cost
      */
+    public function getByCostId($costId)
+    {
+        
+        try{
+            $q = $this->_db->query("SELECT * FROM cost WHERE idcost='$costId'");
+            $q->execute();
+
+            return "ok";
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Find a Cost by his iD
+     * @param $quotationNumber
+     * @return cost
+     */
     public function getByQuotationNumber($quotationNumber, $type,$companyId)
     {
         $costs = array();
