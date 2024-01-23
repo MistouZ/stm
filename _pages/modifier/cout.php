@@ -241,6 +241,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
                     </div>
                     <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
                     <input type="hidden" id="folderId" name="folderId" value="<?php echo $folderId; ?>">
+                    <input type="hidden" id="quotationType" name="quotationType" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
             </div>
