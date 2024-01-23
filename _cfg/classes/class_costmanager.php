@@ -100,17 +100,19 @@ class CostManager
 
     /**
      * Find a Cost by his iD
-     * @param $quotationNumber
+     * @param $costId
      * @return cost
      */
+
     public function getByCostId($costId)
     {
         
         try{
+            $costId = (integer) $costId;
             $q = $this->_db->query("SELECT * FROM cost WHERE idcost='$costId'");
-            $q->execute();
+            $donnees = $q->fetch(PDO::FETCH_ASSOC);
 
-            return "ok";
+            return new Cost($donnees);
         }
         catch(Exception $e){
             return null;
