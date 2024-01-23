@@ -224,7 +224,7 @@ switch($type){
                             <th class="min-phone-l">Numéro de proforma</th>
                             <th class="none">Montant total</th>
                             <th class="desktop">Détail</th>
-                            <th class="desktop">Modifier</th>
+                            <!--<th class="desktop">Modifier</th>-->
                             <th class="desktop">Supprimer</th>
                         </tr>
                         </thead>
@@ -254,9 +254,9 @@ switch($type){
                                     <td><a class="btn green-meadow"
                                            href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
-                                    <td><a class="btn blue-steel"
+                                    <!--<td><a class="btn blue-steel"
                                            href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
-                                                    class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                                                    class="fas fa-edit" alt="Editer"></i> Modifier</a></td>-->
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
                                            data-title="Supprimer la proforma n° <?php echo $quotation->getQuotationNumber(); ?> ?"
                                            data-content="ATTENTION ! La suppression est irréversible !"
