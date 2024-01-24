@@ -25,9 +25,8 @@ $companyId = $folder->getCompanyId();
 
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-echo $type;
-echo $companyId;
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type, $companyId);
+$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type,$companyId);
+print_r($quotationGet);
 $customerId = $quotationGet->getCustomerId();
 $contactId = $quotationGet->getContactId();
 
