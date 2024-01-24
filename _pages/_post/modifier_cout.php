@@ -21,7 +21,7 @@ print_r($folder);
 
 $companyId = $folder->getCompanyId();
 
-echp $companyId;
+echo $companyId;
 
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
