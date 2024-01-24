@@ -11,6 +11,8 @@ $quotationNumber = $_POST['quotationNumber'];
 $folderId = $_POST['folderId'];
 $type = $_POST["quotationType"];
 
+echp $folderId;
+
 $folder = $foldermanager->get($folderId);
 $companyId = $folder->getCompanyId();
 
