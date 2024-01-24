@@ -7,16 +7,14 @@
 
 include("../../_cfg/cfg.php");
 
-$array = array();
-$folder = new Folder($array);
-$foldermanager = new FoldersManager($bdd);
-$descriptionmanager = new DescriptionManager($bdd);
-$costmanager = new CostManager($bdd);
-
-
 $quotationNumber = $_POST['quotationNumber'];
 $folderId = $_POST['folderId'];
 $type = $_POST["quotationType"];
+
+$array = array();
+$folder = new Folder($array);
+$foldermanager = new FoldersManager($bdd);
+$costmanager = new CostManager($bdd);
 
 $folder = $foldermanager->get($folderId);
 print_r($folder);
