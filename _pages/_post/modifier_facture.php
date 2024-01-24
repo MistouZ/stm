@@ -9,6 +9,7 @@ include("../../_cfg/cfg.php");
 
 $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
+$type = "F";
 
 echo $quotationNumber;
 
@@ -18,11 +19,11 @@ $foldermanager = new FoldersManager($bdd);
 $descriptionmanager = new DescriptionManager($bdd);
 $costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
-$folderId = $_POST["folder"];
+$folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"F", $companyId);
+$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type, $companyId);
 $customerId = $quotationGet->getCustomerId();
 $contactId = $quotationGet->getContactId();
 
@@ -31,7 +32,7 @@ echo " passe 1 ";
 $date = date("Y-m-d", strtotime(str_replace('/','-',$_POST['date'])));
 
 $status = "En cours";
-$type = "F";
+
 
 echo " passe 2 ";
 
