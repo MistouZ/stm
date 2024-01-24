@@ -11,6 +11,8 @@ $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
 $type = "F";
 
+echo $_POST["folder"];
+
 echo $quotationNumber;
 
 $array = array();
