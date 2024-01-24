@@ -11,8 +11,6 @@ $quotationNumber = $_POST['quotationNumber'];
 $folderId = $_POST['folderId'];
 $type = $_POST["quotationType"];
 
-print_r($_POST);
-
 $folder = $foldermanager->get($folderId);
 print_r($folder);
 
