@@ -30,6 +30,7 @@ $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
 $customerId = $folder->getCustomerId();
+$contactId = $folder->getContactId();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type, $companyId);
