@@ -16,6 +16,8 @@ $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $costmanager = new CostManager($bdd);
 
+print_r($foldermanager);
+
 $folder = $foldermanager->get($folderId);
 print_r($folder);
 
