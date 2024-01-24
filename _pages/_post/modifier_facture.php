@@ -22,6 +22,7 @@ $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
 
+echo $companyId;
 
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
