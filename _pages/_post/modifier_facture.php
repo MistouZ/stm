@@ -11,8 +11,6 @@ $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
 $type = "F";
 
-echo $_POST["folder"];
-
 echo $quotationNumber;
 
 $array = array();
@@ -23,13 +21,9 @@ $costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
-
-echo $companyId;
-
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type,$companyId);
-print_r($quotationGet);
 $customerId = $quotationGet->getCustomerId();
 $contactId = $quotationGet->getContactId();
 
