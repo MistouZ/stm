@@ -7,6 +7,13 @@
 
 include("../../_cfg/cfg.php");
 
+$array = array();
+$folder = new Folder($array);
+$foldermanager = new FoldersManager($bdd);
+$descriptionmanager = new DescriptionManager($bdd);
+$costmanager = new CostManager($bdd);
+
+
 $quotationNumber = $_POST['quotationNumber'];
 $folderId = $_POST['folderId'];
 $type = $_POST["quotationType"];
@@ -18,7 +25,6 @@ $companyId = $folder->getCompanyId();
 
 
 
-$costmanager = new CostManager($bdd);
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
 
