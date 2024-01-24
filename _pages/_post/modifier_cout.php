@@ -16,14 +16,12 @@ $folder = new Folder($array);
 $foldermanager = new FoldersManager($bdd);
 $costmanager = new CostManager($bdd);
 
-print_r($foldermanager);
-
 $folder = $foldermanager->get($folderId);
 print_r($folder);
 
 $companyId = $folder->getCompanyId();
 
-
+echp $companyId;
 
 $i=1;
 while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
