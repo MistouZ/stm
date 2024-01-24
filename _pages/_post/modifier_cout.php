@@ -14,7 +14,7 @@ $type = $_POST["quotationType"];
 $folder = $foldermanager->get($folderId);
 $companyId = $folder->getCompanyId();
 
-echo $companyId;
+print_r($folder);
 
 $costmanager = new CostManager($bdd);
 $i=1;
