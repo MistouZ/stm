@@ -149,7 +149,7 @@ if(isset($_POST['imprimer'])) {
 
 //récupération des coûts liés au dossier.
 
-    $costs = $costmanager->getCostByFilteredQuotation($quotations, $quotation, $costType);
+    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation, $typeCost);
 }
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
