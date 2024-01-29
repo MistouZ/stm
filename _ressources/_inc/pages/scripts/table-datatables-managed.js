@@ -169,7 +169,7 @@ var TableDatatablesManaged = function () {
                     "sortAscending": ": ascendant",
                     "sortDescending": ": descendant"
                 },
-                "emptyTable": "No data available in table",
+                "emptyTable": "Aucune données à afficher",
                 "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
                 "infoEmpty": "Aucune données trouvées",
                 "infoFiltered": "(filtrées sur un total de _MAX_)",
@@ -190,6 +190,7 @@ var TableDatatablesManaged = function () {
             //"dom": "<'row'<'col-md-6 col-sm-12'l><'col-md-6 col-sm-12'f>r>t<'row'<'col-md-5 col-sm-12'i><'col-md-7 col-sm-12'p>>",
 
             "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
+            "serverPaging": true,
             
             "lengthMenu": [
                 [6, 15, 20, -1],
