@@ -149,7 +149,7 @@ if(isset($_POST['valider'])) {
 
     //récupération des coûts liés au dossier.
 
-    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation, $typeCost);
+    $costs = $costmanager->getCostByFilteredQuotation($quotations, $quotation, $costType);
 }
 
 ?>
