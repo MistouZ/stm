@@ -323,10 +323,10 @@ if(isset($_POST['imprimer'])) {
                         <div class="col-md-6 name"> Marge : </div>
                         <div class="col-md-6 value"> <?php echo number_format($PercentMarge,0,","," "); ?> %</div>
                     </div>
-                    <div class="row static-info align-reverse">
-                        <div class="col-md-6 name"> Marge : </div>
+                    <!--<div class="row static-info align-reverse">
+                        <div class="col-md-6 name"> Taxes : </div>
                         <div class="col-md-6 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
