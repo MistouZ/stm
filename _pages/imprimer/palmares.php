@@ -14,6 +14,10 @@ if(isset($_POST['imprimer'])) {
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
 
+    $seller = $_POST["seller"];
+
+    $customerSelected = $_POST["customer"];
+
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
@@ -37,7 +41,7 @@ if(isset($_POST['imprimer'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $companyId = $company->getIdcompany();
 
-    if(empty($seller) && empty($datefrom)){
+    if(empty($seller) && empty($datefrom) && empty($customerSelected)){
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotation($companyId);
             $typeCost = "D";
@@ -79,7 +83,7 @@ if(isset($_POST['imprimer'])) {
         }
 
     }
-    elseif(empty($seller))
+    elseif(empty($seller) && !empty($datefrom) && empty($customerSelected))
     {
         if ($type == "devis") {
             $quotations = $quotationmanager->getListQuotationByDate($companyId,$datefrom,$dateto);
@@ -120,6 +124,26 @@ if(isset($_POST['imprimer'])) {
             $enteteIcon = '<i class="fas fa-chart-bar"></i>';
         }
 
+    }
+    elseif(empty($seller) && !empty($datefrom) && !empty($customerSelected))
+    {
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByDateAndCustomer($companyId,$datefrom,$datetor,$customerSelected);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
     }
 
 
