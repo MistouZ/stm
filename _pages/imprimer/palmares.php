@@ -248,13 +248,13 @@ if(isset($_POST['imprimer'])) {
                                 foreach ($costs as $cost) {
                                     $TotalCost = calculCoutTotal($cost, $TotalCost);
                                 }
-
+        
                                 $costFolder = new Cost($array);
                                 $costsFolder = new CostManager($bdd);
-
-                                $costsFolder = $costsFolder->getByFolderId($j);
+        
+                                $costsFolder = $costsFolder->getByQuotationNumber($quotation->getQuotationNumber(), $quotation->getType(),$companyId);
                                 $TotalCostFolder = 0;
-                                /*récupérer les cout sur le dossier */
+                                /*récupérer les cout sur le dossier pour les devis */
                                 foreach ($costsFolder as $costFolder) {
                                     $TotalCostFolder = calculCoutTotal($costFolder, $TotalCostFolder);
                                 }
@@ -269,7 +269,7 @@ if(isset($_POST['imprimer'])) {
                                     $TotalCoutDossier[$i] = 0;
                                     $TotalCoutDossier[$i] = $TotalCostFolder;
                                 }
-
+        
                                 $TotalMarge = $TotalPalmares - $TotalCost;
                                 $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                                 $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
@@ -308,7 +308,7 @@ if(isset($_POST['imprimer'])) {
             <div class="col-md-7">
                 <div class="well">
                     <div class="row static-info align-reverse">
-                        <div class="col-md-6 name"> Total TTC :  </div>
+                        <div class="col-md-6 name"> Total HT :  </div>
                         <div class="col-md-6 value"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
@@ -316,7 +316,7 @@ if(isset($_POST['imprimer'])) {
                         <div class="col-md-6 value"> <?php echo number_format($TotalCost,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-6 name"> Marge TTC : </div>
+                        <div class="col-md-6 name"> Marge HT : </div>
                         <div class="col-md-6 value"> <?php echo number_format($TotalMarge,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
