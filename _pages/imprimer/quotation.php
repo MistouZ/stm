@@ -171,7 +171,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                         <th class="col-md-2"> Prix total HT </th>
                                     </tr>
                                 </thead>
-                               <tbody>
+                               <tbody class="pagebreak">
                                     <?php
                                         $montant = 0;
                                         $totalTaxe = 0;
@@ -354,7 +354,8 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                     scale: 0.65,
                     height: 500,
                     template: $("#page-template").html(),
-                    keepTogether: ".table-responsive"
+                    keepTogether: ".prevent-split",
+                    forcePageBreak: ".page-break" 
                 })
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
