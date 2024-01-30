@@ -271,10 +271,10 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
     <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
 
-<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css"/>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2020.2.513/js/jszip.min.js"></script>
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-ocean-blue.css"/>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2023.3.1114/js/kendo.all.min.js"></script>
+<script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.common-bootstrap.min.css"></script>
 <script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.bootstrap.min.css"></script>
 <script>
