@@ -191,6 +191,8 @@ var TableDatatablesManaged = function () {
 
             "bStateSave": true, // save datatable state(pagination, sort, etc) in cookie.
             
+            "deferRender": true,
+
             "lengthMenu": [
                 [6, 15, 20, -1],
                 [6, 15, 20, "All"] // change per page values here
