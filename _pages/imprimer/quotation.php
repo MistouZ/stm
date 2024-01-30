@@ -171,7 +171,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                         <th class="col-md-2"> Prix total HT </th>
                                     </tr>
                                 </thead>
-                               <tbody class="page-break">
+                               <tbody>
                                     <?php
                                         $montant = 0;
                                         $totalTaxe = 0;
@@ -197,7 +197,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                             $montantHT = $montantHT+$montantLigne;
                                             $montant = $montant+$montantLigne+$taxe;
                                         ?>
-                                        <tr>
+                                        <tr class="page-break">
                                             <td class="col-md-5"><?php echo nl2br($description->getDescription()); ?></td>
                                             <td class="col-md-2"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
