@@ -158,7 +158,7 @@ switch($type){
                         <tr>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro de devis</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
@@ -171,6 +171,9 @@ switch($type){
                                 $type = "devis";
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
+                                }
+                                else{
+                                    $type2=$quotation->getStatus();
                                 }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime( $quotation->getDate()));
@@ -222,9 +225,9 @@ switch($type){
                         <tr>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro de proforma</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
-                            <th class="desktop">Modifier</th>
+                            <!--<th class="desktop">Modifier</th>-->
                             <th class="desktop">Supprimer</th>
                         </tr>
                         </thead>
@@ -235,6 +238,9 @@ switch($type){
                                 $type = "proforma";
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
+                                }
+                                else{
+                                    $type2=$quotation->getStatus();
                                 }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
@@ -254,9 +260,9 @@ switch($type){
                                     <td><a class="btn green-meadow"
                                            href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
                                                     class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
-                                    <td><a class="btn blue-steel"
+                                    <!--<td><a class="btn blue-steel"
                                            href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i
-                                                    class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
+                                                    class="fas fa-edit" alt="Editer"></i> Modifier</a></td>-->
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
                                            data-title="Supprimer la proforma n° <?php echo $quotation->getQuotationNumber(); ?> ?"
                                            data-content="ATTENTION ! La suppression est irréversible !"
@@ -288,7 +294,7 @@ switch($type){
                         <tr>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro de facture</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
@@ -301,6 +307,9 @@ switch($type){
                                 $type = "facture";
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
+                                }
+                                else{
+                                    $type2=$quotation->getStatus();
                                 }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
@@ -354,7 +363,7 @@ switch($type){
                         <tr>
                             <th class="all">Date</th>
                             <th class="min-phone-l">Numéro d'avoir</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Détail</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
@@ -367,6 +376,9 @@ switch($type){
                                 $type = "avoir";
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
+                                }
+                                else{
+                                    $type2=$quotation->getStatus();
                                 }
                                 //initialisation au format date pour organiser le tableau
                                 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
@@ -421,7 +433,7 @@ switch($type){
                         <tr>
                             <th class="all">Fournisseur</th>
                             <th class="none">Description</th>
-                            <th class="none">Montant total</th>
+                            <th class="desktop">Montant total</th>
                             <th class="desktop">Modifier</th>
                             <th class="desktop">Supprimer</th>
                         </tr>
@@ -440,7 +452,7 @@ switch($type){
                                     <td><?php echo $cost->getDescription(); ?></td>
                                     <td><?php echo number_format($cout, 0, ",", " "); ?> XPF</td>
                                     <td><a class="btn blue-steel"
-                                           href="<?php echo URLHOST . $_COOKIE['company'].'/cout/modifier/'.$cost->getFolderId().'/'.$cost->getQuotationNumber(); ?>"><i
+                                           href="<?php echo URLHOST . $_COOKIE['company'].'/cout/modifier/'.$cost->getFolderId().'/'.$cost->getIdCost(); ?>"><i
                                                     class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                     <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation"
                                            data-title="Supprimer le cout lié au devis n° <?php echo $cost->getQuotationNumber(); ?> ?"

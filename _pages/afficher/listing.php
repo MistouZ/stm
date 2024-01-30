@@ -175,10 +175,16 @@ switch($type){
                 <div class="caption">
                     <i class="<?php print $fa; ?>"></i>Liste des <?php print ucwords($_GET['cat']); if($_GET['cat'] != "devis"){echo "s";}?>  </div>
                 <div class="actions">
+                    <?php
+                        if($_GET['cat'] == "devis"){
+                    ?>
                     <a data-toggle="modal" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm grey-salsa">
                         <i class="far fa-list-alt"></i> Voir mes devis</a>
                     <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/creer'; ?>" class="btn btn-sm grey-mint">
                         <i class="fa fa-plus"></i> Créer un devis</a>
+                    <?php
+                        }
+                    ?>
                     <?php echo $buttons; ?>
                 </div>
             </div>
@@ -230,10 +236,13 @@ switch($type){
                                 <td><?php echo number_format($montant,0,","," "); ?> XPF</td>
                                 <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                                 <?php if($_GET['cat'] != "facture" && $_GET['cat'] != "proforma"){
+                                if($type2 != "proforma")
+                                {
                                 ?>
                                 <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                                 <?php
                                 }
+                        }
                                 ?>
                                 <td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer <?php echo $type; ?> n° <?php echo $quotation->getQuotationNumber(); ?> ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="<?php echo URLHOST.'_pages/_post/supprimer_devis.php?idQuotation='.$quotation->getIdQuotation().'&quotationNumber='.$quotation->getQuotationNumber().'&type='.$typeMini.'&compId='.$folder->getCompanyId(); ?>"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>
                             </tr>
@@ -285,6 +294,7 @@ if(count($quotations)>0) {
                                value="<?php echo $quotation->getQuotationNumber(); ?>">
                         <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                         <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                        <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
                             </button>
@@ -331,6 +341,7 @@ if(count($quotations)>0) {
                                value="<?php echo $quotation->getQuotationNumber(); ?>">
                         <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                         <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                        <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
                             </button>
@@ -377,6 +388,7 @@ if(count($quotations)>0) {
                                value="<?php echo $quotation->getQuotationNumber(); ?>">
                         <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                         <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                        <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
                             </button>
@@ -422,6 +434,7 @@ if(count($quotations)>0) {
                                value="<?php echo $quotation->getQuotationNumber(); ?>">
                         <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                         <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                        <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
                             </button>
@@ -447,6 +460,7 @@ if(count($quotations)>0) {
                         <input type="hidden" id="quotationNumber" name="quotationNumber"
                                value="<?php echo $quotation->getQuotationNumber(); ?>">
                         <input type="hidden" id="currentType" name="currentType" value="<?php echo $quotation->getType(); ?>">
+                        <input type="hidden" id="company" name="company" value="<?php echo $companyNameData; ?>">
                         <div class="modal-footer">
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
                             </button>

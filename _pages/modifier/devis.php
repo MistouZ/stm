@@ -36,7 +36,15 @@ $costmanager = new CostManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
-$quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+if($type2 == "partiels")
+{
+    $quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"S",$companyId);
+}
+else
+{
+    $quotation = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+}
+
 
 $foldermanager = $foldermanager->getListActive($companyId);
 $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
@@ -44,8 +52,15 @@ $folderRecup = $foldermanagerRecup->get($quotation->getFolderId());
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
+if($type2 == "partiels")
+{
+    $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"S",$companyId);
+}
+else
+{
+    $descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
+}
 
-$descriptions = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
 $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNumber());
 
 if($quotation->getContactId() != 0){
@@ -53,8 +68,16 @@ if($quotation->getContactId() != 0){
 }
 //$user = $usermanager->get($quotation->getSeller());
 
-$customer = $customermanager->getById($quotation->getCustomerId());
-$costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
+$customerQuotation = $customermanager->getById($quotation->getCustomerId());
+if($type2 == "partiels")
+{
+    $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"S",$companyId);
+}
+else
+{
+    $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D",$companyId);
+}
+
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
@@ -150,8 +173,8 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                             <a href="" class="collapse" data-original-title="" title=""> </a>
                                                         </div>
                                                     </div>
-                                                    <div class="portlet-body" style="display: block;">
-                                                        <h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customer->getName(); ?></span></h5>
+                                                    <div class="portlet-body" style="display: block;">                                                    
+                                                        <h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customerQuotation->getName(); ?></span></h5>
                                                         <h5 style="font-weight: 800;">Contact : <span id="spanContact"><?php echo $contact->getFirstname()." ".$contact->getName(); ?></span></h5>
                                                     </div>
                                                 </div>

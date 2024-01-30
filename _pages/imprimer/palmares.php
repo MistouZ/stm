@@ -14,6 +14,10 @@ if(isset($_POST['imprimer'])) {
     $datefrom = $_POST["date_from"];
     $dateto = $_POST["date_to"];
 
+    $seller = $_POST["seller"];
+
+    $customerSelected = $_POST["customer"];
+
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
@@ -37,38 +41,115 @@ if(isset($_POST['imprimer'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $companyId = $company->getIdcompany();
 
-    if (empty($seller) && empty($datefrom)) {
-        $filteredFolder = $foldermanager->getList($companyId);
-    } elseif (empty($seller)) {
-        $filteredFolder = $foldermanager->getListByDate($companyId, $datefrom, $dateto);
-    } elseif (!empty($seller) && empty($datefrom)) {
-        $filteredFolder = $foldermanager->getListByUser($companyId, $seller);
-    } elseif (!empty($seller) && !empty($datefrom)) {
-        $filteredFolder = $foldermanager->getListByDateAndUser($companyId, $seller, $datefrom, $dateto);
+    if(empty($seller) && empty($datefrom) && empty($customerSelected)){
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotation($companyId);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProforma($companyId);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoice($companyId);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAsset($companyId);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
+        //$filteredFolder = $foldermanager->getList($companyId);
     }
+    elseif(!empty($seller) && empty($datefrom))
+    {
+        $filteredFolder = $foldermanager->getListByUser($companyId, $seller);
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
 
-    if ($type == "devis") {
-        $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
-        $costType = "D";
-        $enteteIcon = '<i class="fas fa-chart-pie"></i>';
-    } elseif ($type == "proforma") {
-        $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
-        $costType = "P";
-        $enteteIcon = '<i class="fas fa-chart-area"></i>';
-    } elseif ($type == "facture") {
-        $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
-        $costType = "F";
-        $enteteIcon = '<i class="fas fa-chart-line"></i>';
-    } elseif ($type == "avoir") {
-        $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
-        $costType = "A";
-        $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+    }
+    elseif(empty($seller) && !empty($datefrom) && empty($customerSelected))
+    {
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByDate($companyId,$datefrom,$dateto);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByDate($companyId,$datefrom,$dateto);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByDate($companyId,$datefrom,$dateto);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByDate($companyId,$datefrom,$datetor);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
+    }   
+    elseif (!empty($seller) && !empty($datefrom))
+    {
+        $filteredFolder = $foldermanager->getListByUser($seller, $companyId);
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByFilteredFoldersAndDate($filteredFolder,$folder,$datefrom,$dateto);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
+
+    }
+    elseif(empty($seller) && !empty($datefrom) && !empty($customerSelected))
+    {
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByDateAndCustomer($companyId,$datefrom,$datetor,$customerSelected);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
     }
 
 
 //récupération des coûts liés au dossier.
 
-    $costs = $costmanager->getCostByFilteredQuotation($quotations, $quotation, $costType);
+    $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation, $typeCost);
 }
 ?>
 <div class="row" xmlns="http://www.w3.org/1999/html">
@@ -145,7 +226,7 @@ if(isset($_POST['imprimer'])) {
                                 //Calcul du montant des devis / factures et cumul pour le Palmares
                                 $montant = 0;
                                 foreach ($descriptions as $description) {
-                                    $montant = calculMontantTotalTTC($description, $montant);
+                                    $montant = calculMontantTotalHT($description, $montant);
                                 }
 
                                 //Calcul du cumul du montant par dossier avec vérification de l'ID pour le cumul
@@ -167,13 +248,13 @@ if(isset($_POST['imprimer'])) {
                                 foreach ($costs as $cost) {
                                     $TotalCost = calculCoutTotal($cost, $TotalCost);
                                 }
-
+        
                                 $costFolder = new Cost($array);
                                 $costsFolder = new CostManager($bdd);
-
-                                $costsFolder = $costsFolder->getByFolderId($j);
+        
+                                $costsFolder = $costsFolder->getByQuotationNumber($quotation->getQuotationNumber(), $quotation->getType(),$companyId);
                                 $TotalCostFolder = 0;
-                                /*récupérer les cout sur le dossier */
+                                /*récupérer les cout sur le dossier pour les devis */
                                 foreach ($costsFolder as $costFolder) {
                                     $TotalCostFolder = calculCoutTotal($costFolder, $TotalCostFolder);
                                 }
@@ -188,7 +269,7 @@ if(isset($_POST['imprimer'])) {
                                     $TotalCoutDossier[$i] = 0;
                                     $TotalCoutDossier[$i] = $TotalCostFolder;
                                 }
-
+        
                                 $TotalMarge = $TotalPalmares - $TotalCost;
                                 $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                                 $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
@@ -227,7 +308,7 @@ if(isset($_POST['imprimer'])) {
             <div class="col-md-7">
                 <div class="well">
                     <div class="row static-info align-reverse">
-                        <div class="col-md-6 name"> Total TTC :  </div>
+                        <div class="col-md-6 name"> Total HT :  </div>
                         <div class="col-md-6 value"> <?php echo number_format($TotalPalmares,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
@@ -235,17 +316,17 @@ if(isset($_POST['imprimer'])) {
                         <div class="col-md-6 value"> <?php echo number_format($TotalCost,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
-                        <div class="col-md-6 name"> Marge TTC : </div>
+                        <div class="col-md-6 name"> Marge HT : </div>
                         <div class="col-md-6 value"> <?php echo number_format($TotalMarge,0,","," "); ?> XPF</div>
                     </div>
                     <div class="row static-info align-reverse">
                         <div class="col-md-6 name"> Marge : </div>
                         <div class="col-md-6 value"> <?php echo number_format($PercentMarge,0,","," "); ?> %</div>
                     </div>
-                    <div class="row static-info align-reverse">
-                        <div class="col-md-6 name"> Marge : </div>
+                    <!--<div class="row static-info align-reverse">
+                        <div class="col-md-6 name"> Taxes : </div>
                         <div class="col-md-6 value"> <?php echo number_format($totalTaxe,0,","," "); ?> XPF</div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

@@ -54,7 +54,7 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
-$test2 = $descriptionmanager->update($descriptions,$test,"A",$companyId);
+$test2 = $descriptionmanager->update($descriptions,$test,$currentType,"A",$companyId);
 $test3 = $costmanager->UpdateCostType($test,$quotationNumber,"A",$companyId);
 
 if(is_null($test) || is_null($test2) || is_null($test3)){

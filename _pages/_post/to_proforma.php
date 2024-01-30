@@ -21,7 +21,15 @@ $companyId = $company->getIdcompany();
 
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-$quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+if($type2 == "partiels")
+{
+    $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"S",$companyId);
+}
+else
+{
+    $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
+}
+
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
 //$costGet = $costmanager->getByQuotationNumber($quotationNumber, $currentType);
@@ -55,11 +63,12 @@ if($_POST["shattered"] == "full" || $percent == 100)
         $shatteredQuotationInit = $shatteredQuotationManager->getByQuotationNumberChild($quotationNumber);
         $quotationNumberInit = $shatteredQuotationInit->getQuotationNumberInit();
         $quotationInit = $quotationNumberInit."_init";
-        $test2 = $descriptionmanager->delete($quotationInit,"D");
+        $test2 = $descriptionmanager->delete($quotationInit,"D", $companyId);
         $test3 = $shatteredQuotationManager->delete($quotationInit);
     }
     else{
         $descriptionmanager = new DescriptionManager($bdd);
+        print_r($quotation);
         $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
         $test3 = "ok";
     }
@@ -117,7 +126,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $counter->setQuotation($counterQuotation);
     $countermanager->updateCounter($counter);
     
-    
+
     if($type3 == "S")
     {   
         //si le devis est déjà partiel, je récupère les données initiales
@@ -139,6 +148,8 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $quotationNumberInit = $quotationNumber;
         $getDescription = $descriptionmanager->getByQuotationNumber($quotationNumber,"D",$companyId);
         $quotationInit = $quotationGet->getQuotationNumber()."_init";
+
+        echo $quotationInit;
         $rest = 100 - $percent;
         $i = 0;
         $descriptions= array();
@@ -149,7 +160,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
             $i++;
         }
         // Duplication des descriptions pour garder l'original
-        $test = $descriptionmanager->add($descriptions,$quotationInit,"S");
+        $test = $descriptionmanager->add($descriptions,$quotationInit,"S",$companyId);
 
     }
 
@@ -171,7 +182,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     }
     else
     {
-        $test2 = $shatteredQuotationManager->add($shatteredQuotation);
+       $test2 = $shatteredQuotationManager->add($shatteredQuotation);
     }
     
     
@@ -190,13 +201,12 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         $j++;
     }
     if($type3 == "S"){
-        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumberChild,"S");
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"S", "P",$companyId);
     }
     else{
-        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"S");
+        $test3 = $descriptionmanager->update($descriptionsReduced,$quotationNumber,"D","P", $companyId);
     }
    
-
     if($rest != 0)
     {   //il reste à facturer alors je stocke les données restantes
         $getDescriptionInit = $descriptionmanager->getByQuotationNumber($quotationInit,"S",$companyId);
@@ -211,17 +221,15 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
             $k++;
         }
         //insertion du reste à payer
-        $test4a = $descriptionmanager->add($descriptions,$newquotationNumber,"S");
+        $test4a = $descriptionmanager->add($descriptions,$newquotationNumber,"S",$companyId);
         $test4b = "ok";
     }
     else
     {
         //il ne reste rien à facturer alors je supprime les données partielles
-        $test4a = $descriptionmanager->delete($quotationInit,"S");
+        $test4a = $descriptionmanager->delete($quotationInit,"S",$companyId);
         $test4b = $shatteredQuotationManager->delete($quotationInit);
     }
-
-
 
     $data = array(
         'idQuotation' => $quotationGet->getIdQuotation(),

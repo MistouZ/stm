@@ -35,10 +35,18 @@ $companyId = $company->getIdcompany();
 
 switch($type){
     case "devis":
-        $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
-        $entete = "du devis";
-        $enteteIcon = '<i class="fas fa-file-invoice"></i>';
-        $typeQuotation = "D";
+        if($type2=="valides"){
+            $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"P",$companyId);
+            $entete = "du devis";
+            $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+            $typeQuotation = "P";
+        }
+        else{
+            $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
+            $entete = "du devis";
+            $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+            $typeQuotation = "D";
+        }
         break;
 
     case "proforma":
@@ -215,7 +223,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
         <div class="row">
             <div class="col-md-5"></div>
             <div class="col-md-7">
-                <div class="well">
+                <div class="well" >
                     <div class="row static-info align-reverse">
                         <div class="col-md-6 name"> Sous-total: </div>
                         <div class="col-md-6 value"> <?php echo number_format($montantHT,0,","," "); ?> XPF</div>
@@ -263,26 +271,26 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
     <button id="Exporter" onclick="ExportPdf()">Exporter</button>
 </div>
 
-<link rel="stylesheet" href="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.default-v2.min.css"/>
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2020.2.513/js/kendo.all.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2020.2.513/js/jszip.min.js"></script>
-<script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.common-bootstrap.min.css"></script>
-<script src="https://kendo.cdn.telerik.com/2020.2.513/styles/kendo.bootstrap.min.css"></script>
+<link rel="stylesheet" href="https://kendo.cdn.telerik.com/themes/7.0.2/default/default-ocean-blue.css"/>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2023.3.1114/js/kendo.all.min.js"></script>
+<script src="https://unpkg.com/jszip/dist/jszip.min.js"></script>
+<script src="https://kendo.cdn.telerik.com/2023.3.1114/styles/kendo.common-bootstrap.min.css"></script>
+<script src="https://kendo.cdn.telerik.com/2023.3.1114/styles/kendo.bootstrap.min.css"></script>
 <script>
     // Import DejaVu Sans font for embedding
     kendo.pdf.defineFont({
         "DejaVu Sans":
-            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans.ttf",
+            "https://kendo.cdn.telerik.com/2023.1.117/styles/fonts/DejaVu/DejaVuSans.ttf",
 
         "DejaVu Sans|Bold":
-            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
+            "https://kendo.cdn.telerik.com/2023.1.117/styles/fonts/DejaVu/DejaVuSans-Bold.ttf",
 
         "DejaVu Sans|Bold|Italic":
-            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "https://kendo.cdn.telerik.com/2023.1.117/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "DejaVu Sans|Italic":
-            "https://cdn.kendostatic.com/2020.2.513/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
+            "https://kendo.cdn.telerik.com/2023.1.117/styles/fonts/DejaVu/DejaVuSans-Oblique.ttf",
 
         "WebComponentsIcons"      :
             "https://kendo.cdn.telerik.com/2020.2.513/styles/fonts/glyphs/WebComponentsIcons.ttf",
@@ -298,7 +306,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 <?php if($type =="facture")
                 {
                 ?>
-                    <img src="<?php echo URLHOST; ?>images/societe/header/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; max-height : 100px"  />
+                    <img src="<?php echo URLHOST; ?>images/societe/header/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; max-height : 100px"  />
                 <?php
                 }
                 else{
@@ -310,18 +318,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             </div>
             <div class="footer">
                 <h5> #:pageNum# / #:totalPages# </h5>
-                <?php if($type =="facture")
-                {
-                ?>  
-                <img src="<?php echo URLHOST; ?>images/societe/footer/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />        
-                <?php
-                }
-                else{
-                ?>
-                    <div style="height : 10px;"></div>
-                <?php
-                }
-                ?>  
+                <img src="<?php echo URLHOST; ?>images/societe/footer/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />  
             </div>
         <?php }else{ ?>
             <div class="header" >
@@ -353,11 +350,12 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 {
                     paperSize: "A4",
                     multiPage : true,
-                    margin: { top: "3cm", bottom: "2cm", right: "1cm", left: "1cm" },
+                    margin: { top: "3cm", bottom: "3cm", right: "1cm", left: "1cm" },
                     scale: 0.65,
                     height: 500,
                     template: $("#page-template").html(),
-                    keepTogether: ".prevent-split"
+                    //keepTogether: ".prevent-split",
+                    //forcePageBreak: ".page-break" 
                 })
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")

@@ -15,6 +15,8 @@ if(isset($_POST['valider'])) {
 
     $seller = $_POST["seller"];
 
+    $customerSelected = $_POST["customer"];
+
     $array = array();
     /*initilisation des objets */
     $company = new Company($array);
@@ -38,39 +40,112 @@ if(isset($_POST['valider'])) {
     $company = $companymanager->getByNameData($companyNameData);
     $companyId = $company->getIdcompany();
 
-    if(empty($seller) && empty($datefrom)){
-        $filteredFolder = $foldermanager->getList($companyId);
-    }
-    elseif(empty($seller))
-    {
-        $filteredFolder = $foldermanager->getListByDate($companyId,$datefrom,$dateto);
+    if(empty($seller) && empty($datefrom) && empty($customerSelected)){
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotation($companyId);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProforma($companyId);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoice($companyId);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAsset($companyId);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
+        //$filteredFolder = $foldermanager->getList($companyId);
     }
     elseif(!empty($seller) && empty($datefrom))
     {
         $filteredFolder = $foldermanager->getListByUser($companyId, $seller);
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder,$folder);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
+
     }
+    elseif(empty($seller) && !empty($datefrom) && empty($customerSelected))
+    {
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByDate($companyId,$datefrom,$dateto);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByDate($companyId,$datefrom,$dateto);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByDate($companyId,$datefrom,$dateto);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByDate($companyId,$datefrom,$datetor);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
+    }   
     elseif (!empty($seller) && !empty($datefrom))
     {
-        $filteredFolder = $foldermanager->getListByDateAndUser($companyId,$seller,$datefrom,$dateto);
+        $filteredFolder = $foldermanager->getListByUser($seller, $companyId);
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByFilteredFoldersAndDate($filteredFolder,$folder,$datefrom,$dateto);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByFilteredFoldersAndDate($filteredFolder, $folder,$datefrom,$dateto);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
+
+    }
+    elseif(empty($seller) && !empty($datefrom) && !empty($customerSelected))
+    {
+        if ($type == "devis") {
+            $quotations = $quotationmanager->getListQuotationByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "D";
+            $enteteIcon = '<i class="fas fa-chart-pie"></i>';
+        } elseif ($type == "proforma") {
+            $quotations = $quotationmanager->getListProformaByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "P";
+            $enteteIcon = '<i class="fas fa-chart-area"></i>';
+        } elseif ($type == "facture") {
+            $quotations = $quotationmanager->getListInvoiceByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
+            $typeCost = "F";
+            $enteteIcon = '<i class="fas fa-chart-line"></i>';
+        } elseif ($type == "avoir") {
+            $quotations = $quotationmanager->getListAssetsByDateAndCustomer($companyId,$datefrom,$datetor,$customerSelected);
+            $typeCost = "A";
+            $enteteIcon = '<i class="fas fa-chart-bar"></i>';
+        }
     }
 
-    if ($type == "devis") {
-        $quotations = $quotationmanager->getListQuotationByFilteredFolders($filteredFolder, $folder);
-        $typeCost = "D";
-        $enteteIcon = '<i class="fas fa-chart-pie"></i>';
-    } elseif ($type == "proforma") {
-        $quotations = $quotationmanager->getListProformaByFilteredFolders($filteredFolder, $folder);
-        $typeCost = "P";
-        $enteteIcon = '<i class="fas fa-chart-area"></i>';
-    } elseif ($type == "facture") {
-        $quotations = $quotationmanager->getListInvoiceByFilteredFolders($filteredFolder, $folder);
-        $typeCost = "F";
-        $enteteIcon = '<i class="fas fa-chart-line"></i>';
-    } elseif ($type == "avoir") {
-        $quotations = $quotationmanager->getListAssetsByFilteredFolders($filteredFolder, $folder);
-        $typeCost = "A";
-        $enteteIcon = '<i class="fas fa-chart-bar"></i>';
-    }
+    //print_r($quotations);
 
     //récupération des coûts liés au dossier.
 
@@ -179,9 +254,9 @@ if(isset($_POST['valider'])) {
                         $costFolder = new Cost($array);
                         $costsFolder = new CostManager($bdd);
 
-                        $costsFolder = $costsFolder->getByFolderId($j);
+                        $costsFolder = $costsFolder->getByQuotationNumber($quotation->getQuotationNumber(), $quotation->getType(),$companyId);
                         $TotalCostFolder = 0;
-                        /*récupérer les cout sur le dossier */
+                        /*récupérer les cout sur le dossier pour les devis */
                         foreach ($costsFolder as $costFolder) {
                             $TotalCostFolder = calculCoutTotal($costFolder, $TotalCostFolder);
                         }
@@ -272,6 +347,7 @@ if(isset($_POST['valider'])) {
         <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
         <input type="hidden" id="date_to" name="date_to" value="<?php echo $dateto; ?>">
         <input type="hidden" id="seller" name="seller" value="<?php echo $seller; ?>">
+        <input type="hidden" id="customer" name="customer" value="<?php echo $customerSelected; ?>">
         <div class="modal-footer">
             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer</button>
             <button type="submit" class="btn green" name="imprimer">

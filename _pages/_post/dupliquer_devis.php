@@ -17,21 +17,21 @@ $costmanager = new CostManager($bdd);
 
 $companyId = $_GET['compId'];
 
-Echo "Mon quotation : ".$_GET["quotationNumber"];
+//Echo "Mon quotation : ".$_GET["quotationNumber"];
 //récupération des données du devis initial à dupliquer
 $quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"], 'D', $companyId);
 $folderId = $quotation->getFolderId();
-Echo " folderId : ".$folderId;
+//Echo " folderId : ".$folderId;
 $companyId = $quotation->getCompanyId();
-Echo " companyId : ".$companyId;
+//Echo " companyId : ".$companyId;
 $customerId = $quotation->getCustomerId();
-Echo " customerId : ".$customerId;
+//Echo " customerId : ".$customerId;
 $contactId = $quotation->getContactId();
-Echo " contactId : ".$contactId;
+//Echo " contactId : ".$contactId;
 $comment = $quotation->getComment();
-Echo " comment : ".$comment;
+//Echo " comment : ".$comment;
 $label = $quotation->getLabel();
-Echo " label : ".$label;
+//Echo " label : ".$label;
 
 $arraycounter = array();
 $counter = new Counter($arraycounter);
@@ -69,8 +69,8 @@ else{
 
 //récupération des descriptions du devis en cours
 $getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D", $companyId);
-Echo ' --- Print R de getDescription : ';
-print_r($getDescription);
+//Echo ' --- Print R de getDescription : ';
+//print_r($getDescription);
 
 $i = 0;
 $descriptions= array();
@@ -80,9 +80,9 @@ foreach ($getDescription as $description)
     $descriptions[$i] = $description;
     $i++;
 }
-echo "------ Avant test ";
+//echo "------ Avant test ";
 $test = $descriptionmanager->add($descriptions,$quotationNumber,"D",$companyId);
-echo " ------ test : ".$test;
+//echo " ------ test : ".$test;
 //récupération des couts associés au devis
 
 $getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(), 'D', $companyId);
@@ -122,9 +122,9 @@ else{
 
     //incrémentation du nombre de devis créé pour la société
     $counterQuotation = $counterQuotation + 1;
-    echo $counterQuotation;
+    //echo $counterQuotation;
     $counter->setQuotation($counterQuotation);
-    print_r($counter);
+    //print_r($counter);
     $countermanager->updateCounter($counter);
     header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/cours/".$quotationNumber);
 }

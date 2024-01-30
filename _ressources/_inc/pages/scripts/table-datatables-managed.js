@@ -169,7 +169,7 @@ var TableDatatablesManaged = function () {
                     "sortAscending": ": ascendant",
                     "sortDescending": ": descendant"
                 },
-                "emptyTable": "No data available in table",
+                "emptyTable": "Aucune données à afficher",
                 "info": "Affichage des éléments _START_ à _END_ sur un total de _TOTAL_",
                 "infoEmpty": "Aucune données trouvées",
                 "infoFiltered": "(filtrées sur un total de _MAX_)",

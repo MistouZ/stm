@@ -146,18 +146,18 @@ class DescriptionManager
      * @param $quotationNumber
      * @return array|null
      */
-    public function update(array $description, $quotationNumber, $quotationType, $companyId)
+    public function update(array $description, $quotationNumber, $quotationType, $quotationNewType, $companyId)
     {
         try{
             $test = $this->delete($quotationNumber, $quotationType, $companyId);
             if(!is_null($test))
             {
-                //echo "suppresion réussie ".$quotationNumber;
+                echo "suppresion réussie ".$quotationNumber;
             }
-            $test2 =$this->add($description,$quotationNumber,$quotationType, $companyId);
+            $test2 =$this->add($description,$quotationNumber,$quotationNewType, $companyId);
             if(!is_null($test2))
             {
-                //echo "Ajout réussie ".$quotationNumber;
+                echo "Ajout réussie ".$quotationNumber;
             }
             return $description;
         }

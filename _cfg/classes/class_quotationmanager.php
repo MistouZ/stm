@@ -119,6 +119,7 @@ class QuotationManager
     public function getByQuotationNumber($quotationNumber, $type, $companyId)
     {
         try{
+           
             $quotationNumber = (integer) $quotationNumber;
             $q = $this->_db->query("SELECT * FROM `quotation` WHERE quotationNumber = '$quotationNumber' AND type ='$type' AND companyId = '$companyId' ");
             $donnees = $q->fetch(PDO::FETCH_ASSOC);
@@ -161,7 +162,33 @@ class QuotationManager
     {
         try{
             $quotations = [];
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='D' ORDER BY quotationNumber DESC");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='D' ORDER BY folderId DESC");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the quotation in the BDD for the selected company
+     * @return array
+     */
+    public function getListQuotationByDate($companyid, $datefrom, $dateto)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='D' ORDER BY folderId DESC ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -200,6 +227,62 @@ class QuotationManager
     }
 
     /**
+     * Get all the quotation in the BDD from the Filtered Folders AND date
+     * @return array
+     */
+    public function getListQuotationByFilteredFoldersAndDate($folders, $folder,$datefrom, $dateto)
+    {
+        try{
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+            foreach ($folders as $folder)
+            {
+                $folderId = $folder->getIdFolder();
+                $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='D' AND STATUS ='En cours' ORDER BY folderId DESC";
+                $q=$this->_db->query($query);
+                while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+                {
+                    $quotations[] = new Quotation($donnees);
+                }
+            }
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the quotation in the BDD for the selected company date and customer
+     * @return array
+     */
+    public function getListQuotationByDateAndCustomer($companyid, $datefrom, $dateto,$customerid)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND customerId = '$customerid'AND type ='D' ORDER BY folderId DESC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    
+
+    /**
      * Get all the quotation in the BDD for the selected company
      * @return array
      */
@@ -230,7 +313,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='P' ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='P' ORDER BY folderId DESC");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -244,7 +327,33 @@ class QuotationManager
     }
 
     /**
-     * Get all the proforam in the BDD from Filtered Folders
+     * Get all the proforma in the BDD for the selected company
+     * @return array
+     */
+    public function getListProformaByDate($companyid, $datefrom, $dateto)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='P' ORDER BY folderId ASC");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the proforma in the BDD from Filtered Folders
      * @return array
      */
     public function getListProformaByFilteredFolders($folders, $folder)
@@ -254,7 +363,7 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='P' ORDER BY quotationNumber DESC";
+                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='P' ORDER BY folderId DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
@@ -269,6 +378,63 @@ class QuotationManager
     }
 
     /**
+     * Get all the proforam in the BDD from Filtered Folders
+     * @return array
+     */
+    public function getListProformaByFilteredFoldersAndDate($folders, $folder,$datefrom, $dateto)
+    {
+        try{
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+            foreach ($folders as $folder)
+            {
+                $folderId = $folder->getIdFolder();
+                $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='P' ORDER BY folderId ASC";
+                $q=$this->_db->query($query);
+                while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+                {
+                    $quotations[] = new Quotation($donnees);
+                }
+            }
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the proforma in the BDD for the selected company date and customer
+     * @return array
+     */
+    public function getListProformaByDateAndCustomer($companyid, $datefrom, $dateto,$customerid)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND customerId = '$customerid'AND type ='P' ORDER BY folderId DESC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+
+    
+
+    /**
      * Get all the invoice in the BDD for the selected company
      * @return array
      */
@@ -277,7 +443,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='F' AND status!='Validated'");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='F' AND status!='Validated' ORDER BY folderId DESC");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -303,7 +469,7 @@ class QuotationManager
 
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='F' ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='F' ORDER BY folderId ASC ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
@@ -327,13 +493,67 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='F' ORDER BY quotationNumber DESC";
+                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='F' ORDER BY folderId DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
                     $quotations[] = new Quotation($donnees);
                 }
             }
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the invoice in the BDD from Filtered Folders
+     * @return array
+     */
+    public function getListInvoiceByFilteredFoldersAndDate($folders, $folder,$datefrom, $dateto)
+    {
+        try{
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+            foreach ($folders as $folder)
+            {
+                $folderId = $folder->getIdFolder();
+                $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='F' ORDER BY folderId ASC";
+                $q=$this->_db->query($query);
+                while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+                {
+                    $quotations[] = new Quotation($donnees);
+                }
+            }
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the invoices in the BDD for the selected company date and customer
+     * @return array
+     */
+    public function getListInvoiceByDateAndCustomer($companyid, $datefrom, $dateto,$customerid)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND customerId = '$customerid'AND type ='F' ORDER BY folderId DESC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
             return $quotations;
         }
         catch(Exception $e){
@@ -364,6 +584,32 @@ class QuotationManager
     }
 
     /**
+     * Get all the invoice in the BDD for the selected company
+     * @return array
+     */
+    public function getListAssetsByDate($companyid, $datefrom, $dateto)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='F' ORDER BY folderId ASC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
      * Get all the invoice in the BDD from Filtered Folders
      * @return array
      */
@@ -374,7 +620,7 @@ class QuotationManager
             foreach ($folders as $folder)
             {
                 $folderId = $folder->getIdFolder();
-                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='A' ORDER BY quotationNumber DESC";
+                $query = "SELECT * FROM quotation WHERE folderId='$folderId' AND type ='A' ORDER BY folderId DESC";
                 $q=$this->_db->query($query);
                 while($donnees = $q->fetch(PDO::FETCH_ASSOC))
                 {
@@ -389,7 +635,61 @@ class QuotationManager
     }
 
     /**
-     * Get all the invoice in the BDD for the selected company
+     * Get all the invoice in the BDD from Filtered Folders
+     * @return array
+     */
+    public function getListAssetsByFilteredFoldersAndDate($folders, $folder,$datefrom, $dateto)
+    {
+        try{
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+            foreach ($folders as $folder)
+            {
+                $folderId = $folder->getIdFolder();
+                $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='F' ORDER BY folderId DESC";
+                $q=$this->_db->query($query);
+                while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+                {
+                    $quotations[] = new Quotation($donnees);
+                }
+            }
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the assets in the BDD for the selected company date and customer
+     * @return array
+     */
+    public function getListAssetsByDateAndCustomer($companyid, $datefrom, $dateto,$customerid)
+    {
+        try{
+
+            $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
+            $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
+
+            $quotations = [];
+
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND customerId = '$customerid'AND type ='A' ORDER BY folderId DESC ");
+            while($donnees = $q->fetch(PDO::FETCH_ASSOC))
+            {
+                $quotations[] = new Quotation($donnees);
+            }
+
+            return $quotations;
+        }
+        catch(Exception $e){
+            return null;
+        }
+    }
+
+    /**
+     * Get all the Proformas in the BDD for the selected company
      * @return array
      */
     public function getListValidatedQuotation($companyid)
@@ -583,5 +883,8 @@ class QuotationManager
             return null;
         }
     }
+
+
+
 
 }

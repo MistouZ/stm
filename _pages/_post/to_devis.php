@@ -43,7 +43,10 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
-$test2 = $descriptionmanager->update($descriptions,$test,"D",$companyId);
+
+print_r($descriptions);
+
+$test2 = $descriptionmanager->update($descriptions,$test,$currentType,"D",$companyId);
 $test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D",$companyId);
 
 

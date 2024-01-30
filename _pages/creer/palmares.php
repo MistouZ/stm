@@ -14,9 +14,12 @@ $companymanager = new CompaniesManager($bdd);
 $user = new Users($array);
 $usermanager = new UsersManager($bdd);
 
+$customer = new Customers($array);
+$customermanager = new CustomersManager($bdd);
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
+
 
 $today = date('d/m/Y');
 
@@ -85,6 +88,30 @@ $type = $_GET["souscat"]
                                     foreach ($usermanager as $user){
                                        ?>
                                         <option value="<?php echo $user->getUsername(); ?>"><?php echo $user->getFirstName()." ".$user->getName(); ?></option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4"> OU </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-md-4">Clients
+                                <span class="required"> * </span>
+                            </label>
+                            <div class="col-md-2">
+                                <select id="customers" class="customer form-control" name="customer">
+                                    <option value="">Sélectionnez ...</option>
+                                    <?php
+
+                                    $customermanager = $customermanager->getListByCompany($companyId);
+
+                                    print_r($customermanager);
+                                    foreach ($customermanager as $customer){
+                                       ?>
+                                        <option value="<?php echo $customer->getIdCustomer(); ?>"><?php echo $customer->getName(); ?></option>
                                         <?php
                                     }
                                     ?>

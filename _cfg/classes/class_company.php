@@ -24,7 +24,7 @@
        */
       public function getIdcompany()
       {
-          return $this->idcompany;
+          return $this->companyId;
       }
 
       /**
@@ -33,7 +33,7 @@
       public function setIdcompany($companyId): void
       {
           $companyId = (int) $companyId;
-          $this->idcompany = $companyId;
+          $this->companyId = $companyId;
       }
 
       /**

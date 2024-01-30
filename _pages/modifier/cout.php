@@ -10,7 +10,7 @@ $array = array();
 $companyNameData = $_GET["section"];
 $type = $_GET['cat'];
 $folderId = $_GET['soussouscat'];
-$quotationNumber = $_GET['soussoussouscat'];
+$costId = $_GET['soussoussouscat'];
 $retour = $_GET['cat5'];
 
 $company = new Company($array);
@@ -32,6 +32,10 @@ $suppliermanager = new SuppliersManager($bdd);
 $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
+$costRecup = $costmanager->getByCostId($costId);
+
+$quotationNumber = $costRecup->getQuotationNumber();
+$quotationType = $costRecup->getType();
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
@@ -44,6 +48,7 @@ $contact = $contactmanager->getById($folderRecup->getContactId());
 $user = $usermanager->get($folderRecup->getSeller());
 $customer = $customermanager->getById($folderRecup->getCustomerId());
 $costmanager = $costmanager->getByFolderId($folderRecup->getIdFolder());
+
 
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
@@ -127,7 +132,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
                                     <div class="portlet-title">
                                         <div class="caption">
                                             <i class="fas fa-hand-holding-usd"></i>
-                                            <span class="caption-subject bold uppercase"> Coûts liés au devis </span>
+                                            <span class="caption-subject bold uppercase"> Coûts liés au dossier </span>
                                         </div>
                                         <div class="tools">
                                             <a href="" <?php if(count($costmanager) == 0){ echo 'class="expand"';}else{echo 'class="collapse"';} ?> data-original-title="" title=""> </a>
@@ -235,12 +240,13 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
                                 <button type="submit" class="btn green"><i class="fas fa-save"></i> Enregistrer</button>
-                                <button type="button" class="btn default"><i class="fas fa-ban"></i> Annuler</button>
+                                <button type="button" class="btn default" onclick="history.back()"><i class="fas fa-ban"></i> Annuler</button>
                             </div>
                         </div>
                     </div>
                     <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
                     <input type="hidden" id="folderId" name="folderId" value="<?php echo $folderId; ?>">
+                    <input type="hidden" id="quotationType" name="quotationType" value="<?php echo $quotationType; ?>">
                 </form>
                 <!-- END FORM-->
             </div>
