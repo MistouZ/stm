@@ -354,7 +354,8 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                     scale: 0.65,
                     height: 500,
                     template: $("#page-template").html(),
-                    keepTogether: ".prevent-split"
+                    keepTogether: ".prevent-split",
+                    forcePageBreak :".portlet-body"
                 })
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
