@@ -160,6 +160,8 @@ var TableDatatablesResponsive = function () {
                 }
             },
 
+            "deferRender": true,
+
             "order": [
                 [0, 'asc']
             ],
