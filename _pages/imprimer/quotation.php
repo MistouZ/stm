@@ -160,7 +160,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered table-striped prevent-split">
+                            <table class="table table-hover table-bordered table-striped">
                                 <thead>
                                     <tr>
                                         <th class="col-md-5"> Description </th>
@@ -354,7 +354,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                     scale: 0.65,
                     height: 500,
                     template: $("#page-template").html(),
-                    keepTogether: ".prevent-split"
+                    keepTogether: ".table-responsive"
                 })
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
