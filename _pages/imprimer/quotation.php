@@ -197,7 +197,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                             $montantHT = $montantHT+$montantLigne;
                                             $montant = $montant+$montantLigne+$taxe;
                                         ?>
-                                        <tr class="page-break">
+                                        <tr class="prevent-split">
                                             <td class="col-md-5"><?php echo nl2br($description->getDescription()); ?></td>
                                             <td class="col-md-2"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
@@ -354,8 +354,8 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                     scale: 0.65,
                     height: 500,
                     template: $("#page-template").html(),
-                    //keepTogether: ".prevent-split",
-                    forcePageBreak: ".page-break" 
+                    keepTogether: ".prevent-split",
+                    //forcePageBreak: ".page-break" 
                 })
             .then(function(group){
                 kendo.drawing.pdf.saveAs(group, filename+".pdf")
