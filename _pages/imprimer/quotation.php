@@ -171,7 +171,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                         <th class="col-md-2"> Prix total HT </th>
                                     </tr>
                                 </thead>
-                               <tbody class="pagebreak">
+                               <tbody class="page-break">
                                     <?php
                                         $montant = 0;
                                         $totalTaxe = 0;
