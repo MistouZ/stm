@@ -172,6 +172,9 @@ switch($type){
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
                                 }
+                                else{
+                                    $type2=$quotation->getStatus();
+                                }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/y', strtotime( $quotation->getDate()));
                             $descriptions = new Description($array);
@@ -235,6 +238,9 @@ switch($type){
                                 $type = "proforma";
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
+                                }
+                                else{
+                                    $type2=$quotation->getStatus();
                                 }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
@@ -302,6 +308,9 @@ switch($type){
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
                                 }
+                                else{
+                                    $type2=$quotation->getStatus();
+                                }
                             //initialisation au format date pour organiser le tableau
                             $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
                             $descriptions = new Description($array);
@@ -367,6 +376,9 @@ switch($type){
                                 $type = "avoir";
                                 if($quotation->getStatus() == "En cours"){
                                     $type2 = "cours";
+                                }
+                                else{
+                                    $type2=$quotation->getStatus();
                                 }
                                 //initialisation au format date pour organiser le tableau
                                 $date = date('d/m/Y',strtotime(str_replace('/','-',"".$quotation->getDate()."")));
