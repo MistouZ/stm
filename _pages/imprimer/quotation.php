@@ -318,7 +318,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
             </div>
             <div class="footer">
                 <h5> #:pageNum# / #:totalPages# </h5>
-                <img src="<?php echo URLHOST; ?>images/societe/footer/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style=" margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />  
+                <img src="<?php echo URLHOST; ?>images/societe/footer/<?php echo $companyNameData; ?>.jpg" alt="<?php echo $companyNameData; ?>" class="logo-default" style="display: block;  position: relative; margin-left: auto; margin-right: auto; width: 100%; bottom : 0px" />  
             </div>
         <?php }else{ ?>
             <div class="header" >
