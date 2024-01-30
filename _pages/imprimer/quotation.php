@@ -160,7 +160,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                     </div>
                     <div class="portlet-body">
                         <div class="table-responsive">
-                            <table class="table table-hover table-bordered table-striped">
+                            <table class="table table-hover table-bordered table-striped prevent-split">
                                 <thead>
                                     <tr>
                                         <th class="col-md-5"> Description </th>
@@ -197,7 +197,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                             $montantHT = $montantHT+$montantLigne;
                                             $montant = $montant+$montantLigne+$taxe;
                                         ?>
-                                        <tr class="prevent-split">
+                                        <tr>
                                             <td class="col-md-5"><?php echo nl2br($description->getDescription()); ?></td>
                                             <td class="col-md-2"><?php echo number_format($description->getPrice(),0,","," "); ?> XPF</td>
                                             <td><?php echo $description->getQuantity(); ?></td>
@@ -354,7 +354,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                     scale: 0.65,
                     height: 500,
                     template: $("#page-template").html(),
-                    //keepTogether: ".prevent-split",
+                    keepTogether: ".prevent-split",
                     //forcePageBreak: ".page-break" 
                 })
             .then(function(group){
