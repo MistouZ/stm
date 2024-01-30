@@ -350,7 +350,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                 {
                     paperSize: "A4",
                     multiPage : true,
-                    margin: { top: "3cm", bottom: "2cm", right: "1cm", left: "1cm" },
+                    margin: { top: "3cm", bottom: "4cm", right: "1cm", left: "1cm" },
                     scale: 0.65,
                     height: 500,
                     template: $("#page-template").html(),
