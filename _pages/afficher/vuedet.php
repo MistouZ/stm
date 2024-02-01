@@ -36,14 +36,6 @@ $dateToProforma = date('d/m/Y');
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 
-$montantCout = 0;
-$montantCoutHT = 0;
-
-$montantOption = 0;
-$totalTaxeOption = 0;
-$montantOptionHT = 0;
-
-
 switch($type){
     case "devis":
         if($type2=="valides"){
@@ -194,6 +186,15 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
 if(isset($_GET['cat5'])){
     $retour = $_GET['cat5'];
 }
+
+$montantCout = 0;
+$montantCoutHT = 0;
+
+$montantOption = 0;
+$totalTaxeOption = 0;
+$montantOptionHT = 0;
+
+
 ?>
 <div class="row">
     <div class="col-md-12">
