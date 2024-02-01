@@ -36,6 +36,14 @@ $dateToProforma = date('d/m/Y');
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 
+$montantCout = 0;
+$montantCoutHT = 0;
+
+$montantOption = 0;
+$totalTaxeOption = 0;
+$montantOptionHT = 0;
+
+
 switch($type){
     case "devis":
         if($type2=="valides"){
@@ -403,9 +411,7 @@ if(isset($_GET['cat5'])){
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $montantOption = 0;
-                                            $totalTaxeOption = 0;
-                                            $montantOptionHT = 0;
+                                            
                                             $arrayTaxesOptionKey =  array();
                                             foreach($descriptionsOption as $descriptionOption){
                                                 $montantOptionLigne = $descriptionOption->getQuantity()*$descriptionOption->getPrice();
@@ -484,8 +490,7 @@ if(isset($_GET['cat5'])){
                                     </thead>
                                     <tbody>
                                         <?php
-                                            $montantCout = 0;
-                                            $montantCoutHT = 0;
+                                            
 
                                             foreach($costs as $cost){
                                                 $montantCoutLigne = $cost->getValue();
