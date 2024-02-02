@@ -24,15 +24,15 @@ $customermanager = new CustomersManager($bdd);
 $contact = new Contact($array);
 $contactmanager = new ContactManager($bdd);
 
-$credential = $userlogged->getCredential();
+//$credential = $userlogged->getCredential();
 /*récupération des objets en base*/
 $company = $companymanager->getByNameData($companyNameData);
-if($credential == "A"){
+/*if($credential == "A"){
     $foldermanager = $foldermanager->getList($company->getIdcompany());
 }
-else{
+else{*/
     $foldermanager = $foldermanager->getListActive($company->getIdcompany());
-}
+//}
 
 ?>
 <div class="row">
@@ -124,10 +124,10 @@ else{
                             {
                                 echo '<td><a class="btn red-mint" data-placement="top" data-toggle="confirmation" data-title="Supprimer le dossier n° '.$folder->getFolderNumber().' ?" data-content="ATTENTION ! La suppression est irréversible !" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/supprimer_dossier.php?idFolder='.$folder->getIdFolder().'"><i class="fas fa-trash-alt" alt="Supprimer"></i> Supprimer</a></td>';
                             }
-                            elseif($folder->getIsActive() == 0 && $credential == 'A')
+                            /*elseif($folder->getIsActive() == 0 && $credential == 'A')
                             {
                                 echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Reactiver le dossier '.$folder->getFolderNumber().'?" data-btn-ok-label="Reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_dossier.php?idFolder='.$folder->getIdFolder().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
-                            }
+                            }*/
                             ?>
                             <td><?php echo $user->getName().' '.$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getFirstname()." ".$contact->getName(); ?></td>
