@@ -123,8 +123,18 @@ class UsersManager
         $username = (string) $username;
         $q = $this->_db->query('SELECT * FROM users WHERE username ="'.$username.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
-
-        return new Users($donnees);
+        if($donnees != NULL )
+        {
+            return new Users($donnees);
+        }
+        else
+        {
+            $array = array(
+                'name' => "Utilisateur",
+                'firstname' => "Supprimé"
+            );
+            return new Users($array);
+        }
     }
 
 
