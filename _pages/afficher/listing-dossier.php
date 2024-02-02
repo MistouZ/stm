@@ -88,7 +88,7 @@ else{
                             else{
                                 echo "<th class=\"min-tablet\">Supprimer</th>";
                              }?>
-                            <th class="none">Commercial</th>
+                            <!--<th class="none">Commercial</th>-->
                             <th class="none">Contact</th>
                             <th class="none">Statut du dossier</th>
                             <th class="none">Date de création</th>
