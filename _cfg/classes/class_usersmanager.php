@@ -117,24 +117,14 @@ class UsersManager
      * @param $username
      * @return Users
      */
-    public function getUser($username)
+    
+    public function getByName($username)
     {
         $username = (string) $username;
-        $q=$this->_db->query('SELECT * FROM users WHERE username="'.$username.'"');
+        $q = $this->_db->query('SELECT * FROM users WHERE username ="'.$username.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
         return new Users($donnees);
-        /*if($donnees != NULL )
-        {
-            
-        }
-        else
-        {
-            $array = array(
-                'name' => "Utilisateur",
-                'firstname' => "Supprimé"
-            );
-            return new Users($array);
-        }*/
     }
 
 
