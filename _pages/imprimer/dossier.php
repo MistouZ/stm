@@ -4,8 +4,7 @@
  * @author Amaury
  * @copyright 2020
  */
-
-include("../../_cfg/cfg.php");
+require_once("_cfg/cfg.php");
 $array = array();
 $companyNameData = $_GET["section"];
 
