@@ -5,7 +5,7 @@
  * @copyright 2019
  */
 
- require_once("_cfg/cfg.php");
+ include("../../_cfg/cfg.php");
 
 echo "Résultats : ";
 
