@@ -99,7 +99,7 @@ else{
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
-                       //$user = $usermanager->get($folder->getSeller());
+                       $user = $usermanager->getUser($folder->getSeller());
                        $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
@@ -129,7 +129,7 @@ else{
                                 echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Reactiver le dossier '.$folder->getFolderNumber().'?" data-btn-ok-label="Reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_dossier.php?idFolder='.$folder->getIdFolder().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
                             }
                             ?>
-                            <td><?php //echo $user->getName().' '.$user->getFirstName(); ?></td>
+                            <td><?php echo $user->getName().' '.$user->getFirstName(); ?></td>
                             <td><?php echo $contact->getFirstname()." ".$contact->getName(); ?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $actif;?></span></td>
                             <td><?php echo  $date = date('d/m/y', strtotime( $folder->getDate()));;?></td>

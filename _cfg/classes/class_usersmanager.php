@@ -113,6 +113,34 @@ class UsersManager
     }
 
     /**
+     * Find a user by his username
+     * @param $username
+     * @return Users
+     */
+    public function getUser($username)
+    {
+        $username = (string) $username;
+        $q=$this->_db->query('SELECT * FROM users WHERE username="'.$username.'"');
+        $donnees = $q->fetch(PDO::FETCH_ASSOC);
+
+        if($donnees != NULL )
+        {
+            return new Users($donnees);
+        }
+        else
+        {
+            $array = array(
+                'name' => "Utilisateur",
+                'firstname' => "Supprimé"
+            );
+            return new Users($array);
+        }
+    }
+
+
+
+
+    /**
      * Connect user to the portal
      * @param $username
      * @param $password
