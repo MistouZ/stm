@@ -99,7 +99,7 @@ else{
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
-                       $user = $usermanager->get($folder->getSeller());
+                       //$user = $usermanager->get($folder->getSeller());
                        $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
