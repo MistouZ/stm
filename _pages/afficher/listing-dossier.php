@@ -96,8 +96,6 @@ else{
                     </thead>
                     <tbody>
                     <?php
-                    print_r($foldermanager);
-                    /*
                     foreach ($foldermanager as $folder)
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
@@ -137,7 +135,7 @@ else{
                             <td><?php echo  $date = date('d/m/y', strtotime( $folder->getDate()));;?></td>
                         </tr>
                     <?php
-                    }*/
+                    }
                     ?>
                     </tbody>
                 </table>
