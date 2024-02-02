@@ -1,5 +1,5 @@
 <?php
-include("../../_cfg/cfg.php");
+require_once("_cfg/cfg.php");
 
 /**
  * @author Nicolas
