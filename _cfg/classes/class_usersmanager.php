@@ -121,7 +121,7 @@ class UsersManager
     public function getByUsername($username)
     {
         $username = (string) $username;
-        $q = $this->_db->query('SELECT * FROM users WHERE username ="'.$username.'"');
+        $q = $this->_db->query('SELECT name, firstname FROM users WHERE username ="'.$username.'"');
         $donnees = $q->fetch(PDO::FETCH_ASSOC);
         if($donnees != NULL )
         {
