@@ -100,7 +100,7 @@ else{
                     {
                        $customer = $customermanager->getByID($folder->getCustomerId());
                        //$user = $usermanager->get($folder->getSeller());
-                       //$contact = $contactmanager->getById($folder->getContactId());
+                       $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
                             $actif = "Ouvert";
@@ -130,7 +130,7 @@ else{
                             }
                             ?>
                             <td><?php //echo $user->getName().' '.$user->getFirstName(); ?></td>
-                            <td><?php //echo $contact->getFirstname()." ".$contact->getName(); ?></td>
+                            <td><?php echo $contact->getFirstname()." ".$contact->getName(); ?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $actif;?></span></td>
                             <td><?php echo  $date = date('d/m/y', strtotime( $folder->getDate()));;?></td>
                         </tr>
