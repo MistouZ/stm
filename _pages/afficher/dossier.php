@@ -34,7 +34,7 @@ $folder = $foldermanager->get($folderId);
 
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
-$user = $usermanager->get($folder->getSeller());
+$user = $usermanager->getByUsername($folder->getSeller());
 $customer = $customermanager->getById($folder->getCustomerId());
 $contact = $contactmanager->getById($folder->getContactId());
 $quotations = $quotationmanager->getByFolderId($folderId);
