@@ -118,7 +118,7 @@ class UsersManager
      * @return Users
      */
     
-    public function getByName($username)
+    public function getByUsername($username)
     {
         $username = (string) $username;
         $q = $this->_db->query('SELECT * FROM users WHERE username ="'.$username.'"');
