@@ -98,7 +98,7 @@ else{
                     <?php
                     foreach ($foldermanager as $folder)
                     {
-                       //$customer = $customermanager->getByID($folder->getCustomerId());
+                       $customer = $customermanager->getByID($folder->getCustomerId());
                        //$user = $usermanager->get($folder->getSeller());
                        //$contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
@@ -116,7 +116,7 @@ else{
                             <td></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
-                            <td><?php //echo $customer->getName(); ?></td>
+                            <td><?php echo $customer->getName(); ?></td>
                             <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.$folder->getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                             <?php
