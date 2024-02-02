@@ -98,9 +98,9 @@ else{
                     <?php
                     foreach ($foldermanager as $folder)
                     {
-                       //$customer = $customermanager->getByID($folder->getCustomerId());
-                       //$user = $usermanager->get($folder->getSeller());
-                       //$contact = $contactmanager->getById($folder->getContactId());
+                       $customer = $customermanager->getByID($folder->getCustomerId());
+                       $user = $usermanager->get($folder->getSeller());
+                       $contact = $contactmanager->getById($folder->getContactId());
                         if($folder->getIsActive() == 1)
                         {
                             $actif = "Ouvert";
@@ -116,7 +116,7 @@ else{
                             <td></td>
                             <td><?php echo $folder->getFolderNumber(); ?></td>
                             <td><?php echo $folder->getLabel();?></td>
-                            <td><?php echo //$customer->getName(); ?></td>
+                            <td><?php echo $customer->getName(); ?></td>
                             <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.$folder->getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                             <td><a class="btn blue-steel" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/modifier/'.$folder->getIdFolder(); ?>"><i class="fas fa-edit" alt="Editer"></i> Modifier</a></td>
                             <?php
@@ -129,8 +129,8 @@ else{
                                 echo '<td><a class="btn green-dark" data-placement="top" data-toggle="confirmation" data-title="Reactiver le dossier '.$folder->getFolderNumber().'?" data-btn-ok-label="Reactiver" data-btn-ok-class="btn-success" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-danger" data-href="'.URLHOST.'_pages/_post/reactiver_dossier.php?idFolder='.$folder->getIdFolder().'"><i class="fas fa-toggle-on" alt="Reactiver"></i> Reactiver</a></td>';
                             }
                             ?>
-                            <td><?php echo //$user->getName().' '.$user->getFirstName(); ?></td>
-                            <td><?php echo //$contact->getFirstname()." ".$contact->getName(); ?></td>
+                            <td><?php echo $user->getName().' '.$user->getFirstName(); ?></td>
+                            <td><?php echo $contact->getFirstname()." ".$contact->getName(); ?></td>
                             <td><span class="label label-<?php echo $label; ?>" ><?php echo $actif;?></span></td>
                             <td><?php echo  $date = date('d/m/y', strtotime( $folder->getDate()));;?></td>
                         </tr>
