@@ -83,10 +83,6 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
-//listing du client pour modifier le client et contact des devis
-
-$listingCustomers = $customermanager->getList();
-
 //récupération des contacts du client
 $contactByCustomers = $contactmanager->getList($customerQuotation->getIdCustomer());
 
