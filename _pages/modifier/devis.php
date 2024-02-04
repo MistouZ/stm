@@ -94,7 +94,7 @@ $contactByCustomers = $contactmanager->getList($customerQuotation->getIdCustomer
 $customermanagerList = $customermanager->getListByCompany($company->getIdcompany());
 
 $tableauClient = array();
-/*
+
 foreach ($customermanagerList as $customer) {
     $tempContact = array();
     $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
@@ -104,7 +104,7 @@ foreach ($customermanagerList as $customer) {
         }
         $tableauClient[$customer->getIdCustomer()] = $tempContact;
     }
-}*/
+}
 
 
 ?>
