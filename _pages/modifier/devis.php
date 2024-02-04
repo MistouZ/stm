@@ -218,7 +218,7 @@ foreach ($customermanagerList as $customer) {
                                                     <div class="portlet-body" style="display: block;">
                                                     <div class="form-group">
                                                         <label class="control-label col-md-3" for="customer-select" style="font-weight: 800;">
-                                                            Client :                                              
+                                                            Client                                              
                                                         </label>
                                                         <div class="col-md-4">
                                                             <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
