@@ -228,7 +228,7 @@ foreach ($customermanagerList as $customer) {
                                                             <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
                                                                 <option value="">--Choississez le client--</option>
                                                                 <?php
-                                                                    foreach($customermanager as $customer){
+                                                                    foreach($customermanagerList as $customer){
                                                                         echo $customerQuotation->getIdCustomer();
                                                                         echo $customer->getIdCustomer();
 
