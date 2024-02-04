@@ -88,7 +88,7 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
 
 /*récupération des objets en base*/
 $listingCustomers = $customermanager->getList();
-$customermanager = $customermanager->getListByCompany($company->getIdcompany());
+$customermanagerCompanyList = $customermanager->getListByCompany($company->getIdcompany());
 
 //récupération des contacts du client
 $contactByCustomers = $contactmanager->getList($$qup->getCustomerId());
