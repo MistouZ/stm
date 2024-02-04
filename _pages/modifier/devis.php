@@ -83,7 +83,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
-
+$listingCustomers = $customermanager->getList();
 $tableauClient = array();
 
 foreach ($customermanager as $customer) {
@@ -118,7 +118,7 @@ foreach ($customermanager as $customer) {
         monSelectB.appendChild(opt);
       }
     }
-  </script>
+</script>
 
 
 
