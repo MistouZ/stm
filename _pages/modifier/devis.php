@@ -95,7 +95,7 @@ $contactByCustomers = $contactmanager->getList($$qup->getCustomerId());
 
 $tableauClient = array();
 
-foreach ($customermanager as $customer) {
+foreach ($customermanagerCompanyList as $customer) {
     $tempContact = array();
     $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
     if(!empty($tableauContacts)){
