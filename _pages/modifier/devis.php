@@ -91,7 +91,7 @@ $listingCustomers = $customermanager->getList();
 $contactByCustomers = $contactmanager->getList($customerQuotation->getIdCustomer());
 
 /*récupération des objets en base*/
-//$customermanagerList = $customermanager->getListByCompany($company->getIdcompany());
+$customermanagerList = $customermanager->getListByCompany($company->getIdcompany());
 
 $tableauClient = array();
 /*
