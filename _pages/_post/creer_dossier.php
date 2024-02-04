@@ -27,6 +27,11 @@ if(isset($_POST['valider'])){
 
     $isActive = 1;
 
+    if($contactId == NULL)
+    {
+        $contactId = 0;
+    }
+
     $array = array(
         'label' => $label,
         'folderNumber' => $folderNumber,
