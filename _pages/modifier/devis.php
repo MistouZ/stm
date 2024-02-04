@@ -229,6 +229,9 @@ foreach ($customermanagerList as $customer) {
                                                                 <option value="">--Choississez le client--</option>
                                                                 <?php
                                                                     foreach($customermanager as $customer){
+                                                                        echo $customerQuotation->getIdCustomer();
+                                                                        echo $customer->getIdCustomer();
+
                                                                         if($customer->getIdCustomer() == $customerQuotation->getIdCustomer()){
                                                                             echo "<option value=" . $customer->getIdCustomer() . " selected=\"selected\">".$customer->getName()."</option>";
                                                                         }else{
