@@ -22,7 +22,7 @@ $usermanager = new UsersManager($bdd);
 
 $customer = new Customers($array);
 $customermanager = new CustomersManager($bdd);
-$listingCustomers = $customermanager->getList();
+//$listingCustomers = $customermanager->getList();
 
 
 //récupération des contacts du client
