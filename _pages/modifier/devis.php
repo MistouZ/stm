@@ -217,7 +217,7 @@ foreach ($customermanagerList as $customer) {
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3" for="customer-select">Client
+                                                        <label class="control-label col-md-3" for="customer-select" style="font-weight: 800;">Client :
                                                             <span class="required"> * </span>
                                                         </label>
                                                         <div class="col-md-4">
@@ -225,9 +225,6 @@ foreach ($customermanagerList as $customer) {
                                                                 <option value="">--Choississez le client--</option>
                                                                 <?php
                                                                     foreach($customermanagerList as $customer){
-                                                                        echo $customerQuotation->getIdCustomer();
-                                                                        echo $customer->getIdCustomer();
-
                                                                         if($customer->getIdCustomer() == $customerQuotation->getIdCustomer()){
                                                                             echo "<option value=" . $customer->getIdCustomer() . " selected=\"selected\">".$customer->getName()."</option>";
                                                                         }else{
