@@ -69,7 +69,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
     else{
         $descriptionmanager = new DescriptionManager($bdd);
         print_r($quotation);
-        $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
+        $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
         $test3 = "ok";
     }
     $test4a = "ok";
@@ -241,7 +241,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     );
     $quotation = new Quotation($data);
     $test5 = $quotationmanager->changeType($quotation);
-    $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType());
+    $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType(), $companyId);
     
 }
 
