@@ -83,7 +83,16 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
+
+
+
+/*récupération des objets en base*/
 $listingCustomers = $customermanager->getList();
+$customermanager = $customermanager->getListByCompany($company->getIdcompany());
+
+//récupération des contacts du client
+$contactByCustomers = $contactmanager->getList($$qup->getCustomerId());
+
 $tableauClient = array();
 
 foreach ($customermanager as $customer) {
