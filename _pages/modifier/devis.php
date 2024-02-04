@@ -91,11 +91,11 @@ $listingCustomers = $customermanager->getList();
 $contactByCustomers = $contactmanager->getList($customerQuotation->getIdCustomer());
 
 /*récupération des objets en base*/
-$customermanager = $customermanager->getListByCompany($company->getIdcompany());
+$customermanagerList = $customermanager->getListByCompany($company->getIdcompany());
 
 $tableauClient = array();
 
-foreach ($customermanager as $customer) {
+foreach ($customermanagerList as $customer) {
     $tempContact = array();
     $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
     if(!empty($tableauContacts)){
