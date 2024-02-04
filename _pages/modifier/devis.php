@@ -242,7 +242,7 @@ foreach ($customermanagerList as $customer) {
                                                                 <option value="0">--Choississez le contact--</option>
                                                                 <?php
                                                                     foreach($contactByCustomers as $contacts){
-                                                                        if($contacts->getIdContact() == $folder->getContactId()){
+                                                                        if($contacts->getIdContact() == $contact->getIdContact()){
                                                                             echo "<option value=" . $contacts->getIdContact() . " selected=\"selected\">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
                                                                         }else{
                                                                             echo "<option value=" . $contacts->getIdContact() . ">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
