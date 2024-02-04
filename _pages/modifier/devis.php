@@ -220,6 +220,25 @@ foreach ($customermanagerList as $customer) {
                                                         </div>
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3" for="customer-select">Client
+                                                            <span class="required"> * </span>
+                                                        </label>
+                                                        <div class="col-md-4">
+                                                            <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
+                                                                <option value="">--Choississez le client--</option>
+                                                                <?php
+                                                                    foreach($customermanager as $customer){
+                                                                        if($customer->getIdCustomer() == $folder->getCustomerId()){
+                                                                            echo "<option value=" . $customer->getIdCustomer() . " selected=\"selected\">".$customer->getName()."</option>";
+                                                                        }else{
+                                                                            echo "<option value=" . $customer->getIdCustomer() . ">".$customer->getName()."</option>";
+                                                                        }
+                                                                    }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
 
 
                                                         <h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customerQuotation->getName(); ?></span></h5>
