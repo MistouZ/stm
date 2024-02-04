@@ -217,8 +217,8 @@ foreach ($customermanagerList as $customer) {
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3" for="customer-select" style="font-weight: 800;">Client :
-                                                            <span class="required"> * </span>
+                                                        <label class="control-label col-md-3" for="customer-select" style="font-weight: 800;">
+                                                            Client :                                              
                                                         </label>
                                                         <div class="col-md-4">
                                                             <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
@@ -236,7 +236,7 @@ foreach ($customermanagerList as $customer) {
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3" for="contact-select">Contact</label>
+                                                        <label class="control-label col-md-3" for="contact-select" style="font-weight: 800;">Contact</label>
                                                         <div class="col-md-4">
                                                             <select id="contact-select" name="contact-select" class="form-control">
                                                                 <option value="0">--Choississez le contact--</option>
