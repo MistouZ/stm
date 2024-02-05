@@ -66,7 +66,8 @@ $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNum
 if($quotation->getContactId() != 0){
     $contact = $contactmanager->getById($quotation->getContactId());
 }
-//$user = $usermanager->get($quotation->getSeller());
+
+$user = $usermanager->get($$folder->getSeller());
 
 $customerQuotation = $customermanager->getById($quotation->getCustomerId());
 if($type2 == "partiels")
