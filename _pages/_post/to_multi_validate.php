@@ -9,6 +9,7 @@ include("../../_cfg/cfg.php");
 echo "Multi Validation Facture : ";
 print_r($_POST['selection']);
 
+$companyNameData = $_POST["company"];
 
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
@@ -18,7 +19,7 @@ $today = date("Y-m-d");
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-$companyNameData = $_POST["company"];
+
 echo "companyNameData : ".$companyNameData;
 $company = $companymanager->getByNameData($companyNameData);
 echo "companyId : ".$companyId;
