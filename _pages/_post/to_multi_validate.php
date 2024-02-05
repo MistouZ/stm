@@ -13,8 +13,6 @@ print_r($_POST['selection']);
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
 
-echo " Test ".$postSelection." / ";
-
 $today = date("Y-m-d");
 
 $array = array();
@@ -24,9 +22,13 @@ $companyNameData = $_POST["company"];
 $company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();
 
+echo " Test ".$postSelection." / ";
+
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'F',$companyId);
+
+echo "j arrive ici";
 
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
