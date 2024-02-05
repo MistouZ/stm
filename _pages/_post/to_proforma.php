@@ -240,9 +240,10 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         'validatedDate' => $today,
         'type' => 'P'
     );
+
     echo $companyId;
     $quotation = new Quotation($data);
-    $test5 = $quotationmanager->changeType($quotation);
+    $test5 = $quotationmanager->changeType($quotation);$
     $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
     $test6 = "ok";
     
