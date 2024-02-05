@@ -53,6 +53,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
     $quotation = new Quotation($data);
 
     $test = $quotationmanager->changeType($quotation);
+
     $test6 = $costmanager->UpdateCostType($quotationNumber,$quotationNumber,"P",$companyId);
 
     if($type2 == "partiels")
@@ -239,6 +240,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
         'validatedDate' => $today,
         'type' => 'P'
     );
+    echo $companyId;
     $quotation = new Quotation($data);
     $test5 = $quotationmanager->changeType($quotation);
     $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType(), $companyId);
