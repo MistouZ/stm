@@ -66,7 +66,8 @@ $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNum
 if($quotation->getContactId() != 0){
     $contact = $contactmanager->getById($quotation->getContactId());
 }
-//$user = $usermanager->get($quotation->getSeller());
+
+$user = $usermanager->get($folderRecup->getSeller());
 
 $customerQuotation = $customermanager->getById($quotation->getCustomerId());
 if($type2 == "partiels")
@@ -82,10 +83,6 @@ else
 $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany());
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
-
-//listing du client pour modifier le client et contact des devis
-
-$listingCustomers = $customermanager->getList();
 
 //récupération des contacts du client
 $contactByCustomers = $contactmanager->getList($customerQuotation->getIdCustomer());
@@ -221,17 +218,14 @@ foreach ($customermanagerList as $customer) {
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
                                                     <div class="form-group">
-                                                        <label class="control-label col-md-3" for="customer-select">Client
-                                                            <span class="required"> * </span>
+                                                        <label class="control-label col-md-3" for="customer-select" style="font-weight: 800;">
+                                                            Client                                              
                                                         </label>
                                                         <div class="col-md-4">
                                                             <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
                                                                 <option value="">--Choississez le client--</option>
                                                                 <?php
-                                                                    foreach($customermanager as $customer){
-                                                                        echo $customerQuotation->getIdCustomer();
-                                                                        echo $customer->getIdCustomer();
-
+                                                                    foreach($customermanagerList as $customer){
                                                                         if($customer->getIdCustomer() == $customerQuotation->getIdCustomer()){
                                                                             echo "<option value=" . $customer->getIdCustomer() . " selected=\"selected\">".$customer->getName()."</option>";
                                                                         }else{
@@ -242,10 +236,27 @@ foreach ($customermanagerList as $customer) {
                                                             </select>
                                                         </div>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3" for="contact-select" style="font-weight: 800;">Contact</label>
+                                                        <div class="col-md-4">
+                                                            <select id="contact-select" name="contact-select" class="form-control">
+                                                                <option value="0">--Choississez le contact--</option>
+                                                                <?php
+                                                                    foreach($contactByCustomers as $contacts){
+                                                                        if($contacts->getIdContact() == $contact->getIdContact()){
+                                                                            echo "<option value=" . $contacts->getIdContact() . " selected=\"selected\">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
+                                                                        }else{
+                                                                            echo "<option value=" . $contacts->getIdContact() . ">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
+                                                                        }
+                                                                    }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
 
 
-                                                        <h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customerQuotation->getName(); ?></span></h5>
-                                                        <h5 style="font-weight: 800;">Contact : <span id="spanContact"><?php echo $contact->getFirstname()." ".$contact->getName(); ?></span></h5>
+                                                        <!--<h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customerQuotation->getName(); ?></span></h5>
+                                                        <h5 style="font-weight: 800;">Contact : <span id="spanContact"><?php echo $contact->getFirstname()." ".$contact->getName(); ?></span></h5>-->
                                                     </div>
                                                 </div>
                                             </div>
