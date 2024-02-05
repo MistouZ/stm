@@ -29,13 +29,12 @@ $costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
 $folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
-$customerId = $folder->getCustomerId();
-$contactId = $folder->getContactId();
+$customerId = $_POST["customer-select"];
+$contactId = $_POST["contact-select"];
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type, $companyId);
-/*$customerId = $quotationGet->getCustomerId();
-$contactId = $quotationGet->getContactId();*/
+
 
 if(empty($_POST["label"]))
 {
