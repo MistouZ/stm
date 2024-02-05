@@ -244,6 +244,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     $quotation = new Quotation($data);
     $test5 = $quotationmanager->changeType($quotation);
     $test5b = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
+    $test6 = "ok";
     
 }
 
