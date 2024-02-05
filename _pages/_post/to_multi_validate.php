@@ -13,6 +13,8 @@ print_r($_POST['selection']);
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
 
+echo " Test ".$postSelection." / ";
+
 $today = date("Y-m-d");
 
 $array = array();
