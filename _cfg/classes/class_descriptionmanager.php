@@ -91,9 +91,9 @@ class DescriptionManager
     *
     */
 
-    public function changeQuotationType($quotationNumber,$quotationType, $companyId)
+    public function changeQuotationType($quotationNumber,$quotationType,$companyId)
     {
-        $q = $this->_db->prepare('UPDATE description SET quotationType = :quotationType WHERE quotationNumber= :quotationNumber AND companyId =: companyId');
+        $q = $this->_db->prepare('UPDATE description SET quotationType = :quotationType WHERE quotationNumber = :quotationNumber AND companyId = :companyId');
             
             $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
             $q->bindValue(':quotationType', $quotationType, PDO::PARAM_STR);
