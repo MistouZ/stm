@@ -55,7 +55,7 @@ switch($type){
         elseif($type2=="partiels")
         {
                 $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"S",$companyId);
-                $costType = "D";
+                $costType = "S";
                 $entete = "du devis";
                 $enteteIcon = '<i class="fas fa-file-invoice"></i>';
                 $enteteIconOption = '<i class="fas fa-sliders-h"></i>';
