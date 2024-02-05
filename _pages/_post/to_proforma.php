@@ -70,7 +70,7 @@ if($_POST["shattered"] == "full" || $percent == 100)
     else{
         $descriptionmanager = new DescriptionManager($bdd);
         print_r($quotation);
-        $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),"P",$companyId);
+        $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$companyId);
         $test3 = "ok";
     }
     $test4a = "ok";
