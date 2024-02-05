@@ -51,7 +51,8 @@ $descriptionsOption = $descriptionmanager->getOption($quotation->getQuotationNum
 if($quotation->getContactId() != 0){
     $contact = $contactmanager->getById($quotation->getContactId());
 }
-//$user = $usermanager->get($quotation->getSeller());
+
+$user = $usermanager->get($folderRecup->getSeller());
 
 $customerQuotation = $customermanager->getById($quotation->getCustomerId());
 $costmanager = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),"F",$companyId);
@@ -60,7 +61,48 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
 
 $date = date('d/m/Y',strtotime($quotation->getDate()));
 
+//récupération des contacts du client
+$contactByCustomers = $contactmanager->getList($customerQuotation->getIdCustomer());
+
+/*récupération des objets en base*/
+$customermanagerList = $customermanager->getListByCompany($company->getIdcompany());
+
+$tableauClient = array();
+
+foreach ($customermanagerList as $customer) {
+    $tempContact = array();
+    $tableauContacts = $contactmanager->getList($customer->getIdCustomer());
+    if(!empty($tableauContacts)){
+        foreach($tableauContacts as $tableauContact){
+                $tempContact[$tableauContact->getIdContact()]=$tableauContact->getFirstname().' '.$tableauContact->getName();               
+        }
+        $tableauClient[$customer->getIdCustomer()] = $tempContact;
+    }
+}
+
 ?>
+<script>
+    function changeSelect(selected){
+      //on recupere le php
+      var data = <?php echo json_encode($tableauClient); ?>;
+      console.log("selected.value : "+selected.value+", data[selected.value] : "+data[selected.value]);
+      var monSelectB = document.getElementById("contact-select");
+      //on efface tous les children options
+      while (monSelectB.firstChild) {
+        monSelectB.removeChild(monSelectB.firstChild);
+      }
+      //on rajoute les nouveaux children options
+      for(var i in data[selected.value]){
+        var opt = document.createElement("option");
+        opt.value = i;
+        opt.innerHTML = data[selected.value][i]; 
+        
+        monSelectB.appendChild(opt);
+      }
+    }
+</script>
+
+
 <div class="row">
     <div class="col-md-12">
         <?php if($retour == "error") { ?>
@@ -142,8 +184,46 @@ $date = date('d/m/Y',strtotime($quotation->getDate()));
                                                         </div>
                                                     </div>
                                                     <div class="portlet-body" style="display: block;">
-                                                        <h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customerQuotation->getName(); ?></span></h5>
-                                                        <h5 style="font-weight: 800;">Contact : <span id="spanContact"><?php echo $contact->getFirstname()." ".$contact->getName(); ?></span></h5>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3" for="customer-select" style="font-weight: 800;">
+                                                            Client                                              
+                                                        </label>
+                                                        <div class="col-md-4">
+                                                            <select id="customer-select" name="customer-select" class="form-control" onchange="changeSelect(this);">
+                                                                <option value="">--Choississez le client--</option>
+                                                                <?php
+                                                                    foreach($customermanagerList as $customer){
+                                                                        if($customer->getIdCustomer() == $customerQuotation->getIdCustomer()){
+                                                                            echo "<option value=" . $customer->getIdCustomer() . " selected=\"selected\">".$customer->getName()."</option>";
+                                                                        }else{
+                                                                            echo "<option value=" . $customer->getIdCustomer() . ">".$customer->getName()."</option>";
+                                                                        }
+                                                                    }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-3" for="contact-select" style="font-weight: 800;">Contact</label>
+                                                        <div class="col-md-4">
+                                                            <select id="contact-select" name="contact-select" class="form-control">
+                                                                <option value="0">--Choississez le contact--</option>
+                                                                <?php
+                                                                    foreach($contactByCustomers as $contacts){
+                                                                        if($contacts->getIdContact() == $contact->getIdContact()){
+                                                                            echo "<option value=" . $contacts->getIdContact() . " selected=\"selected\">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
+                                                                        }else{
+                                                                            echo "<option value=" . $contacts->getIdContact() . ">".$contacts->getFirstname().' '.$contacts->getName()."</option>";
+                                                                        }
+                                                                    }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+                                                        <!--<h5 style="font-weight: 800;">Client : <span id="spanCustomer"><?php echo $customerQuotation->getName(); ?></span></h5>
+                                                        <h5 style="font-weight: 800;">Contact : <span id="spanContact"><?php echo $contact->getFirstname()." ".$contact->getName(); ?></span></h5>-->
                                                     </div>
                                                 </div>
                                             </div>
