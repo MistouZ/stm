@@ -248,7 +248,7 @@ elseif ($_POST["shattered"] == "partial" && $percent < 100)
     
 }
 
-if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5) || is_null($test5b) || is_null($test6)){
+if(is_null($test) || is_null($test2) || is_null($test3) || is_null($test4a) || is_null($test4b) || is_null($test5) || is_null($test6)){
   header('Location: '.$_SERVER['HTTP_REFERER'].'/errorProforma');
 }else{
 
