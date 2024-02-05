@@ -26,8 +26,8 @@ $quotationmanager = new QuotationManager($bdd);
 
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type,$companyId);
 print_r($quotationGet);
-$customerId = $quotationGet->getCustomerId();
-$contactId = $quotationGet->getContactId();
+$customerId = $_POST["customer-select"];
+$contactId = $_POST["contact-select"];
 
 echo " passe 1 ";
 
