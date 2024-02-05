@@ -67,6 +67,9 @@ if($quotation->getContactId() != 0){
     $contact = $contactmanager->getById($quotation->getContactId());
 }
 
+echo $folder->getSeller();
+
+
 $user = $usermanager->get($folder->getSeller());
 
 $customerQuotation = $customermanager->getById($quotation->getCustomerId());
