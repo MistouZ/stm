@@ -67,10 +67,7 @@ if($quotation->getContactId() != 0){
     $contact = $contactmanager->getById($quotation->getContactId());
 }
 
-echo $folder->getSeller();
-
-
-$user = $usermanager->get($folder->getSeller());
+$user = $usermanager->get($folderRecup->getSeller());
 
 $customerQuotation = $customermanager->getById($quotation->getCustomerId());
 if($type2 == "partiels")
