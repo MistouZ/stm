@@ -125,7 +125,7 @@ foreach ($customermanagerList as $customer) {
         monSelectB.appendChild(opt);
       }
     }
-  </script>
+</script>
 
 <div class="row">
     <div class="col-md-12">

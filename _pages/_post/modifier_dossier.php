@@ -20,6 +20,11 @@ if(isset($_POST['valider'])){
     $contactId = $_POST["contact-select"];
     $companyId = $_POST["idcompany"];
 
+    if($contactId == NULL)
+    {
+        $contactId = 0;
+    }
+
     $isActive = 1;
 
     $array = array(
