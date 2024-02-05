@@ -258,7 +258,7 @@ $array = array();
                              * 
                              */
 
-                            if($ste == 'itech' || $ste == 'concerto'){
+                            if($companyId == '5' || $companyId == '4'){
                                     for($ligne=1;$ligne<=4;$ligne++){
                                         if($total_tgc3!=0 && $ligne == 1){
                                             $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704001\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_tgc3_HT,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\t\r\n";
@@ -280,8 +280,8 @@ $array = array();
                              * 
                              */
                             if($total_sans_taxe != 0){
-                                if(($ste == 'itech') || ($ste =='concerto')){
-                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704006\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_taxe,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
+                                if(($companyId == '5') || ($companyId =='4')){
+                                    $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t704005\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_taxe,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
                                 }else{
                                     $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t707000\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_taxe,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
                                 }
