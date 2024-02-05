@@ -50,6 +50,11 @@ if(!empty($_POST['comment'])){
     $comment = "";
 }
 
+if($contactId == NULL)
+{
+    $contactId = 0;
+}
+
 
 $date = date("Y-m-d", strtotime(str_replace('/','-',$_POST['date'])));
 
