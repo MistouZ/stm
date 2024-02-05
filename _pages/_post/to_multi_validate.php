@@ -9,7 +9,7 @@ include("../../_cfg/cfg.php");
 echo "Multi Validation Facture : ";
 print_r($_POST['selection']);
 
-$companyNameData = $_POST["company"];
+$companyNameData = $_GET["company"];
 echo "companyNameData : ".$companyNameData;
 foreach($_POST['selection'] as $postSelection){
 $idQuotation = $postSelection;
