@@ -97,7 +97,7 @@ class DescriptionManager
             
             $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
             $q->bindValue(':quotationType', $quotationType, PDO::PARAM_STR);
-            $q->bindValue(':companyId', $companyId,PDO::PARAM_INT);
+            $q->bindValue(':companyId', $companyId, PDO::PARAM_INT);
 
             $q->execute();
             return $quotationNumber;
