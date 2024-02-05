@@ -20,6 +20,7 @@ $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
 $companyNameData = $_POST["company"];
 $company = $companymanager->getByNameData($companyNameData);
+echo "companyId : ".$companyId;
 $companyId = $company->getIdcompany();
 
 echo " Test ".$postSelection." / ";
