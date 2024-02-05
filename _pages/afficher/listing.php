@@ -465,7 +465,7 @@ if(count($quotations)>0) {
                             <button type="button" class="btn grey-salsa btn-outline" data-dismiss="modal">Fermer
                             </button>
                             <button type="button" class="btn green" id="validerFacture" name="validerFacture" value="factures"
-                                    onclick="submitInvoice('validate');">
+                                    onclick="submitInvoice('validate','<?php echo $companyNameData; ?>');">
                                 <i class="fa fa-check"></i> Valider
                             </button>
                         </div>
@@ -519,8 +519,8 @@ if(count($quotations)>0) {
         $('#multiSelection').submit();
     }
 
-    function submitInvoice(selected){
-        $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php");
+    function submitInvoice(selected,company){
+        $('#multiSelection').attr("action","<?php echo URLHOST."_pages/_post/"; ?>to_multi_"+selected+".php?company="+company+"");
         $('#multiSelection').submit();
     }
 </script>
