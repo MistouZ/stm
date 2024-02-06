@@ -127,7 +127,7 @@ else{
     $counter->setQuotation($counterQuotation);
     //print_r($counter);
     $countermanager->updateCounter($counter);
-    header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/cours/".$quotationNumber);
+    header('Location: '.URLHOST.$_COOKIE['company']."/devis/afficher/cours/".$quotationNumber."/success");
 }
 
 ?>
