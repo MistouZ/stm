@@ -20,11 +20,11 @@ $companyId = $company->getIdcompany();
 
 $quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType, $companyId);
+$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType,$companyId);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,$currentType, $companyId);
+$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,$currentType,$companyId);
 
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
@@ -44,7 +44,7 @@ $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
 
-print_r($descriptions);
+//print_r($descriptions);
 
 $test2 = $descriptionmanager->update($descriptions,$test,$currentType,"D",$companyId);
 $test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D",$companyId);
@@ -65,7 +65,7 @@ if(is_null($test) || is_null($test2) || is_null($test3)){
         'date' => $date
     );
 
-    print_r($arraylogs);
+    //print_r($arraylogs);
 
     $log = new Logs($arraylogs);
     $logsmgmt = new LogsManager($bdd);
