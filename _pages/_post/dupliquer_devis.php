@@ -16,10 +16,11 @@ $cost = new Cost($array);
 $costmanager = new CostManager($bdd);
 
 $companyId = $_GET['compId'];
+$getType = $_GET["type"];
 
 //Echo "Mon quotation : ".$_GET["quotationNumber"];
 //récupération des données du devis initial à dupliquer
-$quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"], 'D', $companyId);
+$quotation = $quotationmanager->getByQuotationNumber($_GET["quotationNumber"],$getType, $companyId);
 $folderId = $quotation->getFolderId();
 //Echo " folderId : ".$folderId;
 $companyId = $quotation->getCompanyId();
@@ -68,7 +69,7 @@ else{
 }
 
 //récupération des descriptions du devis en cours
-$getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),"D", $companyId);
+$getDescription = $descriptionmanager->getByQuotationNumber($quotation->getQuotationNumber(),$getType,$companyId);
 //Echo ' --- Print R de getDescription : ';
 //print_r($getDescription);
 
@@ -85,7 +86,7 @@ $test = $descriptionmanager->add($descriptions,$quotationNumber,"D",$companyId);
 //echo " ------ test : ".$test;
 //récupération des couts associés au devis
 
-$getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(), 'D', $companyId);
+$getCost = $costmanager->getByQuotationNumber($quotation->getQuotationNumber(),$getType,$companyId);
 
 $j = 0;
 $costs= array();
@@ -95,7 +96,7 @@ foreach ($getCost as $cost)
     $costs[$j] = $cost;
     $j++;
 }
-$test2 = $costmanager->add($costs,$quotationNumber,'D', $companyId);
+$test2 = $costmanager->add($costs,$quotationNumber,'D',$companyId);
 
 if(is_null($test) || is_null($test2))
 {

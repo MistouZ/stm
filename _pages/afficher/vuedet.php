@@ -48,7 +48,7 @@ switch($type){
                 $buttons = '<div class="actions">
                             <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
                                 <i class="fas fa-print"></i> Imprimer </a>
-                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&compId='.$companyId.'" class="btn btn-default btn-sm">
+                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&type='.$costType.'&compId='.$companyId.'" class="btn btn-default btn-sm">
                             <i class="fas fa-edit"></i> Dupliquer </a>
                         </div>';
         }
@@ -73,7 +73,7 @@ switch($type){
                                 <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                             <!--<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/dupliquer/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                                 <i class="fas fa-edit"></i> Dupliquer </a>-->
-                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&compId='.$companyId.'" class="btn btn-default btn-sm">
+                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&type='.$costType.'&compId='.$companyId.'" class="btn btn-default btn-sm">
                                 <i class="fas fa-edit"></i> Dupliquer </a>
                         </div>';
             
@@ -99,7 +99,7 @@ switch($type){
                                 <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                             <!--<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/dupliquer/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                                 <i class="fas fa-edit"></i> Dupliquer </a>-->
-                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&compId='.$companyId.'" class="btn btn-default btn-sm">
+                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&type='.$costType.'&compId='.$companyId.'" class="btn btn-default btn-sm">
                                 <i class="fas fa-edit"></i> Dupliquer </a>
                         </div>';
         }
