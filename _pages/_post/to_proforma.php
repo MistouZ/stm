@@ -66,13 +66,15 @@ if($_POST["shattered"] == "full" || $percent == 100)
         $quotationInit = $quotationNumberInit."_init";
         $test2 = $descriptionmanager->delete($quotationInit,"D", $companyId);
         $test3 = $shatteredQuotationManager->delete($quotationInit);
+        
     }
     else{
         $descriptionmanager = new DescriptionManager($bdd);
         print_r($quotation);
-        $test2 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
-        $test3 = "ok";
+        $test2 = "ok";
     }
+
+    $test3 = $descriptionmanager->changeQuotationType($quotation->getQuotationNumber(),$quotation->getType(),$companyId);
     $test4a = "ok";
     $test4b ="ok";
     $test5 = "ok";
