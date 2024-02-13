@@ -19,11 +19,9 @@ $foldermanager = new FoldersManager($bdd);
 $descriptionmanager = new DescriptionManager($bdd);
 $costmanager = new CostManager($bdd);
 $folder = $foldermanager->get($_POST["folder"]);
-$folderId = $folder->getIdFolder();
 $companyId = $folder->getCompanyId();
 $quotationGet = new Quotation($array);
 $quotationmanager = new QuotationManager($bdd);
-
 $quotationGet = $quotationmanager->getByQuotationNumber($quotationNumber,$type,$companyId);
 print_r($quotationGet);
 $customerId = $_POST["customer-select"];
@@ -45,7 +43,6 @@ $data = array(
     'date' => $date,
     'type' => $type,
     'comment' => $comment,
-    'folderId' => $folderId,
     'companyId' => $companyId,
     'customerId' => $customerId,
     'contactId' => $contactId
