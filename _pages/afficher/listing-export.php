@@ -183,11 +183,13 @@ $array = array();
                                         $total_tgc3_HT = $total_tgc3_HT + $montantLigne;
                                         $total_tgc3 = $total_tgc3 + $taxe;
                                         $test_tgc = true;
+                                        echo "TGC3 : ".$total_tgc3;
                                         break;
                                     Case 0.06:
                                         $total_tgc6_HT = $total_tgc6_HT + $montantLigne;
                                         $total_tgc6 = $total_tgc6 + $taxe;
                                         $test_tgc = true;
+                                        echo "TGC6 : ".$total_tgc6;
                                         break;
                                     Case 0.11:
                                         $total_tgc11_HT = $total_tgc11_HT + $montantLigne;
