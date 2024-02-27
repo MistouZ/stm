@@ -285,14 +285,15 @@ if(isset($_POST['valider'])) {
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
                         $i = $j;
                         $k++;
-
+                        echo ("7");
                     }
                     //print_r($InvoiceFolderList);
+                    echo ("8");
                     foreach($folderList as $folder){
                         $customer = $customermanager->getById($folder->getCustomerId());
                         //initialisation au format date pour organiser le tableau
                         $date = date('d/m/y', strtotime($folder->getDate()));
-                        echo ("7");
+                        echo ("9");
                         ?>
                         <tr>
                             <td><?php echo $date; ?></td>
