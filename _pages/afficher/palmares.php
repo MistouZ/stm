@@ -290,7 +290,7 @@ if(isset($_POST['valider'])) {
                         $customer = $customermanager->getById($folder->getCustomerId());
                         //initialisation au format date pour organiser le tableau
                         $date = date('d/m/y', strtotime($folder->getDate()));
-
+/*
                         ?>
                         <tr>
                             <td><?php echo $date; ?></td>
@@ -304,7 +304,7 @@ if(isset($_POST['valider'])) {
 
                             <td><a class="btn green-meadow" href="<?php echo URLHOST.$_COOKIE['company'].'/dossier/afficher/'.$folder->getIdFolder(); ?>"><i class="fas fa-eye" alt="Détail"></i> Afficher</a></td>
                         </tr>
-                        <?php
+                        <?php*/
                     }
                 }
                     ?>
