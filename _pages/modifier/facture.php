@@ -335,7 +335,7 @@ foreach ($customermanagerList as $customer) {
                         </div>
                     </div>
                     <input type="hidden" id="quotationNumber" name="quotationNumber" value="<?php echo $quotationNumber; ?>">
-                    <input type="hidden" id="folder" name="folder" value="<?php echo $folder->getIdFolder(); ?>">
+                    <input type="hidden" id="folder" name="folder" value="<?php echo $quotation->getFolderId(); ?>">
                     <input type="hidden" id="type" name="type" value="<?php echo $type2; ?>">
                 </form>
                 <!-- END FORM-->
