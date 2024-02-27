@@ -279,10 +279,10 @@ if(isset($_POST['valider'])) {
                             $TotalCoutDossier[$i] = $TotalCostFolder;
                         }
                         echo ("6");
-                        $TotalMarge = $TotalPalmares - $TotalCost;
+                        /*$TotalMarge = $TotalPalmares - $TotalCost;
                         $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                         $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
-                        $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
+                        $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);*/
                         $i = $j;
                         $k++;
                         echo ("7");
