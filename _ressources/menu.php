@@ -125,8 +125,9 @@
                 if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C") {
             ?>
                 <li class="nav-item  ">
-                <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/archives'; ?>" class="nav-link ">
-                    <span class="title"><i class="far fa-list-alt"></i> Archivés</span>
+                    <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/archives'; ?>" class="nav-link ">
+                        <span class="title"><i class="far fa-list-alt"></i> Archivés</span>
+                    </a>
                 </li>
             <?php
                 }
