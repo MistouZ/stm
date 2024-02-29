@@ -78,6 +78,26 @@ switch($type){
                         </div>';
             
         }
+        elseif($type2=="archives")
+        {
+                $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"AR",$companyId);
+                $costType = "D";
+                $entete = "du devis archivé";
+                $enteteIcon = '<i class="fas fa-file-invoice"></i>';
+                $enteteIconOption = '<i class="fas fa-sliders-h"></i>';
+                $enteteIconCout = '<i class="fas fa-hand-holding-usd"></i>';
+                $buttons = '<div class="actions">
+                            <a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/modifier/'.$type2.'/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
+                                <i class="fas fa-edit"></i> Modifier </a>
+                            <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
+                                <i class="fas fa-print"></i> Imprimer </a>
+                            <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
+                                <i class="fas fa-file-invoice"></i> => Devis </a>
+                            <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&type='.$costType.'&compId='.$companyId.'" class="btn btn-default btn-sm">
+                                <i class="fas fa-edit"></i> Dupliquer </a>
+                        </div>';
+            
+        }
         else
         {
             $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"D",$companyId);
