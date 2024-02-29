@@ -121,6 +121,16 @@
                     <span class="title"><i class="far fa-list-alt"></i> Validés</span>
                 </a>
             </li>
+            <?php
+                if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C") {
+            ?>
+                <li class="nav-item  ">
+                <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/archives'; ?>" class="nav-link ">
+                    <span class="title"><i class="far fa-list-alt"></i> Archivés</span>
+                </li>
+            <?php
+                }
+            ?>
             <!--<li class="nav-item  ">
                 <a href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/archives'; ?>" class="nav-link ">
                     <span class="title"><i class="far fa-list-alt"></i> Archivés</span>
