@@ -173,7 +173,7 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="<?php print $fa; ?>"></i>Liste des <?php print ucwords($_GET['cat']); if($_GET['cat'] != "devis"){echo "s";}?>  <?php print ucwords(if($_GET['type2'] == "archives"){echo "Archivés";}?></div>
+                    <i class="<?php print $fa; ?>"></i>Liste des <?php print ucwords($_GET['cat']); if($_GET['cat'] != "devis"){echo "s";}?>  <?php print ucwords(if($_GET['soussouscat'] == "archives"){echo "Archivés";}?></div>
                 <div class="actions">
                     <?php
                         if($_GET['cat'] == "devis"){
