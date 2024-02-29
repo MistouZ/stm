@@ -25,7 +25,7 @@ $quotationmanagerNumber = new QuotationManager($bdd);
 $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'D',$companyId);
 
 $data = array(
-    'idQuotation' => $quotation->getIdQuotation(),
+    'idQuotation' => $quotationNumber->getIdQuotation(),
     'quotationNumber' => $idQuotation,
     'status' => 'En cours',
     'label' => $quotation->getLabel(),
