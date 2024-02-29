@@ -118,7 +118,7 @@ switch($type){
                             <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
                                 <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                             <a href="'.URLHOST.'_pages/_post/to_archive.php?quotationNumber='.$quotation->getQuotationNumber().'&compId='.$companyId.'" class="btn btn-default btn-sm">
-                                <i class="fas fa-box-archive"></i> => Archive </a>
+                                <i class="fas fa-archive"></i> => Archive </a>
                             <!--<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/dupliquer/'.$quotation->getQuotationNumber().'" class="btn btn-default btn-sm">
                                 <i class="fas fa-edit"></i> Dupliquer </a>-->
                             <a href="'.URLHOST.'_pages/_post/dupliquer_devis.php?quotationNumber='.$quotation->getQuotationNumber().'&type='.$costType.'&compId='.$companyId.'" class="btn btn-default btn-sm">
