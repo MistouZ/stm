@@ -7,7 +7,7 @@ ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
  
 include("../../_cfg/cfg.php");
 
-$idQuotation = $_POST['quotationNumber'];
+$idQuotation = $_GET['quotationNumber'];
 
 echo $idQuotation;
 
@@ -16,9 +16,9 @@ $today = date("Y-m-d");
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-$companyNameData = $_POST["company"];
-$company = $companymanager->getByNameData($companyNameData);
-$companyId = $company->getIdcompany();
+$companyId = $_GET["compId"];
+/*$company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();*/
 
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
