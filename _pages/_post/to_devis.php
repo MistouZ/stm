@@ -9,6 +9,9 @@ include("../../_cfg/cfg.php");
 
 $quotationNumber = $_POST['quotationNumber'];
 $type2 = $_POST['type'];
+if($type2 == "archives"){
+    $type2 = "cours";
+}
 $currentType = $_POST['currentType'];
 
 $array = array();
