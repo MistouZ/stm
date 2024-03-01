@@ -22,11 +22,11 @@ $companyId = $company->getIdcompany();*/
 
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,'D',$companyId);
+$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'D',$companyId);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,'D',$companyId);
+$descriptions = $descriptionmanager->getByQuotationNumber($idQuotation,'D',$companyId);
 
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
@@ -44,7 +44,7 @@ $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
 $test2 = $descriptionmanager->update($descriptions,$test,$currentType,"D",$companyId);
-$test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D",$companyId);
+$test3 = $costmanager->UpdateCostType($test,$idQuotation,"D",$companyId);
 
 if(is_null($test) || is_null($test2) || is_null($test3)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorArchive');
@@ -57,7 +57,7 @@ if(is_null($test) || is_null($test2) || is_null($test3)){
         'company' => $companyId,
         'type' => "quotation",
         'action' => "to_archive",
-        'id' => $quotationNumber,
+        'id' => $idQuotation,
         'date' => $date
     );
 
