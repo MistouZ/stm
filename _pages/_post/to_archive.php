@@ -33,10 +33,9 @@ $costmanager = new CostManager($bdd);
 
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
-    'quotationNumber' => $idQuotation,
+    'quotationNumber' => $quotationNumber->getQuotationNumber(),
     'status' => 'En cours',
-    'label' => $quotationNumber->getLabel(),
-    'date' => $today,
+    'date' => $daote,
     'type' => 'AR'
 );
 
