@@ -35,7 +35,7 @@ $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'quotationNumber' => $quotationNumber->getQuotationNumber(),
     'status' => 'En cours',
-    'date' => $daote,
+    'date' => $date,
     'type' => 'AR'
 );
 
