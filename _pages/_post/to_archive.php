@@ -7,9 +7,9 @@ ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
  
 include("../../_cfg/cfg.php");
 
-$idQuotation = $_GET['quotationNumber'];
+$quotationNumber = $_GET['quotationNumber'];
 
-echo $idQuotation;
+echo $quotationNumber;
 
 $today = date("Y-m-d");
 
@@ -20,20 +20,20 @@ $companyId = $_GET["compId"];
 /*$company = $companymanager->getByNameData($companyNameData);
 $companyId = $company->getIdcompany();*/
 
-$quotationNumber = new Quotation($array);
+$quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'D',$companyId);
+$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,'D',$companyId);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($idQuotation,'D',$companyId);
+$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,'D',$companyId);
 
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
 
 $data = array(
-    'idQuotation' => $quotationNumber->getIdQuotation(),
-    'quotationNumber' => $quotationNumber->getQuotationNumber(),
+    'idQuotation' => $quotation->getIdQuotation(),
+    'quotationNumber' => $quotation->getQuotationNumber(),
     'status' => 'En cours',
     'date' => $today,
     'type' => 'AR'
@@ -57,7 +57,7 @@ if(is_null($test) || is_null($test2) || is_null($test3)){
         'company' => $companyId,
         'type' => "quotation",
         'action' => "to_archive",
-        'id' => $idQuotation,
+        'id' => $quotationNumber,
         'date' => $date
     );
 
