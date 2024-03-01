@@ -24,13 +24,19 @@ $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
 $quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'D',$companyId);
 
+$descriptions = new Description($array);
+$descriptionmanager = new DescriptionManager($bdd);
+$descriptions = $descriptionmanager->getByQuotationNumber($idQuotation,'D',$companyId);
+
+$costGet = new Cost($array);
+$costmanager = new CostManager($bdd);
+
 $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'quotationNumber' => $idQuotation,
     'status' => 'En cours',
     'label' => $quotationNumber->getLabel(),
-    'date' => $date,
-    'validatedDate' => $today,
+    'date' => $today,
     'type' => 'AR'
 );
 
