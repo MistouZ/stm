@@ -43,8 +43,8 @@ $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
-$test2 = $descriptionmanager->update($descriptions,$test,$currentType,"D",$companyId);
-$test3 = $costmanager->UpdateCostType($test,$idQuotation,"D",$companyId);
+$test2 = $descriptionmanager->update($descriptions,$test,'D','AR',$companyId);
+$test3 = $costmanager->UpdateCostType($test,$idQuotation,'AR',$companyId);
 
 if(is_null($test) || is_null($test2) || is_null($test3)){
     header('Location: '.$_SERVER['HTTP_REFERER'].'/errorArchive');
