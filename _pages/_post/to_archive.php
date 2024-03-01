@@ -22,11 +22,11 @@ $companyId = $company->getIdcompany();*/
 
 $quotationNumber = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($idQuotation,'D',$companyId);
+$quotationNumber = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,'D',$companyId);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($idQuotation,'D',$companyId);
+$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,'D',$companyId);
 
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
@@ -35,7 +35,7 @@ $data = array(
     'idQuotation' => $quotationNumber->getIdQuotation(),
     'quotationNumber' => $quotationNumber->getQuotationNumber(),
     'status' => 'En cours',
-    'date' => $date,
+    'date' => $today,
     'type' => 'AR'
 );
 
