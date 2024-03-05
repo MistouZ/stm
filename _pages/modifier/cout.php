@@ -82,7 +82,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                            <label class="col-md-12 control-label">
+                                            <label class="col-md-12">
                                                 <h3 style="font-weight: 800; vert-align: middle;">Dossier N° <?php echo $folderRecup->getFolderNumber()." ".$folderRecup->getLabel(); ?></h3>
                                             </label>
                                         </div>
