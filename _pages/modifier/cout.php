@@ -62,7 +62,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
         <div class="portlet box blue-chambray">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="fas fa-file-medical"></i>Modification du coût du dossier <span style="font-weight: 800; font-style: italic;"><?php echo $folderRecup->getFolderNumber(); ?></span></div>
+                    <i class="fas fa-file-medical"></i>Modification du coût du dossier : <span style="font-weight: 800; font-style: italic;"><?php echo $folderRecup->getFolderNumber(); ?></span></div>
             </div>
             <div class="portlet-body form">
                 <!-- BEGIN FORM-->
@@ -82,7 +82,7 @@ $suppliermanager = $suppliermanager->getListAllByCompany($company->getIdcompany(
                                     </div>
                                     <div class="portlet-body form" style="display: block;">
                                         <div class="row form-section" style="padding: 12px 20px 15px 20px; margin: 10px 0px 10px 0px !important;">
-                                            <label class="col-md-2 control-label">
+                                            <label class="col-md-12 control-label">
                                                 <h3 style="font-weight: 800; vert-align: middle;">Dossier N° <?php echo $folderRecup->getFolderNumber()." ".$folderRecup->getLabel(); ?></h3>
                                             </label>
                                         </div>
