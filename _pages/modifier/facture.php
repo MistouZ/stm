@@ -655,5 +655,20 @@ foreach ($customermanagerList as $customer) {
         });
 
     });
+    
+    function supprLigneCout(selected){
+        var nbDiv = $("div[class*='ligneCout']").length;
+        var selectedDiv = $("div[id='ligneCout"+selected+"']");
+        if(nbDiv>1){
+            selectedDiv.remove();
+        }else{
+            document.getElementById("fournisseur"+selected).selectedIndex  = 0;
+            document.getElementById("descriptionCout"+selected).value = "";
+            document.getElementById("prixCout"+selected).value = "";
+            selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','' ).end();
+            selectedDiv.find('div[id="divsupprCout'+selected+'"]').css('display','none' ).end();
+            alert("Il n'est pas possible de supprimer la dernière ligne des coûts !");
+        }
+    }
 
 </script>
