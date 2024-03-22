@@ -96,9 +96,46 @@ $test2 = $descriptionmanager->update($descriptions,$quotationNumber,$type,$type,
 
 echo "modif insérée";
 
+if(empty(current($_POST["descriptionCout"]))){
+    $testRecup = $costmanager->getByQuotationNumber($quotationNumber, $type,$companyId);
+    //En cas de suppression de coût sur un devis.
+    if($testRecup == NULL)
+    {
+        $test3 = 1;
+    }
+    else{
+        $test3 = $costmanager->deleteByQuotationNumber($quotationNumber, $type,$companyId);
+    }
+}
+else{
+    $i=1;
+    while(($postDescriptionCout = current($_POST["descriptionCout"])) !== FALSE ){
+        $j = key($_POST["descriptionCout"]);
+        if(strlen(trim($postDescriptionCout))>0){
+
+            $price = $_POST["prixCout"][$j];
+            $supplier = $_POST["fournisseur"][$j];
+            $dataDescriptionCout= array(
+                'description' => $postDescriptionCout,
+                'value' => $price,
+                'folderId' => $folderId,
+                'supplierId' => $supplier
+            );
+
+            $descriptionCout = new Cost($dataDescriptionCout);
+            $descriptionsCout[$i] = $descriptionCout;
+        }else{
+            $costmanager->delete($_POST["idCout"][$j]);
+        }
+        $i++;
+        next($_POST["descriptionCout"]);
+    }
+    $test3 = $costmanager->update($descriptionsCout,$quotationNumber, $type,$companyId);
+}
 
 
-if(is_null($test) || is_null($test2))
+
+if(is_null($test) || is_null($test2) || is_null($test3))
 {
    header('Location: '.$_SERVER['HTTP_REFERER']."/error");
 }
