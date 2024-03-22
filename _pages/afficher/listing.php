@@ -173,10 +173,10 @@ switch($type){
         <div class="portlet box green">
             <div class="portlet-title">
                 <div class="caption">
-                    <i class="<?php print $fa; ?>"></i>Liste des <?php print ucwords($_GET['cat']); if($_GET['cat'] != "devis"){echo "s";}?>  </div>
+                    <i class="<?php print $fa; ?>"></i>Liste des <?php print ucwords($_GET['cat']); if($_GET['cat'] != "devis"){echo "s";}?>  <?php if($_GET['soussouscat'] == "archives"){echo "Archivés";}?></div>
                 <div class="actions">
                     <?php
-                        if($_GET['cat'] == "devis"){
+                        if($_GET['cat'] == "devis" && $_GET['soussouscat'] != "archives"){
                     ?>
                     <a data-toggle="modal" href="<?php echo URLHOST.$_COOKIE['company'].'/devis/afficher/cours/'.$username; ?>" class="btn btn-sm grey-salsa">
                         <i class="far fa-list-alt"></i> Voir mes devis</a>
