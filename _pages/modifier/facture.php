@@ -440,7 +440,7 @@ foreach ($customermanagerList as $customer) {
                                 </div>
                             </div>
                         </div>
-                        
+                    </div>                        
                     <div class="form-actions fluid">
                         <div class="row">
                             <div class="col-md-12" style="text-align: center;">
