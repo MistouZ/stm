@@ -325,6 +325,121 @@ foreach ($customermanagerList as $customer) {
                                 </div>
                             </div>
                         </div>
+                        <div class="row" id="coutdevis">
+                            <div class="col-md-12">
+                                <div class="portlet box red-flamingo" style="margin-bottom: 0px !important;">
+                                    <div class="portlet-title">
+                                        <div class="caption">
+                                            <i class="fas fa-hand-holding-usd"></i>
+                                            <span class="caption-subject bold uppercase"> Coûts liés au devis </span>
+                                        </div>
+                                        <div class="tools">
+                                            <a href="" <?php if(count($costmanager) == 0){ echo 'class="expand"';}else{echo 'class="collapse"';} ?> data-original-title="" title=""> </a>
+                                        </div>
+                                    </div>
+                                    <div class="portlet-body form" <?php if(count($costmanager) == 0){ echo 'style="display: none;"';}else{echo 'style="display: block;"';} ?>>
+                                        <?php
+                                        $k = 1;
+                                        if(count($costmanager) > 0){
+                                            foreach($costmanager as $cost){ ?>
+                                                <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                    <div class="col-md-12" style="display: flex; align-items: center;">
+                                                        <div class="col-md-4">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">Fournisseur</label>
+                                                                <select id="fournisseur<?php echo $k; ?>" class="form-control" name="fournisseur[<?php echo $k; ?>]">
+                                                                    <option value="">Sélectionnez ...</option>
+                                                                    <?php
+                                                                    foreach ($suppliermanager as $supplier){
+                                                                        ?>
+                                                                        <option value="<?php echo $supplier->getIdSupplier(); ?>" <?php if($cost->getSupplierId()== $supplier->getIdSupplier()){echo "selected=\"selected\""; } ?> ><?php echo $supplier->getName(); ?></option>
+                                                                        <?php
+                                                                    }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6" style="display: none;">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">ID Coût</label>
+                                                                <input type="digits" id="idCout<?php echo $k; ?>" name="idCout[<?php echo $k; ?>]" value="<?php echo $cost->getIdCost(); ?>" class="form-control" placeholder="HT">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">Description</label>
+                                                                <textarea class="form-control" id="descriptionCout<?php echo $k; ?>" name="descriptionCout[<?php echo $k; ?>]" rows="4"><?php echo $cost->getDescription(); ?></textarea>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <label class="control-label">Prix HT</label>
+                                                                <input type="digits" id="prixCout<?php echo $k; ?>" name="prixCout[<?php echo $k; ?>]" value="<?php echo $cost->getValue(); ?>" class="form-control" placeholder="HT">
+                                                            </div>
+                                                        </div>
+                                                        <div id="divsupprCout1" style="text-align: right;" class="col-md-1">
+                                                            <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                                <button type="button" title="Supprimer la ligne" id="supprCout<?php echo $k; ?>" class="btn red" onclick="supprLigneCout(<?php echo $k; ?>);"><i class="fas fa-minus-square"></i></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <?php
+                                                $k++;
+                                            }
+                                        }
+                                        else{
+                                        ?>
+                                            <div id="ligneCout<?php echo $k; ?>" class="ligneCout row" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                <div class="col-md-12" style="display: flex; align-items: center;">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                            <label class="control-label">Fournisseur</label>
+                                                            <select id="fournisseur<?php echo $k; ?>" class="form-control" name="fournisseur[<?php echo $k; ?>]">
+                                                                <option value="">Sélectionnez ...</option>
+                                                                <?php
+                                                                foreach ($suppliermanager as $supplier){
+                                                                    ?>
+                                                                    <option value="<?php echo $supplier->getIdSupplier(); ?>" <?php if($cost->getSupplierId()== $supplier->getIdSupplier()){echo "selected=\"selected\""; } ?> ><?php echo $supplier->getName(); ?></option>
+                                                                    <?php
+                                                                }
+                                                                ?>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                            <label class="control-label">Description</label>
+                                                            <textarea class="form-control" id="descriptionCout<?php echo $k; ?>" name="descriptionCout[<?php echo $k; ?>]" rows="4"><?php echo $cost->getDescription(); ?></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2">
+                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                            <label class="control-label">Prix HT</label>
+                                                            <input type="digits" id="prixCout<?php echo $k; ?>" name="prixCout[<?php echo $k; ?>]" value="<?php echo $cost->getValue(); ?>" class="form-control" placeholder="HT">
+                                                        </div>
+                                                    </div>
+                                                    <div id="divsupprCout1" style="text-align: right;" class="col-md-1">
+                                                        <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
+                                                            <button type="button" title="Supprimer la ligne" id="supprCout<?php echo $k; ?>" class="btn red" onclick="supprLigneCout(<?php echo $k; ?>);"><i class="fas fa-minus-square"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <?php
+                                        }
+                                        ?>
+                                        <div class="form-actions fluid">
+                                            <div class="row">
+                                                <div class="col-md-12" style="text-align: center;">
+                                                    <button type="button" id="ajoutCout" class="btn default grey-mint"><i class="fas fa-plus-square"></i> Ajouter une ligne</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         
                     <div class="form-actions fluid">
                         <div class="row">
