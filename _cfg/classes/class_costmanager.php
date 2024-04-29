@@ -249,12 +249,12 @@ class CostManager
     {
         try{
             //print_r($cost);
-            $test = $this->deleteByQuotationNumber($quotationNumber, $type, $companyId);
-            if(!is_null($test))
+            $this->deleteByQuotationNumber($quotationNumber, $type, $companyId);
+            /*if(!is_null($test))
             {
                 echo "suppresion réussie ".$quotationNumber;
-            }
-            $this->add($cost,$quotationNumber, $type,$companyId);
+            }*/
+            $test = $this->add($cost,$quotationNumber, $type,$companyId);
             return $cost;
         }
         catch(Exception $e){

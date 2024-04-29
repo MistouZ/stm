@@ -150,6 +150,7 @@ if(isset($_POST['valider'])) {
     //récupération des coûts liés au dossier.
 
     $costs = $costmanager->getCostByFilteredQuotation($quotations,$quotation, $typeCost);
+    //print_r($costs);
 }
 
 ?>
@@ -189,6 +190,7 @@ if(isset($_POST['valider'])) {
                     $TotalCost = 0;
 
                     foreach($quotations as $quotation){
+
                         $j = $quotation->getFolderId();
 
                         // $customer = $customermanager->getById($quotation->getCustomerId());
@@ -201,7 +203,6 @@ if(isset($_POST['valider'])) {
                         {
                             $folderList[$k] = $folderQuotation;
                         }
-
 
                         if($quotation->getStatus() == "En cours"){
                             $status = "cours";
@@ -220,7 +221,6 @@ if(isset($_POST['valider'])) {
                             $folderList[$k] = $folderQuotation;
                             $InvoiceFolderList[$j] = '<a href="'.URLHOST.$_COOKIE['company'].'/'.$type.'/afficher/'.$status.'/'.$quotation->getQuotationNumber().'">'. $quotation->getQuotationNumber().'</>';
                         }
-
 
                         $descriptions = new Description($array);
                         $descriptionmanager = new DescriptionManager($bdd);
@@ -244,7 +244,6 @@ if(isset($_POST['valider'])) {
                             $TotalPalmaresDossier[$j] = 0;
                             $TotalPalmaresDossier[$j] = $montant;
                         }
-
 
                         $TotalPalmares = $TotalPalmares + $montant;
                         
@@ -275,21 +274,18 @@ if(isset($_POST['valider'])) {
                             $TotalCoutDossier[$i] = 0;
                             $TotalCoutDossier[$i] = $TotalCostFolder;
                         }
-
                         $TotalMarge = $TotalPalmares - $TotalCost;
                         $TotalMargeDossier[$i] = $TotalPalmaresDossier[$i] - $TotalCoutDossier[$i];
                         $PercentMarge = calculMarge($TotalPalmares, $TotalMarge);
                         $PercentDossier[$i] = calculMarge($TotalPalmaresDossier[$i], $TotalMargeDossier[$i]);
                         $i = $j;
                         $k++;
-
                     }
                     //print_r($InvoiceFolderList);
                     foreach($folderList as $folder){
                         $customer = $customermanager->getById($folder->getCustomerId());
                         //initialisation au format date pour organiser le tableau
                         $date = date('d/m/y', strtotime($folder->getDate()));
-
                         ?>
                         <tr>
                             <td><?php echo $date; ?></td>

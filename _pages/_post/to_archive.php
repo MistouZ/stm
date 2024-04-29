@@ -7,54 +7,47 @@ ini_set('display_errors',1); error_reporting(E_ALL | E_STRICT);
  
 include("../../_cfg/cfg.php");
 
-$quotationNumber = $_POST['quotationNumber'];
-$type2 = $_POST['type'];
-if($type2 == "archives"){
-    $type2 = "cours";
-}
-$currentType = $_POST['currentType'];
+$quotationNumber = $_GET['quotationNumber'];
+
+echo $quotationNumber;
+
+$today = date("Y-m-d");
 
 $array = array();
 $company = new Company($array);
 $companymanager = new CompaniesManager($bdd);
-$companyNameData = $_POST["company"];
-$company = $companymanager->getByNameData($companyNameData);
-$companyId = $company->getIdcompany();
+$companyId = $_GET["compId"];
+/*$company = $companymanager->getByNameData($companyNameData);
+$companyId = $company->getIdcompany();*/
 
 $quotation = new Quotation($array);
 $quotationmanagerNumber = new QuotationManager($bdd);
-$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,$currentType,$companyId);
+$quotation = $quotationmanagerNumber->getByQuotationNumber($quotationNumber,'D',$companyId);
 
 $descriptions = new Description($array);
 $descriptionmanager = new DescriptionManager($bdd);
-$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,$currentType,$companyId);
+$descriptions = $descriptionmanager->getByQuotationNumber($quotationNumber,'D',$companyId);
 
 $costGet = new Cost($array);
 $costmanager = new CostManager($bdd);
-
-$date = $_POST['date'];
 
 $data = array(
     'idQuotation' => $quotation->getIdQuotation(),
     'quotationNumber' => $quotation->getQuotationNumber(),
     'status' => 'En cours',
-    'date' => $date,
-    'type' => 'D'
+    'date' => $today,
+    'type' => 'AR'
 );
 
 $quotation = new Quotation($data);
 $quotationmanager = new QuotationManager($bdd);
 
 $test = $quotationmanager->changeType($quotation);
-
-//print_r($descriptions);
-
-$test2 = $descriptionmanager->update($descriptions,$test,$currentType,"D",$companyId);
-$test3 = $costmanager->UpdateCostType($test,$quotationNumber,"D",$companyId);
-
+$test2 = $descriptionmanager->update($descriptions,$test,'D','AR',$companyId);
+$test3 = $costmanager->UpdateCostType($test,$idQuotation,'AR',$companyId);
 
 if(is_null($test) || is_null($test2) || is_null($test3)){
-    header('Location: '.$_SERVER['HTTP_REFERER'].'/errorDevis');
+    header('Location: '.$_SERVER['HTTP_REFERER'].'/errorArchive');
 }else{
 
     //Ajout d'un objet logs pour tracer l'action de passage en devis de la facture
@@ -63,7 +56,7 @@ if(is_null($test) || is_null($test2) || is_null($test3)){
         'username' => $_COOKIE["username"],
         'company' => $companyId,
         'type' => "quotation",
-        'action' => "to_devis",
+        'action' => "to_archive",
         'id' => $quotationNumber,
         'date' => $date
     );
@@ -73,7 +66,6 @@ if(is_null($test) || is_null($test2) || is_null($test3)){
     $log = new Logs($arraylogs);
     $logsmgmt = new LogsManager($bdd);
     $logsmgmt = $logsmgmt->add($log);
-    header('Location: '.URLHOST.$_COOKIE['company'].'/devis/afficher/'.$type2.'/'.$quotationNumber.'/successDevis');
+    header('Location: '.URLHOST.$_COOKIE['company'].'/devis/afficher/archives/'.$idQuotation.'/successArchive');
 }
-
 ?>
