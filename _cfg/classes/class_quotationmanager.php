@@ -469,7 +469,7 @@ class QuotationManager
 
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='F' ORDER BY folderId ASC ");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND companyId='$companyid' AND type ='F' AND status='Validated' ORDER BY folderId ASC ");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
