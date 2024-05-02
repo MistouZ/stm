@@ -517,11 +517,12 @@ class QuotationManager
             $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
             $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
 
-            print_r($folders);
+            
 
             $quotations = [];
             foreach ($folders as $folder)
             {
+                echo "<p>Dossiers ".$folder->getFolderNumber().'</p>';
                 $folderId = $folder->getIdFolder();
                 $query = "SELECT * FROM quotation WHERE date BETWEEN '".$datefrom."' AND '".$dateto."' AND folderId='$folderId' AND type ='F' ORDER BY folderId ASC";
                 $q=$this->_db->query($query);
