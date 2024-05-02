@@ -517,6 +517,8 @@ class QuotationManager
             $datefrom = date('Y-m-d',strtotime(str_replace('/','-',$datefrom)));
             $dateto = date('Y-m-d',strtotime(str_replace('/','-',$dateto)));
 
+            print_r($folders);
+
             $quotations = [];
             foreach ($folders as $folder)
             {
