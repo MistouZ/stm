@@ -443,7 +443,7 @@ class QuotationManager
         try{
             $quotations = [];
 
-            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='F' ORDER BY folderId DESC");
+            $q=$this->_db->query("SELECT * FROM quotation WHERE companyId='$companyid' AND type ='F' AND status='En cours' ORDER BY folderId DESC");
             while($donnees = $q->fetch(PDO::FETCH_ASSOC))
             {
                 $quotations[] = new Quotation($donnees);
