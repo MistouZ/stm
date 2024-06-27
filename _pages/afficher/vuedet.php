@@ -114,11 +114,10 @@ switch($type){
                             <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
                                 <i class="fas fa-print"></i> Imprimer </a>
                             <a data-toggle="modal" href="#to_proforma" class="btn btn-default btn-sm">
-                                <i class="fas fa-file-alt"></i> => Proforma </a>
-                            <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
-                                <i class="fas fa-file-invoice-dollar"></i> => Facture </a>';
-
+                                <i class="fas fa-file-alt"></i> => Proforma </a>';
                     if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C") {
+                        $buttons .= '<a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
+                                <i class="fas fa-file-invoice-dollar"></i> => Facture </a>';
                         $buttons .= '<a href="'.URLHOST.'_pages/_post/to_archive.php?quotationNumber='.$quotation->getQuotationNumber().'&compId='.$companyId.'" class="btn btn-default btn-sm">
                         <i class="fas fa-archive"></i> => Archive </a>';
                     }
@@ -138,11 +137,13 @@ switch($type){
         $buttons = '<div class="actions">
                         <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
                             <i class="fas fa-print"></i> Imprimer </a>
-                        <a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
-                            <i class="fas fa-file-invoice-dollar"></i> => Facture </a>
                         <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
-                            <i class="fas fa-file-invoice"></i> => Devis </a>
-                    </div>';
+                            <i class="fas fa-file-invoice"></i> => Devis </a>';
+                    if($_COOKIE["credential"] == "A" || $_COOKIE["credential"] == "C") {
+                        $buttons .= '<a data-toggle="modal" href="#to_facture" class="btn btn-default btn-sm">
+                        <i class="fas fa-file-invoice-dollar"></i> => Facture </a>';
+                    }
+        $buttons .= '</div>';
         break;
     case "facture":
         $quotation = $quotationmanager->getByQuotationNumber($idQuotation,"F",$companyId);
