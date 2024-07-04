@@ -47,7 +47,7 @@ class DescriptionManager
                 $q->bindValue(':quotationNumber', $quotationNumber, PDO::PARAM_STR);
                 $q->bindValue(':quotationType', $quotationType, PDO::PARAM_STR);
                 $q->bindValue(':description', $description->getDescription(), PDO::PARAM_STR);
-                $q->bindValue(':quantity', $description->getQuantity(),PDO::PARAM_INT);
+                $q->bindValue(':quantity', $description->getQuantity(),PDO::PARAM_STR);
                 $q->bindValue(':discount',  $description->getDiscount(),PDO::PARAM_INT);
                 $q->bindValue(':price', $description->getPrice(),PDO::PARAM_INT);
                 $q->bindValue(':tax', $description->getTax(),PDO::PARAM_STR);
