@@ -326,7 +326,7 @@ foreach ($customermanagerList as $customer) {
                                                     <div class="col-md-1">
                                                         <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                             <label class="control-label">Quantité</label>
-                                                            <input type="number" id="quantiteDevis<?php echo $i; ?>" name="quantiteDevis[<?php echo $i; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt.">
+                                                            <input type="number" id="quantiteDevis<?php echo $i; ?>" name="quantiteDevis[<?php echo $i; ?>]" value="<?php echo $description->getQuantity(); ?>" class="form-control" placeholder="Qt." step=".1">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-1">
