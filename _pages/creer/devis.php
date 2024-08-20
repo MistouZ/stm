@@ -168,7 +168,7 @@ $taxmanager = new TaxManager($bdd);
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Quantité</label>
-                                                        <input type="digits" id="quantiteDevis" name="quantiteDevis[1]" class="form-control" placeholder="Qt.">
+                                                        <input type="number" id="quantiteDevis" name="quantiteDevis[1]" class="form-control" placeholder="Qt.">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
@@ -243,7 +243,7 @@ $taxmanager = new TaxManager($bdd);
                                                 <div class="col-md-1">
                                                     <div class="form-group" style="margin-left: 0px !important; margin-right: 0px !important;">
                                                         <label class="control-label">Quantité</label>
-                                                        <input type="digits" id="quantiteOption" name="quantiteOption[1]" class="form-control" placeholder="Qt.">
+                                                        <input type="number" id="quantiteOption" name="quantiteOption[1]" class="form-control" placeholder="Qt." step="0.1">
                                                     </div>
                                                 </div>
                                                 <div class="col-md-1">
