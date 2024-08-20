@@ -137,7 +137,7 @@ $array = array();
                             **/
                             $data .= $customer->getAccount()."\t".$subaccounts[$companyId]."\t";
 
-                            $client = STR_replace("é","E",$client);
+                            $client = STR_replace("é","E",$clt);
                             $client = STR_replace("è","E",$client);
                             $client = STR_replace("ê","E",$client);
                             $client = STR_replace("à","A",$client);
