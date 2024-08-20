@@ -79,10 +79,11 @@ $array = array();
                         <tbody>
                         <?php
                         /**
-                         * Génération du fichier txt MVTECO
+                         * Génération du fichier txt MVTECO et csv XLS
                          */
                         $piece =1;
                         $data = "";
+                        $dataXls = "Date;Client;Facture;Montant HT;Montant TGC3;Montant TGC6;Montant TGC11;Montant TGC22;Montant TTC \r\n";
 
                         foreach($quotations as $quotation){
                            
@@ -111,6 +112,7 @@ $array = array();
                              * Le CO 70 est une constante d'XL COMPTA
                             **/                           
                             $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t";
+                            $dataXls .=date('d', strtotime($quotation->getDate()))."/".date('m', strtotime($quotation->getDate()))."/".date('Y', strtotime($quotation->getDate())).";";
 
                             $customer = $customermanager->getById($quotation->getCustomerId());
                             $clt = $customer->getName();
@@ -300,10 +302,15 @@ $array = array();
                                     $data .= "CO\t70\t".date('Y', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."\t".$piece."\t707000\t\t".date('d', strtotime($quotation->getDate()))."".date('m', strtotime($quotation->getDate()))."".date('Y', strtotime($quotation->getDate()))."\t0\t".Round($total_sans_taxe,0)."\tF ".$quotation->getQuotationNumber()." D ".$folder->getFolderNumber()." ".$client2."\tFC\t\t\r\n";
                                 }
                             }
-
+                            /**
+                             * 
+                             * Remplissage du fichier CSV
+                             * 
+                             */
                             
+                             $dataXls .= $client2.";".$quotation->getQuotationNumber().";".Round($montantHT,0).";".Round($total_tgc3,0).";".Round($total_tgc6,0).";".Round($total_tgc11,0).";".Round($total_tgc22,0).";".Round($montant,0)."\r\n";
                               
-                              $date = date('d/m/y', strtotime($quotation->getDate()));
+                            $date = date('d/m/y', strtotime($quotation->getDate()));
 
                             ?>
                             <tr>
@@ -339,15 +346,24 @@ $array = array();
          $date2 = $annee."".$mois."".$jour;
         
          $fichier = __DIR__."/export/MVTECO".$date2.".txt";
+         $fichierXls = __DIR__."/export/tab-".$date2.".csv";
         
          if(file_exists($fichier)){
              unlink($fichier) ;
          }
+         if(file_exists($fichierXls)){
+            unlink($fichierXls) ;
+        }
         
          $fp = fopen (__DIR__."/export/MVTECO".$date2.".txt", "w+");
          fseek ($fp, 0);
          fputs ($fp, $data);
          fclose ($fp);
+        
+         $fpXls = fopen (__DIR__."/export/tab-".$date2.".csv", "w+");
+         fseek ($fpXls, 0);
+         fputs ($fpXls, $dataXls);
+         fclose ($fpXls);
      ?>
      <form action="" target="_blank" method="post" class="form-horizontal form-row-seperated">
          <input type="hidden" id="date_from" name="date_from" value="<?php echo $datefrom; ?>">
@@ -357,6 +373,8 @@ $array = array();
              <button type="button" class="btn grey-salsa btn-outline" onclick="history.go(-1)">Fermer</button>
              <button type="submit" class="btn green" name="telecharger" onclick="window.location.href='<?php echo URLHOST."_pages/_post/dl_export.php?path=".__DIR__."/export/MVTECO".$date2.".txt"; ?>';">
                 <i class="fas fa-file-export"></i> Télécharger MVTECO</button>
+             <button type="submit" class="btn green" name="telecharger" onclick="window.location.href='<?php echo URLHOST."_pages/_post/dl_export.php?path=".__DIR__."/export/tab-".$date2.".csv"; ?>';">
+                <i class="fas fa-file-excel"></i> Télécharger CSV</button>
          </div>
      </form>
  </div>
