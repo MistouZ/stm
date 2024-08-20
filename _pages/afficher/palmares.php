@@ -180,7 +180,7 @@ if(isset($_POST['valider'])) {
                     <tbody>
                     <?php
                     if(count($quotations)>0){
-                    //Initialisation des valueurs pour le premier dossier
+                    //Initialisation des valeurs pour le premier dossier
                     $k = 0;
                     $TotalPalmares = 0;
                     $i = $quotations[$k]->getFolderId();
