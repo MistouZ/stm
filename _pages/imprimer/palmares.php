@@ -98,7 +98,7 @@ if(isset($_POST['imprimer'])) {
             $typeCost = "F";
             $enteteIcon = '<i class="fas fa-chart-line"></i>';
         } elseif ($type == "avoir") {
-            $quotations = $quotationmanager->getListAssetsByDate($companyId,$datefrom,$datetor);
+            $quotations = $quotationmanager->getListAssetsByDate($companyId,$datefrom,$dateto);
             $typeCost = "A";
             $enteteIcon = '<i class="fas fa-chart-bar"></i>';
         }
@@ -140,7 +140,7 @@ if(isset($_POST['imprimer'])) {
             $typeCost = "F";
             $enteteIcon = '<i class="fas fa-chart-line"></i>';
         } elseif ($type == "avoir") {
-            $quotations = $quotationmanager->getListAssetsByDateAndCustomer($companyId,$datefrom,$datetor,$customerSelected);
+            $quotations = $quotationmanager->getListAssetsByDateAndCustomer($companyId,$datefrom,$dateto,$customerSelected);
             $typeCost = "A";
             $enteteIcon = '<i class="fas fa-chart-bar"></i>';
         }
