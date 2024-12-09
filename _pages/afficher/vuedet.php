@@ -167,8 +167,6 @@ switch($type){
             $buttons = '<div class="actions">
             <a data-toggle="modal" href="#select_print" class="btn btn-default btn-sm">
                 <i class="fas fa-print"></i> Imprimer </a>
-            <a data-toggle="modal" href="#to_devis" class="btn btn-default btn-sm">
-                <i class="fas fa-file-invoice"></i> => Devis </a>
             </div>';
         }
 
